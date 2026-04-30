@@ -83,31 +83,31 @@ This research aims to identify the best current tools for each surface and synth
 
 ## Sources
 
-- [x] NDepend -- .NET architecture and dependency analysis -- https://www.ndepend.com/
-- [x] Depends -- open-source .NET dependency Command Line Interface (CLI) tool -- https://github.com/bjorkstromm/depends
-- [x] Dependify -- .NET dependency visualisation workbench -- https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf
-- [x] Microsoft dependency guidance for .NET libraries -- https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies
-- [x] `terraform graph` command -- https://developer.hashicorp.com/terraform/cli/commands/graph
-- [x] Blast Radius -- Terraform graph visualisation -- https://github.com/28mm/blast-radius
-- [x] Rover -- Terraform visualiser -- https://github.com/im2nguyen/rover
-- [x] Dynatrace Smartscape overview -- https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape
-- [x] Dynatrace service dependency graph -- https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph
-- [x] Dynatrace topology extension model -- https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology
-- [x] Confluence Representational State Transfer (REST) API v2 intro -- https://developer.atlassian.com/cloud/confluence/rest/v2/intro/
-- [x] Confluence content lifecycle management -- https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management
-- [x] Elastic service map -- https://www.elastic.co/docs/solutions/observability/apm/service-map
-- [x] Splunk APM service map overview -- https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM
-- [x] Datadog service map -- https://docs.datadoghq.com/tracing/services/services_map/
-- [x] ServiceNow CSDM data-foundation lessons -- https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446
-- [x] ServiceNow CSDM implementation lessons -- https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow
-- [x] Backstage software catalog -- https://backstage.io/docs/features/software-catalog/
-- [x] Structurizr -- software architecture models as code -- https://structurizr.com/
-- [x] CodePrism -- local graph-first code intelligence with Model Context Protocol (MCP) support -- https://rustic-ai.github.io/codeprism/
-- [x] Prior completed research: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`
-- [x] Prior completed research: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md`
-- [x] Prior completed research: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md`
-- [x] Prior completed research: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md`
-- [x] Prior completed research: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md`
+- [x] [NDepend -- .NET architecture and dependency analysis](https://www.ndepend.com/)
+- [x] [Depends -- open-source .NET dependency Command Line Interface (CLI) tool](https://github.com/bjorkstromm/depends)
+- [x] [Dependify -- .NET dependency visualisation workbench](https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf)
+- [x] [Microsoft dependency guidance for .NET libraries](https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies)
+- [x] [`terraform graph` command](https://developer.hashicorp.com/terraform/cli/commands/graph)
+- [x] [Blast Radius -- Terraform graph visualisation](https://github.com/28mm/blast-radius)
+- [x] [Rover -- Terraform visualiser](https://github.com/im2nguyen/rover)
+- [x] [Dynatrace Smartscape overview](https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape)
+- [x] [Dynatrace service dependency graph](https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph)
+- [x] [Dynatrace topology extension model](https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology)
+- [x] [Confluence Representational State Transfer (REST) API v2 intro](https://developer.atlassian.com/cloud/confluence/rest/v2/intro/)
+- [x] [Confluence content lifecycle management](https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management)
+- [x] [Elastic service map](https://www.elastic.co/docs/solutions/observability/apm/service-map)
+- [x] [Splunk APM service map overview](https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM)
+- [x] [Datadog service map](https://docs.datadoghq.com/tracing/services/services_map/)
+- [x] [ServiceNow CSDM data-foundation lessons](https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446)
+- [x] [ServiceNow CSDM implementation lessons](https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow)
+- [x] [Backstage software catalog](https://backstage.io/docs/features/software-catalog/)
+- [x] [Structurizr -- software architecture models as code](https://structurizr.com/)
+- [x] [CodePrism -- local graph-first code intelligence with Model Context Protocol (MCP) support](https://rustic-ai.github.io/codeprism/)
+- [x] [Prior completed research: `](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`)
+- [x] [Prior completed research: `](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md`)
+- [x] [Prior completed research: `](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md`)
+- [x] [Prior completed research: `](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md`)
+- [x] [Prior completed research: `](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md`)
 
 ---
 

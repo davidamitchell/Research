@@ -55,7 +55,7 @@ For research purposes, we want to:
 ## Sources
 
 - [x] `davidamitchell/Latest-developments-/src/fetchers/youtube.py`
-- [x] `youtube-transcript-api` docs: https://github.com/jdepoix/youtube-transcript-api
+- [x] [`youtube-transcript-api` docs](https://github.com/jdepoix/youtube-transcript-api)
 - [x] Known issue: transcripts blocked on GitHub Actions cloud IPs — see Latest-developments- deferred backlog
 
 ## Findings

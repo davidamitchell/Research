@@ -60,9 +60,9 @@ The proof-driven development connection also links to active inference and free 
 
 ## Sources
 
-- [ ] https://github.com/ghuntley/how-to-ralph-wiggum — Geoffrey Huntley's original Ralph Wiggum Technique repository and documentation
-- [ ] https://github.com/ClaytonFarr/ralph-playbook — community-curated comprehensive Ralph playbook
-- [ ] https://github.com/frankbria/ralph-claude-code — Claude Code implementation of the Ralph autonomous development loop
+- [ ] [Geoffrey Huntley's original Ralph Wiggum Technique repository and documentation](https://github.com/ghuntley/how-to-ralph-wiggum)
+- [ ] [community-curated comprehensive Ralph playbook](https://github.com/ClaytonFarr/ralph-playbook)
+- [ ] [Claude Code implementation of the Ralph autonomous development loop](https://github.com/frankbria/ralph-claude-code)
 - [ ] Geoffrey Huntley blog posts and talks on proof-driven development and the Ralph methodology
 - [ ] GitHub Copilot Agent mode documentation — official GitHub docs on autonomous agent workflows
 - [ ] GitHub blog posts on Copilot Workspace and specification-first development (2024–2025)

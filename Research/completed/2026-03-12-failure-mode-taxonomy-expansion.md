@@ -107,13 +107,13 @@ The corpus already contains substantial directly relevant prior research for sev
 - [ ] `Research/completed/2026-03-08-context-engineering-first-principles.md` — Layer 2 and 5
 - [ ] `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` — Layer 4
 - [ ] `Research/completed/2026-02-28-ai-line-1-line-2-risk-agents.md` — Layer 4 governance
-- [ ] OWASP Top 10 for LLM Applications 2025 (frequency rationale): https://owasp.org/www-project-top-10-for-large-language-model-applications/
-- [ ] Krakovna et al. (2020) — Specification Gaming compendium (Layer 3 empirical frequency): https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/
-- [ ] Ji et al. (2023) — Survey of Hallucination in LLMs (Layer 1 taxonomy and frequency): https://arxiv.org/abs/2202.03629
-- [ ] Gao et al. (2022) — Scaling laws for reward model overoptimisation (Layer 3 empirical): https://arxiv.org/abs/2210.10760
+- [ ] [OWASP Top 10 for LLM Applications 2025 (frequency rationale)](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- [ ] [Krakovna et al. (2020) — Specification Gaming compendium (Layer 3 empirical frequency)](https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/)
+- [ ] [Ji et al. (2023) — Survey of Hallucination in LLMs (Layer 1 taxonomy and frequency)](https://arxiv.org/abs/2202.03629)
+- [ ] [Gao et al. (2022) — Scaling laws for reward model overoptimisation (Layer 3 empirical)](https://arxiv.org/abs/2210.10760)
 - [ ] HELM / TruthfulQA benchmarks — Layer 1 empirical frequency in deployed systems
-- [ ] Perez et al. (2022) — Sycophancy in AI assistants (Layer 1/2 boundary): https://arxiv.org/abs/2310.13548
-- [ ] Production incident post-mortems from AI safety incident databases (e.g. AIAAIC repository): https://www.aiaaic.org/
+- [ ] [Perez et al. (2022) — Sycophancy in AI assistants (Layer 1/2 boundary)](https://arxiv.org/abs/2310.13548)
+- [ ] [Production incident post-mortems from AI safety incident databases (e.g. AIAAIC repository)](https://www.aiaaic.org/)
 
 ## Research Skill Output
 

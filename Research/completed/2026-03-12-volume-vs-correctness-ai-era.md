@@ -105,15 +105,15 @@ Additional context: https://github.com/davidamitchell/Latest-developments-/blob/
 
 ## Sources
 
-- [x] **Video transcript** — https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI (primary source)
-- [x] **Latest developments context** — https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt
-- [x] **Dell'Acqua, F. et al. (2025).** HBS / P&G field experiment — National Bureau of Economic Research (NBER) Working Paper w33641 — https://www.nber.org/system/files/working_papers/w33641/w33641.pdf
-- [x] **Wes McKinney — "The Mythical Agent-Month"** — https://wesmckinney.com/blog/mythical-agent-month/
-- [x] **Shopify CEO Toby Lütke memo (April 2025)** — https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html
-- [x] **Faros AI 2025 "AI Productivity Paradox"** — https://www.faros.ai/blog/ai-software-engineering
-- [x] **DORA Report 2025** — https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025
-- [x] **The Technomist — "The Verification Bottleneck"** — https://thetechnomist.com/p/the-verification-bottleneck-why-ais
-- [x] **Microsoft New Future of Work Report 2025** — https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/New-Future-Of-Work-Report-2025.pdf
+- [x] [**Video transcript**](https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI) — (primary source)
+- [x] [**Latest developments context**](https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt)
+- [x] [**Dell'Acqua, F. et al. (2025).** HBS / P&G field experiment — National Bureau of Economic Research (NBER) Working Paper w33641](https://www.nber.org/system/files/working_papers/w33641/w33641.pdf)
+- [x] [**Wes McKinney — "The Mythical Agent-Month"**](https://wesmckinney.com/blog/mythical-agent-month/)
+- [x] [**Shopify CEO Toby Lütke memo (April 2025)**](https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html)
+- [x] [**Faros AI 2025 "AI Productivity Paradox"**](https://www.faros.ai/blog/ai-software-engineering)
+- [x] [**DORA Report 2025**](https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
+- [x] [**The Technomist — "The Verification Bottleneck"**](https://thetechnomist.com/p/the-verification-bottleneck-why-ais)
+- [x] [**Microsoft New Future of Work Report 2025**](https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/New-Future-Of-Work-Report-2025.pdf)
 - [x] **Related item:** `Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md`
 - [x] **Related item:** `Research/completed/2026-03-12-ai-force-multiplier-ambition-expansion.md`
 

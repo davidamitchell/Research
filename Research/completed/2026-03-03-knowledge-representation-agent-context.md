@@ -70,26 +70,26 @@ This item grounds the knowledge-layer foundation that the integrative decision-m
 
 ## Sources
 
-- [x] Deerwester et al. (1990) "Indexing by latent semantic analysis" — original LSA paper: https://www.cs.bham.ac.uk/~pxt/IDA/lsa_ind.pdf
-- [x] Landauer, Foltz & Laham (1998) "Introduction to latent semantic analysis" — accessible conceptual overview: https://lsa.colorado.edu/papers/dp1.LSAintro.pdf
-- [x] Edge et al. (2024) "From Local to Global: A GraphRAG Approach to Query-Focused Summarization" — Microsoft GraphRAG: https://arxiv.org/abs/2404.16130
-- [x] GraphRAG GitHub + documentation: https://github.com/microsoft/graphrag
+- [x] [Deerwester et al. (1990) "Indexing by latent semantic analysis" — original LSA paper](https://www.cs.bham.ac.uk/~pxt/IDA/lsa_ind.pdf)
+- [x] [Landauer, Foltz & Laham (1998) "Introduction to latent semantic analysis" — accessible conceptual overview](https://lsa.colorado.edu/papers/dp1.LSAintro.pdf)
+- [x] [Edge et al. (2024) "From Local to Global: A GraphRAG Approach to Query-Focused Summarization" — Microsoft GraphRAG](https://arxiv.org/abs/2404.16130)
+- [x] [GraphRAG GitHub + documentation](https://github.com/microsoft/graphrag)
 - [ ] Novak & Gowin (1984) *Learning How to Learn* — original concept map formulation (foundational reference for concept map structure)
-- [ ] Novak (2010) "Learning, Creating, and Using Knowledge" — updated concept map theory: https://www.taylorfrancis.com/books/mono/10.4324/9780203862001
-- [x] CmapTools / IHMC concept mapping: https://cmap.ihmc.us — standard tool; assess machine-readability of format
-- [x] LlamaIndex knowledge graph integration: https://docs.llamaindex.ai/en/stable/examples/index_structs/knowledge_graph/ — practical agent implementation
-- [x] Neo4j + LLM integration patterns: https://neo4j.com/developer-blog/knowledge-graphs-llms-multi-hop-question-answering/
-- [x] Zep temporal knowledge graphs for agent memory: https://github.com/getzep/zep
-- [x] Cognee knowledge graph for AI memory: https://github.com/topoteretes/cognee
-- [x] RAPTOR (2024) "Recursive Abstractive Processing for Tree-Organized Retrieval" — hierarchical summarisation for RAG: https://arxiv.org/abs/2401.18059
-- [x] HippoRAG (2024) "Neurobiologically Inspired Long-Term Memory for Large Language Models": https://arxiv.org/abs/2405.14831
-- [x] Sarthi et al. (2024) RAPTOR: https://arxiv.org/abs/2401.18059 — tree-based recursive summarisation
+- [ ] [Novak (2010) "Learning, Creating, and Using Knowledge" — updated concept map theory](https://www.taylorfrancis.com/books/mono/10.4324/9780203862001)
+- [x] [CmapTools / IHMC concept mapping](https://cmap.ihmc.us) — standard tool; assess machine-readability of format
+- [x] [LlamaIndex knowledge graph integration](https://docs.llamaindex.ai/en/stable/examples/index_structs/knowledge_graph/) — practical agent implementation
+- [x] [Neo4j + LLM integration patterns](https://neo4j.com/developer-blog/knowledge-graphs-llms-multi-hop-question-answering/)
+- [x] [Zep temporal knowledge graphs for agent memory](https://github.com/getzep/zep)
+- [x] [Cognee knowledge graph for AI memory](https://github.com/topoteretes/cognee)
+- [x] [RAPTOR (2024) "Recursive Abstractive Processing for Tree-Organized Retrieval" — hierarchical summarisation for RAG](https://arxiv.org/abs/2401.18059)
+- [x] [HippoRAG (2024) "Neurobiologically Inspired Long-Term Memory for Large Language Models"](https://arxiv.org/abs/2405.14831)
+- [x] [Sarthi et al. (2024) RAPTOR](https://arxiv.org/abs/2401.18059) — tree-based recursive summarisation
 - [x] `Research/completed/2026-03-01-context-mode-llm-context-compression.md` — context compression at tool-output level; hybrid BM25+Model2Vec+sqlite-vec+RRF pattern (Key Finding 6)
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — memory types and context injection; episodic/semantic/procedural memory architecture
 - [x] `Research/backlog/2026-03-02-semantic-full-text-search.md` — downstream consumer of search and retrieval findings
 - [x] `Research/backlog/2026-03-02-integrative-framework-agent-decision-making.md` — downstream consumer of knowledge representation findings; DIKW integration
-- [x] LightRAG (2024): https://arxiv.org/abs/2410.05779 — incremental graph RAG alternative to GraphRAG
-- [x] RRF hybrid search: https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking — combining retrieval signals without score normalisation
+- [x] [LightRAG (2024)](https://arxiv.org/abs/2410.05779) — incremental graph RAG alternative to GraphRAG
+- [x] [RRF hybrid search](https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking) — combining retrieval signals without score normalisation
 
 ---
 

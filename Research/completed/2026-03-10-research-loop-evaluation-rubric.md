@@ -58,12 +58,12 @@ The research loop agent currently has no automated quality gate. There is no way
 ## Sources
 
 - [x] `Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md` — the framework that motivates this item
-- [x] Pydantic Evals documentation: https://ai.pydantic.dev/evals/
-- [x] Pydantic LLM-as-a-Judge article: https://pydantic.dev/articles/llm-as-a-judge
-- [x] DeepEval agent evaluation guide: https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide
-- [x] Hamel Husain evals guide: https://hamel.dev/blog/posts/evals/
-- [x] langchain-ai/agentevals: https://github.com/langchain-ai/agentevals
-- [ ] Anthropic "Writing effective tools for AI agents": https://www.anthropic.com/engineering/writing-tools-for-agents
+- [x] [Pydantic Evals documentation](https://ai.pydantic.dev/evals/)
+- [x] [Pydantic LLM-as-a-Judge article](https://pydantic.dev/articles/llm-as-a-judge)
+- [x] [DeepEval agent evaluation guide](https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide)
+- [x] [Hamel Husain evals guide](https://hamel.dev/blog/posts/evals/)
+- [x] [langchain-ai/agentevals](https://github.com/langchain-ai/agentevals)
+- [ ] [Anthropic "Writing effective tools for AI agents"](https://www.anthropic.com/engineering/writing-tools-for-agents)
 
 ---
 

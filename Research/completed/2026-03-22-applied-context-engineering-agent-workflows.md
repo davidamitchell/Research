@@ -67,16 +67,16 @@ What this item must produce that is new: a synthesised, actionable applied frame
 
 ## Sources
 
-- [x] muratcankoylan/Agent-Skills-for-Context-Engineering — https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
-- [x] context-fundamentals skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-fundamentals/SKILL.md
-- [x] context-degradation skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-degradation/SKILL.md
-- [x] multi-agent-patterns skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/multi-agent-patterns/SKILL.md
-- [x] memory-systems skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/memory-systems/SKILL.md
-- [x] tool-design skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/tool-design/SKILL.md
-- [x] filesystem-context skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/filesystem-context/SKILL.md
-- [x] evaluation skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/evaluation/SKILL.md
-- [x] project-development skill — https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/project-development/SKILL.md
-- [x] Meta Context Engineering paper (Peking University) — https://arxiv.org/pdf/2601.21557
+- [x] [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)
+- [x] [context-fundamentals skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-fundamentals/SKILL.md)
+- [x] [context-degradation skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-degradation/SKILL.md)
+- [x] [multi-agent-patterns skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/multi-agent-patterns/SKILL.md)
+- [x] [memory-systems skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/memory-systems/SKILL.md)
+- [x] [tool-design skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/tool-design/SKILL.md)
+- [x] [filesystem-context skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/filesystem-context/SKILL.md)
+- [x] [evaluation skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/evaluation/SKILL.md)
+- [x] [project-development skill](https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/project-development/SKILL.md)
+- [x] [Meta Context Engineering paper (Peking University)](https://arxiv.org/pdf/2601.21557)
 - [x] Prior repo research: context-engineering-first-principles — Research/completed/2026-03-08-context-engineering-first-principles.md
 - [x] Prior repo research: context-compression-rag — Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md
 - [x] Prior repo research: ai-memory-systems — Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md

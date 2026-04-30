@@ -52,11 +52,11 @@ Spawned from https://mksg.lu/blog/context-mode and HN discussion https://news.yc
 
 ## Sources
 
-- [x] https://mksg.lu/blog/context-mode — primary article
-- [x] https://news.ycombinator.com/item?id=47193064 — HN discussion with empirical testing
-- [x] https://github.com/mksglu/claude-context-mode — GitHub repo (architecture + README)
-- [x] https://blog.cloudflare.com/code-mode-mcp/ — Cloudflare Code Mode (input-side compression)
-- [ ] https://scottspence.com/posts/optimising-mcp-server-context-usage-in-claude-code — tool definition token counts (referenced but not directly consulted; figures cited via primary article)
+- [x] [primary article](https://mksg.lu/blog/context-mode)
+- [x] [HN discussion with empirical testing](https://news.ycombinator.com/item?id=47193064)
+- [x] [GitHub repo (architecture + README)](https://github.com/mksglu/claude-context-mode)
+- [x] [Cloudflare Code Mode (input-side compression)](https://blog.cloudflare.com/code-mode-mcp/)
+- [ ] [tool definition token counts (referenced but not directly consulted; figures cited via primary article)](https://scottspence.com/posts/optimising-mcp-server-context-usage-in-claude-code)
 
 ---
 

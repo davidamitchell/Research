@@ -82,25 +82,26 @@ This item directly supports the `davidamitchell/Skills` submodule, which provide
 
 ## Sources
 
-- [x] GitHub Blog — "GitHub Copilot Workspace: Welcome to the beginning of a new era": https://github.blog/news-insights/product-news/github-copilot-workspace/
-- [ ] Anthropic — "Claude's extended thinking": https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking (inaccessible during investigation)
-- [ ] OpenAI — Prompt engineering guide: https://platform.openai.com/docs/guides/prompt-engineering (inaccessible, HTTP 403 during investigation)
+- [x] [GitHub Blog — "GitHub Copilot Workspace: Welcome to the beginning of a new era"](https://github.blog/news-insights/product-news/github-copilot-workspace/)
+- [ ] [Anthropic — "Claude's extended thinking"](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) — (inaccessible during investigation)
+- [ ] [OpenAI — Prompt engineering guide](https://platform.openai.com/docs/guides/prompt-engineering) — (inaccessible, HTTP 403 during investigation)
 - [ ] Google DeepMind — "Gemini for Google Workspace" developer guide (no stable URL; not accessed)
-- [x] Wei et al. — "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models" (2022): https://arxiv.org/abs/2201.11903
-- [x] White et al. — "A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT" (2023): https://arxiv.org/abs/2302.11382
-- [ ] Cursor documentation — rules for AI, context management: https://docs.cursor.com (JavaScript-rendered, inaccessible as plain text)
-- [x] Aider documentation — best practices for prompting: https://aider.chat/docs/usage/tips.html
-- [ ] Microsoft — "The Rise and Potential of Large Language Model Based Agents: A Survey" (2023): https://arxiv.org/abs/2309.07864 (not directly fetched; abstract reviewed via web search summary)
+- [x] [Wei et al. — "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models" (2022)](https://arxiv.org/abs/2201.11903)
+- [x] [White et al. — "A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT" (2023)](https://arxiv.org/abs/2302.11382)
+- [ ] [Cursor documentation — rules for AI, context management](https://docs.cursor.com) — (JavaScript-rendered, inaccessible as plain text)
+- [x] [Aider documentation — best practices for prompting](https://aider.chat/docs/usage/tips.html)
+- [ ] [Microsoft — "The Rise and Potential of Large Language Model Based Agents: A Survey" (2023)](https://arxiv.org/abs/2309.07864) — (not directly fetched; abstract reviewed via web search summary)
 - [ ] Vaithilingam et al. — "Expectation vs. Experience: Evaluating the Usability of Code Generation Tools" (CHI 2022) (no URL provided; inaccessible)
-- [x] Barke et al. — "Grounded Copilot: How Programmers Interact with Code-Generating Models" (OOPSLA 2023): https://arxiv.org/abs/2206.15000
-- [x] Peng et al. — "The Impact of AI on Developer Productivity: Evidence from GitHub Copilot" (2023): https://arxiv.org/abs/2302.06590
-- [x] DORA — State of DevOps Report 2024 executive summary: https://services.google.com/fh/files/misc/dora_one_pager_2024.pdf (via secondary summary at https://getdx.com/blog/2024-dora-report/)
-- [x] Thoughtworks Technology Radar October 2024: https://www.infoq.com/news/2024/11/thoughtworks-tech-radar-oct-2024/
-- [x] Stack Overflow Developer Survey 2024 — AI section: https://survey.stackoverflow.co/2024/ai
+- [x] [Barke et al. — "Grounded Copilot: How Programmers Interact with Code-Generating Models" (OOPSLA 2023)](https://arxiv.org/abs/2206.15000)
+- [x] [Peng et al. — "The Impact of AI on Developer Productivity: Evidence from GitHub Copilot" (2023)](https://arxiv.org/abs/2302.06590)
+- [x] [DORA — State of DevOps Report 2024 executive summary](https://services.google.com/fh/files/misc/dora_one_pager_2024.pdf)
+- [x] [getdx — 2024 DORA Report secondary summary](https://getdx.com/blog/2024-dora-report/)
+- [x] [Thoughtworks Technology Radar October 2024](https://www.infoq.com/news/2024/11/thoughtworks-tech-radar-oct-2024/)
+- [x] [Stack Overflow Developer Survey 2024 — AI section](https://survey.stackoverflow.co/2024/ai)
 - [x] `.github/copilot-instructions.md` — this repo's own structured agent instructions as a real-world example
 - [x] `.github/mcp.json` — MCP (Model Context Protocol) server configuration as tooling alignment example
 - [x] `Research/completed/2026-02-28-ai-strategy-swe-focus.md` — prior research on SWE AI strategy and outcomes
-- [x] Li et al. — "Structured Chain-of-Thought Prompting for Code Generation" (2023): https://arxiv.org/abs/2305.06599
+- [x] [Li et al. — "Structured Chain-of-Thought Prompting for Code Generation" (2023)](https://arxiv.org/abs/2305.06599)
 
 ---
 

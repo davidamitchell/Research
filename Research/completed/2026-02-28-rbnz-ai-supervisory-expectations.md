@@ -53,13 +53,13 @@ The AI strategy research item (completed 2026-02-28) found that RBNZ has not pub
 
 ## Sources
 
-- [x] RBNZ: rbnz.govt.nz — publications, speeches, supervisory letters — https://www.rbnz.govt.nz/
-- [x] RBNZ Financial Stability Reports 2022–2025 — https://www.rbnz.govt.nz/financial-stability/financial-stability-report
-- [x] APRA CPS 230: Operational Risk Management — https://www.apra.gov.au/prudential-standard-cps-230-operational-risk-management
-- [x] APRA CPG 234: Information Security — https://www.apra.gov.au/cpg-234-information-security
-- [x] FCA DP5/22: AI and Machine Learning — https://www.fca.org.uk/publication/discussion/dp22-4.pdf
-- [x] EBA/GL/2023/17: Guidelines on internal governance (proxied via EBA ML for IRB report Aug 2023) — https://www.eba.europa.eu/regulation-and-policy/internal-governance/guidelines-internal-governance-under-crd
-- [x] BIS FSB: "Artificial Intelligence and Machine Learning in Financial Services" (2017, updated 2024) — https://www.fsb.org/2017/11/artificial-intelligence-and-machine-learning-in-financial-service/
+- [x] [RBNZ: rbnz.govt.nz — publications, speeches, supervisory letters](https://www.rbnz.govt.nz/)
+- [x] [RBNZ Financial Stability Reports 2022–2025](https://www.rbnz.govt.nz/financial-stability/financial-stability-report)
+- [x] [APRA CPS 230: Operational Risk Management](https://www.apra.gov.au/prudential-standard-cps-230-operational-risk-management)
+- [x] [APRA CPG 234: Information Security](https://www.apra.gov.au/cpg-234-information-security)
+- [x] [FCA DP5/22: AI and Machine Learning](https://www.fca.org.uk/publication/discussion/dp22-4.pdf)
+- [x] [EBA/GL/2023/17: Guidelines on internal governance (proxied via EBA ML for IRB report Aug 2023)](https://www.eba.europa.eu/regulation-and-policy/internal-governance/guidelines-internal-governance-under-crd)
+- [x] [BIS FSB: "Artificial Intelligence and Machine Learning in Financial Services" (2017, updated 2024)](https://www.fsb.org/2017/11/artificial-intelligence-and-machine-learning-in-financial-service/)
 
 ---
 

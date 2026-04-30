@@ -64,30 +64,30 @@ Cross-references:
 
 ## Sources
 
-- [Gartner documents portal](https://www.gartner.com/en/documents) - seeded analyst source; access-gated in this session and not used for downstream factual support
-- [McKinsey state of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024) - seeded official survey source; official page could not be retrieved directly in this session
-- [Dourish et al. (2004), Security in the Wild: User Strategies for Managing Security as an Everyday, Practical Problem](https://link.springer.com/article/10.1007/s00779-004-0308-5) - accessible publisher record for the titled paper; seeded Ashenden and Lawrence attribution could not be verified
-- [Siponen and Vance (2010), Neutralization: New Insights into the Problem of Employee Information Systems Security Policy Violations](https://aisel.aisnet.org/misq/vol34/iss3/7/) - accessible abstract page for the seeded security-policy-violation paper
-- [Tallon, Ramirez, and Short (2013), The Information Artifact in IT Governance: Toward a Theory of Information Governance](https://www.jmis-web.org/articles/927) - accessible official page replacing the inaccurate seeded Tallon Digital Object Identifier (DOI)
-- [Kopper et al. (2019), Shadow IT and Business-managed IT: Practitioner Perceptions and Their Comparison to Literature](https://jitm.ubalt.edu/XXX-4/article1.pdf) - practitioner evidence on shadow IT drivers and governance responses
-- [Klotz et al. (2019), Causing factors, outcomes, and governance of Shadow IT and business-managed IT: a systematic literature review](https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf) - systematic review of shadow IT causes, outcomes, and governance
-- [Kass, Strahringer, and Westner, Drivers and Inhibitors of Low Code Development Platform Adoption](https://d-nb.info/1270139835/34) - literature review on low-code adoption pressures and risks
-- [International Business Machines (IBM), Is rising AI adoption creating shadow AI risks?](https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks) - survey evidence on unauthorised AI use, leadership resistance, and training demand
-- [IBM, Shadow AI topic page](https://www.ibm.com/think/topics/shadow-ai) - definition and driver summary for shadow AI
-- [Cyberhaven, Shadow AI: Employee AI Adoption Risks Your Company Data](https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk) - telemetry evidence on shadow AI, non-corporate accounts, and sensitive-data exposure
-- [IBM and Ponemon Institute, Cost of a Data Breach Report 2025](https://www.ibm.com/reports/data-breach) - quantified governance-gap indicators around AI incidents and shadow AI
-- [DevOps Research and Assessment (DORA) 2024 report announcement](https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report) - delivery-friction and open-communication evidence
-- [DORA 2025 AI capabilities report page](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) - culture, capabilities, and internal-platform evidence
-- [DORA 2025 report announcement](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) - policy clarity, control-system, and platform-foundation evidence
-- [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - cross-cutting governance, risk culture, role clarity, training, and safety-first expectations
-- [NIST AI RMF Playbook page](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) - tailoring and non-checklist governance guidance
-- [Microsoft Power Platform Center of Excellence (CoE) overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview) - central-governance-plus-enablement pattern for low-code
-- [Microsoft Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) - governable surfaces, audit logs, environment routing, and maker guidance
-- [Microsoft Copilot Studio data-loss-prevention controls](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention) - sanctioned guardrails over authentication, knowledge, tools, channels, and triggers
-- [Prior item: Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) - adjacent repo synthesis on bounded maker lanes
-- [Prior item: AI governance cost, performance, and delivery impact](https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html) - adjacent repo synthesis on governance friction and delivery effects
-- [Prior item: Systems capability debt, citizen development, empirical evidence](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html) - adjacent repo synthesis on unmet demand and workaround adoption
-- [Prior item: AI low-code decision rights, accountability, and liability](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html) - adjacent repo synthesis on escalation and ownership surfaces
+- [Gartner documents portal](https://www.gartner.com/en/documents) — - seeded analyst source; access-gated in this session and not used for downstream factual support
+- [McKinsey state of AI 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024) — - seeded official survey source; official page could not be retrieved directly in this session
+- [Dourish et al. (2004), Security in the Wild: User Strategies for Managing Security as an Everyday, Practical Problem](https://link.springer.com/article/10.1007/s00779-004-0308-5) — - accessible publisher record for the titled paper; seeded Ashenden and Lawrence attribution could not be verified
+- [Siponen and Vance (2010), Neutralization: New Insights into the Problem of Employee Information Systems Security Policy Violations](https://aisel.aisnet.org/misq/vol34/iss3/7/) — - accessible abstract page for the seeded security-policy-violation paper
+- [Tallon, Ramirez, and Short (2013), The Information Artifact in IT Governance: Toward a Theory of Information Governance](https://www.jmis-web.org/articles/927) — - accessible official page replacing the inaccurate seeded Tallon Digital Object Identifier (DOI)
+- [Kopper et al. (2019), Shadow IT and Business-managed IT: Practitioner Perceptions and Their Comparison to Literature](https://jitm.ubalt.edu/XXX-4/article1.pdf) — - practitioner evidence on shadow IT drivers and governance responses
+- [Klotz et al. (2019), Causing factors, outcomes, and governance of Shadow IT and business-managed IT: a systematic literature review](https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf) — - systematic review of shadow IT causes, outcomes, and governance
+- [Kass, Strahringer, and Westner, Drivers and Inhibitors of Low Code Development Platform Adoption](https://d-nb.info/1270139835/34) — - literature review on low-code adoption pressures and risks
+- [International Business Machines (IBM), Is rising AI adoption creating shadow AI risks?](https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks) — - survey evidence on unauthorised AI use, leadership resistance, and training demand
+- [IBM, Shadow AI topic page](https://www.ibm.com/think/topics/shadow-ai) — - definition and driver summary for shadow AI
+- [Cyberhaven, Shadow AI: Employee AI Adoption Risks Your Company Data](https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk) — - telemetry evidence on shadow AI, non-corporate accounts, and sensitive-data exposure
+- [IBM and Ponemon Institute, Cost of a Data Breach Report 2025](https://www.ibm.com/reports/data-breach) — - quantified governance-gap indicators around AI incidents and shadow AI
+- [DevOps Research and Assessment (DORA) 2024 report announcement](https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report) — - delivery-friction and open-communication evidence
+- [DORA 2025 AI capabilities report page](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) — - culture, capabilities, and internal-platform evidence
+- [DORA 2025 report announcement](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — - policy clarity, control-system, and platform-foundation evidence
+- [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - cross-cutting governance, risk culture, role clarity, training, and safety-first expectations
+- [NIST AI RMF Playbook page](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) — - tailoring and non-checklist governance guidance
+- [Microsoft Power Platform Center of Excellence (CoE) overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview) — - central-governance-plus-enablement pattern for low-code
+- [Microsoft Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) — - governable surfaces, audit logs, environment routing, and maker guidance
+- [Microsoft Copilot Studio data-loss-prevention controls](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention) — - sanctioned guardrails over authentication, knowledge, tools, channels, and triggers
+- [Prior item: Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) — - adjacent repo synthesis on bounded maker lanes
+- [Prior item: AI governance cost, performance, and delivery impact](https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html) — - adjacent repo synthesis on governance friction and delivery effects
+- [Prior item: Systems capability debt, citizen development, empirical evidence](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html) — - adjacent repo synthesis on unmet demand and workaround adoption
+- [Prior item: AI low-code decision rights, accountability, and liability](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html) — - adjacent repo synthesis on escalation and ownership surfaces
 
 ## Related
 

@@ -62,25 +62,25 @@ Understanding this space is useful for evaluating how to work with and prompt Cl
 
 ## Sources
 
-- [x] [Claude's character](https://www.anthropic.com/research/claude-character) - Anthropic's public explanation of Claude's character training
-- [x] [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) - Anthropic's explanation of the new constitution and how it shapes training
-- [x] [Claude's Constitution](https://www.anthropic.com/constitution) - Full public constitution
-- [x] [Anthropic: Core Views on AI Safety](https://www.anthropic.com/news/core-views-on-ai-safety) - Anthropic's broader safety philosophy
-- [x] [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) - Anthropic research summary page
-- [x] [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073) - Primary paper on Constitutional AI (CAI)
-- [x] [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis) - Anthropic research post on persona drift and stabilization
-- [x] [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387) - Primary paper on persona drift and activation capping
-- [x] [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html) - OpenAI's public behavior specification
-- [x] [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/) - Google DeepMind public model card
-- [x] [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md) - Meta's public model card for assistant-tuned Llama 3
-- [x] [Mistral Large](https://mistral.ai/news/mistral-large/) - Mistral's flagship model announcement, including moderation and instruction-following positioning
-- [x] [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483) - Primary paper on safety-training failure modes
-- [x] [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8) - Nature paper on role play as a framing for dialogue agents
-- [x] [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348) - Primary paper on persona-based jailbreaks
-- [x] [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114) - Primary paper on value stability under changing context
-- [x] [PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits](https://aclanthology.org/2024.findings-naacl.229/) - Primary paper on trait expression consistency
-- [x] [Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?](https://arxiv.org/abs/2404.12138) - Primary paper on persona-driven decision consistency
-- [x] [Anthropic model spec on GitHub (backlog-item source, checked and inaccessible)](https://github.com/anthropics/anthropic-model-spec) - Returned 404 when checked on 2026-04-19
+- [x] [Claude's character](https://www.anthropic.com/research/claude-character) — - Anthropic's public explanation of Claude's character training
+- [x] [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) — - Anthropic's explanation of the new constitution and how it shapes training
+- [x] [Claude's Constitution](https://www.anthropic.com/constitution) — - Full public constitution
+- [x] [Anthropic: Core Views on AI Safety](https://www.anthropic.com/news/core-views-on-ai-safety) — - Anthropic's broader safety philosophy
+- [x] [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) — - Anthropic research summary page
+- [x] [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073) — - Primary paper on Constitutional AI (CAI)
+- [x] [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis) — - Anthropic research post on persona drift and stabilization
+- [x] [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387) — - Primary paper on persona drift and activation capping
+- [x] [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html) — - OpenAI's public behavior specification
+- [x] [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/) — - Google DeepMind public model card
+- [x] [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md) — - Meta's public model card for assistant-tuned Llama 3
+- [x] [Mistral Large](https://mistral.ai/news/mistral-large/) — - Mistral's flagship model announcement, including moderation and instruction-following positioning
+- [x] [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483) — - Primary paper on safety-training failure modes
+- [x] [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8) — - Nature paper on role play as a framing for dialogue agents
+- [x] [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348) — - Primary paper on persona-based jailbreaks
+- [x] [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114) — - Primary paper on value stability under changing context
+- [x] [PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits](https://aclanthology.org/2024.findings-naacl.229/) — - Primary paper on trait expression consistency
+- [x] [Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?](https://arxiv.org/abs/2404.12138) — - Primary paper on persona-driven decision consistency
+- [x] [Anthropic model spec on GitHub (backlog-item source, checked and inaccessible)](https://github.com/anthropics/anthropic-model-spec) — - Returned 404 when checked on 2026-04-19
 
 ---
 

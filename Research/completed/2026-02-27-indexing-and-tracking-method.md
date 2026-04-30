@@ -53,7 +53,7 @@ Options range from simple (JSON state file, CSV index) to complex (SQLite, vecto
 ## Sources
 
 - [ ] `davidamitchell/Latest-developments-/src/state.py` — URL-based dedup with JSON
-- [ ] Zotero architecture: https://www.zotero.org/support/dev/client_coding/direct_sqlite_database_access
+- [ ] [Zotero architecture](https://www.zotero.org/support/dev/client_coding/direct_sqlite_database_access)
 - [ ] Obsidian graph approach
 - [ ] ChromaDB / sqlite-vss for vector search
 

@@ -73,40 +73,44 @@ The scope is deliberately broad — covering 25+ engineering domains — because
 
 ## Sources
 
-- [x] GitHub Copilot Custom Instructions documentation — Microsoft — https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot
-- [ ] GitHub Copilot Extensions marketplace — Microsoft — https://github.com/marketplace?type=apps&copilot_app=true
-- [x] Azure OpenAI Prompt Engineering Guide — Microsoft — https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering
-- [x] VS Code GitHub Copilot customization documentation — Microsoft — https://code.visualstudio.com/docs/copilot/copilot-customization
-- [x] GitHub `awesome-copilot` repository — GitHub / Microsoft — https://github.com/github/awesome-copilot
-- [x] `awesome-copilot` instructions index — GitHub / Microsoft — https://raw.githubusercontent.com/github/awesome-copilot/main/docs/README.instructions.md
-- [x] Microsoft blog on Awesome GitHub Copilot website, learning hub, and plugins — https://developer.microsoft.com/blog/awesome-github-copilot-just-got-a-website-and-a-learning-hub-and-plugins
-- [x] JetBrains AI Assistant prompt library documentation — https://www.jetbrains.com/help/ai-assistant/prompt-library.html
-- [x] JetBrains AI Assistant project rules documentation — https://www.jetbrains.com/help/ai-assistant/configure-project-rules.html
-- [x] JetBrains AI Assistant rules settings reference — https://www.jetbrains.com/help/ai-assistant/settings-reference-rules.html
-- [x] Anthropic Claude prompt library — https://docs.anthropic.com/en/prompt-library/library
-- [x] Anthropic `skills` repository — https://github.com/anthropics/skills and https://raw.githubusercontent.com/anthropics/skills/main/README.md
-- [ ] OpenAI Prompt Engineering Guide — OpenAI — https://platform.openai.com/docs/guides/prompt-engineering — inaccessible (HTTP 403)
-- [x] OpenAI Cookbook — OpenAI — https://cookbook.openai.com/
-- [x] OpenAI `Skills in API` cookbook page — https://cookbook.openai.com/examples/skills_in_api
-- [x] OpenAI Skills guide — https://developers.openai.com/api/docs/guides/tools-skills
-- [x] Cursor rules documentation — https://cursor.com/docs/rules
-- [ ] Cursor directory — https://cursor.directory/ — inaccessible during investigation (HTTP 429)
-- [x] `awesome-cursorrules` repository — PatrickJS — https://github.com/PatrickJS/awesome-cursorrules and https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/README.md
-- [x] `awesome-agent-skills` repository — VoltAgent — https://github.com/VoltAgent/awesome-agent-skills and https://raw.githubusercontent.com/VoltAgent/awesome-agent-skills/main/README.md
-- [x] `system-prompts-and-models-of-ai-tools` repository — x1xhlol — https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools and https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/README.md
-- [x] Cline documentation — https://docs.cline.bot/
-- [x] Windsurf Memories / Rules documentation — https://docs.windsurf.com/windsurf/cascade/memories
-- [x] Windsurf Skills documentation — https://docs.windsurf.com/windsurf/cascade/skills
-- [x] AGENTS.md standard site — https://agents.md/
-- [x] OWASP Application Security Verification Standard (ASVS) — https://owasp.org/www-project-application-security-verification-standard/
-- [x] OpenAPI Specification 3.1 — https://spec.openapis.org/oas/v3.1.0
-- [x] AsyncAPI home page — https://www.asyncapi.com/
-- [x] 12-Factor App methodology — https://12factor.net/
-- [x] Apache Airflow documentation index — https://airflow.apache.org/docs/
-- [x] Jupyter home page — https://jupyter.org/
-- [x] Martin Fowler — CQRS — https://martinfowler.com/bliki/CQRS.html
-- [x] Martin Fowler — Event Sourcing — https://martinfowler.com/eaaDev/EventSourcing.html
-- [x] Martin Fowler — Event-Driven article with Event-Carried State Transfer (ECST) — https://martinfowler.com/articles/201701-event-driven.html
+- [x] [GitHub Copilot Custom Instructions documentation — Microsoft](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+- [ ] [GitHub Copilot Extensions marketplace — Microsoft](https://github.com/marketplace?type=apps&copilot_app=true)
+- [x] [Azure OpenAI Prompt Engineering Guide — Microsoft](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering)
+- [x] [VS Code GitHub Copilot customization documentation — Microsoft](https://code.visualstudio.com/docs/copilot/copilot-customization)
+- [x] [GitHub `awesome-copilot` repository — GitHub / Microsoft](https://github.com/github/awesome-copilot)
+- [x] [`awesome-copilot` instructions index — GitHub / Microsoft](https://raw.githubusercontent.com/github/awesome-copilot/main/docs/README.instructions.md)
+- [x] [Microsoft blog on Awesome GitHub Copilot website, learning hub, and plugins](https://developer.microsoft.com/blog/awesome-github-copilot-just-got-a-website-and-a-learning-hub-and-plugins)
+- [x] [JetBrains AI Assistant prompt library documentation](https://www.jetbrains.com/help/ai-assistant/prompt-library.html)
+- [x] [JetBrains AI Assistant project rules documentation](https://www.jetbrains.com/help/ai-assistant/configure-project-rules.html)
+- [x] [JetBrains AI Assistant rules settings reference](https://www.jetbrains.com/help/ai-assistant/settings-reference-rules.html)
+- [x] [Anthropic Claude prompt library](https://docs.anthropic.com/en/prompt-library/library)
+- [x] [Anthropic skills repository](https://github.com/anthropics/skills)
+- [x] [Anthropic skills README](https://raw.githubusercontent.com/anthropics/skills/main/README.md)
+- [ ] [OpenAI Prompt Engineering Guide — OpenAI](https://platform.openai.com/docs/guides/prompt-engineering) — inaccessible (HTTP 403)
+- [x] [OpenAI Cookbook — OpenAI](https://cookbook.openai.com/)
+- [x] [OpenAI `Skills in API` cookbook page](https://cookbook.openai.com/examples/skills_in_api)
+- [x] [OpenAI Skills guide](https://developers.openai.com/api/docs/guides/tools-skills)
+- [x] [Cursor rules documentation](https://cursor.com/docs/rules)
+- [ ] [Cursor directory](https://cursor.directory/) — inaccessible during investigation (HTTP 429)
+- [x] [awesome-cursorrules repository — PatrickJS](https://github.com/PatrickJS/awesome-cursorrules)
+- [x] [awesome-cursorrules README](https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/README.md)
+- [x] [awesome-agent-skills repository — VoltAgent](https://github.com/VoltAgent/awesome-agent-skills)
+- [x] [awesome-agent-skills README](https://raw.githubusercontent.com/VoltAgent/awesome-agent-skills/main/README.md)
+- [x] [system-prompts-and-models-of-ai-tools repository — x1xhlol](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
+- [x] [system-prompts-and-models-of-ai-tools README](https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/README.md)
+- [x] [Cline documentation](https://docs.cline.bot/)
+- [x] [Windsurf Memories / Rules documentation](https://docs.windsurf.com/windsurf/cascade/memories)
+- [x] [Windsurf Skills documentation](https://docs.windsurf.com/windsurf/cascade/skills)
+- [x] [AGENTS.md standard site](https://agents.md/)
+- [x] [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/)
+- [x] [OpenAPI Specification 3.1](https://spec.openapis.org/oas/v3.1.0)
+- [x] [AsyncAPI home page](https://www.asyncapi.com/)
+- [x] [12-Factor App methodology](https://12factor.net/)
+- [x] [Apache Airflow documentation index](https://airflow.apache.org/docs/)
+- [x] [Jupyter home page](https://jupyter.org/)
+- [x] [Martin Fowler — CQRS](https://martinfowler.com/bliki/CQRS.html)
+- [x] [Martin Fowler — Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+- [x] [Martin Fowler — Event-Driven article with Event-Carried State Transfer (ECST)](https://martinfowler.com/articles/201701-event-driven.html)
 - [x] Prior completed research: `Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md`
 - [x] Prior completed research: `Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md`
 - [x] Prior completed research: `Research/completed/2026-03-16-intent-driven-development.md`

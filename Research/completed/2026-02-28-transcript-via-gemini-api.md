@@ -79,13 +79,12 @@ Gemini may have the video already indexed.
 
 ## Sources
 
-- [x] Gemini API docs — Video understanding + YouTube URL support:
-  https://ai.google.dev/gemini-api/docs/video-understanding
+- [x] [Gemini API docs — Video understanding and YouTube URL support](https://ai.google.dev/gemini-api/docs/video-understanding)
 - [x] `davidamitchell/Latest-developments-/src/summariser.py` — existing Gemini integration
 - [x] `davidamitchell/Latest-developments-/requirements.txt` — `google-genai>=1.0.0`
-- [x] https://vomo.ai/blog/can-gemini-transcribe-youtube-videos — independent test of Gemini transcript quality
-- [x] https://ai-rockstars.com/tutorial-transcribing-youtube-videos-with-google-ai-studio/ — transcript quality analysis
-- [x] https://ai.google.dev/gemini-api/docs/rate-limits — official free-tier rate limits
+- [x] [independent test of Gemini transcript quality](https://vomo.ai/blog/can-gemini-transcribe-youtube-videos)
+- [x] [transcript quality analysis](https://ai-rockstars.com/tutorial-transcribing-youtube-videos-with-google-ai-studio/)
+- [x] [official free-tier rate limits](https://ai.google.dev/gemini-api/docs/rate-limits)
 
 ## Open Questions
 

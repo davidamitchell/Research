@@ -66,13 +66,13 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — capture friction as a primary memory system failure mode; Evergreen Notes reference architecture
 - [x] `Research/completed/2026-03-02-integrative-framework-agent-decision-making.md` — procedural memory as encoded judgement from past experience (relevant to triage agent design)
-- [x] Andy Matuschak's Evergreen Notes: https://notes.andymatuschak.org/Evergreen_notes
-- [x] Getting Things Done (GTD) inbox processing: https://gettingthingsdone.com/
+- [x] [Andy Matuschak's Evergreen Notes](https://notes.andymatuschak.org/Evergreen_notes)
+- [x] [Getting Things Done (GTD) inbox processing](https://gettingthingsdone.com/)
 - [x] `.github/workflows/research-loop.yml` in this repo — autonomous agent loop pattern to adapt for triage
-- [x] GitHub Actions schedule trigger docs: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+- [x] [GitHub Actions schedule trigger docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
 - [ ] `2026-03-08-ios-shortcuts-github-api-memory-capture.md` — capture tool that would write to inbox (backlog, not yet researched)
 - [ ] `2026-03-08-telegram-bot-memory-capture-retrieval.md` — capture tool that would write to inbox (backlog, not yet researched)
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0012 — the corresponding discovery item (inaccessible: private repo) — https://github.com/davidamitchell/Memory-System
+- [ ] [`davidamitchell/Memory-System` BACKLOG.md W-0012 — the corresponding discovery item (inaccessible: private repo)](https://github.com/davidamitchell/Memory-System)
 
 ---
 

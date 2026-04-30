@@ -53,13 +53,13 @@ Rory Sutherland is vice chairman of Ogilvy UK and a prominent advocate for apply
 
 ## Sources
 
-- [x] [Rory Sutherland TED Talks](https://www.ted.com/speakers/rory_sutherland): three talks covering advertising psychology, irrationality, and behavioral value
-- [x] [Alchemy: The Dark Art and Curious Science of Creating Magic in Brands, Business, and Life (2019)](https://www.goodreads.com/book/show/26210508-alchemy): Sutherland's book; primary source for his full framework
-- [x] [Business Leader podcast: Rory Sutherland with Richard Harpin](https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips): the interview that prompted this research cycle; covers marketing vs. finance mindset, AI, call centres, and customer delight
-- [x] [Ogilvy Behavioural Science Practice](https://www.ogilvy.com/ideas): Ogilvy's published thinking; Sutherland's institutional home
-- [x] [The Drum: Rory Sutherland: Why marketing's biggest risk in 2026 is mistaking efficiency for progress](http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress): extended 2026 interview; efficiency vs. opportunity
-- [x] [Thought Economics interview: Rory Sutherland on Marketing, Branding and Human Behaviour](https://thoughteconomics.com/rory-sutherland/): long-form interview covering psycho-logic, bureaucracy, and finance mindset
-- [x] [Rory Sutherland return on investment (ROI) and opportunity cost, articles.data.blog](https://articles.data.blog/2024/06/30/rory-sutherland-on-roi-and-opportunity-cost/): Sutherland's quantification bias argument
+- [x] [Rory Sutherland TED Talks](https://www.ted.com/speakers/rory_sutherland) — : three talks covering advertising psychology, irrationality, and behavioral value
+- [x] [Alchemy: The Dark Art and Curious Science of Creating Magic in Brands, Business, and Life (2019)](https://www.goodreads.com/book/show/26210508-alchemy) — : Sutherland's book; primary source for his full framework
+- [x] [Business Leader podcast: Rory Sutherland with Richard Harpin](https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips) — : the interview that prompted this research cycle; covers marketing vs. finance mindset, AI, call centres, and customer delight
+- [x] [Ogilvy Behavioural Science Practice](https://www.ogilvy.com/ideas) — : Ogilvy's published thinking; Sutherland's institutional home
+- [x] [The Drum: Rory Sutherland: Why marketing's biggest risk in 2026 is mistaking efficiency for progress](http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress) — : extended 2026 interview; efficiency vs. opportunity
+- [x] [Thought Economics interview: Rory Sutherland on Marketing, Branding and Human Behaviour](https://thoughteconomics.com/rory-sutherland/) — : long-form interview covering psycho-logic, bureaucracy, and finance mindset
+- [x] [Rory Sutherland return on investment (ROI) and opportunity cost, articles.data.blog](https://articles.data.blog/2024/06/30/rory-sutherland-on-roi-and-opportunity-cost/) — : Sutherland's quantification bias argument
 
 ---
 

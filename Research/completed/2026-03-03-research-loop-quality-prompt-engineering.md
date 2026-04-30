@@ -89,10 +89,10 @@ There is no current mechanism to detect when the loop has produced a shallow ite
 - [x] `Research/completed/` — existing loop-produced items; corpus for the quality audit
 - [x] `Research/completed/2026-03-01-github-specify-ralph-loop-lisa-planning.md` — completed research on the Ralph Wiggum Technique, loop phases (Specify → Plan → Build), and proof-driven development; covers loop *design* (this item covers loop output *quality* and prompt improvement)
 - [x] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — complement to this item: quality review methodology (downstream quality checks vs. this item's upstream prompt improvements)
-- [x] Anthropic Prompt Engineering Guide: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview — chain-of-thought, role prompting, negative constraints
-- [ ] OpenAI Prompt Engineering Guide: https://platform.openai.com/docs/guides/prompt-engineering — structured output, decomposition patterns (JS-protected, inaccessible)
+- [x] [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — chain-of-thought, role prompting, negative constraints
+- [ ] [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering) — structured output, decomposition patterns (JS-protected, inaccessible)
 - [x] LMSYS / arXiv — The Prompt Report (arXiv:2406.06608): systematic survey of 58+ LLM prompting techniques (2024)
-- [x] Fabric (Daniel Miessler): https://github.com/danielmiessler/fabric — prompt patterns for research extraction and synthesis; patterns like `extract_wisdom`, `summarize`, `create_report`
+- [x] [Fabric (Daniel Miessler)](https://github.com/danielmiessler/fabric) — prompt patterns for research extraction and synthesis; patterns like `extract_wisdom`, `summarize`, `create_report`
 - [x] `docs-adr/0004-autonomous-research-loop.md` — ADR for the loop; safety controls and design rationale
 
 ---

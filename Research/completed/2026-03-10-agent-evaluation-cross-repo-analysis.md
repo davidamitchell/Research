@@ -73,18 +73,18 @@ This item also directly supports the goal of improving agent implementations in 
 - [x] `Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md`
 - [x] `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md`
 - [x] `Research/completed/2026-03-10-ai-concept-classification-taxonomy.md`
-- [x] AutoGen repo: https://github.com/microsoft/autogen — multi-agent conversation framework
-- [x] CrewAI repo: https://github.com/crewAIInc/crewAI — role-based agent orchestration
-- [x] LangGraph repo: https://github.com/langchain-ai/langgraph — stateful agent graphs
-- [x] Pydantic AI repo: https://github.com/pydantic/pydantic-ai — type-safe agent framework
-- [x] Agno repo: https://github.com/agno-agi/agno — multi-modal agent framework
-- [x] OpenHands (previously OpenDevin): https://github.com/All-Hands-AI/OpenHands — software engineering agents
-- [x] SWE-bench: https://github.com/princeton-nlp/SWE-bench — benchmark for software engineering agents
+- [x] [AutoGen repo](https://github.com/microsoft/autogen) — multi-agent conversation framework
+- [x] [CrewAI repo](https://github.com/crewAIInc/crewAI) — role-based agent orchestration
+- [x] [LangGraph repo](https://github.com/langchain-ai/langgraph) — stateful agent graphs
+- [x] [Pydantic AI repo](https://github.com/pydantic/pydantic-ai) — type-safe agent framework
+- [x] [Agno repo](https://github.com/agno-agi/agno) — multi-modal agent framework
+- [x] [OpenHands (previously OpenDevin)](https://github.com/All-Hands-AI/OpenHands) — software engineering agents
+- [x] [SWE-bench](https://github.com/princeton-nlp/SWE-bench) — benchmark for software engineering agents
 - [x] Yehudai et al. "Survey on Evaluation of LLM-based Agents" arXiv:2503.16416 (2025)
 - [x] Mohammadi et al. "Evaluation and Benchmarking of LLM Agents: A Survey" arXiv:2507.21504 (2025)
-- [x] METR (Model Evaluation and Threat Research) task standard: https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
-- [x] Hamel Husain "Your AI Product Needs Evals": https://hamel.dev/blog/posts/evals/
-- [x] langchain-ai/agentevals: https://github.com/langchain-ai/agentevals
+- [x] [METR (Model Evaluation and Threat Research) task standard](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)
+- [x] [Hamel Husain "Your AI Product Needs Evals"](https://hamel.dev/blog/posts/evals/)
+- [x] [langchain-ai/agentevals](https://github.com/langchain-ai/agentevals)
 
 ---
 

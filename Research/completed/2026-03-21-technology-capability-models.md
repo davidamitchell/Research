@@ -86,23 +86,24 @@ Modern engineering practice (Wardley Mapping, Team Topologies, cloud Well-Archit
 
 ## Sources
 
-- [x] TOGAF Standard (10th Edition, 2022) - The Open Group - https://www.opengroup.org/togaf - specifically the Architecture Reference Models chapter; primary source for TOGAF Technical Reference Model (TRM) and Integrated Information Infrastructure Reference Model (III-RM)
-- [x] SABSA Framework and Architecture - The SABSA Institute - https://sabsa.org - specifically the Business Attributes Profile and the SABSA Matrix; primary source for SABSA capability layers
-- [x] BIAN Service Landscape (v12, 2023) - Banking Industry Architecture Network - https://bian.org - the service domain taxonomy as a banking-specific technical capability model
-- [x] TM Forum Frameworx - TM Forum - https://www.tmforum.org - specifically the Business Process Framework (eTOM) and Application Framework (TAM) capability taxonomies
-- [x] NIST SP 800-207 (2020) - "Zero Trust Architecture" - NIST - https://doi.org/10.6028/NIST.SP.800-207 - ZTA capability components as a modern security-layer capability model
-- [x] NIST Cybersecurity Framework (CSF) 2.0 (2024) - NIST - https://doi.org/10.6028/NIST.CSWP.29 - capability function taxonomy (Govern, Identify, Protect, Detect, Respond, Recover)
-- [x] DoDAF Architecture Framework (v2.02) - US Department of Defense - https://dodcio.defense.gov/library/dod-architecture-framework/ - specifically capability viewpoints (CV-1 through CV-7)
-- [x] NAF v4 (2018) - NATO Architecture Framework - https://www.nato.int/cps/en/natohq/topics_157575.htm - capability taxonomy and Consultation, Command and Control (C3) Taxonomy
-- [x] IT-CMF (IT Capability Maturity Framework) - Innovation Value Institute (IVI) - https://ivi.ie/it-cmf/ - the 36-capability taxonomy and maturity model
-- [x] CMMI v2.0 (2018) - CMMI Institute - https://cmmiinstitute.com - capability area and practice area structure as a maturity-linked capability model
-- [x] "Wardley Mapping" - Simon Wardley (2016-2024) - https://learnwardleymapping.com and https://medium.com/wardleymaps - capability evolution model from genesis to commodity
+- [x] [TOGAF Standard (10th Edition, 2022) - The Open Group](https://www.opengroup.org/togaf) — specifically the Architecture Reference Models chapter; primary source for TOGAF Technical Reference Model (TRM) and Integrated Information Infrastructure Reference Model (III-RM)
+- [x] [SABSA Framework and Architecture - The SABSA Institute](https://sabsa.org) — specifically the Business Attributes Profile and the SABSA Matrix; primary source for SABSA capability layers
+- [x] [BIAN Service Landscape (v12, 2023) - Banking Industry Architecture Network](https://bian.org) — the service domain taxonomy as a banking-specific technical capability model
+- [x] [TM Forum Frameworx - TM Forum](https://www.tmforum.org) — specifically the Business Process Framework (eTOM) and Application Framework (TAM) capability taxonomies
+- [x] [NIST SP 800-207 (2020) - "Zero Trust Architecture" - NIST](https://doi.org/10.6028/NIST.SP.800-207) — ZTA capability components as a modern security-layer capability model
+- [x] [NIST Cybersecurity Framework (CSF) 2.0 (2024) - NIST](https://doi.org/10.6028/NIST.CSWP.29) — capability function taxonomy (Govern, Identify, Protect, Detect, Respond, Recover)
+- [x] [DoDAF Architecture Framework (v2.02) - US Department of Defense](https://dodcio.defense.gov/library/dod-architecture-framework/) — specifically capability viewpoints (CV-1 through CV-7)
+- [x] [NAF v4 (2018) - NATO Architecture Framework](https://www.nato.int/cps/en/natohq/topics_157575.htm) — capability taxonomy and Consultation, Command and Control (C3) Taxonomy
+- [x] [IT-CMF (IT Capability Maturity Framework) - Innovation Value Institute (IVI)](https://ivi.ie/it-cmf/) — the 36-capability taxonomy and maturity model
+- [x] [CMMI v2.0 (2018) - CMMI Institute](https://cmmiinstitute.com) — capability area and practice area structure as a maturity-linked capability model
+- [x] [Wardley Mapping — Simon Wardley (2016-2024)](https://learnwardleymapping.com) — capability evolution model from genesis to commodity
+- [x] [Wardley Mapping — Medium series](https://medium.com/wardleymaps)
 - [x] "Team Topologies" - Skelton, M. & Pais, M. (2019) - IT Revolution Press - specifically platform team capability design and the interaction modes
-- [x] DORA (DevOps Research and Assessment) State of DevOps Reports (2019-2024) - Google/DORA - https://dora.dev - technical and process capability clusters and their performance linkages
-- [x] AWS Well-Architected Framework (2024) - Amazon Web Services - https://aws.amazon.com/architecture/well-architected/ - six pillars as a cloud-native technical capability taxonomy
-- [x] Azure Well-Architected Framework (2024) - Microsoft - https://learn.microsoft.com/en-us/azure/well-architected/ - five pillars and design area taxonomy
-- [x] Google Cloud Architecture Framework (2024) - Google - https://cloud.google.com/architecture/framework - system design principles as capability taxonomy
-- [x] Gartner IT Score - Gartner - https://www.gartner.com/en/information-technology/it-score - IT functional capability model and maturity scoring (note: marketing from Gartner; treat as low-confidence for structural detail but useful for industry adoption evidence)
+- [x] [DORA (DevOps Research and Assessment) State of DevOps Reports (2019-2024) - Google/DORA](https://dora.dev) — technical and process capability clusters and their performance linkages
+- [x] [AWS Well-Architected Framework (2024) - Amazon Web Services](https://aws.amazon.com/architecture/well-architected/) — six pillars as a cloud-native technical capability taxonomy
+- [x] [Azure Well-Architected Framework (2024) - Microsoft](https://learn.microsoft.com/en-us/azure/well-architected/) — five pillars and design area taxonomy
+- [x] [Google Cloud Architecture Framework (2024) - Google](https://cloud.google.com/architecture/framework) — system design principles as capability taxonomy
+- [x] [Gartner IT Score - Gartner](https://www.gartner.com/en/information-technology/it-score) — IT functional capability model and maturity scoring (note: marketing from Gartner; treat as low-confidence for structural detail but useful for industry adoption evidence)
 - [x] Prior completed research: `2026-03-08-servicenow-csdm-data-modelling`
 - [x] Prior completed research: `2026-03-08-servicenow-platform-strategy`
 

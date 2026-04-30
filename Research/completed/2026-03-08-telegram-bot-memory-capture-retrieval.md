@@ -66,14 +66,14 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — production memory system patterns; context on why unified capture + retrieval surfaces are valuable
 - [x] `Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md` — Slack vs Telegram comparison, Socket Mode equivalence with long-polling, GitHub Contents API patterns
 - [x] `Research/completed/2026-03-02-ios-shortcuts-research.md` — iOS Shortcuts comparison baseline; GitHub Contents API write pattern
-- [x] Telegram Bot API docs: https://core.telegram.org/bots/api
-- [x] Telegram Bot API getting-updates: https://core.telegram.org/bots/api#getting-updates
-- [x] Telegram Bot tutorial: https://core.telegram.org/bots/tutorial
-- [x] GitHub Contents API docs: https://docs.github.com/en/rest/repos/contents
-- [x] Railway free tier docs: https://docs.railway.app/reference/pricing
-- [x] Fly.io pricing docs: https://fly.io/docs/about/pricing/
-- [x] Render free tier docs: https://render.com/docs/free
-- [x] Tailscale docs (for Raspberry Pi home server): https://tailscale.com/kb/1017/install
+- [x] [Telegram Bot API docs](https://core.telegram.org/bots/api)
+- [x] [Telegram Bot API getting-updates](https://core.telegram.org/bots/api#getting-updates)
+- [x] [Telegram Bot tutorial](https://core.telegram.org/bots/tutorial)
+- [x] [GitHub Contents API docs](https://docs.github.com/en/rest/repos/contents)
+- [x] [Railway free tier docs](https://docs.railway.app/reference/pricing)
+- [x] [Fly.io pricing docs](https://fly.io/docs/about/pricing/)
+- [x] [Render free tier docs](https://render.com/docs/free)
+- [x] [Tailscale docs (for Raspberry Pi home server)](https://tailscale.com/kb/1017/install)
 
 ---
 

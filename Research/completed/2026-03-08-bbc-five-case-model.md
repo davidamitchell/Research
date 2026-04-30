@@ -56,13 +56,13 @@ The Better Business Cases framework is the UK public sector standard for investm
 
 ## Sources
 
-- [x] HM Treasury – Business Case Guidance for Projects and Programmes (2024 edition): https://www.gov.uk/government/publications/business-case-guidance-for-projects-and-programmes
-- [ ] HM Treasury – Guide to Developing the Project Business Case (PDF, 134 pages): https://assets.publishing.service.gov.uk/media/66449468ae748c43d3793bb8/Project_Business_Case_2018.pdf
-- [x] HM Treasury – Green Book Review 2025: Findings and Actions: https://www.gov.uk/government/publications/green-book-review-2025-findings-and-actions/green-book-review-2025-findings-and-actions
-- [x] Knowledge Train – Five Case Model overview: https://www.knowledgetrain.co.uk/project-management/business-cases/five-case-model
-- [x] APMG International – Five Case Model for Smarter Public Investment (written by FCM creator): https://apmg-international.com/article/5-case-model-smarter-public-investment
-- [ ] Infrastructure and Projects Authority – Assurance Review Toolkit: https://www.gov.uk/government/collections/infrastructure-and-projects-authority-assurance-review-toolkit
-- [ ] National Audit Office – Delivering Major Projects in Government (briefing): https://www.nao.org.uk/briefings/delivering-major-projects-in-government-a-briefing-for-the-committee-of-public-accounts/
+- [x] [HM Treasury – Business Case Guidance for Projects and Programmes (2024 edition)](https://www.gov.uk/government/publications/business-case-guidance-for-projects-and-programmes)
+- [ ] [HM Treasury – Guide to Developing the Project Business Case (PDF, 134 pages)](https://assets.publishing.service.gov.uk/media/66449468ae748c43d3793bb8/Project_Business_Case_2018.pdf)
+- [x] [HM Treasury – Green Book Review 2025: Findings and Actions](https://www.gov.uk/government/publications/green-book-review-2025-findings-and-actions/green-book-review-2025-findings-and-actions)
+- [x] [Knowledge Train – Five Case Model overview](https://www.knowledgetrain.co.uk/project-management/business-cases/five-case-model)
+- [x] [APMG International – Five Case Model for Smarter Public Investment (written by FCM creator)](https://apmg-international.com/article/5-case-model-smarter-public-investment)
+- [ ] [Infrastructure and Projects Authority – Assurance Review Toolkit](https://www.gov.uk/government/collections/infrastructure-and-projects-authority-assurance-review-toolkit)
+- [ ] [National Audit Office – Delivering Major Projects in Government (briefing)](https://www.nao.org.uk/briefings/delivering-major-projects-in-government-a-briefing-for-the-committee-of-public-accounts/)
 
 ---
 

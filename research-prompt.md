@@ -213,6 +213,19 @@ Apply all four companion skill pre-output checks defined in
 `.github/skills/research/SKILL.md §8 Output Finalisation`. All four must pass
 before proceeding. Fix any violations in the item before moving on.
 
+In addition, apply the pre-output checklists from:
+- `.github/skills/citation-discipline/SKILL.md` -- verifies all factual claims
+  are bound to verifiable sources, acronyms are expanded, and no citation is a
+  bare source name without a URL or DOI.
+- `.github/skills/inline-citation/SKILL.md` -- verifies every citation in
+  `## Findings` has a URL-backed source and that sources in the `## Sources`
+  section use display names suitable for `Author (Year)` rendering on the
+  generated site. Use the canonical display-name format
+  `[Author et al. (YYYY) Title](https://url)` where an author and year are known,
+  or `[Organisation Title](https://url)` where only an organisation name is
+  available. These display names feed the inline citation labels shown on the
+  generated GitHub Pages.
+
 **Critical: acronym expansion audit (run inline -- do not defer to the skill
 file).**
 This is the most common citation-discipline failure. 19+ research reviews have

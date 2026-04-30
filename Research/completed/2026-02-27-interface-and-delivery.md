@@ -54,7 +54,7 @@ The right answer depends on who the consumers are (human researcher, AI agent, o
 ## Sources
 
 - [x] `davidamitchell/Latest-developments-` — email digest pattern (consulted: README.md)
-- [x] MCP tool creation docs: https://modelcontextprotocol.io/docs/concepts/tools (consulted)
+- [x] [MCP tool creation docs](https://modelcontextprotocol.io/docs/concepts/tools) — (consulted)
 - [x] `Research/completed/2026-03-01-github-wiki-research-content.md` — wiki delivery channel (prior art)
 - [x] `Research/completed/2026-03-02-chat-conversational-interface.md` — MCP server design for agent query (prior art)
 - [x] `Research/completed/2026-03-02-slack-msteams-research-integration.md` — push notification options (prior art)

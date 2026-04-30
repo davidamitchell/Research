@@ -68,24 +68,24 @@ Cross-references:
 
 ## Sources
 
-- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-63-3 Digital Identity Guidelines landing page](https://pages.nist.gov/800-63-3/) - seeded source; confirms the suite and that SP 800-63-3 is now superseded by SP 800-63-4.
-- [x] [NIST SP 800-63C Federation and Assertions](https://pages.nist.gov/800-63-3/sp800-63c.html) - primary NIST source for federation and assertion semantics; used to test applicability to non-human identity.
-- [x] [Request for Comments (RFC) 8693, OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693) - primary standard for delegation vs impersonation semantics and actor-aware token exchange.
-- [x] [SPIFFE and SPIRE overview](https://spiffe.io/) - primary workload-identity source for strongly attested cryptographic identities in distributed systems.
-- [x] [Microsoft Entra workload identities overview](https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview) - primary Microsoft source for non-human identity types and lifecycle concerns.
-- [x] [Managed identities for Azure resources overview](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) - primary Microsoft source for secretless Azure workload identity.
-- [x] [Microsoft Entra workload identity federation considerations](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-considerations) - primary source for issuer and subject matching, propagation delay, and federation constraints.
-- [x] [Service principal sign-in logs](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins) - primary Microsoft source for non-user sign-in attribution.
-- [x] [Microsoft Entra workload identity risk](https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk) - primary Microsoft source for leaked-credential and anomalous-sign-in detection and remediation.
-- [x] [AWS IAM Roles Anywhere introduction](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html) - seeded source; primary AWS source for external workload identity and temporary credentials outside AWS.
-- [x] [Temporary security credentials in AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) - primary AWS source for short-lived credentials, delegation, and federation.
-- [x] [Monitor and control actions taken with assumed roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html) - primary AWS source for SourceIdentity and chained attribution.
-- [x] [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) - primary AWS source for assumed-role session attribution and how temporary credentials were obtained.
-- [x] [NIST SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - primary architecture source for per-session least privilege, subject composition, and identity-driven access decisions.
-- [x] [Google Cloud service account overview](https://cloud.google.com/iam/docs/service-account-overview) - primary Google source for service accounts as non-human identities and short-lived vs key-based credentials.
-- [x] [Google Cloud Workload Identity Federation overview](https://cloud.google.com/iam/docs/workload-identity-federation) - primary Google source for external workload federation, attribute mapping, and short-lived access.
-- [x] [Google Cloud service account impersonation](https://cloud.google.com/iam/docs/service-account-impersonation) - primary Google source for short-lived impersonation and dual-identity audit behavior.
-- [x] [Best practices for using service accounts securely](https://cloud.google.com/iam/docs/best-practices-service-accounts) - primary Google source for least privilege, single-purpose identities, serviceAccountDelegationInfo, and key avoidance.
+- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-63-3 Digital Identity Guidelines landing page](https://pages.nist.gov/800-63-3/) — - seeded source; confirms the suite and that SP 800-63-3 is now superseded by SP 800-63-4.
+- [x] [NIST SP 800-63C Federation and Assertions](https://pages.nist.gov/800-63-3/sp800-63c.html) — - primary NIST source for federation and assertion semantics; used to test applicability to non-human identity.
+- [x] [Request for Comments (RFC) 8693, OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693) — - primary standard for delegation vs impersonation semantics and actor-aware token exchange.
+- [x] [SPIFFE and SPIRE overview](https://spiffe.io/) — - primary workload-identity source for strongly attested cryptographic identities in distributed systems.
+- [x] [Microsoft Entra workload identities overview](https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview) — - primary Microsoft source for non-human identity types and lifecycle concerns.
+- [x] [Managed identities for Azure resources overview](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) — - primary Microsoft source for secretless Azure workload identity.
+- [x] [Microsoft Entra workload identity federation considerations](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-considerations) — - primary source for issuer and subject matching, propagation delay, and federation constraints.
+- [x] [Service principal sign-in logs](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins) — - primary Microsoft source for non-user sign-in attribution.
+- [x] [Microsoft Entra workload identity risk](https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk) — - primary Microsoft source for leaked-credential and anomalous-sign-in detection and remediation.
+- [x] [AWS IAM Roles Anywhere introduction](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html) — - seeded source; primary AWS source for external workload identity and temporary credentials outside AWS.
+- [x] [Temporary security credentials in AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) — - primary AWS source for short-lived credentials, delegation, and federation.
+- [x] [Monitor and control actions taken with assumed roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html) — - primary AWS source for SourceIdentity and chained attribution.
+- [x] [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) — - primary AWS source for assumed-role session attribution and how temporary credentials were obtained.
+- [x] [NIST SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — - primary architecture source for per-session least privilege, subject composition, and identity-driven access decisions.
+- [x] [Google Cloud service account overview](https://cloud.google.com/iam/docs/service-account-overview) — - primary Google source for service accounts as non-human identities and short-lived vs key-based credentials.
+- [x] [Google Cloud Workload Identity Federation overview](https://cloud.google.com/iam/docs/workload-identity-federation) — - primary Google source for external workload federation, attribute mapping, and short-lived access.
+- [x] [Google Cloud service account impersonation](https://cloud.google.com/iam/docs/service-account-impersonation) — - primary Google source for short-lived impersonation and dual-identity audit behavior.
+- [x] [Best practices for using service accounts securely](https://cloud.google.com/iam/docs/best-practices-service-accounts) — - primary Google source for least privilege, single-purpose identities, serviceAccountDelegationInfo, and key avoidance.
 
 ## Related
 

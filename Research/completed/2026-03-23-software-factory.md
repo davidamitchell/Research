@@ -69,10 +69,10 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 ## Sources
 
-- [x] https://alexop.dev/posts/the-software-factory/ — primary source article
-- [x] https://news.ycombinator.com/item?id=47226107 — Hacker News discussion: OctopusGarden dark factory pattern
-- [x] https://news.ycombinator.com/item?id=47435275 — Hacker News discussion: TTal multi-agent orchestration
-- [x] https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents — Stripe Minions (via web search)
+- [x] [primary source article](https://alexop.dev/posts/the-software-factory/)
+- [x] [Hacker News discussion: OctopusGarden dark factory pattern](https://news.ycombinator.com/item?id=47226107)
+- [x] [Hacker News discussion: TTal multi-agent orchestration](https://news.ycombinator.com/item?id=47435275)
+- [x] [Stripe Minions (via web search)](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)
 - [x] Prior research: `Research/completed/2026-02-28-ai-strategy-swe-focus.md`
 - [x] Prior research: `Research/completed/2026-03-14-reliable-software-llm-era.md`
 - [x] Prior research: `Research/completed/2026-03-21-technology-capability-models.md`

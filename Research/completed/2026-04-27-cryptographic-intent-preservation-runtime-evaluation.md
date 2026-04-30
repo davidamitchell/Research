@@ -67,24 +67,24 @@ What representation of original intent, captured at the Getting Started phase, i
 
 ## Sources
 
-- [x] [Organisational intent formal specification, completed item](https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html) - organisation-level analogue and machine-checkable derivation precedent
-- [x] [Intent-Driven Development (IDD), completed item](https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html) - intent as the primary specification primitive above tests and contracts
-- [x] [Ricardian Contract model, completed item](https://davidamitchell.github.io/Research/research/2026-03-14-ricardian-contract-model.html) - prose plus machine-readable plus cryptographic binding pattern
-- [x] [Language designed for LLM agents to produce, completed item](https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html) - bounded output format constraints for agent evaluability
-- [x] [DIKW transformation functions, completed item](https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html) - Data to Knowledge transformation framing for runtime evaluation
-- [x] [Formal intent specification and reward hacking, completed item](https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html) - why incomplete specifications are gameable
-- [x] [Universal policy synchronisation and integrity, completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) - digest-bound lifecycle identity and attestation pattern
-- [x] [Invariant-based anomaly detection in the Policy Information Point (PIP), completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html) - prior-based anomaly detection requirement that consumes the baseline
-- [x] [Ricardian Contracts, Ian Grigg](https://iang.org/papers/ricardian_contract.html) - original architecture for human-readable plus machine-processable document binding
-- [x] [Security and Privacy Controls for Information Systems and Organizations, NIST SP 800-53 Rev. 5](https://doi.org/10.6028/NIST.SP.800-53r5) - authoritative control catalog
-- [x] [NIST SP 800-53 Rev. 5 landing page](https://csrc.nist.gov/pubs/sp/800/53/r5/final) - official publication landing page for the control catalog
-- [x] [Guide to Attribute Based Access Control (ABAC), NIST SP 800-162](https://csrc.nist.gov/pubs/sp/800/162/final) - subject, object, action, and environment evaluation model
-- [x] [eXtensible Access Control Markup Language (XACML) 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) - authoritative definitions of PAP, PDP, Policy Enforcement Point (PEP), and PIP
-- [x] [Verifiable Credentials Data Model, W3C Recommendation](https://www.w3.org/TR/vc-data-model/) - signed claims, schemas, proofs, status, and credential graphs
-- [x] [Authorization Capabilities for Linked Data (ZCAP-LD)](https://w3c-ccg.github.io/zcap-spec/) - capability delegation, attenuation, and caveats as a modern object capability reference
-- [x] [Statement layer specification, in-toto attestation](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md) - digest-bound immutable subject semantics
-- [x] [ResourceDescriptor field type specification, in-toto attestation](https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md) - immutable digest and annotation semantics
-- [x] [Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0](https://slsa.dev/spec/v1.0/provenance) - externalParameters, resolvedDependencies, and subject binding for provenance-carrying records
+- [x] [Organisational intent formal specification, completed item](https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html) — - organisation-level analogue and machine-checkable derivation precedent
+- [x] [Intent-Driven Development (IDD), completed item](https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html) — - intent as the primary specification primitive above tests and contracts
+- [x] [Ricardian Contract model, completed item](https://davidamitchell.github.io/Research/research/2026-03-14-ricardian-contract-model.html) — - prose plus machine-readable plus cryptographic binding pattern
+- [x] [Language designed for LLM agents to produce, completed item](https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html) — - bounded output format constraints for agent evaluability
+- [x] [DIKW transformation functions, completed item](https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html) — - Data to Knowledge transformation framing for runtime evaluation
+- [x] [Formal intent specification and reward hacking, completed item](https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html) — - why incomplete specifications are gameable
+- [x] [Universal policy synchronisation and integrity, completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) — - digest-bound lifecycle identity and attestation pattern
+- [x] [Invariant-based anomaly detection in the Policy Information Point (PIP), completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html) — - prior-based anomaly detection requirement that consumes the baseline
+- [x] [Ricardian Contracts, Ian Grigg](https://iang.org/papers/ricardian_contract.html) — - original architecture for human-readable plus machine-processable document binding
+- [x] [Security and Privacy Controls for Information Systems and Organizations, NIST SP 800-53 Rev. 5](https://doi.org/10.6028/NIST.SP.800-53r5) — - authoritative control catalog
+- [x] [NIST SP 800-53 Rev. 5 landing page](https://csrc.nist.gov/pubs/sp/800/53/r5/final) — - official publication landing page for the control catalog
+- [x] [Guide to Attribute Based Access Control (ABAC), NIST SP 800-162](https://csrc.nist.gov/pubs/sp/800/162/final) — - subject, object, action, and environment evaluation model
+- [x] [eXtensible Access Control Markup Language (XACML) 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) — - authoritative definitions of PAP, PDP, Policy Enforcement Point (PEP), and PIP
+- [x] [Verifiable Credentials Data Model, W3C Recommendation](https://www.w3.org/TR/vc-data-model/) — - signed claims, schemas, proofs, status, and credential graphs
+- [x] [Authorization Capabilities for Linked Data (ZCAP-LD)](https://w3c-ccg.github.io/zcap-spec/) — - capability delegation, attenuation, and caveats as a modern object capability reference
+- [x] [Statement layer specification, in-toto attestation](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md) — - digest-bound immutable subject semantics
+- [x] [ResourceDescriptor field type specification, in-toto attestation](https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md) — - immutable digest and annotation semantics
+- [x] [Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0](https://slsa.dev/spec/v1.0/provenance) — - externalParameters, resolvedDependencies, and subject binding for provenance-carrying records
 
 ## Related
 

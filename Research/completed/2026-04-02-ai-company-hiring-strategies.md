@@ -76,41 +76,41 @@ The Wayback Machine angle is particularly valuable: job ads are ephemeral (they 
 
 ## Sources
 
-- [x] [OpenAI Careers](https://openai.com/careers) - official source, but blocked by Cloudflare from the runner during this session
-- [x] [Anthropic Careers](https://www.anthropic.com/careers) - current careers landing page
-- [x] [Anthropic Jobs](https://www.anthropic.com/careers/jobs) - public job listing page
-- [x] [Anthropic Greenhouse jobs Application Programming Interface (API)](https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true) - structured live role data used for team counts
-- [x] [Anthropic expansion announcement](https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of) - official commercial expansion and executive hiring signal
-- [x] [Google DeepMind Careers](https://deepmind.google/careers/) - current careers landing page
-- [x] [Google DeepMind Greenhouse jobs API](https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true) - structured live role data used for team counts
-- [x] [Google DeepMind Gemini Robotics announcement](https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/) - official product direction
-- [x] [Meta AI Careers](https://www.metacareers.com/areas-of-work/artificial-intelligence/) - login wall from this runner
-- [x] [Meta Superintelligence Labs memo coverage](https://www.cnbc.com/2025/06/30/mark-zuckerberg-creating-meta-superintelligence-labs-read-the-memo.html) - public reporting on leadership concentration and strategic reorganisation
-- [x] [xAI Careers](https://x.ai/careers) - official source, but blocked by Cloudflare from the runner during this session
-- [x] [xAI Greenhouse jobs API](https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true) - structured live role data used for team counts
-- [x] [xAI Memphis expansion announcement](https://memphischamber.com/blog/press-release/xai-memphis-announces-expansion-of-supercomputer-with-addition-of-tech-companies-in-digital-delta/) - infrastructure expansion signal
-- [x] [Mistral AI Careers](https://mistral.ai/careers/) - current careers landing page
-- [x] [Mistral Lever jobs API](https://api.lever.co/v0/postings/mistral?mode=json) - structured live role data used for team counts
-- [x] [Mistral Le Chat Enterprise announcement](https://mistral.ai/news/le-chat-enterprise) - official enterprise strategy announcement
-- [x] [Cohere Careers](https://cohere.com/careers) - current careers landing page
-- [x] [Cohere Ashby job board](https://jobs.ashbyhq.com/cohere) - structured live role data used for team counts
-- [x] [Cohere North](https://cohere.com/north) - official enterprise agent platform positioning
-- [x] [Cohere private deployments](https://cohere.com/private-deployments) - official private deployment positioning
-- [x] [Cohere public sector solutions](https://cohere.com/solutions/public-sector) - official regulated deployment positioning
-- [x] [Wayback Machine](https://web.archive.org/) - archived snapshots used for historical comparison, strongest exact series was Mistral
-- [x] [OpenAI jobs mirror on Built In](https://builtin.com/company/openai/jobs) - secondary source used because OpenAI official page was blocked
-- [x] [OpenAI for Developers in 2025](https://developers.openai.com/blog/openai-for-developers-2025) - official product direction for Codex and agent tooling
-- [x] [LinkedIn Jobs - AI companies](https://www.linkedin.com/jobs/search/?keywords=artificial+intelligence+research) - public aggregate view only, weak company-level signal without login
-- [x] [Glassdoor AI company reviews and job listings](https://www.glassdoor.com/Jobs/artificial-intelligence-jobs-SRCH_KO0,25.htm) - blocked by anti-bot controls during this session
-- [x] [Levels.fyi AI company compensation data](https://www.levels.fyi/companies/?search=AI) - accessible company directory, but limited team-level signal
-- [x] [Hacker News "Who is Hiring?" threads](https://news.ycombinator.com/submitted?id=whoishiring) - rate-limited during this session
-- [x] [Indeed AI company job postings](https://www.indeed.com/jobs?q=artificial+intelligence+research) - blocked by anti-bot controls during this session
-- [x] [Layoffs.fyi tech layoffs tracker](https://layoffs.fyi/) - contextual check for contraction signals
-- [x] [The Information: AI talent wars coverage](https://www.theinformation.com/articles/the-great-ai-talent-war) - blocked by Cloudflare or subscription controls during this session
-- [x] [Bloomberg: AI hiring and retention analysis](https://www.bloomberg.com/technology) - blocked by anti-bot controls during this session
-- [x] [Sam Altman LinkedIn](https://www.linkedin.com/in/sama/) - login-limited during this session
-- [x] [Dario Amodei LinkedIn](https://www.linkedin.com/in/dario-amodei-3934934/) - login-limited during this session
-- [x] [Demis Hassabis LinkedIn](https://www.linkedin.com/in/demishassabis/) - login-limited during this session
+- [x] [OpenAI Careers](https://openai.com/careers) — - official source, but blocked by Cloudflare from the runner during this session
+- [x] [Anthropic Careers](https://www.anthropic.com/careers) — - current careers landing page
+- [x] [Anthropic Jobs](https://www.anthropic.com/careers/jobs) — - public job listing page
+- [x] [Anthropic Greenhouse jobs Application Programming Interface (API)](https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true) — - structured live role data used for team counts
+- [x] [Anthropic expansion announcement](https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of) — - official commercial expansion and executive hiring signal
+- [x] [Google DeepMind Careers](https://deepmind.google/careers/) — - current careers landing page
+- [x] [Google DeepMind Greenhouse jobs API](https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true) — - structured live role data used for team counts
+- [x] [Google DeepMind Gemini Robotics announcement](https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/) — - official product direction
+- [x] [Meta AI Careers](https://www.metacareers.com/areas-of-work/artificial-intelligence/) — - login wall from this runner
+- [x] [Meta Superintelligence Labs memo coverage](https://www.cnbc.com/2025/06/30/mark-zuckerberg-creating-meta-superintelligence-labs-read-the-memo.html) — - public reporting on leadership concentration and strategic reorganisation
+- [x] [xAI Careers](https://x.ai/careers) — - official source, but blocked by Cloudflare from the runner during this session
+- [x] [xAI Greenhouse jobs API](https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true) — - structured live role data used for team counts
+- [x] [xAI Memphis expansion announcement](https://memphischamber.com/blog/press-release/xai-memphis-announces-expansion-of-supercomputer-with-addition-of-tech-companies-in-digital-delta/) — - infrastructure expansion signal
+- [x] [Mistral AI Careers](https://mistral.ai/careers/) — - current careers landing page
+- [x] [Mistral Lever jobs API](https://api.lever.co/v0/postings/mistral?mode=json) — - structured live role data used for team counts
+- [x] [Mistral Le Chat Enterprise announcement](https://mistral.ai/news/le-chat-enterprise) — - official enterprise strategy announcement
+- [x] [Cohere Careers](https://cohere.com/careers) — - current careers landing page
+- [x] [Cohere Ashby job board](https://jobs.ashbyhq.com/cohere) — - structured live role data used for team counts
+- [x] [Cohere North](https://cohere.com/north) — - official enterprise agent platform positioning
+- [x] [Cohere private deployments](https://cohere.com/private-deployments) — - official private deployment positioning
+- [x] [Cohere public sector solutions](https://cohere.com/solutions/public-sector) — - official regulated deployment positioning
+- [x] [Wayback Machine](https://web.archive.org/) — - archived snapshots used for historical comparison, strongest exact series was Mistral
+- [x] [OpenAI jobs mirror on Built In](https://builtin.com/company/openai/jobs) — - secondary source used because OpenAI official page was blocked
+- [x] [OpenAI for Developers in 2025](https://developers.openai.com/blog/openai-for-developers-2025) — - official product direction for Codex and agent tooling
+- [x] [LinkedIn Jobs - AI companies](https://www.linkedin.com/jobs/search/?keywords=artificial+intelligence+research) — - public aggregate view only, weak company-level signal without login
+- [x] [Glassdoor AI company reviews and job listings](https://www.glassdoor.com/Jobs/artificial-intelligence-jobs-SRCH_KO0,25.htm) — - blocked by anti-bot controls during this session
+- [x] [Levels.fyi AI company compensation data](https://www.levels.fyi/companies/?search=AI) — - accessible company directory, but limited team-level signal
+- [x] [Hacker News "Who is Hiring?" threads](https://news.ycombinator.com/submitted?id=whoishiring) — - rate-limited during this session
+- [x] [Indeed AI company job postings](https://www.indeed.com/jobs?q=artificial+intelligence+research) — - blocked by anti-bot controls during this session
+- [x] [Layoffs.fyi tech layoffs tracker](https://layoffs.fyi/) — - contextual check for contraction signals
+- [x] [The Information: AI talent wars coverage](https://www.theinformation.com/articles/the-great-ai-talent-war) — - blocked by Cloudflare or subscription controls during this session
+- [x] [Bloomberg: AI hiring and retention analysis](https://www.bloomberg.com/technology) — - blocked by anti-bot controls during this session
+- [x] [Sam Altman LinkedIn](https://www.linkedin.com/in/sama/) — - login-limited during this session
+- [x] [Dario Amodei LinkedIn](https://www.linkedin.com/in/dario-amodei-3934934/) — - login-limited during this session
+- [x] [Demis Hassabis LinkedIn](https://www.linkedin.com/in/demishassabis/) — - login-limited during this session
 
 ---
 

@@ -76,7 +76,7 @@ The goal is to produce actionable insights and a working framework: how should a
 - [ ] TOGAF 10 standard overview (open sections) — enterprise architecture context layers
 - [ ] Cynefin framework documentation (Cognitive Edge) — context and decision complexity
 - [ ] Wardley Maps introduction (Simon Wardley) — strategic context and situational awareness
-- [ ] https://arxiv.org/abs/2309.11206 — "AgentBench: Evaluating Large Language Models (LLMs) as Agents" — empirical grounding for agent decision quality
+- [ ] ["AgentBench: Evaluating Large Language Models (LLMs) as Agents" — empirical grounding for agent decision quality](https://arxiv.org/abs/2309.11206)
 - [ ] Recent ACL/NeurIPS/ICLR papers on context window management and long-context reasoning (search at retrieval time for latest, post-2024)
 
 ---

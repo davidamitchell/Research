@@ -628,6 +628,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -2056,11 +2060,184 @@ def _render_claim(text: str) -> str:
     return "".join(parts)
 
 
-def _render_key_claims(meta_claims: list[str]) -> str:
-    """Render key claims block from pre-extracted, clean claim sentences."""
+def _extract_citation_label(display_name: str, url: str) -> str:
+    """Extract a short ``Author (Year)`` label from a source display name and URL.
+
+    Tries patterns in priority order, then falls back to the display-name's
+    first capitalised word, then to the registrable domain from the URL.
+
+    Handled patterns (examples → output):
+    - ``"(Zheng et al., 2023)"``                         → ``Zheng et al. (2023)``
+    - ``"(Brooks, 1975)"``                               → ``Brooks (1975)``
+    - ``"Friston, K. et al. (2022). Title"``             → ``Friston et al. (2022)``
+    - ``"Seth, A.K. (2021). Title"``                     → ``Seth (2021)``
+    - ``"Adams et al. (2023). Title"``                   → ``Adams et al. (2023)``
+    - ``"RAPTOR (2024)"`` / ``"Brooks (1975)"``          → ``RAPTOR (2024)``
+    - ``"Bank for International Settlements (BIS): …"``  → ``BIS (year or n.d.)``
+    - ``"IAASB: Technology papers (2023–2025)"``         → ``IAASB (2023)``
+    - ``"SQLite docs"``                                  → ``SQLite (n.d.)``
+    - ``"learn.microsoft.com/…"``                        → ``Microsoft (n.d.)``
+    """
+    name = display_name.strip()
+
+    # ── 1. et al. inside parens anywhere: (Surname et al., YYYY)
+    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ\-]+)\s+et\s+al\.?,?\s*(\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} et al. ({m.group(2)})"
+
+    # ── 2. Single surname + year inside parens anywhere: (Surname, YYYY)
+    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ\-]+),\s*(\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # ── 3. "Surname, Initials. et al. (YYYY)" at start
+    #   e.g. "Friston, K. et al. (2022). Title"
+    m = re.match(r"([A-Z][A-Za-zÀ-ÿ\-]+),\s+[A-Z][A-Za-z.]*\.?\s+et\s+al\.?\s*\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} et al. ({m.group(2)})"
+
+    # ── 4. "Surname, Initials. (YYYY)" at start — single author with initials
+    #   e.g. "Seth, A.K. (2021). Title", "Manchak, JB (2025). Title"
+    m = re.match(r"([A-Z][A-Za-zÀ-ÿ\-]+),\s+[A-Z][A-Za-z.]*\.?\s*\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # ── 5. "Surname et al. (YYYY)" at start (no initials, year outside parens)
+    #   e.g. "Adams et al. (2023). Title", "Zheng et al. (2023) Title"
+    m = re.match(r"([A-Z][A-Za-zÀ-ÿ\-]+)\s+et\s+al\.?\s*\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} et al. ({m.group(2)})"
+
+    # ── 6. "Word (YYYY)" — identifier or short org name followed by bare year in parens
+    #   e.g. "RAPTOR (2024)", "Brooks (1975)", "Anthropic (2022)"
+    m = re.search(r"([A-Z][A-Za-z0-9\-]+)\s+\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # ── 7. "Full Name (ACRONYM): …" — extract acronym from parens before colon
+    #   e.g. "Bank for International Settlements (BIS): Title (2024)"
+    m = re.search(r"\(([A-Z]{2,8})\)\s*:", name)
+    if m:
+        acronym = m.group(1)
+        year_m = re.search(r"\b(\d{4})\b", name)
+        year = year_m.group(1) if year_m else None
+        return f"{acronym} ({year})" if year else f"{acronym} (n.d.)"
+
+    # ── 8. "OrgName: description …" or "OrgName – title …" — org before separator
+    #   e.g. "IAASB: Technology papers (2023–2025)", "McKinsey: Report title"
+    #   e.g. "Ke et al. — LightGBM paper (2017)", "DORA — State of DevOps 2024"
+    #   Cap at 35 chars to avoid matching sentence-initial text as an org name.
+    #   Allow at most one period (covers "et al." abbreviation but blocks initials).
+    m = re.match(r"^(.{2,35}?)\s*(?::\s+|\s+[–—]\s+)", name)
+    if m:
+        org = m.group(1).strip(" -–—")
+        if re.match(r"^[A-Z]", org) and org.count(".") <= 1 and 2 <= len(org) <= 35:
+            year_m = re.search(r"\b(\d{4})\b", name)
+            year = year_m.group(1) if year_m else None
+            return f"{org} ({year})" if year else f"{org} (n.d.)"
+
+    # ── Fallback 1a: all-caps acronym at start of display name (e.g. IEEE, FICO, APRA).
+    #   Boundary allows space, comma, colon, dash, or end-of-string so "DORA, title"
+    #   and "IEEE 2025" both match while "IEEEsome" (no separator) does not.
+    if name:
+        acronym_m = re.match(r"^([A-Z]{2,10})(?:[\s,\-:;(]|$)", name)
+        if acronym_m:
+            org = acronym_m.group(1)
+            year_m = re.search(r"\b(\d{4})\b", name)
+            year = year_m.group(1) if year_m else None
+            return f"{org} ({year})" if year else f"{org} (n.d.)"
+
+    # ── Fallback 1b: first capitalised word from the display name.
+    #   Preserves original casing (e.g. "SQLite" not "Sqlite", "OpenAI" not "Openai").
+    #   Only fires when the word is >= 5 chars to avoid meaningless single-word labels.
+    if name:
+        cap_word = re.match(r"^([A-Z][A-Za-z0-9]{4,25})", name)
+        if cap_word:
+            org = cap_word.group(1)
+            year_m = re.search(r"\b(\d{4})\b", name)
+            year = year_m.group(1) if year_m else None
+            return f"{org} ({year})" if year else f"{org} (n.d.)"
+
+    # ── Fallback 1c: last capitalised word before a bare year at the end of the string.
+    #   Covers "Description — Publisher YEAR" patterns where the publisher is short.
+    #   e.g. "Knowledge graphs intersection — Springer 2024" → "Springer (2024)".
+    m = re.search(r"([A-Z][A-Za-z0-9]{3,25})\s+(\d{4})\s*$", name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # ── Fallback 2: registrable domain from the URL.
+    #   Handles country-code second-level domains (.co.uk, .gov.au, .ac.uk, etc.)
+    #   so that e.g. bankofengland.co.uk → "Bankofengland" not "Co".
+    host_m = re.search(r"https?://([^/]+)", url)
+    if host_m:
+        host = host_m.group(1)
+        parts = host.split(".")
+        cc_tlds = {"uk", "au", "nz", "jp", "in", "br", "de", "fr", "ca", "za", "sg", "eu"}
+        cc_slds = {"co", "gov", "org", "net", "edu", "ac", "govt", "com", "ltd", "sch"}
+        if len(parts) >= 3 and parts[-1] in cc_tlds and parts[-2] in cc_slds:
+            org = parts[-3]
+        elif len(parts) >= 2:
+            org = parts[-2]
+        else:
+            org = parts[0]
+        return f"{org.capitalize()} (n.d.)"
+    return "Source (n.d.)"
+
+
+def _render_source_links(sources: list[str], url_to_label: dict[str, str] | None = None) -> str:
+    """Render inline citation links conforming to the inline-citation skill.
+
+    Each source is rendered as ``<a href="URL">Author (Year)</a>`` using the
+    label from *url_to_label* when available, otherwise falling back to a
+    domain-derived ``Org (n.d.)`` label.
+    """
+    if not sources:
+        return ""
+    labels = url_to_label or {}
+    links = []
+    seen: set[str] = set()
+    for url in sources:
+        if url in seen:
+            continue
+        seen.add(url)
+        label = labels.get(url)
+        if not label:
+            # Fallback: derive org name from registrable domain
+            label = _extract_citation_label("", url)
+        safe_url = url.replace('"', "&quot;")
+        links.append(
+            f'<a class="claim-source-link" href="{safe_url}"'
+            f' target="_blank" rel="noopener" title="{escape(url)}">{escape(label)}</a>'
+        )
+    return f'<span class="claim-sources">{"".join(links)}</span>'
+
+
+def _render_key_claims(meta_claims: list, url_to_label: dict[str, str] | None = None) -> str:
+    """Render key claims block from pre-extracted claim objects.
+
+    Each entry may be either:
+      - a ``str``  (legacy format — no source links)
+      - a ``dict`` with ``"text"`` and ``"sources"`` keys (current format)
+
+    *url_to_label* is a ``{url: "Author (Year)"}`` mapping built from the item's
+    Sources section; it is used to render conformant inline-citation anchors.
+    """
     if not meta_claims:
         return ""
-    items_html = "".join(f"<li>{_render_claim(c)}</li>\n" for c in meta_claims)
+
+    def _render_item(claim: object) -> str:
+        if isinstance(claim, dict):
+            text = claim.get("text", "")
+            sources = claim.get("sources", [])
+        else:
+            text = str(claim)
+            sources = []
+        rendered = _render_claim(text)
+        if sources:
+            rendered += _render_source_links(sources, url_to_label)
+        return f"<li>{rendered}</li>\n"
+
+    items_html = "".join(_render_item(c) for c in meta_claims)
     return (
         '<div class="key-claims">'
         '<div class="key-claims-label">key claims</div>'
@@ -2244,11 +2421,14 @@ def build_item_page(
     }.get(confidence, "badge-confidence-medium")
     confidence_badge = f'<span class="badge {conf_class}">{escape(confidence)}</span> '
 
-    # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
-    key_claims_html = _render_key_claims(meta_claims or [])
-
-    # Build source refs for autolinking
+    # Build source refs for autolinking and citation label lookup
     source_refs = parse_source_refs(item.get("_sources_text", ""))
+
+    # Build url→"Author (Year)" label map from the Sources section display names
+    url_to_label = {url: _extract_citation_label(name, url) for name, url in source_refs.items()}
+
+    # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
+    key_claims_html = _render_key_claims(meta_claims or [], url_to_label)
 
     sections_html = ""
     for section_name in SECTIONS_ORDERED:

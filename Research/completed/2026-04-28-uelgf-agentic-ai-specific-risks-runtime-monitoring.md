@@ -65,28 +65,28 @@ What agentic Artificial Intelligence (AI)-specific risk categories, specifically
 
 ## Sources
 
-- [x] [UELGF complete framework synthesis](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html) - primary framework being extended
-- [x] [UELGF runtime feedback loop](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html) - specific component under extension
-- [x] [UELGF governed golden rails](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html) - rail layer integration points
-- [x] [UELGF entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html) - entity and relationship-model baseline
-- [x] [Agentic AI regulatory preconditions and control failure assessment](https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html) - existing agentic risk baseline
-- [x] [AI agent control plane architecture in the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - control-plane context
-- [x] [Policy Information Point (PIP) invariant anomaly detection](https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html) - anomaly-detection patterns relevant to drift detection
-- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - official NIST framework publication page
-- [x] [NIST AI RMF Core](https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr) - continuous, lifecycle-wide risk-management outcomes
-- [x] [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) - implementation guidance for Govern, Map, Measure, and Manage functions
-- [x] [Anthropic, Claude's character](https://www.anthropic.com/research/claude-character) - deployed-model behavior, truthfulness, and alignment framing
-- [ ] [OpenAI, Practices for Governing Agentic AI Systems](https://openai.com/index/practices-for-governing-agentic-ai-systems/) - official page located but not directly retrievable in this runtime; not used for downstream factual claims
-- [ ] [OpenAI, How we monitor internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/) - official page located but not directly retrievable in this runtime; not used for downstream factual claims
-- [x] [Google DeepMind, Evaluating Frontier Models for Dangerous Capabilities](https://deepmind.google/research/publications/78150/) - official capability-evaluation and early-warning framework
-- [x] [Perez et al., Ignore Previous Prompt: Attack Techniques for Language Models](https://arxiv.org/abs/2211.09527) - prompt hijacking and stochastic misalignment risks
-- [x] [Weidinger et al., Taxonomy of Risks posed by Language Models](https://philsci-archive.pitt.edu/21523/) - accessible copy of the risk-taxonomy paper
-- [x] [Hallucination Detection in Foundation Models for Decision-Making: A Literature Review](https://arxiv.org/abs/2403.16527) - decision-loop hallucination detection and mitigation survey
-- [x] [Microsoft, Best Practices for Mitigating Hallucinations in Large Language Models (LLMs)](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129) - runtime groundedness, source confidence, and human-review patterns
-- [x] [International Conference on Learning Representations (ICLR), Why Do Multiagent Systems Fail?](https://iclr.cc/virtual/2025/33314) - failure taxonomy for multi-agent systems
-- [x] [MAEBE: Multi-Agent Emergent Behavior Framework](https://arxiv.org/abs/2506.03053) - emergent group dynamics and peer-pressure effects in agent ensembles
-- [x] [Concept-based Understanding of Emergent Multi-Agent Behavior](https://openreview.net/forum?id=zt5JpGQ8WhH) - interpretable runtime detection of coordination and coordination failures
-- [x] [Anthropic, Natural emergent misalignment from reward hacking](https://www.anthropic.com/research/emergent-misalignment-reward-hacking) - reward hacking, sabotage, and context-dependent misalignment in realistic training environments
+- [x] [UELGF complete framework synthesis](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html) — - primary framework being extended
+- [x] [UELGF runtime feedback loop](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html) — - specific component under extension
+- [x] [UELGF governed golden rails](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html) — - rail layer integration points
+- [x] [UELGF entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html) — - entity and relationship-model baseline
+- [x] [Agentic AI regulatory preconditions and control failure assessment](https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html) — - existing agentic risk baseline
+- [x] [AI agent control plane architecture in the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) — - control-plane context
+- [x] [Policy Information Point (PIP) invariant anomaly detection](https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html) — - anomaly-detection patterns relevant to drift detection
+- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - official NIST framework publication page
+- [x] [NIST AI RMF Core](https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr) — - continuous, lifecycle-wide risk-management outcomes
+- [x] [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) — - implementation guidance for Govern, Map, Measure, and Manage functions
+- [x] [Anthropic, Claude's character](https://www.anthropic.com/research/claude-character) — - deployed-model behavior, truthfulness, and alignment framing
+- [ ] [OpenAI, Practices for Governing Agentic AI Systems](https://openai.com/index/practices-for-governing-agentic-ai-systems/) — - official page located but not directly retrievable in this runtime; not used for downstream factual claims
+- [ ] [OpenAI, How we monitor internal coding agents for misalignment](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/) — - official page located but not directly retrievable in this runtime; not used for downstream factual claims
+- [x] [Google DeepMind, Evaluating Frontier Models for Dangerous Capabilities](https://deepmind.google/research/publications/78150/) — - official capability-evaluation and early-warning framework
+- [x] [Perez et al., Ignore Previous Prompt: Attack Techniques for Language Models](https://arxiv.org/abs/2211.09527) — - prompt hijacking and stochastic misalignment risks
+- [x] [Weidinger et al., Taxonomy of Risks posed by Language Models](https://philsci-archive.pitt.edu/21523/) — - accessible copy of the risk-taxonomy paper
+- [x] [Hallucination Detection in Foundation Models for Decision-Making: A Literature Review](https://arxiv.org/abs/2403.16527) — - decision-loop hallucination detection and mitigation survey
+- [x] [Microsoft, Best Practices for Mitigating Hallucinations in Large Language Models (LLMs)](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129) — - runtime groundedness, source confidence, and human-review patterns
+- [x] [International Conference on Learning Representations (ICLR), Why Do Multiagent Systems Fail?](https://iclr.cc/virtual/2025/33314) — - failure taxonomy for multi-agent systems
+- [x] [MAEBE: Multi-Agent Emergent Behavior Framework](https://arxiv.org/abs/2506.03053) — - emergent group dynamics and peer-pressure effects in agent ensembles
+- [x] [Concept-based Understanding of Emergent Multi-Agent Behavior](https://openreview.net/forum?id=zt5JpGQ8WhH) — - interpretable runtime detection of coordination and coordination failures
+- [x] [Anthropic, Natural emergent misalignment from reward hacking](https://www.anthropic.com/research/emergent-misalignment-reward-hacking) — - reward hacking, sabotage, and context-dependent misalignment in realistic training environments
 
 ## Related
 

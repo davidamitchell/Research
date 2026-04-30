@@ -77,7 +77,7 @@ The proposed two-plane model, a production plane where AI makes human employees 
 - [x] [Qualtrics Experience Management (XM) Institute — Consumer Sentiment Toward AI Evolves, 2025 (PDF)](https://www.qualtrics.com/m/www.xminstitute.com/wp-content/uploads/2025/01/XMI_RR-DS_ConsumerSentimentAI-Global-2025.pdf)
 - [x] [McKinsey — How AI Will Transform Banking](https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise)
 - [x] [APRA CPS 230 — Operational Risk Management](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect)
-- [x] [ABS Handbook on Generative AI Guardrails in Banking (PDF)](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf)
+- [x] [ABS Handbook on Generative AI Guardrails in Banking (PDF)](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026) — .pdf)
 - [x] [MAS AI Risk Toolkit for Financial Institutions](https://www.singaporelawwatch.sg/Headlines/MAS-launches-AI-risk-toolkit-for-financial-institutions-with-case-studies-from-DBS-peers)
 - [x] [Dataconomy — APAC Customers Reveal Trust in AI, But Concerns Persist](https://dataconomy.com/2024/09/16/apac-customers-trust-in-gen-ai-2024/)
 - [x] [FutureCIO — Consumer Sentiment on AI Far More Positive in APAC](https://futurecio.tech/study-finds-consumer-sentiment-on-ai-far-more-positive-in-apac/)

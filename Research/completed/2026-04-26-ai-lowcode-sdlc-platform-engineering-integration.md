@@ -67,29 +67,29 @@ Cross-references:
 
 ## Sources
 
-- [x] [DevOps Research and Assessment (DORA) Accelerate State of DevOps Report 2024](https://dora.dev/research/2024/dora-report/) - platform engineering, delivery stability, testing, and continuous-improvement evidence.
-- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)](https://csrc.nist.gov/pubs/sp/800/218/final) - secure-development practices intended to integrate into each Software Development Life Cycle (SDLC) implementation.
-- [x] [GitHub Actions deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) - protected environments, required reviewers, branch restrictions, and third-party deployment gates.
-- [x] [GitHub custom deployment protection rules](https://docs.github.com/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules) - external change, observability, and quality systems as release gates.
-- [x] [Azure DevOps approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops) - resource-owned approvals and checks outside pipeline code.
-- [x] [Backstage overview](https://backstage.io/docs/overview/what-is-backstage) - developer portal, software catalog, templates, docs, and plugin model.
-- [x] [Backstage software templates](https://backstage.io/docs/features/software-templates/) - scaffolding steps, input review, task execution, and standardization mechanisms.
-- [x] [Backstage plugins](https://backstage.io/plugins/) - evidence that Backstage exposes an extensible plugin ecosystem rather than a fixed portal surface.
-- [x] [DeepEval documentation](https://docs.confident-ai.com/) - pytest-native AI evaluations that run in CI/CD and expose research-backed metrics.
-- [x] [Ragas documentation](https://docs.ragas.io/en/latest/) - experiments-first evaluation loops for RAG and other LLM applications.
-- [x] [Terraform documentation](https://developer.hashicorp.com/terraform/docs) - reusable modules, Command Line Interface (CLI) workflows, and team governance.
-- [x] [Use Terraform to create Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform) - official Microsoft source showing AI Foundry resources, projects, deployments, connections, and capability hosts managed with Terraform providers.
-- [x] [Terraform resource for Amazon Bedrock agents](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent) - official registry evidence that Amazon Bedrock agent resources are represented as Terraform-managed objects.
-- [x] [Open Policy Agent (OPA) integration](https://openpolicyagent.org/docs/integration) - policy decision decoupling, management interfaces, status, health, and decision logs.
-- [x] [Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) - native low-code pipeline governance, deployment validation, delegated deployments, and extensibility.
-- [x] [Block unmanaged customizations](https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations) - production lock-down and explicit statement that Copilot Studio publishing fails when unmanaged customizations are blocked.
-- [x] [Managed Environments overview](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) - environment-level governance features for Power Platform.
-- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) - direct publish behavior across connected channels and the need for publish-time testing.
-- [x] [Deploy a prompt flow for real-time inference](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy) - direct deployment flow for prompt-based AI endpoints and current retirement notice for Prompt Flow.
-- [x] [What lifecycle management model is required for AI models, prompts, and low-code applications?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html) - related repository work on versioning, rollback, and promoted artifact state.
-- [x] [Where should governance enforcement points be implemented within enterprise architecture?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) - related repository work on layered enforcement.
-- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - related repository work on low-code release governance.
-- [x] [What control-plane architecture is required to manage AI agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - related repository work on policy distribution and feedback loops.
+- [x] [DevOps Research and Assessment (DORA) Accelerate State of DevOps Report 2024](https://dora.dev/research/2024/dora-report/) — - platform engineering, delivery stability, testing, and continuous-improvement evidence.
+- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)](https://csrc.nist.gov/pubs/sp/800/218/final) — - secure-development practices intended to integrate into each Software Development Life Cycle (SDLC) implementation.
+- [x] [GitHub Actions deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) — - protected environments, required reviewers, branch restrictions, and third-party deployment gates.
+- [x] [GitHub custom deployment protection rules](https://docs.github.com/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules) — - external change, observability, and quality systems as release gates.
+- [x] [Azure DevOps approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops) — - resource-owned approvals and checks outside pipeline code.
+- [x] [Backstage overview](https://backstage.io/docs/overview/what-is-backstage) — - developer portal, software catalog, templates, docs, and plugin model.
+- [x] [Backstage software templates](https://backstage.io/docs/features/software-templates/) — - scaffolding steps, input review, task execution, and standardization mechanisms.
+- [x] [Backstage plugins](https://backstage.io/plugins/) — - evidence that Backstage exposes an extensible plugin ecosystem rather than a fixed portal surface.
+- [x] [DeepEval documentation](https://docs.confident-ai.com/) — - pytest-native AI evaluations that run in CI/CD and expose research-backed metrics.
+- [x] [Ragas documentation](https://docs.ragas.io/en/latest/) — - experiments-first evaluation loops for RAG and other LLM applications.
+- [x] [Terraform documentation](https://developer.hashicorp.com/terraform/docs) — - reusable modules, Command Line Interface (CLI) workflows, and team governance.
+- [x] [Use Terraform to create Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform) — - official Microsoft source showing AI Foundry resources, projects, deployments, connections, and capability hosts managed with Terraform providers.
+- [x] [Terraform resource for Amazon Bedrock agents](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent) — - official registry evidence that Amazon Bedrock agent resources are represented as Terraform-managed objects.
+- [x] [Open Policy Agent (OPA) integration](https://openpolicyagent.org/docs/integration) — - policy decision decoupling, management interfaces, status, health, and decision logs.
+- [x] [Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) — - native low-code pipeline governance, deployment validation, delegated deployments, and extensibility.
+- [x] [Block unmanaged customizations](https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations) — - production lock-down and explicit statement that Copilot Studio publishing fails when unmanaged customizations are blocked.
+- [x] [Managed Environments overview](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) — - environment-level governance features for Power Platform.
+- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) — - direct publish behavior across connected channels and the need for publish-time testing.
+- [x] [Deploy a prompt flow for real-time inference](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy) — - direct deployment flow for prompt-based AI endpoints and current retirement notice for Prompt Flow.
+- [x] [What lifecycle management model is required for AI models, prompts, and low-code applications?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html) — - related repository work on versioning, rollback, and promoted artifact state.
+- [x] [Where should governance enforcement points be implemented within enterprise architecture?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) — - related repository work on layered enforcement.
+- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — - related repository work on low-code release governance.
+- [x] [What control-plane architecture is required to manage AI agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) — - related repository work on policy distribution and feedback loops.
 
 ## Related
 

@@ -86,30 +86,30 @@ Investigation methods:
 
 ## Sources
 
-- [x] Anvil project site: https://burkeholland.github.io/anvil/
-- [x] Multi-agent orchestration gist (overview page): https://gist.github.com/burkeholland/0e68481f96e94bbb98134fa6efd00436
-- [x] Raw orchestrator agent file: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md
-- [x] Raw planner agent file: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/planner.agent.md
-- [x] Raw coder agent file: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md
-- [x] Raw designer agent file: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md
-- [x] Max project site: https://burkeholland.github.io/max/
-- [x] Max documentation page: https://burkeholland.github.io/max/docs.html
-- [x] Max README: https://raw.githubusercontent.com/burkeholland/max/main/README.md
-- [x] GitHub Copilot SDK getting started: https://docs.github.com/en/copilot/how-tos/copilot-sdk/sdk-getting-started
-- [x] GitHub Copilot Chat in GitHub: https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github
-- [x] GitHub Copilot Chat in GitHub Mobile: https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile
-- [x] GitHub Copilot coding agent create a pull request (PR): https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr
-- [x] GitHub Copilot custom instructions on GitHub: https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions
-- [x] GitHub Copilot custom agents: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
-- [x] GitHub Copilot skills: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills
-- [x] skills.sh docs: https://skills.sh/docs
-- [x] Vercel guide to agent skills: https://vercel.com/kb/guide/agent-skills-creating-installing-and-sharing-reusable-agent-context
-- [x] Repo instructions URL: https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
-- [x] Prior completed research: https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md
-- [x] Prior completed research: https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md
-- [x] Prior completed research: https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-19-layered-org-llm-architecture.md
-- [x] Prior completed research: https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md
-- [x] Prior completed research: https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md
+- [x] [Anvil project site](https://burkeholland.github.io/anvil/)
+- [x] [Multi-agent orchestration gist (overview page)](https://gist.github.com/burkeholland/0e68481f96e94bbb98134fa6efd00436)
+- [x] [Raw orchestrator agent file](https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md)
+- [x] [Raw planner agent file](https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/planner.agent.md)
+- [x] [Raw coder agent file](https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md)
+- [x] [Raw designer agent file](https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md)
+- [x] [Max project site](https://burkeholland.github.io/max/)
+- [x] [Max documentation page](https://burkeholland.github.io/max/docs.html)
+- [x] [Max README](https://raw.githubusercontent.com/burkeholland/max/main/README.md)
+- [x] [GitHub Copilot SDK getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/sdk-getting-started)
+- [x] [GitHub Copilot Chat in GitHub](https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github)
+- [x] [GitHub Copilot Chat in GitHub Mobile](https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile)
+- [x] [GitHub Copilot coding agent create a pull request (PR)](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr)
+- [x] [GitHub Copilot custom instructions on GitHub](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
+- [x] [GitHub Copilot custom agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+- [x] [GitHub Copilot skills](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills)
+- [x] [skills.sh docs](https://skills.sh/docs)
+- [x] [Vercel guide to agent skills](https://vercel.com/kb/guide/agent-skills-creating-installing-and-sharing-reusable-agent-context)
+- [x] [Repo instructions URL](https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md)
+- [x] [Prior completed research](https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md)
+- [x] [Prior completed research](https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md)
+- [x] [Prior completed research](https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-19-layered-org-llm-architecture.md)
+- [x] [Prior completed research](https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md)
+- [x] [Prior completed research](https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md)
 
 ## Research Skill Output
 

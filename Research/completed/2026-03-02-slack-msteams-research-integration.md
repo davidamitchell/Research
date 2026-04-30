@@ -80,12 +80,12 @@ This item does NOT require credentials that are currently documented. A new Slac
 - [x] `Research/backlog/2026-02-27-interface-and-delivery.md` — upstream interface and delivery options item
 - [x] `Research/completed/2026-03-01-github-wiki-research-content.md` — existing delivery channel (wiki), same trigger pattern to reuse
 - [x] `Research/completed/2026-03-02-chat-conversational-interface.md` — conversational query interface (inbound query path)
-- [x] Slack Incoming Webhooks docs: https://api.slack.com/messaging/webhooks
-- [x] Slack app slash commands: https://api.slack.com/interactivity/slash-commands
-- [x] MS Teams Incoming Webhook: https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook
-- [x] MS Teams bot framework: https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots
+- [x] [Slack Incoming Webhooks docs](https://api.slack.com/messaging/webhooks)
+- [x] [Slack app slash commands](https://api.slack.com/interactivity/slash-commands)
+- [x] [MS Teams Incoming Webhook](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
+- [x] [MS Teams bot framework](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots)
 - [ ] GitHub Actions: `workflow_dispatch` with `inputs` — for triggering backlog capture from external webhooks
-- [x] `8398a7/action-slack`: https://github.com/8398a7/action-slack — community Slack notification Action (archived Sep 2025; replaced by `slackapi/slack-github-action`)
+- [x] [`8398a7/action-slack`](https://github.com/8398a7/action-slack) — community Slack notification Action (archived Sep 2025; replaced by `slackapi/slack-github-action`)
 
 ---
 

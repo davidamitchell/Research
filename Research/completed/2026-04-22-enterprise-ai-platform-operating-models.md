@@ -62,28 +62,27 @@ Decompose the question into sub-questions and describe how each will be investig
 ## Sources
 
 Starting points - papers, articles, videos, repos, docs.
-**Every source must include a URL.** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [x] [Team Topologies key concepts](https://teamtopologies.com/key-concepts) - replacement for the seeded Team Topologies platform-team URL, which returned 404 in this environment; used for platform teams, enabling teams, interaction modes, and cognitive load.
-- [x] [DevOps Research and Assessment (DORA) research program](https://dora.dev/research/) - research archive and core model.
-- [x] [2025 DORA report overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) - current evidence on AI-assisted software development, internal platforms, and workflow quality.
-- [x] [AWS Prescriptive Guidance: building a Cloud Center of Excellence (CCoE)](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html) - replacement for the seeded AWS whitepaper URL, which has moved.
-- [x] [Google Cloud: Designing cloud teams](https://cloud.google.com/resources/cloud-teams) - replacement for the seeded Google Cloud Center of Excellence URL, which returned 404 in this environment.
-- [x] [Conway's Law](https://www.melconway.com/Home/Conways_Law.html) - original statement of the organisational-design principle.
-- [x] [Bank of England, Prudential Regulation Authority (PRA), and Financial Conduct Authority (FCA) DP5/22](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) - governance and accountability questions for AI in financial services.
-- [x] [Monetary Authority of Singapore (MAS) FEAT page](https://www.mas.gov.sg/publications/monographs-or-information-paper/2018/FEAT) - official page located, but blocked in this environment; checked for accessibility and recorded as inaccessible for downstream factual use.
-- [x] [DBS responsible AI in banking](https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/responsible-ai-in-banking-gaining-a-competitive-edge.html) - platform, process, people model for scaled bank AI.
-- [x] [DBS 2024 Chief Information Officer (CIO) statement](https://www.dbs.com/annualreports/2024/cio-statement.html) - operating details on resiliency, governance, and AI deployment.
-- [x] [Morgan Stanley OpenAI milestone](https://www.morganstanley.com/press-releases/key-milestone-in-innovation-journey-with-openai) - controlled internal knowledge assistant for wealth management.
-- [x] [Morgan Stanley AI @ Morgan Stanley Debrief launch](https://www.morganstanley.com/press-releases/ai-at-morgan-stanley-debrief-launch) - adoption and human-in-the-loop deployment pattern.
-- [x] [Capital One scalable data management for AI](https://www.capitalone.com/tech/ai/data-management/) - central control plane plus central and federated operating options.
-- [x] [Capital One "You Build, Your Data"](https://www.capitalone.com/software/blog/capital-one-you-build-your-data/) - self-service platform with central and federated deployment models.
-- [x] [Capital One generative AI transparency disclosure](https://www.capitalone.com/digital/gai-transparency/) - official disclosure on customised open-source Large Language Model (LLM) development.
-- [x] [J.P. Morgan on AI in payments](https://www.jpmorgan.com/insights/payments/security-trust/ai-payments-efficiency-fraud-reduction) - board-level data governance and operating-model implications in financial services.
-- [x] [Enterprise AI capability model for use-case maturity decisions](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md) - prior completed repository work on shared capability foundations.
-- [x] [Layered organisation Large Language Model architecture](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md) - prior completed repository work on layered enterprise AI architecture.
-- [x] [The Software Factory](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-23-software-factory.md) - prior completed repository work on internal platforms, bottlenecks, and operating-model redesign.
-- [x] [Exploit-explore AI portfolio framework](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-exploit-explore-ai-portfolio-framework.md) - prior completed repository work on separating exploratory and exploitative AI effort.
+- [x] [Team Topologies key concepts](https://teamtopologies.com/key-concepts) — - replacement for the seeded Team Topologies platform-team URL, which returned 404 in this environment; used for platform teams, enabling teams, interaction modes, and cognitive load.
+- [x] [DevOps Research and Assessment (DORA) research program](https://dora.dev/research/) — - research archive and core model.
+- [x] [2025 DORA report overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — - current evidence on AI-assisted software development, internal platforms, and workflow quality.
+- [x] [AWS Prescriptive Guidance: building a Cloud Center of Excellence (CCoE)](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html) — - replacement for the seeded AWS whitepaper URL, which has moved.
+- [x] [Google Cloud: Designing cloud teams](https://cloud.google.com/resources/cloud-teams) — - replacement for the seeded Google Cloud Center of Excellence URL, which returned 404 in this environment.
+- [x] [Conway's Law](https://www.melconway.com/Home/Conways_Law.html) — - original statement of the organisational-design principle.
+- [x] [Bank of England, Prudential Regulation Authority (PRA), and Financial Conduct Authority (FCA) DP5/22](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) — - governance and accountability questions for AI in financial services.
+- [x] [Monetary Authority of Singapore (MAS) FEAT page](https://www.mas.gov.sg/publications/monographs-or-information-paper/2018/FEAT) — - official page located, but blocked in this environment; checked for accessibility and recorded as inaccessible for downstream factual use.
+- [x] [DBS responsible AI in banking](https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/responsible-ai-in-banking-gaining-a-competitive-edge.html) — - platform, process, people model for scaled bank AI.
+- [x] [DBS 2024 Chief Information Officer (CIO) statement](https://www.dbs.com/annualreports/2024/cio-statement.html) — - operating details on resiliency, governance, and AI deployment.
+- [x] [Morgan Stanley OpenAI milestone](https://www.morganstanley.com/press-releases/key-milestone-in-innovation-journey-with-openai) — - controlled internal knowledge assistant for wealth management.
+- [x] [Morgan Stanley AI @ Morgan Stanley Debrief launch](https://www.morganstanley.com/press-releases/ai-at-morgan-stanley-debrief-launch) — - adoption and human-in-the-loop deployment pattern.
+- [x] [Capital One scalable data management for AI](https://www.capitalone.com/tech/ai/data-management/) — - central control plane plus central and federated operating options.
+- [x] [Capital One "You Build, Your Data"](https://www.capitalone.com/software/blog/capital-one-you-build-your-data/) — - self-service platform with central and federated deployment models.
+- [x] [Capital One generative AI transparency disclosure](https://www.capitalone.com/digital/gai-transparency/) — - official disclosure on customised open-source Large Language Model (LLM) development.
+- [x] [J.P. Morgan on AI in payments](https://www.jpmorgan.com/insights/payments/security-trust/ai-payments-efficiency-fraud-reduction) — - board-level data governance and operating-model implications in financial services.
+- [x] [Enterprise AI capability model for use-case maturity decisions](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md) — - prior completed repository work on shared capability foundations.
+- [x] [Layered organisation Large Language Model architecture](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md) — - prior completed repository work on layered enterprise AI architecture.
+- [x] [The Software Factory](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-23-software-factory.md) — - prior completed repository work on internal platforms, bottlenecks, and operating-model redesign.
+- [x] [Exploit-explore AI portfolio framework](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-exploit-explore-ai-portfolio-framework.md) — - prior completed repository work on separating exploratory and exploitative AI effort.
 
 ---
 

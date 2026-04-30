@@ -52,7 +52,7 @@ The marginal cost of producing functional code is falling sharply as AI coding a
 
 ## Sources
 
-- [x] Jevons, W.S. (1865). *The Coal Question*. Macmillan. (Chapters on steam efficiency and coal consumption) — consulted via secondary analyses and [Energy History Yale](https://energyhistory.yale.edu/w-stanley-jevons-the-coal-question-1865/)
+- [x] [Jevons (1865) The Coal Question — Energy History Yale](https://energyhistory.yale.edu/w-stanley-jevons-the-coal-question-1865/)
 - [x] Nordhaus, W. (1996). "Do real-output and real-wage measures capture reality? The history of lighting suggests not." Cowles Foundation Discussion Paper. — consulted via citations in lighting/Jevons literature
 - [ ] Saunders, H.D. (1992). "The Khazzoom-Brookes postulate and neoclassical growth." *The Energy Journal.* — not directly consulted; underlying argument covered by secondary sources
 - [ ] Sorrell, S. (2007). "The Rebound Effect." UK Energy Research Centre. — not directly consulted; rebound taxonomy covered by web research

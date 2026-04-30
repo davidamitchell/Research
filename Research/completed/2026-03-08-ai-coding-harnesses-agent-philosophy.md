@@ -66,22 +66,22 @@ This item directly informs decisions about the research-loop agent design (ADR-0
 
 ## Sources
 
-- [ ] https://youtu.be/09sFAO7pklo — primary jump-off point (agent philosophy talk) — inaccessible: video not indexed or private
-- [x] https://www.anthropic.com/research/building-effective-agents — Anthropic "Building effective agents" (Dec 2024)
-- [ ] https://docs.anthropic.com/en/docs/build-with-claude/computer-use — Anthropic computer use documentation
-- [ ] https://modelspec.anthropic.com — Anthropic Model Spec (operator/user/assistant hierarchy)
-- [ ] https://platform.openai.com/docs/guides/agents — OpenAI Agents documentation
-- [x] https://openai.com/index/openai-codex — OpenAI Codex agent design
-- [ ] https://cursor.com/blog — Cursor blog (agent mode philosophy)
-- [ ] https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-your-ide/using-copilot-edits — GitHub Copilot agent/edits mode
-- [x] https://github.com/sst/opencode — Opencode OSS terminal coding agent (README, architecture, changelog)
-- [x] https://ampcode.com — AMP by Sourcegraph (docs and blog)
-- [x] https://aider.chat — Aider: AI pair programming in the terminal (design philosophy, docs)
-- [x] https://github.com/cline/cline — Cline: autonomous coding agent for VS Code (README, docs, GitHub issues)
-- [x] https://continue.dev/docs — Continue.dev OSS coding assistant (architecture docs)
-- [x] https://zed.dev/blog — Zed AI (blog posts on agent and assistant design)
-- [x] https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents — Anthropic long-running agent harnesses (primary source)
-- [x] https://cursor.com/docs/agent/overview — Cursor agent mode documentation
+- [ ] [primary jump-off point (agent philosophy talk) — inaccessible: video not indexed or private](https://youtu.be/09sFAO7pklo)
+- [x] [Anthropic "Building effective agents" (Dec 2024)](https://www.anthropic.com/research/building-effective-agents)
+- [ ] [Anthropic computer use documentation](https://docs.anthropic.com/en/docs/build-with-claude/computer-use)
+- [ ] [Anthropic Model Spec (operator/user/assistant hierarchy)](https://modelspec.anthropic.com)
+- [ ] [OpenAI Agents documentation](https://platform.openai.com/docs/guides/agents)
+- [x] [OpenAI Codex agent design](https://openai.com/index/openai-codex)
+- [ ] [Cursor blog (agent mode philosophy)](https://cursor.com/blog)
+- [ ] [GitHub Copilot agent/edits mode](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-your-ide/using-copilot-edits)
+- [x] [Opencode OSS terminal coding agent (README, architecture, changelog)](https://github.com/sst/opencode)
+- [x] [AMP by Sourcegraph (docs and blog)](https://ampcode.com)
+- [x] [Aider: AI pair programming in the terminal (design philosophy, docs)](https://aider.chat)
+- [x] [Cline: autonomous coding agent for VS Code (README, docs, GitHub issues)](https://github.com/cline/cline)
+- [x] [Continue.dev OSS coding assistant (architecture docs)](https://continue.dev/docs)
+- [x] [Zed AI (blog posts on agent and assistant design)](https://zed.dev/blog)
+- [x] [Anthropic long-running agent harnesses (primary source)](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
+- [x] [Cursor agent mode documentation](https://cursor.com/docs/agent/overview)
 
 ---
 

@@ -63,33 +63,33 @@ How should the UELGF specify governed golden rails for each entity type and Conf
 
 ## Sources
 
-- [x] [Backstage software templates](https://backstage.io/docs/features/software-templates/) - template-driven scaffold generation, review pages, execution tasks, and reruns.
-- [x] [Backstage authorizing scaffolder tasks, parameters, steps, and actions](https://backstage.io/docs/features/software-templates/authorizing-scaffolder-template-details/) - persona- and policy-specific hiding or restriction of template parameters, steps, and actions.
-- [x] [Backstage permissions overview](https://backstage.io/docs/permissions/overview/) - common authorization framework for plugin and interface actions.
-- [x] [Amazon Web Services (AWS) Service Catalog introduction](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) - approved-service catalog, self-service discovery, and centrally governed provisioning.
-- [x] [AWS Service Catalog launch constraints](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-launch.html) - central launch role and minimum end-user permissions.
-- [x] [AWS Service Catalog constraints overview](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html) - product-level constraint model.
-- [x] [AWS Config overview](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) - inventory, change history, and non-compliance detection.
-- [x] [AWS CloudFormation drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) - detection of changes made outside managed templates.
-- [x] [Microsoft Power Platform governance considerations](https://learn.microsoft.com/en-us/power-platform/admin/governance-considerations) - governance themes, environment strategy, and adoption measurement.
-- [x] [Microsoft Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) - centrally governed pipeline path for makers, admins, and developers.
-- [x] [Managed Environments overview](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) - environment-level governance features.
-- [x] [Environment routing](https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing) - automatic routing of makers into managed personal developer environments.
-- [x] [Appian deploy to target environments](https://docs.appian.com/suite/help/26.3/Deploy_to_Target_Environments.html) - guided deployment methods, auditability, and post-deployment process hooks.
-- [x] [development and operations (DevOps) in Appian](https://docs.appian.com/suite/help/26.3/devops-with-appian.html) - build, test, deploy, and monitor pipeline framing for low-code delivery.
-- [x] [Cloud Native Computing Foundation (CNCF) Platforms White Paper](https://tag-app-delivery.cncf.io/whitepapers/platforms/) - platform product model, cognitive-load reduction, governance in templates, and platform success measures.
-- [x] [Federal Risk and Authorization Management Program (FedRAMP) continuous monitoring introduction](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/intro/) - current Rev 5 continuous monitoring playbook entry point.
-- [x] [FedRAMP continuous monitoring overview](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/overview/) - operational visibility, change control, and ongoing authorization.
-- [x] [FedRAMP vulnerability scanning](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/vulnerability-scanning/) - inventory-linked scanning and machine-readable asset identification.
-- [x] [ISO 13485:2016 overview](https://www.iso.org/standard/59752.html) - current medical-device quality-management summary and lifecycle risk framing.
-- [x] [Title 21 Code of Federal Regulations (CFR) 820.100 Corrective and Preventive Action (CAPA) mirror](https://www.law.cornell.edu/cfr/text/21/820.100) - corrective and preventive action requirements, recurring-problem detection, and process change.
-- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - prior repository evidence for citizen-development release governance.
-- [x] [Artificial Intelligence (AI) and low-code software development lifecycle and platform engineering integration](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html) - prior repository evidence for platform-engineering integration patterns.
-- [x] [AI and low-code governance enforcement architecture](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) - prior repository evidence for architectural enforcement points.
-- [x] [UELGF entity taxonomy and CIA classification](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html) - prior repository entity types, CIA floors, and governance-profile baseline.
-- [x] [UELGF decommission lifecycle](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html) - prior repository ghost-entity detection and retirement trigger model.
-- [ ] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-160 Volume 2 publication page](https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final) - checked, but the accessible page exposed metadata only and was not used for detailed downstream claims.
-- [ ] [Salesforce DevOps Center environment and governance pages](https://help.salesforce.com/s/articleView?id=platform.devops_center_manage_environments.htm&language=en_US&type=5) - official pages identified, but they were not machine-readable in this runtime and were not used for downstream factual claims.
+- [x] [Backstage software templates](https://backstage.io/docs/features/software-templates/) — - template-driven scaffold generation, review pages, execution tasks, and reruns.
+- [x] [Backstage authorizing scaffolder tasks, parameters, steps, and actions](https://backstage.io/docs/features/software-templates/authorizing-scaffolder-template-details/) — - persona- and policy-specific hiding or restriction of template parameters, steps, and actions.
+- [x] [Backstage permissions overview](https://backstage.io/docs/permissions/overview/) — - common authorization framework for plugin and interface actions.
+- [x] [Amazon Web Services (AWS) Service Catalog introduction](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) — - approved-service catalog, self-service discovery, and centrally governed provisioning.
+- [x] [AWS Service Catalog launch constraints](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-launch.html) — - central launch role and minimum end-user permissions.
+- [x] [AWS Service Catalog constraints overview](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html) — - product-level constraint model.
+- [x] [AWS Config overview](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) — - inventory, change history, and non-compliance detection.
+- [x] [AWS CloudFormation drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) — - detection of changes made outside managed templates.
+- [x] [Microsoft Power Platform governance considerations](https://learn.microsoft.com/en-us/power-platform/admin/governance-considerations) — - governance themes, environment strategy, and adoption measurement.
+- [x] [Microsoft Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) — - centrally governed pipeline path for makers, admins, and developers.
+- [x] [Managed Environments overview](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) — - environment-level governance features.
+- [x] [Environment routing](https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing) — - automatic routing of makers into managed personal developer environments.
+- [x] [Appian deploy to target environments](https://docs.appian.com/suite/help/26.3/Deploy_to_Target_Environments.html) — - guided deployment methods, auditability, and post-deployment process hooks.
+- [x] [development and operations (DevOps) in Appian](https://docs.appian.com/suite/help/26.3/devops-with-appian.html) — - build, test, deploy, and monitor pipeline framing for low-code delivery.
+- [x] [Cloud Native Computing Foundation (CNCF) Platforms White Paper](https://tag-app-delivery.cncf.io/whitepapers/platforms/) — - platform product model, cognitive-load reduction, governance in templates, and platform success measures.
+- [x] [Federal Risk and Authorization Management Program (FedRAMP) continuous monitoring introduction](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/intro/) — - current Rev 5 continuous monitoring playbook entry point.
+- [x] [FedRAMP continuous monitoring overview](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/overview/) — - operational visibility, change control, and ongoing authorization.
+- [x] [FedRAMP vulnerability scanning](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/vulnerability-scanning/) — - inventory-linked scanning and machine-readable asset identification.
+- [x] [ISO 13485:2016 overview](https://www.iso.org/standard/59752.html) — - current medical-device quality-management summary and lifecycle risk framing.
+- [x] [Title 21 Code of Federal Regulations (CFR) 820.100 Corrective and Preventive Action (CAPA) mirror](https://www.law.cornell.edu/cfr/text/21/820.100) — - corrective and preventive action requirements, recurring-problem detection, and process change.
+- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — - prior repository evidence for citizen-development release governance.
+- [x] [Artificial Intelligence (AI) and low-code software development lifecycle and platform engineering integration](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html) — - prior repository evidence for platform-engineering integration patterns.
+- [x] [AI and low-code governance enforcement architecture](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) — - prior repository evidence for architectural enforcement points.
+- [x] [UELGF entity taxonomy and CIA classification](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html) — - prior repository entity types, CIA floors, and governance-profile baseline.
+- [x] [UELGF decommission lifecycle](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html) — - prior repository ghost-entity detection and retirement trigger model.
+- [ ] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-160 Volume 2 publication page](https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final) — - checked, but the accessible page exposed metadata only and was not used for detailed downstream claims.
+- [ ] [Salesforce DevOps Center environment and governance pages](https://help.salesforce.com/s/articleView?id=platform.devops_center_manage_environments.htm&language=en_US&type=5) — - official pages identified, but they were not machine-readable in this runtime and were not used for downstream factual claims.
 
 ## Related
 

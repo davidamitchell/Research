@@ -67,56 +67,56 @@ This research is high priority because the correct architecture for memory will 
 
 ## Sources
 
-- [x] MemGPT / Letta paper and repo: https://arxiv.org/abs/2310.08560 — the original paging model for LLM memory
-- [x] Zep: https://github.com/getzep/zep — temporal knowledge graph for agent memory; arXiv:2501.13956
-- [x] Mem0: https://github.com/mem0ai/mem0 — personalized memory layer; arXiv:2504.19413
-- [x] LangMem (LangChain): https://langchain-ai.github.io/langmem/ — long-term memory for agents
+- [x] [MemGPT / Letta paper and repo](https://arxiv.org/abs/2310.08560) — the original paging model for LLM memory
+- [x] [Zep](https://github.com/getzep/zep) — temporal knowledge graph for agent memory; arXiv:2501.13956
+- [x] [Mem0](https://github.com/mem0ai/mem0) — personalized memory layer; arXiv:2504.19413
+- [x] [LangMem (LangChain)](https://langchain-ai.github.io/langmem/) — long-term memory for agents
 - [x] Cognee / Graphiti: knowledge graph approaches to agent memory
-- [x] GraphRAG (Microsoft): https://microsoft.github.io/graphrag/ — community-structured graph retrieval
-- [x] LongMemEval: https://arxiv.org/abs/2410.10813 — benchmarking chat assistants on long-term interactive memory
-- [x] LoCoMo benchmark: https://github.com/snap-research/LoCoMo — long conversational memory evaluation
-- [x] GitHub Copilot agentic memory: https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/
-- [x] AWS Agentic AI Security Scoping Matrix: https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/
+- [x] [GraphRAG (Microsoft)](https://microsoft.github.io/graphrag/) — community-structured graph retrieval
+- [x] [LongMemEval](https://arxiv.org/abs/2410.10813) — benchmarking chat assistants on long-term interactive memory
+- [x] [LoCoMo benchmark](https://github.com/snap-research/LoCoMo) — long conversational memory evaluation
+- [x] [GitHub Copilot agentic memory](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/)
+- [x] [AWS Agentic AI Security Scoping Matrix](https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/)
 - [x] Enterprise wiki knowledge rot: Atlassian Confluence lifecycle management and community posts
-- [x] Apoorva Joshi (MongoDB) — "Building Agents That Learn: Managing Memory in AI Agents": https://youtu.be/2JiMmye2ezg
-- [x] MongoDB: "Don't Just Build Agents, Build Memory-Augmented AI Agents": https://www.mongodb.com/company/blog/technical/dont-just-build-agents-build-memory-augmented-ai-agents
-- [x] Letta: "Agent Memory: How to Build Agents that Learn and Remember": https://www.letta.com/blog/agent-memory
-- [x] Anthropic: "Effective Context Engineering for AI Agents": https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
-- [x] LangChain: "Context Engineering for Agents" (Write/Select/Compress/Isolate framework): https://blog.langchain.com/context-engineering-for-agents/
-- [x] Cognition: "Don't Build Multi-Agents": https://cognition.ai/blog/dont-build-multi-agents
-- [x] Chroma Research: "Context Rot": https://research.trychroma.com/context-rot
+- [x] [Apoorva Joshi (MongoDB) — "Building Agents That Learn: Managing Memory in AI Agents"](https://youtu.be/2JiMmye2ezg)
+- [x] [MongoDB: "Don't Just Build Agents, Build Memory-Augmented AI Agents"](https://www.mongodb.com/company/blog/technical/dont-just-build-agents-build-memory-augmented-ai-agents)
+- [x] [Letta: "Agent Memory: How to Build Agents that Learn and Remember"](https://www.letta.com/blog/agent-memory)
+- [x] [Anthropic: "Effective Context Engineering for AI Agents"](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [x] [LangChain: "Context Engineering for Agents" (Write/Select/Compress/Isolate framework)](https://blog.langchain.com/context-engineering-for-agents/)
+- [x] [Cognition: "Don't Build Multi-Agents"](https://cognition.ai/blog/dont-build-multi-agents)
+- [x] [Chroma Research: "Context Rot"](https://research.trychroma.com/context-rot)
 - [x] Letta / UC Berkeley: "Sleep-time Compute: Beyond Inference Scaling at Test-time" arXiv:2504.13171
-- [x] MemoryOS (BAI-LAB, EMNLP 2025 Oral): https://github.com/BAI-LAB/MemoryOS — arXiv:2506.06326
-- [x] Memory portability — MCP RFC #2043 (Memory Interchange Format): https://github.com/modelcontextprotocol/modelcontextprotocol/issues/2043
-- [x] Memory portability — Google Agent2Agent (A2A) protocol: https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/
-- [x] Memory portability — New America / OTI: "AI Agents and Memory: Privacy and Power in MCP": https://www.newamerica.org/oti/briefs/ai-agents-and-memory/
-- [x] DIKW hierarchy in AI — Springer: "The DIKW Model in the Age of Artificial Intelligence": https://link.springer.com/article/10.1007/s42438-024-00462-8
-- [x] DIKW as Digital Twin Action Framework (MDPI, 2024): https://www.mdpi.com/2673-9585/4/2/7
-- [x] Obsidian PKM — Andy Matuschak's Evergreen Notes: https://notes.andymatuschak.org/Evergreen_notes
-- [x] Obsidian PKM — Personal Knowledge Graphs forum: https://forum.obsidian.md/t/personal-knowledge-graphs/69264
-- [x] Obsidian PKM at scale — 8,000 notes analysis: https://www.dsebastien.net/personal-knowledge-management-at-scale-analyzing-8-000-notes-and-64-000-links/
-- [x] Graph of Thoughts (ETH Zurich, AAAI 2024): arXiv:2308.09687 — https://arxiv.org/abs/2308.09687
-- [x] Word embeddings × knowledge graphs intersection — Springer 2024: https://link.springer.com/article/10.1007/s10489-024-05315-2
-- [x] Milvus: "What is the relationship between embeddings and knowledge graphs?": https://milvus.io/ai-quick-reference/what-is-the-relationship-between-embeddings-and-knowledge-graphs
-- [x] Knowledge Graph of Thoughts (KGoT) — ETH Zurich thesis: https://www.research-collection.ethz.ch/bitstreams/a03fe1a6-16b6-456c-83f2-c91296eda847/download
-- [x] MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in LLMs (ACL 2024): https://aclanthology.org/2024.acl-long.558.pdf
-- [x] Combine Text Embeddings and KG Embeddings in RAG systems (Towards Data Science): https://towardsdatascience.com/combine-text-embeddings-and-knowledge-graph-embeddings-in-rag-systems-5e6d7e493925/
-- [x] Constitutional Memory for AI Agents (open-source, GitHub): https://github.com/MihaiCiprianChezan/Constitutional-memory-for-AI-agents
-- [x] OpenPort Protocol: Security Governance Specification for AI Agents (arXiv:2602.20196): https://arxiv.org/abs/2602.20196
-- [x] Agentic Trust Framework — Zero Trust for AI Agents (CSA, Feb 2026): https://cloudsecurityalliance.org/blog/2026/02/02/the-agentic-trust-framework-zero-trust-governance-for-ai-agents
-- [x] Obsidian Smart Connections plugin — local AI embeddings for PKM: https://smartconnections.app/ (GitHub: brianpetro/obsidian-smart-connections)
-- [x] DIKW + XAI — Springer: "Data, Information, Knowledge, Wisdom, and Explainable Artificial Intelligence" (2025): https://link.springer.com/chapter/10.1007/978-3-031-89274-5_9
-- [x] IEEE DIKW 2025 Conference: https://hpcn.exeter.ac.uk/dikw2025/
-- [x] Memory-R1: RL-trained dual-agent memory management (arXiv:2508.19828): https://arxiv.org/html/2508.19828v1
-- [x] EMG-RAG: Editable Memory Graphs for personalised agents — RL-optimised memory (EMNLP 2024, arXiv:2409.19401): https://arxiv.org/abs/2409.19401
-- [x] AssoMem: Multi-Signal Associative Retrieval (importance + recency + similarity fusion, arXiv:2510.10397): https://arxiv.org/pdf/2510.10397
-- [x] Towards Outcome-Oriented, Task-Agnostic Evaluation of AI Agents (arXiv:2511.08242): https://arxiv.org/pdf/2511.08242
-- [x] LLM Agents Display Human Biases but Exhibit Distinct Learning Patterns (arXiv:2503.10248): https://arxiv.org/abs/2503.10248
-- [x] AI biases as asymmetries: a review to guide practice (Frontiers in Big Data, 2025): https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2025.1532397/full
-- [x] Memory in the Age of AI Agents — comprehensive survey (arXiv:2512.13564): https://arxiv.org/abs/2512.13564
-- [x] Memory Refresh Cycles in Gen AI Systems (Yodaplus, 2025): https://yodaplus.com/blog/memory-refresh-cycles-in-gen-ai-systems-how-and-when-should-agents-forget/
-- [x] Managing AI Agent Drift Over Time — practical framework (dev.to/kuldeep_paul, 2025): https://dev.to/kuldeep_paul/managing-ai-agent-drift-over-time-a-practical-framework-for-reliability-evals-and-observability-1fk8
-- [x] M-RAG: Reinforcing LLM Performance through Retrieval-Augmented Generation (ACL 2024): https://aclanthology.org/2024.acl-long.108.pdf
+- [x] [MemoryOS (BAI-LAB, EMNLP 2025 Oral)](https://github.com/BAI-LAB/MemoryOS) — arXiv:2506.06326
+- [x] [Memory portability — MCP RFC #2043 (Memory Interchange Format)](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/2043)
+- [x] [Memory portability — Google Agent2Agent (A2A) protocol](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
+- [x] [Memory portability — New America / OTI: "AI Agents and Memory: Privacy and Power in MCP"](https://www.newamerica.org/oti/briefs/ai-agents-and-memory/)
+- [x] [DIKW hierarchy in AI — Springer: "The DIKW Model in the Age of Artificial Intelligence"](https://link.springer.com/article/10.1007/s42438-024-00462-8)
+- [x] [DIKW as Digital Twin Action Framework (MDPI, 2024)](https://www.mdpi.com/2673-9585/4/2/7)
+- [x] [Obsidian PKM — Andy Matuschak's Evergreen Notes](https://notes.andymatuschak.org/Evergreen_notes)
+- [x] [Obsidian PKM — Personal Knowledge Graphs forum](https://forum.obsidian.md/t/personal-knowledge-graphs/69264)
+- [x] [Obsidian PKM at scale — 8,000 notes analysis](https://www.dsebastien.net/personal-knowledge-management-at-scale-analyzing-8-000-notes-and-64-000-links/)
+- [x] [Graph of Thoughts (ETH Zurich, AAAI 2024): arXiv:2308.09687](https://arxiv.org/abs/2308.09687)
+- [x] [Word embeddings × knowledge graphs intersection — Springer 2024](https://link.springer.com/article/10.1007/s10489-024-05315-2)
+- [x] [Milvus: "What is the relationship between embeddings and knowledge graphs?"](https://milvus.io/ai-quick-reference/what-is-the-relationship-between-embeddings-and-knowledge-graphs)
+- [x] [Knowledge Graph of Thoughts (KGoT) — ETH Zurich thesis](https://www.research-collection.ethz.ch/bitstreams/a03fe1a6-16b6-456c-83f2-c91296eda847/download)
+- [x] [MindMap: Knowledge Graph Prompting Sparks Graph of Thoughts in LLMs (ACL 2024)](https://aclanthology.org/2024.acl-long.558.pdf)
+- [x] [Combine Text Embeddings and KG Embeddings in RAG systems (Towards Data Science)](https://towardsdatascience.com/combine-text-embeddings-and-knowledge-graph-embeddings-in-rag-systems-5e6d7e493925/)
+- [x] [Constitutional Memory for AI Agents (open-source, GitHub)](https://github.com/MihaiCiprianChezan/Constitutional-memory-for-AI-agents)
+- [x] [OpenPort Protocol: Security Governance Specification for AI Agents (arXiv:2602.20196)](https://arxiv.org/abs/2602.20196)
+- [x] [Agentic Trust Framework — Zero Trust for AI Agents (CSA, Feb 2026)](https://cloudsecurityalliance.org/blog/2026/02/02/the-agentic-trust-framework-zero-trust-governance-for-ai-agents)
+- [x] [Obsidian Smart Connections plugin — local AI embeddings for PKM](https://smartconnections.app/) — (GitHub: brianpetro/obsidian-smart-connections)
+- [x] [DIKW + XAI — Springer: "Data, Information, Knowledge, Wisdom, and Explainable Artificial Intelligence" (2025)](https://link.springer.com/chapter/10.1007/978-3-031-89274-5_9)
+- [x] [IEEE DIKW 2025 Conference](https://hpcn.exeter.ac.uk/dikw2025/)
+- [x] [Memory-R1: RL-trained dual-agent memory management (arXiv:2508.19828)](https://arxiv.org/html/2508.19828v1)
+- [x] [EMG-RAG: Editable Memory Graphs for personalised agents — RL-optimised memory (EMNLP 2024, arXiv:2409.19401)](https://arxiv.org/abs/2409.19401)
+- [x] [AssoMem: Multi-Signal Associative Retrieval (importance + recency + similarity fusion, arXiv:2510.10397)](https://arxiv.org/pdf/2510.10397)
+- [x] [Towards Outcome-Oriented, Task-Agnostic Evaluation of AI Agents (arXiv:2511.08242)](https://arxiv.org/pdf/2511.08242)
+- [x] [LLM Agents Display Human Biases but Exhibit Distinct Learning Patterns (arXiv:2503.10248)](https://arxiv.org/abs/2503.10248)
+- [x] [AI biases as asymmetries: a review to guide practice (Frontiers in Big Data, 2025)](https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2025.1532397/full)
+- [x] [Memory in the Age of AI Agents — comprehensive survey (arXiv:2512.13564)](https://arxiv.org/abs/2512.13564)
+- [x] [Memory Refresh Cycles in Gen AI Systems (Yodaplus, 2025)](https://yodaplus.com/blog/memory-refresh-cycles-in-gen-ai-systems-how-and-when-should-agents-forget/)
+- [x] [Managing AI Agent Drift Over Time — practical framework (dev.to/kuldeep_paul, 2025)](https://dev.to/kuldeep_paul/managing-ai-agent-drift-over-time-a-practical-framework-for-reliability-evals-and-observability-1fk8)
+- [x] [M-RAG: Reinforcing LLM Performance through Retrieval-Augmented Generation (ACL 2024)](https://aclanthology.org/2024.acl-long.108.pdf)
 
 ---
 

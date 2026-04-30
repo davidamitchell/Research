@@ -59,31 +59,31 @@ Issue #358 requests a deeper interpretation of the memo as selection pressure ra
 
 ## Sources
 
-- [x] [Issue #358 - The red queen memo](https://github.com/davidamitchell/Research/issues/358) - originating request and required sub-questions
-- [ ] [Tobi Lütke memo post on X](https://x.com/tobi/status/1909251946235437514) - highest-fidelity public memo artifact; inaccessible from this environment
-- [ ] [Shopify CEO: Prove AI can't do jobs before asking for more headcount (CNBC)](https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html) - attempted; inaccessible from this environment due status code 403
-- [x] [Shopify CEO tells teams to consider AI before growing headcount (TechCrunch)](https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/) - secondary reporting with direct memo excerpts and X link
-- [ ] [Viral Shopify CEO manifesto says AI now mandatory (Forbes)](https://www.forbes.com/sites/douglaslaney/2025/04/09/selling-ai-strategy-to-employees-shopify-ceos-manifesto/) - attempted; inaccessible from this environment due status code 403
-- [x] [Shopify CEO tells employees to prove AI can't do the job (BetaKit)](https://betakit.com/shopify-ceo-tobi-lutke-tells-employees-to-prove-ai-cant-do-the-job-before-asking-for-resources/) - quote triangulation and Canadian ecosystem framing
-- [x] [Shopify CEO says before hiring anyone new, employees must prove AI can't do the job (Business Insider Africa)](https://africa.businessinsider.com/news/shopify-ceo-says-before-hiring-anyone-new-employees-must-prove-ai-cant-do-the-job/6vwnxrz) - memo excerpts, tool-access wording, and support-layoff context
-- [x] [Shopify Editions Summer 2023](https://www.shopify.com/editions/summer2023) - official launch context for Shopify Magic and Sidekick
-- [x] [Sidekick's Improved Streaming Experience (Shopify Engineering)](https://shopify.engineering/sidekicks-improved-streaming) - 2023 evidence of Sidekick tool-calling architecture
-- [x] [Shopify welcomes new Chief Technology Officer (CTO) Mikhail Parakhin](https://www.shopify.com/news/mikhail-parakhin-cto) - official August 2024 AI leadership investment
-- [x] [Merchant success drives Shopify's excellent Q1, delivering strong revenue growth and profitability](https://www.shopify.com/news/merchant-success-drives-shopify-s-excellent-q1-delivering-strong-revenue-growth-and-profitability) - official financial context for the memo period
-- [x] [Meet the AI tool that's helping independent brands compete at BFCM](https://www.shopify.com/news/bfcm-sidekick) - official Sidekick adoption and conversation-volume data
-- [x] [Building a Magic Mirror: AI retail experiences with Remix (Shopify Engineering)](https://shopify.engineering/magic-mirror) - official evidence of an internal LLM proxy via `baseURL`
-- [x] [Remixing Shopify's Admin: How We Made It 30% Faster and AI-Ready (Shopify Engineering)](https://shopify.engineering/remixing-admin) - official 2025 evidence of AI-ready route and form infrastructure for Sidekick
-- [x] [Building production-ready agentic systems: Lessons from Shopify Sidekick (Shopify Engineering)](https://shopify.engineering/building-production-ready-agentic-systems) - official 2025 evidence of Sidekick's mature agentic architecture and evaluation stack
-- [x] [The Shopify.dev MCP server now supports Polaris web components](https://shopify.dev/changelog/the-shopifydev-mcp-server-now-supports-polaris-web-components) - official dated evidence that public Shopify dev MCP support appeared after the memo
-- [x] [About Storefront MCP (Shopify.dev)](https://shopify.dev/docs/apps/build/storefront-mcp) - official documentation for Shopify's public MCP offering
-- [x] [Introducing the Model Context Protocol (Anthropic)](https://www.anthropic.com/news/model-context-protocol) - official source for MCP chronology
-- [ ] [Duolingo all-hands LinkedIn post](https://www.linkedin.com/posts/duolingo_below-is-an-all-hands-email-from-our-activity-7322560534824865792-l9vh/) - primary artifact referenced by PCMag; inaccessible from this environment
-- [x] [The backlash against Duolingo going AI-first didn't even matter (TechCrunch)](https://techcrunch.com/2025/08/07/the-backlash-against-duolingo-going-ai-first-didnt-even-matter/) - comparative case on business outcomes after backlash
-- [x] [Amid Backlash, Duolingo Backtracks on Plans for AI Pivot (PCMag)](https://www.pcmag.com/news/amid-backlash-duolingo-backtracks-on-plans-for-ai-pivot) - comparative case on rhetorical walk-back
-- [x] [Research item: Force multiplier, not cost reducer](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-force-multiplier-ambition-expansion.md) - prior repo context on ambition expansion
-- [x] [Research item: AI amplified the coordination tax](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md) - prior repo context on team size and coordination costs
-- [x] [Research item: AI inverted scarcity toward correctness](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md) - prior repo context on verification bottlenecks
-- [x] [NBER Working Paper w33641 - The Cybernetic Teammate](https://www.nber.org/system/files/working_papers/w33641/w33641.pdf) - primary research on generative AI effects on less experienced knowledge workers
+- [x] [Issue #358 - The red queen memo](https://github.com/davidamitchell/Research/issues/358) — - originating request and required sub-questions
+- [ ] [Tobi Lütke memo post on X](https://x.com/tobi/status/1909251946235437514) — - highest-fidelity public memo artifact; inaccessible from this environment
+- [ ] [Shopify CEO: Prove AI can't do jobs before asking for more headcount (CNBC)](https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html) — - attempted; inaccessible from this environment due status code 403
+- [x] [Shopify CEO tells teams to consider AI before growing headcount (TechCrunch)](https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/) — - secondary reporting with direct memo excerpts and X link
+- [ ] [Viral Shopify CEO manifesto says AI now mandatory (Forbes)](https://www.forbes.com/sites/douglaslaney/2025/04/09/selling-ai-strategy-to-employees-shopify-ceos-manifesto/) — - attempted; inaccessible from this environment due status code 403
+- [x] [Shopify CEO tells employees to prove AI can't do the job (BetaKit)](https://betakit.com/shopify-ceo-tobi-lutke-tells-employees-to-prove-ai-cant-do-the-job-before-asking-for-resources/) — - quote triangulation and Canadian ecosystem framing
+- [x] [Shopify CEO says before hiring anyone new, employees must prove AI can't do the job (Business Insider Africa)](https://africa.businessinsider.com/news/shopify-ceo-says-before-hiring-anyone-new-employees-must-prove-ai-cant-do-the-job/6vwnxrz) — - memo excerpts, tool-access wording, and support-layoff context
+- [x] [Shopify Editions Summer 2023](https://www.shopify.com/editions/summer2023) — - official launch context for Shopify Magic and Sidekick
+- [x] [Sidekick's Improved Streaming Experience (Shopify Engineering)](https://shopify.engineering/sidekicks-improved-streaming) — - 2023 evidence of Sidekick tool-calling architecture
+- [x] [Shopify welcomes new Chief Technology Officer (CTO) Mikhail Parakhin](https://www.shopify.com/news/mikhail-parakhin-cto) — - official August 2024 AI leadership investment
+- [x] [Merchant success drives Shopify's excellent Q1, delivering strong revenue growth and profitability](https://www.shopify.com/news/merchant-success-drives-shopify-s-excellent-q1-delivering-strong-revenue-growth-and-profitability) — - official financial context for the memo period
+- [x] [Meet the AI tool that's helping independent brands compete at BFCM](https://www.shopify.com/news/bfcm-sidekick) — - official Sidekick adoption and conversation-volume data
+- [x] [Building a Magic Mirror: AI retail experiences with Remix (Shopify Engineering)](https://shopify.engineering/magic-mirror) — - official evidence of an internal LLM proxy via `baseURL`
+- [x] [Remixing Shopify's Admin: How We Made It 30% Faster and AI-Ready (Shopify Engineering)](https://shopify.engineering/remixing-admin) — - official 2025 evidence of AI-ready route and form infrastructure for Sidekick
+- [x] [Building production-ready agentic systems: Lessons from Shopify Sidekick (Shopify Engineering)](https://shopify.engineering/building-production-ready-agentic-systems) — - official 2025 evidence of Sidekick's mature agentic architecture and evaluation stack
+- [x] [The Shopify.dev MCP server now supports Polaris web components](https://shopify.dev/changelog/the-shopifydev-mcp-server-now-supports-polaris-web-components) — - official dated evidence that public Shopify dev MCP support appeared after the memo
+- [x] [About Storefront MCP (Shopify.dev)](https://shopify.dev/docs/apps/build/storefront-mcp) — - official documentation for Shopify's public MCP offering
+- [x] [Introducing the Model Context Protocol (Anthropic)](https://www.anthropic.com/news/model-context-protocol) — - official source for MCP chronology
+- [ ] [Duolingo all-hands LinkedIn post](https://www.linkedin.com/posts/duolingo_below-is-an-all-hands-email-from-our-activity-7322560534824865792-l9vh/) — - primary artifact referenced by PCMag; inaccessible from this environment
+- [x] [The backlash against Duolingo going AI-first didn't even matter (TechCrunch)](https://techcrunch.com/2025/08/07/the-backlash-against-duolingo-going-ai-first-didnt-even-matter/) — - comparative case on business outcomes after backlash
+- [x] [Amid Backlash, Duolingo Backtracks on Plans for AI Pivot (PCMag)](https://www.pcmag.com/news/amid-backlash-duolingo-backtracks-on-plans-for-ai-pivot) — - comparative case on rhetorical walk-back
+- [x] [Research item: Force multiplier, not cost reducer](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-force-multiplier-ambition-expansion.md) — - prior repo context on ambition expansion
+- [x] [Research item: AI amplified the coordination tax](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md) — - prior repo context on team size and coordination costs
+- [x] [Research item: AI inverted scarcity toward correctness](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md) — - prior repo context on verification bottlenecks
+- [x] [NBER Working Paper w33641 - The Cybernetic Teammate](https://www.nber.org/system/files/working_papers/w33641/w33641.pdf) — - primary research on generative AI effects on less experienced knowledge workers
 
 ---
 

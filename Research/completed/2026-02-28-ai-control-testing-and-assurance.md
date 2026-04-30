@@ -55,14 +55,14 @@ This is a high-priority area because: (a) it is commercially active now, not asp
 
 ## Sources
 
-- [x] IAASB: Technology position papers and ISA revisions for AI use in audit (2023–2025) — https://www.iaasb.org/
-- [x] PCAOB: Inspection findings on automated audit tools — https://pcaobus.org/
-- [ ] ISACA: COBIT and audit automation guidance — https://www.isaca.org/resources/cobit
+- [x] [IAASB: Technology position papers and ISA revisions for AI use in audit (2023–2025)](https://www.iaasb.org/)
+- [x] [PCAOB: Inspection findings on automated audit tools](https://pcaobus.org/)
+- [ ] [ISACA: COBIT and audit automation guidance](https://www.isaca.org/resources/cobit)
 - [x] IIA (Institute of Internal Auditors): AI in internal audit position papers (2024–2025)
 - [x] AuditBoard, Diligent (Galvanize), LogicGate, ServiceNow GRC product documentation
 - [x] Big-4 audit firm publications: KPMG Clara Audit, EY Helix, PwC Halo, Deloitte OmniAI
-- [ ] DORA Article 24–27: ICT operational resilience testing — AI-assisted testing implications — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554
-- [x] RBNZ: Any supervisory expectations on automated assurance or model-generated evidence — https://www.rbnz.govt.nz/
+- [ ] [DORA Article 24–27: ICT operational resilience testing — AI-assisted testing implications](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554)
+- [x] [RBNZ: Any supervisory expectations on automated assurance or model-generated evidence](https://www.rbnz.govt.nz/)
 - [ ] Gartner / Forrester: GRC platform market reports 2024–2025
 
 ---

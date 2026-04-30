@@ -69,25 +69,25 @@ Cross-references:
 
 ## Sources
 
-- [x] [Learn about Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview) - primary Microsoft overview for data security, governance, and compliance in AI-era estates
-- [x] [Use Microsoft Purview to manage data security and compliance for AI agents](https://learn.microsoft.com/en-us/purview/ai-agents) - official Microsoft matrix for Purview controls across Foundry, Copilot Studio, and related agent surfaces
-- [x] [Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps](https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview) - official Microsoft description of runtime integration, oversharing prevention, and DLP enforcement hooks
-- [x] [Learn about sensitivity labels](https://learn.microsoft.com/en-us/purview/sensitivity-labels) - official Microsoft source for persistent classification and protection behavior
-- [x] [Data lineage in classic Microsoft Purview Data Catalog](https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage) - official Microsoft source for entity, column, and process-execution lineage
-- [x] [Data policies overview for Power Platform](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) - official Microsoft source for low-code connector restrictions, runtime suspension, and policy propagation
-- [x] [Governance and security for AI agents across the organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization) - official Microsoft guidance linking identity, permissions, Purview controls, and runtime guardrails
-- [x] [Art. 5 GDPR - Principles relating to processing of personal data](https://gdpr-info.eu/art-5-gdpr/) - accessible text of Article 5 used for personal-data restriction principles in AI and low-code processing
-- [x] [NIST Privacy Framework](https://www.nist.gov/privacy-framework) - official National Institute of Standards and Technology (NIST) privacy-governance framework overview
-- [x] [About Collibra AI Governance](https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm) - official Collibra description of AI use-case registry, model registry, and dataset-governance workflow
-- [x] [Sensitive Labels](https://productresources.collibra.com/docs/collibra/dqc/latest/Content/DataQuality/DQAdmin/co_sensitive-labels.htm) - official Collibra documentation for sensitive-label management in Data Quality and Observability Classic
-- [x] [CPG 235 Managing Data Risk](https://handbook.apra.gov.au/node/115112) - official Australian Prudential Regulation Authority (APRA) guidance page replacing the dead seeded PDF URL
-- [x] [MLflow Dataset Tracking](https://mlflow.org/docs/latest/ml/dataset/) - official MLflow source for dataset lineage, source tracking, and versioning
-- [x] [Trace Concepts](https://mlflow.org/docs/latest/genai/concepts/trace/) - official MLflow source for request, response, retrieval, and tool-call trace capture in AI systems
-- [x] [Using AWS Glue with AWS Lake Formation for fine-grained access control](https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html) - official Amazon Web Services (AWS) source for row, column, and cell-level enforcement tied to cataloged tables
-- [x] [Lake Formation tag-based access control](https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html) - official AWS source for attribute-based authorization over catalog resources
-- [x] [Data lineage in Amazon DataZone](https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html) - official AWS source for OpenLineage-compatible lineage over Glue, Redshift, and catalog consumption
-- [x] [Data classification overview](https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification-overview.html) - official AWS guidance on using the Glue Data Catalog in a classification program
-- [x] [Data governance for AI agents: what you need to know](https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/) - official vendor material used to assess Alation's claimed AI-governance surface
+- [x] [Learn about Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview) — - primary Microsoft overview for data security, governance, and compliance in AI-era estates
+- [x] [Use Microsoft Purview to manage data security and compliance for AI agents](https://learn.microsoft.com/en-us/purview/ai-agents) — - official Microsoft matrix for Purview controls across Foundry, Copilot Studio, and related agent surfaces
+- [x] [Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps](https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview) — - official Microsoft description of runtime integration, oversharing prevention, and DLP enforcement hooks
+- [x] [Learn about sensitivity labels](https://learn.microsoft.com/en-us/purview/sensitivity-labels) — - official Microsoft source for persistent classification and protection behavior
+- [x] [Data lineage in classic Microsoft Purview Data Catalog](https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage) — - official Microsoft source for entity, column, and process-execution lineage
+- [x] [Data policies overview for Power Platform](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) — - official Microsoft source for low-code connector restrictions, runtime suspension, and policy propagation
+- [x] [Governance and security for AI agents across the organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization) — - official Microsoft guidance linking identity, permissions, Purview controls, and runtime guardrails
+- [x] [Art. 5 GDPR - Principles relating to processing of personal data](https://gdpr-info.eu/art-5-gdpr/) — - accessible text of Article 5 used for personal-data restriction principles in AI and low-code processing
+- [x] [NIST Privacy Framework](https://www.nist.gov/privacy-framework) — - official National Institute of Standards and Technology (NIST) privacy-governance framework overview
+- [x] [About Collibra AI Governance](https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm) — - official Collibra description of AI use-case registry, model registry, and dataset-governance workflow
+- [x] [Sensitive Labels](https://productresources.collibra.com/docs/collibra/dqc/latest/Content/DataQuality/DQAdmin/co_sensitive-labels.htm) — - official Collibra documentation for sensitive-label management in Data Quality and Observability Classic
+- [x] [CPG 235 Managing Data Risk](https://handbook.apra.gov.au/node/115112) — - official Australian Prudential Regulation Authority (APRA) guidance page replacing the dead seeded PDF URL
+- [x] [MLflow Dataset Tracking](https://mlflow.org/docs/latest/ml/dataset/) — - official MLflow source for dataset lineage, source tracking, and versioning
+- [x] [Trace Concepts](https://mlflow.org/docs/latest/genai/concepts/trace/) — - official MLflow source for request, response, retrieval, and tool-call trace capture in AI systems
+- [x] [Using AWS Glue with AWS Lake Formation for fine-grained access control](https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html) — - official Amazon Web Services (AWS) source for row, column, and cell-level enforcement tied to cataloged tables
+- [x] [Lake Formation tag-based access control](https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html) — - official AWS source for attribute-based authorization over catalog resources
+- [x] [Data lineage in Amazon DataZone](https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html) — - official AWS source for OpenLineage-compatible lineage over Glue, Redshift, and catalog consumption
+- [x] [Data classification overview](https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification-overview.html) — - official AWS guidance on using the Glue Data Catalog in a classification program
+- [x] [Data governance for AI agents: what you need to know](https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/) — - official vendor material used to assess Alation's claimed AI-governance surface
 
 ## Related
 

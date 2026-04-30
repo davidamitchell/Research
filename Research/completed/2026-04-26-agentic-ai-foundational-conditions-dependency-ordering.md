@@ -72,24 +72,24 @@ The foundational conditions for safe agentic AI deployment in a regulated financ
 
 ## Sources
 
-- [x] [Policy coherence as a machine-checkable prerequisite](https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html) - companion item on machine-checkable policy coherence
-- [x] [Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures](https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html) - companion item on information architecture and permission-safe retrieval
-- [x] [Access control amplification under agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) - companion item on least privilege and agent credential scope
-- [x] [Implicit rate-limiting controls removed by agentic AI](https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html) - companion item on blast-radius amplification once automation removes human pacing
-- [x] [Deployment pipeline as the only enforceable control gate](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - companion item on release-time enforcement
-- [x] [Systems capability debt and agentic AI operational risk synthesis](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) - foundational context for sequencing and novelty
-- [x] [Regulatory and standards preconditions for deployment of agentic AI systems](https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html) - regulatory consequence base
-- [x] [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - zero-trust control objects and least-privilege session model
-- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - official framework publication page
-- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - official statement on govern, map, measure, and manage sequencing
-- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) - official playbook and voluntary tailoring guidance
-- [x] [ISO/IEC 42001:2023 standard page](https://www.iso.org/standard/81230.html) - official Artificial Intelligence Management System (AIMS) standard page
-- [x] [ISO 42001 explained](https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html) - official public explanation of governance, data, and lifecycle controls
-- [x] [APRA CPS 230: Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) - official operational-risk and resilience standard
-- [x] [Digital Operational Resilience Act (DORA) official text](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554) - official Regulation (EU) 2022/2554 text
-- [x] [European Securities and Markets Authority (ESMA) DORA overview](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora) - official summary of DORA control domains
-- [x] [Capability Maturity Model for Software (Version 1.1)](https://www.sei.cmu.edu/library/capability-maturity-model-for-software-version-11/) - official Software Engineering Institute (SEI) maturity-model source
-- [x] [Key Practices of the Capability Maturity Model Version 1.1](https://sei.cmu.edu/library/key-practices-of-the-capability-maturity-model-version-11/) - official Software Engineering Institute (SEI) elaboration of maturity levels
+- [x] [Policy coherence as a machine-checkable prerequisite](https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html) — - companion item on machine-checkable policy coherence
+- [x] [Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures](https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html) — - companion item on information architecture and permission-safe retrieval
+- [x] [Access control amplification under agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) — - companion item on least privilege and agent credential scope
+- [x] [Implicit rate-limiting controls removed by agentic AI](https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html) — - companion item on blast-radius amplification once automation removes human pacing
+- [x] [Deployment pipeline as the only enforceable control gate](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — - companion item on release-time enforcement
+- [x] [Systems capability debt and agentic AI operational risk synthesis](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) — - foundational context for sequencing and novelty
+- [x] [Regulatory and standards preconditions for deployment of agentic AI systems](https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html) — - regulatory consequence base
+- [x] [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — - zero-trust control objects and least-privilege session model
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - official framework publication page
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - official statement on govern, map, measure, and manage sequencing
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) — - official playbook and voluntary tailoring guidance
+- [x] [ISO/IEC 42001:2023 standard page](https://www.iso.org/standard/81230.html) — - official Artificial Intelligence Management System (AIMS) standard page
+- [x] [ISO 42001 explained](https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html) — - official public explanation of governance, data, and lifecycle controls
+- [x] [APRA CPS 230: Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) — - official operational-risk and resilience standard
+- [x] [Digital Operational Resilience Act (DORA) official text](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554) — - official Regulation (EU) 2022/2554 text
+- [x] [European Securities and Markets Authority (ESMA) DORA overview](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora) — - official summary of DORA control domains
+- [x] [Capability Maturity Model for Software (Version 1.1)](https://www.sei.cmu.edu/library/capability-maturity-model-for-software-version-11/) — - official Software Engineering Institute (SEI) maturity-model source
+- [x] [Key Practices of the Capability Maturity Model Version 1.1](https://sei.cmu.edu/library/key-practices-of-the-capability-maturity-model-version-11/) — - official Software Engineering Institute (SEI) elaboration of maturity levels
 
 ## Related
 

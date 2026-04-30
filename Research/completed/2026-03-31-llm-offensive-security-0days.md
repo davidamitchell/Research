@@ -63,15 +63,15 @@ The issue was seeded by Nicholas Carlini's work: simple prompts like "you are pl
 
 ## Sources
 
-- [x] [Anthropic red team: 0-Days](https://red.anthropic.com/2026/zero-days/) -- Carlini et al. 2026 primary report on Claude Opus 4.6 finding 500+ zero-days in open source codebases
-- [x] [Nicholas Carlini - Black-hat LLMs | [un]prompted 2026](https://www.youtube.com/watch?v=1sd26pWhfmg) -- Carlini's conference talk on LLMs as offensive security tools
-- [x] [LLM Agents can Autonomously Exploit One-day Vulnerabilities (arXiv:2404.08144)](https://arxiv.org/abs/2404.08144) -- Fang, Bindu, Gupta, Kang 2024; GPT-4 exploits 87% of one-day CVEs
-- [x] [NYU CTF Bench (arXiv:2406.05590)](https://arxiv.org/abs/2406.05590) -- scalable open-source CTF benchmark for LLM cybersecurity capability
-- [x] [CyberSecEval Benchmarks](https://deepwiki.com/meta-llama/PurpleLlama/3-cyberseceval-benchmarks) -- Meta's suite for evaluating LLM cyber capability and compliance
-- [x] [Nicholas Carlini personal site](https://nicholas.carlini.com/) -- background on Carlini's prior adversarial ML research
-- [x] [Hack The Box AI Cybersecurity Benchmark Report](https://www.hackthebox.com/blog/hack-the-box-ai-cybersecurity-benchmark-report) -- AI-augmented teams vs human-only teams in live CTF
-- [x] [Claude Found 500 Zero-Days. Who Patches Them? - Futurum](https://futurumgroup.com/insights/claude-found-500-zero-days-who-patches-them-before-attackers-arrive/) -- analysis of patch burden and governance implications
-- [x] [Hardening Firefox with Anthropic's Red Team - Mozilla](https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/) -- Mozilla's experience receiving and patching Anthropic-discovered bugs
+- [x] [Anthropic red team: 0-Days](https://red.anthropic.com/2026/zero-days/) — -- Carlini et al. 2026 primary report on Claude Opus 4.6 finding 500+ zero-days in open source codebases
+- [x] [Nicholas Carlini — Black-hat LLMs, un-prompted 2026](https://www.youtube.com/watch?v=1sd26pWhfmg) — Carlini's conference talk on LLMs as offensive security tools
+- [x] [LLM Agents can Autonomously Exploit One-day Vulnerabilities (arXiv:2404.08144)](https://arxiv.org/abs/2404.08144) — -- Fang, Bindu, Gupta, Kang 2024; GPT-4 exploits 87% of one-day CVEs
+- [x] [NYU CTF Bench (arXiv:2406.05590)](https://arxiv.org/abs/2406.05590) — -- scalable open-source CTF benchmark for LLM cybersecurity capability
+- [x] [CyberSecEval Benchmarks](https://deepwiki.com/meta-llama/PurpleLlama/3-cyberseceval-benchmarks) — -- Meta's suite for evaluating LLM cyber capability and compliance
+- [x] [Nicholas Carlini personal site](https://nicholas.carlini.com/) — -- background on Carlini's prior adversarial ML research
+- [x] [Hack The Box AI Cybersecurity Benchmark Report](https://www.hackthebox.com/blog/hack-the-box-ai-cybersecurity-benchmark-report) — -- AI-augmented teams vs human-only teams in live CTF
+- [x] [Claude Found 500 Zero-Days. Who Patches Them? - Futurum](https://futurumgroup.com/insights/claude-found-500-zero-days-who-patches-them-before-attackers-arrive/) — -- analysis of patch burden and governance implications
+- [x] [Hardening Firefox with Anthropic's Red Team - Mozilla](https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/) — -- Mozilla's experience receiving and patching Anthropic-discovered bugs
 
 ---
 

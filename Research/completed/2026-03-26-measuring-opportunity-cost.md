@@ -57,11 +57,11 @@ This problem applies directly to AI adoption decisions: companies will be able t
 
 ## Sources
 
-- [x] [Business Leader podcast: Rory Sutherland with Richard Harpin](https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips): primary source articulating the asymmetry argument in plain business terms
-- [x] [Alchemy: The Dark Art and Curious Science of Creating Magic in Brands, Business, and Life (2019)](https://www.goodreads.com/book/show/26210508-alchemy): Sutherland's extended treatment of hidden value and measurement failure
-- [x] [Thinking, Fast and Slow: Daniel Kahneman (2011)](https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow): foundational work on loss aversion and cognitive asymmetry
-- [x] [Harvard Business Review: Finally, Evidence That Managing for the Long Term Pays Off (2017)](https://hbr.org/2017/02/finally-proof-that-managing-for-the-long-term-pays-off): empirical evidence on long-term vs. short-term performance gaps and short-termism costs
-- [x] [Les Binet and Peter Field: The Long and the Short of It](https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it): Institute of Practitioners in Advertising (IPA) research on short-term cost optimisation destroying long-term brand value
+- [x] [Business Leader podcast: Rory Sutherland with Richard Harpin](https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips) — : primary source articulating the asymmetry argument in plain business terms
+- [x] [Alchemy: The Dark Art and Curious Science of Creating Magic in Brands, Business, and Life (2019)](https://www.goodreads.com/book/show/26210508-alchemy) — : Sutherland's extended treatment of hidden value and measurement failure
+- [x] [Thinking, Fast and Slow: Daniel Kahneman (2011)](https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow) — : foundational work on loss aversion and cognitive asymmetry
+- [x] [Harvard Business Review: Finally, Evidence That Managing for the Long Term Pays Off (2017)](https://hbr.org/2017/02/finally-proof-that-managing-for-the-long-term-pays-off) — : empirical evidence on long-term vs. short-term performance gaps and short-termism costs
+- [x] [Les Binet and Peter Field: The Long and the Short of It](https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it) — : Institute of Practitioners in Advertising (IPA) research on short-term cost optimisation destroying long-term brand value
 
 ---
 

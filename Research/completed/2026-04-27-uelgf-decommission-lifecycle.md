@@ -64,26 +64,26 @@ How should the UELGF formally specify the decommission lifecycle, including a co
 
 ## Sources
 
-- [x] [Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) - context for dependency elimination and workaround-retirement logic.
-- [x] [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html) - empirical base for decommission neglect and workaround persistence.
-- [x] [What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html) - prior repository lifecycle baseline and retirement controls.
-- [x] [Consolidated text of Regulation (EU) 2016/679, Article 5](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504) - GDPR storage limitation and archival exception.
-- [ ] [Australian Prudential Regulation Authority (APRA) Prudential Standard CPS 231: Outsourcing](https://www.apra.gov.au/sites/default/files/Prudential-Standard-CPS-231-Outsourcing-%28July-2017%29.pdf) - seeded prudential source; checked, but not used for downstream factual claims because no extractable retention clause was confirmed in this runtime.
-- [x] [Request for Comments (RFC) 7009: OAuth 2.0 Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009) - revocation semantics for grants, refresh tokens, and access tokens.
-- [x] [Kubernetes Application Programming Interface (API) deprecation policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/) - deprecation warning model and minimum notice windows.
-- [x] [Close a member account in AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html) - account-level decommission analogue.
-- [x] [Close an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html) - post-closure period, backup expectations, delegated-access failure, and retained CloudTrail behaviour.
-- [x] [NIST Special Publication (SP) 800-88 Revision 1: Guidelines for Media Sanitization](https://csrc.nist.gov/pubs/sp/800/88/r1/final) - disposition decisions tied to confidentiality sensitivity.
-- [x] [ISO/IEC 27001:2022 overview](https://www.iso.org/standard/27001) - information-security baseline for confidentiality, integrity, availability, and risk-managed retention controls.
-- [x] [Overview of Azure Resource Graph](https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview) - observable resource-state discovery and configuration-change visibility.
-- [x] [Advisor resources in Azure Resource Graph](https://learn.microsoft.com/en-us/azure/advisor/advisor-azure-resource-graph) - at-scale unused-resource and recommendation query patterns.
-- [x] [Azure Advisor overview](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview) - usage-telemetry and recommendation surface for unused-resource detection.
-- [x] [Update access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html) - deactivate, observe, and delete sequence for standing credentials.
-- [x] [Explore termination behavior for Pods and their endpoints](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/) - active connection draining and terminating endpoint states.
-- [x] [Container lifecycle hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) - `PreStop`, grace-period, and termination-order semantics.
-- [x] [Commission Delegated Regulation (EU) 2017/565, Article 76](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565) - MiFID II implementing record-retention minimums of five years and up to seven years on regulator request.
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - inventory, ongoing monitoring, and safe decommissioning outcomes.
-- [x] [What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - credential, owner, and attribution dependencies that shape decommission order.
+- [x] [Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) — - context for dependency elimination and workaround-retirement logic.
+- [x] [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html) — - empirical base for decommission neglect and workaround persistence.
+- [x] [What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html) — - prior repository lifecycle baseline and retirement controls.
+- [x] [Consolidated text of Regulation (EU) 2016/679, Article 5](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504) — - GDPR storage limitation and archival exception.
+- [ ] [Australian Prudential Regulation Authority (APRA) Prudential Standard CPS 231: Outsourcing](https://www.apra.gov.au/sites/default/files/Prudential-Standard-CPS-231-Outsourcing-%28July-2017%29.pdf) — - seeded prudential source; checked, but not used for downstream factual claims because no extractable retention clause was confirmed in this runtime.
+- [x] [Request for Comments (RFC) 7009: OAuth 2.0 Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009) — - revocation semantics for grants, refresh tokens, and access tokens.
+- [x] [Kubernetes Application Programming Interface (API) deprecation policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/) — - deprecation warning model and minimum notice windows.
+- [x] [Close a member account in AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html) — - account-level decommission analogue.
+- [x] [Close an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html) — - post-closure period, backup expectations, delegated-access failure, and retained CloudTrail behaviour.
+- [x] [NIST Special Publication (SP) 800-88 Revision 1: Guidelines for Media Sanitization](https://csrc.nist.gov/pubs/sp/800/88/r1/final) — - disposition decisions tied to confidentiality sensitivity.
+- [x] [ISO/IEC 27001:2022 overview](https://www.iso.org/standard/27001) — - information-security baseline for confidentiality, integrity, availability, and risk-managed retention controls.
+- [x] [Overview of Azure Resource Graph](https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview) — - observable resource-state discovery and configuration-change visibility.
+- [x] [Advisor resources in Azure Resource Graph](https://learn.microsoft.com/en-us/azure/advisor/advisor-azure-resource-graph) — - at-scale unused-resource and recommendation query patterns.
+- [x] [Azure Advisor overview](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview) — - usage-telemetry and recommendation surface for unused-resource detection.
+- [x] [Update access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html) — - deactivate, observe, and delete sequence for standing credentials.
+- [x] [Explore termination behavior for Pods and their endpoints](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/) — - active connection draining and terminating endpoint states.
+- [x] [Container lifecycle hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) — - `PreStop`, grace-period, and termination-order semantics.
+- [x] [Commission Delegated Regulation (EU) 2017/565, Article 76](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565) — - MiFID II implementing record-retention minimums of five years and up to seven years on regulator request.
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - inventory, ongoing monitoring, and safe decommissioning outcomes.
+- [x] [What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — - credential, owner, and attribution dependencies that shape decommission order.
 
 ## Related
 

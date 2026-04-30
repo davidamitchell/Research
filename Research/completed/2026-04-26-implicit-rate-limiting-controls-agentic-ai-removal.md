@@ -61,23 +61,23 @@ Prior to agentic Artificial Intelligence (AI), the blast radius of ungoverned ci
 
 ## Sources
 
-- [x] [Basel Committee on Banking Supervision, Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) - primary resilience framework text.
-- [x] [Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary](https://www.bis.org/fsi/fsisummaries/psmor.htm) - primary operational-risk summary used for pinpointable principle language.
-- [x] [APRA CPS 230, Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) - primary prudential text.
-- [x] [Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554) - primary legal text; the web reader path was unreliable in this runtime, so the PDF text extraction was used.
-- [x] [NIST AI RMF 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - official framework publication page.
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - official categories and subcategories used for human-AI oversight and monitoring language.
-- [x] [NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) - official publication page and control-family summary; granular control pages were not directly accessible in this runtime.
-- [x] [ISO 31000:2018, Risk management - Guidelines](https://www.iso.org/standard/65694.html) - official public summary page; full text is paywalled.
-- [x] [Princeton University Press, Normal Accidents: Living with High-Risk Technologies](https://press.princeton.edu/books/paperback/9780691004129/normal-accidents) - accessible publisher summary used in place of the unstable Amazon listing.
-- [x] [U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010](https://www.sec.gov/files/marketevents-report.pdf) - primary Flash Crash report; the originally seeded SEC URL returned 404 in this runtime and was replaced by the current official PDF.
-- [x] [Oxford Review of Financial Studies Flash Crash article](https://academic.oup.com/rfs/article/32/5/2024/5428080) - checked, returned 403 in this runtime, and was not used for downstream factual support.
-- [x] [van der Aalst, Bichler, and Heinzl, Robotic Process Automation](https://doi.org/10.1007/s12599-018-0542-4) - peer-reviewed RPA overview with explicit discussion of humans as the glue across systems, handoff of exceptional cases, and unnoticed automated failure.
-- [x] [Herm et al., A framework for implementing robotic process automation projects](https://link.springer.com/article/10.1007/s10257-022-00553-8) - peer-reviewed RPA implementation literature, including high failure-rate discussion and methodological challenges.
-- [x] [ISACA Journal, RPA Is Evolving but Risk Still Exists](https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists) - practitioner guidance on command-and-control centers, continuous operation, privileged access, monitoring, and change control.
-- [x] [From Shadow IT to Business-managed IT](https://doi.org/10.1007/s10257-020-00472-6) - peer-reviewed shadow-IT study showing business units adopt local systems when central information technology cannot deliver suitable solutions quickly enough.
-- [x] [On the Emergence of Shadow IT, A Transaction Cost-Based Approach](https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach) - checked, but the accessible view exposed references only in this runtime, so it was not used for downstream factual support.
-- [x] [Gartner RPA document](https://www.gartner.com/en/documents/3983454) - checked, returned 403 in this runtime, and was not used for downstream factual support.
+- [x] [Basel Committee on Banking Supervision, Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) — - primary resilience framework text.
+- [x] [Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary](https://www.bis.org/fsi/fsisummaries/psmor.htm) — - primary operational-risk summary used for pinpointable principle language.
+- [x] [APRA CPS 230, Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) — - primary prudential text.
+- [x] [Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554) — - primary legal text; the web reader path was unreliable in this runtime, so the PDF text extraction was used.
+- [x] [NIST AI RMF 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - official framework publication page.
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - official categories and subcategories used for human-AI oversight and monitoring language.
+- [x] [NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) — - official publication page and control-family summary; granular control pages were not directly accessible in this runtime.
+- [x] [ISO 31000:2018, Risk management - Guidelines](https://www.iso.org/standard/65694.html) — - official public summary page; full text is paywalled.
+- [x] [Princeton University Press, Normal Accidents: Living with High-Risk Technologies](https://press.princeton.edu/books/paperback/9780691004129/normal-accidents) — - accessible publisher summary used in place of the unstable Amazon listing.
+- [x] [U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010](https://www.sec.gov/files/marketevents-report.pdf) — - primary Flash Crash report; the originally seeded SEC URL returned 404 in this runtime and was replaced by the current official PDF.
+- [x] [Oxford Review of Financial Studies Flash Crash article](https://academic.oup.com/rfs/article/32/5/2024/5428080) — - checked, returned 403 in this runtime, and was not used for downstream factual support.
+- [x] [van der Aalst, Bichler, and Heinzl, Robotic Process Automation](https://doi.org/10.1007/s12599-018-0542-4) — - peer-reviewed RPA overview with explicit discussion of humans as the glue across systems, handoff of exceptional cases, and unnoticed automated failure.
+- [x] [Herm et al., A framework for implementing robotic process automation projects](https://link.springer.com/article/10.1007/s10257-022-00553-8) — - peer-reviewed RPA implementation literature, including high failure-rate discussion and methodological challenges.
+- [x] [ISACA Journal, RPA Is Evolving but Risk Still Exists](https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists) — - practitioner guidance on command-and-control centers, continuous operation, privileged access, monitoring, and change control.
+- [x] [From Shadow IT to Business-managed IT](https://doi.org/10.1007/s10257-020-00472-6) — - peer-reviewed shadow-IT study showing business units adopt local systems when central information technology cannot deliver suitable solutions quickly enough.
+- [x] [On the Emergence of Shadow IT, A Transaction Cost-Based Approach](https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach) — - checked, but the accessible view exposed references only in this runtime, so it was not used for downstream factual support.
+- [x] [Gartner RPA document](https://www.gartner.com/en/documents/3983454) — - checked, returned 403 in this runtime, and was not used for downstream factual support.
 
 ## Related
 

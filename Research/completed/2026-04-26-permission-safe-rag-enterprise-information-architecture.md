@@ -64,12 +64,12 @@ What are the technical constraints on permission-safe Retrieval-Augmented Genera
 
 ## Sources
 
-- [x] [Microsoft Azure AI Search - security filtering for multi-tenant search](https://learn.microsoft.com/en-us/azure/search/search-security-trimming-for-azure-search) - Microsoft documentation on security trimming; primary source for the Access Control List (ACL) metadata filtering approach
-- [x] [Microsoft Azure AI Search - security and access controls overview](https://learn.microsoft.com/en-us/azure/search/search-security-overview) - overview of index-level and document-level security models in Azure AI Search
-- [x] [AWS Bedrock Knowledge Bases - security and access control](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-permissions.html) - AWS documentation for Bedrock Knowledge Bases permission model
-- [x] [SharePoint Online - permission inheritance and sharing model](https://learn.microsoft.com/en-us/sharepoint/understanding-permission-levels) - Microsoft documentation on the SharePoint Online permission model that underpins Microsoft 365 (M365) RAG data sources
-- [x] https://arxiv.org/abs/2309.11495 - seeded identifier reviewed during investigation; resolved to an unrelated Chain-of-Verification paper and excluded from the evidence set
-- [x] https://arxiv.org/abs/2401.05566 - seeded identifier reviewed during investigation; resolved to an unrelated deceptive-alignment paper and excluded from the evidence set
+- [x] [Microsoft Azure AI Search - security filtering for multi-tenant search](https://learn.microsoft.com/en-us/azure/search/search-security-trimming-for-azure-search) — - Microsoft documentation on security trimming; primary source for the Access Control List (ACL) metadata filtering approach
+- [x] [Microsoft Azure AI Search - security and access controls overview](https://learn.microsoft.com/en-us/azure/search/search-security-overview) — - overview of index-level and document-level security models in Azure AI Search
+- [x] [AWS Bedrock Knowledge Bases - security and access control](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-permissions.html) — - AWS documentation for Bedrock Knowledge Bases permission model
+- [x] [SharePoint Online - permission inheritance and sharing model](https://learn.microsoft.com/en-us/sharepoint/understanding-permission-levels) — - Microsoft documentation on the SharePoint Online permission model that underpins Microsoft 365 (M365) RAG data sources
+- [x] [seeded identifier reviewed during investigation; resolved to an unrelated Chain-of-Verification paper and excluded from the evidence set](https://arxiv.org/abs/2309.11495)
+- [x] [seeded identifier reviewed during investigation; resolved to an unrelated deceptive-alignment paper and excluded from the evidence set](https://arxiv.org/abs/2401.05566)
 - [x] [Azure AI Search - document-level access overview](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview)
 - [x] [Azure AI Search - query-time ACL and role-based access control enforcement](https://learn.microsoft.com/en-us/azure/search/search-query-access-control-rbac-enforcement)
 - [x] [Azure AI Search - SharePoint ACL ingestion and synchronization](https://learn.microsoft.com/en-us/azure/search/search-indexer-sharepoint-access-control-lists)

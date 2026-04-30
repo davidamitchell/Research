@@ -96,10 +96,10 @@ The `2026-02-27-information-synthesis-entropy.md` completed item provides a theo
 - [x] `Research/completed/2026-03-03-knowledge-linking-connected-corpus.md` — link graph as input to synthesis; relationship types (`confirms`, `contradicts`, `extends`)
 - [x] `Research/backlog/2026-03-02-semantic-full-text-search.md` — finding candidate items for a synthesis pass requires searching the corpus by tag, keyword, or semantic similarity
 - [x] `Research/backlog/2026-03-02-chat-conversational-interface.md` — synthesis outputs are a primary product of the conversational interface
-- [x] Systematic review methodology (Wikipedia): https://en.wikipedia.org/wiki/Systematic_review — narrative synthesis vs. meta-analysis distinction; PRISMA standards
+- [x] [Systematic review methodology (Wikipedia)](https://en.wikipedia.org/wiki/Systematic_review) — narrative synthesis vs. meta-analysis distinction; PRISMA standards
 - [ ] Scoping review methodology (Arksey & O'Malley, 2005): framework for mapping a research area without full meta-analysis — inaccessible (paywalled academic paper)
-- [ ] Obsidian Maps of Content (MOC): https://notes.nicolevanderhoeven.com/Maps+of+Content — inaccessible (JavaScript-rendered Obsidian Publish site)
-- [x] Fabric `extract_wisdom` and `extract_insights` patterns: https://github.com/danielmiessler/fabric — single-source synthesis pipeline: extract IDEAS → refine to INSIGHTS
+- [ ] [Obsidian Maps of Content (MOC)](https://notes.nicolevanderhoeven.com/Maps+of+Content) — inaccessible (JavaScript-rendered Obsidian Publish site)
+- [x] [Fabric `extract_wisdom` and `extract_insights` patterns](https://github.com/danielmiessler/fabric) — single-source synthesis pipeline: extract IDEAS → refine to INSIGHTS
 - [ ] arXiv: "survey paper methodology" — search returned no directly relevant results on synthesis methodology (only content-level survey papers)
 - [x] `src/wiki/publish.py` — existing wiki pipeline; assess how synthesis pages would be incorporated
 

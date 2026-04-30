@@ -99,12 +99,12 @@ Additional context: https://github.com/davidamitchell/Latest-developments-/blob/
 
 ## Sources
 
-- [x] **Video transcript** — https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI (primary source — content reconstructed from item context and associated newsletter summary)
-- [x] **Latest developments context** — https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt
+- [x] [**Video transcript**](https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI) — (primary source — content reconstructed from item context and associated newsletter summary)
+- [x] [**Latest developments context**](https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt)
 - [x] **Brooks, F.P. (1975).** *The Mythical Man-Month: Essays on Software Engineering.* Addison-Wesley. (primary; accessed via verified PDF excerpt and independent academic commentary)
 - [x] **Dunbar, R.I.M. (1992).** "Neocortex size as a constraint on group size in primates." *Journal of Human Evolution*, 22(6), 469–493. (primary; abstract + secondary analysis)
 - [x] **Dunbar, R.I.M. (1993).** "Coevolution of neocortical size, group size and language in humans." *Behavioral and Brain Sciences*, 16(4), 681–694. (primary PDF accessed)
-- [x] **US Army Ranks page** — https://www.army.mil/ranks/ (fire team = 4 soldiers)
+- [x] [**US Army Ranks page**](https://www.army.mil/ranks/) — (fire team = 4 soldiers)
 - [x] **Field Manual (FM) 7-8 / FM 3-21.8** — Infantry Rifle Platoon and Squad (squad = 9, two fire teams of 4)
 - [x] **Lindenfors et al. (2021).** "Dunbar's Number Deconstructed." *Biology Letters*. PMC8103230. (empirical challenge to Dunbar)
 - [x] **Bezos two-pizza rule** — Amazon Web Services (AWS) Executive Insights; Nuclino blog; multiple secondary sources

@@ -88,8 +88,8 @@ The `2026-03-03-cross-item-synthesis-meta-insights.md` item produces synthesis o
 
 ## Sources
 
-- [x] Ebbinghaus (1885) — forgetting curve: foundational evidence on knowledge decay without re-engagement; https://en.wikipedia.org/wiki/Forgetting_curve
-- [x] Spaced repetition: SM-2 algorithm (Wozniak, 1990) — https://www.supermemo.com/en/blog/application-of-a-computer-to-improve-the-results-obtained-in-working-with-the-supermemo-method; assess applicability to research-level knowledge
+- [x] [Ebbinghaus (1885) — forgetting curve: foundational evidence on knowledge decay without re-engagement;](https://en.wikipedia.org/wiki/Forgetting_curve)
+- [x] [Spaced repetition: SM-2 algorithm (Wozniak, 1990)](https://www.supermemo.com/en/blog/application-of-a-computer-to-improve-the-results-obtained-in-working-with-the-supermemo-method) — assess applicability to research-level knowledge
 - [x] Make It Stick (Brown, Roediger, McDaniel, 2014) — evidence-based learning science: retrieval practice, interleaving, elaborative interrogation; what actually works for durable knowledge (via Wikipedia/Testing_effect)
 - [x] Ahrens (2017) — *How to Take Smart Notes* — re-engagement through writing and linking as the retention mechanism; why writing up findings matters more than re-reading (via Wikipedia/Zettelkasten)
 - [x] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — wisdom dimension: accumulated body of completed research forming decision-relevant understanding; retention is the prerequisite
@@ -98,7 +98,7 @@ The `2026-03-03-cross-item-synthesis-meta-insights.md` item produces synthesis o
 - [x] `Research/backlog/2026-03-02-semantic-full-text-search.md` — contextual recall requires finding the right prior item at the right moment; the search layer is the technical mechanism for contextual and agent-initiated recall; should be prioritised before retention tooling is built
 - [ ] `Research/backlog/2026-03-02-ios-shortcuts-research.md` — the iOS query shortcut (Option A: `workflow_dispatch` search; Option C: wiki quick-access) is a mobile-native active recall trigger; convergent with the periodic digest delivery design in this item
 - [ ] `Research/backlog/2026-03-02-slack-msteams-research-integration.md` — the digest delivery mode (weekly summary of completed items pushed to a channel) is structurally identical to the periodic digest workflow this item designs; the two items should be implemented as one workflow, not two
-- [x] Obsidian Spaced Repetition plugin: https://www.stephenmwangi.com/obsidian-spaced-repetition/ — community implementation of SR for Markdown notes; patterns to adapt for this corpus
+- [x] [Obsidian Spaced Repetition plugin](https://www.stephenmwangi.com/obsidian-spaced-repetition/) — community implementation of SR for Markdown notes; patterns to adapt for this corpus
 - [x] `research-prompt.md` — agent recall instruction target: where to add the "check completed items before starting" instruction
 - [x] `state/index.json` and `src/state.py` — extension point for `last_reviewed` tracking
 

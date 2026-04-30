@@ -62,20 +62,20 @@ How do established academic and scientific publishing systems (journal publisher
 
 ## Sources
 
-- [ ] [Committee on Publication Ethics (COPE) - Retraction Guidelines](https://publicationethics.org/retraction-guidelines) - seeded primary source for retraction standards; not quoted directly below
-- [ ] [COPE - Correction Guidelines](https://publicationethics.org/cope-guidelines-retracting-articles) - seeded primary source for correction standards; not quoted directly below
-- [x] [Nature - Corrections, Retractions and Matters Arising](https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy) - primary policy for corrections, retractions, addenda, expressions of concern, and formal commentary
-- [x] [Nature - Matters Arising](https://www.nature.com/nature/for-authors/matters-arising) - primary guidance for formal comment and reply handling
-- [x] [Public Library of Science (PLOS) ONE - Corrections, Expressions of Concern, and Retractions](https://journals.plos.org/plosone/s/corrections-and-retractions) - primary policy for correction and retraction thresholds
-- [x] [Public Library of Science (PLOS) ONE - Comments](https://journals.plos.org/plosone/s/comments) - primary guidance for lightweight post-publication discussion
-- [x] [BMJ (British Medical Journal) Author Hub - Correction and retraction policies](https://authors.bmj.com/policies/correction-retraction-policies/) - primary policy for version-of-record corrections and retractions
-- [x] [arXiv - Submission Guidelines](https://info.arxiv.org/help/submit/index.html) - primary guidance telling authors to replace rather than resubmit corrected work
-- [x] [arXiv - Submission Version Availability](https://info.arxiv.org/help/versions.html) - primary guidance for permanent version history, withdrawals, comments, and living-review updates
-- [x] [bioRxiv - Frequently Asked Questions](https://www.biorxiv.org/about/FAQ) - official revision guidance quoted through web search
-- [x] [Cochrane Handbook for Systematic Reviews of Interventions, current version](https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current) - primary handbook showing review updating as a distinct governed process
-- [x] [Cochrane decision framework for update proposals](https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals) - primary trigger logic for update versus new protocol
-- [x] [Guidance for the production and publication of Cochrane living systematic reviews](https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf) - primary living-review guidance for versioning, update cadence, and transition out of living mode
-- [x] [The Living Guidelines Handbook: Guidance for the production and publication of living clinical practice guidelines](https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/) - official living-guideline guidance outside Cochrane, located through web search
+- [ ] [Committee on Publication Ethics (COPE) - Retraction Guidelines](https://publicationethics.org/retraction-guidelines) — - seeded primary source for retraction standards; not quoted directly below
+- [ ] [COPE - Correction Guidelines](https://publicationethics.org/cope-guidelines-retracting-articles) — - seeded primary source for correction standards; not quoted directly below
+- [x] [Nature - Corrections, Retractions and Matters Arising](https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy) — - primary policy for corrections, retractions, addenda, expressions of concern, and formal commentary
+- [x] [Nature - Matters Arising](https://www.nature.com/nature/for-authors/matters-arising) — - primary guidance for formal comment and reply handling
+- [x] [Public Library of Science (PLOS) ONE - Corrections, Expressions of Concern, and Retractions](https://journals.plos.org/plosone/s/corrections-and-retractions) — - primary policy for correction and retraction thresholds
+- [x] [Public Library of Science (PLOS) ONE - Comments](https://journals.plos.org/plosone/s/comments) — - primary guidance for lightweight post-publication discussion
+- [x] [BMJ (British Medical Journal) Author Hub - Correction and retraction policies](https://authors.bmj.com/policies/correction-retraction-policies/) — - primary policy for version-of-record corrections and retractions
+- [x] [arXiv - Submission Guidelines](https://info.arxiv.org/help/submit/index.html) — - primary guidance telling authors to replace rather than resubmit corrected work
+- [x] [arXiv - Submission Version Availability](https://info.arxiv.org/help/versions.html) — - primary guidance for permanent version history, withdrawals, comments, and living-review updates
+- [x] [bioRxiv - Frequently Asked Questions](https://www.biorxiv.org/about/FAQ) — - official revision guidance quoted through web search
+- [x] [Cochrane Handbook for Systematic Reviews of Interventions, current version](https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current) — - primary handbook showing review updating as a distinct governed process
+- [x] [Cochrane decision framework for update proposals](https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals) — - primary trigger logic for update versus new protocol
+- [x] [Guidance for the production and publication of Cochrane living systematic reviews](https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf) — - primary living-review guidance for versioning, update cadence, and transition out of living mode
+- [x] [The Living Guidelines Handbook: Guidance for the production and publication of living clinical practice guidelines](https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/) — - official living-guideline guidance outside Cochrane, located through web search
 
 ## Related
 

@@ -58,12 +58,12 @@ This is the governance problem at the heart of deploying Type 3 risk agents, and
 
 - [ ] Risk.net: AI in risk management coverage 2023–2025
 - [ ] Celent / Oliver Wyman: AI in risk management research reports
-- [ ] Bank for International Settlements (BIS): "AI in financial risk management" (2024) — https://www.bis.org/
-- [ ] FCA / PRA: AI in financial services discussion papers (DP5/22, DP3/22, 2024 follow-ups) — https://www.fca.org.uk/
-- [ ] APRA CPG 234 / CPS 220: operational and model risk governance expectations — https://www.apra.gov.au/cpg-234-information-security
-- [ ] RBNZ: BS11 governance, BS2A capital adequacy — any AI-specific interpretive material — https://www.rbnz.govt.nz/
+- [ ] [Bank for International Settlements (BIS): "AI in financial risk management" (2024)](https://www.bis.org/)
+- [ ] [FCA / PRA: AI in financial services discussion papers (DP5/22, DP3/22, 2024 follow-ups)](https://www.fca.org.uk/)
+- [ ] [APRA CPG 234 / CPS 220: operational and model risk governance expectations](https://www.apra.gov.au/cpg-234-information-security)
+- [ ] [RBNZ: BS11 governance, BS2A capital adequacy — any AI-specific interpretive material](https://www.rbnz.govt.nz/)
 - [ ] Major bank disclosures: ANZ Group, JPMorgan Chase, HSBC, ING Group — known AI risk management disclosures
-- [ ] IIF (Institute of International Finance): AI governance in banking 2024 — https://www.iif.com/
+- [ ] [IIF (Institute of International Finance): AI governance in banking 2024](https://www.iif.com/)
 - [ ] Vendor documentation: Behavox, NICE Actimize, Nasdaq Surveillance, Bloomberg Compliance, OpenPages (IBM)
 - [ ] RiskMinds / OpRisk Global 2024 conference proceedings and published talks
 

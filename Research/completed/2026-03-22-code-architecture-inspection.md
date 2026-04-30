@@ -57,27 +57,27 @@ Understanding how a collection of repositories fits together — which services 
 
 ## Sources
 
-- [x] architecture-blueprint-generator skill — https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
-- [x] awesome-copilot repository overview — https://raw.githubusercontent.com/github/awesome-copilot/main/README.md
-- [x] RepoSwarm repository overview — https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
-- [x] dependency-cruiser repository overview — https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md
-- [x] Sourcegraph docs index — https://sourcegraph.com/docs
-- [x] Sourcegraph Code Insights docs — https://sourcegraph.com/docs/code-insights
-- [x] Sourcegraph Batch Changes docs — https://sourcegraph.com/docs/batch_changes
-- [x] GitHub dependency graph Representational State Transfer (REST) API docs — https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph
-- [x] GitHub dependency review REST API docs — https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/dependency-review
-- [x] GitHub Software Bill of Materials (SBOM) REST API docs — https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms
-- [x] Renovate docs — https://docs.renovatebot.com
-- [x] OpenRewrite docs — https://docs.openrewrite.org
-- [x] Open Policy Agent docs — https://www.openpolicyagent.org/docs/latest/
-- [x] ADR guidance site — https://adr.github.io
-- [x] Neal Ford et al. — Building Evolutionary Architectures — https://nealford.com/books/buildingevolutionaryarchitectures.html
-- [x] Building Evolutionary Architectures site — https://evolutionaryarchitecture.com
-- [x] Agent Skills standard site — https://agentskills.io
-- [x] Prior completed research: dependency mapping — https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md
-- [x] Prior completed research: coding AI agent skills survey — https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md
-- [x] Prior completed research: agent evaluation cross-repo analysis — https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md
-- [x] Prior completed research: applied context engineering workflows — https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md
+- [x] [architecture-blueprint-generator skill](https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md)
+- [x] [awesome-copilot repository overview](https://raw.githubusercontent.com/github/awesome-copilot/main/README.md)
+- [x] [RepoSwarm repository overview](https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md)
+- [x] [dependency-cruiser repository overview](https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md)
+- [x] [Sourcegraph docs index](https://sourcegraph.com/docs)
+- [x] [Sourcegraph Code Insights docs](https://sourcegraph.com/docs/code-insights)
+- [x] [Sourcegraph Batch Changes docs](https://sourcegraph.com/docs/batch_changes)
+- [x] [GitHub dependency graph Representational State Transfer (REST) API docs](https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph)
+- [x] [GitHub dependency review REST API docs](https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/dependency-review)
+- [x] [GitHub Software Bill of Materials (SBOM) REST API docs](https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms)
+- [x] [Renovate docs](https://docs.renovatebot.com)
+- [x] [OpenRewrite docs](https://docs.openrewrite.org)
+- [x] [Open Policy Agent docs](https://www.openpolicyagent.org/docs/latest/)
+- [x] [ADR guidance site](https://adr.github.io)
+- [x] [Neal Ford et al. — Building Evolutionary Architectures](https://nealford.com/books/buildingevolutionaryarchitectures.html)
+- [x] [Building Evolutionary Architectures site](https://evolutionaryarchitecture.com)
+- [x] [Agent Skills standard site](https://agentskills.io)
+- [x] [Prior completed research: dependency mapping](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md)
+- [x] [Prior completed research: coding AI agent skills survey](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md)
+- [x] [Prior completed research: agent evaluation cross-repo analysis](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md)
+- [x] [Prior completed research: applied context engineering workflows](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)
 
 ---
 

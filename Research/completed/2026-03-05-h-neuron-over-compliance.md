@@ -67,12 +67,12 @@ Understanding this pathway in detail — and what can be done about it — is th
 
 ## Sources
 
-- [x] Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs" (primary source for H-Neuron causal mechanism): https://arxiv.org/abs/2512.01797
-- [x] Zou et al. (2023) — "Representation Engineering: A Top-Down Approach to AI Transparency": https://arxiv.org/abs/2310.01405
-- [x] Perez et al. (2022) — "Sycophancy to Subterfuge: Investigating Reward Tampering in Language Models": https://arxiv.org/abs/2310.13548
-- [x] Anthropic (2022) — "Discovering Language Model Behaviors with Model-Written Evaluations": https://arxiv.org/abs/2212.09251
-- [x] Li et al. (2023) — "Inference-Time Intervention: Eliciting Truthful Answers from a Language Model": https://arxiv.org/abs/2306.03341
-- [x] Meng et al. (2022) — "ROME: Locating and Editing Factual Associations in GPT": https://arxiv.org/abs/2202.05262
+- [x] [Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs" (primary source for H-Neuron causal mechanism)](https://arxiv.org/abs/2512.01797)
+- [x] [Zou et al. (2023) — "Representation Engineering: A Top-Down Approach to AI Transparency"](https://arxiv.org/abs/2310.01405)
+- [x] [Perez et al. (2022) — "Sycophancy to Subterfuge: Investigating Reward Tampering in Language Models"](https://arxiv.org/abs/2310.13548)
+- [x] [Anthropic (2022) — "Discovering Language Model Behaviors with Model-Written Evaluations"](https://arxiv.org/abs/2212.09251)
+- [x] [Li et al. (2023) — "Inference-Time Intervention: Eliciting Truthful Answers from a Language Model"](https://arxiv.org/abs/2306.03341)
+- [x] [Meng et al. (2022) — "ROME: Locating and Editing Factual Associations in GPT"](https://arxiv.org/abs/2202.05262)
 - [ ] `Research/backlog/2026-03-05-h-neurons-in-llms.md` — **prerequisite**: completed
 
 ---

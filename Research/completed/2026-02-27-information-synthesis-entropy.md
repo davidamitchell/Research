@@ -53,7 +53,7 @@ This is a foundational research question that should inform how we build the syn
 ## Sources
 
 - [ ] Shannon, C.E. (1948). A Mathematical Theory of Communication
-- [ ] Adams et al. (2023). From Sparse to Dense: GPT-4 Summarization with Chain of Density Prompting — https://arxiv.org/abs/2309.04269
+- [ ] [Adams et al. (2023). From Sparse to Dense: GPT-4 Summarization with Chain of Density Prompting](https://arxiv.org/abs/2309.04269)
 - [ ] Meng et al. (2022). ROME / knowledge editing in transformers
 - [ ] Information bottleneck method (Tishby et al.)
 

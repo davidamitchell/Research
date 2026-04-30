@@ -57,17 +57,17 @@ The research content in `Research/completed/` is growing. A hosted, searchable v
 
 ## Sources
 
-- [x] GitHub Pages docs — https://docs.github.com/en/pages (consulted: limits page)
-- [x] Cloudflare Pages comparison — https://www.netlify.com/guides/cloudflare-pages-vs-netlify/ (consulted)
-- [x] Vercel vs Netlify vs Cloudflare Pages 2025 — https://www.digitalapplied.com/blog/vercel-vs-netlify-vs-cloudflare-pages-comparison (consulted)
-- [x] Pagefind official site — https://pagefind.app (consulted)
-- [x] Pagefind tutorial — https://gebna.gg/blog/full-text-search-static-website-pagefind (consulted)
-- [x] MkDocs Material — https://squidfunk.github.io/mkdocs-material/publishing-your-site/ (consulted: publishing + tags docs)
-- [x] Quartz hosting docs — https://quartz.jzhao.xyz/hosting (consulted)
-- [x] Orama search — https://nearform.com/digital-community/browser-based-vector-search-fast-private-and-no-backend-required/ (consulted)
-- [x] Qdrant Cloud pricing — https://www.firecrawl.dev/blog/best-vector-databases (consulted)
-- [x] LanceDB Cloud docs — https://docs.lancedb.com/cloud (consulted)
-- [x] Neo4j AuraDB — https://neo4j.com/product/auradb/ (consulted)
+- [x] [GitHub Pages docs](https://docs.github.com/en/pages) — (consulted: limits page)
+- [x] [Cloudflare Pages comparison](https://www.netlify.com/guides/cloudflare-pages-vs-netlify/) — (consulted)
+- [x] [Vercel vs Netlify vs Cloudflare Pages 2025](https://www.digitalapplied.com/blog/vercel-vs-netlify-vs-cloudflare-pages-comparison) — (consulted)
+- [x] [Pagefind official site](https://pagefind.app) — (consulted)
+- [x] [Pagefind tutorial](https://gebna.gg/blog/full-text-search-static-website-pagefind) — (consulted)
+- [x] [MkDocs Material](https://squidfunk.github.io/mkdocs-material/publishing-your-site/) — (consulted: publishing + tags docs)
+- [x] [Quartz hosting docs](https://quartz.jzhao.xyz/hosting) — (consulted)
+- [x] [Orama search](https://nearform.com/digital-community/browser-based-vector-search-fast-private-and-no-backend-required/) — (consulted)
+- [x] [Qdrant Cloud pricing](https://www.firecrawl.dev/blog/best-vector-databases) — (consulted)
+- [x] [LanceDB Cloud docs](https://docs.lancedb.com/cloud) — (consulted)
+- [x] [Neo4j AuraDB](https://neo4j.com/product/auradb/) — (consulted)
 
 ---
 

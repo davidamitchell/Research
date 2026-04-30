@@ -51,11 +51,11 @@ Spawned from the synthesis of https://youtu.be/HYUoS0GkGCs ("Reality Is A Contro
 
 ## Sources
 
-- [x] Chalmers, D. (1995). "Facing up to the problem of consciousness." *Journal of Consciousness Studies.* — https://consc.net/papers/facing.pdf
-- [x] Chalmers, D. (1996). *The Conscious Mind.* OUP. — https://global.oup.com/academic/product/the-conscious-mind-9780195117899
-- [x] Seth, A.K. (2021). *Being You*. Ch. 2 (the real problem). — https://www.penguin.co.uk/books/316558/being-you-by-anil-seth/9781529404777
-- [x] Frankish, K. (2016). "Illusionism as a theory of consciousness." *Journal of Consciousness Studies.* — https://www.keithfrankish.com/illusionism-as-a-theory-of-consciousness/
-- [x] Goff, P. (2019). *Galileo's Error: Foundations for a New Science of Mind.* — https://philipgoff.com/galileos-error/
+- [x] [Chalmers, D. (1995). "Facing up to the problem of consciousness." *Journal of Consciousness Studies.*](https://consc.net/papers/facing.pdf)
+- [x] [Chalmers, D. (1996). *The Conscious Mind.* OUP.](https://global.oup.com/academic/product/the-conscious-mind-9780195117899)
+- [x] [Seth, A.K. (2021). *Being You*. Ch. 2 (the real problem).](https://www.penguin.co.uk/books/316558/being-you-by-anil-seth/9781529404777)
+- [x] [Frankish, K. (2016). "Illusionism as a theory of consciousness." *Journal of Consciousness Studies.*](https://www.keithfrankish.com/illusionism-as-a-theory-of-consciousness/)
+- [x] [Goff, P. (2019). *Galileo's Error: Foundations for a New Science of Mind.*](https://philipgoff.com/galileos-error/)
 
 ---
 

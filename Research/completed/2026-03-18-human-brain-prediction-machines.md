@@ -74,18 +74,18 @@ This item connects to prior work on AI memory (`2026-03-17-ai-memory-systems-rag
 
 ## Sources
 
-- [x] Karl Friston (2010) — "The free-energy principle: a unified brain theory?" — *Nature Reviews Neuroscience* — https://doi.org/10.1038/nrn2787
-- [x] Andy Clark (2013) — "Whatever next? Predictive brains, situated agents, and the future of cognitive science" — *Behavioral and Brain Sciences* — https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf
-- [x] Anil Seth interview (2021) — "Anil Seth Finds Consciousness in Life's Push Against Entropy" — *Quanta Magazine* — https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/
-- [x] Anil Seth interview (2023) — "Reality is a controlled hallucination" — CCCB Lab — https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination
+- [x] [Karl Friston (2010) — "The free-energy principle: a unified brain theory?" — *Nature Reviews Neuroscience*](https://doi.org/10.1038/nrn2787)
+- [x] [Andy Clark (2013) — "Whatever next? Predictive brains, situated agents, and the future of cognitive science" — *Behavioral and Brain Sciences*](https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf)
+- [x] [Anil Seth interview (2021) — "Anil Seth Finds Consciousness in Life's Push Against Entropy" — *Quanta Magazine*](https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/)
+- [x] [Anil Seth interview (2023) — "Reality is a controlled hallucination" — CCCB Lab](https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination)
 - [ ] Jakob Hohwy (2013) — *The Predictive Mind* — Oxford University Press
-- [x] Rao & Ballard (1999) — "Predictive coding in the visual cortex" — *Nature Neuroscience* — https://www.cs.utexas.edu/~dana/nn.pdf
-- [x] Vaswani et al. (2017) — "Attention Is All You Need" — *Neural Information Processing Systems (NeurIPS) 2017* — https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf
-- [x] Brown et al. (2020) — "Language Models are Few-Shot Learners" — arXiv:2005.14165 — https://arxiv.org/pdf/2005.14165
-- [x] Bender et al. (2021) — "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" — *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency* — https://doi.org/10.1145/3442188.3445922
-- [x] Gurnee & Tegmark (2024) — "Language Models Represent Space and Time" — *International Conference on Learning Representations (ICLR) 2024* — https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf
-- [x] Kambhampati (2024) — "Can Large Language Models Reason and Plan?" — *Annals of the New York Academy of Sciences* — https://doi.org/10.1111/nyas.15125
-- [x] Open Encyclopedia of Cognitive Science entry — "The free energy principle" — https://oecs.mit.edu/pub/my8vpqih
+- [x] [Rao & Ballard (1999) — "Predictive coding in the visual cortex" — *Nature Neuroscience*](https://www.cs.utexas.edu/~dana/nn.pdf)
+- [x] [Vaswani et al. (2017) — "Attention Is All You Need" — *Neural Information Processing Systems (NeurIPS) 2017*](https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf)
+- [x] [Brown et al. (2020) — "Language Models are Few-Shot Learners" — arXiv:2005.14165](https://arxiv.org/pdf/2005.14165)
+- [x] [Bender et al. (2021) — "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" — *Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency*](https://doi.org/10.1145/3442188.3445922)
+- [x] [Gurnee & Tegmark (2024) — "Language Models Represent Space and Time" — *International Conference on Learning Representations (ICLR) 2024*](https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf)
+- [x] [Kambhampati (2024) — "Can Large Language Models Reason and Plan?" — *Annals of the New York Academy of Sciences*](https://doi.org/10.1111/nyas.15125)
+- [x] [Open Encyclopedia of Cognitive Science entry — "The free energy principle"](https://oecs.mit.edu/pub/my8vpqih)
 - [x] Prior completed research: `Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md`
 - [x] Prior completed research: `Research/completed/2026-03-15-neurological-context-management.md`
 - [x] Prior completed research: `Research/completed/2026-02-28-predictive-processing-active-inference.md`

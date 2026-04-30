@@ -65,13 +65,13 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — MemoryOS three-tier hierarchy; startup latency as design constraint
 - [x] `Research/completed/2026-03-02-semantic-full-text-search.md` — semantic search and embedding model selection findings
-- [x] LanceDB docs: https://lancedb.github.io/lancedb/
-- [x] LanceDB Python API (Table, add, search): https://lancedb.github.io/lancedb/python/python/
-- [x] BAAI/bge-small-en-v1.5 model card: https://huggingface.co/BAAI/bge-small-en-v1.5
-- [x] `sentence-transformers/all-MiniLM-L6-v2` model card: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
-- [x] GitHub code search API (as zero-rebuild alternative): https://docs.github.com/en/rest/search/search
+- [x] [LanceDB docs](https://lancedb.github.io/lancedb/)
+- [x] [LanceDB Python API (Table, add, search)](https://lancedb.github.io/lancedb/python/python/)
+- [x] [BAAI/bge-small-en-v1.5 model card](https://huggingface.co/BAAI/bge-small-en-v1.5)
+- [x] [`sentence-transformers/all-MiniLM-L6-v2` model card](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+- [x] [GitHub code search API (as zero-rebuild alternative)](https://docs.github.com/en/rest/search/search)
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — deployment options that depend on this benchmark (backlog, not yet researched)
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0015 — the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
+- [ ] [`davidamitchell/Memory-System` BACKLOG.md W-0015 — the corresponding discovery item that this research informs](https://github.com/davidamitchell/Memory-System)
 
 ---
 

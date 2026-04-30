@@ -67,11 +67,11 @@ This combination of findings — sparsity, causal role, generality, and pre-trai
 
 ## Sources
 
-- [x] Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs": https://arxiv.org/abs/2512.01797 ← **primary source**
-- [ ] "They solved AI hallucinations!" (YouTube explainer) — accessible walkthrough of the H-Neurons paper: the liar circuit concept, L1-regularised sparse probe methodology, intervention challenges, and implications for real-time hallucination detection: https://youtu.be/1ONwQzauqkc
-- [x] Elhage et al. (2022) — "Toy Models of Superposition" (Anthropic) — background on how neurons encode features: https://transformer-circuits.pub/2022/toy_model/index.html
-- [x] Meng et al. (2022) — "Locating and Editing Factual Associations in GPT" (ROME) — neuron-level causal tracing in GPT-family decoder models: https://arxiv.org/abs/2202.05262
-- [ ] Bereska & Gavves (2024) — "Mechanistic Interpretability for AI Safety — A Review": https://arxiv.org/abs/2404.14082
+- [x] [Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs"](https://arxiv.org/abs/2512.01797) — ← **primary source**
+- [ ] ["They solved AI hallucinations!" (YouTube explainer) — accessible walkthrough of the H-Neurons paper: the liar circuit concept, L1-regularised sparse probe methodology, intervention challenges, and implications for real-time hallucination detection](https://youtu.be/1ONwQzauqkc)
+- [x] [Elhage et al. (2022) — "Toy Models of Superposition" (Anthropic) — background on how neurons encode features](https://transformer-circuits.pub/2022/toy_model/index.html)
+- [x] [Meng et al. (2022) — "Locating and Editing Factual Associations in GPT" (ROME) — neuron-level causal tracing in GPT-family decoder models](https://arxiv.org/abs/2202.05262)
+- [ ] [Bereska & Gavves (2024) — "Mechanistic Interpretability for AI Safety — A Review"](https://arxiv.org/abs/2404.14082)
 - [ ] `Research/backlog/2026-03-05-llm-hallucination-mechanisms.md` — prerequisite: hallucination taxonomy and macroscopic causes
 - [ ] `Research/backlog/2026-03-05-h-neuron-over-compliance.md` — downstream: behavioural consequences and interventions
 - [ ] `Research/backlog/2026-03-05-h-neuron-pretraining-origins.md` — downstream: pre-training origins and LLM development implications

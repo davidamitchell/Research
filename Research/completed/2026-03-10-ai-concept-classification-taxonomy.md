@@ -78,8 +78,8 @@ Completed items that constrain the taxonomy:
 - [x] Prompt pattern catalogues: "Prompt Patterns as a Means for Evaluating and Improving Prompt Engineering" (White et al., 2023) arXiv:2302.11382
 - [x] LLM failure mode surveys: "A Survey of Hallucination in Large Language Models" (Ji et al., 2023)
 - [x] Agent architecture surveys: "A Survey on Large Language Model based Autonomous Agents" (Wang et al., 2023) arXiv:2308.11432
-- [x] Open Worldwide Application Security Project (OWASP) Top 10 for LLM Applications 2025 — https://owasp.org/www-project-top-10-for-large-language-model-applications/
-- [x] LangChain component architecture documentation — https://python.langchain.com/docs/introduction/
+- [x] [Open Worldwide Application Security Project (OWASP) Top 10 for LLM Applications 2025](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- [x] [LangChain component architecture documentation](https://python.langchain.com/docs/introduction/)
 
 ---
 

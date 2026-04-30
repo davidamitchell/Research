@@ -72,34 +72,34 @@ Cross-references:
 
 ## Sources
 
-- [x] [Pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) - native pipeline semantics, sequential artifact promotion, delegated deployment support, and external-tool integration.
-- [x] [Extend pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines) - gated extensions, Dataverse triggers, and integration with internal systems, Azure DevOps, and GitHub.
-- [x] [Deploy pipelines as a service principal or pipeline owner](https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup) - delegated identities, approval flows, and Microsoft Dataverse action hooks.
-- [x] [Microsoft Power Platform CLI overview](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) - cross-platform installation and shell support for the `pac` tool.
-- [x] [Microsoft Power Platform CLI pipeline command group](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/pipeline) - `pac pipeline list` and `pac pipeline deploy`.
-- [x] [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools) - Build Tools 2.0 are Power Platform CLI based and multi-platform.
-- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) - data policy controls, disable-publishing control, audit surfaces, and environment routing.
-- [x] [Implement a zoned governance strategy](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2) - zone model, Application Lifecycle Management (ALM) pipeline usage, and Information Technology (IT)-admin approval to publish.
-- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) - direct in-product publish behavior and channel fan-out.
-- [x] [Microsoft Power Platform Centre of Excellence (CoE) Starter Kit](https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit) - governance, audit, and admin components adjacent to deployment pipelines.
-- [x] [Harness Continuous Delivery overview](https://developer.harness.io/docs/continuous-delivery/) - native pipeline orchestration baseline.
-- [x] [Harness governance overview](https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/) - Open Policy Agent (OPA)-backed policy-as-code enforcement on save and run events.
-- [x] [Using manual Harness approval steps in Continuous Delivery stages](https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/approvals/using-harness-approval-steps-in-cd-stages/) - stage-level manual approval gates.
-- [x] [Harness Shell Script step](https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/utilities/shell-script-step/) - Bash and PowerShell execution plus output variables on delegates or remote hosts.
-- [x] [Harness custom approvals](https://developer.harness.io/docs/platform/approvals/custom-approvals/) - script-driven approval and rejection criteria.
-- [x] [AWS CodePipeline user guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) - orchestration baseline for AWS release pipelines.
-- [x] [AWS CodePipeline manual approval action](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html) - native approval action for protected stages.
-- [x] [AWS CodeBuild user guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html) - managed build execution for pipeline steps.
-- [x] [AWS CodeBuild buildspec reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html) - executable command phases, shells, and environment variables.
-- [x] [AWS CodeDeploy user guide](https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html) - deployment target model for Amazon Elastic Compute Cloud (Amazon EC2), AWS Lambda, Amazon Elastic Container Service (Amazon ECS), and on-premises instances.
-- [x] [Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/) - Jenkinsfile pipeline-as-code, stage model, pause points, and extensibility.
-- [x] [Jenkins Shared Libraries](https://www.jenkins.io/doc/book/pipeline/shared-libraries/) - reusable governance steps and Domain-Specific Language (DSL) patterns.
-- [x] [Power Platform community thread: Jenkins CI/CD for Power Platform on Linux](https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617) - community evidence of Jenkins plus `pac` Command Line Interface (CLI) setup friction on Linux.
-- [x] [Power Platform community thread: Jenkins and Power Platform pipelines](https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d) - community evidence that Jenkins orchestration is considered possible, but only with solution-based packaging and custom scripting.
-- [x] [Deployment pipeline as the only enforceable control gate](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - prior repository synthesis on pipeline-as-gate logic and Microsoft bypass risk.
-- [x] [Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) - prior repository synthesis on low-code governance preconditions.
-- [x] [Governance enforcement architecture for AI and low-code systems](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) - prior repository synthesis on control-surface placement.
-- [x] [Observability and telemetry model for AI and low-code systems](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) - prior repository synthesis on audit and telemetry requirements.
+- [x] [Pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) — - native pipeline semantics, sequential artifact promotion, delegated deployment support, and external-tool integration.
+- [x] [Extend pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines) — - gated extensions, Dataverse triggers, and integration with internal systems, Azure DevOps, and GitHub.
+- [x] [Deploy pipelines as a service principal or pipeline owner](https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup) — - delegated identities, approval flows, and Microsoft Dataverse action hooks.
+- [x] [Microsoft Power Platform CLI overview](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) — - cross-platform installation and shell support for the `pac` tool.
+- [x] [Microsoft Power Platform CLI pipeline command group](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/pipeline) — - `pac pipeline list` and `pac pipeline deploy`.
+- [x] [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools) — - Build Tools 2.0 are Power Platform CLI based and multi-platform.
+- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) — - data policy controls, disable-publishing control, audit surfaces, and environment routing.
+- [x] [Implement a zoned governance strategy](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2) — - zone model, Application Lifecycle Management (ALM) pipeline usage, and Information Technology (IT)-admin approval to publish.
+- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) — - direct in-product publish behavior and channel fan-out.
+- [x] [Microsoft Power Platform Centre of Excellence (CoE) Starter Kit](https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit) — - governance, audit, and admin components adjacent to deployment pipelines.
+- [x] [Harness Continuous Delivery overview](https://developer.harness.io/docs/continuous-delivery/) — - native pipeline orchestration baseline.
+- [x] [Harness governance overview](https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/) — - Open Policy Agent (OPA)-backed policy-as-code enforcement on save and run events.
+- [x] [Using manual Harness approval steps in Continuous Delivery stages](https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/approvals/using-harness-approval-steps-in-cd-stages/) — - stage-level manual approval gates.
+- [x] [Harness Shell Script step](https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/utilities/shell-script-step/) — - Bash and PowerShell execution plus output variables on delegates or remote hosts.
+- [x] [Harness custom approvals](https://developer.harness.io/docs/platform/approvals/custom-approvals/) — - script-driven approval and rejection criteria.
+- [x] [AWS CodePipeline user guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) — - orchestration baseline for AWS release pipelines.
+- [x] [AWS CodePipeline manual approval action](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html) — - native approval action for protected stages.
+- [x] [AWS CodeBuild user guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html) — - managed build execution for pipeline steps.
+- [x] [AWS CodeBuild buildspec reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html) — - executable command phases, shells, and environment variables.
+- [x] [AWS CodeDeploy user guide](https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html) — - deployment target model for Amazon Elastic Compute Cloud (Amazon EC2), AWS Lambda, Amazon Elastic Container Service (Amazon ECS), and on-premises instances.
+- [x] [Jenkins Pipeline](https://www.jenkins.io/doc/book/pipeline/) — - Jenkinsfile pipeline-as-code, stage model, pause points, and extensibility.
+- [x] [Jenkins Shared Libraries](https://www.jenkins.io/doc/book/pipeline/shared-libraries/) — - reusable governance steps and Domain-Specific Language (DSL) patterns.
+- [x] [Power Platform community thread: Jenkins CI/CD for Power Platform on Linux](https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617) — - community evidence of Jenkins plus `pac` Command Line Interface (CLI) setup friction on Linux.
+- [x] [Power Platform community thread: Jenkins and Power Platform pipelines](https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d) — - community evidence that Jenkins orchestration is considered possible, but only with solution-based packaging and custom scripting.
+- [x] [Deployment pipeline as the only enforceable control gate](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — - prior repository synthesis on pipeline-as-gate logic and Microsoft bypass risk.
+- [x] [Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) — - prior repository synthesis on low-code governance preconditions.
+- [x] [Governance enforcement architecture for AI and low-code systems](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) — - prior repository synthesis on control-surface placement.
+- [x] [Observability and telemetry model for AI and low-code systems](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) — - prior repository synthesis on audit and telemetry requirements.
 
 ## Related
 

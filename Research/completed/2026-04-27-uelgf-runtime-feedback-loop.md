@@ -69,26 +69,26 @@ Prior completed research directly informs this item:
 
 ## Sources
 
-- [x] [AI and low-code observability and telemetry governance](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) - observability patterns for governed entities
-- [x] [AI agent control plane architecture for enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - control-plane and runtime feedback context
-- [x] [Systems capability debt agentic AI risk synthesis](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) - workaround pressure and demand-signal context
-- [x] [Access control amplification under agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) - machine-speed consequence and acute-stop context
-- [x] [UELGF policy architecture, PAP, PDP, PEP, PIP, and kill switch](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html) - adjacent UELGF kill-switch and policy-latency design
-- [x] [UELGF governed golden rails](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html) - repeated-exception to rail-evolution rule
-- [x] [MITRE ATT&CK](https://attack.mitre.org/) - typed tactic and technique taxonomy analogue
-- [x] [Google SRE Book, Chapter 6: Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/) - signal selection and alert-quality guidance
-- [x] [Prometheus Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) - grouping, deduplication, inhibition, routing, and silencing
-- [x] [NIST SP 800-137, Information Security Continuous Monitoring](https://csrc.nist.gov/pubs/sp/800/137/final) - continuous-monitoring strategy and timely response
-- [x] [FedRAMP continuous monitoring overview](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/overview/) - operational visibility, change control, and incident response
-- [x] [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/) - traces, metrics, logs, and baggage as normalized telemetry classes
-- [x] [Amazon GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html) - finding format and aggregation model
-- [x] [GuardDuty finding severity](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html) - low, medium, high, and critical response ladder
-- [x] [Amazon CloudWatch anomaly detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html) - seasonality-aware baselines and anomaly bands
-- [x] [APRA CPS 230](https://handbook.apra.gov.au/standard/cps-230) - operational-risk monitoring and remediation duties
-- [x] [European Securities and Markets Authority (ESMA) DORA overview](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora) - official DORA incident-management and risk-management summary
-- [x] [European Banking Authority (EBA) Interactive Single Rulebook, DORA](https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716) - official chapter structure for ICT incident management and reporting
-- [x] [21 CFR 820.100 Corrective and Preventive Action](https://www.law.cornell.edu/cfr/text/21/820.100) - recurrence detection, corrective action, and management review
-- [x] [RFC 7009, OAuth 2.0 Token Revocation](https://www.rfc-editor.org/rfc/rfc7009) - immediate token invalidation primitive for hard suspension
+- [x] [AI and low-code observability and telemetry governance](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) — - observability patterns for governed entities
+- [x] [AI agent control plane architecture for enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) — - control-plane and runtime feedback context
+- [x] [Systems capability debt agentic AI risk synthesis](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) — - workaround pressure and demand-signal context
+- [x] [Access control amplification under agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) — - machine-speed consequence and acute-stop context
+- [x] [UELGF policy architecture, PAP, PDP, PEP, PIP, and kill switch](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html) — - adjacent UELGF kill-switch and policy-latency design
+- [x] [UELGF governed golden rails](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html) — - repeated-exception to rail-evolution rule
+- [x] [MITRE ATT&CK](https://attack.mitre.org/) — - typed tactic and technique taxonomy analogue
+- [x] [Google SRE Book, Chapter 6: Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/) — - signal selection and alert-quality guidance
+- [x] [Prometheus Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) — - grouping, deduplication, inhibition, routing, and silencing
+- [x] [NIST SP 800-137, Information Security Continuous Monitoring](https://csrc.nist.gov/pubs/sp/800/137/final) — - continuous-monitoring strategy and timely response
+- [x] [FedRAMP continuous monitoring overview](https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/overview/) — - operational visibility, change control, and incident response
+- [x] [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/) — - traces, metrics, logs, and baggage as normalized telemetry classes
+- [x] [Amazon GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html) — - finding format and aggregation model
+- [x] [GuardDuty finding severity](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-severity.html) — - low, medium, high, and critical response ladder
+- [x] [Amazon CloudWatch anomaly detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html) — - seasonality-aware baselines and anomaly bands
+- [x] [APRA CPS 230](https://handbook.apra.gov.au/standard/cps-230) — - operational-risk monitoring and remediation duties
+- [x] [European Securities and Markets Authority (ESMA) DORA overview](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora) — - official DORA incident-management and risk-management summary
+- [x] [European Banking Authority (EBA) Interactive Single Rulebook, DORA](https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716) — - official chapter structure for ICT incident management and reporting
+- [x] [21 CFR 820.100 Corrective and Preventive Action](https://www.law.cornell.edu/cfr/text/21/820.100) — - recurrence detection, corrective action, and management review
+- [x] [RFC 7009, OAuth 2.0 Token Revocation](https://www.rfc-editor.org/rfc/rfc7009) — - immediate token invalidation primitive for hard suspension
 
 ## Related
 

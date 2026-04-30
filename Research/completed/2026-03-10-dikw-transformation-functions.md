@@ -83,9 +83,9 @@ The DIKW pyramid is one of the most-cited frameworks in information science and 
 - [ ] Ackoff, R.L. (1989). "From Data to Wisdom." *Journal of Applied Systems Analysis*, 16, 3–9. — original DIKW conceptualisation; accessed via secondary synthesis only
 - [x] Rowley, J. (2007). "The wisdom hierarchy: representations of the DIKW hierarchy." *Journal of Information Science*, 33(2), 163–180. — critical survey; accessed via secondary synthesis and Wikipedia citation
 - [ ] Zeleny, M. (1987). "Management Support Systems: Towards Integrated Knowledge Management." *Human Systems Management*, 7(1), 59–70. — precursor framing; accessed via secondary synthesis only
-- [x] Bernstein, J.H. (2009). "The Data-Information-Knowledge-Wisdom Hierarchy and its Antithesis." NASKO proceedings. https://journals.lib.washington.edu/index.php/nasko/article/view/12806 — critical perspective; extracted key claims
-- [x] Wikipedia, "DIKW pyramid" — https://en.wikipedia.org/wiki/DIKW_Pyramid — historical overview; directly consulted
-- [x] EBSCO Research Starters, "DIKW Pyramid" — https://www.ebsco.com/research-starters/library-and-information-science/dikw-pyramid — secondary survey; referenced
+- [x] [Bernstein, J.H. (2009). "The Data-Information-Knowledge-Wisdom Hierarchy and its Antithesis." NASKO proceedings.](https://journals.lib.washington.edu/index.php/nasko/article/view/12806) — critical perspective; extracted key claims
+- [x] [Wikipedia, "DIKW pyramid"](https://en.wikipedia.org/wiki/DIKW_Pyramid) — historical overview; directly consulted
+- [x] [EBSCO Research Starters, "DIKW Pyramid"](https://www.ebsco.com/research-starters/library-and-information-science/dikw-pyramid) — secondary survey; referenced
 - [x] `Research/completed/2026-02-27-information-synthesis-entropy.md` — information-theoretic angle; directly read
 - [x] `Research/completed/2026-03-03-knowledge-representation-agent-context.md` — knowledge representation; directly read
 - [x] `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — intent alignment as K→W problem; directly read

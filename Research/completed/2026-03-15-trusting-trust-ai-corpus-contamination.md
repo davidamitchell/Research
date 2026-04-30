@@ -64,17 +64,17 @@ Ken Thompson's "Trusting Trust" argument shows that you cannot verify a compiler
 
 ## Sources
 
-- [x] Ken Thompson, "Reflections on Trusting Trust" (1984) — https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf
-- [x] Shumailov et al., "AI models collapse when trained on recursively generated data" (Nature, 2024) — https://www.nature.com/articles/s41586-024-07566-y
-- [x] Gerstgrasser et al., "Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data" (2024) — https://arxiv.org/abs/2404.01413
-- [x] Spennemann, "Delving into the quantification of AI-generated content on the internet" (2025) — https://arxiv.org/abs/2504.08755
-- [x] Graphite Common Crawl analysis, "More Articles Are Now Created by AI Than Humans" (2025) — https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans
-- [x] NewsGuard AI Tracking Center — https://www.newsguardtech.com/special-reports/ai-tracking-center/
-- [x] Open Worldwide Application Security Project (OWASP) Large Language Model (LLM)01:2025 Prompt Injection — https://genai.owasp.org/llmrisk/llm01-prompt-injection/
-- [x] OWASP LLM04:2025 Data and Model Poisoning — https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/
-- [x] Abdelnabi et al., "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection" (2023) — https://arxiv.org/abs/2302.12173
-- [x] Simon Willison, "Model Context Protocol (MCP) prompt injection" (2025) — https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/
-- [x] Internet Encyclopedia of Philosophy, "Epistemic Circularity" — https://iep.utm.edu/ep-circ/
+- [x] [Ken Thompson, "Reflections on Trusting Trust" (1984)](https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf)
+- [x] [Shumailov et al., "AI models collapse when trained on recursively generated data" (Nature, 2024)](https://www.nature.com/articles/s41586-024-07566-y)
+- [x] [Gerstgrasser et al., "Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data" (2024)](https://arxiv.org/abs/2404.01413)
+- [x] [Spennemann, "Delving into the quantification of AI-generated content on the internet" (2025)](https://arxiv.org/abs/2504.08755)
+- [x] [Graphite Common Crawl analysis, "More Articles Are Now Created by AI Than Humans" (2025)](https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans)
+- [x] [NewsGuard AI Tracking Center](https://www.newsguardtech.com/special-reports/ai-tracking-center/)
+- [x] [Open Worldwide Application Security Project (OWASP) Large Language Model (LLM)01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [x] [OWASP LLM04:2025 Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)
+- [x] [Abdelnabi et al., "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection" (2023)](https://arxiv.org/abs/2302.12173)
+- [x] [Simon Willison, "Model Context Protocol (MCP) prompt injection" (2025)](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/)
+- [x] [Internet Encyclopedia of Philosophy, "Epistemic Circularity"](https://iep.utm.edu/ep-circ/)
 - [x] Related completed item: `Research/completed/2026-03-15-prompt-injection-threat-landscape.md`
 
 ---

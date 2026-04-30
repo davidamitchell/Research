@@ -1037,3 +1037,47 @@ Migration path: convert existing items, update `research-loop.yml` to write to t
 W-number collisions happen whenever a feature PR stays open while the research loop appends a new W-item to `BACKLOG.md` on `main`. Both branches independently compute "next number = last number + 1" and choose the same value. The conflict is structurally inevitable given the current monolithic append model. Splitting to per-item files is the root-cause fix documented in the Known Recurring Patterns table of `.github/copilot-instructions.md`.
 
 ---
+
+---
+
+## W-0056
+
+status: open
+created: 2026-04-29
+updated: 2026-04-29
+
+### Outcome
+
+All 215 completed research items have their `## Sources` section display names updated to the canonical `inline-citation` format documented in `Research/_template.md`:
+
+- Papers with named authors: `[Smith et al. (YYYY) Title](url)` or `[Surname, A.K. (YYYY). Title](url)`
+- Docs / standards / org pages: `[Organisation Title](url)` (no bare colon-separated format)
+
+The migration can be verified by running `scripts/extract_metadata.py` and `scripts/build_site.py` and confirming that ≥95% of citation chips on generated pages display `Author (YYYY)` or a recognisable org name rather than a bare URL domain.
+
+### Context
+
+As of 2026-04-29, the `_extract_citation_label` function in `build_site.py` achieves 89% year-extraction rate from existing display names. The remaining 11% fall back to URL-domain labels (e.g. `Edelmansmithfield (n.d.)`, `Prnewswire (n.d.)`). Updating source display names to the canonical format would push coverage to ~100% and make citation chips more informative on the published site. This is a bulk manual migration (2142 source entries across 215 files).
+
+---
+
+## W-0057
+
+status: open
+created: 2026-04-29
+updated: 2026-04-29
+
+### Outcome
+
+`scripts/build_site.py` includes a `normalize_source_display_name(display_name: str) -> str` utility that rewrites common legacy source line formats to the canonical `inline-citation` display name format without human intervention:
+
+- `Surname, A.K. (YYYY). Title` → `Surname (YYYY) Title`
+- `Org: description (YYYY)` → `Org (YYYY) Description`
+- `bare-url-only` lines → unchanged (no display name to normalise)
+
+A `scripts/migrate_source_display_names.py` script applies this to all `Research/completed/*.md` files and creates a git commit with a summary of changes. The migration is idempotent (already-canonical names are unchanged).
+
+### Context
+
+W-0056 tracks the manual migration. W-0057 tracks the automated approach. The automated approach is worthwhile because 2142 entries would take significant manual time and introduce inconsistencies. A script that converts the most common patterns (80%+ of entries) and leaves complex cases for manual review is a better lever.
+

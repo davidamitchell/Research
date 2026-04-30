@@ -59,22 +59,21 @@ What enterprise-wide Artificial Intelligence (AI) capability model best supports
 ## Sources
 
 Starting points - papers, articles, videos, repos, docs.
-**Every source must include a Uniform Resource Locator (URL).** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [x] [DevOps Research and Assessment (DORA) Research Program](https://dora.dev/research/) - primary source for the 2024 and 2025 DORA reports and associated AI capability guidance
-- [x] [Google Cloud DORA overview](https://cloud.google.com/devops) - contextual landing page for DORA report publication and capability framing
-- [x] [GitClear AI code quality research](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) - telemetry-based counterpoint on code churn and cloning
-- [x] [State of AI Report](https://www.stateof.ai/) - annual ecosystem synthesis across research, market, and policy signals
-- [x] [Stanford Human-Centered Artificial Intelligence (HAI) AI Index](https://hai.stanford.edu/ai-index) - data-heavy annual benchmark across investment, policy, education, and model progress
-- [x] [a16z Big Ideas in Tech](https://a16z.com/big-ideas-in-tech/) - listed URL returned a 404 page in this environment, so it was checked for context but not used for core evidence
-- [x] [McKinsey State of AI](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) - enterprise survey evidence on adoption and scaling bottlenecks
-- [x] [McKinsey Superagency in the Workplace](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential) - listed page failed to fetch directly in this environment; supporting claims use the associated [McKinsey Portable Document Format (PDF) file](https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-v4.pdf) when noted
-- [x] [GitHub Octoverse](https://octoverse.github.com/) - software ecosystem and developer workflow trend context
-- [x] [GitHub Research and impact posts](https://github.blog/news-insights/research/) - publicly shared findings on Copilot productivity and developer outcomes
-- [x] [Faros AI Productivity Paradox](https://faros.ai/blog/the-ai-productivity-paradox) - listed URL resolved to a page-missing page in this environment; supporting claims use [Faros follow-on analysis](https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes) and the linked [Faros report PDF](https://cdn.prod.website-files.com/66f2fa250759eeb1f2b1199a/68d6e93f3060b3c8a32e72bf_AI_Engineering_Impact_Report_July_2025_Faros_AI.pdf)
-- [x] [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) - governance and risk capability baseline for enterprise maturity
-- [x] [ISO/IEC 42001 standard overview](https://www.iso.org/standard/81230.html) - AI management system standard relevant to organisational capability design
-- [x] [Microsoft agentic AI adoption maturity model overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview) - concrete five-level maturity model used here as the comparison point for why maturity models are useful overlays but weaker primary intake tools
+- [x] [DevOps Research and Assessment (DORA) Research Program](https://dora.dev/research/) — - primary source for the 2024 and 2025 DORA reports and associated AI capability guidance
+- [x] [Google Cloud DORA overview](https://cloud.google.com/devops) — - contextual landing page for DORA report publication and capability framing
+- [x] [GitClear AI code quality research](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) — - telemetry-based counterpoint on code churn and cloning
+- [x] [State of AI Report](https://www.stateof.ai/) — - annual ecosystem synthesis across research, market, and policy signals
+- [x] [Stanford Human-Centered Artificial Intelligence (HAI) AI Index](https://hai.stanford.edu/ai-index) — - data-heavy annual benchmark across investment, policy, education, and model progress
+- [x] [a16z Big Ideas in Tech](https://a16z.com/big-ideas-in-tech/) — - listed URL returned a 404 page in this environment, so it was checked for context but not used for core evidence
+- [x] [McKinsey State of AI](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) — - enterprise survey evidence on adoption and scaling bottlenecks
+- [x] [McKinsey Superagency in the Workplace](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential) — - listed page failed to fetch directly in this environment; supporting claims use the associated [McKinsey Portable Document Format (PDF) file](https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-v4.pdf) when noted
+- [x] [GitHub Octoverse](https://octoverse.github.com/) — - software ecosystem and developer workflow trend context
+- [x] [GitHub Research and impact posts](https://github.blog/news-insights/research/) — - publicly shared findings on Copilot productivity and developer outcomes
+- [x] [Faros AI Productivity Paradox](https://faros.ai/blog/the-ai-productivity-paradox) — - listed URL resolved to a page-missing page in this environment; supporting claims use [Faros follow-on analysis](https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes) and the linked [Faros report PDF](https://cdn.prod.website-files.com/66f2fa250759eeb1f2b1199a/68d6e93f3060b3c8a32e72bf_AI_Engineering_Impact_Report_July_2025_Faros_AI.pdf)
+- [x] [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — - governance and risk capability baseline for enterprise maturity
+- [x] [ISO/IEC 42001 standard overview](https://www.iso.org/standard/81230.html) — - AI management system standard relevant to organisational capability design
+- [x] [Microsoft agentic AI adoption maturity model overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview) — - concrete five-level maturity model used here as the comparison point for why maturity models are useful overlays but weaker primary intake tools
 
 ---
 

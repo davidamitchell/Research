@@ -62,34 +62,34 @@ What frameworks - specifically the seven-layer enterprise stack and the Software
 
 ## Sources
 
-- [x] [Liam Hyland ServiceNow video](https://www.youtube.com/watch?v=JH65uE9oEqs) - checked; watch page returned a bot-confirmation wall in this environment
-- [x] [YouTube oEmbed metadata for the video](https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&format=json) - accessible metadata for title and author
-- [x] [Leonis Capital - "OpenClaw (aka Clawdbot) and the AI Threshold Effect"](https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect) - accessible source for "control is not friction, it is the product" and constrained-enterprise framing
-- [x] [The Open Group - TOGAF](https://www.opengroup.org/togaf) - checked
-- [x] [The Open Group - ArchiMate overview](https://www.opengroup.org/archimate-forum/archimate-overview) - checked
-- [x] [Gartner Pace Layering glossary page](https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy) - checked; returned 403 in this environment
-- [x] [Geoffrey Moore topics page](https://geoffreyamoore.com/topics/) - checked; accessible summary of core/context and stack orchestration topics
-- [x] [Stanford Entrepreneurial Thought Leaders - Core and Context](https://stvp.stanford.edu/av/core-and-context) - checked
-- [x] [Wardley Mapping 101](https://www.wardleymaps.com/guides/wardley-mapping-101) - checked
-- [x] [Wardley Maps - evolution passage](https://www.wardleymaps.com/book-passages/wardley-on-evolution) - checked
-- [x] [Stratechery aggregation theory overview](https://stratechery.com/aggregation-theory/) - checked
-- [x] [a16z Big Ideas 2026 Part 1](https://a16z.com/newsletter/big-ideas-2026-part-1) - checked
-- [x] [Google Cloud - announcing the 2025 DevOps Research and Assessment (DORA) report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) - checked
-- [x] [Artificial Intelligence Index Report 2025](https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf) - checked
-- [x] [OpenAI Generative Pre-trained Transformer (GPT)-4o mini announcement](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/) - checked via web search citation because direct fetch returned 403 in this environment
-- [x] [Kubernetes architecture](https://kubernetes.io/docs/concepts/architecture/) - checked for an authoritative systems definition of control plane
-- [x] [Damodaran terminal value note](https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf) - checked
-- [x] [Damodaran terminal value approaches](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm) - checked
-- [x] [Nobel Prize 1991 press release for Ronald Coase](https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/) - checked
-- [x] [Nobel Prize 2009 press release for Elinor Ostrom and Oliver Williamson](https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/) - checked
-- [x] [Amazon Bedrock Agents documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) - checked
-- [x] [GitHub Copilot usage metrics](https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics) - checked
-- [x] [ServiceNow Platform Strategy - completed research item](https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-platform-strategy.html) - checked
-- [x] [Transaction Cost Economics - completed research item](https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html) - checked
-- [x] [The Software Factory - completed research item](https://davidamitchell.github.io/Research/research/2026-03-23-software-factory.html) - checked
-- [x] [Enterprise AI platform operating models - completed research item](https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html) - checked
-- [x] [AI agent control-plane architecture - completed research item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - checked
-- [x] [Multi-provider AI control planes - completed research item](https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html) - checked
+- [x] [Liam Hyland ServiceNow video](https://www.youtube.com/watch?v=JH65uE9oEqs) — - checked; watch page returned a bot-confirmation wall in this environment
+- [x] [YouTube oEmbed metadata for the video](https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&format=json) — - accessible metadata for title and author
+- [x] [Leonis Capital - "OpenClaw (aka Clawdbot) and the AI Threshold Effect"](https://www.leoniscap.com/research/openclaw-(aka-clawdbot) — -and-the-ai-threshold-effect) - accessible source for "control is not friction, it is the product" and constrained-enterprise framing
+- [x] [The Open Group - TOGAF](https://www.opengroup.org/togaf) — - checked
+- [x] [The Open Group - ArchiMate overview](https://www.opengroup.org/archimate-forum/archimate-overview) — - checked
+- [x] [Gartner Pace Layering glossary page](https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy) — - checked; returned 403 in this environment
+- [x] [Geoffrey Moore topics page](https://geoffreyamoore.com/topics/) — - checked; accessible summary of core/context and stack orchestration topics
+- [x] [Stanford Entrepreneurial Thought Leaders - Core and Context](https://stvp.stanford.edu/av/core-and-context) — - checked
+- [x] [Wardley Mapping 101](https://www.wardleymaps.com/guides/wardley-mapping-101) — - checked
+- [x] [Wardley Maps - evolution passage](https://www.wardleymaps.com/book-passages/wardley-on-evolution) — - checked
+- [x] [Stratechery aggregation theory overview](https://stratechery.com/aggregation-theory/) — - checked
+- [x] [a16z Big Ideas 2026 Part 1](https://a16z.com/newsletter/big-ideas-2026-part-1) — - checked
+- [x] [Google Cloud - announcing the 2025 DevOps Research and Assessment (DORA) report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — - checked
+- [x] [Artificial Intelligence Index Report 2025](https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf) — - checked
+- [x] [OpenAI Generative Pre-trained Transformer (GPT)-4o mini announcement](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/) — - checked via web search citation because direct fetch returned 403 in this environment
+- [x] [Kubernetes architecture](https://kubernetes.io/docs/concepts/architecture/) — - checked for an authoritative systems definition of control plane
+- [x] [Damodaran terminal value note](https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf) — - checked
+- [x] [Damodaran terminal value approaches](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm) — - checked
+- [x] [Nobel Prize 1991 press release for Ronald Coase](https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/) — - checked
+- [x] [Nobel Prize 2009 press release for Elinor Ostrom and Oliver Williamson](https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/) — - checked
+- [x] [Amazon Bedrock Agents documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) — - checked
+- [x] [GitHub Copilot usage metrics](https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics) — - checked
+- [x] [ServiceNow Platform Strategy - completed research item](https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-platform-strategy.html) — - checked
+- [x] [Transaction Cost Economics - completed research item](https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html) — - checked
+- [x] [The Software Factory - completed research item](https://davidamitchell.github.io/Research/research/2026-03-23-software-factory.html) — - checked
+- [x] [Enterprise AI platform operating models - completed research item](https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html) — - checked
+- [x] [AI agent control-plane architecture - completed research item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) — - checked
+- [x] [Multi-provider AI control planes - completed research item](https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html) — - checked
 
 ---
 

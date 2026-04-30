@@ -77,41 +77,41 @@ Prior completed research qualifying the same control surfaces:
 
 ## Sources
 
-- [x] [UELGF complete framework synthesis](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html) - primary framework being implemented
-- [x] [UELGF policy architecture and 8-layer context](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html) - policy architecture specification
-- [x] [PDP universal policy synchronisation and integrity](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) - PDP component specification
-- [x] [PAP dynamic policy profiling and proportionality](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) - PAP component specification
-- [x] [PIP invariant anomaly detection](https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html) - PIP component specification
-- [x] [AI agent identity and access management in the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - prior machine identity synthesis
-- [x] [AI low-code observability and telemetry governance](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) - prior telemetry synthesis
-- [x] [Cryptographic intent preservation at runtime evaluation](https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html) - digest and lineage patterns
-- [x] [Open Policy Agent bundle management](https://www.openpolicyagent.org/docs/management-bundles) - bundle distribution, long polling, persistence, and immediate enforcement after load
-- [x] [Open Policy Agent decision logs](https://www.openpolicyagent.org/docs/management-decision-logs) - decision logging, trace identifiers, bundle revisions, and masking
-- [x] [Open Policy Agent policy performance](https://www.openpolicyagent.org/docs/latest/policy-performance/) - latency guidance and indexed evaluation patterns
-- [x] [Cedar policy validation against schema](https://docs.cedarpolicy.com/policies/validation.html) - schema validation, type safety, and default deny behavior
-- [x] [Cedar schema](https://docs.cedarpolicy.com/schema/schema.html) - principal, resource, action, and context type definitions
-- [x] [Cedar authorization](https://docs.cedarpolicy.com/auth/authorization.html) - request model, forbid-overrides-permit, diagnostics, and evaluation semantics
-- [x] [OpenTelemetry specification overview](https://opentelemetry.io/docs/specs/otel/) - official OpenTelemetry (OTel) specification surface
-- [x] [OpenTelemetry context propagation](https://opentelemetry.io/docs/concepts/context-propagation/) - distributed trace context propagation
-- [x] [OpenTelemetry baggage](https://opentelemetry.io/docs/concepts/signals/baggage/) - propagated contextual key-value data and security cautions
-- [x] [OpenTelemetry Collector architecture](https://opentelemetry.io/docs/collector/architecture/) - receiver, processor, exporter pipeline model
-- [x] [OpenTelemetry Collector processors](https://opentelemetry.io/docs/collector/components/processor/) - available filter, batch, transform, and memory-limiter processors
-- [x] [OpenTelemetry generative Artificial Intelligence (AI) attributes](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/) - canonical telemetry fields for model, prompt, retrieval, and tool-call metadata
-- [x] [OpenTelemetry generative AI events](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/) - opt-in event capture for prompts, responses, and tool definitions
-- [x] [SPIFFE overview](https://spiffe.io/docs/latest/spiffe-about/overview/) - short-lived workload identity model and SPIFFE Verifiable Identity Document (SVID) concepts
-- [x] [Vault lease, renew, and revoke](https://developer.hashicorp.com/vault/docs/concepts/lease) - leased dynamic secrets and immediate revocation behavior
-- [x] [AWS Identity and Access Management (IAM) temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) - short-lived credential semantics
-- [x] [AWS IAM Roles Anywhere introduction](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html) - X.509-based external workload identity to temporary credentials
-- [x] [Google Cloud Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation) - federated workload access and token exchange
-- [x] [Google Cloud service account impersonation](https://cloud.google.com/iam/docs/service-account-impersonation) - short-lived service account credentials with dual-identity audit
-- [x] [Microsoft Entra workload identities overview](https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview) - non-human identity types and lifecycle concerns
-- [x] [Managed identities for Azure resources overview](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) - credential-free Azure workload identity
-- [x] [Continuous Access Evaluation (CAE) for workload identities](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload) - real-time enforcement and revocation limits for service principals
-- [x] [Microsoft Entra workload identity risk](https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk) - workload identity detections and risk-based controls
-- [x] [Cloud Native Application Security Whitepaper](https://github.com/cncf/tag-security/blob/main/community/resources/security-whitepaper/v2/cloud-native-security-whitepaper.md) - workload identity, secure-by-design lifecycle, and runtime observability patterns
-- [x] [Digital Operational Resilience Act (DORA) overview](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) - official summary of Information and Communication Technology (ICT) risk-management, incident, testing, and oversight duties
-- [x] [Supervisory Guidance on Model Risk Management, SR 11-7 attachment Portable Document Format (PDF)](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf) - independent validation, effective challenge, and governance expectations
-- [x] [SS1/23 - Model risk management principles for banks](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss) - governance, validation, and proportionality expectations for model risk management
+- [x] [UELGF complete framework synthesis](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html) — - primary framework being implemented
+- [x] [UELGF policy architecture and 8-layer context](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html) — - policy architecture specification
+- [x] [PDP universal policy synchronisation and integrity](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) — - PDP component specification
+- [x] [PAP dynamic policy profiling and proportionality](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) — - PAP component specification
+- [x] [PIP invariant anomaly detection](https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html) — - PIP component specification
+- [x] [AI agent identity and access management in the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — - prior machine identity synthesis
+- [x] [AI low-code observability and telemetry governance](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) — - prior telemetry synthesis
+- [x] [Cryptographic intent preservation at runtime evaluation](https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html) — - digest and lineage patterns
+- [x] [Open Policy Agent bundle management](https://www.openpolicyagent.org/docs/management-bundles) — - bundle distribution, long polling, persistence, and immediate enforcement after load
+- [x] [Open Policy Agent decision logs](https://www.openpolicyagent.org/docs/management-decision-logs) — - decision logging, trace identifiers, bundle revisions, and masking
+- [x] [Open Policy Agent policy performance](https://www.openpolicyagent.org/docs/latest/policy-performance/) — - latency guidance and indexed evaluation patterns
+- [x] [Cedar policy validation against schema](https://docs.cedarpolicy.com/policies/validation.html) — - schema validation, type safety, and default deny behavior
+- [x] [Cedar schema](https://docs.cedarpolicy.com/schema/schema.html) — - principal, resource, action, and context type definitions
+- [x] [Cedar authorization](https://docs.cedarpolicy.com/auth/authorization.html) — - request model, forbid-overrides-permit, diagnostics, and evaluation semantics
+- [x] [OpenTelemetry specification overview](https://opentelemetry.io/docs/specs/otel/) — - official OpenTelemetry (OTel) specification surface
+- [x] [OpenTelemetry context propagation](https://opentelemetry.io/docs/concepts/context-propagation/) — - distributed trace context propagation
+- [x] [OpenTelemetry baggage](https://opentelemetry.io/docs/concepts/signals/baggage/) — - propagated contextual key-value data and security cautions
+- [x] [OpenTelemetry Collector architecture](https://opentelemetry.io/docs/collector/architecture/) — - receiver, processor, exporter pipeline model
+- [x] [OpenTelemetry Collector processors](https://opentelemetry.io/docs/collector/components/processor/) — - available filter, batch, transform, and memory-limiter processors
+- [x] [OpenTelemetry generative Artificial Intelligence (AI) attributes](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/) — - canonical telemetry fields for model, prompt, retrieval, and tool-call metadata
+- [x] [OpenTelemetry generative AI events](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/) — - opt-in event capture for prompts, responses, and tool definitions
+- [x] [SPIFFE overview](https://spiffe.io/docs/latest/spiffe-about/overview/) — - short-lived workload identity model and SPIFFE Verifiable Identity Document (SVID) concepts
+- [x] [Vault lease, renew, and revoke](https://developer.hashicorp.com/vault/docs/concepts/lease) — - leased dynamic secrets and immediate revocation behavior
+- [x] [AWS Identity and Access Management (IAM) temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) — - short-lived credential semantics
+- [x] [AWS IAM Roles Anywhere introduction](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html) — - X.509-based external workload identity to temporary credentials
+- [x] [Google Cloud Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation) — - federated workload access and token exchange
+- [x] [Google Cloud service account impersonation](https://cloud.google.com/iam/docs/service-account-impersonation) — - short-lived service account credentials with dual-identity audit
+- [x] [Microsoft Entra workload identities overview](https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview) — - non-human identity types and lifecycle concerns
+- [x] [Managed identities for Azure resources overview](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) — - credential-free Azure workload identity
+- [x] [Continuous Access Evaluation (CAE) for workload identities](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload) — - real-time enforcement and revocation limits for service principals
+- [x] [Microsoft Entra workload identity risk](https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk) — - workload identity detections and risk-based controls
+- [x] [Cloud Native Application Security Whitepaper](https://github.com/cncf/tag-security/blob/main/community/resources/security-whitepaper/v2/cloud-native-security-whitepaper.md) — - workload identity, secure-by-design lifecycle, and runtime observability patterns
+- [x] [Digital Operational Resilience Act (DORA) overview](https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en) — - official summary of Information and Communication Technology (ICT) risk-management, incident, testing, and oversight duties
+- [x] [Supervisory Guidance on Model Risk Management, SR 11-7 attachment Portable Document Format (PDF)](https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf) — - independent validation, effective challenge, and governance expectations
+- [x] [SS1/23 - Model risk management principles for banks](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss) — - governance, validation, and proportionality expectations for model risk management
 
 ---
 

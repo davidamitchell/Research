@@ -48,10 +48,10 @@ Mixing these in a single list makes prioritisation harder and obscures what is a
 
 ## Sources
 
-- [x] Existing conventions in `davidamitchell/Latest-developments-` — https://github.com/davidamitchell/Latest-developments-
-- [x] `BACKLOG.md` in this repo — https://github.com/davidamitchell/Research/blob/main/BACKLOG.md
-- [x] `Research/README.md` in this repo — https://github.com/davidamitchell/Research/blob/main/Research/README.md
-- [x] `AGENTS.md` Non-Negotiable Constraints section — https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md
+- [x] [Existing conventions in `davidamitchell/Latest-developments-`](https://github.com/davidamitchell/Latest-developments-)
+- [x] [`BACKLOG.md` in this repo](https://github.com/davidamitchell/Research/blob/main/BACKLOG.md)
+- [x] [`Research/README.md` in this repo](https://github.com/davidamitchell/Research/blob/main/Research/README.md)
+- [x] [`AGENTS.md` Non-Negotiable Constraints section](https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md)
 
 ## Findings
 

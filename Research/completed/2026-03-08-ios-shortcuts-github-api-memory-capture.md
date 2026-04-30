@@ -70,12 +70,12 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — production markdown-bank patterns; context on why `.md` files are the right storage layer
 - [x] `Research/completed/2026-03-02-ios-shortcuts-research.md` — existing findings on iOS Shortcuts + GitHub API for this research repo; directly applicable
-- [x] GitHub Contents API docs: https://docs.github.com/en/rest/repos/contents
-- [x] GitHub Search API docs: https://docs.github.com/en/rest/search/search
-- [ ] Apple iOS Shortcuts User Guide: https://support.apple.com/guide/shortcuts/welcome/ios
+- [x] [GitHub Contents API docs](https://docs.github.com/en/rest/repos/contents)
+- [x] [GitHub Search API docs](https://docs.github.com/en/rest/search/search)
+- [ ] [Apple iOS Shortcuts User Guide](https://support.apple.com/guide/shortcuts/welcome/ios)
 - [x] iOS Shortcuts HTTP action docs (Get Contents of URL / Set Variable)
-- [x] GitHub REST API rate limits: https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0008 — the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
+- [x] [GitHub REST API rate limits](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api)
+- [ ] [`davidamitchell/Memory-System` BACKLOG.md W-0008 — the corresponding discovery item that this research informs](https://github.com/davidamitchell/Memory-System)
 
 ---
 

@@ -80,8 +80,8 @@ All sources are inherited from the four cluster items. No new primary sources re
 
 - [x] `Research/completed/2026-03-05-llm-hallucination-mechanisms.md` — foundation findings (completed)
 - [x] `Research/completed/2026-03-05-h-neurons-in-llms.md` — core paper findings (completed)
-- [ ] `Research/backlog/2026-03-05-h-neuron-over-compliance.md` — intervention findings (not yet researched; covered via https://arxiv.org/abs/2512.01797 §3 and activation steering literature)
-- [ ] `Research/backlog/2026-03-05-h-neuron-pretraining-origins.md` — pre-training origin findings (not yet researched; covered via https://arxiv.org/abs/2512.01797 §4–5 and data quality literature)
+- [ ] [`Research/backlog/2026-03-05-h-neuron-over-compliance.md` — intervention findings (not yet researched; covered via](https://arxiv.org/abs/2512.01797) — §3 and activation steering literature)
+- [ ] [`Research/backlog/2026-03-05-h-neuron-pretraining-origins.md` — pre-training origin findings (not yet researched; covered via](https://arxiv.org/abs/2512.01797) — §4–5 and data quality literature)
 
 ---
 

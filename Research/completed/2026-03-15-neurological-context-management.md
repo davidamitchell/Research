@@ -60,16 +60,16 @@ Human beings routinely make aligned decisions while drawing on a vast, heterogen
 
 ## Sources
 
-- [x] Alan Baddeley (2000) — "The episodic buffer: a new component of working memory?" — PubMed abstract — https://pubmed.ncbi.nlm.nih.gov/11058819/
-- [x] Nelson Cowan (2010) — "The Magical Mystery Four: How is Working Memory Capacity Limited, and Why?" — PubMed Central (PMC) full text — https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/
-- [x] Earl K. Miller and Jonathan D. Cohen (2001) — "An integrative theory of prefrontal cortex function" — PubMed abstract — https://pubmed.ncbi.nlm.nih.gov/11283309/
-- [x] Shintaro Funahashi (2017) — "Working Memory in the Prefrontal Cortex" — PubMed Central (PMC) full text — https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/
-- [x] Sajad Rahmati, Miguel A. Bols, and Tirin Moore (2019) — "Prefrontal Contributions to Attention and Working Memory" — PubMed Central (PMC) full text — https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/
-- [x] Mark W. Preston and Howard Eichenbaum (2013) — "Interplay of hippocampus and prefrontal cortex in memory" — PubMed Central (PMC) full text — https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/
-- [x] Raymond M. Klein and Steven P. Hilchey (2020) — "What Neuroscientific Studies Tell Us about Inhibition of Return" — PubMed Central (PMC) full text — https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/
-- [x] Junaid Younas et al. (2023) — "Cognitive neuroscience perspective on memory" — Frontiers in Human Neuroscience — https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full
-- [x] Guilherme Bellini-Leite (2022) — "Dual Process Theory: Embodied and Predictive; Symbolic and Classical" — Frontiers in Psychology — https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full
-- [x] Karl Friston (2010) — "The free-energy principle: a unified brain theory?" — Digital Object Identifier (DOI) landing page — https://doi.org/10.1038/nrn2787
+- [x] [Alan Baddeley (2000) — "The episodic buffer: a new component of working memory?" — PubMed abstract](https://pubmed.ncbi.nlm.nih.gov/11058819/)
+- [x] [Nelson Cowan (2010) — "The Magical Mystery Four: How is Working Memory Capacity Limited, and Why?" — PubMed Central (PMC) full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/)
+- [x] [Earl K. Miller and Jonathan D. Cohen (2001) — "An integrative theory of prefrontal cortex function" — PubMed abstract](https://pubmed.ncbi.nlm.nih.gov/11283309/)
+- [x] [Shintaro Funahashi (2017) — "Working Memory in the Prefrontal Cortex" — PubMed Central (PMC) full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/)
+- [x] [Sajad Rahmati, Miguel A. Bols, and Tirin Moore (2019) — "Prefrontal Contributions to Attention and Working Memory" — PubMed Central (PMC) full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/)
+- [x] [Mark W. Preston and Howard Eichenbaum (2013) — "Interplay of hippocampus and prefrontal cortex in memory" — PubMed Central (PMC) full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/)
+- [x] [Raymond M. Klein and Steven P. Hilchey (2020) — "What Neuroscientific Studies Tell Us about Inhibition of Return" — PubMed Central (PMC) full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/)
+- [x] [Junaid Younas et al. (2023) — "Cognitive neuroscience perspective on memory" — Frontiers in Human Neuroscience](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full)
+- [x] [Guilherme Bellini-Leite (2022) — "Dual Process Theory: Embodied and Predictive; Symbolic and Classical" — Frontiers in Psychology](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full)
+- [x] [Karl Friston (2010) — "The free-energy principle: a unified brain theory?" — Digital Object Identifier (DOI) landing page](https://doi.org/10.1038/nrn2787)
 - [x] Prior completed item — `Research/completed/2026-02-28-predictive-processing-active-inference.md`
 - [x] Prior completed item — `Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md`
 - [x] Prior completed item — `Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md`

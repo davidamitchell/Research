@@ -72,22 +72,22 @@ Each repo may benefit from different subsets of awesome-copilot resources. A one
 
 ## Sources
 
-- [x] `davidamitchell/awesome-copilot` README — https://github.com/davidamitchell/awesome-copilot
-- [x] `davidamitchell/awesome-copilot` `instructions/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/instructions
-- [x] `davidamitchell/awesome-copilot` `skills/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/skills
-- [x] `davidamitchell/awesome-copilot` `agents/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/agents
-- [x] `davidamitchell/awesome-copilot` `workflows/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/workflows
-- [x] `davidamitchell/awesome-copilot` `hooks/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/hooks
-- [x] `davidamitchell/awesome-copilot` `plugins/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/plugins
-- [x] `davidamitchell/awesome-copilot` `cookbook/` directory — https://github.com/davidamitchell/awesome-copilot/tree/main/cookbook
-- [x] `davidamitchell/awesome-copilot` `AGENTS.md` — https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md
-- [x] `davidamitchell/Personal-Assistant-` — https://github.com/davidamitchell/Personal-Assistant-
-- [x] `davidamitchell/Latest-developments-` — https://github.com/davidamitchell/Latest-developments-
-- [x] `davidamitchell/Memory-System` — https://github.com/davidamitchell/Memory-System *(lookup returned 404 on 2026-03-22)*
-- [x] `davidamitchell/Agent-Evaluation` — https://github.com/davidamitchell/Agent-Evaluation
+- [x] [`davidamitchell/awesome-copilot` README](https://github.com/davidamitchell/awesome-copilot)
+- [x] [`davidamitchell/awesome-copilot` `instructions/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/instructions)
+- [x] [`davidamitchell/awesome-copilot` `skills/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/skills)
+- [x] [`davidamitchell/awesome-copilot` `agents/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/agents)
+- [x] [`davidamitchell/awesome-copilot` `workflows/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/workflows)
+- [x] [`davidamitchell/awesome-copilot` `hooks/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/hooks)
+- [x] [`davidamitchell/awesome-copilot` `plugins/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/plugins)
+- [x] [`davidamitchell/awesome-copilot` `cookbook/` directory](https://github.com/davidamitchell/awesome-copilot/tree/main/cookbook)
+- [x] [`davidamitchell/awesome-copilot` `AGENTS.md`](https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md)
+- [x] [`davidamitchell/Personal-Assistant-`](https://github.com/davidamitchell/Personal-Assistant-)
+- [x] [`davidamitchell/Latest-developments-`](https://github.com/davidamitchell/Latest-developments-)
+- [x] [`davidamitchell/Memory-System`](https://github.com/davidamitchell/Memory-System) — *(lookup returned 404 on 2026-03-22)*
+- [x] [`davidamitchell/Agent-Evaluation`](https://github.com/davidamitchell/Agent-Evaluation)
 - [x] This repo's existing Copilot setup — `.github/copilot-instructions.md`, `.github/mcp.json`, `.github/skills/`, `.github/workflows/`
-- [x] GitHub Copilot documentation on `copilot-instructions.md` — https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot
-- [x] Prior completed item: `2026-03-22-coding-ai-agent-skills-survey` — https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md
+- [x] [GitHub Copilot documentation on `copilot-instructions.md`](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+- [x] [Prior completed item: `2026-03-22-coding-ai-agent-skills-survey`](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md)
 
 ---
 

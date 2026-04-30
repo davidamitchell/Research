@@ -55,20 +55,20 @@ Work in modern software organisations does not live in a single system. An idea 
 
 ## Sources
 
-- [x] https://openlineage.io -- OpenLineage overview; confirms the project is an open framework for data lineage collection and analysis
-- [x] https://openlineage.io/docs/spec/object-model/ -- current OpenLineage object model; jobs, runs, datasets, and design-time/runtime events
-- [x] https://openlineage.io/docs/1.38.0/guides/facets -- current OpenLineage facets guide; standard and custom metadata extension points
-- [x] https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue -- GitHub issue and pull request linking
-- [x] https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github -- Azure Boards to GitHub linking with `AB#` references, branch links, and integrated build links
-- [x] https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/ -- current Jira Smart Commits documentation (replaces the original listed web link, which now returns 404)
-- [x] https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/ -- Confluence Smart Links for Jira and Atlassian project links
-- [x] https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0 -- SharePoint document-library items as `driveItem` / `listItem` resources with stable identifiers
-- [x] https://docs.github.com/en/rest/deployments/deployments -- GitHub deployment and deployment status events for release-stage traceability
-- [x] https://support.pagerduty.com/main/docs/recent-changes -- PagerDuty change events and incident change-correlation model for monitoring-stage linkage
-- [x] https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0 -- LinearB documentation on matching Jira issue keys to branches, PRs, commits, and incidents
-- [x] https://www.sleuth.io/post/dora-metrics-explained/ -- Sleuth article on DevOps Research and Assessment (DORA) metrics, including deployment frequency, change lead time, change failure rate, and mean time to recovery (MTTR)
-- [x] https://www.sleuth.io -- checked because it was in the original item; the site now markets agent-governance products rather than the older DORA-tracing positioning
-- [x] https://asq.org/quality-resources/lean/value-stream-mapping -- American Society for Quality overview of Value Stream Mapping (VSM) as a lean flow-mapping method
+- [x] [OpenLineage overview; confirms the project is an open framework for data lineage collection and analysis](https://openlineage.io)
+- [x] [current OpenLineage object model; jobs, runs, datasets, and design-time/runtime events](https://openlineage.io/docs/spec/object-model/)
+- [x] [current OpenLineage facets guide; standard and custom metadata extension points](https://openlineage.io/docs/1.38.0/guides/facets)
+- [x] [GitHub issue and pull request linking](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
+- [x] [Azure Boards to GitHub linking with `AB#` references, branch links, and integrated build links](https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github)
+- [x] [current Jira Smart Commits documentation (replaces the original listed web link, which now returns 404)](https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/)
+- [x] [Confluence Smart Links for Jira and Atlassian project links](https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/)
+- [x] [SharePoint document-library items as `driveItem` / `listItem` resources with stable identifiers](https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0)
+- [x] [GitHub deployment and deployment status events for release-stage traceability](https://docs.github.com/en/rest/deployments/deployments)
+- [x] [PagerDuty change events and incident change-correlation model for monitoring-stage linkage](https://support.pagerduty.com/main/docs/recent-changes)
+- [x] [LinearB documentation on matching Jira issue keys to branches, PRs, commits, and incidents](https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0)
+- [x] [Sleuth article on DevOps Research and Assessment (DORA) metrics, including deployment frequency, change lead time, change failure rate, and mean time to recovery (MTTR)](https://www.sleuth.io/post/dora-metrics-explained/)
+- [x] [checked because it was in the original item; the site now markets agent-governance products rather than the older DORA-tracing positioning](https://www.sleuth.io)
+- [x] [American Society for Quality overview of Value Stream Mapping (VSM) as a lean flow-mapping method](https://asq.org/quality-resources/lean/value-stream-mapping)
 - [x] Prior completed research: `Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md`
 - [x] Prior completed research: `Research/completed/2026-03-15-latent-concept-extraction-confluence.md`
 - [x] Prior completed research: `Research/completed/2026-03-08-servicenow-process-mapping.md`

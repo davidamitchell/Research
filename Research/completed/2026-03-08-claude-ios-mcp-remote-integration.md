@@ -66,20 +66,20 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 ## Sources
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — MCP RFC #2043 (Memory Interchange Format); memory portability as first-class concern
-- [x] MCP specification (transport section): https://modelcontextprotocol.io/docs/concepts/transports
-- [x] Anthropic MCP remote transport docs: https://www.anthropic.com/news/model-context-protocol
-- [x] Claude iOS App Store page (release notes): https://apps.apple.com/app/claude-by-anthropic/id6473753684
-- [x] Anthropic developer docs — MCP connector API: https://docs.anthropic.com/en/agents-and-tools/mcp-connector
-- [x] MCP authorization specification: https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization
-- [x] Anthropic support: What are custom connectors / remote MCP servers: https://support.anthropic.com/en/articles/11175166-what-is-claude-ai-s-connection-feature
-- [x] Anthropic support: Use connectors to extend Claude's capabilities: https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities
-- [x] Anthropic support: Building custom connectors via remote MCP servers: https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers
-- [x] Anthropic Connectors Directory FAQ: https://support.claude.com/en/articles/11596036-anthropic-connectors-directory-faq
-- [x] When to use desktop vs web connectors: https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors
-- [x] Cloudflare remote MCP server guide: https://developers.cloudflare.com/agents/guides/remote-mcp-server/
-- [x] SimpleScraper: How to build a remote MCP server: https://simplescraper.io/blog/how-to-mcp
+- [x] [MCP specification (transport section)](https://modelcontextprotocol.io/docs/concepts/transports)
+- [x] [Anthropic MCP remote transport docs](https://www.anthropic.com/news/model-context-protocol)
+- [x] [Claude iOS App Store page (release notes)](https://apps.apple.com/app/claude-by-anthropic/id6473753684)
+- [x] [Anthropic developer docs — MCP connector API](https://docs.anthropic.com/en/agents-and-tools/mcp-connector)
+- [x] [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
+- [x] [Anthropic support: What are custom connectors / remote MCP servers](https://support.anthropic.com/en/articles/11175166-what-is-claude-ai-s-connection-feature)
+- [x] [Anthropic support: Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
+- [x] [Anthropic support: Building custom connectors via remote MCP servers](https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers)
+- [x] [Anthropic Connectors Directory FAQ](https://support.claude.com/en/articles/11596036-anthropic-connectors-directory-faq)
+- [x] [When to use desktop vs web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
+- [x] [Cloudflare remote MCP server guide](https://developers.cloudflare.com/agents/guides/remote-mcp-server/)
+- [x] [SimpleScraper: How to build a remote MCP server](https://simplescraper.io/blog/how-to-mcp)
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — prerequisite infrastructure research (backlog, not yet completed)
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0004 — the corresponding discovery item (requires direct repo access not available in this session) — https://github.com/davidamitchell/Memory-System
+- [ ] [`davidamitchell/Memory-System` BACKLOG.md W-0004 — the corresponding discovery item (requires direct repo access not available in this session)](https://github.com/davidamitchell/Memory-System)
 
 ---
 

@@ -54,21 +54,21 @@ The completed item `2026-03-22-compliance-scanning-gh-actions.md` concluded that
 
 ## Sources
 
-- [x] GitHub Docs — About code scanning alerts: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts
-- [x] GitHub Docs — SARIF support for code scanning: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
-- [x] GitHub Docs — Uploading a SARIF file to GitHub: https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
-- [x] Organization for the Advancement of Structured Information Standards (OASIS) SARIF 2.1.0 specification: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html
-- [x] Semgrep docs — Ignoring files, folders, and code: https://semgrep.dev/docs/ignoring-files-folders-code
-- [x] Semgrep docs — JavaScript Object Notation (JSON) and SARIF fields: https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif
-- [x] Checkov docs — Command Line Interface (CLI) reference: https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html
-- [x] Checkov docs — Suppressing and Skipping Policies: https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html
-- [x] Checkov docs — SARIF output: https://www.checkov.io/8.Outputs/SARIF.html
-- [x] Spectral docs — CLI: https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli
-- [x] Spectral repository: https://github.com/stoplightio/spectral
-- [x] GraphQL Inspector docs — GitHub Action: https://the-guild.dev/graphql/inspector/docs/products/action
-- [x] SQLFluff docs — Ignoring Errors and Files: https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html
-- [x] SQLFluff docs — CLI reference: https://docs.sqlfluff.com/en/stable/reference/cli.html
-- [x] Prior related item — `Research/completed/2026-03-22-compliance-scanning-gh-actions.md`: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md
+- [x] [GitHub Docs — About code scanning alerts](https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts)
+- [x] [GitHub Docs — SARIF support for code scanning](https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning)
+- [x] [GitHub Docs — Uploading a SARIF file to GitHub](https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github)
+- [x] [Organization for the Advancement of Structured Information Standards (OASIS) SARIF 2.1.0 specification](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html)
+- [x] [Semgrep docs — Ignoring files, folders, and code](https://semgrep.dev/docs/ignoring-files-folders-code)
+- [x] [Semgrep docs — JavaScript Object Notation (JSON) and SARIF fields](https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif)
+- [x] [Checkov docs — Command Line Interface (CLI) reference](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html)
+- [x] [Checkov docs — Suppressing and Skipping Policies](https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html)
+- [x] [Checkov docs — SARIF output](https://www.checkov.io/8.Outputs/SARIF.html)
+- [x] [Spectral docs — CLI](https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli)
+- [x] [Spectral repository](https://github.com/stoplightio/spectral)
+- [x] [GraphQL Inspector docs — GitHub Action](https://the-guild.dev/graphql/inspector/docs/products/action)
+- [x] [SQLFluff docs — Ignoring Errors and Files](https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html)
+- [x] [SQLFluff docs — CLI reference](https://docs.sqlfluff.com/en/stable/reference/cli.html)
+- [x] [Prior related item — `Research/completed/2026-03-22-compliance-scanning-gh-actions.md`](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md)
 
 ---
 

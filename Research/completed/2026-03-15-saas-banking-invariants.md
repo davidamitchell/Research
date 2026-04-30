@@ -66,34 +66,34 @@ The research connects to related completed items on transaction costs (2026-03-0
 
 ## Sources
 
-- [x] https://www.salesforce.com/products/financial-services-cloud/overview/ - Salesforce Financial Services Cloud (FSC) product overview
-- [ ] https://ncino.com/products - nCino banking platform product documentation (attempted; returned status code 429 during this session)
-- [x] https://trailhead.salesforce.com - Salesforce Trailhead: platform capability documentation and learning paths
-- [ ] https://www.gartner.com/en/banking-financial-services - Gartner banking technology analyst reports (attempted; returned status code 403 during this session)
-- [ ] https://www.forrester.com/research/financial-services-technology/ - Forrester financial services technology research (attempted; returned status code 404 during this session)
-- [x] https://martinfowler.com/bliki/DomainDrivenDesign.html - Martin Fowler on Domain-Driven Design (DDD) and its implications for architecture
-- [x] https://en.wikipedia.org/wiki/Total_cost_of_ownership - Total Cost of Ownership (TCO) definition and framework
-- [x] https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ - GitHub: economic impact of AI-powered development
-- [ ] https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights - McKinsey Digital: build-vs-buy and cloud economics research (identified; article fetch failed during this session)
-- [x] https://en.wikipedia.org/wiki/Software_as_a_service - Software as a Service (SaaS) definition and characteristics
-- [x] https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf - Salesforce Financial Services Cloud User Guide
-- [x] https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf - Salesforce Financial Services Cloud Admin Guide
-- [x] https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide - Salesforce Financial Services Cloud Administrator Guide
-- [x] https://www.salesforce.com/company/legal/trust-and-compliance-documentation/ - Salesforce trust and compliance documentation
-- [x] https://www.salesforce.com/products/platform/overview/ - Salesforce platform overview
-- [x] https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture - Salesforce multitenant architecture explainer
-- [x] https://www.ncino.com/our-platform - nCino platform overview
-- [x] https://www.ncino.com/implementation - nCino implementation lifecycle
-- [x] https://www.ncino.com/our-platform/commercial-banking - nCino commercial banking solution
-- [x] https://developer.ncino.com/ - nCino developer portal
-- [x] https://www.temenos.com/products/core-banking/ - Temenos core banking overview
-- [x] https://www.thoughtmachine.net/vault-core - Thought Machine Vault Core overview
-- [x] https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey - American Bankers Association (ABA) core platforms survey
-- [x] https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html - PwC cloud banking trends
-- [x] https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html - Chief Information Officer (CIO) lifecycle TCO framework
-- [x] https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html - Deloitte on the future of software engineering in banks
-- [x] https://www.seerene.com/news-research/banks-dilemma - Seerene build-versus-buy discussion for banks
-- [x] https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f - nCino Integration Gateway listing on Salesforce AppExchange
+- [x] [Salesforce Financial Services Cloud (FSC) product overview](https://www.salesforce.com/products/financial-services-cloud/overview/)
+- [ ] [nCino banking platform product documentation (attempted; returned status code 429 during this session)](https://ncino.com/products)
+- [x] [Salesforce Trailhead: platform capability documentation and learning paths](https://trailhead.salesforce.com)
+- [ ] [Gartner banking technology analyst reports (attempted; returned status code 403 during this session)](https://www.gartner.com/en/banking-financial-services)
+- [ ] [Forrester financial services technology research (attempted; returned status code 404 during this session)](https://www.forrester.com/research/financial-services-technology/)
+- [x] [Martin Fowler on Domain-Driven Design (DDD) and its implications for architecture](https://martinfowler.com/bliki/DomainDrivenDesign.html)
+- [x] [Total Cost of Ownership (TCO) definition and framework](https://en.wikipedia.org/wiki/Total_cost_of_ownership)
+- [x] [GitHub: economic impact of AI-powered development](https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/)
+- [ ] [McKinsey Digital: build-vs-buy and cloud economics research (identified; article fetch failed during this session)](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights)
+- [x] [Software as a Service (SaaS) definition and characteristics](https://en.wikipedia.org/wiki/Software_as_a_service)
+- [x] [Salesforce Financial Services Cloud User Guide](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf)
+- [x] [Salesforce Financial Services Cloud Admin Guide](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf)
+- [x] [Salesforce Financial Services Cloud Administrator Guide](https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide)
+- [x] [Salesforce trust and compliance documentation](https://www.salesforce.com/company/legal/trust-and-compliance-documentation/)
+- [x] [Salesforce platform overview](https://www.salesforce.com/products/platform/overview/)
+- [x] [Salesforce multitenant architecture explainer](https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture)
+- [x] [nCino platform overview](https://www.ncino.com/our-platform)
+- [x] [nCino implementation lifecycle](https://www.ncino.com/implementation)
+- [x] [nCino commercial banking solution](https://www.ncino.com/our-platform/commercial-banking)
+- [x] [nCino developer portal](https://developer.ncino.com/)
+- [x] [Temenos core banking overview](https://www.temenos.com/products/core-banking/)
+- [x] [Thought Machine Vault Core overview](https://www.thoughtmachine.net/vault-core)
+- [x] [American Bankers Association (ABA) core platforms survey](https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey)
+- [x] [PwC cloud banking trends](https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html)
+- [x] [Chief Information Officer (CIO) lifecycle TCO framework](https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html)
+- [x] [Deloitte on the future of software engineering in banks](https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html)
+- [x] [Seerene build-versus-buy discussion for banks](https://www.seerene.com/news-research/banks-dilemma)
+- [x] [nCino Integration Gateway listing on Salesforce AppExchange](https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f)
 
 ---
 

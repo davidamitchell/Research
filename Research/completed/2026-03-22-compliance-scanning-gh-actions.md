@@ -59,27 +59,29 @@ The organisation already has GHAS and CodeQL running. The next evolution is exte
 
 ## Sources
 
-- [x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging
-- [x] GitHub Docs — Reusable workflows: https://docs.github.com/en/actions/sharing-automations/reusing-workflows
-- [x] GitHub Docs — Creating organisation rulesets: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization
-- [x] GitHub Docs — About code scanning with CodeQL: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql
-- [x] CodeQL docs — Supported languages and frameworks: https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/
-- [x] GitHub Docs — CodeQL custom queries and packs: https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs
-- [x] GitHub Blog — Required workflows and configuration variables: https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/
-- [x] GitHub Well-Architected — Rulesets best practices: https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/
-- [x] Open Policy Agent (OPA) / Conftest: https://www.conftest.dev/
-- [x] Semgrep rule-writing overview: https://semgrep.dev/docs/writing-rules/overview
-- [x] Spectral repository and documentation entry point: https://github.com/stoplightio/spectral
-- [ ] Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time: https://docs.stoplight.io/docs/spectral/
-- [x] Checkov documentation and repository: https://www.checkov.io/ ; https://github.com/bridgecrewio/checkov
-- [x] AWS Prescriptive Guidance — centralised custom Checkov scanning: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html
-- [x] dbt-project-evaluator repository: https://github.com/dbt-labs/dbt-project-evaluator
-- [x] SQLFluff documentation: https://sqlfluff.com/
-- [x] golangci-lint documentation and repository: https://golangci-lint.run/ ; https://github.com/golangci/golangci-lint
-- [x] kube-score repository: https://github.com/zegl/kube-score
-- [x] AsyncAPI Command Line Interface (CLI): https://www.asyncapi.com/tools/cli
-- [x] GraphQL Inspector docs: https://the-guild.dev/graphql/inspector/docs/index
-- [x] Ruff docs: https://docs.astral.sh/ruff/
+- [x] [GitHub Docs — Available rules for rulesets / require workflows to pass before merging](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)
+- [x] [GitHub Docs — Reusable workflows](https://docs.github.com/en/actions/sharing-automations/reusing-workflows)
+- [x] [GitHub Docs — Creating organisation rulesets](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)
+- [x] [GitHub Docs — About code scanning with CodeQL](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)
+- [x] [CodeQL docs — Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)
+- [x] [GitHub Docs — CodeQL custom queries and packs](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)
+- [x] [GitHub Blog — Required workflows and configuration variables](https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/)
+- [x] [GitHub Well-Architected — Rulesets best practices](https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/)
+- [x] [Open Policy Agent (OPA) / Conftest](https://www.conftest.dev/)
+- [x] [Semgrep rule-writing overview](https://semgrep.dev/docs/writing-rules/overview)
+- [x] [Spectral repository and documentation entry point](https://github.com/stoplightio/spectral)
+- [ ] [Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time](https://docs.stoplight.io/docs/spectral/)
+- [x] [Checkov documentation](https://www.checkov.io/)
+- [x] [Checkov repository](https://github.com/bridgecrewio/checkov)
+- [x] [AWS Prescriptive Guidance — centralised custom Checkov scanning](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html)
+- [x] [dbt-project-evaluator repository](https://github.com/dbt-labs/dbt-project-evaluator)
+- [x] [SQLFluff documentation](https://sqlfluff.com/)
+- [x] [golangci-lint documentation](https://golangci-lint.run/)
+- [x] [golangci-lint repository](https://github.com/golangci/golangci-lint)
+- [x] [kube-score repository](https://github.com/zegl/kube-score)
+- [x] [AsyncAPI Command Line Interface (CLI)](https://www.asyncapi.com/tools/cli)
+- [x] [GraphQL Inspector docs](https://the-guild.dev/graphql/inspector/docs/index)
+- [x] [Ruff docs](https://docs.astral.sh/ruff/)
 - [x] Prior related item — adaptive policy authorisation compliance: `Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md`
 - [x] Prior related item — agent Language Server Protocol (LSP) policy enforcement: `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md`
 

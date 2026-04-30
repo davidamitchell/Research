@@ -63,28 +63,28 @@ Contradictory or outdated policy documents are a chronic governance failure that
 
 ## Sources
 
-- [x] [Open Policy Agent homepage](https://www.openpolicyagent.org/) - official description of centralized policy management, auditability, and enforcement scope
-- [x] [Open Policy Agent policy testing](https://www.openpolicyagent.org/docs/policy-testing) - official testing framework for policy correctness and continuous integration use
-- [x] [Open Policy Agent Control Plane concepts](https://www.openpolicyagent.org/docs/ocp/concepts) - official bundle, source, namespace, and conflict-checking model for centrally managed policy distribution
-- [x] [Open Policy Agent adopters list](https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md) - public production adopters, including financial-services examples
-- [x] [AWS Cedar overview](https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html) - official Cedar overview describing separation of authorization logic, scalability, and analysis support
-- [x] [Cedar language reference guide](https://cedar-policy.github.io/cedar-docs/) - official Cedar reference describing schema, principals, resources, actions, and context
-- [x] [Amazon Science: How we built Cedar with automated reasoning and differential testing](https://www.amazon.science/blog/how-we-built-cedar-with-automated-reasoning-and-differential-testing) - verification-guided development overview from the Cedar team
-- [x] [How We Built Cedar: A Verification-Guided Approach](https://arxiv.org/abs/2407.01688) - paper reporting model proofs and bug-finding outcomes
-- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) - official control catalog page, including machine-readable Open Security Controls Assessment Language (OSCAL) publication
-- [x] [NIST Open Security Controls Assessment Language (OSCAL)](https://pages.nist.gov/OSCAL/) - official machine-readable control catalog initiative for policy-as-code and automated assessment
-- [x] [APRA CPS 230 - Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) - official APRA prudential standard
-- [x] [DORA - Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554) - official European Union regulation text
-- [x] [ISO/IEC 42001:2023 - Information technology - Artificial intelligence - Management system](https://www.iso.org/standard/81230.html) - official public summary of the Artificial Intelligence Management System (AIMS) standard
-- [x] [Bank of England / PRA discussion paper (DP) 5/22 - Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) - official United Kingdom discussion paper on how the current regulatory framework applies to AI
-- [x] [Bank of England / PRA feedback statement (FS) 2/23 - Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning) - official feedback statement confirming the focus on clarifying existing frameworks rather than imposing new mechanism-specific rules
-- [x] [PRA supervisory statement (SS) 1/23 - Model risk management principles for banks](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss) - official expectations for strategic governance, policies, procedures, and controls around models
-- [x] [Bank of New York Mellon (BNY Mellon) InfoQ transcript on OPA-based responsibility management](https://www.infoq.com/presentations/opa-spring-boot-hocon/) - practitioner evidence of financial-services use of OPA to centralize entitlement logic
-- [x] [Ramli 2015 eXtensible Access Control Markup Language (XACML) conflict-analysis paper](https://arxiv.org/abs/1503.02732) - accessible abstract for formal conflict analysis in XACML policy sets
-- [x] [ar5iv HTML mirror for the Ramli 2015 XACML conflict-analysis paper](https://ar5iv.labs.arxiv.org/html/1503.02732) - accessible HTML text for the same paper
-- [x] [Analyzing eXtensible Access Control Markup Language (XACML) policies using answer set programming](https://link.springer.com/article/10.1007/s10207-018-0421-5) - later formal-analysis article and reference hub for access-control policy verification literature
-- [x] [Basel Committee on Banking Supervision - Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) - official resilience principles for banks
-- [x] [Crossref metadata for the seeded Association for Computing Machinery (ACM) Digital Object Identifier (DOI)](https://api.crossref.org/works/10.1145/3194133.3194139) - used only to confirm that the seeded DOI resolves to an unrelated paper
+- [x] [Open Policy Agent homepage](https://www.openpolicyagent.org/) — - official description of centralized policy management, auditability, and enforcement scope
+- [x] [Open Policy Agent policy testing](https://www.openpolicyagent.org/docs/policy-testing) — - official testing framework for policy correctness and continuous integration use
+- [x] [Open Policy Agent Control Plane concepts](https://www.openpolicyagent.org/docs/ocp/concepts) — - official bundle, source, namespace, and conflict-checking model for centrally managed policy distribution
+- [x] [Open Policy Agent adopters list](https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md) — - public production adopters, including financial-services examples
+- [x] [AWS Cedar overview](https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html) — - official Cedar overview describing separation of authorization logic, scalability, and analysis support
+- [x] [Cedar language reference guide](https://cedar-policy.github.io/cedar-docs/) — - official Cedar reference describing schema, principals, resources, actions, and context
+- [x] [Amazon Science: How we built Cedar with automated reasoning and differential testing](https://www.amazon.science/blog/how-we-built-cedar-with-automated-reasoning-and-differential-testing) — - verification-guided development overview from the Cedar team
+- [x] [How We Built Cedar: A Verification-Guided Approach](https://arxiv.org/abs/2407.01688) — - paper reporting model proofs and bug-finding outcomes
+- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) — - official control catalog page, including machine-readable Open Security Controls Assessment Language (OSCAL) publication
+- [x] [NIST Open Security Controls Assessment Language (OSCAL)](https://pages.nist.gov/OSCAL/) — - official machine-readable control catalog initiative for policy-as-code and automated assessment
+- [x] [APRA CPS 230 - Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) — - official APRA prudential standard
+- [x] [DORA - Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554) — - official European Union regulation text
+- [x] [ISO/IEC 42001:2023 - Information technology - Artificial intelligence - Management system](https://www.iso.org/standard/81230.html) — - official public summary of the Artificial Intelligence Management System (AIMS) standard
+- [x] [Bank of England / PRA discussion paper (DP) 5/22 - Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) — - official United Kingdom discussion paper on how the current regulatory framework applies to AI
+- [x] [Bank of England / PRA feedback statement (FS) 2/23 - Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning) — - official feedback statement confirming the focus on clarifying existing frameworks rather than imposing new mechanism-specific rules
+- [x] [PRA supervisory statement (SS) 1/23 - Model risk management principles for banks](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss) — - official expectations for strategic governance, policies, procedures, and controls around models
+- [x] [Bank of New York Mellon (BNY Mellon) InfoQ transcript on OPA-based responsibility management](https://www.infoq.com/presentations/opa-spring-boot-hocon/) — - practitioner evidence of financial-services use of OPA to centralize entitlement logic
+- [x] [Ramli 2015 eXtensible Access Control Markup Language (XACML) conflict-analysis paper](https://arxiv.org/abs/1503.02732) — - accessible abstract for formal conflict analysis in XACML policy sets
+- [x] [ar5iv HTML mirror for the Ramli 2015 XACML conflict-analysis paper](https://ar5iv.labs.arxiv.org/html/1503.02732) — - accessible HTML text for the same paper
+- [x] [Analyzing eXtensible Access Control Markup Language (XACML) policies using answer set programming](https://link.springer.com/article/10.1007/s10207-018-0421-5) — - later formal-analysis article and reference hub for access-control policy verification literature
+- [x] [Basel Committee on Banking Supervision - Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) — - official resilience principles for banks
+- [x] [Crossref metadata for the seeded Association for Computing Machinery (ACM) Digital Object Identifier (DOI)](https://api.crossref.org/works/10.1145/3194133.3194139) — - used only to confirm that the seeded DOI resolves to an unrelated paper
 
 ## Related
 

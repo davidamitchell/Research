@@ -58,12 +58,12 @@ Prior research: Two completed items are relevant. `2026-02-28-controlled-halluci
 
 ## Sources
 
-- [x] Ji et al. (2023) — "Survey of Hallucination in Natural Language Generation": https://arxiv.org/abs/2202.03629
-- [x] Huang et al. (2023) — "A Survey on Hallucination in Large Language Models": https://arxiv.org/abs/2311.05232
-- [ ] Anthropic (2022) — "Constitutional AI": https://arxiv.org/abs/2212.08073
-- [ ] Ouyang et al. (2022) — "Training language models to follow instructions with human feedback (InstructGPT/RLHF)": https://arxiv.org/abs/2203.02155
-- [ ] Lewis et al. (2020) — "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks": https://arxiv.org/abs/2005.11401
-- [x] Perez et al. (2022) — "Sycophancy in AI assistants": https://arxiv.org/abs/2310.13548
+- [x] [Ji et al. (2023) — "Survey of Hallucination in Natural Language Generation"](https://arxiv.org/abs/2202.03629)
+- [x] [Huang et al. (2023) — "A Survey on Hallucination in Large Language Models"](https://arxiv.org/abs/2311.05232)
+- [ ] [Anthropic (2022) — "Constitutional AI"](https://arxiv.org/abs/2212.08073)
+- [ ] [Ouyang et al. (2022) — "Training language models to follow instructions with human feedback (InstructGPT/RLHF)"](https://arxiv.org/abs/2203.02155)
+- [ ] [Lewis et al. (2020) — "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"](https://arxiv.org/abs/2005.11401)
+- [x] [Perez et al. (2022) — "Sycophancy in AI assistants"](https://arxiv.org/abs/2310.13548)
 - [ ] `Research/backlog/2026-03-05-h-neurons-in-llms.md` — the paper this item frames
 
 ---

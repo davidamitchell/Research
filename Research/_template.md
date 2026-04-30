@@ -47,10 +47,13 @@ Decompose the question into sub-questions and describe how each will be investig
 ## Sources
 
 Starting points — papers, articles, videos, repos, docs.
-**Every source must include a URL.** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
+**Every source must include a URL.** Use the display name formats below — they feed the `Author (Year)` citation labels shown on the generated site:
 
-- [ ] [Source Title](https://url) — brief description of what this source provides
-- [ ] https://url — brief description
+- `[Smith et al. (YYYY) Title of paper](https://url)` — for papers with named authors
+- `[Organisation Title](https://url)` — for documentation, standards, or pages without a named author
+
+- [ ] [Smith et al. (YYYY) Source Title](https://url) — brief description of what this source provides
+- [ ] [Organisation Title](https://url) — brief description
 
 ---
 
@@ -130,10 +133,12 @@ Final pass: every section justified, all threads synthesised, every claim source
 
 ### Key Findings
 
-Ordered list. Each finding is a specific, evidence-backed claim with confidence and source as a trailing parenthetical.
+Ordered list. Each finding is a specific, evidence-backed claim with confidence and source as a trailing parenthetical. Use **suffix style** — source at the end of the claim, not at the beginning.
 
 1. **Claim text as a complete sentence.** (high confidence; source: https://url)
-2. **Claim text as a complete sentence.** (medium confidence; source: https://url)
+2. **Claim text as a complete sentence.** (medium confidence; source: https://url1; https://url2)
+
+Source URLs must exactly match URLs in the `## Sources` section so the generated site can render `Author (Year)` citation links. List the primary source URL(s) from `## Sources` here.
 
 ### Evidence Map
 

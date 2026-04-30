@@ -66,14 +66,14 @@ There is a related repo improvement item (BACKLOG.md W-0031) to implement a rese
 
 ## Sources
 
-- [x] Ackoff (1989) — "From Data to Wisdom": https://doi.org/10.1111/j.1467-9310.1989.tb00072.x — foundational DIKW hierarchy (secondary sources consulted; primary DOI paywalled)
-- [x] Nonaka & Takeuchi (1995) — *The Knowledge-Creating Company* — SECI model (secondary sources consulted) — https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691
+- [x] [Ackoff (1989) — "From Data to Wisdom"](https://doi.org/10.1111/j.1467-9310.1989.tb00072.x) — foundational DIKW hierarchy (secondary sources consulted; primary DOI paywalled)
+- [x] [Nonaka & Takeuchi (1995) — *The Knowledge-Creating Company* — SECI model (secondary sources consulted)](https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691)
 - [x] Bloom's Taxonomy (1956, revised 2001) — cognitive levels as a framework for knowledge depth vs applicability
-- [x] Zettelkasten method — https://zettelkasten.de/introduction/ — atomic notes, linking, emergence of insight through connection
+- [x] [Zettelkasten method](https://zettelkasten.de/introduction/) — atomic notes, linking, emergence of insight through connection
 - [ ] Ahrens (2017) — *How to Take Smart Notes* — practical Zettelkasten for researchers; integration as a first-class practice (book not accessible)
 - [ ] GitHub Actions documentation — composite actions, reusable workflows — for CI pipeline design (not consulted; sufficient knowledge from prior research)
 - [x] Existing skills: `.github/skills/citation-discipline/SKILL.md`, `.github/skills/speculation-control/SKILL.md`, `.github/skills/remove-ai-slop/SKILL.md` — gap analysis starting point
-- [x] Academic peer review process documentation — Springer Nature peer review guidelines: https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3
+- [x] [Academic peer review process documentation — Springer Nature peer review guidelines](https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3)
 - [x] LLM automated peer review — REMOR (arXiv:2505.11718), DeepReview (ACL 2025), LLM4Review (OpenReview)
 - [x] Related completed items: `2026-03-03-cross-item-synthesis-meta-insights.md`, `2026-03-03-research-loop-quality-prompt-engineering.md`, `2026-03-03-knowledge-retention-active-recall.md`, `research-review-prompt.md`, `.github/workflows/research-review.yml`
 

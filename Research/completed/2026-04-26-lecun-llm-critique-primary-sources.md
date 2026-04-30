@@ -64,18 +64,18 @@ What is Yann LeCun's complete and precise argument against Large Language Models
 
 ## Sources
 
-- [x] [Yann LeCun, "A Path Towards Autonomous Machine Intelligence" (OpenReview forum page)](https://openreview.net/forum?id=BZ5a1r-kVsf) - primary technical source and canonical paper landing page
-- [x] [Yann LeCun, "A Path Towards Autonomous Machine Intelligence" (OpenReview Portable Document Format (PDF) file)](https://openreview.net/pdf?id=BZ5a1r-kVsf) - primary paper text used for detailed technical claims
-- [x] [Brown University News, "In lecture at Brown, Yann LeCun discusses a new approach to AI"](https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer) - official Brown University write-up with direct quotations
-- [x] [Brown University Lemley Lecture page, "2026 Lemley Lecture Featuring AI Pioneer Yann LeCun"](https://lemley-lecture.brown.edu/past-lecture/2026-lemley-lecture-featuring-ai-pioneer-yann-lecun) - official event page and lecture title
-- [x] [Brown University livestream page for the Lemley lecture](https://livestream.brown.edu/lemley) - official page linking the full lecture video
-- [x] [Brown University YouTube lecture, "2026 Lemley Lecture Featuring AI Pioneer Yann LeCun"](https://www.youtube.com/watch?v=ZbrfvMLZZK4) - official lecture video page checked in this session
-- [x] [Big Technology Podcast episode page, "Why Can't AI Make Its Own Discoveries? - With Yann LeCun"](https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574) - official host-published episode summary for the March 2025 interview material used here as the nearest accessible April 2025-era source
-- [x] [Spotify mirror of the same Big Technology episode](https://open.spotify.com/episode/2mOKCpKSUdaLkFPz8Shgbp) - corroborating host-published summary text
-- [x] [YouTube page checked for the April 2025 interview material identified during search](https://www.youtube.com/watch?v=8sS9UJzb_t4) - official video URL checked in this session; transcript not publicly accessible in this runtime
-- [x] [Pioneer Works host page, "Deep Thoughts of Artificial Minds"](https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown) - official host page for the November 2025 discussion
-- [x] [Pioneer Works YouTube page, "Do LLMs Understand? AI Pioneer Yann LeCun Spars with DeepMind's Adam Brown."](https://www.youtube.com/watch?v=ykfQD1_WPBQ) - official video page checked in this session
-- [x] [Seeded VivaTech keynote URL checked in this session, "Meta's AI chief delivers keynote speech at VivaTech in Paris"](https://www.youtube.com/watch?v=EIo1YKEUac4) - accessible official video URL at the seeded source location; transcript not publicly accessible in this runtime
+- [x] [Yann LeCun, "A Path Towards Autonomous Machine Intelligence" (OpenReview forum page)](https://openreview.net/forum?id=BZ5a1r-kVsf) — - primary technical source and canonical paper landing page
+- [x] [Yann LeCun, "A Path Towards Autonomous Machine Intelligence" (OpenReview Portable Document Format (PDF) file)](https://openreview.net/pdf?id=BZ5a1r-kVsf) — - primary paper text used for detailed technical claims
+- [x] [Brown University News, "In lecture at Brown, Yann LeCun discusses a new approach to AI"](https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer) — - official Brown University write-up with direct quotations
+- [x] [Brown University Lemley Lecture page, "2026 Lemley Lecture Featuring AI Pioneer Yann LeCun"](https://lemley-lecture.brown.edu/past-lecture/2026-lemley-lecture-featuring-ai-pioneer-yann-lecun) — - official event page and lecture title
+- [x] [Brown University livestream page for the Lemley lecture](https://livestream.brown.edu/lemley) — - official page linking the full lecture video
+- [x] [Brown University YouTube lecture, "2026 Lemley Lecture Featuring AI Pioneer Yann LeCun"](https://www.youtube.com/watch?v=ZbrfvMLZZK4) — - official lecture video page checked in this session
+- [x] [Big Technology Podcast episode page, "Why Can't AI Make Its Own Discoveries? - With Yann LeCun"](https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574) — - official host-published episode summary for the March 2025 interview material used here as the nearest accessible April 2025-era source
+- [x] [Spotify mirror of the same Big Technology episode](https://open.spotify.com/episode/2mOKCpKSUdaLkFPz8Shgbp) — - corroborating host-published summary text
+- [x] [YouTube page checked for the April 2025 interview material identified during search](https://www.youtube.com/watch?v=8sS9UJzb_t4) — - official video URL checked in this session; transcript not publicly accessible in this runtime
+- [x] [Pioneer Works host page, "Deep Thoughts of Artificial Minds"](https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown) — - official host page for the November 2025 discussion
+- [x] [Pioneer Works YouTube page, "Do LLMs Understand? AI Pioneer Yann LeCun Spars with DeepMind's Adam Brown."](https://www.youtube.com/watch?v=ykfQD1_WPBQ) — - official video page checked in this session
+- [x] [Seeded VivaTech keynote URL checked in this session, "Meta's AI chief delivers keynote speech at VivaTech in Paris"](https://www.youtube.com/watch?v=EIo1YKEUac4) — - accessible official video URL at the seeded source location; transcript not publicly accessible in this runtime
 
 ## Related
 

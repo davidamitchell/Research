@@ -66,16 +66,15 @@ This item is the parent strategy question: given findings from those three items
 ## Sources
 
 Starting points, papers, articles, videos, repos, docs.
-**Every source must include a Uniform Resource Locator (URL).** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [x] [GitHub Copilot coding agent documentation](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-as-an-agent): entry point for coding agent behaviour and configuration
-- [x] [GitHub Copilot custom instructions (.github/copilot-instructions.md)](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot): what the file covers and which surfaces load it
-- [x] [copilot-setup-steps documentation](https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent): schema and when it runs
-- [x] [Copilot Spaces documentation](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces): what Spaces are and how they use repo config
-- [x] [AGENTS.md specification / agentsmd.online](https://agentsmd.online): cross-vendor standard for agent instruction files
-- [x] [Anthropic Claude iOS app GitHub integration](https://support.claude.com/en/articles/10167454-using-the-github-integration): how Claude iOS interacts with repositories via connector
-- [x] [Claude Code GitHub Actions documentation](https://docs.anthropic.com/en/docs/claude-code/github-actions): how GitHub Issues can be assigned to Claude via `anthropics/claude-code-action`
-- [x] [Claude Code memory / CLAUDE.md documentation](https://docs.anthropic.com/en/docs/claude-code/memory): what files Claude Code auto-loads
+- [x] [GitHub Copilot coding agent documentation](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-as-an-agent) — : entry point for coding agent behaviour and configuration
+- [x] [GitHub Copilot custom instructions (.github/copilot-instructions.md)](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) — : what the file covers and which surfaces load it
+- [x] [copilot-setup-steps documentation](https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent) — : schema and when it runs
+- [x] [Copilot Spaces documentation](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces) — : what Spaces are and how they use repo config
+- [x] [AGENTS.md specification / agentsmd.online](https://agentsmd.online) — : cross-vendor standard for agent instruction files
+- [x] [Anthropic Claude iOS app GitHub integration](https://support.claude.com/en/articles/10167454-using-the-github-integration) — : how Claude iOS interacts with repositories via connector
+- [x] [Claude Code GitHub Actions documentation](https://docs.anthropic.com/en/docs/claude-code/github-actions) — : how GitHub Issues can be assigned to Claude via `anthropics/claude-code-action`
+- [x] [Claude Code memory / CLAUDE.md documentation](https://docs.anthropic.com/en/docs/claude-code/memory) — : what files Claude Code auto-loads
 - [x] `docs-adr/0006-standardise-agent-instructions.md`, local ADR documenting the decision to delete `AGENTS.md`
 - [x] `Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md`, prior research on `AGENTS.md` as cross-vendor standard
 - [x] `Research/completed/2026-03-22-using-awesome-copilot-across-repos.md`, prior research noting `AGENTS.md` is read by GitHub web
