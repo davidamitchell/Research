@@ -76,21 +76,21 @@ This item is motivated by the VL-JEPA paper release and the desire to understand
 
 ## Sources
 
-- [ ] Meta AI VL-JEPA publication landing page - https://ai.meta.com/research/publications/vl-jepa/ (returned 404 during this session)
-- [x] VL-JEPA paper (arXiv) - https://arxiv.org/abs/2512.10942
-- [x] VL-JEPA paper (web-rendered version) - https://arxiv.org/html/2512.10942
-- [x] V-JEPA paper (OpenReview) - https://openreview.net/forum?id=WFYbBOEOtv
-- [x] I-JEPA paper - https://arxiv.org/abs/2301.08243
-- [x] V-JEPA 2 paper - https://arxiv.org/abs/2506.09985
-- [x] Yann LeCun - "A Path Towards Autonomous Machine Intelligence" - https://openreview.net/pdf?id=BZ5a1r-kVsf
-- [ ] Meta AI blog post on VL-JEPA - https://ai.meta.com/blog/ (identified, but no dedicated consulted post located during this session)
-- [x] GitHub Copilot visual-input documentation - https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs
-- [x] Anthropic Claude vision documentation - https://docs.anthropic.com/en/docs/build-with-claude/vision
-- [x] Claude Code overview - https://code.claude.com/docs/en/overview
-- [x] Claude Code best practices - https://code.claude.com/docs/en/best-practices
-- [x] Claude Code desktop documentation - https://code.claude.com/docs/en/desktop
-- [x] OpenAI GPT-4 technical report - https://arxiv.org/abs/2303.08774
-- [x] Google Gemini technical report - https://arxiv.org/abs/2312.11805
+- [ ] [Meta AI VL-JEPA publication landing page](https://ai.meta.com/research/publications/vl-jepa/) — (returned 404 during this session)
+- [x] [VL-JEPA paper (arXiv)](https://arxiv.org/abs/2512.10942)
+- [x] [VL-JEPA paper (web-rendered version)](https://arxiv.org/html/2512.10942)
+- [x] [V-JEPA paper (OpenReview)](https://openreview.net/forum?id=WFYbBOEOtv)
+- [x] [I-JEPA paper](https://arxiv.org/abs/2301.08243)
+- [x] [V-JEPA 2 paper](https://arxiv.org/abs/2506.09985)
+- [x] [Yann LeCun - "A Path Towards Autonomous Machine Intelligence"](https://openreview.net/pdf?id=BZ5a1r-kVsf)
+- [ ] [Meta AI blog post on VL-JEPA](https://ai.meta.com/blog/) — (identified, but no dedicated consulted post located during this session)
+- [x] [GitHub Copilot visual-input documentation](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs)
+- [x] [Anthropic Claude vision documentation](https://docs.anthropic.com/en/docs/build-with-claude/vision)
+- [x] [Claude Code overview](https://code.claude.com/docs/en/overview)
+- [x] [Claude Code best practices](https://code.claude.com/docs/en/best-practices)
+- [x] [Claude Code desktop documentation](https://code.claude.com/docs/en/desktop)
+- [x] [OpenAI GPT-4 technical report](https://arxiv.org/abs/2303.08774)
+- [x] [Google Gemini technical report](https://arxiv.org/abs/2312.11805)
 
 ---
 

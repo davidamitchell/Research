@@ -45,7 +45,7 @@ Without a fast capture process, high-value research ideas get lost or deferred i
 ## Sources
 
 - [x] Zettelkasten quick-capture patterns
-- [x] GitHub issue template docs — https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests
+- [x] [GitHub issue template docs](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
 
 ## Findings
 

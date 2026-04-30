@@ -56,11 +56,11 @@ The Jevons Paradox research item (completed 2026-02-28) raised the open question
 
 ## Sources
 
-- [x] GitHub Octoverse: developer productivity impact of AI coding tools (2023, 2024) — https://octoverse.github.com/
+- [x] [GitHub Octoverse: developer productivity impact of AI coding tools (2023, 2024)](https://octoverse.github.com/)
 - [x] Google AI impact on engineering productivity (internal reports surfaced in press)
-- [x] McKinsey "Developer Velocity" report (AI-assisted coding outcomes) — https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/developer-velocity-at-work-key-lessons-from-industry-digital-leaders
+- [x] [McKinsey "Developer Velocity" report (AI-assisted coding outcomes)](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/developer-velocity-at-work-key-lessons-from-industry-digital-leaders)
 - [ ] Proxify, MomoView, Kamiwaza — cited in Jevons Paradox research as early indicators
-- [x] SWE-bench evaluations: autonomous coding agent performance data — https://www.swebench.com/
+- [x] [SWE-bench evaluations: autonomous coding agent performance data](https://www.swebench.com/)
 - [ ] NZ tech company case studies: Xero, Trade Me, Datacom AI SWE programmes (if disclosed)
 - [ ] ACM and IEEE published SWE AI governance frameworks
 

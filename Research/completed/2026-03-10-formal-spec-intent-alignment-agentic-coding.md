@@ -68,20 +68,20 @@ The answer informs: (a) how to structure prompts and specifications when tasking
 
 ## Sources
 
-- [x] Moseley, B. & Marks, P. (2006). *Out of the Tar Pit*. https://curtclifton.net/papers/MoseleyMarks06a.pdf
-- [x] Krakovna, V. et al. (2020). *Specification Gaming: The Flip Side of AI Ingenuity*. DeepMind blog + compendium. https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity
-- [x] Gao, L. et al. (2022). *Scaling Laws for Reward Model Overoptimization*. https://arxiv.org/abs/2210.10760
-- [ ] Leino, K.R.M. (2023). *Program Proofs*. MIT Press (Dafny-based formal verification). https://program-proofs.com/
-- [ ] Wadler, P. (2015). *Propositions as Types*. CACM. (Curry-Howard correspondence and why types are specs.) https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf
+- [x] [Moseley, B. & Marks, P. (2006). *Out of the Tar Pit*.](https://curtclifton.net/papers/MoseleyMarks06a.pdf)
+- [x] [Krakovna, V. et al. (2020). *Specification Gaming: The Flip Side of AI Ingenuity*. DeepMind blog + compendium.](https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity)
+- [x] [Gao, L. et al. (2022). *Scaling Laws for Reward Model Overoptimization*.](https://arxiv.org/abs/2210.10760)
+- [ ] [Leino, K.R.M. (2023). *Program Proofs*. MIT Press (Dafny-based formal verification).](https://program-proofs.com/)
+- [ ] [Wadler, P. (2015). *Propositions as Types*. CACM. (Curry-Howard correspondence and why types are specs.)](https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf)
 - [ ] Brady, E. (2017). *Type-Driven Development with Idris*. Manning. (Dependent types as executable specifications.)
-- [x] Lamport, L. (2002). *Specifying Systems: The TLA+ Language and Tools*. https://lamport.azurewebsites.net/tla/book.html
-- [x] Hillel Wayne et al. — PlusCal/TLA+ usage at AWS, Microsoft. https://lamport.azurewebsites.net/tla/industrial-use.html
+- [x] [Lamport, L. (2002). *Specifying Systems: The TLA+ Language and Tools*.](https://lamport.azurewebsites.net/tla/book.html)
+- [x] [Hillel Wayne et al. — PlusCal/TLA+ usage at AWS, Microsoft.](https://lamport.azurewebsites.net/tla/industrial-use.html)
 - [ ] Hellerstein, J.M. et al. (2019). *Keeping CALM: When Distributed Consistency Is Easy*. CACM.
-- [x] SWE-bench / SWE-agent papers (Princeton, 2024). https://swe-bench.github.io/
-- [x] Research on "functional core, imperative shell" pattern. https://functional-architecture.org/functional_core_imperative_shell/
-- [x] Effect systems — Koka language. https://koka-lang.github.io/koka/doc/book.html
-- [x] Rust ownership model empirical study. https://www.usenix.org/system/files/atc24-li-hongyu.pdf
-- [x] Elm architecture as FRP-based accidental-complexity reduction. https://guide.elm-lang.org/architecture/
+- [x] [SWE-bench / SWE-agent papers (Princeton, 2024).](https://swe-bench.github.io/)
+- [x] [Research on "functional core, imperative shell" pattern.](https://functional-architecture.org/functional_core_imperative_shell/)
+- [x] [Effect systems — Koka language.](https://koka-lang.github.io/koka/doc/book.html)
+- [x] [Rust ownership model empirical study.](https://www.usenix.org/system/files/atc24-li-hongyu.pdf)
+- [x] [Elm architecture as FRP-based accidental-complexity reduction.](https://guide.elm-lang.org/architecture/)
 - [ ] Agda/Coq/Lean for verified software: what production use cases exist?
 
 ---

@@ -61,17 +61,17 @@ The connection to AI strategy is timely: AI tools introduced into organisations 
 
 - [x] Adam Smith, *The Theory of Moral Sentiments* (ToMS) - public domain; consulted via ibiblio.org and truevaluemetrics.org
 - [x] Adam Smith, *The Wealth of Nations* (WoN) - public domain; consulted via econlib.org and multiple secondary analyses
-- [x] Michael Munger, TAITC podcast - Adam Smith episodes: https://taitc.buzzsprout.com/ - episodes on two books, division of labour, transaction costs
-- [x] https://en.wikipedia.org/wiki/Desire_path - Desire path overview
-- [x] https://en.wikipedia.org/wiki/Theory_of_Moral_Sentiments - Wikipedia summary of ToMS
-- [x] https://en.wikipedia.org/wiki/The_Wealth_of_Nations - Wikipedia summary of WoN
+- [x] [Michael Munger, TAITC podcast - Adam Smith episodes](https://taitc.buzzsprout.com/) — episodes on two books, division of labour, transaction costs
+- [x] [Desire path overview](https://en.wikipedia.org/wiki/Desire_path)
+- [x] [Wikipedia summary of ToMS](https://en.wikipedia.org/wiki/Theory_of_Moral_Sentiments)
+- [x] [Wikipedia summary of WoN](https://en.wikipedia.org/wiki/The_Wealth_of_Nations)
 - [x] Relevant completed research items: `2026-03-10-nature-of-the-firm-coase-organisations` - Coase/Williamson/North on transaction costs and org boundaries; `2026-02-28-ai-strategy` - AI adoption typology and exploit/explore framework
-- [x] https://www.adamsmithworks.org/ - Adam Smith Works, including Munger's essays and transcripts
-- [x] https://plato.stanford.edu/entries/smith-moral-political/ - Stanford Encyclopedia of Philosophy on Smith
-- [x] https://newsletter.sergiocaredda.eu/p/the-intentional-organisation-issue-22-04-22 - Desire paths in organisational design
-- [x] https://www.linkedin.com/pulse/desire-paths-workplace-art-building-processes-around-what-mitchell-mbyle - Desire paths in workplace processes
-- [x] https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html - Deloitte agentic AI and desire paths
-- [x] https://knowledge.wharton.upenn.edu/article/real-ai-adoption-means-changing-human-behavior/ - AI adoption behaviour change
+- [x] [Adam Smith Works, including Munger's essays and transcripts](https://www.adamsmithworks.org/)
+- [x] [Stanford Encyclopedia of Philosophy on Smith](https://plato.stanford.edu/entries/smith-moral-political/)
+- [x] [Desire paths in organisational design](https://newsletter.sergiocaredda.eu/p/the-intentional-organisation-issue-22-04-22)
+- [x] [Desire paths in workplace processes](https://www.linkedin.com/pulse/desire-paths-workplace-art-building-processes-around-what-mitchell-mbyle)
+- [x] [Deloitte agentic AI and desire paths](https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html)
+- [x] [AI adoption behaviour change](https://knowledge.wharton.upenn.edu/article/real-ai-adoption-means-changing-human-behavior/)
 
 ---
 

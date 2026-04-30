@@ -82,21 +82,21 @@ This item makes the case for a deliberate separation: agents interact with the w
 
 ## Sources
 
-- [x] Martin Fowler - "DataMesh" and operational vs. analytical data plane separation: https://martinfowler.com/articles/data-mesh-principles.html
+- [x] [Martin Fowler - "DataMesh" and operational vs. analytical data plane separation](https://martinfowler.com/articles/data-mesh-principles.html)
 - [ ] Zhamak Dehghani - *Data Mesh* (O'Reilly, 2022) - operational vs. analytical plane distinction
-- [x] National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF): https://www.nist.gov/artificial-intelligence/ai-risk-management-framework - governance and organisational accountability
-- [ ] RBNZ - AI supervisory expectations and governance guidance: https://www.rbnz.govt.nz
-- [ ] Google Cloud Architecture - "Separation of analytical and operational workloads": https://cloud.google.com/architecture
-- [ ] Microsoft Azure Well-Architected Framework - AI workload NFRs: https://learn.microsoft.com/en-us/azure/well-architected/
+- [x] [National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF)](https://www.nist.gov/artificial-intelligence/ai-risk-management-framework) — governance and organisational accountability
+- [ ] [RBNZ - AI supervisory expectations and governance guidance](https://www.rbnz.govt.nz)
+- [ ] [Google Cloud Architecture - "Separation of analytical and operational workloads"](https://cloud.google.com/architecture)
+- [ ] [Microsoft Azure Well-Architected Framework - AI workload NFRs](https://learn.microsoft.com/en-us/azure/well-architected/)
 - [ ] Anthropic / OpenAI usage policies and agent architecture guidance
-- [ ] McKinsey Global Institute - "The state of AI in organisations" (annual survey): https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+- [ ] [McKinsey Global Institute - "The state of AI in organisations" (annual survey)](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)
 - [ ] Gartner - "AI governance and organisational design" research notes
-- [x] OAuth 2.0 Token Exchange (RFC 8693) - STS delegation pattern for agents: https://datatracker.ietf.org/doc/html/rfc8693
-- [ ] W3C Decentralised Identifiers (DID) spec: https://www.w3.org/TR/did-core/
-- [ ] CNCF Zero Trust Whitepaper: https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md
-- [ ] OWASP API Security Top 10: https://owasp.org/www-project-api-security/
+- [x] [OAuth 2.0 Token Exchange (RFC 8693) - STS delegation pattern for agents](https://datatracker.ietf.org/doc/html/rfc8693)
+- [ ] [W3C Decentralised Identifiers (DID) spec](https://www.w3.org/TR/did-core/)
+- [ ] [CNCF Zero Trust Whitepaper](https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md)
+- [ ] [OWASP API Security Top 10](https://owasp.org/www-project-api-security/)
 - [ ] Andreessen Horowitz (a16z) - AI enterprise architecture commentary
-- [ ] Thoughtworks Technology Radar - Data mesh, API gateway, and agent architecture entries: https://www.thoughtworks.com/radar
+- [ ] [Thoughtworks Technology Radar - Data mesh, API gateway, and agent architecture entries](https://www.thoughtworks.com/radar)
 - [x] `Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md` - NZ regulatory context
 - [x] `Research/backlog/2026-02-28-ai-strategy-business-efficiency-examples.md` - AI strategy examples context (now completed)
 - [x] `Research/backlog/2026-02-28-ai-line-1-line-2-risk-agents.md` - risk and governance framing (now completed)

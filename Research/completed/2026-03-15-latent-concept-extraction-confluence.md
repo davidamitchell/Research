@@ -55,12 +55,12 @@ A Confluence wiki is a dense organisational knowledge store, but its value is lo
 
 ## Sources
 
-- [ ] BERTopic paper and documentation: https://maartengr.github.io/BERTopic/
-- [ ] Sentence-Transformers library: https://www.sbert.net/
-- [ ] Qdrant documentation: https://qdrant.tech/documentation/
+- [ ] [BERTopic paper and documentation](https://maartengr.github.io/BERTopic/)
+- [ ] [Sentence-Transformers library](https://www.sbert.net/)
+- [ ] [Qdrant documentation](https://qdrant.tech/documentation/)
 - [ ] LangChain / LlamaIndex knowledge graph integration guides
 - [ ] "From Documents to Knowledge Graphs"  -  survey papers on information extraction pipelines
-- [ ] Atlassian Confluence REST API documentation: https://developer.atlassian.com/cloud/confluence/rest/v2/
+- [ ] [Atlassian Confluence REST API documentation](https://developer.atlassian.com/cloud/confluence/rest/v2/)
 - [ ] RAG survey: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (Lewis et al., 2020)
 - [ ] Epistemic frameworks: "Veritistic value" (Goldman) vs. pragmatic theories of truth  -  introductory survey
 

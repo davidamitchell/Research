@@ -95,27 +95,27 @@ The prior research in this repository on context compression, context layers, an
 
 ## Sources
 
-- [x] BloombergGPT paper - Wu, S. et al. (2023) - "BloombergGPT: A Large Language Model for Finance" - https://arxiv.org/abs/2303.17564
-- [x] Med-PaLM paper - Singhal, K. et al. (2023) - "Large Language Models Encode Clinical Knowledge" - https://arxiv.org/abs/2212.13138
-- [x] Harvey AI - "Expanding Harvey's Model Offerings" - https://www.harvey.ai/blog/expanding-harveys-model-offerings
-- [x] Harvey AI Microsoft case study - https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service
-- [x] Morgan Stanley enterprise knowledge management case study summarising the OpenAI deployment - https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation
-- [x] LoRA paper - Hu, E. et al. (2021) - "LoRA: Low-Rank Adaptation of Large Language Models" - https://arxiv.org/abs/2106.09685
-- [x] Quantized Low-Rank Adaptation (QLoRA) paper - Dettmers, T. et al. (2023) - "QLoRA: Efficient Finetuning of Quantized LLMs" - https://arxiv.org/abs/2305.14314
-- [x] PEFT survey - Ding, N. et al. (2023) - "Parameter-efficient fine-tuning of large-scale pre-trained language models" - https://www.nature.com/articles/s42256-023-00626-4
-- [x] Domain-adaptive pretraining - Gururangan, S. et al. (2020) - "Don't Stop Pretraining: Adapt Language Models to Domains and Tasks" - https://arxiv.org/abs/2004.10964
-- [x] Mixture-of-Agents (MoA) - Wang, J. et al. (2024) - "Mixture-of-Agents Enhances Large Language Model Capabilities" - https://arxiv.org/abs/2406.04692
-- [x] Chain-of-Verification (CoVe) - Dhuliawala, S. et al. (2023) - "Chain-of-Verification Reduces Hallucination in Large Language Models" - https://arxiv.org/abs/2309.11495
-- [x] Constitutional AI - Bai, Y. et al. (2022) - "Constitutional AI: Harmlessness from AI Feedback" - https://arxiv.org/abs/2212.08073
-- [x] RAG limitations survey - Barnett, S. et al. (2024) - "Seven Failure Points When Engineering a Retrieval-Augmented Generation System" - https://arxiv.org/abs/2401.05856
-- [x] Glean knowledge graph guide - https://www.glean.com/resources/guides/glean-knowledge-graph
-- [x] Glean + Google Cloud architecture blog - https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search
-- [x] Cohere RAG documentation - https://docs.cohere.com/docs/retrieval-augmented-generation-rag
-- [x] Vertex AI RAG Engine overview - https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview
-- [x] AWS Bedrock Knowledge Bases overview - https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html
-- [x] Synthetic domain corpus generation precedent - Gunasekar, S. et al. (2023) - "Textbooks Are All You Need" - https://arxiv.org/abs/2306.11644
-- [x] Model merging / model soup - Wortsman, M. et al. (2022) - "Model Soups" - https://arxiv.org/abs/2203.05482
-- [x] Concept extraction with LLMs - Norouzi, E. et al. (2025) - "ConExion: Concept Extraction with Large Language Models" - https://arxiv.org/abs/2504.12915
+- [x] [BloombergGPT paper - Wu, S. et al. (2023) - "BloombergGPT: A Large Language Model for Finance"](https://arxiv.org/abs/2303.17564)
+- [x] [Med-PaLM paper - Singhal, K. et al. (2023) - "Large Language Models Encode Clinical Knowledge"](https://arxiv.org/abs/2212.13138)
+- [x] [Harvey AI - "Expanding Harvey's Model Offerings"](https://www.harvey.ai/blog/expanding-harveys-model-offerings)
+- [x] [Harvey AI Microsoft case study](https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service)
+- [x] [Morgan Stanley enterprise knowledge management case study summarising the OpenAI deployment](https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation)
+- [x] [LoRA paper - Hu, E. et al. (2021) - "LoRA: Low-Rank Adaptation of Large Language Models"](https://arxiv.org/abs/2106.09685)
+- [x] [Quantized Low-Rank Adaptation (QLoRA) paper - Dettmers, T. et al. (2023) - "QLoRA: Efficient Finetuning of Quantized LLMs"](https://arxiv.org/abs/2305.14314)
+- [x] [PEFT survey - Ding, N. et al. (2023) - "Parameter-efficient fine-tuning of large-scale pre-trained language models"](https://www.nature.com/articles/s42256-023-00626-4)
+- [x] [Domain-adaptive pretraining - Gururangan, S. et al. (2020) - "Don't Stop Pretraining: Adapt Language Models to Domains and Tasks"](https://arxiv.org/abs/2004.10964)
+- [x] [Mixture-of-Agents (MoA) - Wang, J. et al. (2024) - "Mixture-of-Agents Enhances Large Language Model Capabilities"](https://arxiv.org/abs/2406.04692)
+- [x] [Chain-of-Verification (CoVe) - Dhuliawala, S. et al. (2023) - "Chain-of-Verification Reduces Hallucination in Large Language Models"](https://arxiv.org/abs/2309.11495)
+- [x] [Constitutional AI - Bai, Y. et al. (2022) - "Constitutional AI: Harmlessness from AI Feedback"](https://arxiv.org/abs/2212.08073)
+- [x] [RAG limitations survey - Barnett, S. et al. (2024) - "Seven Failure Points When Engineering a Retrieval-Augmented Generation System"](https://arxiv.org/abs/2401.05856)
+- [x] [Glean knowledge graph guide](https://www.glean.com/resources/guides/glean-knowledge-graph)
+- [x] [Glean + Google Cloud architecture blog](https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search)
+- [x] [Cohere RAG documentation](https://docs.cohere.com/docs/retrieval-augmented-generation-rag)
+- [x] [Vertex AI RAG Engine overview](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview)
+- [x] [AWS Bedrock Knowledge Bases overview](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
+- [x] [Synthetic domain corpus generation precedent - Gunasekar, S. et al. (2023) - "Textbooks Are All You Need"](https://arxiv.org/abs/2306.11644)
+- [x] [Model merging / model soup - Wortsman, M. et al. (2022) - "Model Soups"](https://arxiv.org/abs/2203.05482)
+- [x] [Concept extraction with LLMs - Norouzi, E. et al. (2025) - "ConExion: Concept Extraction with Large Language Models"](https://arxiv.org/abs/2504.12915)
 - [x] Prior completed research: `Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md`
 - [x] Prior completed research: `Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md`
 - [x] Prior completed research: `Research/completed/2026-03-02-agent-memory-management-context-injection.md`

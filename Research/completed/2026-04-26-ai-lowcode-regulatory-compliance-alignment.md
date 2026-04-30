@@ -71,31 +71,31 @@ Cross-references:
 
 ## Sources
 
-- [x] [Regulation (EU) 2024/1689, Artificial Intelligence Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) - primary legal text for risk classes, operator obligations, and phased applicability
-- [x] [European Commission AI Act overview](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) - official implementation summary for risk classes and timeline
-- [x] [AI Act Service Desk, Article 9](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9) - official article text for high-risk risk-management requirements
-- [x] [AI Act Service Desk, Article 12](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12) - official article text for logging and traceability requirements
-- [x] [AI Act Service Desk, Article 14](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14) - official article text for human oversight requirements
-- [x] [AI Act Service Desk, Article 26](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26) - official article text for deployer obligations, monitoring, suspension, and log retention
-- [x] [AI Act Service Desk, Article 72](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72) - official article text for provider post-market monitoring
-- [x] [Regulation (EU) 2016/679, General Data Protection Regulation](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng) - primary legal text for data protection duties
-- [x] [GDPR Article 22 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2326-1-1) - official automated decision-making safeguards
-- [x] [GDPR Article 25 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1) - official data protection by design and by default
-- [x] [GDPR Article 30 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2123-1-1) - official records of processing activities
-- [x] [GDPR Article 35 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02016R0679-20160504#d1e2366-1-1) - official data protection impact assessment requirement
-- [x] [European Data Protection Board guidelines on automated decision-making and profiling](https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-automated-individual-decision-making-and_en) - official guidance on Article 22 interpretation
-- [x] [APRA Prudential Standard CPS 230, Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) - primary prudential text for operational risk, controls, monitoring, continuity, and service-provider governance
-- [x] [Regulation (EU) 2022/2554, Digital Operational Resilience Act](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554) - primary legal text for ICT risk, incident management, testing, and third-party risk
-- [x] [EUR-Lex summary of DORA](https://eur-lex.europa.eu/EN/legal-content/summary/digital-operational-resilience-for-the-financial-sector.html) - official summary for obligation structure and applicability
-- [x] [Bank of England and PRA Discussion Paper 5/22, Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) - official supervisory discussion paper for UK financial services
-- [x] [Bank of England Feedback Statement 2/23, Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning) - official supervisory follow-up on themes and regulatory posture
-- [x] [FCA Feedback Statement 23/6, Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning) - official FCA summary page linking the joint feedback statement
-- [x] [NIST Artificial Intelligence Risk Management Framework](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - official voluntary framework used as a quasi-regulatory governance scaffold
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - official Govern and Map categories used for control translation
-- [x] [Basel Committee on Banking Supervision, Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) - official principles-based resilience guidance for banks
-- [x] [Global artificial intelligence agent regulation in financial services](https://davidamitchell.github.io/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html) - prior completed repository work on cross-jurisdiction control categories
-- [x] [Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) - prior completed repository work on low-code governance preconditions
-- [x] [What observability and telemetry model is required to govern AI and low-code systems at scale?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) - prior completed repository work on evidence and audit telemetry
+- [x] [Regulation (EU) 2024/1689, Artificial Intelligence Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) — - primary legal text for risk classes, operator obligations, and phased applicability
+- [x] [European Commission AI Act overview](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) — - official implementation summary for risk classes and timeline
+- [x] [AI Act Service Desk, Article 9](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9) — - official article text for high-risk risk-management requirements
+- [x] [AI Act Service Desk, Article 12](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12) — - official article text for logging and traceability requirements
+- [x] [AI Act Service Desk, Article 14](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14) — - official article text for human oversight requirements
+- [x] [AI Act Service Desk, Article 26](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26) — - official article text for deployer obligations, monitoring, suspension, and log retention
+- [x] [AI Act Service Desk, Article 72](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72) — - official article text for provider post-market monitoring
+- [x] [Regulation (EU) 2016/679, General Data Protection Regulation](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng) — - primary legal text for data protection duties
+- [x] [GDPR Article 22 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2326-1-1) — - official automated decision-making safeguards
+- [x] [GDPR Article 25 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1) — - official data protection by design and by default
+- [x] [GDPR Article 30 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2123-1-1) — - official records of processing activities
+- [x] [GDPR Article 35 on EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02016R0679-20160504#d1e2366-1-1) — - official data protection impact assessment requirement
+- [x] [European Data Protection Board guidelines on automated decision-making and profiling](https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-automated-individual-decision-making-and_en) — - official guidance on Article 22 interpretation
+- [x] [APRA Prudential Standard CPS 230, Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) — - primary prudential text for operational risk, controls, monitoring, continuity, and service-provider governance
+- [x] [Regulation (EU) 2022/2554, Digital Operational Resilience Act](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554) — - primary legal text for ICT risk, incident management, testing, and third-party risk
+- [x] [EUR-Lex summary of DORA](https://eur-lex.europa.eu/EN/legal-content/summary/digital-operational-resilience-for-the-financial-sector.html) — - official summary for obligation structure and applicability
+- [x] [Bank of England and PRA Discussion Paper 5/22, Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) — - official supervisory discussion paper for UK financial services
+- [x] [Bank of England Feedback Statement 2/23, Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning) — - official supervisory follow-up on themes and regulatory posture
+- [x] [FCA Feedback Statement 23/6, Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning) — - official FCA summary page linking the joint feedback statement
+- [x] [NIST Artificial Intelligence Risk Management Framework](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - official voluntary framework used as a quasi-regulatory governance scaffold
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - official Govern and Map categories used for control translation
+- [x] [Basel Committee on Banking Supervision, Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) — - official principles-based resilience guidance for banks
+- [x] [Global artificial intelligence agent regulation in financial services](https://davidamitchell.github.io/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html) — - prior completed repository work on cross-jurisdiction control categories
+- [x] [Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) — - prior completed repository work on low-code governance preconditions
+- [x] [What observability and telemetry model is required to govern AI and low-code systems at scale?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html) — - prior completed repository work on evidence and audit telemetry
 
 ## Related
 

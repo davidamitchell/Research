@@ -64,17 +64,17 @@ This item is explicitly motivated by the observation that process mapping has to
 
 ## Sources
 
-- [x] ServiceNow documentation: Flow Designer, Playbooks, Process Universe — consulted via ServiceNow docs site and community (https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html)
-- [x] ServiceNow community: Flow Designer vs Playbooks comparison — https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831
-- [x] ServiceNow governance workbook — https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf
-- [x] CTMS practitioner survey on ITSM process map usage — https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/
-- [x] ITSM.tools: building a high-value process library — https://itsm.tools/build-valued-process-library-itsm/
-- [x] ServiceNow Process Mining product page — https://www.servicenow.com/products/process-mining.html
-- [x] ServiceNow Process Mining limitations analysis — https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/
-- [x] GlydePath ServiceNow platform governance — https://glydepath.com.au/governance
-- [x] FitGap: minimum viable process blueprint — https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint
-- [x] FitGap: repeatable governance model for process changes — https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units
-- [x] ServiceNow CSDM and change management — https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257
+- [x] [ServiceNow documentation: Flow Designer, Playbooks, Process Universe — consulted via ServiceNow docs site and community (](https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html)
+- [x] [ServiceNow community: Flow Designer vs Playbooks comparison](https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831)
+- [x] [ServiceNow governance workbook](https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf)
+- [x] [CTMS practitioner survey on ITSM process map usage](https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/)
+- [x] [ITSM.tools: building a high-value process library](https://itsm.tools/build-valued-process-library-itsm/)
+- [x] [ServiceNow Process Mining product page](https://www.servicenow.com/products/process-mining.html)
+- [x] [ServiceNow Process Mining limitations analysis](https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/)
+- [x] [GlydePath ServiceNow platform governance](https://glydepath.com.au/governance)
+- [x] [FitGap: minimum viable process blueprint](https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint)
+- [x] [FitGap: repeatable governance model for process changes](https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units)
+- [x] [ServiceNow CSDM and change management](https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257)
 - [ ] Gartner research on ITSM process governance — not accessible (paywall)
 - [ ] ServiceNow Knowledge conference presentations on process governance — not directly accessible
 

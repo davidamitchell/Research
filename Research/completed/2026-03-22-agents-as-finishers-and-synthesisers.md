@@ -70,21 +70,21 @@ The question is high-priority because it directly shapes how this Research repo 
 
 ## Sources
 
-- [x] CrewAI documentation on agent roles and task assignment - https://docs.crewai.com/concepts/agents
-- [x] AutoGen documentation on multi-agent conversation patterns - https://microsoft.github.io/autogen/stable/
-- [x] LangGraph documentation on agent orchestration - https://docs.langchain.com/oss/python/langgraph/overview
-- [x] GitHub Copilot coding agent overview - https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
-- [x] GitHub Copilot coding agent how-to index - https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent
-- [x] GitHub repository custom instructions documentation - https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions
-- [x] GitHub blog: coding agent 101 - https://github.blog/ai-and-ml/github-copilot/github-copilot-coding-agent-101-getting-started-with-agentic-workflows-on-github/
-- [x] Anthropic, "Building effective agents" - https://www.anthropic.com/research/building-effective-agents
-- [x] Design Council, "The Double Diamond" - https://www.designcouncil.org.uk/our-resources/the-double-diamond/
-- [x] Risko and Gilbert, "Cognitive Offloading" - https://doi.org/10.1016/j.tics.2016.07.002
-- [x] Berry et al., "Cognitive Offloading: Structuring the Environment to Improve Children's Working Memory Task Performance" - https://doi.org/10.1111/cogs.12770
-- [x] Wigert, Murugavel, and Reiter-Palmon, "The Utility of Divergent and Convergent Thinking in the Problem Construction Processes During Creative Problem-Solving" - https://doi.org/10.1037/aca0000513
-- [x] Leidner et al., "Complementarity in human-AI collaboration: concept, sources, and evidence" - https://doi.org/10.1080/0960085X.2025.2475962
-- [x] Princeton AI Agent Reliability Tracker - https://hal.cs.princeton.edu/reliability/
-- [x] National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) - https://doi.org/10.6028/NIST.AI.100-1
+- [x] [CrewAI documentation on agent roles and task assignment](https://docs.crewai.com/concepts/agents)
+- [x] [AutoGen documentation on multi-agent conversation patterns](https://microsoft.github.io/autogen/stable/)
+- [x] [LangGraph documentation on agent orchestration](https://docs.langchain.com/oss/python/langgraph/overview)
+- [x] [GitHub Copilot coding agent overview](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
+- [x] [GitHub Copilot coding agent how-to index](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent)
+- [x] [GitHub repository custom instructions documentation](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
+- [x] [GitHub blog: coding agent 101](https://github.blog/ai-and-ml/github-copilot/github-copilot-coding-agent-101-getting-started-with-agentic-workflows-on-github/)
+- [x] [Anthropic, "Building effective agents"](https://www.anthropic.com/research/building-effective-agents)
+- [x] [Design Council, "The Double Diamond"](https://www.designcouncil.org.uk/our-resources/the-double-diamond/)
+- [x] [Risko and Gilbert, "Cognitive Offloading"](https://doi.org/10.1016/j.tics.2016.07.002)
+- [x] [Berry et al., "Cognitive Offloading: Structuring the Environment to Improve Children's Working Memory Task Performance"](https://doi.org/10.1111/cogs.12770)
+- [x] [Wigert, Murugavel, and Reiter-Palmon, "The Utility of Divergent and Convergent Thinking in the Problem Construction Processes During Creative Problem-Solving"](https://doi.org/10.1037/aca0000513)
+- [x] [Leidner et al., "Complementarity in human-AI collaboration: concept, sources, and evidence"](https://doi.org/10.1080/0960085X.2025.2475962)
+- [x] [Princeton AI Agent Reliability Tracker](https://hal.cs.princeton.edu/reliability/)
+- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF)](https://doi.org/10.6028/NIST.AI.100-1)
 - [x] Repo context: `.github/copilot-instructions.md`
 - [x] Repo context: `.github/workflows/research-loop.yml`
 - [x] Prior completed research cross-check: `Research/completed/2026-03-12-superpowers-integration-analysis.md`

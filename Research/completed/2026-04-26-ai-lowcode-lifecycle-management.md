@@ -72,28 +72,28 @@ Cross-references:
 
 ## Sources
 
-- [x] [ISO/IEC/IEEE 12207:2017 - Systems and software engineering - Software life cycle processes](https://www.iso.org/standard/63712.html) - current ISO lifecycle standard listing for the common framework and process-control baseline
-- [x] [PeopleCert - ITIL 4 Practitioner: Change Enablement](https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794) - official purpose and scope statement for change enablement
-- [x] [Atlassian IT service management change management guide](https://www.atlassian.com/itsm/change-management) - accessible summary of standard, normal, and emergency change classes and modern risk-based approvals
-- [x] [ManageEngine - Types of IT changes](https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html) - accessible summary of standard, normal, and emergency changes
-- [x] [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry/) - model registry source for model versions, aliases, lineage, and tags
-- [x] [Power Platform application lifecycle management (ALM)](https://learn.microsoft.com/en-us/power-platform/alm/) - Microsoft overview for low-code lifecycle management
-- [x] [Pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) - Microsoft source for pipeline stages, backups, approvals, and redeploying prior versions
-- [x] [Solution concepts with Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm) - Microsoft source for managed and unmanaged solutions, updates, upgrades, patches, and dependencies
-- [x] [Delegated deployments in Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup) - Microsoft source for delegated promotion identity, approvals, and ownership of deployed objects
-- [x] [Block unmanaged customizations](https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations) - Microsoft source for production lock-down and preventing direct unmanaged changes
-- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) - Microsoft source for channel publication controls, data policies, audit, and publication disablement
-- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) - Microsoft source for direct publish behavior and channel-wide update behavior
-- [x] [Deploy a prompt flow for real-time inference](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy) - Microsoft source for prompt flow deployment, endpoint identity, overwrite behavior, telemetry collection, and retirement notice
-- [x] [LangSmith prompt engineering](https://docs.smith.langchain.com/langsmith/prompt-engineering) - official prompt-tooling source for built-in prompt versioning and deployment workflow
-- [x] [Weights & Biases Weave tutorial: app versioning](https://docs.wandb.ai/weave/tutorial-weave_models) - official prompt and application versioning source for tracked parameters and reusable versioned objects
-- [x] [Federal Reserve SR 26-2 revised guidance on model risk management](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) - official notice superseding SR 11-7
-- [x] [Federal Reserve SR 26-2 attachment Portable Document Format (PDF)](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf) - detailed guidance for model inventory, validation, monitoring, effective challenge, and documentation
-- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - foundational AI governance framework
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - current subcategories for inventory, monitoring, accountability, and decommissioning
-- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - related repository work on release-time enforcement
-- [x] [Where should governance enforcement points be implemented within enterprise architecture](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) - related repository work on layered enforcement
-- [x] [What identity and access management model is required for AI agents and low-code artefacts](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - related repository work on machine identity and attribution
+- [x] [ISO/IEC/IEEE 12207:2017 - Systems and software engineering - Software life cycle processes](https://www.iso.org/standard/63712.html) — - current ISO lifecycle standard listing for the common framework and process-control baseline
+- [x] [PeopleCert - ITIL 4 Practitioner: Change Enablement](https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794) — - official purpose and scope statement for change enablement
+- [x] [Atlassian IT service management change management guide](https://www.atlassian.com/itsm/change-management) — - accessible summary of standard, normal, and emergency change classes and modern risk-based approvals
+- [x] [ManageEngine - Types of IT changes](https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html) — - accessible summary of standard, normal, and emergency changes
+- [x] [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry/) — - model registry source for model versions, aliases, lineage, and tags
+- [x] [Power Platform application lifecycle management (ALM)](https://learn.microsoft.com/en-us/power-platform/alm/) — - Microsoft overview for low-code lifecycle management
+- [x] [Pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) — - Microsoft source for pipeline stages, backups, approvals, and redeploying prior versions
+- [x] [Solution concepts with Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm) — - Microsoft source for managed and unmanaged solutions, updates, upgrades, patches, and dependencies
+- [x] [Delegated deployments in Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup) — - Microsoft source for delegated promotion identity, approvals, and ownership of deployed objects
+- [x] [Block unmanaged customizations](https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations) — - Microsoft source for production lock-down and preventing direct unmanaged changes
+- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) — - Microsoft source for channel publication controls, data policies, audit, and publication disablement
+- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) — - Microsoft source for direct publish behavior and channel-wide update behavior
+- [x] [Deploy a prompt flow for real-time inference](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy) — - Microsoft source for prompt flow deployment, endpoint identity, overwrite behavior, telemetry collection, and retirement notice
+- [x] [LangSmith prompt engineering](https://docs.smith.langchain.com/langsmith/prompt-engineering) — - official prompt-tooling source for built-in prompt versioning and deployment workflow
+- [x] [Weights & Biases Weave tutorial: app versioning](https://docs.wandb.ai/weave/tutorial-weave_models) — - official prompt and application versioning source for tracked parameters and reusable versioned objects
+- [x] [Federal Reserve SR 26-2 revised guidance on model risk management](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) — - official notice superseding SR 11-7
+- [x] [Federal Reserve SR 26-2 attachment Portable Document Format (PDF)](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf) — - detailed guidance for model inventory, validation, monitoring, effective challenge, and documentation
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - foundational AI governance framework
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - current subcategories for inventory, monitoring, accountability, and decommissioning
+- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — - related repository work on release-time enforcement
+- [x] [Where should governance enforcement points be implemented within enterprise architecture](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) — - related repository work on layered enforcement
+- [x] [What identity and access management model is required for AI agents and low-code artefacts](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — - related repository work on machine identity and attribution
 
 ## Related
 

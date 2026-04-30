@@ -68,20 +68,20 @@ This research is strategically urgent because:
 
 ## Sources
 
-- [x] Khattab et al. (2023) — "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines" — https://arxiv.org/abs/2310.03714
-- [x] Yang et al. (2024) — "OPRO: Large Language Models as Optimizers" — https://arxiv.org/abs/2309.03409
-- [x] Zhou et al. (2023) — "Large Language Models Are Human-Level Prompt Engineers (APE)" — https://arxiv.org/abs/2211.01910
-- [x] Yuksekgonul et al. (2024) — "TextGrad: Automatic 'Differentiation' via Text" — https://arxiv.org/abs/2406.07496
-- [x] Rein et al. (2023) — "GPQA: A Graduate-Level Google-Proof Q&A Benchmark" — https://arxiv.org/abs/2311.12022
-- [x] Mialon et al. (2023) — "GAIA: A Benchmark for General AI Assistants" — https://arxiv.org/abs/2311.12983
-- [x] Xie et al. (2024) — "FinBen: A Holistic Financial Benchmark for Large Language Models" — https://arxiv.org/abs/2402.12659
-- [x] Guha et al. (2023) — "LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models" — https://arxiv.org/abs/2308.11462
-- [x] Jimenez et al. (2024) — "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?" — https://arxiv.org/abs/2310.06770
-- [x] Liu et al. (2023) — "AgentBench: Evaluating LLMs as Agents" — https://arxiv.org/abs/2308.03688
-- [x] DSPy documentation — https://dspy.ai/
-- [x] Chambers and Partners Global Practice Guides — https://practiceguides.chambers.com/ (assess licensing and structured Q&A availability)
-- [x] HLE (Humanity's Last Exam) — https://agi.safe.ai/ (assess data access and format)
-- [x] MMLU-Pro — https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro
+- [x] [Khattab et al. (2023) — "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines"](https://arxiv.org/abs/2310.03714)
+- [x] [Yang et al. (2024) — "OPRO: Large Language Models as Optimizers"](https://arxiv.org/abs/2309.03409)
+- [x] [Zhou et al. (2023) — "Large Language Models Are Human-Level Prompt Engineers (APE)"](https://arxiv.org/abs/2211.01910)
+- [x] [Yuksekgonul et al. (2024) — "TextGrad: Automatic 'Differentiation' via Text"](https://arxiv.org/abs/2406.07496)
+- [x] [Rein et al. (2023) — "GPQA: A Graduate-Level Google-Proof Q&A Benchmark"](https://arxiv.org/abs/2311.12022)
+- [x] [Mialon et al. (2023) — "GAIA: A Benchmark for General AI Assistants"](https://arxiv.org/abs/2311.12983)
+- [x] [Xie et al. (2024) — "FinBen: A Holistic Financial Benchmark for Large Language Models"](https://arxiv.org/abs/2402.12659)
+- [x] [Guha et al. (2023) — "LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models"](https://arxiv.org/abs/2308.11462)
+- [x] [Jimenez et al. (2024) — "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"](https://arxiv.org/abs/2310.06770)
+- [x] [Liu et al. (2023) — "AgentBench: Evaluating LLMs as Agents"](https://arxiv.org/abs/2308.03688)
+- [x] [DSPy documentation](https://dspy.ai/)
+- [x] [Chambers and Partners Global Practice Guides](https://practiceguides.chambers.com/) — (assess licensing and structured Q&A availability)
+- [x] [HLE (Humanity's Last Exam)](https://agi.safe.ai/) — (assess data access and format)
+- [x] [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro)
 
 ---
 

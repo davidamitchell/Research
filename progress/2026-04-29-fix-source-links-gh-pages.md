@@ -88,3 +88,28 @@ These are tracked in W-0056/W-0057 for cleanup.
 4. **Is this a pattern?** Yes — the same regex-over-sample issue appeared in `_extract_sources_from_line` in Session 1. The fix is always: look at the real data before writing the regex.
 5. **Does any documentation need updating?** `Research/_template.md` already updated in Session 2. W-0056/W-0057 added to BACKLOG.md.
 6. **Do the default instructions need updating?** No new conventions needed; existing "test against real data" principle is already implicit in the TDD rule.
+
+---
+
+## 2026-04-30 addendum — bulk source format migration
+
+**Task:** Correct all 215 completed research items to use canonical `[Display Name](url)` source format.
+
+**Approach:**
+1. Audited 2827 source lines across 215 completed items
+2. Found 1066 non-canonical lines (37%): B: `display: url`, C: `display — url`, D: bare url, E: other
+3. Wrote and ran `migrate_sources.py` (in `/tmp`): 2588 lines auto-migrated in 198 files
+4. Inspected remaining 32 non-canonical lines manually:
+   - 7 instruction/template lines removed (leftover from template that leaked into completed items)
+   - 8 multi-URL lines split into individual entries
+   - 6 broken markdown links (nested brackets, double brackets) repaired
+   - 2 complex two-line / bare URL entries converted
+5. Final result: **2846/2846 (100%) canonical** `[Display Name](url)` format
+
+**Mini-Retro:**
+1. Did the process work? Yes — automated script handled the bulk; surgical fixes covered the edge cases.
+2. What slowed down? Nested `[brackets]` inside display names break the markdown link regex; had to handle line-by-line.
+3. Single change to prevent next time? Add a `sources_format_check` lint step in the research-review.yml workflow so new items are rejected if they contain non-canonical source lines.
+4. Is this a pattern? Yes — this is the third time source format issues have appeared. Root cause: research loop generates varied formats and there was no automated enforcement gate.
+5. Documentation updated? `Research/_template.md` already updated (prior commit). W-0056/W-0057 backlog items created.
+6. Instructions updated? No new convention emerged — the migration script is `/tmp/` only and should remain there.

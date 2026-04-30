@@ -77,19 +77,19 @@ This research is motivated by a practical need: to build forecasting models that
 
 ## Sources
 
-- [ ] **IFRS Practice Statement 1 — Making Materiality Judgements** — IFRS Foundation — https://www.ifrs.org/issued-standards/list-of-standards/practice-statement-1-making-materiality-judgements/
-- [ ] **IAS 37 — Provisions, Contingent Liabilities and Contingent Assets** — IFRS Foundation (relevant for uncertain future obligations) — https://www.ifrs.org/issued-standards/list-of-standards/ias-37-provisions-contingent-liabilities-and-contingent-assets/
-- [ ] **FASB Accounting Standards Codification (ASC) 275 — Risks and Uncertainties** — GAAP disclosure requirements for estimates subject to significant change — https://asc.fasb.org/topic/275
-- [ ] **SEC FR-72 — Commission Guidance Regarding Management's Discussion and Analysis** — SEC guidance on forward-looking disclosures — https://www.sec.gov/rules/interp/33-8056.htm
-- [ ] **Public Company Accounting Oversight Board (PCAOB) AS 2101 / American Institute of Certified Public Accountants (AICPA) AU-C 540** — Auditing accounting estimates — https://pcaobus.org/standards/auditing-standards/details/AS2101
-- [ ] **ISACA COBIT 2019** — IT governance framework including Financial Management practices — https://www.isaca.org/resources/cobit
-- [ ] **ITIL 4 — Financial Management for IT Services** — practitioner framework for IT cost modelling — https://www.axelos.com/certifications/itil-4-certifications
-- [ ] **Gartner IT Budgeting and Cost Optimisation research** — industry benchmarks and cost categorisation frameworks — https://www.gartner.com/en/finance/topics/it-budgeting
-- [ ] **Royal Institution of Chartered Surveyors (RICS) Professional Standards — Uncertainty of Valuation** — for uncertainty disclosure methodology — https://www.rics.org/uk/upholding-standards/sector-standards/valuation/red-book-guidance/
-- [ ] **Vose, D. — Risk Analysis: A Quantitative Guide (3rd ed., Wiley)** — Monte Carlo simulation and compounding uncertainty — https://www.wiley.com/en-us/Risk+Analysis%3A+A+Quantitative+Guide%2C+3rd+Edition-p-9780470515778
-- [ ] **Hubbard, D.W. — How to Measure Anything (3rd ed., Wiley)** — applied estimation and uncertainty quantification — https://www.howtomeasureanything.com/
-- [ ] **UK FRC — Financial Reporting Lab: Judgements and Estimates** — guidance on disclosing estimation uncertainty — https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/financial-reporting-lab/
-- [ ] **EU Prospectus Regulation (2017/1129)** — financial projections disclosure requirements — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1129
+- [ ] [**IFRS Practice Statement 1 — Making Materiality Judgements** — IFRS Foundation](https://www.ifrs.org/issued-standards/list-of-standards/practice-statement-1-making-materiality-judgements/)
+- [ ] [**IAS 37 — Provisions, Contingent Liabilities and Contingent Assets** — IFRS Foundation (relevant for uncertain future obligations)](https://www.ifrs.org/issued-standards/list-of-standards/ias-37-provisions-contingent-liabilities-and-contingent-assets/)
+- [ ] [**FASB Accounting Standards Codification (ASC) 275 — Risks and Uncertainties** — GAAP disclosure requirements for estimates subject to significant change](https://asc.fasb.org/topic/275)
+- [ ] [**SEC FR-72 — Commission Guidance Regarding Management's Discussion and Analysis** — SEC guidance on forward-looking disclosures](https://www.sec.gov/rules/interp/33-8056.htm)
+- [ ] [**Public Company Accounting Oversight Board (PCAOB) AS 2101 / American Institute of Certified Public Accountants (AICPA) AU-C 540** — Auditing accounting estimates](https://pcaobus.org/standards/auditing-standards/details/AS2101)
+- [ ] [**ISACA COBIT 2019** — IT governance framework including Financial Management practices](https://www.isaca.org/resources/cobit)
+- [ ] [**ITIL 4 — Financial Management for IT Services** — practitioner framework for IT cost modelling](https://www.axelos.com/certifications/itil-4-certifications)
+- [ ] [**Gartner IT Budgeting and Cost Optimisation research** — industry benchmarks and cost categorisation frameworks](https://www.gartner.com/en/finance/topics/it-budgeting)
+- [ ] [**Royal Institution of Chartered Surveyors (RICS) Professional Standards — Uncertainty of Valuation** — for uncertainty disclosure methodology](https://www.rics.org/uk/upholding-standards/sector-standards/valuation/red-book-guidance/)
+- [ ] [**Vose, D. — Risk Analysis: A Quantitative Guide (3rd ed., Wiley)** — Monte Carlo simulation and compounding uncertainty](https://www.wiley.com/en-us/Risk+Analysis%3A+A+Quantitative+Guide%2C+3rd+Edition-p-9780470515778)
+- [ ] [**Hubbard, D.W. — How to Measure Anything (3rd ed., Wiley)** — applied estimation and uncertainty quantification](https://www.howtomeasureanything.com/)
+- [ ] [**UK FRC — Financial Reporting Lab: Judgements and Estimates** — guidance on disclosing estimation uncertainty](https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/financial-reporting-lab/)
+- [ ] [**EU Prospectus Regulation (2017/1129)** — financial projections disclosure requirements](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1129)
 
 ---
 

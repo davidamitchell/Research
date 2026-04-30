@@ -69,9 +69,9 @@ this approach will also fail without a proxy.
 
 ## Sources
 
-- [ ] `yt-dlp` docs: https://github.com/yt-dlp/yt-dlp
-- [ ] OpenAI Whisper (local): https://github.com/openai/whisper
-- [ ] OpenAI Whisper API: https://platform.openai.com/docs/guides/speech-to-text
+- [ ] [`yt-dlp` docs](https://github.com/yt-dlp/yt-dlp)
+- [ ] [OpenAI Whisper (local)](https://github.com/openai/whisper)
+- [ ] [OpenAI Whisper API](https://platform.openai.com/docs/guides/speech-to-text)
 
 ## Open Questions
 

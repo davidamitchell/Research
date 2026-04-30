@@ -53,8 +53,8 @@ W-0036 (environment setup consistency) confirmed that Claude Code on the web use
 
 ## Sources
 
-- https://code.claude.com/docs/en/claude-code-on-the-web (official Claude Code on the web documentation)
-- https://docs.anthropic.com/en/docs/claude-code/settings (Claude Code settings documentation)
+- [(official Claude Code on the web documentation)](https://code.claude.com/docs/en/claude-code-on-the-web)
+- [(Claude Code settings documentation)](https://docs.anthropic.com/en/docs/claude-code/settings)
 - Community discussions on submodule support in Claude Code web
 
 ## Research Skill Output

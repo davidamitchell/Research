@@ -65,29 +65,29 @@ What mechanism ensures that the Policy Decision Point (PDP) evaluates a governed
 
 ## Sources
 
-- [x] [Policy-LSP / Guiding Headless Agents, completed item](https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html), LSP-like mechanisms as the right architectural pattern for real-time conformance guidance
-- [x] [Compliance scanning GitHub Actions, completed item](https://davidamitchell.github.io/Research/research/2026-03-22-compliance-scanning-gh-actions.html), empirical evidence of heterogeneous gate failure producing inconsistent evidence
-- [x] [Cross-scanner compliance evidence normalisation, completed item](https://davidamitchell.github.io/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html), cross-scanner inconsistency as the symptom this architecture prevents
-- [x] [Organisational intent formal specification, completed item](https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html), prior repository argument for treating governing logic as a formally versioned artefact
-- [x] [Stateless-agent assumption failure, completed item](https://davidamitchell.github.io/Research/research/2026-03-18-stateless-agent-assumption-failure.html), state orphaning across session boundaries
-- [x] [Policy coherence as a machine-checkable prerequisite, completed item](https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html), why machine enforcement depends on a coherent policy artefact
-- [x] [Deployment pipeline as governed gate, completed item](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html), why Delivery is the practical resynchronisation checkpoint
-- [x] [AI agent identity and access management, completed item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html), identity and provenance implications for non-human actors
-- [x] [Permission-safe Retrieval-Augmented Generation (RAG), completed item](https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html), copied-state staleness and propagation-lag analogue
-- [x] [PAP dynamic policy profiling and proportionality, completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html), adjacent work on PAP-side gate-topology derivation
-- [x] [NIST SP 800-162, Guide to Attribute-Based Access Control (ABAC)](https://csrc.nist.gov/pubs/sp/800/162/final), ABAC reference for subject, object, operation, and environment evaluation
-- [x] [eXtensible Access Control Markup Language (XACML) 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html), authoritative definitions of PAP, PDP, PEP, and PIP
-- [x] [Open Policy Agent (OPA) bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/), revisioned bundle distribution, caching, signing, and persistence
-- [x] [Open Policy Agent (OPA) management architecture](https://www.openpolicyagent.org/docs/latest/management/), control-plane telemetry and bundle/status architecture
-- [x] [Git content-addressable storage model](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects), canonical example of immutable content identity
-- [x] [Open Container Initiative (OCI) image specification, content addressability](https://github.com/opencontainers/image-spec/blob/main/spec.md#content-addressability), digest-addressed object identity
-- [x] [Open Container Initiative (OCI) distribution specification, content-addressable storage](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#content-addressable-storage), digest-addressed blobs, manifests, and subject/referrer relationships
-- [x] [in-toto framework overview](https://in-toto.io), supply-chain integrity model for steps, actors, and order
-- [x] [in-toto Statement specification](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md), immutable subject binding by digest
-- [x] [in-toto ResourceDescriptor specification](https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md), digest semantics for immutable artefacts
-- [x] [Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0](https://slsa.dev/spec/v1.0/provenance), in-toto attestation predicate for subject and dependency provenance
-- [x] [Sigstore Cosign signing containers](https://docs.sigstore.dev/cosign/signing/signing_with_containers/), digest-bound signatures and attestations
-- [x] [Semantic Versioning 2.0.0](https://semver.org/), human-readable compatibility versioning rules
+- [x] [Policy-LSP / Guiding Headless Agents, completed item](https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html) — , LSP-like mechanisms as the right architectural pattern for real-time conformance guidance
+- [x] [Compliance scanning GitHub Actions, completed item](https://davidamitchell.github.io/Research/research/2026-03-22-compliance-scanning-gh-actions.html) — , empirical evidence of heterogeneous gate failure producing inconsistent evidence
+- [x] [Cross-scanner compliance evidence normalisation, completed item](https://davidamitchell.github.io/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html) — , cross-scanner inconsistency as the symptom this architecture prevents
+- [x] [Organisational intent formal specification, completed item](https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html) — , prior repository argument for treating governing logic as a formally versioned artefact
+- [x] [Stateless-agent assumption failure, completed item](https://davidamitchell.github.io/Research/research/2026-03-18-stateless-agent-assumption-failure.html) — , state orphaning across session boundaries
+- [x] [Policy coherence as a machine-checkable prerequisite, completed item](https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html) — , why machine enforcement depends on a coherent policy artefact
+- [x] [Deployment pipeline as governed gate, completed item](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — , why Delivery is the practical resynchronisation checkpoint
+- [x] [AI agent identity and access management, completed item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — , identity and provenance implications for non-human actors
+- [x] [Permission-safe Retrieval-Augmented Generation (RAG), completed item](https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html) — , copied-state staleness and propagation-lag analogue
+- [x] [PAP dynamic policy profiling and proportionality, completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) — , adjacent work on PAP-side gate-topology derivation
+- [x] [NIST SP 800-162, Guide to Attribute-Based Access Control (ABAC)](https://csrc.nist.gov/pubs/sp/800/162/final) — , ABAC reference for subject, object, operation, and environment evaluation
+- [x] [eXtensible Access Control Markup Language (XACML) 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) — , authoritative definitions of PAP, PDP, PEP, and PIP
+- [x] [Open Policy Agent (OPA) bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/) — , revisioned bundle distribution, caching, signing, and persistence
+- [x] [Open Policy Agent (OPA) management architecture](https://www.openpolicyagent.org/docs/latest/management/) — , control-plane telemetry and bundle/status architecture
+- [x] [Git content-addressable storage model](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) — , canonical example of immutable content identity
+- [x] [Open Container Initiative (OCI) image specification, content addressability](https://github.com/opencontainers/image-spec/blob/main/spec.md#content-addressability) — , digest-addressed object identity
+- [x] [Open Container Initiative (OCI) distribution specification, content-addressable storage](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#content-addressable-storage) — , digest-addressed blobs, manifests, and subject/referrer relationships
+- [x] [in-toto framework overview](https://in-toto.io) — , supply-chain integrity model for steps, actors, and order
+- [x] [in-toto Statement specification](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md) — , immutable subject binding by digest
+- [x] [in-toto ResourceDescriptor specification](https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md) — , digest semantics for immutable artefacts
+- [x] [Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0](https://slsa.dev/spec/v1.0/provenance) — , in-toto attestation predicate for subject and dependency provenance
+- [x] [Sigstore Cosign signing containers](https://docs.sigstore.dev/cosign/signing/signing_with_containers/) — , digest-bound signatures and attestations
+- [x] [Semantic Versioning 2.0.0](https://semver.org/) — , human-readable compatibility versioning rules
 
 ---
 

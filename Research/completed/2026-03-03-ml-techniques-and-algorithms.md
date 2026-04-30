@@ -101,28 +101,28 @@ This research item builds a systematic, decision-oriented reference that lets th
 
 ## Sources
 
-- [x] Kaggle — "State of Data Science and Machine Learning" annual survey: https://www.kaggle.com/kaggle-survey
-- [x] Papers with Code — ML benchmarks and leaderboards: https://paperswithcode.com
-- [ ] Hastie, Tibshirani & Friedman — *The Elements of Statistical Learning* (2nd ed.): https://web.stanford.edu/~hastie/ElemStatLearn/
+- [x] [Kaggle — "State of Data Science and Machine Learning" annual survey](https://www.kaggle.com/kaggle-survey)
+- [x] [Papers with Code — ML benchmarks and leaderboards](https://paperswithcode.com)
+- [ ] [Hastie, Tibshirani & Friedman — *The Elements of Statistical Learning* (2nd ed.)](https://web.stanford.edu/~hastie/ElemStatLearn/)
 - [ ] Bishop — *Pattern Recognition and Machine Learning* (Microsoft Research, 2006)
 - [ ] Geron — *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* (3rd ed., O'Reilly, 2022)
-- [x] Chen & Guestrin — XGBoost paper (2016): https://arxiv.org/abs/1603.02754
-- [x] Ke et al. — LightGBM paper (2017): https://papers.nips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html
-- [x] Prokhorenkova et al. — CatBoost paper (2018): https://arxiv.org/abs/1706.09516
-- [x] Lundberg & Lee — SHAP paper (2017): https://arxiv.org/abs/1705.07874
-- [x] Ribeiro et al. — LIME paper (2016): https://arxiv.org/abs/1602.04938
-- [x] Hollmann et al. — TabPFN (2022): https://arxiv.org/abs/2207.01848
-- [x] Lim et al. — Temporal Fusion Transformer (2021): https://arxiv.org/abs/1912.09363
-- [x] Oreshkin et al. — N-BEATS (2020): https://arxiv.org/abs/1905.10437
-- [x] Peters et al. — DoWhy causal ML: https://github.com/py-why/dowhy
-- [x] Microsoft — EconML causal ML: https://econml.azurewebsites.net
-- [x] Angelopoulos & Bates — Conformal prediction tutorial: https://arxiv.org/abs/2107.07511
-- [ ] Google — Rules of Machine Learning best practices: https://developers.google.com/machine-learning/guides/rules-of-ml
+- [x] [Chen & Guestrin — XGBoost paper (2016)](https://arxiv.org/abs/1603.02754)
+- [x] [Ke et al. — LightGBM paper (2017)](https://papers.nips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html)
+- [x] [Prokhorenkova et al. — CatBoost paper (2018)](https://arxiv.org/abs/1706.09516)
+- [x] [Lundberg & Lee — SHAP paper (2017)](https://arxiv.org/abs/1705.07874)
+- [x] [Ribeiro et al. — LIME paper (2016)](https://arxiv.org/abs/1602.04938)
+- [x] [Hollmann et al. — TabPFN (2022)](https://arxiv.org/abs/2207.01848)
+- [x] [Lim et al. — Temporal Fusion Transformer (2021)](https://arxiv.org/abs/1912.09363)
+- [x] [Oreshkin et al. — N-BEATS (2020)](https://arxiv.org/abs/1905.10437)
+- [x] [Peters et al. — DoWhy causal ML](https://github.com/py-why/dowhy)
+- [x] [Microsoft — EconML causal ML](https://econml.azurewebsites.net)
+- [x] [Angelopoulos & Bates — Conformal prediction tutorial](https://arxiv.org/abs/2107.07511)
+- [ ] [Google — Rules of Machine Learning best practices](https://developers.google.com/machine-learning/guides/rules-of-ml)
 - [ ] O'Reilly AI & ML survey (2023–2024)
-- [x] MLflow documentation — experiment tracking and model registry: https://mlflow.org/docs/latest/index.html
-- [x] Sculley et al. — "Hidden Technical Debt in Machine Learning Systems" (NIPS 2015): https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf
-- [x] RBNZ — Model risk management guidance (BS11 / related guidance): https://www.rbnz.govt.nz
-- [ ] Mitchell et al. — Model Cards for Model Reporting: https://arxiv.org/abs/1810.03993
+- [x] [MLflow documentation — experiment tracking and model registry](https://mlflow.org/docs/latest/index.html)
+- [x] [Sculley et al. — "Hidden Technical Debt in Machine Learning Systems" (NIPS 2015)](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
+- [x] [RBNZ — Model risk management guidance (BS11 / related guidance)](https://www.rbnz.govt.nz)
+- [ ] [Mitchell et al. — Model Cards for Model Reporting](https://arxiv.org/abs/1810.03993)
 - [ ] `Research/backlog/2026-03-02-ai-not-a-data-problem.md` — organisational context for analytics/AI separation
 - [ ] `Research/backlog/2026-02-28-ai-strategy-security-focus.md` — regulatory framing
 

@@ -117,13 +117,13 @@ The values alignment and strategic alignment agents are the explicit K→W gatek
 
 ## Sources
 
-- [ ] **Kahneman, D. & Klein, G. (2009).** "Conditions for intuitive expertise: a failure to disagree." *American Psychologist*, 64(6), 515–526. — adversarial collaboration methodology; when expert disagreement is productive — https://doi.org/10.1037/0003-066X.64.6.515
-- [ ] **Reason, J. (1990).** *Human Error.* Cambridge University Press. — Swiss cheese model; how multiple independent defensive layers outperform single-layer defence — https://www.cambridge.org/core/books/human-error/A779B4B0AE7B9804B769E4B3E4A5E64B
-- [ ] **UK HM Treasury (2018).** *The Green Book: Central Government Guidance on Appraisal and Evaluation.* — the BBC Five Case Model as a formal multi-perspective review framework — https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government
+- [ ] [**Kahneman, D. & Klein, G. (2009).** "Conditions for intuitive expertise: a failure to disagree." *American Psychologist*, 64(6), 515–526. — adversarial collaboration methodology; when expert disagreement is productive](https://doi.org/10.1037/0003-066X.64.6.515)
+- [ ] [**Reason, J. (1990).** *Human Error.* Cambridge University Press. — Swiss cheese model; how multiple independent defensive layers outperform single-layer defence](https://www.cambridge.org/core/books/human-error/A779B4B0AE7B9804B769E4B3E4A5E64B)
+- [ ] [**UK HM Treasury (2018).** *The Green Book: Central Government Guidance on Appraisal and Evaluation.* — the BBC Five Case Model as a formal multi-perspective review framework](https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government)
 - [ ] `Research/completed/2026-03-08-bbc-five-case-model.md` — completed research on the BBC Five Case Model
-- [ ] **Park, J.S. et al. (2023).** "Generative Agents: Interactive Simulacra of Human Behavior." UIST 2023. — role-differentiated AI agents with persistent identity and coordination — https://arxiv.org/abs/2304.03442
-- [ ] **Wang, L. et al. (2024).** "A Survey on Large Language Model based Autonomous Agents." *Frontiers of Computer Science*. — multi-agent architectures and role differentiation — https://arxiv.org/abs/2308.11432
-- [ ] **Liang, T. et al. (2023).** "Encouraging Divergent Thinking in Large Language Models through Debate." — AI agents with deliberately different views producing better outputs — https://arxiv.org/abs/2305.19118
+- [ ] [**Park, J.S. et al. (2023).** "Generative Agents: Interactive Simulacra of Human Behavior." UIST 2023. — role-differentiated AI agents with persistent identity and coordination](https://arxiv.org/abs/2304.03442)
+- [ ] [**Wang, L. et al. (2024).** "A Survey on Large Language Model based Autonomous Agents." *Frontiers of Computer Science*. — multi-agent architectures and role differentiation](https://arxiv.org/abs/2308.11432)
+- [ ] [**Liang, T. et al. (2023).** "Encouraging Divergent Thinking in Large Language Models through Debate." — AI agents with deliberately different views producing better outputs](https://arxiv.org/abs/2305.19118)
 - [ ] `Research/backlog/2026-03-10-nature-of-the-firm-coase-organisations.md` — transaction cost logic for why each agent type exists inside the boundary
 - [ ] `Research/backlog/2026-03-10-dikw-transformation-functions.md` — each agent type as a specialist at one or more DIKW transformations
 - [ ] `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — formal specification as the K layer; adversarial agents supply the informal W layer

@@ -75,18 +75,18 @@ Related prior research:
 
 ## Sources
 
-- [x] ETH Zurich PLDI 2025 — type-constrained decoding: https://arxiv.org/abs/2504.09246
-- [x] Guidance (Microsoft): https://github.com/guidance-ai/guidance — structured generation with grammars
-- [x] Outlines (dottxt-ai): https://github.com/dottxt-ai/outlines — structured text generation
-- [x] LMQL: https://lmql.ai — query language for LLMs with type/constraint support; paper arXiv:2212.06094 (PLDI 2023)
-- [ ] Jsonformer: https://github.com/1rgs/jsonformer — JSON-constrained generation (superseded by Outlines; not consulted separately)
-- [x] SGLang: https://github.com/sgl-project/sglang — structured generation language for LLMs; NeurIPS 2024 paper
+- [x] [ETH Zurich PLDI 2025 — type-constrained decoding](https://arxiv.org/abs/2504.09246)
+- [x] [Guidance (Microsoft)](https://github.com/guidance-ai/guidance) — structured generation with grammars
+- [x] [Outlines (dottxt-ai)](https://github.com/dottxt-ai/outlines) — structured text generation
+- [x] [LMQL](https://lmql.ai) — query language for LLMs with type/constraint support; paper arXiv:2212.06094 (PLDI 2023)
+- [ ] [Jsonformer](https://github.com/1rgs/jsonformer) — JSON-constrained generation (superseded by Outlines; not consulted separately)
+- [x] [SGLang](https://github.com/sgl-project/sglang) — structured generation language for LLMs; NeurIPS 2024 paper
 - [x] `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md`
 - [x] `Research/completed/2026-03-10-ai-concept-classification-taxonomy.md`
 - [x] arXiv cs.AI 2024–2025 — searched "language for LLM agents", "LLM-targeted IR", "agent output grammar"; found SGLang NeurIPS 2024, PayPal declarative DSL arXiv:2512.19769, Logic.py (OpenReview 2025)
 - [x] PLDI 2023 — Beurer-Kellner et al. "Prompting Is Programming" (LMQL); PLDI 2025 — ETH Zurich type-constrained decoding
 - [ ] Semantic Machines / semantic parsing literature — identified but out of scope for this item (targets NL→structured meaning, not LLM-as-author)
-- [x] "Code as policies" (Liang et al., 2023): https://code-as-policies.github.io — natural language → robot code; intermediate representation design
+- [x] ["Code as policies" (Liang et al., 2023)](https://code-as-policies.github.io) — natural language → robot code; intermediate representation design
 - [x] ReAct / Toolformer papers — output format assumptions embedded in tool-use agent designs
 
 ---

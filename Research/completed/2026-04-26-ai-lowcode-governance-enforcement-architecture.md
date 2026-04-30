@@ -73,23 +73,23 @@ Cross-references:
 
 ## Sources
 
-- [x] [NIST Special Publication (SP) 800-207, Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - primary architecture source for policy decision, policy administration, and policy enforcement separation.
-- [x] [Azure API Management policy reference](https://learn.microsoft.com/en-us/azure/api-management/api-management-policies) - gateway control catalog covering rate limits, identity validation, content checks, request transformation, and logging.
-- [x] [Azure API Management policy overview and scopes](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies) - policy ordering, inbound or outbound sections, scope inheritance, and parent-policy composition.
-- [x] [Amazon API Gateway resource policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html) - resource-based gateway authorization by principal, Internet Protocol (IP) range, Virtual Private Cloud (VPC), and endpoint.
-- [x] [Amazon API Gateway usage plans](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) - throttling and quota controls, with AWS's note that quotas are best-effort and not authorization.
-- [x] [Open Policy Agent (OPA) documentation root](https://www.openpolicyagent.org/docs/latest/) - decoupled policy engine and multi-surface enforcement scope.
-- [x] [OPA philosophy](https://www.openpolicyagent.org/docs/latest/philosophy/) - policy decoupling rationale and applicability across gateways, services, and pipelines.
-- [x] [OPA bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/) - distributed policy publication and eventual-consistency constraints.
-- [x] [Microsoft Foundry content filtering for models](https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter) - current Microsoft source for runtime content filtering, prompt-attack detection, and protected-material checks.
-- [x] [Azure OpenAI default safety policies in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies) - default prompt and completion guardrails, protected material checks, and jailbreak detection.
-- [x] [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) - model runtime safeguards including content filters, denied topics, sensitive-information checks, grounding, and automated reasoning.
-- [x] [Kong plugin hub](https://developer.konghq.com/plugins/) - current Kong source for available gateway and AI-oriented plugin control surfaces.
-- [x] [Kong rate limiting plugin](https://developer.konghq.com/plugins/rate-limiting/) - gateway-layer throttling strategies and accuracy trade-offs.
-- [x] [Power Platform data policies overview](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) - low-code connector, tool, trigger, and runtime suspension controls.
-- [x] [MuleSoft API Manager policy overview](https://docs.mulesoft.com/api-manager/latest/manage-policies-overview) - API-level security, traffic, and service-level access enforcement without code changes.
-- [x] [MuleSoft rate limiting policy](https://docs.mulesoft.com/gateway/latest/policies-included-rate-limiting) - gateway throttling by identifiers and execution-window behavior.
-- [x] [Salesforce Einstein Trust Layer overview](https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5) - official Salesforce trust layer source discovered during investigation and used for masking, audit, and provider-retention claims.
+- [x] [NIST Special Publication (SP) 800-207, Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — - primary architecture source for policy decision, policy administration, and policy enforcement separation.
+- [x] [Azure API Management policy reference](https://learn.microsoft.com/en-us/azure/api-management/api-management-policies) — - gateway control catalog covering rate limits, identity validation, content checks, request transformation, and logging.
+- [x] [Azure API Management policy overview and scopes](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies) — - policy ordering, inbound or outbound sections, scope inheritance, and parent-policy composition.
+- [x] [Amazon API Gateway resource policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html) — - resource-based gateway authorization by principal, Internet Protocol (IP) range, Virtual Private Cloud (VPC), and endpoint.
+- [x] [Amazon API Gateway usage plans](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) — - throttling and quota controls, with AWS's note that quotas are best-effort and not authorization.
+- [x] [Open Policy Agent (OPA) documentation root](https://www.openpolicyagent.org/docs/latest/) — - decoupled policy engine and multi-surface enforcement scope.
+- [x] [OPA philosophy](https://www.openpolicyagent.org/docs/latest/philosophy/) — - policy decoupling rationale and applicability across gateways, services, and pipelines.
+- [x] [OPA bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/) — - distributed policy publication and eventual-consistency constraints.
+- [x] [Microsoft Foundry content filtering for models](https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter) — - current Microsoft source for runtime content filtering, prompt-attack detection, and protected-material checks.
+- [x] [Azure OpenAI default safety policies in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies) — - default prompt and completion guardrails, protected material checks, and jailbreak detection.
+- [x] [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) — - model runtime safeguards including content filters, denied topics, sensitive-information checks, grounding, and automated reasoning.
+- [x] [Kong plugin hub](https://developer.konghq.com/plugins/) — - current Kong source for available gateway and AI-oriented plugin control surfaces.
+- [x] [Kong rate limiting plugin](https://developer.konghq.com/plugins/rate-limiting/) — - gateway-layer throttling strategies and accuracy trade-offs.
+- [x] [Power Platform data policies overview](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) — - low-code connector, tool, trigger, and runtime suspension controls.
+- [x] [MuleSoft API Manager policy overview](https://docs.mulesoft.com/api-manager/latest/manage-policies-overview) — - API-level security, traffic, and service-level access enforcement without code changes.
+- [x] [MuleSoft rate limiting policy](https://docs.mulesoft.com/gateway/latest/policies-included-rate-limiting) — - gateway throttling by identifiers and execution-window behavior.
+- [x] [Salesforce Einstein Trust Layer overview](https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5) — - official Salesforce trust layer source discovered during investigation and used for masking, audit, and provider-retention claims.
 
 ## Related
 

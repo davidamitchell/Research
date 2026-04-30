@@ -76,25 +76,25 @@ This item connects prior research threads: the context architecture work (`2026-
 
 ## Sources
 
-- [x] Hacker News (HN) thread on intent-driven development — https://news.ycombinator.com/item?id=46924426
-- [x] StrongDM Factory main page — https://factory.strongdm.ai/
-- [x] StrongDM Factory principles — https://factory.strongdm.ai/principles
-- [x] StrongDM Factory techniques — https://factory.strongdm.ai/techniques
-- [x] StrongDM Factory products — https://factory.strongdm.ai/products
-- [x] StrongDM Attractor README — https://raw.githubusercontent.com/strongdm/attractor/main/README.md
-- [x] StrongDM Attractor specification — https://raw.githubusercontent.com/strongdm/attractor/main/attractor-spec.md
-- [x] StrongDM coding agent loop specification — https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md
-- [x] AttractorBench README — https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md
-- [x] Keyhole Software — "Intent-Driven Development: A Modern SDLC for AI-Accelerated Teams" — https://keyholesoftware.com/intent-driven-development-build-first-documentation/
-- [x] Martin Fowler — "Test-Driven Development" — https://martinfowler.com/bliki/TestDrivenDevelopment.html
-- [x] Eiffel documentation — "Design by Contract basics" — https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405
+- [x] [Hacker News (HN) thread on intent-driven development](https://news.ycombinator.com/item?id=46924426)
+- [x] [StrongDM Factory main page](https://factory.strongdm.ai/)
+- [x] [StrongDM Factory principles](https://factory.strongdm.ai/principles)
+- [x] [StrongDM Factory techniques](https://factory.strongdm.ai/techniques)
+- [x] [StrongDM Factory products](https://factory.strongdm.ai/products)
+- [x] [StrongDM Attractor README](https://raw.githubusercontent.com/strongdm/attractor/main/README.md)
+- [x] [StrongDM Attractor specification](https://raw.githubusercontent.com/strongdm/attractor/main/attractor-spec.md)
+- [x] [StrongDM coding agent loop specification](https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md)
+- [x] [AttractorBench README](https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md)
+- [x] [Keyhole Software — "Intent-Driven Development: A Modern SDLC for AI-Accelerated Teams"](https://keyholesoftware.com/intent-driven-development-build-first-documentation/)
+- [x] [Martin Fowler — "Test-Driven Development"](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
+- [x] [Eiffel documentation — "Design by Contract basics"](https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405)
 - [x] Prior completed research: `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md`
 - [x] Prior completed research: `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md`
 - [x] Prior completed research: `Research/completed/2026-03-14-reliable-software-llm-era.md`
 - [x] Prior completed research: `Research/completed/2026-03-14-ricardian-contract-model.md`
 - [x] Prior completed research: `Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md`
-- [ ] Amazon Web Services (AWS) — AI-driven development life cycle article linked from Keyhole — https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/
-- [ ] Microsoft Azure Apps on Azure blog — AI-led SDLC article linked from Keyhole — https://techcommunity.microsoft.com/blog/appsonazureblog/an-ai-led-sdlc-building-an-end-to-end-agentic-software-development-lifecycle-wit/4491896
+- [ ] [Amazon Web Services (AWS) — AI-driven development life cycle article linked from Keyhole](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/)
+- [ ] [Microsoft Azure Apps on Azure blog — AI-led SDLC article linked from Keyhole](https://techcommunity.microsoft.com/blog/appsonazureblog/an-ai-led-sdlc-building-an-end-to-end-agentic-software-development-lifecycle-wit/4491896)
 
 ---
 

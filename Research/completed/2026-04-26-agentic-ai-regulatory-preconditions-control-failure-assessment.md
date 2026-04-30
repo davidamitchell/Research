@@ -66,22 +66,22 @@ Under applicable regulatory and standards frameworks, including Australian Prude
 
 ## Sources
 
-- [x] [APRA CPS 230 - Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) - Official APRA prudential handbook page and current operative text; primary Trans-Tasman operational-risk comparator.
-- [x] [DORA - Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554) - Official European Union Digital Operational Resilience Act text.
-- [x] [PCI Data Security Standard (PCI DSS)](https://www.pcisecuritystandards.org/standards/pci-dss/) - Official PCI Security Standards Council standard page describing the scope and purpose of PCI DSS.
-- [x] [PCI Security Standards Council Document Library - PCI DSS v4.0.1](https://www.pcisecuritystandards.org/document_library/?category=pcidss&document=pci_dss) - Official document library page identifying the current PCI DSS v4.0.1 standard and document location; the direct PDF itself returned access restrictions in this runtime.
-- [x] [ISO/IEC 42001:2023 - Information technology - Artificial intelligence - Management system](https://www.iso.org/standard/81230.html) - Official public summary for the Artificial Intelligence Management System (AIMS) standard.
-- [x] [NIST SP 800-207 - Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - Official National Institute of Standards and Technology (NIST) publication page for Zero Trust Architecture.
-- [x] [NIST SP 800-53 Rev. 5 - Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) - Official NIST security and privacy control catalog publication page.
-- [x] [Basel Committee on Banking Supervision - Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) - Official Bank for International Settlements (BIS) / Basel Committee page for the operational resilience principles.
-- [x] [FCA Discussion Paper DP22/4 - Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publications/discussion-papers/dp22-4-artificial-intelligence-and-machine-learning) - Official United Kingdom (UK) Financial Conduct Authority (FCA) landing page for the joint discussion paper.
-- [x] [Bank of England / PRA Discussion Paper 5/22 - Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) - Official Bank of England / Prudential Regulation Authority (PRA) page containing the discussion paper text.
-- [x] [FCA Feedback Statement FS23/6 - Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning) - Official FCA feedback statement on the joint AI discussion paper.
-- [x] [PRA Supervisory Statement SS1/23 - Model risk management principles for banks](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss) - Official PRA supervisory statement page.
-- [x] [ISO 31000:2018 - Risk management - Guidelines](https://www.iso.org/standard/65694.html) - Official public summary of ISO 31000.
-- [x] [RBNZ banking supervision handbook](https://www.rbnz.govt.nz/regulation-and-supervision/oversight-of-banks/banking-supervision-handbook) - Primary New Zealand prudential-context page; it returned 403 in this runtime and was not used for downstream factual support.
-- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF 1.0) publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - Official NIST publication page for AI RMF 1.0.
-- [x] [NIST AI Risk Management Framework hub](https://www.nist.gov/itl/ai-risk-management-framework) - Official NIST framework hub and supporting materials.
+- [x] [APRA CPS 230 - Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) — - Official APRA prudential handbook page and current operative text; primary Trans-Tasman operational-risk comparator.
+- [x] [DORA - Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554) — - Official European Union Digital Operational Resilience Act text.
+- [x] [PCI Data Security Standard (PCI DSS)](https://www.pcisecuritystandards.org/standards/pci-dss/) — - Official PCI Security Standards Council standard page describing the scope and purpose of PCI DSS.
+- [x] [PCI Security Standards Council Document Library - PCI DSS v4.0.1](https://www.pcisecuritystandards.org/document_library/?category=pcidss&document=pci_dss) — - Official document library page identifying the current PCI DSS v4.0.1 standard and document location; the direct PDF itself returned access restrictions in this runtime.
+- [x] [ISO/IEC 42001:2023 - Information technology - Artificial intelligence - Management system](https://www.iso.org/standard/81230.html) — - Official public summary for the Artificial Intelligence Management System (AIMS) standard.
+- [x] [NIST SP 800-207 - Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — - Official National Institute of Standards and Technology (NIST) publication page for Zero Trust Architecture.
+- [x] [NIST SP 800-53 Rev. 5 - Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) — - Official NIST security and privacy control catalog publication page.
+- [x] [Basel Committee on Banking Supervision - Principles for operational resilience](https://www.bis.org/bcbs/publ/d516.htm) — - Official Bank for International Settlements (BIS) / Basel Committee page for the operational resilience principles.
+- [x] [FCA Discussion Paper DP22/4 - Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publications/discussion-papers/dp22-4-artificial-intelligence-and-machine-learning) — - Official United Kingdom (UK) Financial Conduct Authority (FCA) landing page for the joint discussion paper.
+- [x] [Bank of England / PRA Discussion Paper 5/22 - Artificial Intelligence and Machine Learning](https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence) — - Official Bank of England / Prudential Regulation Authority (PRA) page containing the discussion paper text.
+- [x] [FCA Feedback Statement FS23/6 - Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning) — - Official FCA feedback statement on the joint AI discussion paper.
+- [x] [PRA Supervisory Statement SS1/23 - Model risk management principles for banks](https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss) — - Official PRA supervisory statement page.
+- [x] [ISO 31000:2018 - Risk management - Guidelines](https://www.iso.org/standard/65694.html) — - Official public summary of ISO 31000.
+- [x] [RBNZ banking supervision handbook](https://www.rbnz.govt.nz/regulation-and-supervision/oversight-of-banks/banking-supervision-handbook) — - Primary New Zealand prudential-context page; it returned 403 in this runtime and was not used for downstream factual support.
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF 1.0) publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - Official NIST publication page for AI RMF 1.0.
+- [x] [NIST AI Risk Management Framework hub](https://www.nist.gov/itl/ai-risk-management-framework) — - Official NIST framework hub and supporting materials.
 
 ## Related
 

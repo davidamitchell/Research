@@ -81,25 +81,25 @@ Cross-references:
 
 Starting points, papers, articles, standards, and guidance. **Every source includes a Uniform Resource Locator (URL).**
 
-- [x] [CMMI Institute overview](https://cmmiinstitute.com/) - public overview of CMMI as a staged capability-improvement and benchmarking model
-- [x] [CMMI model overview](https://cmmiinstitute.com/cmmi) - public description of CMMI domains, business-performance framing, and benchmarking logic
-- [x] [CMMI appraisal method](https://cmmiinstitute.com/learning/appraisals) - public description of appraisal, benchmark maturity levels, and capability-level assessment
-- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - primary framework publication record and citation
-- [x] [NIST AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework) - official NIST page covering framework purpose, profiles, and companion assets
-- [x] [NIST AI RMF Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) - official playbook page showing voluntary guidance and implementation support
-- [x] [International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview](https://www.iso.org/standard/81230.html) - official overview of the Artificial Intelligence Management System standard and continual-improvement framing
-- [x] [Responsible AI Toolkit](https://www.gov.uk/government/collections/responsible-ai-toolkit) - current United Kingdom government toolkit collection for safe and responsible AI development and deployment
-- [x] [British Standards Institution (BSI) AI Foundation Framework](https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/) - official BSI page describing modular, stepwise AI trust and capability building
-- [x] [Microsoft agentic AI adoption maturity model overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview) - current public five-level AI maturity model with five pillars
-- [x] [Microsoft governance, security, and operations maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance) - detailed public stage descriptions for governance and lifecycle evolution
-- [x] [Microsoft technology and data maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology) - public stage descriptions for technology, data, and Application Lifecycle Management (ALM) evolution
-- [x] [Microsoft organisation and culture maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness) - public stage descriptions for behaviour, enablement, and cultural maturity
-- [x] [Microsoft business strategy maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-business-process) - public stage descriptions for business-process redesign and value realisation
-- [x] [MIT Sloan article on enterprise AI maturity](https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level) - practitioner summary of the MIT Center for Information Systems Research (MIT CISR) maturity model
-- [x] [MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model](https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian) - research briefing linking four maturity stages to enterprise performance
-- [x] [DevOps Research and Assessment (DORA) 2025 report announcement](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) - public summary of foundational-capability findings
-- [x] [DORA AI capabilities model report page](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) - public summary of the seven foundational capabilities and platform findings
-- [x] [Gartner documents portal](https://www.gartner.com/en/documents) - seeded analyst source, access-gated in this session and not used for downstream factual support
+- [x] [CMMI Institute overview](https://cmmiinstitute.com/) — - public overview of CMMI as a staged capability-improvement and benchmarking model
+- [x] [CMMI model overview](https://cmmiinstitute.com/cmmi) — - public description of CMMI domains, business-performance framing, and benchmarking logic
+- [x] [CMMI appraisal method](https://cmmiinstitute.com/learning/appraisals) — - public description of appraisal, benchmark maturity levels, and capability-level assessment
+- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - primary framework publication record and citation
+- [x] [NIST AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework) — - official NIST page covering framework purpose, profiles, and companion assets
+- [x] [NIST AI RMF Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) — - official playbook page showing voluntary guidance and implementation support
+- [x] [International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview](https://www.iso.org/standard/81230.html) — - official overview of the Artificial Intelligence Management System standard and continual-improvement framing
+- [x] [Responsible AI Toolkit](https://www.gov.uk/government/collections/responsible-ai-toolkit) — - current United Kingdom government toolkit collection for safe and responsible AI development and deployment
+- [x] [British Standards Institution (BSI) AI Foundation Framework](https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/) — - official BSI page describing modular, stepwise AI trust and capability building
+- [x] [Microsoft agentic AI adoption maturity model overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview) — - current public five-level AI maturity model with five pillars
+- [x] [Microsoft governance, security, and operations maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance) — - detailed public stage descriptions for governance and lifecycle evolution
+- [x] [Microsoft technology and data maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology) — - public stage descriptions for technology, data, and Application Lifecycle Management (ALM) evolution
+- [x] [Microsoft organisation and culture maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness) — - public stage descriptions for behaviour, enablement, and cultural maturity
+- [x] [Microsoft business strategy maturity pillar](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-business-process) — - public stage descriptions for business-process redesign and value realisation
+- [x] [MIT Sloan article on enterprise AI maturity](https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level) — - practitioner summary of the MIT Center for Information Systems Research (MIT CISR) maturity model
+- [x] [MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model](https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian) — - research briefing linking four maturity stages to enterprise performance
+- [x] [DevOps Research and Assessment (DORA) 2025 report announcement](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — - public summary of foundational-capability findings
+- [x] [DORA AI capabilities model report page](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) — - public summary of the seven foundational capabilities and platform findings
+- [x] [Gartner documents portal](https://www.gartner.com/en/documents) — - seeded analyst source, access-gated in this session and not used for downstream factual support
 
 ## Related
 

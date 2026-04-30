@@ -75,30 +75,30 @@ Supporting questions:
 
 ## Sources
 
-- [x] [YouTube: AI workflow help with todo lists](https://youtu.be/hFRQb2e5cJs?si=6NppPd82VwLaEKts) -- primary seed source; direct transcript fetch was attempted on 2026-04-19 and failed because YouTube blocked transcript retrieval from the cloud runner Internet Protocol (IP) address
-- [x] [Zapier documentation: Notion + Slack multi-step Zaps](https://zapier.com/apps/notion/integrations/slack) -- official docs for the core automation stack described in the video
-- [x] [Make (formerly Integromat) Notion + Slack integration](https://www.make.com/en/integrations/notion/slack) -- direct fetch returned Hypertext Transfer Protocol (HTTP) 403 in this environment; treated as checked but evidence-poor
-- [x] [n8n: self-hosted workflow automation](https://n8n.io/) -- open-source alternative; relevant for users who want to avoid third-party data access
-- [x] [MemGPT: towards LLMs as operating systems (paper)](https://arxiv.org/abs/2310.08560) -- foundational paper on memory-tier management for Large Language Models (LLMs)
-- [x] [Mem.ai personal AI](https://mem.ai/) -- checked; page rendered only a browser-update interstitial in this environment, so product-detail evidence is limited
-- [x] [Rewind.ai: the AI that remembers everything](https://www.rewind.ai/) -- checked; direct fetch failed in this environment
-- [x] [OpenAI Memory feature documentation](https://help.openai.com/en/articles/8590148-memory-in-chatgpt) -- checked; direct fetch returned HTTP 403 in this environment
-- [x] [Hacker News: "Show Hacker News (HN)" and "Ask Hacker News (HN)" threads on personal productivity automation](https://news.ycombinator.com/search?q=ai+daily+digest+productivity) -- checked; direct fetch returned HTTP 404, so no usable evidence was extracted
-- [x] [Reddit r/Notion: AI automation workflows](https://www.reddit.com/r/Notion/search/?q=ai+daily+digest) -- checked; direct fetch returned HTTP 403
-- [x] [Reddit r/selfhosted: LLM workflow automation](https://www.reddit.com/r/selfhosted/search/?q=llm+daily+summary) -- checked; direct fetch returned HTTP 403
-- [x] [Obsidian community: daily notes and AI summarisation plugins](https://forum.obsidian.md/search?q=ai+daily+digest) -- checked; returned a placeholder page with no usable results
-- [x] [Telegram Bot Application Programming Interface (API) documentation](https://core.telegram.org/bots/api) -- used for delivery-channel comparison
-- [x] [Slack Block Kit and Application Programming Interface (API) documentation](https://api.slack.com/block-kit) -- used for delivery-channel comparison
-- [x] [Microsoft Teams Bot Framework documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots) -- used for delivery-channel comparison
-- [x] [Apple Shortcuts: web Application Programming Interface (API) and notification actions](https://support.apple.com/guide/shortcuts/welcome/ios) -- used for iOS-native delivery comparison
-- [x] [Yasira Iqbal, "A Taxonomy of Proactive Intelligent Agents" (2015, AI & Society)](https://doi.org/10.1007/s00146-015-0607-8) -- the original Uniform Resource Locator (URL) in the item pointed to the wrong Digital Object Identifier (DOI); the corrected DOI was located by follow-on search, although direct fetch remained unreliable in this environment
-- [x] [Building a personal AI assistant with n8n and Notion (community tutorial)](https://community.n8n.io/t/personal-ai-assistant/30000) -- checked; thread is about Google Forms triggers rather than a personal assistant workflow, so relevance is low
-- [x] [Anthropic Claude Application Programming Interface (API) documentation: system prompts and summarisation](https://docs.anthropic.com/en/api/getting-started) -- used to confirm the LLM layer integration shape
-- [x] [davidamitchell GitHub repositories](https://github.com/davidamitchell?tab=repositories) -- used to review adjacent repos for reuse opportunities
-- [x] [n8n workflow template: AI meeting summary & action item tracker with Notion, Slack, and Gmail](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/) -- concrete public implementation with structured prompt outputs and notification routing
-- [x] [GitHub: hoangsonww/AI-News-Briefing](https://github.com/hoangsonww/AI-News-Briefing) -- concrete public implementation of a scheduled daily briefing pipeline that publishes to Notion, Obsidian, Slack, and Teams
-- [x] [Lee et al. (2019), "The Effects of Interruption Timings on Autonomous Height-Adjustable Desks that Respond to Task Changes"](https://doi.org/10.1145/3290605.3300558) -- used for evidence on timing proactive interventions at task boundaries
-- [x] [When AI-Based Agents Are Proactive: Implications for Competence and System Satisfaction in Human-AI Collaboration](https://link.springer.com/article/10.1007/s12599-024-00918-y) -- used as a follow-on source for proactive versus reactive assistance trade-offs
+- [x] [YouTube: AI workflow help with todo lists](https://youtu.be/hFRQb2e5cJs?si=6NppPd82VwLaEKts) — -- primary seed source; direct transcript fetch was attempted on 2026-04-19 and failed because YouTube blocked transcript retrieval from the cloud runner Internet Protocol (IP) address
+- [x] [Zapier documentation: Notion + Slack multi-step Zaps](https://zapier.com/apps/notion/integrations/slack) — -- official docs for the core automation stack described in the video
+- [x] [Make (formerly Integromat) Notion + Slack integration](https://www.make.com/en/integrations/notion/slack) — -- direct fetch returned Hypertext Transfer Protocol (HTTP) 403 in this environment; treated as checked but evidence-poor
+- [x] [n8n: self-hosted workflow automation](https://n8n.io/) — -- open-source alternative; relevant for users who want to avoid third-party data access
+- [x] [MemGPT: towards LLMs as operating systems (paper)](https://arxiv.org/abs/2310.08560) — -- foundational paper on memory-tier management for Large Language Models (LLMs)
+- [x] [Mem.ai personal AI](https://mem.ai/) — -- checked; page rendered only a browser-update interstitial in this environment, so product-detail evidence is limited
+- [x] [Rewind.ai: the AI that remembers everything](https://www.rewind.ai/) — -- checked; direct fetch failed in this environment
+- [x] [OpenAI Memory feature documentation](https://help.openai.com/en/articles/8590148-memory-in-chatgpt) — -- checked; direct fetch returned HTTP 403 in this environment
+- [x] [Hacker News: "Show Hacker News (HN)" and "Ask Hacker News (HN)" threads on personal productivity automation](https://news.ycombinator.com/search?q=ai+daily+digest+productivity) — -- checked; direct fetch returned HTTP 404, so no usable evidence was extracted
+- [x] [Reddit r/Notion: AI automation workflows](https://www.reddit.com/r/Notion/search/?q=ai+daily+digest) — -- checked; direct fetch returned HTTP 403
+- [x] [Reddit r/selfhosted: LLM workflow automation](https://www.reddit.com/r/selfhosted/search/?q=llm+daily+summary) — -- checked; direct fetch returned HTTP 403
+- [x] [Obsidian community: daily notes and AI summarisation plugins](https://forum.obsidian.md/search?q=ai+daily+digest) — -- checked; returned a placeholder page with no usable results
+- [x] [Telegram Bot Application Programming Interface (API) documentation](https://core.telegram.org/bots/api) — -- used for delivery-channel comparison
+- [x] [Slack Block Kit and Application Programming Interface (API) documentation](https://api.slack.com/block-kit) — -- used for delivery-channel comparison
+- [x] [Microsoft Teams Bot Framework documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots) — -- used for delivery-channel comparison
+- [x] [Apple Shortcuts: web Application Programming Interface (API) and notification actions](https://support.apple.com/guide/shortcuts/welcome/ios) — -- used for iOS-native delivery comparison
+- [x] [Yasira Iqbal, "A Taxonomy of Proactive Intelligent Agents" (2015, AI & Society)](https://doi.org/10.1007/s00146-015-0607-8) — -- the original Uniform Resource Locator (URL) in the item pointed to the wrong Digital Object Identifier (DOI); the corrected DOI was located by follow-on search, although direct fetch remained unreliable in this environment
+- [x] [Building a personal AI assistant with n8n and Notion (community tutorial)](https://community.n8n.io/t/personal-ai-assistant/30000) — -- checked; thread is about Google Forms triggers rather than a personal assistant workflow, so relevance is low
+- [x] [Anthropic Claude Application Programming Interface (API) documentation: system prompts and summarisation](https://docs.anthropic.com/en/api/getting-started) — -- used to confirm the LLM layer integration shape
+- [x] [davidamitchell GitHub repositories](https://github.com/davidamitchell?tab=repositories) — -- used to review adjacent repos for reuse opportunities
+- [x] [n8n workflow template: AI meeting summary & action item tracker with Notion, Slack, and Gmail](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/) — -- concrete public implementation with structured prompt outputs and notification routing
+- [x] [GitHub: hoangsonww/AI-News-Briefing](https://github.com/hoangsonww/AI-News-Briefing) — -- concrete public implementation of a scheduled daily briefing pipeline that publishes to Notion, Obsidian, Slack, and Teams
+- [x] [Lee et al. (2019), "The Effects of Interruption Timings on Autonomous Height-Adjustable Desks that Respond to Task Changes"](https://doi.org/10.1145/3290605.3300558) — -- used for evidence on timing proactive interventions at task boundaries
+- [x] [When AI-Based Agents Are Proactive: Implications for Competence and System Satisfaction in Human-AI Collaboration](https://link.springer.com/article/10.1007/s12599-024-00918-y) — -- used as a follow-on source for proactive versus reactive assistance trade-offs
 
 ---
 

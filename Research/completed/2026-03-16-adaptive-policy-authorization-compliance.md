@@ -65,22 +65,39 @@ The tooling question matters because PaC has become a common delivery mechanism 
 
 ## Sources
 
-- [x] NIST SP 800-53 Rev. 5 publication page — https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
-- [x] NIST SP 800-53 Rev. 5 control catalog extracts — https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-17/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/
-- [x] NIST SP 800-162 "Guide to Attribute Based Access Control (ABAC) Definition and Considerations" — https://csrc.nist.gov/publications/detail/sp/800-162/final
-- [x] NIST SP 800-207 "Zero Trust Architecture" — https://csrc.nist.gov/publications/detail/sp/800-207/final
-- [x] NIST glossary entry for Risk-Adaptive Access Control (RAdAC) — https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control
-- [ ] ISO/IEC 27001:2022 Annex A official control text — paywalled; official overview consulted at https://www.iso.org/standard/27001 and secondary summaries consulted instead
-- [x] ISO/IEC 27001:2022 official overview — https://www.iso.org/standard/27001
-- [x] ISO/IEC 27001:2022 access-control summaries — https://www.isms.online/iso-27001/annex-a-2022/ ; https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf
-- [x] OPA documentation — https://www.openpolicyagent.org/docs/latest/ ; https://www.openpolicyagent.org/docs/policy-testing ; https://www.openpolicyagent.org/docs/management-decision-logs
-- [x] Cedar documentation — https://docs.cedarpolicy.com/policies/validation.html ; https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html
+- [x] [NIST SP 800-53 Rev. 5 publication page](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+- [x] [NIST SP 800-53 Rev. 5 — AC-2 Account Management](https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/)
+- [x] [NIST SP 800-53 Rev. 5 — AC-3 Access Enforcement](https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/)
+- [x] [NIST SP 800-53 Rev. 5 — AC-16 Security and Privacy Attributes](https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/)
+- [x] [NIST SP 800-53 Rev. 5 — AC-17 Remote Access](https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-17/)
+- [x] [NIST SP 800-53 Rev. 5 — AC-24 Access Control Decisions](https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/)
+- [x] [NIST SP 800-162 "Guide to Attribute Based Access Control (ABAC) Definition and Considerations"](https://csrc.nist.gov/publications/detail/sp/800-162/final)
+- [x] [NIST SP 800-207 "Zero Trust Architecture"](https://csrc.nist.gov/publications/detail/sp/800-207/final)
+- [x] [NIST glossary entry for Risk-Adaptive Access Control (RAdAC)](https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control)
+- [ ] [ISO/IEC 27001:2022 Annex A official control text — paywalled; official overview consulted at](https://www.iso.org/standard/27001) — and secondary summaries consulted instead
+- [x] [ISO/IEC 27001:2022 official overview](https://www.iso.org/standard/27001)
+- [x] [ISO/IEC 27001:2022 Annex A access-control summaries](https://www.isms.online/iso-27001/annex-a-2022/)
+- [x] [ISO/IEC 27001:2022 Annex A controls summary PDF](https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf)
+- [x] [Open Policy Agent (OPA) documentation](https://www.openpolicyagent.org/docs/latest/)
+- [x] [OPA — policy testing](https://www.openpolicyagent.org/docs/policy-testing)
+- [x] [OPA — management decision logs](https://www.openpolicyagent.org/docs/management-decision-logs)
+- [x] [Cedar policy language — validation](https://docs.cedarpolicy.com/policies/validation.html)
+- [x] [AWS Prescriptive Guidance — Cedar for SaaS multi-tenant API authorization](https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html)
 - [ ] cedarpolicy.com landing page — single-page application shell was accessible but not content-rich; operational documentation came from docs.cedarpolicy.com
-- [x] AWS Verified Permissions documentation — https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policies.html ; https://aws.amazon.com/verified-permissions/features/
-- [x] Cerbos documentation — https://docs.cerbos.dev/cerbos/latest/index.html ; https://docs.cerbos.dev/cerbos/latest/tutorial/04_testing-policies.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html ; https://www.cerbos.dev/features-benefits-and-use-cases/audit-logs
-- [x] OWASP Application Security Verification Standard (ASVS) — https://owasp.org/www-project-application-security-verification-standard/
-- [x] XACML overview and specification — https://www.oasis-open.org/committees/xacml/ ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html
-- [x] Research on AI-generated code security — https://arxiv.org/abs/2108.09293 ; https://arxiv.org/html/2506.11022v2 ; https://arxiv.org/html/2412.15004v4
+- [x] [AWS Verified Permissions — what is AVP](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html)
+- [x] [AWS Verified Permissions — CloudTrail monitoring](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html)
+- [x] [AWS Verified Permissions — policies](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policies.html)
+- [x] [AWS Verified Permissions — features](https://aws.amazon.com/verified-permissions/features/)
+- [x] [Cerbos documentation](https://docs.cerbos.dev/cerbos/latest/index.html)
+- [x] [Cerbos — testing policies](https://docs.cerbos.dev/cerbos/latest/tutorial/04_testing-policies.html)
+- [x] [Cerbos — policy compilation](https://docs.cerbos.dev/cerbos/latest/policies/compile.html)
+- [x] [Cerbos — audit logs](https://www.cerbos.dev/features-benefits-and-use-cases/audit-logs)
+- [x] [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/)
+- [x] [XACML committee overview](https://www.oasis-open.org/committees/xacml/)
+- [x] [XACML 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html)
+- [x] [Pearce et al. (2021) Asleep at the keyboard? AI-generated insecure code](https://arxiv.org/abs/2108.09293)
+- [x] [Research on AI-generated code security — 2025](https://arxiv.org/html/2506.11022v2)
+- [x] [Research on AI-generated code security — 2024](https://arxiv.org/html/2412.15004v4)
 
 ---
 

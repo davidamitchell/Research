@@ -53,12 +53,12 @@ The talk builds on the broader predictive-processing framework developed by Karl
 
 ## Sources
 
-- [x] https://youtu.be/HYUoS0GkGCs — primary source video ("Reality Is A Controlled Hallucination | Anil Seth", Essentia Foundation, confirmed via oEmbed)
-- [x] https://lab.cccb.org/en/anil-seth-reality-is-a-controlled-hallucination/ — CCCB Lab article from Seth's 2022 Barcelona appearance; includes direct quotes from Seth
-- [x] https://biologyinsights.com/anil-seth-on-consciousness-as-a-controlled-hallucination/ — detailed synthesis of Seth's framework
-- [x] https://www.unpluggedpsych.com/the-controlled-hallucination-theory-anil-seths-perspective/ — theory breakdown
+- [x] [primary source video ("Reality Is A Controlled Hallucination | Anil Seth", Essentia Foundation, confirmed via oEmbed)](https://youtu.be/HYUoS0GkGCs)
+- [x] [CCCB Lab article from Seth's 2022 Barcelona appearance; includes direct quotes from Seth](https://lab.cccb.org/en/anil-seth-reality-is-a-controlled-hallucination/)
+- [x] [detailed synthesis of Seth's framework](https://biologyinsights.com/anil-seth-on-consciousness-as-a-controlled-hallucination/)
+- [x] [theory breakdown](https://www.unpluggedpsych.com/the-controlled-hallucination-theory-anil-seths-perspective/)
 - [x] Seth, A.K. (2021). *Being You: A New Science of Consciousness*. Dutton/Faber.
-- [x] Seth, A.K. (2013). "Interoceptive inference, emotion, and the embodied self." *Trends in Cognitive Sciences*. — https://doi.org/10.1016/j.tics.2013.09.007
+- [x] [Seth, A.K. (2013). "Interoceptive inference, emotion, and the embodied self." *Trends in Cognitive Sciences*.](https://doi.org/10.1016/j.tics.2013.09.007)
 - [x] Nautilus: "We Are Beast Machines" — Seth on the beast machine thesis
 
 ---

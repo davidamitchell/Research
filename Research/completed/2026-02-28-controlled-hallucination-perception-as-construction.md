@@ -54,7 +54,7 @@ Spawned from the synthesis of https://youtu.be/HYUoS0GkGCs ("Reality Is A Contro
 - [x] Seth, A.K. (2021). *Being You: A New Science of Consciousness*. Ch. 1–3. — accessed via multiple secondary reviews (MIT Technology Review, LSE Review of Books, CIFAR Q&A, Psychology Today, naturalism.org)
 - [x] Clark, A. (2016). *Surfing Uncertainty: Prediction, Action, and the Embodied Mind.* — synthesised in prior completed item `2026-02-28-predictive-processing-active-inference.md`
 - [x] Hohwy, J. (2013). *The Predictive Mind.* OUP. — synthesised in prior completed item
-- [x] Rao, R.P. & Ballard, D.H. (1999). "Predictive coding in the visual cortex." *Nature Neuroscience.* — paper PDF accessible at https://www.nature.com/articles/nn0199_79.pdf; content reviewed via multiple direct summaries
+- [x] [Rao, R.P. & Ballard, D.H. (1999). "Predictive coding in the visual cortex." *Nature Neuroscience.* — paper PDF accessible at](https://www.nature.com/articles/nn0199_79.pdf) — content reviewed via multiple direct summaries
 
 ---
 

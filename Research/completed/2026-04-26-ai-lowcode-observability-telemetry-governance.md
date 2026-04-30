@@ -73,34 +73,34 @@ Cross-references:
 
 ## Sources
 
-- [x] [OpenTelemetry, traces concept](https://opentelemetry.io/docs/concepts/signals/traces/) - baseline span, trace, attribute, and event model for distributed tracing.
-- [x] [OpenTelemetry generative AI attribute registry](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/) - canonical field set for model, prompt, retrieval, tool-call, and token telemetry.
-- [x] [OpenTelemetry generative AI events](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/) - opt-in guidance for prompt and response content capture.
-- [x] [OpenTelemetry generative AI metrics](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-metrics/) - canonical metric for token usage and model telemetry.
-- [x] [World Wide Web Consortium (W3C) Trace Context](https://www.w3.org/TR/trace-context/) - cross-system trace-correlation standard and privacy limits on trace headers.
-- [x] [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - Microsoft observability platform covering metrics, logs, traces, events, and agent telemetry.
-- [x] [Microsoft Foundry observability overview](https://learn.microsoft.com/en-us/azure/foundry/concepts/observability) - Microsoft view of evaluation, monitoring, and tracing for AI applications.
-- [x] [Set up tracing for AI agents in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup) - prompt content, retrieval operations, token, and trace-storage details.
-- [x] [Microsoft Foundry tracing concepts](https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept) - inputs, outputs, tool usage, retries, latency, and cost telemetry guidance.
-- [x] [AWS CloudTrail user guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) - management event history, CloudTrail Lake retention, and log-delivery options.
-- [x] [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) - identity lineage for temporary credentials and assumed roles.
-- [x] [Monitor and control actions taken with assumed roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html) - source identity persistence for attribution across role chaining.
-- [x] [Amazon Bedrock model invocation logging](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html) - full request, response, and metadata capture to CloudWatch Logs or Amazon Simple Storage Service (Amazon S3).
-- [x] [PutModelInvocationLoggingConfiguration API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutModelInvocationLoggingConfiguration.html) - modality-specific logging configuration for text, image, embedding, audio, and video data.
-- [x] [General Data Protection Regulation (GDPR) Article 5](https://gdpr-info.eu/art-5-gdpr/) - storage limitation, data minimisation, integrity, confidentiality, and accountability requirements.
-- [x] [General Data Protection Regulation (GDPR) Article 17](https://gdpr-info.eu/art-17-gdpr/) - right to erasure and exceptions for legal obligations and legal claims.
-- [x] [Australian Prudential Regulation Authority (APRA) Prudential Standard (CPS) 230](https://handbook.apra.gov.au/standard/cps-230) - operational risk, controls, monitoring, and resilience baseline.
-- [x] [Australian Prudential Regulation Authority (APRA) Prudential Practice Guide (CPG) 230](https://handbook.apra.gov.au/ppg/cpg-230) - guidance on monitoring, reporting, escalation, and internal controls under CPS 230.
-- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-92](https://csrc.nist.gov/pubs/sp/800/92/final) - enterprise log-management principles and control objectives.
-- [x] [Commission Delegated Regulation (EU) 2024/1774](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774) - DORA regulatory technical standards including logging-procedure requirements.
-- [x] [Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554) - DORA core regulation including incident-recording expectations.
-- [x] [Power Platform activity logs overview](https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-overview) - Microsoft Purview audit model for low-code governance.
-- [x] [Power Automate activity logs](https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate) - lifecycle audit schema and runtime-logging limitations for cloud flows.
-- [x] [Power Platform connector activity logs](https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors) - connector and custom API audit events, including correlation identifiers.
-- [x] [Power Automate telemetry in Application Insights](https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow) - trigger, action, and run telemetry for managed environments.
-- [x] [Cloud flow run history in Dataverse](https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata) - per-run status, duration, trigger type, errors, owner, and retention controls.
-- [x] [PowerPlatformConnectorActivity table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/powerplatformconnectoractivity) - Azure Monitor schema for low-code connector audit events.
-- [x] [Microsoft Purview audit log retention policies](https://learn.microsoft.com/en-us/purview/audit-log-retention-policies) - default and custom retention ranges for audit data.
+- [x] [OpenTelemetry, traces concept](https://opentelemetry.io/docs/concepts/signals/traces/) — - baseline span, trace, attribute, and event model for distributed tracing.
+- [x] [OpenTelemetry generative AI attribute registry](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/) — - canonical field set for model, prompt, retrieval, tool-call, and token telemetry.
+- [x] [OpenTelemetry generative AI events](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/) — - opt-in guidance for prompt and response content capture.
+- [x] [OpenTelemetry generative AI metrics](https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-metrics/) — - canonical metric for token usage and model telemetry.
+- [x] [World Wide Web Consortium (W3C) Trace Context](https://www.w3.org/TR/trace-context/) — - cross-system trace-correlation standard and privacy limits on trace headers.
+- [x] [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) — - Microsoft observability platform covering metrics, logs, traces, events, and agent telemetry.
+- [x] [Microsoft Foundry observability overview](https://learn.microsoft.com/en-us/azure/foundry/concepts/observability) — - Microsoft view of evaluation, monitoring, and tracing for AI applications.
+- [x] [Set up tracing for AI agents in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup) — - prompt content, retrieval operations, token, and trace-storage details.
+- [x] [Microsoft Foundry tracing concepts](https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept) — - inputs, outputs, tool usage, retries, latency, and cost telemetry guidance.
+- [x] [AWS CloudTrail user guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) — - management event history, CloudTrail Lake retention, and log-delivery options.
+- [x] [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) — - identity lineage for temporary credentials and assumed roles.
+- [x] [Monitor and control actions taken with assumed roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html) — - source identity persistence for attribution across role chaining.
+- [x] [Amazon Bedrock model invocation logging](https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html) — - full request, response, and metadata capture to CloudWatch Logs or Amazon Simple Storage Service (Amazon S3).
+- [x] [PutModelInvocationLoggingConfiguration API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutModelInvocationLoggingConfiguration.html) — - modality-specific logging configuration for text, image, embedding, audio, and video data.
+- [x] [General Data Protection Regulation (GDPR) Article 5](https://gdpr-info.eu/art-5-gdpr/) — - storage limitation, data minimisation, integrity, confidentiality, and accountability requirements.
+- [x] [General Data Protection Regulation (GDPR) Article 17](https://gdpr-info.eu/art-17-gdpr/) — - right to erasure and exceptions for legal obligations and legal claims.
+- [x] [Australian Prudential Regulation Authority (APRA) Prudential Standard (CPS) 230](https://handbook.apra.gov.au/standard/cps-230) — - operational risk, controls, monitoring, and resilience baseline.
+- [x] [Australian Prudential Regulation Authority (APRA) Prudential Practice Guide (CPG) 230](https://handbook.apra.gov.au/ppg/cpg-230) — - guidance on monitoring, reporting, escalation, and internal controls under CPS 230.
+- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-92](https://csrc.nist.gov/pubs/sp/800/92/final) — - enterprise log-management principles and control objectives.
+- [x] [Commission Delegated Regulation (EU) 2024/1774](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774) — - DORA regulatory technical standards including logging-procedure requirements.
+- [x] [Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554) — - DORA core regulation including incident-recording expectations.
+- [x] [Power Platform activity logs overview](https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-overview) — - Microsoft Purview audit model for low-code governance.
+- [x] [Power Automate activity logs](https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate) — - lifecycle audit schema and runtime-logging limitations for cloud flows.
+- [x] [Power Platform connector activity logs](https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors) — - connector and custom API audit events, including correlation identifiers.
+- [x] [Power Automate telemetry in Application Insights](https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow) — - trigger, action, and run telemetry for managed environments.
+- [x] [Cloud flow run history in Dataverse](https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata) — - per-run status, duration, trigger type, errors, owner, and retention controls.
+- [x] [PowerPlatformConnectorActivity table](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/powerplatformconnectoractivity) — - Azure Monitor schema for low-code connector audit events.
+- [x] [Microsoft Purview audit log retention policies](https://learn.microsoft.com/en-us/purview/audit-log-retention-policies) — - default and custom retention ranges for audit data.
 
 ## Related
 

@@ -57,40 +57,39 @@ Use publicly verifiable sources only (official documentation, source repositorie
 ## Sources
 
 Starting points, papers, articles, videos, repos, docs.
-**Every source must include a URL.** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [x] [GitHub Docs: Configure custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) - baseline instruction-file behavior in GitHub Copilot
-- [x] [GitHub Docs: About organizing and sharing context with Copilot Spaces](https://docs.github.com/en/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces) - product-level context model and reusable instruction spaces
-- [x] [GitHub Docs: Create Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces) - Space instructions and source attachment behavior
-- [x] [GitHub Docs: Customize the Copilot coding agent development environment](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/customizing-the-development-environment-for-copilot-coding-agent) - agent-oriented repository controls and workflow integration
-- [x] [GitHub Docs: Copilot CLI feature comparison](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features) - artifact boundary definitions for tools, skills, hooks, subagents, and custom agents
-- [x] [GitHub Docs: Copilot CLI custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions) - repository, path, and `AGENTS.md` loading in Command Line Interface (CLI)
-- [x] [GitHub Docs: Create custom agents for Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli) - `.agent.md` agent definition behavior
-- [x] [GitHub Docs: Custom instructions support matrix](https://docs.github.com/en/copilot/reference/custom-instructions-support) - surface-by-surface support matrix
-- [x] [Visual Studio Code Docs: GitHub Copilot customization overview](https://code.visualstudio.com/docs/copilot/copilot-customization) - Visual Studio Code (VS Code) customization map
-- [x] [Visual Studio Code Docs: custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions) - always-on and file-based instructions
-- [x] [Visual Studio Code Docs: prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files) - manually invoked prompt artifacts
-- [x] [Visual Studio Code Docs: agent skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) - open-standard `SKILL.md` behavior in Copilot
-- [x] [Visual Studio Code Docs: custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) - `.agent.md` personas, tools, and handoffs
-- [x] [Anthropic Docs: Claude Code overview](https://docs.anthropic.com/en/docs/claude-code/overview) - Claude Code artifact model and execution context
-- [x] [Anthropic Docs: Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory) - repository and user instruction persistence behavior
-- [x] [Claude Code Docs: features overview](https://code.claude.com/docs/en/features-overview) - layering of instruction files, skills, subagents, hooks, and Model Context Protocol (MCP)
-- [x] [Claude Code Docs: skills](https://code.claude.com/docs/en/skills) - `SKILL.md` behavior and invocation control
-- [x] [Claude Code Docs: subagents](https://code.claude.com/docs/en/sub-agents) - `.claude/agents/` subagent definitions and preload behavior
-- [x] [Claude Code Docs: commands](https://code.claude.com/docs/en/commands) - bundled skills versus fixed slash commands
-- [x] [OpenCode Docs](https://opencode.ai/docs) - top-level OpenCode model
-- [x] [OpenCode Docs: rules](https://opencode.ai/docs/rules) - `AGENTS.md`, `CLAUDE.md`, and custom instruction precedence
-- [x] [OpenCode Docs: skills](https://opencode.ai/docs/skills) - native `SKILL.md` discovery and permissions
-- [x] [OpenCode Docs: agents](https://opencode.ai/docs/agents) - primary agents, subagents, and Markdown agent files
-- [x] [OpenCode Docs: commands](https://opencode.ai/docs/commands) - command files as prompt templates
-- [x] [OpenCode Docs: tools](https://opencode.ai/docs/tools) - tool and permission model
-- [x] [OpenAI Docs: Codex overview](https://developers.openai.com/codex/overview) - Codex harness concepts and task execution model
-- [x] [OpenAI Docs: Codex customization](https://developers.openai.com/codex/concepts/customization) - artifact stack for `AGENTS.md`, skills, subagents, and MCP
-- [x] [OpenAI Docs: Codex custom instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md) - `AGENTS.md` discovery and precedence
-- [x] [OpenAI Docs: Codex skills](https://developers.openai.com/codex/skills) - `.agents/skills` and progressive disclosure
-- [x] [OpenAI Docs: Codex subagents](https://developers.openai.com/codex/concepts/subagents) - explicit parallel subagent workflows
-- [x] [OpenAI Docs: Codex MCP](https://developers.openai.com/codex/mcp) - external tool configuration
-- [x] [AGENTS.md specification](https://agents.md/) - cross-tool convention for repository-level agent instructions
+- [x] [GitHub Docs: Configure custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) — - baseline instruction-file behavior in GitHub Copilot
+- [x] [GitHub Docs: About organizing and sharing context with Copilot Spaces](https://docs.github.com/en/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces) — - product-level context model and reusable instruction spaces
+- [x] [GitHub Docs: Create Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces) — - Space instructions and source attachment behavior
+- [x] [GitHub Docs: Customize the Copilot coding agent development environment](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/customizing-the-development-environment-for-copilot-coding-agent) — - agent-oriented repository controls and workflow integration
+- [x] [GitHub Docs: Copilot CLI feature comparison](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/comparing-cli-features) — - artifact boundary definitions for tools, skills, hooks, subagents, and custom agents
+- [x] [GitHub Docs: Copilot CLI custom instructions](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions) — - repository, path, and `AGENTS.md` loading in Command Line Interface (CLI)
+- [x] [GitHub Docs: Create custom agents for Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli) — - `.agent.md` agent definition behavior
+- [x] [GitHub Docs: Custom instructions support matrix](https://docs.github.com/en/copilot/reference/custom-instructions-support) — - surface-by-surface support matrix
+- [x] [Visual Studio Code Docs: GitHub Copilot customization overview](https://code.visualstudio.com/docs/copilot/copilot-customization) — - Visual Studio Code (VS Code) customization map
+- [x] [Visual Studio Code Docs: custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions) — - always-on and file-based instructions
+- [x] [Visual Studio Code Docs: prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files) — - manually invoked prompt artifacts
+- [x] [Visual Studio Code Docs: agent skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) — - open-standard `SKILL.md` behavior in Copilot
+- [x] [Visual Studio Code Docs: custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) — - `.agent.md` personas, tools, and handoffs
+- [x] [Anthropic Docs: Claude Code overview](https://docs.anthropic.com/en/docs/claude-code/overview) — - Claude Code artifact model and execution context
+- [x] [Anthropic Docs: Claude Code memory](https://docs.anthropic.com/en/docs/claude-code/memory) — - repository and user instruction persistence behavior
+- [x] [Claude Code Docs: features overview](https://code.claude.com/docs/en/features-overview) — - layering of instruction files, skills, subagents, hooks, and Model Context Protocol (MCP)
+- [x] [Claude Code Docs: skills](https://code.claude.com/docs/en/skills) — - `SKILL.md` behavior and invocation control
+- [x] [Claude Code Docs: subagents](https://code.claude.com/docs/en/sub-agents) — - `.claude/agents/` subagent definitions and preload behavior
+- [x] [Claude Code Docs: commands](https://code.claude.com/docs/en/commands) — - bundled skills versus fixed slash commands
+- [x] [OpenCode Docs](https://opencode.ai/docs) — - top-level OpenCode model
+- [x] [OpenCode Docs: rules](https://opencode.ai/docs/rules) — - `AGENTS.md`, `CLAUDE.md`, and custom instruction precedence
+- [x] [OpenCode Docs: skills](https://opencode.ai/docs/skills) — - native `SKILL.md` discovery and permissions
+- [x] [OpenCode Docs: agents](https://opencode.ai/docs/agents) — - primary agents, subagents, and Markdown agent files
+- [x] [OpenCode Docs: commands](https://opencode.ai/docs/commands) — - command files as prompt templates
+- [x] [OpenCode Docs: tools](https://opencode.ai/docs/tools) — - tool and permission model
+- [x] [OpenAI Docs: Codex overview](https://developers.openai.com/codex/overview) — - Codex harness concepts and task execution model
+- [x] [OpenAI Docs: Codex customization](https://developers.openai.com/codex/concepts/customization) — - artifact stack for `AGENTS.md`, skills, subagents, and MCP
+- [x] [OpenAI Docs: Codex custom instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md) — - `AGENTS.md` discovery and precedence
+- [x] [OpenAI Docs: Codex skills](https://developers.openai.com/codex/skills) — - `.agents/skills` and progressive disclosure
+- [x] [OpenAI Docs: Codex subagents](https://developers.openai.com/codex/concepts/subagents) — - explicit parallel subagent workflows
+- [x] [OpenAI Docs: Codex MCP](https://developers.openai.com/codex/mcp) — - external tool configuration
+- [x] [AGENTS.md specification](https://agents.md/) — - cross-tool convention for repository-level agent instructions
 
 ---
 

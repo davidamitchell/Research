@@ -91,10 +91,10 @@ Query shortcuts are more complex — they require either the conversational inte
 - [x] `Research/completed/2026-03-02-chat-conversational-interface.md` — query interface conclusions (MCP for agents, not for mobile users)
 - [ ] `Research/backlog/2026-02-27-interface-and-delivery.md` — upstream interface and delivery item
 - [ ] `Research/backlog/2026-03-02-chat-conversational-interface.md` — query interface (dependency for query shortcut Option B)
-- [x] GitHub REST API — Contents: https://docs.github.com/en/rest/repos/contents — `PUT` to create/update a file
-- [x] GitHub REST API — Issues: https://docs.github.com/en/rest/issues/issues — `POST` to create an issue
-- [x] GitHub REST API — Actions (workflow_dispatch): https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event
-- [x] Apple Shortcuts User Guide: https://support.apple.com/guide/shortcuts/welcome/ios — Share Sheet, Get URL, Get Contents of URL, Ask for Input, Show Notification
+- [x] [GitHub REST API — Contents](https://docs.github.com/en/rest/repos/contents) — `PUT` to create/update a file
+- [x] [GitHub REST API — Issues](https://docs.github.com/en/rest/issues/issues) — `POST` to create an issue
+- [x] [GitHub REST API — Actions (workflow_dispatch)](https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event)
+- [x] [Apple Shortcuts User Guide](https://support.apple.com/guide/shortcuts/welcome/ios) — Share Sheet, Get URL, Get Contents of URL, Ask for Input, Show Notification
 - [x] Apple Shortcuts — Get Contents of URL action: supports arbitrary HTTP methods and headers (suitable for GitHub API calls)
 - [x] Community iOS Shortcut examples for GitHub API calls — island94.org, theporteur.com, Apple Community discussions
 

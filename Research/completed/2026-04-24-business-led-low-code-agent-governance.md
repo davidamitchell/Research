@@ -62,29 +62,28 @@ Under what conditions does business-led low-code Artificial Intelligence (AI) ag
 ## Sources
 
 Starting points - papers, articles, videos, repos, docs.
-**Every source must include a URL.** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [x] [DORA 2025 report overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) - primary overview of the AI-as-amplifier finding and platform-quality prerequisite.
-- [x] [DORA AI capabilities model report landing page](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) - seven foundational capabilities, 90% platform adoption, and 76% dedicated platform teams.
-- [x] [Faros AI: Engineering Excellence Under AI Acceleration (2026)](https://faros.ai/blog/ai-acceleration-whiplash) - returned 404 in this environment and was not used for downstream claims.
-- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://doi.org/10.6028/NIST.AI.100-1) - primary framework source for govern-map-measure-manage structure.
-- [x] [NIST AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework) - current NIST landing page linking the framework and playbook.
-- [x] [NIST AI RMF Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) - replacement for the seeded `airc.nist.gov/Docs/2` URL, which returned 404 in this environment.
-- [x] [NIST AI RMF Playbook landing page](https://airc.nist.gov/airmf-resources/playbook/) - confirms the playbook is voluntary, contextual, and organised by Govern, Map, Measure, and Manage.
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - authoritative Map subcategories for context establishment, categorisation, and impact documentation.
-- [x] [NIST AI RMF Playbook Map page](https://airc.nist.gov/airmf-resources/playbook/map/) - practitioner references aligned to Map activities.
-- [x] [Microsoft Power Platform Centre of Excellence (CoE) Starter Kit overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview) - Microsoft's reference implementation for governance, monitoring, and adoption.
-- [x] [Microsoft Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) - current replacement for the seeded `admin-overview` URL, which returned 404 in this environment.
-- [x] [Microsoft Copilot Studio data loss prevention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention) - concrete controls over authentication, knowledge sources, channels, skills, triggers, and endpoints.
-- [x] [Power Platform data policies](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) - design-time and runtime enforcement model for connectors and chatbots.
-- [x] [Power Platform Managed Environments](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) - Microsoft's at-scale environment management capability.
-- [x] [Digital.gov: 5 tips for implementing citizen development in your RPA program](https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/) - government guidance on governance, repositories, separate environments, and leadership support.
-- [x] [A framework for implementing robotic process automation projects](https://link.springer.com/article/10.1007/s10257-022-00553-8) - peer-reviewed synthesis on RPA implementation failure and the need for structured, socio-technical governance.
-- [x] [UiPath: Successful citizen developer programs](https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more) - vendor evidence that scaled programs define the governance model first and provide support structures.
-- [x] [Deloitte intelligent automation survey results (2022)](https://www.deloitte.com/us/en/insights/topics/talent/intelligent-automation-2022-survey-results.html) - definition and adoption signal for citizen-led development in low-code automation.
-- [x] [Gartner citizen developer glossary](https://www.gartner.com/en/information-technology/glossary/citizen-developer) - returned 403 in this environment and was not used for downstream claims.
-- [x] [Forrester RPA research hub](https://www.forrester.com/research/rpa/) - returned 404 in this environment and was not used for downstream claims.
-- [x] [IEEE Xplore seed search](https://ieeexplore.ieee.org/Xplore/home.jsp) - checked via search query `site:ieeexplore.ieee.org "RPA" "citizen development" governance`; no accessible pinpoint paper from the seeded search was used, so the RPA evidence base relies on the accessible Springer, Digital.gov, UiPath, and Deloitte sources above.
+- [x] [DORA 2025 report overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — - primary overview of the AI-as-amplifier finding and platform-quality prerequisite.
+- [x] [DORA AI capabilities model report landing page](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) — - seven foundational capabilities, 90% platform adoption, and 76% dedicated platform teams.
+- [x] [Faros AI: Engineering Excellence Under AI Acceleration (2026)](https://faros.ai/blog/ai-acceleration-whiplash) — - returned 404 in this environment and was not used for downstream claims.
+- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://doi.org/10.6028/NIST.AI.100-1) — - primary framework source for govern-map-measure-manage structure.
+- [x] [NIST AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework) — - current NIST landing page linking the framework and playbook.
+- [x] [NIST AI RMF Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook) — - replacement for the seeded `airc.nist.gov/Docs/2` URL, which returned 404 in this environment.
+- [x] [NIST AI RMF Playbook landing page](https://airc.nist.gov/airmf-resources/playbook/) — - confirms the playbook is voluntary, contextual, and organised by Govern, Map, Measure, and Manage.
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - authoritative Map subcategories for context establishment, categorisation, and impact documentation.
+- [x] [NIST AI RMF Playbook Map page](https://airc.nist.gov/airmf-resources/playbook/map/) — - practitioner references aligned to Map activities.
+- [x] [Microsoft Power Platform Centre of Excellence (CoE) Starter Kit overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview) — - Microsoft's reference implementation for governance, monitoring, and adoption.
+- [x] [Microsoft Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) — - current replacement for the seeded `admin-overview` URL, which returned 404 in this environment.
+- [x] [Microsoft Copilot Studio data loss prevention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention) — - concrete controls over authentication, knowledge sources, channels, skills, triggers, and endpoints.
+- [x] [Power Platform data policies](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) — - design-time and runtime enforcement model for connectors and chatbots.
+- [x] [Power Platform Managed Environments](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) — - Microsoft's at-scale environment management capability.
+- [x] [Digital.gov: 5 tips for implementing citizen development in your RPA program](https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/) — - government guidance on governance, repositories, separate environments, and leadership support.
+- [x] [A framework for implementing robotic process automation projects](https://link.springer.com/article/10.1007/s10257-022-00553-8) — - peer-reviewed synthesis on RPA implementation failure and the need for structured, socio-technical governance.
+- [x] [UiPath: Successful citizen developer programs](https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more) — - vendor evidence that scaled programs define the governance model first and provide support structures.
+- [x] [Deloitte intelligent automation survey results (2022)](https://www.deloitte.com/us/en/insights/topics/talent/intelligent-automation-2022-survey-results.html) — - definition and adoption signal for citizen-led development in low-code automation.
+- [x] [Gartner citizen developer glossary](https://www.gartner.com/en/information-technology/glossary/citizen-developer) — - returned 403 in this environment and was not used for downstream claims.
+- [x] [Forrester RPA research hub](https://www.forrester.com/research/rpa/) — - returned 404 in this environment and was not used for downstream claims.
+- [x] [IEEE Xplore seed search](https://ieeexplore.ieee.org/Xplore/home.jsp) — - checked via search query `site:ieeexplore.ieee.org "RPA" "citizen development" governance`; no accessible pinpoint paper from the seeded search was used, so the RPA evidence base relies on the accessible Springer, Digital.gov, UiPath, and Deloitte sources above.
 
 ## Related
 

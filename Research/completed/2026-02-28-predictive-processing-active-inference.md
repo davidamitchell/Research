@@ -49,9 +49,9 @@ Spawned from the synthesis of https://youtu.be/HYUoS0GkGCs ("Reality Is A Contro
 
 ## Sources
 
-- [x] Rao, R.P. & Ballard, D.H. (1999). "Predictive coding in the visual cortex." *Nature Neuroscience.* — consulted via [PsycNET](https://psycnet.apa.org/psycinfo/1999-11333-002) and [UT Austin PDF](https://www.cs.utexas.edu/~dana/nn.pdf)
+- [x] [Rao & Ballard (1999) Predictive coding in the visual cortex](https://www.cs.utexas.edu/~dana/nn.pdf)
 - [x] Clark, A. (2016). *Surfing Uncertainty*. MIT Press. — consulted via Clark (2013) "Whatever next?" in *Behavioral and Brain Sciences* (open access)
-- [x] Friston, K. (2010). "The free-energy principle: a unified brain theory?" *Nature Reviews Neuroscience.* — consulted via [UAB PDF](https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf)
+- [x] [Friston, K. (2010) The free-energy principle: a unified brain theory? Nature Reviews Neuroscience](https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf)
 - [ ] Colombo, M. & Series, P. (2012). "Bayes in the brain." *British Journal for Philosophy of Science.* — not directly consulted; Bayesian brain hypothesis covered via other sources
 
 ---

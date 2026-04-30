@@ -56,8 +56,8 @@ Prior research: The completed item `Research/completed/2026-02-27-youtube-transc
 ## Sources
 
 - [ ] `davidamitchell/Latest-developments-/config/sources.yaml` — inaccessible (GitHub API auth unavailable in this session)
-- [x] Hugging Face Daily Papers: https://huggingface.co/papers — HTML page, no RSS; 200 OK
-- [x] arXiv RSS feeds: https://arxiv.org/help/rss — verified working; export.arxiv.org/rss/cs.AI returns 348 papers/day; cs.LG returns 307; combined cs.LG+cs.CL returns 431
+- [x] [Hugging Face Daily Papers](https://huggingface.co/papers) — HTML page, no RSS; 200 OK
+- [x] [arXiv RSS feeds](https://arxiv.org/help/rss) — verified working; export.arxiv.org/rss/cs.AI returns 348 papers/day; cs.LG returns 307; combined cs.LG+cs.CL returns 431
 - [x] `arxiv` MCP server: `arxiv-mcp-server` PyPI package v0.3.2 by @blazickjp — MCP interface for arXiv search; already configured in `.github/mcp.json`
 
 ---

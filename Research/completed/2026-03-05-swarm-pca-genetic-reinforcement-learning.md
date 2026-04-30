@@ -88,23 +88,23 @@ The completed item `Research/completed/2026-03-03-ml-techniques-and-algorithms.m
 
 ## Sources
 
-- [x] Bishop — *Pattern Recognition and Machine Learning*, Ch. 12 (PCA, probabilistic PCA, kernel PCA): https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf
-- [x] Jolliffe & Cadima — "Principal component analysis: a review and recent developments" (2016), *Phil. Trans. R. Soc. A*: https://royalsocietypublishing.org/doi/10.1098/rsta.2015.0202
-- [ ] Kennedy & Eberhart — PSO original paper (1995): https://ieeexplore.ieee.org/document/488968
-- [ ] Dorigo & Gambardella — Ant Colony System (1997): https://ieeexplore.ieee.org/document/585892
+- [x] [Bishop — *Pattern Recognition and Machine Learning*, Ch. 12 (PCA, probabilistic PCA, kernel PCA)](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf)
+- [x] [Jolliffe & Cadima — "Principal component analysis: a review and recent developments" (2016), *Phil. Trans. R. Soc. A*](https://royalsocietypublishing.org/doi/10.1098/rsta.2015.0202)
+- [ ] [Kennedy & Eberhart — PSO original paper (1995)](https://ieeexplore.ieee.org/document/488968)
+- [ ] [Dorigo & Gambardella — Ant Colony System (1997)](https://ieeexplore.ieee.org/document/585892)
 - [ ] Holland — *Adaptation in Natural and Artificial Systems* (1975/1992) — foundational GA text
-- [ ] Deb et al. — NSGA-II (2002): https://ieeexplore.ieee.org/document/996017
-- [ ] Storn & Price — Differential Evolution (1997): https://link.springer.com/article/10.1023/A:1008202821328
-- [x] Sutton & Barto — *Reinforcement Learning: An Introduction* (2nd ed., 2018): http://incompleteideas.net/book/the-book-2nd.html
-- [ ] Mnih et al. — DQN paper (2015): https://www.nature.com/articles/nature14236
-- [x] Schulman et al. — PPO paper (2017): https://arxiv.org/abs/1707.06347
-- [x] Haarnoja et al. — SAC paper (2018): https://arxiv.org/abs/1801.01290
-- [x] Kumar et al. — CQL offline RL (2020): https://arxiv.org/abs/2006.04779
-- [x] Kostrikov et al. — IQL offline RL (2021): https://arxiv.org/abs/2110.06169
-- [x] Vinyals et al. — Pointer Networks for combinatorial optimisation (2015): https://arxiv.org/abs/1506.03134
-- [ ] Stanley & Miikkulainen — NEAT (2002): https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf
-- [x] scikit-learn documentation — PCA, KernelPCA, SparsePCA, IncrementalPCA: https://scikit-learn.org/stable/modules/decomposition.html
-- [x] Stable Baselines3 documentation — PPO, SAC, TD3 implementations and benchmarks: https://stable-baselines3.readthedocs.io
+- [ ] [Deb et al. — NSGA-II (2002)](https://ieeexplore.ieee.org/document/996017)
+- [ ] [Storn & Price — Differential Evolution (1997)](https://link.springer.com/article/10.1023/A:1008202821328)
+- [x] [Sutton & Barto — *Reinforcement Learning: An Introduction* (2nd ed., 2018)](http://incompleteideas.net/book/the-book-2nd.html)
+- [ ] [Mnih et al. — DQN paper (2015)](https://www.nature.com/articles/nature14236)
+- [x] [Schulman et al. — PPO paper (2017)](https://arxiv.org/abs/1707.06347)
+- [x] [Haarnoja et al. — SAC paper (2018)](https://arxiv.org/abs/1801.01290)
+- [x] [Kumar et al. — CQL offline RL (2020)](https://arxiv.org/abs/2006.04779)
+- [x] [Kostrikov et al. — IQL offline RL (2021)](https://arxiv.org/abs/2110.06169)
+- [x] [Vinyals et al. — Pointer Networks for combinatorial optimisation (2015)](https://arxiv.org/abs/1506.03134)
+- [ ] [Stanley & Miikkulainen — NEAT (2002)](https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf)
+- [x] [scikit-learn documentation — PCA, KernelPCA, SparsePCA, IncrementalPCA](https://scikit-learn.org/stable/modules/decomposition.html)
+- [x] [Stable Baselines3 documentation — PPO, SAC, TD3 implementations and benchmarks](https://stable-baselines3.readthedocs.io)
 - [x] `Research/completed/2026-03-03-ml-techniques-and-algorithms.md` — reference taxonomy; this item is a direct extension
 
 ---

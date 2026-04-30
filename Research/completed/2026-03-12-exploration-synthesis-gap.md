@@ -66,15 +66,15 @@ This research item investigates the root causes of the exploration-synthesis gap
 
 ## Sources
 
-- [ ] Deci, E. L., & Ryan, R. M. (2000) — Self-determination theory and intrinsic motivation: https://selfdeterminationtheory.org/theory/
+- [ ] [Deci, E. L., & Ryan, R. M. (2000) — Self-determination theory and intrinsic motivation](https://selfdeterminationtheory.org/theory/)
 - [ ] Berlyne, D. E. (1960) — Curiosity and exploration as foraging behaviour (foundational behavioural psychology)
-- [ ] Ebstein, R. P. et al. (1996) — DRD4 exon III polymorphism and novelty-seeking: https://pubmed.ncbi.nlm.nih.gov/8700901/
-- [ ] Sutton, R. S., & Barto, A. G. (2018) — Exploration–exploitation trade-off in reinforcement learning (Chapter 2): https://incompleteideas.net/book/the-book.html
-- [ ] Katz, R., & Allen, T. J. (1982) — Not Invented Here (NIH) syndrome in R&D: https://www.sciencedirect.com/science/article/pii/0048733382900111
-- [ ] Cross, R., & Sproull, L. (2004) — More than an answer: information relationships for actionable knowledge: https://journals.sagepub.com/doi/10.1287/orsc.1040.0075
-- [ ] Szulanski, G. (1996) — Exploring internal stickiness: impediments to the transfer of best practice within the firm: https://www.jstor.org/stable/2486989
+- [ ] [Ebstein, R. P. et al. (1996) — DRD4 exon III polymorphism and novelty-seeking](https://pubmed.ncbi.nlm.nih.gov/8700901/)
+- [ ] [Sutton, R. S., & Barto, A. G. (2018) — Exploration–exploitation trade-off in reinforcement learning (Chapter 2)](https://incompleteideas.net/book/the-book.html)
+- [ ] [Katz, R., & Allen, T. J. (1982) — Not Invented Here (NIH) syndrome in R&D](https://www.sciencedirect.com/science/article/pii/0048733382900111)
+- [ ] [Cross, R., & Sproull, L. (2004) — More than an answer: information relationships for actionable knowledge](https://journals.sagepub.com/doi/10.1287/orsc.1040.0075)
+- [ ] [Szulanski, G. (1996) — Exploring internal stickiness: impediments to the transfer of best practice within the firm](https://www.jstor.org/stable/2486989)
 - [ ] Nonaka, I., & Takeuchi, H. (1995) — The Knowledge-Creating Company: tacit vs. explicit knowledge and knowledge transfer (HBR)
-- [ ] Wang, S., & Noe, R. A. (2010) — Knowledge-sharing antecedents and outcomes review: https://www.sciencedirect.com/science/article/pii/S0001879109001018
+- [ ] [Wang, S., & Noe, R. A. (2010) — Knowledge-sharing antecedents and outcomes review](https://www.sciencedirect.com/science/article/pii/S0001879109001018)
 - [ ] Davenport, T. H., & Prusak, L. (1998) — Working Knowledge: how organisations manage what they know (Chapter 4: knowledge transfer)
 - [ ] Andrews, K. M., & Delahaye, B. L. (2000) — Influences on knowledge processes in organisational learning: the psychosocial filter
 - [ ] Open Web Application Security Project (OWASP) / practitioner reports on agentic work artefact traceability (agent decision logging, explainability)

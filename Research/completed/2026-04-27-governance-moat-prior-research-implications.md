@@ -72,27 +72,27 @@ How does the thesis advanced in the April 2026 Liam Hyland and Leonis Capital Se
 
 ## Sources
 
-- [x] [Liam Hyland ServiceNow video metadata](https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&format=json) - checked; accessible metadata for title and author
-- [x] [Liam Hyland ServiceNow YouTube watch page](https://www.youtube.com/watch?v=JH65uE9oEqs) - checked; watch page returned a bot-confirmation wall in this runtime
-- [x] [Leonis Capital, "OpenClaw (aka Clawdbot) and the AI Threshold Effect"](https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect) - checked; accessible external statement of the "control is not friction, it is the product" thesis
-- [x] [Yahoo Finance, ServiceNow Q1 2026 earnings summary](https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html) - checked; accessible external summary of ServiceNow's "control and compound" positioning
-- [x] [Istio architecture](https://istio.io/latest/docs/ops/deployment/architecture/) - checked; accessible definition of control plane versus data plane in a distributed system
-- [x] [Enterprise stack value-distribution and governance frameworks](https://davidamitchell.github.io/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html) - checked; closest prior external-framework synthesis
-- [x] [UELGF foundational definitions and principles](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-foundational-definitions-principles.html) - checked; core UELGF definitions and invariants
-- [x] [UELGF governed golden rails](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html) - checked; rail-as-product and governed scaffold design
-- [x] [UELGF entity taxonomy and confidentiality, integrity, and availability (CIA) classification](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html) - checked; compounding classification grammar and mandatory floors
-- [x] [UELGF policy architecture and 8-layer context](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html) - checked; policy architecture and stop-authority design
-- [x] [Policy Administration Point (PAP) dynamic policy profiling and proportionality](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) - checked; proportional topology-selection design
-- [x] [Policy Decision Point (PDP) universal policy synchronisation integrity](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) - checked; canonical policy-digest and cross-phase synchronisation design
-- [x] [Systems-capability-debt and agentic-risk synthesis](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) - checked; workaround and amplification mechanism
-- [x] [AI agent control-plane architecture for the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - checked; control-plane architecture and observability loop
-- [x] [AI agent identity and access management for the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - checked; machine-identity and delegation design
-- [x] [AI low-code decision rights, accountability, and liability](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html) - checked; accountability and escalation structure
-- [x] [Human oversight for AI-driven and automated workflows](https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html) - checked; human review, stop rights, and operational supervision
-- [x] [Access-control amplification in agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) - checked; machine-speed permission amplification evidence
-- [x] [Policy coherence as a machine-checkable prerequisite](https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html) - checked; coherence prerequisite for automated enforcement
-- [x] [learnings.md](https://github.com/davidamitchell/Research/blob/main/learnings.md) - checked; cross-cutting synthesis layer
-- [x] [ServiceNow orchestration and agentic AI roadmap backlog item](https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.md) - checked; source exists only as backlog context, not as completed research output
+- [x] [Liam Hyland ServiceNow video metadata](https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&format=json) — - checked; accessible metadata for title and author
+- [x] [Liam Hyland ServiceNow YouTube watch page](https://www.youtube.com/watch?v=JH65uE9oEqs) — - checked; watch page returned a bot-confirmation wall in this runtime
+- [x] [Leonis Capital, "OpenClaw (aka Clawdbot) and the AI Threshold Effect"](https://www.leoniscap.com/research/openclaw-(aka-clawdbot) — -and-the-ai-threshold-effect) - checked; accessible external statement of the "control is not friction, it is the product" thesis
+- [x] [Yahoo Finance, ServiceNow Q1 2026 earnings summary](https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html) — - checked; accessible external summary of ServiceNow's "control and compound" positioning
+- [x] [Istio architecture](https://istio.io/latest/docs/ops/deployment/architecture/) — - checked; accessible definition of control plane versus data plane in a distributed system
+- [x] [Enterprise stack value-distribution and governance frameworks](https://davidamitchell.github.io/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html) — - checked; closest prior external-framework synthesis
+- [x] [UELGF foundational definitions and principles](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-foundational-definitions-principles.html) — - checked; core UELGF definitions and invariants
+- [x] [UELGF governed golden rails](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html) — - checked; rail-as-product and governed scaffold design
+- [x] [UELGF entity taxonomy and confidentiality, integrity, and availability (CIA) classification](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html) — - checked; compounding classification grammar and mandatory floors
+- [x] [UELGF policy architecture and 8-layer context](https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html) — - checked; policy architecture and stop-authority design
+- [x] [Policy Administration Point (PAP) dynamic policy profiling and proportionality](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) — - checked; proportional topology-selection design
+- [x] [Policy Decision Point (PDP) universal policy synchronisation integrity](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) — - checked; canonical policy-digest and cross-phase synchronisation design
+- [x] [Systems-capability-debt and agentic-risk synthesis](https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html) — - checked; workaround and amplification mechanism
+- [x] [AI agent control-plane architecture for the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) — - checked; control-plane architecture and observability loop
+- [x] [AI agent identity and access management for the enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — - checked; machine-identity and delegation design
+- [x] [AI low-code decision rights, accountability, and liability](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html) — - checked; accountability and escalation structure
+- [x] [Human oversight for AI-driven and automated workflows](https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html) — - checked; human review, stop rights, and operational supervision
+- [x] [Access-control amplification in agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) — - checked; machine-speed permission amplification evidence
+- [x] [Policy coherence as a machine-checkable prerequisite](https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html) — - checked; coherence prerequisite for automated enforcement
+- [x] [learnings.md](https://github.com/davidamitchell/Research/blob/main/learnings.md) — - checked; cross-cutting synthesis layer
+- [x] [ServiceNow orchestration and agentic AI roadmap backlog item](https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.md) — - checked; source exists only as backlog context, not as completed research output
 
 ---
 

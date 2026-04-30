@@ -66,25 +66,25 @@ How can the Policy Information Point (PIP) detect when a governed asset's transi
 
 ## Sources
 
-- [x] [Aligned Decision-Making 8-layer context architecture - completed item](https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html) - Layer 3 (Asset Metadata) and Layer 8 (Task Intent) that the PIP must synthesise
-- [x] [Formal intent specification and reward hacking - completed item](https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html) - structural root shared by intent mismatch and reward hacking; PIP detection as the runtime manifestation
-- [x] [Prompt injection threat landscape - completed item](https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html) - primary adversarial mechanism for transient context substitution
-- [x] [Failure mode taxonomy expansion - completed item](https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html) - suppression pattern classified as intent-alignment failure; PIP signal must be typed accordingly
-- [x] [Neurological context management - completed item](https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html) - prior-weighted relevance filtering as the architectural analogue for PIP anomaly detection
-- [x] [Cynefin framework - Snowden and Boone original article](https://hbr.org/2007/11/a-leaders-framework-for-decision-making) - mainstream reference for the framework
-- [x] [The Cynefin Co overview of the Cynefin framework](https://thecynefin.co/effective-decision-making-support-tool/) - accessible domain definitions and response logics
-- [x] [Bayesian inference background](https://en.wikipedia.org/wiki/Bayesian_inference) - seed background reference checked during investigation
-- [x] [Itti and Baldi, Bayesian Surprise Attracts Human Attention](https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/) - formal basis for surprise as posterior-vs-prior belief shift
-- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 Rev. 5 landing page](https://csrc.nist.gov/pubs/sp/800/53/r5/final) - control-catalog anchor
-- [x] [NIST SP 800-53 control extract, SI-4 (System Monitoring)](https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/) - monitoring, anomaly analysis, and alerting requirements
-- [x] [NIST SP 800-53 control extract, AU-6 (Audit Record Review, Analysis, and Reporting)](https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/) - review, correlation, reporting, and risk-adjusted audit analysis
-- [x] [eXtensible Access Control Markup Language (XACML) 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) - authoritative definitions of the Policy Administration Point (PAP), Policy Decision Point (PDP), Policy Enforcement Point (PEP), and Policy Information Point (PIP)
-- [x] [Open Worldwide Application Security Project (OWASP) Top 10 for Large Language Model (LLM) Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) - project overview and LLM01 linkage
-- [x] [Open Worldwide Application Security Project (OWASP) LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) - prompt injection characterisation for PIP detection design
-- [x] [PAP dynamic policy profiling and proportionality - completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) - adjacent Policy-Based Access Control (PBAC) control-topology derivation
-- [x] [Universal policy synchronisation and integrity - completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) - adjacent lifecycle policy-integrity surface
-- [x] [Access control amplification under agentic operations - completed item](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) - operational blast-radius consequence when invariant checks are suppressed
-- [x] [Artificial Intelligence (AI) agent identity and access management - completed item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - machine-identity and bounded-delegation implications for routing
+- [x] [Aligned Decision-Making 8-layer context architecture - completed item](https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html) — - Layer 3 (Asset Metadata) and Layer 8 (Task Intent) that the PIP must synthesise
+- [x] [Formal intent specification and reward hacking - completed item](https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html) — - structural root shared by intent mismatch and reward hacking; PIP detection as the runtime manifestation
+- [x] [Prompt injection threat landscape - completed item](https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html) — - primary adversarial mechanism for transient context substitution
+- [x] [Failure mode taxonomy expansion - completed item](https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html) — - suppression pattern classified as intent-alignment failure; PIP signal must be typed accordingly
+- [x] [Neurological context management - completed item](https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html) — - prior-weighted relevance filtering as the architectural analogue for PIP anomaly detection
+- [x] [Cynefin framework - Snowden and Boone original article](https://hbr.org/2007/11/a-leaders-framework-for-decision-making) — - mainstream reference for the framework
+- [x] [The Cynefin Co overview of the Cynefin framework](https://thecynefin.co/effective-decision-making-support-tool/) — - accessible domain definitions and response logics
+- [x] [Bayesian inference background](https://en.wikipedia.org/wiki/Bayesian_inference) — - seed background reference checked during investigation
+- [x] [Itti and Baldi, Bayesian Surprise Attracts Human Attention](https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/) — - formal basis for surprise as posterior-vs-prior belief shift
+- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 Rev. 5 landing page](https://csrc.nist.gov/pubs/sp/800/53/r5/final) — - control-catalog anchor
+- [x] [NIST SP 800-53 control extract, SI-4 (System Monitoring)](https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/) — - monitoring, anomaly analysis, and alerting requirements
+- [x] [NIST SP 800-53 control extract, AU-6 (Audit Record Review, Analysis, and Reporting)](https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/) — - review, correlation, reporting, and risk-adjusted audit analysis
+- [x] [eXtensible Access Control Markup Language (XACML) 3.0 core specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) — - authoritative definitions of the Policy Administration Point (PAP), Policy Decision Point (PDP), Policy Enforcement Point (PEP), and Policy Information Point (PIP)
+- [x] [Open Worldwide Application Security Project (OWASP) Top 10 for Large Language Model (LLM) Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — - project overview and LLM01 linkage
+- [x] [Open Worldwide Application Security Project (OWASP) LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) — - prompt injection characterisation for PIP detection design
+- [x] [PAP dynamic policy profiling and proportionality - completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) — - adjacent Policy-Based Access Control (PBAC) control-topology derivation
+- [x] [Universal policy synchronisation and integrity - completed item](https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html) — - adjacent lifecycle policy-integrity surface
+- [x] [Access control amplification under agentic operations - completed item](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) — - operational blast-radius consequence when invariant checks are suppressed
+- [x] [Artificial Intelligence (AI) agent identity and access management - completed item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — - machine-identity and bounded-delegation implications for routing
 
 ## Related
 

@@ -67,16 +67,16 @@ Prior research: `2026-03-08-claude-ios-mcp-remote-integration.md` establishes th
 ## Sources
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — production markdown-bank patterns; security posture requirements for personal memory
-- [x] MCP specification (HTTP/SSE transport): https://modelcontextprotocol.io/docs/concepts/transports
-- [x] Cloudflare Workers docs: https://developers.cloudflare.com/workers/
-- [x] Cloudflare Workers free tier limits: https://developers.cloudflare.com/workers/platform/limits/
-- [x] Fly.io free tier docs: https://fly.io/docs/about/pricing/
-- [x] Railway free tier docs: https://docs.railway.app/reference/pricing
-- [x] Tailscale docs: https://tailscale.com/kb/1017/install
-- [x] GitHub Actions `repository_dispatch` event docs: https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event
-- [ ] LanceDB docs: https://lancedb.github.io/lancedb/
+- [x] [MCP specification (HTTP/SSE transport)](https://modelcontextprotocol.io/docs/concepts/transports)
+- [x] [Cloudflare Workers docs](https://developers.cloudflare.com/workers/)
+- [x] [Cloudflare Workers free tier limits](https://developers.cloudflare.com/workers/platform/limits/)
+- [x] [Fly.io free tier docs](https://fly.io/docs/about/pricing/)
+- [x] [Railway free tier docs](https://docs.railway.app/reference/pricing)
+- [x] [Tailscale docs](https://tailscale.com/kb/1017/install)
+- [x] [GitHub Actions `repository_dispatch` event docs](https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event)
+- [ ] [LanceDB docs](https://lancedb.github.io/lancedb/)
 - [x] `2026-03-08-lancedb-index-rebuild-from-git.md` — related item on rebuild speed as deployment constraint
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0014 — the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
+- [ ] [`davidamitchell/Memory-System` BACKLOG.md W-0014 — the corresponding discovery item that this research informs](https://github.com/davidamitchell/Memory-System)
 
 ---
 

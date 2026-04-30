@@ -120,8 +120,8 @@ Additional context: https://github.com/davidamitchell/Latest-developments-/blob/
 
 ## Sources
 
-- [x] **Video transcript** — https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI (primary source — transcript not retrievable directly; content reconstructed from item context)
-- [x] **Latest developments context** — https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt
+- [x] [**Video transcript**](https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI) — (primary source — transcript not retrievable directly; content reconstructed from item context)
+- [x] [**Latest developments context**](https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt)
 - [x] **Lovable (fka GPT Engineer) growth data** — public reporting on ARR, headcount, unicorn milestone (TechCrunch, Business Insider, catalaize.substack.com)
 - [x] **Midjourney headcount and revenue** — public reporting (Latka, DemandSage, AIPRM, LinkedIn/Ryan Allis post)
 - [x] **ElevenLabs headcount and ARR** — public reporting (SaaSstock, LinkedIn Mati Staniszewski, TechFront360, TestDevLab)

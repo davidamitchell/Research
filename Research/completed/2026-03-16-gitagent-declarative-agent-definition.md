@@ -71,39 +71,39 @@ The declarative agent definition concept matters because it separates an agent's
 
 ## Sources
 
-- [x] https://github.com/open-gitagent/gitagent - GitAgent repository inspected locally via a fresh clone on 2026-03-19.
-- [x] https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md - GitAgent README.
-- [x] https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md - GitAgent specification.
-- [x] https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md - GitAgent comparison document.
-- [x] https://api.github.com/repos/open-gitagent/gitagent - GitAgent repository metadata for age and adoption signal.
-- [x] https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/agents-overview.md - Microsoft 365 Copilot agents overview source markdown.
-- [x] https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/overview-declarative-agent.md - Microsoft 365 Copilot declarative agents overview source markdown.
-- [x] https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md - Microsoft 365 Copilot declarative agent manifest schema 1.6.
-- [x] https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md - Microsoft 365 Copilot plugin manifest schema 2.4.
-- [x] https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/includes/sample-manifests/declarative-agent-sample-manifest-1.6.json - sample declarative agent manifest.
-- [x] https://learn.microsoft.com/en-us/azure/foundry/agents/overview - Foundry Agent Service overview.
-- [x] https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog - Foundry tool catalog.
-- [x] https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html - Agents for Amazon Bedrock.
-- [x] https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html - Amazon Bedrock action groups.
-- [x] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html - CloudFormation `AWS::Bedrock::Agent` resource.
-- [x] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html - CloudFormation `AgentActionGroup` resource.
-- [x] https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html - Amazon Bedrock AgentCore overview.
-- [x] https://modelcontextprotocol.io - Model Context Protocol (MCP) overview.
-- [x] https://developers.openai.com/api/docs/assistants/tools/ - deprecated Assistants Application Programming Interface (API) tools page.
-- [x] https://developers.openai.com/api/docs/guides/tools?api-mode=responses - current Responses Application Programming Interface (API) tools guide.
-- [x] https://developers.openai.com/api/docs/guides/tools-remote-mcp - OpenAI remote Model Context Protocol (MCP) guide.
-- [x] https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json - OpenAI plugin manifest example.
-- [x] https://raw.githubusercontent.com/openai/plugins-quickstart/main/openapi.yaml - OpenAI plugin OpenAPI example.
-- [x] https://github.com/davidamitchell/Research/blob/main/.github/mcp.json - repository MCP configuration.
-- [x] https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml - repository research loop workflow.
-- [x] https://github.com/davidamitchell/Research/blob/main/README.md - repository top-level structure.
-- [x] https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-self-hosted-mcp-server-options.md - prior completed item on self-hosted MCP deployment.
-- [x] https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md - prior completed item on agent harness philosophy and MCP.
-- [x] https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-claude-ios-mcp-remote-integration.md - prior completed item on remote MCP transport and clients.
-- [ ] https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore/ - listed in the brief, but returned HTTP 404 on 2026-03-19; replaced with the official AgentCore developer guide.
-- [ ] https://platform.openai.com/docs/assistants/overview - listed in the brief, but current official documentation split the material across the deprecated Assistants tools page and the newer Responses tools guides.
-- [ ] https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview - rendered page required authorization in this environment; used public source markdown instead.
-- [ ] https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-manifest - rendered page required authorization in this environment; used public source markdown for schema 1.6 instead.
+- [x] [GitAgent repository inspected locally via a fresh clone on 2026-03-19.](https://github.com/open-gitagent/gitagent)
+- [x] [GitAgent README.](https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md)
+- [x] [GitAgent specification.](https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md)
+- [x] [GitAgent comparison document.](https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md)
+- [x] [GitAgent repository metadata for age and adoption signal.](https://api.github.com/repos/open-gitagent/gitagent)
+- [x] [Microsoft 365 Copilot agents overview source markdown.](https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/agents-overview.md)
+- [x] [Microsoft 365 Copilot declarative agents overview source markdown.](https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/overview-declarative-agent.md)
+- [x] [Microsoft 365 Copilot declarative agent manifest schema 1.6.](https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md)
+- [x] [Microsoft 365 Copilot plugin manifest schema 2.4.](https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md)
+- [x] [sample declarative agent manifest.](https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/includes/sample-manifests/declarative-agent-sample-manifest-1.6.json)
+- [x] [Foundry Agent Service overview.](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
+- [x] [Foundry tool catalog.](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog)
+- [x] [Agents for Amazon Bedrock.](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html)
+- [x] [Amazon Bedrock action groups.](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html)
+- [x] [CloudFormation `AWS::Bedrock::Agent` resource.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html)
+- [x] [CloudFormation `AgentActionGroup` resource.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html)
+- [x] [Amazon Bedrock AgentCore overview.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)
+- [x] [Model Context Protocol (MCP) overview.](https://modelcontextprotocol.io)
+- [x] [deprecated Assistants Application Programming Interface (API) tools page.](https://developers.openai.com/api/docs/assistants/tools/)
+- [x] [current Responses Application Programming Interface (API) tools guide.](https://developers.openai.com/api/docs/guides/tools?api-mode=responses)
+- [x] [OpenAI remote Model Context Protocol (MCP) guide.](https://developers.openai.com/api/docs/guides/tools-remote-mcp)
+- [x] [OpenAI plugin manifest example.](https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json)
+- [x] [OpenAI plugin OpenAPI example.](https://raw.githubusercontent.com/openai/plugins-quickstart/main/openapi.yaml)
+- [x] [repository MCP configuration.](https://github.com/davidamitchell/Research/blob/main/.github/mcp.json)
+- [x] [repository research loop workflow.](https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml)
+- [x] [repository top-level structure.](https://github.com/davidamitchell/Research/blob/main/README.md)
+- [x] [prior completed item on self-hosted MCP deployment.](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-self-hosted-mcp-server-options.md)
+- [x] [prior completed item on agent harness philosophy and MCP.](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md)
+- [x] [prior completed item on remote MCP transport and clients.](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-claude-ios-mcp-remote-integration.md)
+- [ ] [listed in the brief, but returned HTTP 404 on 2026-03-19; replaced with the official AgentCore developer guide.](https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore/)
+- [ ] [listed in the brief, but current official documentation split the material across the deprecated Assistants tools page and the newer Responses tools guides.](https://platform.openai.com/docs/assistants/overview)
+- [ ] [rendered page required authorization in this environment; used public source markdown instead.](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview)
+- [ ] [rendered page required authorization in this environment; used public source markdown for schema 1.6 instead.](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-manifest)
 
 ---
 

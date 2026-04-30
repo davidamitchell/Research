@@ -57,11 +57,11 @@ This item depends on `Research/backlog/2026-02-27-indexing-and-tracking-method.m
 
 ## Sources
 
-- [x] SQLite docs: https://sqlite.org
-- [x] sqlite-vec: https://github.com/asg017/sqlite-vec
-- [x] DuckDB: https://duckdb.org
-- [x] ChromaDB: https://docs.trychroma.com
-- [x] LanceDB: https://lancedb.github.io/lancedb/
+- [x] [SQLite docs](https://sqlite.org)
+- [x] [sqlite-vec](https://github.com/asg017/sqlite-vec)
+- [x] [DuckDB](https://duckdb.org)
+- [x] [ChromaDB](https://docs.trychroma.com)
+- [x] [LanceDB](https://lancedb.github.io/lancedb/)
 
 ---
 

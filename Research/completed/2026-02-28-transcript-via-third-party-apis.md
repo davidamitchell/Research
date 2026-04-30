@@ -89,9 +89,9 @@ infrastructure specific to the research workflow.
 
 ## Sources
 
-- Supadata: https://supadata.ai/documentation/youtube/get-transcript
-- AssemblyAI: https://www.assemblyai.com/docs/guides/transcribing-audio-with-a-url
-- Kagi Universal Summarizer: https://help.kagi.com/kagi/api/summarizer.html
+- [Supadata](https://supadata.ai/documentation/youtube/get-transcript)
+- [AssemblyAI](https://www.assemblyai.com/docs/guides/transcribing-audio-with-a-url)
+- [Kagi Universal Summarizer](https://help.kagi.com/kagi/api/summarizer.html)
 
 ## Open Questions
 

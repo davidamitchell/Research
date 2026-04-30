@@ -56,11 +56,11 @@ LLMs are now deeply embedded in software development workflows - via GitHub Copi
 
 ## Sources
 
-- [x] https://quint-lang.org/posts/llm_era - primary article: "Reliable Software in the LLM Era"
-- [x] https://news.ycombinator.com/item?id=47347901 - Hacker News thread with practitioner discussion
-- [x] https://github.com/informalsystems/quint-llm-kit - Quint LLM kit repository
-- [x] https://quint-lang.org/posts/cognitive_debt - "Cognitive Debt" companion post
-- [x] https://hackage.haskell.org/package/spectacle - Spectacle Haskell package documentation
+- [x] [primary article: "Reliable Software in the LLM Era"](https://quint-lang.org/posts/llm_era)
+- [x] [Hacker News thread with practitioner discussion](https://news.ycombinator.com/item?id=47347901)
+- [x] [Quint LLM kit repository](https://github.com/informalsystems/quint-llm-kit)
+- [x] ["Cognitive Debt" companion post](https://quint-lang.org/posts/cognitive_debt)
+- [x] [Spectacle Haskell package documentation](https://hackage.haskell.org/package/spectacle)
 
 ---
 

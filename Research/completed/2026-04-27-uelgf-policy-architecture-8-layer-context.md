@@ -65,31 +65,31 @@ What policy architecture, covering Policy Administration Point (PAP), Policy Dec
 
 ## Sources
 
-- [x] [OASIS XACML 3.0 Core Specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) - canonical PAP/PDP/PEP/PIP architecture definition
-- [x] [Open Policy Agent philosophy](https://www.openpolicyagent.org/docs/latest/philosophy/) - policy decoupling and runtime externalization
-- [x] [Open Policy Agent bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/) - bundle propagation, long polling, persistence, and immediate activation after load
-- [x] [Open Policy Agent decision logs](https://www.openpolicyagent.org/docs/latest/management-decision-logs/) - decision traceability and bundle revision capture
-- [x] [Cedar policy language reference](https://docs.cedarpolicy.com/) - externalized authorization model and dynamic policy evaluation
-- [x] [Cedar validation against schema](https://docs.cedarpolicy.com/policies/validation.html) - schema validation and default deny on invalid or non-matching policy
-- [x] [Amazon Verified Permissions](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html) - managed PDP pattern
-- [x] [Amazon Verified Permissions terminology](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html) - determining policies, policy store scope, and enforcement boundary
-- [x] [Amazon Verified Permissions policy templates](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html) - template-linked propagation semantics
-- [x] [RFC 7009: OAuth 2.0 Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009) - revocation endpoint semantics
-- [x] [RFC 6960: Online Certificate Status Protocol](https://www.rfc-editor.org/rfc/rfc6960.txt) - timely certificate-status checks
-- [x] [RFC 5280: Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List Profile](https://www.rfc-editor.org/rfc/rfc5280.txt) - certificate revocation list profile
-- [x] [NIST SP 800-162: Guide to Attribute Based Access Control](https://csrc.nist.gov/pubs/sp/800/162/final) - attribute-based policy evaluation model
-- [x] [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - policy engine, policy administrator, policy enforcement point, and supporting-data analogue
-- [x] [Azure Policy overview](https://learn.microsoft.com/en-us/azure/governance/policy/overview) - central assignment, most-restrictive effects, and remediation model
-- [x] [Azure Policy evaluation triggers](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers) - assignment and update timing
-- [x] [SPIFFE overview](https://spiffe.io/docs/latest/spiffe-about/overview/) - workload identity framing
-- [x] [SPIFFE concepts](https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/) - short-lived credentials, trust bundles, and automatic rotation
-- [x] [Adaptive policy authorisation and compliance](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md) - adjacent completed item on dynamic authorization evidence
-- [x] [AI and low-code governance enforcement architecture](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-governance-enforcement-architecture.md) - adjacent completed item on layered enforcement placement
-- [x] [Policy coherence as machine-checkable prerequisite](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md) - adjacent completed item on policy coherence prerequisite
-- [x] [AI agent control plane architecture in the enterprise](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md) - adjacent completed item on composite control planes
-- [x] [PAP dynamic policy profiling and proportionality](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pap-dynamic-policy-profiling-proportionality.md) - adjacent completed item on PAP-side topology derivation
-- [x] [PDP universal policy synchronisation integrity](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pdp-universal-policy-synchronisation-integrity.md) - adjacent completed item on policy identity and re-synchronisation
-- [x] [PIP invariant anomaly detection](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pip-invariant-anomaly-detection.md) - adjacent completed item on PIP runtime signal design
+- [x] [OASIS XACML 3.0 Core Specification](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) — - canonical PAP/PDP/PEP/PIP architecture definition
+- [x] [Open Policy Agent philosophy](https://www.openpolicyagent.org/docs/latest/philosophy/) — - policy decoupling and runtime externalization
+- [x] [Open Policy Agent bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/) — - bundle propagation, long polling, persistence, and immediate activation after load
+- [x] [Open Policy Agent decision logs](https://www.openpolicyagent.org/docs/latest/management-decision-logs/) — - decision traceability and bundle revision capture
+- [x] [Cedar policy language reference](https://docs.cedarpolicy.com/) — - externalized authorization model and dynamic policy evaluation
+- [x] [Cedar validation against schema](https://docs.cedarpolicy.com/policies/validation.html) — - schema validation and default deny on invalid or non-matching policy
+- [x] [Amazon Verified Permissions](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html) — - managed PDP pattern
+- [x] [Amazon Verified Permissions terminology](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html) — - determining policies, policy store scope, and enforcement boundary
+- [x] [Amazon Verified Permissions policy templates](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html) — - template-linked propagation semantics
+- [x] [RFC 7009: OAuth 2.0 Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009) — - revocation endpoint semantics
+- [x] [RFC 6960: Online Certificate Status Protocol](https://www.rfc-editor.org/rfc/rfc6960.txt) — - timely certificate-status checks
+- [x] [RFC 5280: Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List Profile](https://www.rfc-editor.org/rfc/rfc5280.txt) — - certificate revocation list profile
+- [x] [NIST SP 800-162: Guide to Attribute Based Access Control](https://csrc.nist.gov/pubs/sp/800/162/final) — - attribute-based policy evaluation model
+- [x] [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — - policy engine, policy administrator, policy enforcement point, and supporting-data analogue
+- [x] [Azure Policy overview](https://learn.microsoft.com/en-us/azure/governance/policy/overview) — - central assignment, most-restrictive effects, and remediation model
+- [x] [Azure Policy evaluation triggers](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers) — - assignment and update timing
+- [x] [SPIFFE overview](https://spiffe.io/docs/latest/spiffe-about/overview/) — - workload identity framing
+- [x] [SPIFFE concepts](https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/) — - short-lived credentials, trust bundles, and automatic rotation
+- [x] [Adaptive policy authorisation and compliance](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md) — - adjacent completed item on dynamic authorization evidence
+- [x] [AI and low-code governance enforcement architecture](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-governance-enforcement-architecture.md) — - adjacent completed item on layered enforcement placement
+- [x] [Policy coherence as machine-checkable prerequisite](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md) — - adjacent completed item on policy coherence prerequisite
+- [x] [AI agent control plane architecture in the enterprise](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md) — - adjacent completed item on composite control planes
+- [x] [PAP dynamic policy profiling and proportionality](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pap-dynamic-policy-profiling-proportionality.md) — - adjacent completed item on PAP-side topology derivation
+- [x] [PDP universal policy synchronisation integrity](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pdp-universal-policy-synchronisation-integrity.md) — - adjacent completed item on policy identity and re-synchronisation
+- [x] [PIP invariant anomaly detection](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pip-invariant-anomaly-detection.md) — - adjacent completed item on PIP runtime signal design
 
 ---
 

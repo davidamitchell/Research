@@ -56,15 +56,15 @@ Making aligned decisions  -  decisions consistent with an organisation's regulat
 
 ## Sources
 
-- [x] https://arxiv.org/abs/2312.10997  -  "Retrieval-Augmented Generation for Large Language Models: A Survey"
-- [x] https://arxiv.org/abs/2310.05736  -  LLMLingua: Compressing Prompts for Accelerated Inference (correct arXiv ID; item had 2310.06025 which resolves to a different paper)
-- [x] https://arxiv.org/abs/2310.08560  -  MemGPT: Towards LLMs as Operating Systems
-- [x] https://arxiv.org/abs/2401.18059  -  RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval
-- [x] https://arxiv.org/abs/2403.12968  -  LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression
-- [x] https://docs.llamaindex.ai/en/stable/  -  LlamaIndex documentation on advanced RAG patterns
-- [x] https://python.langchain.com/docs/concepts/rag/  -  LangChain RAG conceptual overview
-- [x] https://github.com/microsoft/graphrag  -  Microsoft GraphRAG
-- [x] https://weaviate.io/blog/advanced-rag  -  Advanced RAG Techniques (Weaviate)
+- [x] ["Retrieval-Augmented Generation for Large Language Models: A Survey"](https://arxiv.org/abs/2312.10997)
+- [x] [LLMLingua: Compressing Prompts for Accelerated Inference (correct arXiv ID; item had 2310.06025 which resolves to a different paper)](https://arxiv.org/abs/2310.05736)
+- [x] [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)
+- [x] [RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval](https://arxiv.org/abs/2401.18059)
+- [x] [LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression](https://arxiv.org/abs/2403.12968)
+- [x] [LlamaIndex documentation on advanced RAG patterns](https://docs.llamaindex.ai/en/stable/)
+- [x] [LangChain RAG conceptual overview](https://python.langchain.com/docs/concepts/rag/)
+- [x] [Microsoft GraphRAG](https://github.com/microsoft/graphrag)
+- [x] [Advanced RAG Techniques (Weaviate)](https://weaviate.io/blog/advanced-rag)
 
 ---
 

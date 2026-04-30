@@ -77,26 +77,26 @@ Cross-references:
 
 ## Sources
 
-- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) - primary architectural reference; defines the policy decision point (PDP), policy enforcement point (PEP), and policy administration point (PAP) model applicable to AI governance control planes
-- [x] [Open Policy Agent (OPA) - policy engine architecture](https://www.openpolicyagent.org/docs/latest/philosophy/) - open-source policy engine; assess for control-plane policy store and decision engine role
-- [x] [Cedar policy language](https://docs.cedarpolicy.com/) - Amazon's policy language and engine; assess as alternative to OPA for control-plane policy decisions
-- [x] [Azure Policy - enterprise policy management at scale](https://learn.microsoft.com/en-us/azure/governance/policy/overview) - cloud-native policy enforcement; assess for AI governance control-plane integration
-- [x] [Istio - service mesh control plane](https://istio.io/latest/docs/concepts/what-is-istio/) - service mesh control-plane architecture; assess for architectural pattern applicability to AI agent governance
-- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - assess for control-plane function alignment with NIST AI RMF structure
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - primary source for Govern, Map, Measure, and Manage lifecycle functions
-- [x] [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) - companion guidance on tailoring lifecycle actions
-- [x] [European Union (EU) AI Act](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689) - canonical legal text for high-risk lifecycle obligations
-- [x] [EU AI Act Service Desk - Article 9](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9) - continuous iterative risk-management obligations
-- [x] [EU AI Act Service Desk - Article 12](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12) - logging and traceability obligations
-- [x] [EU AI Act Service Desk - Article 72](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72) - post-market monitoring obligations
-- [x] [OPA bundle distribution](https://www.openpolicyagent.org/docs/latest/management-bundles/) - runtime policy distribution and activation pattern
-- [x] [OPA decision logs](https://www.openpolicyagent.org/docs/latest/management-decision-logs/) - observability and audit pattern
-- [x] [Amazon Verified Permissions](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html) - managed authorization control-plane pattern for Cedar
-- [x] [Amazon Verified Permissions terminology](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html) - policy-store, authorization-request, and enforcement model details
-- [x] [Amazon Verified Permissions policy templates](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html) - template-linked policy propagation model
-- [x] [Azure Policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics) - effect precedence and cumulative-most-restrictive behavior
-- [x] [Azure Policy evaluation triggers](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers) - event-driven and recurring compliance evaluation
-- [x] [Istio architecture](https://istio.io/latest/docs/ops/deployment/architecture/) - explicit control-plane and data-plane split
+- [x] [National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — - primary architectural reference; defines the policy decision point (PDP), policy enforcement point (PEP), and policy administration point (PAP) model applicable to AI governance control planes
+- [x] [Open Policy Agent (OPA) - policy engine architecture](https://www.openpolicyagent.org/docs/latest/philosophy/) — - open-source policy engine; assess for control-plane policy store and decision engine role
+- [x] [Cedar policy language](https://docs.cedarpolicy.com/) — - Amazon's policy language and engine; assess as alternative to OPA for control-plane policy decisions
+- [x] [Azure Policy - enterprise policy management at scale](https://learn.microsoft.com/en-us/azure/governance/policy/overview) — - cloud-native policy enforcement; assess for AI governance control-plane integration
+- [x] [Istio - service mesh control plane](https://istio.io/latest/docs/concepts/what-is-istio/) — - service mesh control-plane architecture; assess for architectural pattern applicability to AI agent governance
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - assess for control-plane function alignment with NIST AI RMF structure
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - primary source for Govern, Map, Measure, and Manage lifecycle functions
+- [x] [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) — - companion guidance on tailoring lifecycle actions
+- [x] [European Union (EU) AI Act](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689) — - canonical legal text for high-risk lifecycle obligations
+- [x] [EU AI Act Service Desk - Article 9](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9) — - continuous iterative risk-management obligations
+- [x] [EU AI Act Service Desk - Article 12](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12) — - logging and traceability obligations
+- [x] [EU AI Act Service Desk - Article 72](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72) — - post-market monitoring obligations
+- [x] [OPA bundle distribution](https://www.openpolicyagent.org/docs/latest/management-bundles/) — - runtime policy distribution and activation pattern
+- [x] [OPA decision logs](https://www.openpolicyagent.org/docs/latest/management-decision-logs/) — - observability and audit pattern
+- [x] [Amazon Verified Permissions](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html) — - managed authorization control-plane pattern for Cedar
+- [x] [Amazon Verified Permissions terminology](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html) — - policy-store, authorization-request, and enforcement model details
+- [x] [Amazon Verified Permissions policy templates](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html) — - template-linked policy propagation model
+- [x] [Azure Policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics) — - effect precedence and cumulative-most-restrictive behavior
+- [x] [Azure Policy evaluation triggers](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers) — - event-driven and recurring compliance evaluation
+- [x] [Istio architecture](https://istio.io/latest/docs/ops/deployment/architecture/) — - explicit control-plane and data-plane split
 
 ---
 

@@ -56,12 +56,12 @@ What technical patterns exist for automating governance assurance and change con
 
 ## Sources
 
-- [x] [Compliance scanning in GitHub Actions (internal related research)](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md) - prior repository analysis of compliance checks in pipeline workflows.
-- [x] [Cross-scanner compliance evidence normalisation (internal related research)](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md) - existing work on unifying evidence across tools.
-- [x] [AI control, testing, and assurance (internal related research)](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md) - baseline control concepts for AI systems.
-- [x] [Supply-chain Levels for Software Artifacts (SLSA) framework](https://slsa.dev/) - provenance and attestations for software supply chain assurance.
-- [x] [Open Policy Agent (OPA) documentation](https://www.openpolicyagent.org/docs/latest/) - policy-as-code implementation approaches and enforcement patterns.
-- [x] [National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/itl/ai-risk-management-framework) - reference control objectives relevant to AI governance.
+- [x] [Compliance scanning in GitHub Actions (internal related research)](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md) — - prior repository analysis of compliance checks in pipeline workflows.
+- [x] [Cross-scanner compliance evidence normalisation (internal related research)](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md) — - existing work on unifying evidence across tools.
+- [x] [AI control, testing, and assurance (internal related research)](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md) — - baseline control concepts for AI systems.
+- [x] [Supply-chain Levels for Software Artifacts (SLSA) framework](https://slsa.dev/) — - provenance and attestations for software supply chain assurance.
+- [x] [Open Policy Agent (OPA) documentation](https://www.openpolicyagent.org/docs/latest/) — - policy-as-code implementation approaches and enforcement patterns.
+- [x] [National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/itl/ai-risk-management-framework) — - reference control objectives relevant to AI governance.
 
 ---
 

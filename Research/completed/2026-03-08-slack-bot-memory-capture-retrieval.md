@@ -65,12 +65,12 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — production memory system patterns; "memory accessible from wherever you already are"
 - [x] `Research/completed/2026-03-02-slack-msteams-research-integration.md` — existing findings on Slack API for this research repo; directly applicable to the hosting and API access questions
-- [x] Slack API docs (Bolt for Python): https://api.slack.com/tools/bolt
-- [x] Slack Socket Mode docs: https://docs.slack.dev/apis/events-api/using-socket-mode/
-- [x] Slack free plan limits: https://slack.com/help/articles/27204752526611
-- [x] GitHub Contents API docs: https://docs.github.com/en/rest/repos/contents
-- [x] Fly.io free tier docs: https://fly.io/docs/about/pricing/
-- [x] Railway free tier docs: https://docs.railway.app/reference/pricing
+- [x] [Slack API docs (Bolt for Python)](https://api.slack.com/tools/bolt)
+- [x] [Slack Socket Mode docs](https://docs.slack.dev/apis/events-api/using-socket-mode/)
+- [x] [Slack free plan limits](https://slack.com/help/articles/27204752526611)
+- [x] [GitHub Contents API docs](https://docs.github.com/en/rest/repos/contents)
+- [x] [Fly.io free tier docs](https://fly.io/docs/about/pricing/)
+- [x] [Railway free tier docs](https://docs.railway.app/reference/pricing)
 
 ---
 

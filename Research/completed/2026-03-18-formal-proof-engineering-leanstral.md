@@ -81,28 +81,28 @@ This item connects directly to:
 
 ## Sources
 
-- [x] HN thread on Leanstral - https://news.ycombinator.com/item?id=47404796
-- [x] Leanstral source article - https://mistral.ai/news/leanstral
-- [x] Leanstral model page - https://docs.mistral.ai/models/leanstral-26-03
-- [x] Mistral Vibe release note referencing Leanstral agent mode - https://github.com/mistralai/mistral-vibe/releases/tag/v2.5.0
+- [x] [HN thread on Leanstral](https://news.ycombinator.com/item?id=47404796)
+- [x] [Leanstral source article](https://mistral.ai/news/leanstral)
+- [x] [Leanstral model page](https://docs.mistral.ai/models/leanstral-26-03)
+- [x] [Mistral Vibe release note referencing Leanstral agent mode](https://github.com/mistralai/mistral-vibe/releases/tag/v2.5.0)
 - [ ] Public Leanstral weights or repository artifact directly identified from official release materials at retrieval time
-- [x] Lean 4 documentation overview - https://lean-lang.org/documentation/
-- [x] Lean language reference - https://lean-lang.org/doc/reference/latest/
-- [x] Lean build tools reference (Lake / elan / leanchecker) - https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/
-- [x] Lake reference - https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/
-- [x] mathlib package page - https://reservoir.lean-lang.org/@leanprover-community/mathlib
-- [x] LeanDojo / LeanDojo-v2 project page - https://leandojo.org/leandojo.html
-- [x] ReProver repository - https://github.com/lean-dojo/ReProver
-- [x] Copra paper - https://arxiv.org/abs/2310.04353
-- [x] Copra repository - https://github.com/trishullab/copra
-- [x] Lean Copilot paper - https://arxiv.org/abs/2404.12534
-- [x] Lean Copilot repository - https://github.com/lean-dojo/LeanCopilot
+- [x] [Lean 4 documentation overview](https://lean-lang.org/documentation/)
+- [x] [Lean language reference](https://lean-lang.org/doc/reference/latest/)
+- [x] [Lean build tools reference (Lake / elan / leanchecker)](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/)
+- [x] [Lake reference](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/)
+- [x] [mathlib package page](https://reservoir.lean-lang.org/@leanprover-community/mathlib)
+- [x] [LeanDojo / LeanDojo-v2 project page](https://leandojo.org/leandojo.html)
+- [x] [ReProver repository](https://github.com/lean-dojo/ReProver)
+- [x] [Copra paper](https://arxiv.org/abs/2310.04353)
+- [x] [Copra repository](https://github.com/trishullab/copra)
+- [x] [Lean Copilot paper](https://arxiv.org/abs/2404.12534)
+- [x] [Lean Copilot repository](https://github.com/lean-dojo/LeanCopilot)
 - [x] Prior completed research: `Research/completed/2026-03-14-reliable-software-llm-era.md`
 - [x] Prior completed research: `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md`
 - [x] Prior completed research: `Research/completed/2026-03-16-intent-driven-development.md`
-- [x] HN thread on Claude Code production-database incident - https://news.ycombinator.com/item?id=47278720
-- [x] Incident summary with post-mortem details - https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant
-- [x] Incident summary quoting safeguards and recovery timeline - https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/
+- [x] [HN thread on Claude Code production-database incident](https://news.ycombinator.com/item?id=47278720)
+- [x] [Incident summary with post-mortem details](https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant)
+- [x] [Incident summary quoting safeguards and recovery timeline](https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/)
 
 ---
 

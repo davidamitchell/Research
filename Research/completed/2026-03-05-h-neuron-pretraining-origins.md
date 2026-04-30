@@ -69,13 +69,13 @@ This shifts the research agenda in two directions:
 
 ## Sources
 
-- [x] Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs" (primary source for origins finding): https://arxiv.org/abs/2512.01797
-- [x] Hoffmann et al. (2022) — "Training Compute-Optimal Large Language Models (Chinchilla)": https://arxiv.org/abs/2203.15556 — scaling laws and data quality
-- [x] Gunasekar et al. (2023) — "Textbooks Are All You Need" (Phi-1) — data quality over data scale: https://arxiv.org/abs/2306.11644
-- [x] Penedo et al. (2023) — "The RefinedWeb Dataset for Falcon LLM: Outperforming Curated Corpora with Web Data Alone": https://arxiv.org/abs/2306.01116 — pre-training data curation
-- [x] Anthropic (2022) — "Constitutional AI: Harmlessness from AI Feedback": https://arxiv.org/abs/2212.08073 — RLHF limits for alignment
-- [x] Elhage et al. (2022) — "Toy Models of Superposition" — how pre-training encodes features in neurons: https://transformer-circuits.pub/2022/toy_model/index.html
-- [x] Biderman et al. (2023) — "Pythia: A Suite for Analysing Large Language Models Across Training and Scaling" — training dynamics: https://arxiv.org/abs/2304.01373
+- [x] [Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs" (primary source for origins finding)](https://arxiv.org/abs/2512.01797)
+- [x] [Hoffmann et al. (2022) — "Training Compute-Optimal Large Language Models (Chinchilla)"](https://arxiv.org/abs/2203.15556) — scaling laws and data quality
+- [x] [Gunasekar et al. (2023) — "Textbooks Are All You Need" (Phi-1) — data quality over data scale](https://arxiv.org/abs/2306.11644)
+- [x] [Penedo et al. (2023) — "The RefinedWeb Dataset for Falcon LLM: Outperforming Curated Corpora with Web Data Alone"](https://arxiv.org/abs/2306.01116) — pre-training data curation
+- [x] [Anthropic (2022) — "Constitutional AI: Harmlessness from AI Feedback"](https://arxiv.org/abs/2212.08073) — RLHF limits for alignment
+- [x] [Elhage et al. (2022) — "Toy Models of Superposition" — how pre-training encodes features in neurons](https://transformer-circuits.pub/2022/toy_model/index.html)
+- [x] [Biderman et al. (2023) — "Pythia: A Suite for Analysing Large Language Models Across Training and Scaling" — training dynamics](https://arxiv.org/abs/2304.01373)
 - [ ] `Research/backlog/2026-03-05-h-neurons-in-llms.md` — **prerequisite**: must be completed before starting this item
 
 ---

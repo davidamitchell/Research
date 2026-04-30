@@ -65,9 +65,9 @@ This is high priority because any serious enterprise deployment of autonomous co
 
 ## Sources
 
-- [x] LSP Specification: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/ — particularly `textDocument/publishDiagnostics` and the JSON-RPC transport
+- [x] [LSP Specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/) — particularly `textDocument/publishDiagnostics` and the JSON-RPC transport
 - [ ] VS Code extension docs on agent mode and custom language server integration
-- [x] GitHub: search `lsap agent lsp`, `lasp language agent`, `headless lsp client agent` for relevant repos — found https://github.com/lsp-client/LSAP/
+- [x] [GitHub: search `lsap agent lsp`, `lasp language agent`, `headless lsp client agent` for relevant repos — found](https://github.com/lsp-client/LSAP/)
 - [x] arXiv: search "language server protocol agent" and "LSAP" — found arXiv:2510.22907 (Lanser-CLI)
 - [ ] OPA (Open Policy Agent) LSP extension or plugin documentation
 - [x] Semgrep LSP server mode documentation
@@ -75,8 +75,8 @@ This is high priority because any serious enterprise deployment of autonomous co
 - [ ] Devin (Cognition AI) public documentation on policy or constraint mechanisms
 - [ ] Anthropic MCP specification — tool-use patterns that simulate in-loop feedback
 - [x] LangChain / LangGraph: any "guardrails" or "policy tool" patterns
-- [ ] Guardrails AI: https://github.com/guardrails-ai/guardrails — closest existing analogue?
-- [x] LinkedIn / X / blog posts referencing "LSAP" or "LASP" in an agent+LSP context — found https://lsp-client.github.io/blog/designing-lsap/
+- [ ] [Guardrails AI](https://github.com/guardrails-ai/guardrails) — closest existing analogue?
+- [x] [LinkedIn / X / blog posts referencing "LSAP" or "LASP" in an agent+LSP context — found](https://lsp-client.github.io/blog/designing-lsap/)
 
 ---
 

@@ -69,21 +69,21 @@ The present research item is dedicated to prompt injection alone because:
 
 ## Sources
 
-- [x] OWASP LLM Top 10 v2 (2025) - https://owasp.org/www-project-top-10-for-large-language-model-applications/ - project overview and LLM01 linkage
-- [x] OWASP GenAI LLM01 Prompt Injection - https://genai.owasp.org/llmrisk/llm01-prompt-injection/ - direct/indirect taxonomy and mitigations
-- [x] MITRE Adversarial Threat Landscape for Artificial-Intelligence Systems (ATLAS) - https://atlas.mitre.org/ - adversarial threat matrix for AI systems; linked from OWASP related frameworks
-- [x] NIST AI 100-2 "Adversarial Machine Learning: A Taxonomy and Terminology" - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf
-- [x] Simon Willison's prompt injection writing - https://simonwillison.net/series/prompt-injection/ - practitioner taxonomy and incident catalogue
-- [x] "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection" (Greshake et al., 2023) - https://arxiv.org/abs/2302.12173
-- [x] Anthropic many-shot jailbreaking - https://www.anthropic.com/research/many-shot-jailbreaking
-- [x] Anthropic Constitutional Classifiers - https://www.anthropic.com/news/constitutional-classifiers
-- [x] Microsoft Prompt Shields documentation - https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection
-- [x] Google DeepMind CApabilities for MachinE Learning (CaMeL) - https://arxiv.org/abs/2503.18813
-- [x] Google DeepMind "Lessons from Defending Gemini Against Indirect Prompt Injections" - https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf
-- [x] Lakera Prompt Injection Test (PINT) Benchmark - https://github.com/lakeraai/pint-benchmark
-- [x] Lakera benchmark background - https://www.lakera.ai/product-updates/lakera-pint-benchmark
-- [x] Palo Alto Networks Unit 42 web-based indirect prompt injection analysis - https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/
-- [x] Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents - https://aclanthology.org/2025.findings-naacl.395/
+- [x] [OWASP LLM Top 10 v2 (2025)](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — project overview and LLM01 linkage
+- [x] [OWASP GenAI LLM01 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) — direct/indirect taxonomy and mitigations
+- [x] [MITRE Adversarial Threat Landscape for Artificial-Intelligence Systems (ATLAS)](https://atlas.mitre.org/) — adversarial threat matrix for AI systems; linked from OWASP related frameworks
+- [x] [NIST AI 100-2 "Adversarial Machine Learning: A Taxonomy and Terminology"](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf)
+- [x] [Simon Willison's prompt injection writing](https://simonwillison.net/series/prompt-injection/) — practitioner taxonomy and incident catalogue
+- [x] ["Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection" (Greshake et al., 2023)](https://arxiv.org/abs/2302.12173)
+- [x] [Anthropic many-shot jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking)
+- [x] [Anthropic Constitutional Classifiers](https://www.anthropic.com/news/constitutional-classifiers)
+- [x] [Microsoft Prompt Shields documentation](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)
+- [x] [Google DeepMind CApabilities for MachinE Learning (CaMeL)](https://arxiv.org/abs/2503.18813)
+- [x] [Google DeepMind "Lessons from Defending Gemini Against Indirect Prompt Injections"](https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)
+- [x] [Lakera Prompt Injection Test (PINT) Benchmark](https://github.com/lakeraai/pint-benchmark)
+- [x] [Lakera benchmark background](https://www.lakera.ai/product-updates/lakera-pint-benchmark)
+- [x] [Palo Alto Networks Unit 42 web-based indirect prompt injection analysis](https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
+- [x] [Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents](https://aclanthology.org/2025.findings-naacl.395/)
 
 ---
 

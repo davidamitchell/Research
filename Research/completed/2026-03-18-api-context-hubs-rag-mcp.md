@@ -78,17 +78,17 @@ The issue that seeds this item explicitly asks whether `context-hub` is solving 
 
 ## Sources
 
-- [x] `andrewyng/context-hub` -- https://github.com/andrewyng/context-hub -- repository README and linked documentation
-- [x] Anthropic MCP specification -- https://modelcontextprotocol.io -- protocol overview and specification
-- [ ] MCP GitHub organisation -- https://github.com/modelcontextprotocol -- server ecosystem and community
+- [x] [`andrewyng/context-hub`](https://github.com/andrewyng/context-hub) — repository README and linked documentation
+- [x] [Anthropic MCP specification](https://modelcontextprotocol.io) — protocol overview and specification
+- [ ] [MCP GitHub organisation](https://github.com/modelcontextprotocol) — server ecosystem and community
 - [x] Gorilla paper -- Patil, S. et al. (2023) -- "Gorilla: Large Language Model Connected with Massive APIs" -- arXiv:2305.15334
 - [x] ToolBench / ToolLLM -- Qin, Y. et al. (2023) -- "ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs" -- arXiv:2307.16789
 - [x] REST-GPT -- Song, Y. et al. (2023) -- "RestGPT: Connecting Large Language Models with Real-World RESTful APIs" -- arXiv:2306.06624
 - [x] HuggingGPT -- Shen, Y. et al. (2023) -- "HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in HuggingFace" -- arXiv:2303.17580
 - [x] API-Bank -- Li, M. et al. (2023) -- "API-Bank: A Comprehensive Benchmark for Tool-Augmented LLMs" -- arXiv:2304.08244
-- [x] OpenAPI Specification -- https://swagger.io/specification/ -- the structured API description standard underlying most tool integration work
-- [x] LangChain tools documentation -- https://python.langchain.com/docs/modules/agents/tools/ -- current tool and MCP adapter navigation
-- [ ] OpenAI function calling / tool use documentation -- https://platform.openai.com/docs/guides/function-calling -- attempted; inaccessible without authentication from this environment
+- [x] [OpenAPI Specification](https://swagger.io/specification/) — the structured API description standard underlying most tool integration work
+- [x] [LangChain tools documentation](https://python.langchain.com/docs/modules/agents/tools/) — current tool and MCP adapter navigation
+- [ ] [OpenAI function calling / tool use documentation](https://platform.openai.com/docs/guides/function-calling) — attempted; inaccessible without authentication from this environment
 - [x] Survey of LLM tool use -- Qu, Y. et al. (2024) -- "Tool Learning with Foundation Models" -- arXiv:2304.08354
 
 ---

@@ -68,18 +68,18 @@ Structurally, this looks less like a reasoning mistake and more like a distribut
 - [x] `.github/workflows/research-loop.yml` — fresh-session research loop implementation
 - [x] `.github/workflows/research-review.yml` — review workflow and `review_count` mutation pattern
 - [x] `src/research/item.py` — frontmatter status-to-directory mapping
-- [x] LangGraph Persistence docs — https://docs.langchain.com/oss/python/langgraph/persistence
-- [x] LangGraph Durable Execution docs — https://docs.langchain.com/oss/python/langgraph/durable-execution
-- [x] OpenAI Agents Python Software Development Kit (SDK) Quickstart — https://openai.github.io/openai-agents-python/quickstart/
-- [x] OpenAI Agents SDK session memory cookbook — https://developers.openai.com/cookbook/examples/agents_sdk/session_memory
-- [x] Temporal Workflow Execution docs — https://docs.temporal.io/workflow-execution
-- [x] Temporal durable execution essay — https://temporal.io/blog/what-is-durable-execution
-- [x] Model Evaluation & Threat Research (METR): Measuring AI Ability to Complete Long Tasks — https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
-- [x] Amazon Web Services (AWS) event-driven architecture idempotency guidance — https://aws-samples.github.io/eda-on-aws/concepts/idempotency/
-- [x] Confluent Kafka delivery semantics — https://docs.confluent.io/kafka/design/delivery-semantics.html
-- [x] microservices.io idempotent consumer pattern — https://microservices.io/patterns/communication-style/idempotent-consumer.html
-- [x] microservices.io saga pattern — https://microservices.io/patterns/data/saga.html
-- [x] RabbitMQ reliability guide — https://www.rabbitmq.com/docs/reliability
+- [x] [LangGraph Persistence docs](https://docs.langchain.com/oss/python/langgraph/persistence)
+- [x] [LangGraph Durable Execution docs](https://docs.langchain.com/oss/python/langgraph/durable-execution)
+- [x] [OpenAI Agents Python Software Development Kit (SDK) Quickstart](https://openai.github.io/openai-agents-python/quickstart/)
+- [x] [OpenAI Agents SDK session memory cookbook](https://developers.openai.com/cookbook/examples/agents_sdk/session_memory)
+- [x] [Temporal Workflow Execution docs](https://docs.temporal.io/workflow-execution)
+- [x] [Temporal durable execution essay](https://temporal.io/blog/what-is-durable-execution)
+- [x] [Model Evaluation & Threat Research (METR): Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)
+- [x] [Amazon Web Services (AWS) event-driven architecture idempotency guidance](https://aws-samples.github.io/eda-on-aws/concepts/idempotency/)
+- [x] [Confluent Kafka delivery semantics](https://docs.confluent.io/kafka/design/delivery-semantics.html)
+- [x] [microservices.io idempotent consumer pattern](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
+- [x] [microservices.io saga pattern](https://microservices.io/patterns/data/saga.html)
+- [x] [RabbitMQ reliability guide](https://www.rabbitmq.com/docs/reliability)
 
 ---
 

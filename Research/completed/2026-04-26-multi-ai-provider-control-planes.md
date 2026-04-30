@@ -58,43 +58,43 @@ Which platforms or architectural designs provide multi-provider Artificial Intel
 
 ## Sources
 
-- [x] [Microsoft Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview) - unified Microsoft control-plane surface for agent inventory, observability, compliance, quota, and administration
-- [x] [Microsoft guidance on governance and security for AI agents across the organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization) - central control-plane guidance for AI agents
-- [x] [GitHub Copilot policies](https://docs.github.com/en/copilot/concepts/policies) - feature, privacy, and model policy controls
-- [x] [GitHub Copilot enterprise policies](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies) - enterprise policy administration for Copilot, agents, and Model Context Protocol (MCP)
-- [x] [GitHub Copilot usage metrics](https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics) - enterprise adoption and activity telemetry
-- [x] [GitHub Copilot audit logs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs) - enterprise audit visibility and retention details
-- [x] [GitHub Copilot user management API](https://docs.github.com/en/rest/copilot/copilot-user-management) - seat and last-activity fields for licensed users
-- [x] [Microsoft 365 Copilot setup guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-setup) - deployment, audit logging, oversharing controls, and admin prerequisites
-- [x] [Microsoft 365 Copilot security and governance](https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance) - oversharing remediation, Purview, SharePoint Advanced Management, and security controls
-- [x] [Microsoft Purview audit logs for Copilot and AI applications](https://learn.microsoft.com/en-us/purview/audit-copilot) - audit schema and retention details
-- [x] [Microsoft 365 Copilot usage report](https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide) - admin-center adoption and prompt reporting
-- [x] [Amazon Bedrock overview](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) - multi-model platform, supported models, and service scope
-- [x] [Amazon Bedrock model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) - access control, Marketplace permissions, and provider-specific prerequisites
-- [x] [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) - content safety, privacy filters, groundedness, and reasoning checks
-- [x] [Amazon Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) - agent orchestration, memory, monitoring, traces, encryption, and permissions
-- [x] [Amazon Bedrock evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html) - model and Retrieval-Augmented Generation (RAG) evaluation features
-- [x] [LiteLLM proxy quick start](https://docs.litellm.ai/docs/proxy/quick_start) - unified interface, spend tracking, budgets, and load balancing across many providers
-- [x] [Portkey feature overview](https://docs.portkey.ai/docs/introduction/feature-overview) - multi-model gateway, guardrails, observability, and logs
-- [x] [Portkey gateway configs](https://docs.portkey.ai/docs/product/ai-gateway/configs) - routing, fallbacks, caching, and configuration enforcement
-- [x] [Kong AI Gateway](https://docs.konghq.com/gateway/latest/ai-gateway/) - provider-agnostic routing, access control, analytics, prompt governance, and observability
-- [x] [Apigee AI solutions](https://cloud.google.com/solutions/apigee-ai) - model abstraction, multicloud routing, developer portal, token reporting, and security
-- [x] [Apigee API Analytics overview](https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-services-overview) - analytics retention and operational monitoring
-- [x] [Apigee Quota policy](https://cloud.google.com/apigee/docs/api-platform/reference/policies/quota-policy) - request, token, and dynamic quota enforcement
-- [x] [Cursor identity and access management](https://cursor.com/docs/enterprise/identity-and-access-management) - Single Sign-On (SSO), System for Cross-domain Identity Management (SCIM), Role-Based Access Control (RBAC), and Mobile Device Management (MDM)
-- [x] [Cursor model and integration management](https://cursor.com/docs/enterprise/model-and-integration-management) - model controls, Bring Your Own Key (BYOK) restrictions, and Model Context Protocol (MCP) allowlists
-- [x] [Cursor dashboard](https://cursor.com/docs/account/teams/dashboard) - billing, usage-based pricing, active sessions, and team-wide security settings
-- [x] [Cursor privacy and data governance](https://cursor.com/docs/enterprise/privacy-and-data-governance) - data flows, embeddings, and privacy guarantees
-- [x] [Codex enterprise admin setup](https://developers.openai.com/codex/enterprise/admin-setup) - local and cloud enablement, granular access control, analytics, and policy management
-- [x] [Codex governance and observability](https://developers.openai.com/codex/enterprise/governance) - analytics dashboard, Analytics Application Programming Interface (API), and Compliance API
-- [x] [Codex agent approvals and security](https://developers.openai.com/codex/agent-approvals-security) - sandboxing, approval policy, network controls, and web-search settings
-- [x] [Anthropic Administration API](https://platform.claude.com/docs/en/build-with-claude/administration-api) - organization, workspace, key, cost, and analytics administration
-- [x] [Anthropic workspaces](https://platform.claude.com/docs/en/build-with-claude/workspaces) - workspace-scoped keys, rate limits, spend notifications, and access control
-- [x] [Anthropic Usage and Cost API](https://platform.claude.com/docs/en/build-with-claude/usage-cost-api) - usage, cost, and rate-tier reporting
-- [x] [Anthropic Claude Code Analytics API](https://platform.claude.com/docs/en/build-with-claude/claude-code-analytics-api) - per-user usage, productivity, model, and cost metrics
-- [x] [Anthropic audit logs](https://support.claude.com/en/articles/9970975-access-audit-logs) - enterprise audit export scope and retention
-- [x] [Enterprise AI platform operating models](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md) - prior repository research on shared control planes for multi-platform estates
-- [x] [Enterprise AI capability model](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md) - prior repository research on foundational capability reuse
+- [x] [Microsoft Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview) — - unified Microsoft control-plane surface for agent inventory, observability, compliance, quota, and administration
+- [x] [Microsoft guidance on governance and security for AI agents across the organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization) — - central control-plane guidance for AI agents
+- [x] [GitHub Copilot policies](https://docs.github.com/en/copilot/concepts/policies) — - feature, privacy, and model policy controls
+- [x] [GitHub Copilot enterprise policies](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies) — - enterprise policy administration for Copilot, agents, and Model Context Protocol (MCP)
+- [x] [GitHub Copilot usage metrics](https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics) — - enterprise adoption and activity telemetry
+- [x] [GitHub Copilot audit logs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs) — - enterprise audit visibility and retention details
+- [x] [GitHub Copilot user management API](https://docs.github.com/en/rest/copilot/copilot-user-management) — - seat and last-activity fields for licensed users
+- [x] [Microsoft 365 Copilot setup guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-setup) — - deployment, audit logging, oversharing controls, and admin prerequisites
+- [x] [Microsoft 365 Copilot security and governance](https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance) — - oversharing remediation, Purview, SharePoint Advanced Management, and security controls
+- [x] [Microsoft Purview audit logs for Copilot and AI applications](https://learn.microsoft.com/en-us/purview/audit-copilot) — - audit schema and retention details
+- [x] [Microsoft 365 Copilot usage report](https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide) — - admin-center adoption and prompt reporting
+- [x] [Amazon Bedrock overview](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) — - multi-model platform, supported models, and service scope
+- [x] [Amazon Bedrock model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) — - access control, Marketplace permissions, and provider-specific prerequisites
+- [x] [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) — - content safety, privacy filters, groundedness, and reasoning checks
+- [x] [Amazon Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html) — - agent orchestration, memory, monitoring, traces, encryption, and permissions
+- [x] [Amazon Bedrock evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html) — - model and Retrieval-Augmented Generation (RAG) evaluation features
+- [x] [LiteLLM proxy quick start](https://docs.litellm.ai/docs/proxy/quick_start) — - unified interface, spend tracking, budgets, and load balancing across many providers
+- [x] [Portkey feature overview](https://docs.portkey.ai/docs/introduction/feature-overview) — - multi-model gateway, guardrails, observability, and logs
+- [x] [Portkey gateway configs](https://docs.portkey.ai/docs/product/ai-gateway/configs) — - routing, fallbacks, caching, and configuration enforcement
+- [x] [Kong AI Gateway](https://docs.konghq.com/gateway/latest/ai-gateway/) — - provider-agnostic routing, access control, analytics, prompt governance, and observability
+- [x] [Apigee AI solutions](https://cloud.google.com/solutions/apigee-ai) — - model abstraction, multicloud routing, developer portal, token reporting, and security
+- [x] [Apigee API Analytics overview](https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-services-overview) — - analytics retention and operational monitoring
+- [x] [Apigee Quota policy](https://cloud.google.com/apigee/docs/api-platform/reference/policies/quota-policy) — - request, token, and dynamic quota enforcement
+- [x] [Cursor identity and access management](https://cursor.com/docs/enterprise/identity-and-access-management) — - Single Sign-On (SSO), System for Cross-domain Identity Management (SCIM), Role-Based Access Control (RBAC), and Mobile Device Management (MDM)
+- [x] [Cursor model and integration management](https://cursor.com/docs/enterprise/model-and-integration-management) — - model controls, Bring Your Own Key (BYOK) restrictions, and Model Context Protocol (MCP) allowlists
+- [x] [Cursor dashboard](https://cursor.com/docs/account/teams/dashboard) — - billing, usage-based pricing, active sessions, and team-wide security settings
+- [x] [Cursor privacy and data governance](https://cursor.com/docs/enterprise/privacy-and-data-governance) — - data flows, embeddings, and privacy guarantees
+- [x] [Codex enterprise admin setup](https://developers.openai.com/codex/enterprise/admin-setup) — - local and cloud enablement, granular access control, analytics, and policy management
+- [x] [Codex governance and observability](https://developers.openai.com/codex/enterprise/governance) — - analytics dashboard, Analytics Application Programming Interface (API), and Compliance API
+- [x] [Codex agent approvals and security](https://developers.openai.com/codex/agent-approvals-security) — - sandboxing, approval policy, network controls, and web-search settings
+- [x] [Anthropic Administration API](https://platform.claude.com/docs/en/build-with-claude/administration-api) — - organization, workspace, key, cost, and analytics administration
+- [x] [Anthropic workspaces](https://platform.claude.com/docs/en/build-with-claude/workspaces) — - workspace-scoped keys, rate limits, spend notifications, and access control
+- [x] [Anthropic Usage and Cost API](https://platform.claude.com/docs/en/build-with-claude/usage-cost-api) — - usage, cost, and rate-tier reporting
+- [x] [Anthropic Claude Code Analytics API](https://platform.claude.com/docs/en/build-with-claude/claude-code-analytics-api) — - per-user usage, productivity, model, and cost metrics
+- [x] [Anthropic audit logs](https://support.claude.com/en/articles/9970975-access-audit-logs) — - enterprise audit export scope and retention
+- [x] [Enterprise AI platform operating models](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md) — - prior repository research on shared control planes for multi-platform estates
+- [x] [Enterprise AI capability model](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md) — - prior repository research on foundational capability reuse
 
 ---
 

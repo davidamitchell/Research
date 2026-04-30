@@ -69,44 +69,44 @@ Cross-references:
 
 ## Sources
 
-- [x] [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al., 2023)](https://arxiv.org/abs/2306.05685) - foundational paper defining the LLM-as-judge methodology and naming its core biases
-- [x] [Ragas introduction](https://docs.ragas.io/en/latest/) - framework positioning for continuous evaluation loops
-- [x] [Ragas experimentation](https://docs.ragas.io/en/stable/concepts/experimentation/) - official experiment and result-storage pattern
-- [x] [DeepEval documentation home](https://docs.confident-ai.com/) - framework overview and CI/CD positioning
-- [x] [DeepEval unit testing in CI/CD](https://www.confident-ai.com/docs/llm-evaluation/unit-testing-cicd) - official GitHub Actions pattern for judge-based tests
-- [x] [DeepEval metrics introduction](https://deepeval.com/docs/metrics-introduction) - official statement that most metrics use LLM-as-a-judge
-- [x] [Promptfoo introduction](https://www.promptfoo.dev/docs/intro/) - evaluation framework overview
-- [x] [Promptfoo CI/CD integration](https://www.promptfoo.dev/docs/integrations/ci-cd/) - official pipeline gating patterns
-- [x] [Promptfoo LLM-as-a-judge guide](https://www.promptfoo.dev/docs/guides/llm-as-a-judge/) - official judge configuration and compensating controls
-- [x] [LangSmith evaluation concepts](https://docs.smith.langchain.com/evaluation) - offline and online evaluation lifecycle
-- [x] [LangSmith LLM-as-a-judge evaluator](https://docs.langchain.com/langsmith/llm-as-judge) - official offline judge setup
-- [x] [LangSmith online evaluations with LLM-as-a-judge](https://docs.langchain.com/langsmith/online-evaluations-llm-as-judge) - official production-trace judge pattern
-- [x] [Azure AI Foundry evaluation approach for generative AI](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai) - Microsoft's official AI evaluation approach including LLM-as-judge
-- [x] [Run evaluations from the Foundry portal](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app) - pre-production and agent evaluation flow
-- [x] [Azure AI Evaluation Software Development Kit (SDK) for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-evaluation-readme?view=azure-python) - built-in evaluators and custom evaluators
-- [x] [Azure AI Foundry agent evaluators](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators) - pass/fail agent-specific evaluators for workflow steps
-- [x] [Copilot Studio agent evaluation overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro) - native evaluation and automation entry point
-- [x] [Copilot Studio evaluation methods](https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-overview) - general-quality evaluator and scoring methods
-- [x] [Copilot Studio evaluation results](https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-results) - programmatic runs, pass rate, result export, and Power Platform Application Programming Interface (API) support
-- [x] [Copilot Studio evaluation guidance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-overview) - Microsoft guidance to run regression tests before release
-- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) - governance controls around publishing and data policies
-- [x] [Copilot Studio zoned governance guidance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2) - Application Lifecycle Management (ALM) pipeline context and publish approval
-- [x] [OpenAI Evals repository](https://github.com/openai/evals) - official open-source eval framework positioning
-- [x] [OpenAI Evals model-graded templates](https://github.com/openai/evals/blob/main/docs/eval-templates.md) - official model-graded eval template details
-- [x] [OpenAI Evals run-evals guide](https://github.com/openai/evals/blob/main/docs/run-evals.md) - official local Command Line Interface (CLI) execution pattern
-- [x] [Braintrust evals guide](https://www.braintrust.dev/docs/guides/evals) - official evaluation lifecycle
-- [x] [Braintrust run evaluations](https://www.braintrust.dev/docs/evaluate/run-evaluations) - official experiment and CI/CD workflow including pull request (PR) runs
-- [x] [Braintrust write scorers](https://www.braintrust.dev/docs/evaluate/write-scorers) - official LLM-as-a-judge scorer configuration
-- [x] [Pydantic Evals](https://ai.pydantic.dev/evals/) - code-first evaluation framework with LLM judge support
-- [x] [NIST AI Risk Management Framework page](https://www.nist.gov/itl/ai-risk-management-framework) - official framework overview and linked canonical documents
-- [x] [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) - official implementation playbook
-- [x] [NIST AI RMF Roadmap](https://www.nist.gov/itl/ai-risk-management-framework/roadmap-nist-artificial-intelligence-risk-management-framework-ai) - official roadmap emphasizing testing, evaluation, validation, and verification
-- [x] [NIST AI standards page](https://www.nist.gov/artificial-intelligence/ai-standards) - NIST standards posture and crosswalks
-- [x] [ISO/IEC 42001:2023 official page](https://www.iso.org/standard/42001) - official Artificial Intelligence Management System (AIMS) standard summary
-- [x] [European Commission AI Act regulatory framework page](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) - official AI Act summary and high-risk obligations
-- [x] [European approach to Artificial Intelligence](https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence) - official policy framing and implementation context
-- [x] [Deployment pipeline as the only enforceable control gate](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - companion completed research on pipeline-as-gate governance
-- [x] [Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification](https://davidamitchell.github.io/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html) - prior repository synthesis on evals and regression patterns
+- [x] [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al., 2023)](https://arxiv.org/abs/2306.05685) — - foundational paper defining the LLM-as-judge methodology and naming its core biases
+- [x] [Ragas introduction](https://docs.ragas.io/en/latest/) — - framework positioning for continuous evaluation loops
+- [x] [Ragas experimentation](https://docs.ragas.io/en/stable/concepts/experimentation/) — - official experiment and result-storage pattern
+- [x] [DeepEval documentation home](https://docs.confident-ai.com/) — - framework overview and CI/CD positioning
+- [x] [DeepEval unit testing in CI/CD](https://www.confident-ai.com/docs/llm-evaluation/unit-testing-cicd) — - official GitHub Actions pattern for judge-based tests
+- [x] [DeepEval metrics introduction](https://deepeval.com/docs/metrics-introduction) — - official statement that most metrics use LLM-as-a-judge
+- [x] [Promptfoo introduction](https://www.promptfoo.dev/docs/intro/) — - evaluation framework overview
+- [x] [Promptfoo CI/CD integration](https://www.promptfoo.dev/docs/integrations/ci-cd/) — - official pipeline gating patterns
+- [x] [Promptfoo LLM-as-a-judge guide](https://www.promptfoo.dev/docs/guides/llm-as-a-judge/) — - official judge configuration and compensating controls
+- [x] [LangSmith evaluation concepts](https://docs.smith.langchain.com/evaluation) — - offline and online evaluation lifecycle
+- [x] [LangSmith LLM-as-a-judge evaluator](https://docs.langchain.com/langsmith/llm-as-judge) — - official offline judge setup
+- [x] [LangSmith online evaluations with LLM-as-a-judge](https://docs.langchain.com/langsmith/online-evaluations-llm-as-judge) — - official production-trace judge pattern
+- [x] [Azure AI Foundry evaluation approach for generative AI](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai) — - Microsoft's official AI evaluation approach including LLM-as-judge
+- [x] [Run evaluations from the Foundry portal](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app) — - pre-production and agent evaluation flow
+- [x] [Azure AI Evaluation Software Development Kit (SDK) for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-evaluation-readme?view=azure-python) — - built-in evaluators and custom evaluators
+- [x] [Azure AI Foundry agent evaluators](https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators) — - pass/fail agent-specific evaluators for workflow steps
+- [x] [Copilot Studio agent evaluation overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro) — - native evaluation and automation entry point
+- [x] [Copilot Studio evaluation methods](https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-overview) — - general-quality evaluator and scoring methods
+- [x] [Copilot Studio evaluation results](https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-results) — - programmatic runs, pass rate, result export, and Power Platform Application Programming Interface (API) support
+- [x] [Copilot Studio evaluation guidance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-overview) — - Microsoft guidance to run regression tests before release
+- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) — - governance controls around publishing and data policies
+- [x] [Copilot Studio zoned governance guidance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2) — - Application Lifecycle Management (ALM) pipeline context and publish approval
+- [x] [OpenAI Evals repository](https://github.com/openai/evals) — - official open-source eval framework positioning
+- [x] [OpenAI Evals model-graded templates](https://github.com/openai/evals/blob/main/docs/eval-templates.md) — - official model-graded eval template details
+- [x] [OpenAI Evals run-evals guide](https://github.com/openai/evals/blob/main/docs/run-evals.md) — - official local Command Line Interface (CLI) execution pattern
+- [x] [Braintrust evals guide](https://www.braintrust.dev/docs/guides/evals) — - official evaluation lifecycle
+- [x] [Braintrust run evaluations](https://www.braintrust.dev/docs/evaluate/run-evaluations) — - official experiment and CI/CD workflow including pull request (PR) runs
+- [x] [Braintrust write scorers](https://www.braintrust.dev/docs/evaluate/write-scorers) — - official LLM-as-a-judge scorer configuration
+- [x] [Pydantic Evals](https://ai.pydantic.dev/evals/) — - code-first evaluation framework with LLM judge support
+- [x] [NIST AI Risk Management Framework page](https://www.nist.gov/itl/ai-risk-management-framework) — - official framework overview and linked canonical documents
+- [x] [NIST AI RMF Playbook](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook) — - official implementation playbook
+- [x] [NIST AI RMF Roadmap](https://www.nist.gov/itl/ai-risk-management-framework/roadmap-nist-artificial-intelligence-risk-management-framework-ai) — - official roadmap emphasizing testing, evaluation, validation, and verification
+- [x] [NIST AI standards page](https://www.nist.gov/artificial-intelligence/ai-standards) — - NIST standards posture and crosswalks
+- [x] [ISO/IEC 42001:2023 official page](https://www.iso.org/standard/42001) — - official Artificial Intelligence Management System (AIMS) standard summary
+- [x] [European Commission AI Act regulatory framework page](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) — - official AI Act summary and high-risk obligations
+- [x] [European approach to Artificial Intelligence](https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence) — - official policy framing and implementation context
+- [x] [Deployment pipeline as the only enforceable control gate](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) — - companion completed research on pipeline-as-gate governance
+- [x] [Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification](https://davidamitchell.github.io/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html) — - prior repository synthesis on evals and regression patterns
 
 ## Related
 

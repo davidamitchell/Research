@@ -54,8 +54,8 @@ Understanding the output taxonomy helps write better research items and ensures 
 
 ## Sources
 
-- [x] `davidamitchell/Skills` repo — existing skill categories — https://github.com/davidamitchell/Skills
-- [x] `AGENTS.md` — current output type list — https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md
+- [x] [`davidamitchell/Skills` repo — existing skill categories](https://github.com/davidamitchell/Skills)
+- [x] [`AGENTS.md` — current output type list](https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md)
 
 ---
 

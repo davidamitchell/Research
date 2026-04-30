@@ -84,8 +84,8 @@ Additional context: https://github.com/davidamitchell/Latest-developments-/blob/
 
 ## Sources
 
-- [x] **Video transcript** — https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI (primary source — content reconstructed from item context and associated newsletter summary)
-- [x] **Latest developments context** — https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt
+- [x] [**Video transcript**](https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI) — (primary source — content reconstructed from item context and associated newsletter summary)
+- [x] [**Latest developments context**](https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt)
 - [x] **Midjourney headcount vs revenue** — ElectroIQ; AboutChromebooks; Latka (2025)
 - [x] **Shopify Toby Lütke "AI-first" mandate** — original memo April 7, 2025 (TechCrunch; CNBC; Forbes; X post by @tobi)
 - [x] **Brooks, F.P. (1975). *The Mythical Man-Month*.** Addison-Wesley — via 8th Light; Shortform; historyofinformation.com; blog.nuclino.com

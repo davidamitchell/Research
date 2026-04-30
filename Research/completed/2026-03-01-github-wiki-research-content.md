@@ -52,9 +52,9 @@ The existing `2026-02-27-interface-and-delivery.md` backlog item covers the broa
 
 ## Sources
 
-- [x] GitHub Docs — Wikis: https://docs.github.com/en/communities/documenting-your-project-with-wikis
+- [x] [GitHub Docs — Wikis](https://docs.github.com/en/communities/documenting-your-project-with-wikis)
 - [x] GitHub Actions — checkout wiki repo pattern (common community pattern using `actions/checkout` with wiki URL)
-- [x] GitHub Docs — `GITHUB_TOKEN` permissions: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+- [x] [GitHub Docs — `GITHUB_TOKEN` permissions](https://docs.github.com/en/actions/security-guides/automatic-token-authentication)
 - [x] Community examples: auto-wiki patterns using `actions/checkout` with wiki repo URL
 
 ---

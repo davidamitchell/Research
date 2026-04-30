@@ -64,13 +64,13 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 ## Sources
 
 - [x] `Research/completed/2026-03-02-agent-memory-management-context-injection.md`  -  memory portability findings; "ChatGPT memories don't export to Claude"
-- [x] OpenAI custom GPT Actions documentation: https://platform.openai.com/docs/actions/introduction
-- [x] OpenAI custom GPT Actions authentication: https://platform.openai.com/docs/actions/authentication
-- [x] OpenAI Memory documentation: https://help.openai.com/en/articles/8590148-memory-faq
-- [x] OpenAPI specification (for Actions schema): https://swagger.io/specification/
+- [x] [OpenAI custom GPT Actions documentation](https://platform.openai.com/docs/actions/introduction)
+- [x] [OpenAI custom GPT Actions authentication](https://platform.openai.com/docs/actions/authentication)
+- [x] [OpenAI Memory documentation](https://help.openai.com/en/articles/8590148-memory-faq)
+- [x] [OpenAPI specification (for Actions schema)](https://swagger.io/specification/)
 - [x] `2026-03-08-self-hosted-mcp-server-options.md`  -  prerequisite infrastructure item
 - [x] `2026-03-08-claude-ios-mcp-remote-integration.md`  -  comparison item
-- [x] `davidamitchell/Memory-System` BACKLOG.md W-0005  -  the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
+- [x] [`davidamitchell/Memory-System` BACKLOG.md W-0005  -  the corresponding discovery item that this research informs](https://github.com/davidamitchell/Memory-System)
 
 ---
 

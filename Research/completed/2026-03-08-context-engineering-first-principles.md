@@ -84,15 +84,15 @@ Cross-references (to be updated once this item is completed):
 - [x] `Research/completed/2026-03-01-context-mode-llm-context-compression.md` — context compression; what context matters
 - [x] `Research/completed/2026-02-28-ai-control-testing-and-assurance.md` — compliance and assurance framing
 - [x] `Research/completed/2026-03-05-general-agent-optimization-framework.md` — agent optimisation and context as input
-- [x] Anthropic context engineering engineering blog post: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
-- [ ] Anthropic prompt engineering documentation: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
-- [ ] OpenAI prompt engineering guide: https://platform.openai.com/docs/guides/prompt-engineering
-- [x] Kambhampati et al. on LLMs and planning/reasoning: https://arxiv.org/abs/2402.01817
-- [x] Shannon information theory — entropy and next-token prediction: https://satyamcser.substack.com/p/why-gpt-still-listens-to-shannon
-- [x] Framing effects in LLMs (WildFrame): https://arxiv.org/html/2502.17091
-- [x] Structural priming in LLMs (ACL 2024): https://aclanthology.org/2024.findings-acl.877.pdf
-- [x] Sycophancy to subterfuge (Anthropic): https://www.anthropic.com/research/reward-tampering
-- [x] Context rot (Chroma): https://research.trychroma.com/context-rot
+- [x] [Anthropic context engineering engineering blog post](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [ ] [Anthropic prompt engineering documentation](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [ ] [OpenAI prompt engineering guide](https://platform.openai.com/docs/guides/prompt-engineering)
+- [x] [Kambhampati et al. on LLMs and planning/reasoning](https://arxiv.org/abs/2402.01817)
+- [x] [Shannon information theory — entropy and next-token prediction](https://satyamcser.substack.com/p/why-gpt-still-listens-to-shannon)
+- [x] [Framing effects in LLMs (WildFrame)](https://arxiv.org/html/2502.17091)
+- [x] [Structural priming in LLMs (ACL 2024)](https://aclanthology.org/2024.findings-acl.877.pdf)
+- [x] [Sycophancy to subterfuge (Anthropic)](https://www.anthropic.com/research/reward-tampering)
+- [x] [Context rot (Chroma)](https://research.trychroma.com/context-rot)
 - [ ] Kahneman / Tversky framing effects literature (behavioural economics angle on steering without control)
 
 ---

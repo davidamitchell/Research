@@ -77,13 +77,13 @@ The `2026-03-02-research-quality-assurance-methodology.md` backlog item identifi
 
 ## Sources
 
-- [x] Zettelkasten introduction: https://zettelkasten.de/introduction/ — core principles of linked notes and emergence of insight through connection
+- [x] [Zettelkasten introduction](https://zettelkasten.de/introduction/) — core principles of linked notes and emergence of insight through connection
 - [ ] Ahrens (2017) — *How to Take Smart Notes* — practical Zettelkasten for researchers; cross-referencing and integration as first-class practices
 - [x] `Research/completed/2026-02-27-information-synthesis-entropy.md` — information-theoretic framing: connections between notes are where value emerges
 - [x] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — identifies integration (cross-item connection) as an uncovered quality dimension
 - [x] `Research/backlog/2026-03-02-chat-conversational-interface.md` — cross-reference navigation as a required capability of the conversational interface
 - [x] `Research/completed/2026-03-01-github-wiki-research-content.md` — existing wiki pipeline; assess how link graph integrates with `_Sidebar.md` and item pages
-- [x] Obsidian backlinks model: https://help.obsidian.md/plugins/backlinks — how a popular Zettelkasten tool implements backlinks; patterns to adapt
+- [x] [Obsidian backlinks model](https://help.obsidian.md/plugins/backlinks) — how a popular Zettelkasten tool implements backlinks; patterns to adapt
 - [x] Roam Research / Logseq — bidirectional linking in file-based note systems; relevant prior art for Markdown-native cross-referencing
 - [x] `src/wiki/publish.py` — current wiki generation code; assess extension points for cross-item link rendering
 - [x] `state/index.json` and `src/state.py` — existing state model; assess whether the link graph can extend this schema or needs a separate file

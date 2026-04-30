@@ -61,19 +61,19 @@ The exploit/explore framing from March (1991) is particularly important here: AI
 
 ## Sources
 
-- [x] OECD AI Policy Observatory — country policy notes for NZ and comparator countries (oecd.ai) — https://oecd.ai/
-- [x] NZ Government "Algorithm Charter" and associated agency attestations (data.govt.nz) — https://www.data.govt.nz/toolkit/data-ethics/government-algorithm-transparency-and-accountability/algorithm-charter/
+- [x] [OECD AI Policy Observatory — country policy notes for NZ and comparator countries (oecd.ai)](https://oecd.ai/)
+- [x] [NZ Government "Algorithm Charter" and associated agency attestations (data.govt.nz)](https://www.data.govt.nz/toolkit/data-ethics/government-algorithm-transparency-and-accountability/algorithm-charter/)
 - [x] NZ political party AI policy documents: National, ACT, NZ First coalition agreement AI-relevant clauses; Labour and Green party policy statements (parliament.nz, party websites)
-- [x] RBNZ — any publications or speeches on AI in financial services regulation — https://www.rbnz.govt.nz/
-- [x] DIA — "Digital Strategy for Aotearoa" and related AI-specific guidance — https://www.digital.govt.nz/dmsdocument/238~digital-strategy-for-aotearoa/html
-- [x] MBIE — "Digital Technologies Industry Transformation Plan" and related workforce/AI material; NZ AI Strategy "Investing with Confidence" (July 2025) — https://www.mbie.govt.nz/science-and-technology/science-and-innovation/research-and-data/nz-artificial-intelligence-strategy/
-- [x] EU AI Act (consolidated text, 2024) — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689
-- [x] DORA (EU) Regulation 2022/2554 — ICT risk management and AI capability references — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554
-- [x] NIST AI Risk Management Framework 1.0 (2023) — https://doi.org/10.6028/NIST.AI.100-1
-- [x] Singapore IMDA/MAS "Model AI Governance Framework" (2020, updated 2023/2024) — https://www.imda.gov.sg/resources/blog/2024/01/model-ai-governance-framework-second-edition
-- [x] ISO/IEC 42001:2023 — AI management systems standard — https://www.iso.org/standard/81230.html
-- [x] March, J.G. (1991). "Exploration and exploitation in organizational learning." *Organization Science.* (foundational exploit/explore framing) — https://doi.org/10.1287/orsc.2.1.71
-- [x] NZ case law search: NZLII, Ministry of Justice decisions database (search terms: "automated decision", "algorithmic", "artificial intelligence") — key case: Wikeley v Kea Investments Ltd [2024] NZCA 609 — https://www.nzlii.org/
+- [x] [RBNZ — any publications or speeches on AI in financial services regulation](https://www.rbnz.govt.nz/)
+- [x] [DIA — "Digital Strategy for Aotearoa" and related AI-specific guidance](https://www.digital.govt.nz/dmsdocument/238~digital-strategy-for-aotearoa/html)
+- [x] [MBIE — "Digital Technologies Industry Transformation Plan" and related workforce/AI material; NZ AI Strategy "Investing with Confidence" (July 2025)](https://www.mbie.govt.nz/science-and-technology/science-and-innovation/research-and-data/nz-artificial-intelligence-strategy/)
+- [x] [EU AI Act (consolidated text, 2024)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)
+- [x] [DORA (EU) Regulation 2022/2554 — ICT risk management and AI capability references](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554)
+- [x] [NIST AI Risk Management Framework 1.0 (2023)](https://doi.org/10.6028/NIST.AI.100-1)
+- [x] [Singapore IMDA/MAS "Model AI Governance Framework" (2020, updated 2023/2024)](https://www.imda.gov.sg/resources/blog/2024/01/model-ai-governance-framework-second-edition)
+- [x] [ISO/IEC 42001:2023 — AI management systems standard](https://www.iso.org/standard/81230.html)
+- [x] [March, J.G. (1991). "Exploration and exploitation in organizational learning." *Organization Science.* (foundational exploit/explore framing)](https://doi.org/10.1287/orsc.2.1.71)
+- [x] [NZLII — NZ case law search (Wikeley v Kea Investments Ltd, NZCA 609, 2024)](https://www.nzlii.org/)
 - [x] Commercially published AI strategy frameworks: McKinsey, BCG, Gartner, MIT CISR research on AI maturity models
 
 ---

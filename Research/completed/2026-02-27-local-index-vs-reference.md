@@ -53,10 +53,10 @@ The right answer varies by content type:
 
 ## Sources
 
-- [x] Git LFS docs: https://git-lfs.com
-- [x] Link rot research: https://en.wikipedia.org/wiki/Link_rot
-- [x] GitHub file size limits: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
-- [x] arXiv identifier permanence: https://arxiv.org/help/arxiv_identifier
+- [x] [Git LFS docs](https://git-lfs.com)
+- [x] [Link rot research](https://en.wikipedia.org/wiki/Link_rot)
+- [x] [GitHub file size limits](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
+- [x] [arXiv identifier permanence](https://arxiv.org/help/arxiv_identifier)
 - [ ] Similar decisions in knowledge management tools (Obsidian, Logseq)
 
 ---

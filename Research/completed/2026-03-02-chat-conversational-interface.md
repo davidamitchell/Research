@@ -76,11 +76,11 @@ Prior research: The completed item on context-mode LLM context compression (2026
 - [x] `Research/backlog/2026-02-27-interface-and-delivery.md` — upstream item covering all interface options including MCP
 - [x] `Research/completed/2026-03-01-context-mode-llm-context-compression.md` — MCP server design pattern: compact summary + queryable store + drill-down tools (Key Finding 4)
 - [x] `Research/backlog/2026-03-02-semantic-full-text-search.md` — search layer this interface depends on
-- [x] MCP tool creation docs: https://modelcontextprotocol.io/docs/concepts/tools — how to build MCP tools
-- [x] MCP Python SDK: https://github.com/modelcontextprotocol/python-sdk — Python server implementation
-- [x] GitHub Copilot Extensions docs: https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions — custom Copilot chat providers
+- [x] [MCP tool creation docs](https://modelcontextprotocol.io/docs/concepts/tools) — how to build MCP tools
+- [x] [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) — Python server implementation
+- [x] [GitHub Copilot Extensions docs](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions) — custom Copilot chat providers
 - [x] RAG patterns for grounded QA: survey of prompt engineering patterns for citation-enforced answers
-- [ ] Anthropic Claude API docs (for CLI chatbot option): https://docs.anthropic.com/
+- [ ] [Anthropic Claude API docs (for CLI chatbot option)](https://docs.anthropic.com/)
 
 ---
 

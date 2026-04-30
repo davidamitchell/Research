@@ -54,34 +54,34 @@ The AI funding landscape has undergone a structural shift since 2022. Total AI i
 
 ## Sources
 
-- [x] [$84B story: The 10 AI mega-rounds that defined 2025](https://techfundingnews.com/openai-anthropic-xai-ai-funding-trends-2025/) -- TechFundingNews summary of the ten largest 2025 AI rounds
-- [x] [Top 50 Investors Funding AI Startups in 2025](https://techstartups.com/2025/03/21/top-50-investors-funding-ai-startup-companies-in-2025/) -- ranked list of most active AI investors
-- [x] [As Funding to AI Startups Increases and Concentrates, Which Investors...](https://news.crunchbase.com/venture/big-dollar-ai-investors-2025-softbank/) -- Crunchbase analysis of investor concentration
-- [x] [The biggest AI startup fundraising rounds so far this year](https://qz.com/biggest-ai-fundraises-2025-openai-anthropic) -- Quartz 2025 round-up
-- [x] [The generative AI boom in 6 charts](https://www.cbinsights.com/research/generative-ai-funding-top-startups-investors-2023/) -- CB Insights 2023 generative AI funding report
-- [x] [Generative AI Landscape Q4 2024: AI Investments Reach Historic High](https://www.scalecapital.com/stories/generative-ai-landscape-q4-2024-ai-investments-reach-historic-high) -- Scale Capital Q4 2024 analysis
-- [x] [Top AI Companies Dominated 2024 Funding Landscape](https://lucidityinsights.com/infobytes/ai-dominate-2024-funding-landscape) -- Lucidity Insights 2024 overview
-- [x] [The next chapter of the Microsoft-OpenAI partnership](https://blogs.microsoft.com/blog/2025/10/28/the-next-chapter-of-the-microsoft-openai-partnership/) -- Microsoft official blog on partnership restructure
-- [x] [OpenAI's Latest Move Just Made Microsoft a No-Brainer Buy](https://www.fool.com/investing/2025/11/03/open-ai-move-made-microsoft-no-brainer-buy/) -- Motley Fool analysis of Microsoft's OpenAI equity stake value
-- [x] [The Real Reason Microsoft Invested $13B in OpenAI](https://www.bebooja.com/en/blog/market/microsoft-ai-strategy-2025-part1) -- analysis of Microsoft's strategic rationale
-- [x] [Microsoft gets 27% stake in OpenAI, and a $250B Azure commitment](https://www.geekwire.com/2025/microsoft-secures-27-stake-in-openai-in-new-deal-with-commitment-for-250b-in-azure-usage/) -- GeekWire on the restructured deal terms
-- [x] [Microsoft gained $7.6B from OpenAI last quarter](https://techcrunch.com/2026/01/28/microsoft-earnings-7-6-billion-openai/) -- TechCrunch on Microsoft earnings
-- [x] [Amazon doubles down on Anthropic: $8B bet to power the future of AI](https://techfundingnews.com/amazon-anthropic-ai-investment-strategy/) -- TechFundingNews on Amazon-Anthropic strategy
-- [x] [Amazon's Anthropic investment boosts its quarterly profits by $9.5B](https://www.geekwire.com/2025/amazons-anthropic-investment-boosts-its-quarterly-profits-by-9-5b/) -- GeekWire on Amazon's Q3 2025 earnings
-- [x] [Alphabet, Amazon Stakes in Anthropic Boost Profit by Billions](https://www.bloomberg.com/news/articles/2025-10-31/alphabet-amazon-stakes-in-anthropic-boost-profit-by-billions) -- Bloomberg on Google and Amazon stake valuations
-- [x] [Inside Anthropic's Multi-Cloud AI Factory](https://www.datacenterfrontier.com/machine-learning/article/55335703/inside-anthropics-multi-cloud-ai-factory-how-aws-trainium-and-google-tpus-shape-its-next-phase) -- Data Center Frontier on how Anthropic uses AWS and Google infrastructure
-- [x] [Announcing The Stargate Project](https://group.softbank/en/news/press/20250122) -- SoftBank official announcement
-- [x] [SoftBank's Vision Fund Resurgence: A New Era of AI-Driven Value Creation](https://www.ainvest.com/news/softbank-vision-fund-resurgence-era-ai-driven-creation-2508/) -- AInvest analysis
-- [x] [$100B Stargate AI Project From OpenAI and SoftBank Stalls](https://www.techrepublic.com/article/news-stargate-stalls-openai-softbank/) -- TechRepublic on Stargate delays
-- [x] [Hyperscaler CapEx Hits $600B in 2026](https://introl.com/blog/hyperscaler-capex-600b-2026-ai-infrastructure-debt-january-2026) -- Introl Blog on 2026 hyperscaler spending
-- [x] [AI Capex 2026: The $690B Infrastructure Sprint](https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/) -- Futurum Group analysis
-- [x] [2026 Data Center Marketplace Report](https://www.colliers.com/en/research/nrep-usdc-data-center-marketplace-2026) -- Colliers 2026 data center market report
-- [x] [Nvidia's $3 trillion year: How the AI boom propelled the chip giant](https://invezz.com/news/2024/12/25/nvidias-3-trillion-year-how-the-ai-boom-propelled-the-chip-giant/) -- Invezz on NVIDIA's 2024 performance
-- [x] [Nvidia Q4 2024 Earnings: AI Chip Demand Drives Record Growth](https://machineera.ai/nvidias-q4-earnings-the-ai-boom-rolls-on-but-can-it-last/) -- MachineEra on NVIDIA Q4 2024
-- [x] [AI infrastructure spending boom: a path towards AGI or speculative bubble?](https://techblog.comsoc.org/2025/12/01/ai-infrastructure-spending-boom-a-path-towards-agi-or-speculative-bubble/) -- IEEE ComSoc Tech Blog analysis of bubble risk
-- [x] [Q1 2026 Shatters Venture Funding Records As AI Boom Pushes Startup...](https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/) -- Crunchbase Q1 2026 funding report
-- [x] [State of AI 2025 Report](https://www.cbinsights.com/research/report/ai-trends-2025/) -- CB Insights annual AI state report
-- [x] [The Robotics Investment Boom: How 2025 Capital Is Flowing into AI...](https://www.marionstreetcapital.com/insights/the-robotics-industry-funding-landscape-2025) -- Marion Street Capital robotics funding analysis
+- [x] [$84B story: The 10 AI mega-rounds that defined 2025](https://techfundingnews.com/openai-anthropic-xai-ai-funding-trends-2025/) — -- TechFundingNews summary of the ten largest 2025 AI rounds
+- [x] [Top 50 Investors Funding AI Startups in 2025](https://techstartups.com/2025/03/21/top-50-investors-funding-ai-startup-companies-in-2025/) — -- ranked list of most active AI investors
+- [x] [As Funding to AI Startups Increases and Concentrates, Which Investors...](https://news.crunchbase.com/venture/big-dollar-ai-investors-2025-softbank/) — -- Crunchbase analysis of investor concentration
+- [x] [The biggest AI startup fundraising rounds so far this year](https://qz.com/biggest-ai-fundraises-2025-openai-anthropic) — -- Quartz 2025 round-up
+- [x] [The generative AI boom in 6 charts](https://www.cbinsights.com/research/generative-ai-funding-top-startups-investors-2023/) — -- CB Insights 2023 generative AI funding report
+- [x] [Generative AI Landscape Q4 2024: AI Investments Reach Historic High](https://www.scalecapital.com/stories/generative-ai-landscape-q4-2024-ai-investments-reach-historic-high) — -- Scale Capital Q4 2024 analysis
+- [x] [Top AI Companies Dominated 2024 Funding Landscape](https://lucidityinsights.com/infobytes/ai-dominate-2024-funding-landscape) — -- Lucidity Insights 2024 overview
+- [x] [The next chapter of the Microsoft-OpenAI partnership](https://blogs.microsoft.com/blog/2025/10/28/the-next-chapter-of-the-microsoft-openai-partnership/) — -- Microsoft official blog on partnership restructure
+- [x] [OpenAI's Latest Move Just Made Microsoft a No-Brainer Buy](https://www.fool.com/investing/2025/11/03/open-ai-move-made-microsoft-no-brainer-buy/) — -- Motley Fool analysis of Microsoft's OpenAI equity stake value
+- [x] [The Real Reason Microsoft Invested $13B in OpenAI](https://www.bebooja.com/en/blog/market/microsoft-ai-strategy-2025-part1) — -- analysis of Microsoft's strategic rationale
+- [x] [Microsoft gets 27% stake in OpenAI, and a $250B Azure commitment](https://www.geekwire.com/2025/microsoft-secures-27-stake-in-openai-in-new-deal-with-commitment-for-250b-in-azure-usage/) — -- GeekWire on the restructured deal terms
+- [x] [Microsoft gained $7.6B from OpenAI last quarter](https://techcrunch.com/2026/01/28/microsoft-earnings-7-6-billion-openai/) — -- TechCrunch on Microsoft earnings
+- [x] [Amazon doubles down on Anthropic: $8B bet to power the future of AI](https://techfundingnews.com/amazon-anthropic-ai-investment-strategy/) — -- TechFundingNews on Amazon-Anthropic strategy
+- [x] [Amazon's Anthropic investment boosts its quarterly profits by $9.5B](https://www.geekwire.com/2025/amazons-anthropic-investment-boosts-its-quarterly-profits-by-9-5b/) — -- GeekWire on Amazon's Q3 2025 earnings
+- [x] [Alphabet, Amazon Stakes in Anthropic Boost Profit by Billions](https://www.bloomberg.com/news/articles/2025-10-31/alphabet-amazon-stakes-in-anthropic-boost-profit-by-billions) — -- Bloomberg on Google and Amazon stake valuations
+- [x] [Inside Anthropic's Multi-Cloud AI Factory](https://www.datacenterfrontier.com/machine-learning/article/55335703/inside-anthropics-multi-cloud-ai-factory-how-aws-trainium-and-google-tpus-shape-its-next-phase) — -- Data Center Frontier on how Anthropic uses AWS and Google infrastructure
+- [x] [Announcing The Stargate Project](https://group.softbank/en/news/press/20250122) — -- SoftBank official announcement
+- [x] [SoftBank's Vision Fund Resurgence: A New Era of AI-Driven Value Creation](https://www.ainvest.com/news/softbank-vision-fund-resurgence-era-ai-driven-creation-2508/) — -- AInvest analysis
+- [x] [$100B Stargate AI Project From OpenAI and SoftBank Stalls](https://www.techrepublic.com/article/news-stargate-stalls-openai-softbank/) — -- TechRepublic on Stargate delays
+- [x] [Hyperscaler CapEx Hits $600B in 2026](https://introl.com/blog/hyperscaler-capex-600b-2026-ai-infrastructure-debt-january-2026) — -- Introl Blog on 2026 hyperscaler spending
+- [x] [AI Capex 2026: The $690B Infrastructure Sprint](https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/) — -- Futurum Group analysis
+- [x] [2026 Data Center Marketplace Report](https://www.colliers.com/en/research/nrep-usdc-data-center-marketplace-2026) — -- Colliers 2026 data center market report
+- [x] [Nvidia's $3 trillion year: How the AI boom propelled the chip giant](https://invezz.com/news/2024/12/25/nvidias-3-trillion-year-how-the-ai-boom-propelled-the-chip-giant/) — -- Invezz on NVIDIA's 2024 performance
+- [x] [Nvidia Q4 2024 Earnings: AI Chip Demand Drives Record Growth](https://machineera.ai/nvidias-q4-earnings-the-ai-boom-rolls-on-but-can-it-last/) — -- MachineEra on NVIDIA Q4 2024
+- [x] [AI infrastructure spending boom: a path towards AGI or speculative bubble?](https://techblog.comsoc.org/2025/12/01/ai-infrastructure-spending-boom-a-path-towards-agi-or-speculative-bubble/) — -- IEEE ComSoc Tech Blog analysis of bubble risk
+- [x] [Q1 2026 Shatters Venture Funding Records As AI Boom Pushes Startup...](https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/) — -- Crunchbase Q1 2026 funding report
+- [x] [State of AI 2025 Report](https://www.cbinsights.com/research/report/ai-trends-2025/) — -- CB Insights annual AI state report
+- [x] [The Robotics Investment Boom: How 2025 Capital Is Flowing into AI...](https://www.marionstreetcapital.com/insights/the-robotics-industry-funding-landscape-2025) — -- Marion Street Capital robotics funding analysis
 
 ---
 

@@ -65,29 +65,29 @@ What canonical entity taxonomy and Confidentiality, Integrity, and Availability 
 
 ## Sources
 
-- [x] [APRA CPS 234 Information Security](https://handbook.apra.gov.au/standard/cps-234) - primary definitions for confidentiality, integrity, availability, criticality, sensitivity, and board accountability
-- [x] [APRA CPG 234 Information Security](https://handbook.apra.gov.au/ppg/cpg-234) - primary guidance on classification methodology, lifecycle controls, and annual or material-change review
-- [x] [APRA information security landing page](https://www.apra.gov.au/information-security) - official APRA source pointing to the current CPS 234 and CPG 234 artefacts
-- [x] [APRA CPG 234 PDF](https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf) - primary text used for direct extraction of classification-methodology clauses
-- [x] [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) - primary risk-assessment guidance for likelihood and impact framing
-- [x] [NIST likelihood glossary entry](https://csrc.nist.gov/glossary/term/likelihood) - direct NIST definition linked back to SP 800-30
-- [x] [NIST AI RMF 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - primary description of the AI RMF's purpose and scope
-- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - primary source for intended purpose, human oversight, impact likelihood and magnitude, and go or no-go logic
-- [x] [NIST AI RMF Playbook Map page](https://airc.nist.gov/airmf-resources/playbook/map/) - official companion page for Map-function implementation guidance
-- [x] [PCI DSS standard page](https://www.pcisecuritystandards.org/standards/pci-dss/) - official scoping statement for cardholder data, sensitive authentication data, and systems that could impact the cardholder data environment
-- [x] [PCI SSC document library](https://www.pcisecuritystandards.org/document_library/) - official document-library entry point for PCI DSS v4.0.1 artefacts
-- [x] [Amazon Web Services (AWS) ARN and namespace reference](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) - primary evidence that operational asset taxonomies distinguish resources by service namespace and resource type
-- [x] [The Open Group ArchiMate 4 Specification overview](https://publications.opengroup.org/c260) - official reference that enterprise architecture uses explicit domain distinctions rather than one undifferentiated asset class
-- [x] [Federal Aviation Administration (FAA) Order 8110.49A](https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf) - official software-approval guidance showing software levels are assigned by system safety assessment rather than developer preference
-- [x] [Federal Aviation Administration (FAA) AC 20-115C](https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_20-115C.pdf) - official advisory circular that ties compliance activities to the assigned software level
-- [x] [AI agent control plane architecture for enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - prior completed item on autonomy levels and control-plane implications
-- [x] [AI agent identity and access management for enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - prior completed item on machine identity, delegation, and least privilege by actor type
-- [x] [AI and low-code risk tier classification and controls](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html) - prior completed item on highest-triggered-tier logic and proportional control depth
-- [x] [Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) - prior completed item on bounded complexity, central governance, and maker incentives
-- [x] [Policy Administration Point (PAP) dynamic policy profiling and proportionality](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) - prior completed item on CIA-driven proportional enforcement topology
-- [x] [ServiceNow Common Service Data Model (CSDM): Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO](https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html) - prior completed item on business application, service instance, and technical-service distinctions
-- [x] [AI concept classification taxonomy](https://davidamitchell.github.io/Research/research/2026-03-10-ai-concept-classification-taxonomy.html) - prior completed item on mutually exclusive taxonomy construction
-- [x] [Access control amplification under agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) - prior completed item on machine-speed blast radius and least-privilege amplification
+- [x] [APRA CPS 234 Information Security](https://handbook.apra.gov.au/standard/cps-234) — - primary definitions for confidentiality, integrity, availability, criticality, sensitivity, and board accountability
+- [x] [APRA CPG 234 Information Security](https://handbook.apra.gov.au/ppg/cpg-234) — - primary guidance on classification methodology, lifecycle controls, and annual or material-change review
+- [x] [APRA information security landing page](https://www.apra.gov.au/information-security) — - official APRA source pointing to the current CPS 234 and CPG 234 artefacts
+- [x] [APRA CPG 234 PDF](https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf) — - primary text used for direct extraction of classification-methodology clauses
+- [x] [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) — - primary risk-assessment guidance for likelihood and impact framing
+- [x] [NIST likelihood glossary entry](https://csrc.nist.gov/glossary/term/likelihood) — - direct NIST definition linked back to SP 800-30
+- [x] [NIST AI RMF 1.0 publication page](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) — - primary description of the AI RMF's purpose and scope
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — - primary source for intended purpose, human oversight, impact likelihood and magnitude, and go or no-go logic
+- [x] [NIST AI RMF Playbook Map page](https://airc.nist.gov/airmf-resources/playbook/map/) — - official companion page for Map-function implementation guidance
+- [x] [PCI DSS standard page](https://www.pcisecuritystandards.org/standards/pci-dss/) — - official scoping statement for cardholder data, sensitive authentication data, and systems that could impact the cardholder data environment
+- [x] [PCI SSC document library](https://www.pcisecuritystandards.org/document_library/) — - official document-library entry point for PCI DSS v4.0.1 artefacts
+- [x] [Amazon Web Services (AWS) ARN and namespace reference](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) — - primary evidence that operational asset taxonomies distinguish resources by service namespace and resource type
+- [x] [The Open Group ArchiMate 4 Specification overview](https://publications.opengroup.org/c260) — - official reference that enterprise architecture uses explicit domain distinctions rather than one undifferentiated asset class
+- [x] [Federal Aviation Administration (FAA) Order 8110.49A](https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf) — - official software-approval guidance showing software levels are assigned by system safety assessment rather than developer preference
+- [x] [Federal Aviation Administration (FAA) AC 20-115C](https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_20-115C.pdf) — - official advisory circular that ties compliance activities to the assigned software level
+- [x] [AI agent control plane architecture for enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) — - prior completed item on autonomy levels and control-plane implications
+- [x] [AI agent identity and access management for enterprise](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) — - prior completed item on machine identity, delegation, and least privilege by actor type
+- [x] [AI and low-code risk tier classification and controls](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html) — - prior completed item on highest-triggered-tier logic and proportional control depth
+- [x] [Business-led low-code agent governance](https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html) — - prior completed item on bounded complexity, central governance, and maker incentives
+- [x] [Policy Administration Point (PAP) dynamic policy profiling and proportionality](https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html) — - prior completed item on CIA-driven proportional enforcement topology
+- [x] [ServiceNow Common Service Data Model (CSDM): Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO](https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html) — - prior completed item on business application, service instance, and technical-service distinctions
+- [x] [AI concept classification taxonomy](https://davidamitchell.github.io/Research/research/2026-03-10-ai-concept-classification-taxonomy.html) — - prior completed item on mutually exclusive taxonomy construction
+- [x] [Access control amplification under agentic operations](https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html) — - prior completed item on machine-speed blast radius and least-privilege amplification
 
 ## Related
 

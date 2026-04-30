@@ -72,25 +72,25 @@ The neuroscience dimension connects to prior work in this repository on working 
 
 ## Sources
 
-- [x] Zak El-Fassi — "How Do You Want to Remember?" — https://zakelfassi.com/how-do-you-want-to-remember
-- [x] GitHub Copilot Memory — GitHub documentation — https://docs.github.com/en/copilot/concepts/agents/copilot-memory
-- [x] GitHub Copilot Memory engineering post — https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/
-- [x] Google Gemini Personal Intelligence — https://gemini.google/overview/personal-intelligence/
-- [x] Google Gemini Personal Intelligence support — https://support.google.com/gemini?p=mk_pi
-- [x] Anthropic Claude Projects — https://www.anthropic.com/news/projects
-- [x] OpenAI Memory feature summary — https://help.openai.com/en/articles/8590148-memory-in-chatgpt-remembering-what-you-chat-about
-- [x] Perplexity Spaces help summary — https://www.perplexity.ai/help-center/en/articles/10352961-what-are-spaces
-- [x] Mem0 — https://github.com/mem0ai/mem0
-- [x] Mem0 research — https://mem0.ai/research
-- [x] MemGPT paper — Packer et al. (2024) — "MemGPT: Towards LLMs as Operating Systems" — https://arxiv.org/abs/2310.08560
-- [x] RAPTOR paper — Sarthi et al. (2024) — "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval" — https://arxiv.org/abs/2401.18059
-- [x] GraphRAG — Microsoft Research documentation — https://microsoft.github.io/graphrag/
-- [x] Modular RAG survey — Gao et al. (2024) — "Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks" — https://arxiv.org/abs/2407.21059
-- [x] Self-RAG — Asai et al. (2023) — https://arxiv.org/abs/2310.11511
-- [x] HyDE — Gao et al. (2022) — "Precise Zero-Shot Dense Retrieval without Relevance Labels" — https://arxiv.org/abs/2212.10496
-- [x] Corrective Retrieval-Augmented Generation (CRAG) — https://arxiv.org/abs/2401.15884
-- [x] Frontiers in Human Neuroscience review on memory — https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full
-- [x] Memory & Cognition review on episodic and semantic memory — https://link.springer.com/article/10.3758/s13421-022-01299-x
+- [x] [Zak El-Fassi — "How Do You Want to Remember?"](https://zakelfassi.com/how-do-you-want-to-remember)
+- [x] [GitHub Copilot Memory — GitHub documentation](https://docs.github.com/en/copilot/concepts/agents/copilot-memory)
+- [x] [GitHub Copilot Memory engineering post](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/)
+- [x] [Google Gemini Personal Intelligence](https://gemini.google/overview/personal-intelligence/)
+- [x] [Google Gemini Personal Intelligence support](https://support.google.com/gemini?p=mk_pi)
+- [x] [Anthropic Claude Projects](https://www.anthropic.com/news/projects)
+- [x] [OpenAI Memory feature summary](https://help.openai.com/en/articles/8590148-memory-in-chatgpt-remembering-what-you-chat-about)
+- [x] [Perplexity Spaces help summary](https://www.perplexity.ai/help-center/en/articles/10352961-what-are-spaces)
+- [x] [Mem0](https://github.com/mem0ai/mem0)
+- [x] [Mem0 research](https://mem0.ai/research)
+- [x] [MemGPT paper — Packer et al. (2024) — "MemGPT: Towards LLMs as Operating Systems"](https://arxiv.org/abs/2310.08560)
+- [x] [RAPTOR paper — Sarthi et al. (2024) — "RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval"](https://arxiv.org/abs/2401.18059)
+- [x] [GraphRAG — Microsoft Research documentation](https://microsoft.github.io/graphrag/)
+- [x] [Modular RAG survey — Gao et al. (2024) — "Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks"](https://arxiv.org/abs/2407.21059)
+- [x] [Self-RAG — Asai et al. (2023)](https://arxiv.org/abs/2310.11511)
+- [x] [HyDE — Gao et al. (2022) — "Precise Zero-Shot Dense Retrieval without Relevance Labels"](https://arxiv.org/abs/2212.10496)
+- [x] [Corrective Retrieval-Augmented Generation (CRAG)](https://arxiv.org/abs/2401.15884)
+- [x] [Frontiers in Human Neuroscience review on memory](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full)
+- [x] [Memory & Cognition review on episodic and semantic memory](https://link.springer.com/article/10.3758/s13421-022-01299-x)
 - [x] Prior completed research: `2026-03-02-agent-memory-management-context-injection`
 - [x] Prior completed research: `2026-03-03-knowledge-retention-active-recall`
 - [x] Prior completed research: `2026-03-03-knowledge-linking-connected-corpus`

@@ -73,12 +73,12 @@ The corpus currently has ~12 completed items. The right time to implement search
 - [x] `Research/completed/2026-02-27-indexing-and-tracking-method.md` — prior decision: JSON + YAML front-matter; deferred vector search (Key Finding 5)
 - [x] `Research/completed/2026-03-01-context-mode-llm-context-compression.md` — hybrid BM25+Model2Vec+sqlite-vec+RRF pattern (Key Finding 6)
 - [x] `Research/backlog/2026-02-27-local-database.md` — database technology options including sqlite-vec, ChromaDB, LanceDB (now in completed/)
-- [x] sqlite-vec: https://github.com/asg017/sqlite-vec — vector search extension for SQLite
-- [x] SQLite FTS5: https://www.sqlite.org/fts5.html — full-text search
-- [x] sentence-transformers (all-MiniLM-L6-v2): https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
-- [x] Model2Vec (potion-base-8M): https://github.com/MinishLab/model2vec — small, fast, static sentence embeddings
-- [ ] `tantivy` Python bindings: https://github.com/quickwit-oss/tantivy — Rust-based BM25 search library
-- [ ] LanceDB: https://lancedb.github.io/lancedb/ — embedded vector store with full-text search
+- [x] [sqlite-vec](https://github.com/asg017/sqlite-vec) — vector search extension for SQLite
+- [x] [SQLite FTS5](https://www.sqlite.org/fts5.html) — full-text search
+- [x] [sentence-transformers (all-MiniLM-L6-v2)](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+- [x] [Model2Vec (potion-base-8M)](https://github.com/MinishLab/model2vec) — small, fast, static sentence embeddings
+- [ ] [`tantivy` Python bindings](https://github.com/quickwit-oss/tantivy) — Rust-based BM25 search library
+- [ ] [LanceDB](https://lancedb.github.io/lancedb/) — embedded vector store with full-text search
 
 ---
 
