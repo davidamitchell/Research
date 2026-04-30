@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 1fbaacfa2ae85f750a396669aa7c961b85172291
+    changed: 2026-04-30
+    progress: progress/2026-04-30-fundamentals-first-vs-specs-to-code.md
+    summary: "Initial completion"
 ---
 
 # Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices
