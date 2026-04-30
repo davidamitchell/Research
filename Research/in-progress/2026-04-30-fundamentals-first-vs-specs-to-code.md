@@ -1,5 +1,5 @@
 ---
-review_count: 0
+review_count: 1
 title: "Fundamentals-first versus specs-to-code: empirical patterns in AI-augmented software projects and Return on Investment of Software Engineering practices"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
