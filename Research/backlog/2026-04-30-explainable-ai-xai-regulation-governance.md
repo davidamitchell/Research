@@ -9,7 +9,7 @@ started: ~
 completed: ~
 output: []  # skill | tool | agent | knowledge | backlog-item
 cites: []
-related: [2026-04-24-ai-agent-regulation-global-financial-services, 2026-04-22-ai-governance-assurance-change-control-verification, 2026-02-28-ai-control-testing-and-assurance, 2026-02-28-rbnz-ai-supervisory-expectations]
+related: [2026-04-24-ai-agent-regulation-global-financial-services, 2026-04-22-ai-governance-assurance-change-control-verification, 2026-02-28-ai-control-testing-and-assurance, 2026-02-28-rbnz-ai-supervisory-expectations, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-04-30-orthogonality-thesis-ai-alignment-interpretability]
 superseded_by: ~
 supersedes: ~
 item_type: primary
