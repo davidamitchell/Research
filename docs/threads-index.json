@@ -4660,13 +4660,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -4692,16 +4692,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-copilot-studio",
-    "title": "nist ai / ai rmf / copilot studio",
+    "slug": "ai-rmf-nist-ai-copilot-studio",
+    "title": "ai rmf / nist ai / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "copilot studio"
     ],
     "item_count": 4,
@@ -4727,7 +4727,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -4915,14 +4915,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -4942,16 +4942,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-environment-separation",
-    "title": "nist ai / ai rmf / environment separation",
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "environment separation"
     ],
     "item_count": 3,
@@ -4972,16 +4972,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
   },
   {
-    "slug": "ai-systems-agentic-ai-nist-ai",
-    "title": "ai systems / agentic ai / nist ai",
+    "slug": "agentic-ai-ai-systems-nist-ai",
+    "title": "agentic ai / ai systems / nist ai",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai systems",
       "agentic ai",
+      "ai systems",
       "nist ai"
     ],
     "item_count": 3,
@@ -5002,6 +5002,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-systems-agentic-ai-nist-ai.html"
+    "url": "/Research/threads/agentic-ai-ai-systems-nist-ai.html"
   }
 ]
