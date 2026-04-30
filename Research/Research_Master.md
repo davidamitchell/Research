@@ -1,9 +1,13 @@
 # Research Master Document
 
-Generated on: 2026-04-30 21:17 UTC
+Generated on: 2026-04-30 22:53 UTC
 
 ## Table of Contents
 
+* [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
+* [Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation](#2026-04-30-grill-me-ai-alignment-shared-design-md)
+* [Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices](#2026-04-30-fundamentals-first-vs-specs-to-code-md)
+* [Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases](#2026-04-30-deep-modules-ai-augmented-codebases-md)
 * [Artificial Intelligence code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?](#2026-04-30-ai-code-entropy-quality-metrics-md)
 * [Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?](#2026-04-29-knowledge-scaffolding-context-engineering-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation](#2026-04-28-uelgf-tooling-reference-architecture-md)
@@ -220,6 +224,321 @@ Generated on: 2026-04-30 21:17 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-30-strategic-tactical-division-ai-teams-md"></a>
+
+## Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale
+
+**Tags:** [agentic-coding, software-engineering, agentic-ai, llm, organisational-design]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-strategic-tactical-division-ai-teams.md
+
+## Research Question
+
+In an Artificial Intelligence (AI)-augmented software team, what is the optimal division of labour between the human developer, who owns strategic design, interface definition, and architectural oversight, and the AI assistant, which handles tactical implementation, and does Kent Beck's advice to invest daily in system design provide compounding returns in AI-heavy workflows, particularly if AI's ability to generate large volumes of code rapidly is making bad code more expensive, not cheaper, in 2026 and beyond?
+
+## Findings
+
+### Executive Summary
+
+The best-supported operating model in Artificial Intelligence (AI)-augmented software teams keeps humans responsible for architecture, context, interface definition, clarification, and verification, while delegating bounded implementation work to AI, although stronger specifications, stronger verifiers, and more capable models could shift more strategic work to AI later than current evidence supports. [inference; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M]
+
+Kent Beck's advice to invest continuously in design quality is credible in this setting because coupling, where changing one element forces changes in another, cohesion, where related change pressure stays concentrated inside one element, information hiding, where design knowledge stays inside a module, and optionality, where design preserves future choices, all affect future change cost, and current workflow guidance treats repository structure as part of the context future AI generations consume. [inference; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/]
+
+The compounding-return claim is still indirect, because the accessible design-investment sources used here argue mechanism and workflow value rather than directly measuring a fixed daily design-investment rate against long-run team outcomes under AI-heavy delivery. [inference; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/]
+
+The strongest evidence for the economic side of the question points to "bad code is expensive" rather than "code is cheap," although some of the downstream cost signal may also reflect changing repository mix or broader delivery pressure, because AI can increase duplication, reduce scrutiny, and raise later understanding cost faster than teams can absorb those downstream burdens. [inference; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785; https://ml4code.github.io/publications/vaithilingam2022expectation/; https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html; https://martinfowler.com/articles/legacy-modernization-gen-ai.html]
+
+### Key Findings
+
+1. **The strongest available evidence, even allowing for the competing hypothesis that better specifications and verifiers could shift more strategic work to AI, still supports a strategist-builder split in which humans own architecture, interfaces, context, and verification policy, while AI executes bounded implementation tasks inside those constraints.** ([inference]; medium confidence; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://arxiv.org/abs/2310.10996)
+2. **Clarification and investigation before execution are the most directly evidenced ways to improve human-AI collaboration, because they reduce guessing before code or debugging advice is emitted and measurably improve correctness or resolution quality.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/; https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html)
+3. **AI coding tools deliver genuine tactical gains on bounded work, including faster completion, better unit-test performance, and quicker code-review cycles when tasks and success criteria are explicit enough that the model is not forced to infer hidden intent.** ([fact]; high confidence; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/)
+4. **Kent Beck's advice to invest continuously in design quality is best read as a compounding-risk and compounding-optionality argument, and AI plausibly increases its value because future generations inherit today's structure rather than starting from a blank slate.** ([inference]; low confidence; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/; https://pragprog.com/tips/; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)
+5. **Bad code is becoming more expensive rather than less expensive at AI scale, because the best-supported current explanation for the observed downstream cost signals is that generation cost is falling faster than scrutiny, understanding, refactoring, and operational risk are falling across real development workflows, even though repository mix and delivery pressure may contribute at the margin.** ([inference]; medium confidence; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785; https://ml4code.github.io/publications/vaithilingam2022expectation/; https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html; https://martinfowler.com/articles/legacy-modernization-gen-ai.html)
+6. **A dominant failure mode is human over-acceptance of locally useful output that later proves costly to integrate, explain, debug, or revise inside a larger codebase.** ([inference]; medium confidence; source: https://ml4code.github.io/publications/vaithilingam2022expectation/; https://arxiv.org/abs/2303.08733; https://arxiv.org/abs/2205.06537)
+7. **Human attention has highest return when spent on architecture, intent capture, tests, review standards, and prioritisation, while prompt ornamentation and manual boilerplate coding are lower-leverage uses of scarce expert time.** ([inference]; medium confidence; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Current evidence still favors humans owning strategic constraints and AI owning bounded implementation, even if future verifier-rich workflows may shift that boundary. | https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://arxiv.org/abs/2310.10996 | medium | Competing hypothesis acknowledged |
+| [inference] Clarification and investigation phases improve alignment before execution. | https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/; https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html | medium | Direct empirical support |
+| [fact] AI delivers strong tactical gains on explicit tasks. | https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/ | high | Controlled or structured studies |
+| [inference] Daily design investment likely compounds more strongly under AI-heavy workflows. | https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/; https://pragprog.com/tips/; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign | medium | Theory-backed, not directly quantified |
+| [inference] The best-supported current explanation is that bad code becomes more expensive at AI scale because review and maintenance do not scale with generation, although other industry shifts may contribute. | https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785; https://ml4code.github.io/publications/vaithilingam2022expectation/; https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html; https://martinfowler.com/articles/legacy-modernization-gen-ai.html | medium | Alternative explanations acknowledged |
+| [inference] The main risk is under-scrutinized local usefulness, not universal uselessness. | https://ml4code.github.io/publications/vaithilingam2022expectation/; https://arxiv.org/abs/2303.08733; https://arxiv.org/abs/2205.06537 | medium | Usability and perception evidence |
+| [inference] Human attention is highest leverage in design, verification, and prioritisation. | https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html | medium | Guidance plus companion synthesis |
+
+### Assumptions
+
+- [assumption; source: https://kentbeck.com/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/] The accessible Beck website and interview are adequate stand-ins for blocked or paywalled Substack posts because they state the same core positions on augmented coding, taste, and design judgment.
+- [assumption; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.gitclear.com/ai_assistant_code_quality_2025_research] Whole-team role-division conclusions remain inference-level because the available evidence joins mechanism studies and longitudinal signals rather than a single integrated field experiment.
+
+### Analysis
+
+The evidence points to a clean separation between local execution gains and whole-workflow control needs. [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://ml4code.github.io/publications/vaithilingam2022expectation/]
+
+When goals are explicit and tests are available, AI often performs well enough that line-by-line human implementation becomes a lower-value use of expert attention. [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/]
+
+When intent is underspecified, or when the change crosses unclear architectural boundaries, the main determinant of outcome shifts from model fluency to the quality of clarification, context selection, and verification. [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+This is why Beck's design-investment claim fits the AI era even without a precise measured multiplier: every improvement to names, boundaries, and tests changes the environment both humans and models operate in next time. [inference; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/]
+
+The long-run economic hazard is that teams may over-index on the visible speed gain and under-invest in the strategic controls that keep output reviewable and reusable. [inference; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785; https://ml4code.github.io/publications/vaithilingam2022expectation/; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html]
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/] No accessible source in this evidence set directly measures a universal or recommended daily design-investment percentage for AI-heavy teams.
+- [fact; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] Clarification studies show mechanism-level gains, but they do not yet provide whole-project maintenance economics.
+- [fact; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785] Longitudinal code-quality signals are strong enough to matter, but they still stop short of a unified total-cost-of-ownership model.
+
+### Open Questions
+
+- What is the smallest repeatable package of design artifacts that yields most of the strategist-builder benefit in day-to-day team work?
+- How should team staffing, incentives, and review norms change once architectural judgment becomes more valuable than manual implementation volume?
+- Which leading indicators best show that an AI-heavy team has crossed from productive delegation into unsustainable review debt?
+
+---
+
+---
+
+<a id="2026-04-30-grill-me-ai-alignment-shared-design-md"></a>
+
+## Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation
+
+**Tags:** [agentic-coding, software-engineering, llm, evaluation, workflow, agentic-ai]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-grill-me-ai-alignment-shared-design.md
+
+## Research Question
+
+How effectively does the "Grill Me" technique, relentless iterative structured interviewing of the human developer by the AI assistant to build a shared design concept before generating any code, reduce misalignment between human intent and AI-generated output, and what are the measurable outcome differences compared to jumping directly into plan or code generation?
+
+## Findings
+
+### Executive Summary
+
+Grill Me is an effective alignment technique when the task is ambiguous because it turns more of the user's hidden intent into explicit pre-code constraints before generation begins. [inference; source: https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] The strongest direct evidence comes from clarification-before-code research, which shows measurable gains in first-pass correctness and reliability when models ask targeted questions before writing code. [fact; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] Baseline Copilot studies explain why that helps in practice: direct generation is often fast and locally useful, but developers still lose time when they must understand, edit, and debug code generated from incomplete requirements. [inference; source: https://ml4code.github.io/publications/vaithilingam2022expectation/; https://sarahnadi.org/assets/pdf/pubs/NguyenMSR22.pdf; https://arxiv.org/abs/2302.06590] The remaining uncertainty is which ingredient matters most, because current studies do not cleanly separate ambiguity reduction from extra interaction time, richer examples, or longer context accumulation, and they do not yet show the full-project wall-clock effect in production. [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+### Key Findings
+
+1. **Matt Pocock's Grill Me technique is a concrete clarification-first workflow in which the agent asks one question at a time, walks the design tree branch by branch, recommends answers, and stops only when shared understanding has been reached.** ([fact]; medium confidence; source: https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://www.aihero.dev/my-grill-me-skill-has-gone-viral)
+2. **Direct code-generation research shows that adding a targeted clarifying-question phase before code generation materially improves first-pass correctness on underspecified tasks, including a GPT-4 benchmark correctness increase from 70.96% to 80.80% in ClarifyGPT.** ([fact]; medium confidence; source: https://arxiv.org/abs/2310.10996)
+3. **A second clarification-before-code study, ClariGen, reports that high-quality clarifications improve code correctness and reliability while reducing later revision needs, which supports the same mechanism through a separate research program but currently with thinner evidence than ClarifyGPT.** ([fact]; low confidence; source: https://openreview.net/forum?id=s566pj5E5M)
+4. **Baseline Copilot usability evidence shows why Grill Me matters: users often prefer generated code as a starting point, but still lose effectiveness when they must understand, edit, and debug output produced from incomplete or mismatched requirements.** ([fact]; high confidence; source: https://ml4code.github.io/publications/vaithilingam2022expectation/; https://sarahnadi.org/assets/pdf/pubs/NguyenMSR22.pdf)
+5. **The strongest software-engineering analogue for Grill Me is requirements discovery rather than prompt optimization, because Three Amigos workshops use concrete examples, edge cases, technical constraints, and testability questions to surface hidden assumptions before implementation begins.** ([inference]; medium confidence; source: https://johnfergusonsmart.com/three-amigos-requirements-discovery/; https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html)
+6. **Pocock's public examples report Grill Me sessions ranging from 16 questions on a smaller feature to roughly 30 to 50 questions on more complex changes, and he says these conversations often last about 45 minutes, which suggests the practice is a real discovery phase rather than a one-line prompt enhancement.** ([inference]; medium confidence; source: https://www.aihero.dev/my-grill-me-skill-has-gone-viral; https://www.aihero.dev/5-agent-skills-i-use-every-day)
+7. **Compared with jumping directly to code, Grill Me is best supported as a way to improve first-output correctness and reduce correction rounds under ambiguity, but direct evidence that it always shortens total time-to-working-feature is still missing.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://arxiv.org/abs/2302.06590; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html)
+8. **The available evidence suggests Grill Me is likely transferable across models and stacks because clarification gains appear in multi-model studies and the same explore-then-plan guidance appears in both Anthropic and GitHub workflow recommendations, but industrial cross-language head-to-head data remains thin.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.10996; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Grill Me is a one-question-at-a-time design interview that resolves dependencies until shared understanding. | https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://www.aihero.dev/my-grill-me-skill-has-gone-viral | medium | Direct Pocock mechanism |
+| [fact] ClarifyGPT raises first-pass correctness by adding clarifying questions before code generation. | https://arxiv.org/abs/2310.10996 | medium | Measured benchmark gain |
+| [fact] ClariGen reports correctness, reliability, and revision benefits from interactive clarification. | https://openreview.net/forum?id=s566pj5E5M | low | Abstract-level evidence |
+| [fact] Prompt-to-code remains attractive but creates comprehension and debugging burden when intent is incomplete. | https://ml4code.github.io/publications/vaithilingam2022expectation/; https://sarahnadi.org/assets/pdf/pubs/NguyenMSR22.pdf | high | Baseline misalignment evidence |
+| [inference] Grill Me maps most closely to requirements-discovery practices such as Three Amigos. | https://johnfergusonsmart.com/three-amigos-requirements-discovery/; https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html | medium | Mechanism match |
+| [inference] Pocock's public examples suggest 16 to 50 questions and sessions that often last about 45 minutes on non-trivial work. | https://www.aihero.dev/my-grill-me-skill-has-gone-viral; https://www.aihero.dev/5-agent-skills-i-use-every-day | medium | Pocock-reported examples |
+| [inference] The clearest proven advantage is better first-output correctness, not guaranteed lower total cycle time. | https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://arxiv.org/abs/2302.06590; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html | medium | Lifecycle gap remains |
+| [inference] Transferability is plausible across models because ambiguity reduction and context scoping are model-agnostic mechanisms. | https://arxiv.org/abs/2310.10996; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/ | medium | Multi-model plus workflow guidance |
+
+### Assumptions
+
+- [assumption] The current Pocock first-party sources are an acceptable substitute for the dead Total TypeScript seed URL because they describe the same technique in current public form.
+- [assumption] The absence of an accessible long-run randomized field study means project-length benefits must be inferred from benchmark studies, usability studies, and requirements-discovery analogues rather than asserted directly.
+
+### Analysis
+
+The evidence supports Grill Me most strongly as an ambiguity-management workflow rather than as a universal speed hack. [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://arxiv.org/abs/2302.06590] Direct clarification studies carry the core causal weight because they measure code-generation outcomes before and after an explicit questioning phase. [fact; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] Ambiguity reduction is the best-supported explanation for the gains, but it is not the only plausible explanation, because clarification sessions also add more interaction time, more user-provided examples, and more context tokens before generation starts. [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.anthropic.com/engineering/claude-code-best-practices] The practical trade-off is therefore front-loaded questioning cost versus downstream debugging cost, which means Grill Me should have its highest Return on Investment on ambiguous, multi-step, or high-consequence changes rather than on tiny, already-explicit tasks. [inference; source: https://www.aihero.dev/5-agent-skills-i-use-every-day; https://arxiv.org/abs/2302.06590; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] The direct clarification studies are controlled or benchmark-oriented, not longitudinal production studies.
+- [fact; source: https://openreview.net/forum?id=s566pj5E5M] ClariGen evidence is currently accessible as an abstract and project summary rather than a fully reviewed camera-ready paper in this session.
+- [inference; source: https://www.aihero.dev/my-grill-me-skill-has-gone-viral; https://www.aihero.dev/5-agent-skills-i-use-every-day] Pocock's question-count examples are informative but may reflect his teaching style and chosen examples rather than a stable industry median.
+- [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/] No accessible study isolates total wall-clock feature delivery for grill-first versus prompt-to-code across a full project lifecycle.
+
+### Open Questions
+
+- What is the smallest set of question categories that captures most of Grill Me's alignment benefit without making the session feel slow?
+- Can automated instrumentation measure whether grill-first sessions reduce later code review comments, bug-fix churn, or failed test iterations in real repositories?
+- Does the benefit curve flatten after a certain number of questions, or does value depend mainly on surfacing a small number of high-impact hidden constraints?
+- Which parts of Grill Me can be automated from repository context without losing the human alignment benefit?
+
+---
+
+---
+
+<a id="2026-04-30-fundamentals-first-vs-specs-to-code-md"></a>
+
+## Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices
+
+**Tags:** [agentic-coding, software-engineering, tdd, evaluation, agentic-ai, llm, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-fundamentals-first-vs-specs-to-code.md
+
+## Research Question
+
+What empirical patterns emerge when comparing real-world software projects built with a strict fundamentals-first Artificial Intelligence (AI) workflow, structured alignment, modules with simple interfaces that hide substantial complexity, Ubiquitous Language (UL), and Test-Driven Development (TDD), versus pure prompt-to-code or minimal-structure agent-only approaches, and which specific Software Engineering (SE) practices deliver the highest Return on Investment (ROI) in terms of code quality and developer velocity when AI is the primary coder?
+
+## Findings
+
+### Executive Summary
+
+The balance of available evidence favors fundamentals-first workflows over pure specs-to-code once AI-generated code has to survive review, debugging, and ongoing change, even though prompt-only workflows often win on immediate prototyping speed. [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://doi.org/10.1145/3491101.3519665]
+
+Among the most repeatedly recommended and plausibly high-ROI controls are practices that give the model external feedback and reduce ambiguity before generation, especially executable tests, explicit contracts or types, and architecture or context constraints. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.aihero.dev/; https://github.com/mattpocock/skills]
+
+The central reason is operational rather than philosophical: developers struggle to understand generated code, accept AI suggestions with less scrutiny, and later pay for duplication and weak structure that were cheap to create at the start. [inference; source: https://doi.org/10.1145/3491101.3519665; https://arxiv.org/abs/2506.04785; https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+
+Matt Pocock's workflow is best read as a coherent synthesis of currently supported controls rather than as a bundle that already has direct public ROI proof, and its transferability beyond TypeScript is plausible but low-confidence rather than settled. [inference; source: https://github.com/mattpocock/skills; https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era; https://conf.researchr.org/details/msr-2022/msr-2022-technical-papers/11/An-Empirical-Evaluation-of-GitHub-Copilot-s-Code-Suggestions]
+
+### Key Findings
+
+1. **Controlled studies show that AI coding tools can deliver real short-run gains in speed and local quality, but those studies do not demonstrate that prompt-only workflows remain superior once work extends beyond a bounded task into a maintained project.** ([inference]; medium confidence; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331)
+2. **Executable verification is one of the most repeatedly recommended and plausibly high-ROI fundamentals-first practices, because tests and other external checks improve first-pass correctness and give agents a feedback loop that reduces blind trial-and-error during implementation.** ([inference]; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://www.aihero.dev/; https://github.com/mattpocock/skills)
+3. **Explicit contracts, specifications, and type signals are the next strongest ROI layer, because they reduce requirement ambiguity before generation and make AI output easier to review, modify, and preserve across sessions.** ([inference]; medium confidence; source: https://arxiv.org/html/2602.00180v1; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era)
+4. **Architecture and context constraints matter mainly through maintainability, not initial fluency, because repository-scale studies and practitioner cases show that duplication, entropy, and rescue cost rise when AI output is allowed to accumulate without structure.** ([inference]; medium confidence; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://github.com/mattpocock/skills; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md)
+5. **Review burden is a central operational reason fundamentals-first beats vibe coding on serious projects, because developers struggle to understand generated code, accept AI suggestions with less scrutiny, and can lose the saved time during debugging and integration.** ([inference]; high confidence; source: https://doi.org/10.1145/3491101.3519665; https://arxiv.org/abs/2506.04785; https://arxiv.org/abs/2303.08733)
+6. **The Matt Pocock stack is externally supportable as a coherent synthesis of known good controls, but current public evidence supports its components more strongly than it supports the exact four-part bundle as a measured package.** ([inference]; medium confidence; source: https://github.com/mattpocock/skills; https://www.aihero.dev/; https://www.totaltypescript.com/cursor-rules-for-better-ai-development; https://www.totaltypescript.com/should-you-declare-return-types)
+7. **Fundamentals-first benefits plausibly transfer beyond TypeScript when a stack offers strong interfaces, type or schema boundaries, and executable verification, but direct cross-stack evidence is limited and the uplift should not be assumed to be uniform.** ([inference]; low confidence; source: https://conf.researchr.org/details/msr-2022/msr-2022-technical-papers/11/An-Empirical-Evaluation-of-GitHub-Copilot-s-Code-Suggestions; https://blog.jetbrains.com/team/2024/12/11/the-state-of-developer-ecosystem-2024-unveiling-current-developer-trends-the-unstoppable-rise-of-ai-adoption-leading-languages-and-impact-on-developer-experience/; https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/)
+8. **The payback period is mixed: prompt-only workflows are advantaged for disposable prototypes, while fundamentals-first practices pay back quickly in reduced rework and more strongly later through lower entropy and cheaper feature addition.** ([inference]; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2602.00180v1; https://itrevolution.com/accelerate-book/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Bounded-task studies show real AI gains but do not establish long-run workflow superiority. | https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331 | medium | Task scale only |
+| [inference] Executable verification is one of the most repeatedly recommended and plausibly high-ROI fundamentals-first controls. | https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://www.aihero.dev/; https://github.com/mattpocock/skills | medium | Guidance plus task evidence |
+| [inference] Specifications, contracts, and type signals reduce ambiguity and improve reviewability. | https://arxiv.org/html/2602.00180v1; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era | medium | Mechanism supported |
+| [inference] Architecture and context constraints primarily pay back through lower entropy and easier change. | https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://github.com/mattpocock/skills; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md | medium | Repository scale |
+| [inference] Review burden is the operational bottleneck that makes unstructured AI workflows degrade. | https://doi.org/10.1145/3491101.3519665; https://arxiv.org/abs/2506.04785; https://arxiv.org/abs/2303.08733 | high | Multiple direct studies |
+| [inference] Matt Pocock's stack is bundle-level plausible but not bundle-level proven. | https://github.com/mattpocock/skills; https://www.aihero.dev/; https://www.totaltypescript.com/cursor-rules-for-better-ai-development; https://www.totaltypescript.com/should-you-declare-return-types | medium | Bundle evidence absent |
+| [inference] Benefits plausibly transfer across stacks with strong verification and interfaces, but direct cross-stack evidence is limited. | https://conf.researchr.org/details/msr-2022/msr-2022-technical-papers/11/An-Empirical-Evaluation-of-GitHub-Copilot-s-Code-Suggestions; https://blog.jetbrains.com/team/2024/12/11/the-state-of-developer-ecosystem-2024-unveiling-current-developer-trends-the-unstoppable-rise-of-ai-adoption-leading-languages-and-impact-on-developer-experience/; https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/ | low | Indirect support |
+| [inference] Payback is early for verification and ambiguity reduction, later and compounding for architecture work. | https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2602.00180v1; https://itrevolution.com/accelerate-book/ | medium | Mixed timing |
+
+### Assumptions
+
+- Using Matt Pocock's public skills repository, AI Hero homepage, and Total TypeScript articles as proxies for the dead `ai-coding-assistants` page is acceptable because they are his current official public descriptions of the same workflow components. [assumption; source: https://github.com/mattpocock/skills; https://www.aihero.dev/; https://www.totaltypescript.com/cursor-rules-for-better-ai-development]
+- Transferability from TypeScript-centric public guidance to other stacks is reasonable when the operative mechanism is explicit interfaces plus executable verification rather than TypeScript syntax itself. [assumption; source: https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era; https://arxiv.org/html/2602.00180v1; https://www.anthropic.com/engineering/claude-code-best-practices]
+- Long-run workflow ROI must be inferred from mixed evidence because no accessible public study directly randomizes teams into full fundamentals-first and prompt-only project conditions. [assumption; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2602.00180v1]
+
+### Analysis
+
+The evidence supports a layered reading of AI coding ROI rather than a binary one. [inference; source: https://arxiv.org/abs/2302.06590; https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+
+Prompt-only workflows are genuinely useful for getting to a first version quickly, but the empirical and practitioner evidence repeatedly shows that understanding, reviewing, and integrating generated code become the binding constraints once the project persists. [inference; source: https://doi.org/10.1145/3491101.3519665; https://arxiv.org/abs/2506.04785; https://arxiv.org/abs/2303.08733]
+
+That is why the most plausible high-ROI fundamentals are the ones that either narrow the model's search space before generation or supply hard feedback after generation: tests, executable acceptance criteria, explicit interfaces, and architecture boundaries. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/mattpocock/skills]
+
+Architecture work looks slower only if the measurement window ends at the first passing build, because repository-scale signals and the Atlassian rescue case both suggest that the real cost center is subsequent change in a duplicated or weakly structured codebase. [inference; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring]
+
+The Matt Pocock framework therefore reads less like a novel empirical discovery and more like a well-compressed operating model built from currently supported controls. [inference; source: https://github.com/mattpocock/skills; https://www.aihero.dev/; https://www.totaltypescript.com/should-you-declare-return-types]
+
+### Risks, Gaps, and Uncertainties
+
+- The strongest repository-scale evidence is observational, so causal attribution to AI assistance alone remains uncertain. [fact; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+- The accessible public evidence for the combined Matt Pocock stack is descriptive rather than experimental, so the bundle-level ROI remains unproven in this investigation. [inference; source: https://github.com/mattpocock/skills; https://www.aihero.dev/]
+- Cross-language variance is real, so generalizing a TypeScript-centric workflow to all domains should stay medium confidence. [fact; source: https://conf.researchr.org/details/msr-2022/msr-2022-technical-papers/11/An-Empirical-Evaluation-of-GitHub-Copilot-s-Code-Suggestions]
+- The vibe-coding literature is new and partly based on grey literature, so prevalence and practice descriptions should be treated as emerging rather than fully settled. [fact; source: https://arxiv.org/html/2510.00328v1]
+
+### Open Questions
+
+- What would a true longitudinal comparison between structured AI teams and prompt-only AI teams show for defect escape rate, review time, and lead time after six or twelve months?
+- Which single artifact yields the biggest marginal ROI in practice: failing tests, a specification file, a shared vocabulary document, or an architecture review cadence?
+- How much of the apparent TypeScript advantage is typing itself versus stronger surrounding tooling and conventions?
+- Can a lightweight measurement stack built from duplication, hotspot health, review time, and change-failure proxies reliably detect when a team should shift from prompt-only speed to fundamentals-first discipline?
+
+---
+
+---
+
+<a id="2026-04-30-deep-modules-ai-augmented-codebases-md"></a>
+
+## Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases
+
+**Tags:** [agentic-coding, software-engineering, llm, evaluation, agentic-ai]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md
+
+## Research Question
+
+How much more effective is Artificial Intelligence (AI) at understanding, navigating, and correctly modifying a codebase composed of deep modules with simple interfaces versus one filled with many shallow modules, and can iterative architectural improvement rescue an AI-generated "ball of mud" codebase, and if so what is the typical effort-versus-benefit ratio?
+
+## Findings
+
+### Executive Summary
+
+Indirect evidence suggests Artificial Intelligence (AI) coding agents should be more reliable in codebases organized around deep modules with explicit interfaces than in shallow, densely coupled codebases, but the gain appears to come from a bundle of controls that also includes verifier strength, type information, tests, and repository instruction artifacts rather than from module depth alone. [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://arxiv.org/html/2511.09268v1]
+
+The best-supported delegation pattern keeps humans responsible for contract design and verification while letting the AI search within that boundary for a working implementation, which makes module depth one enabling condition among several rather than the sole cause of safer outcomes. [inference; source: https://www.totaltypescript.com/should-you-declare-return-types; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html]
+
+A densely coupled codebase with weak boundaries can be rescued incrementally, but the credible path is hotspot-first and batch-validated rather than a one-shot rewrite. [inference; source: https://martinfowler.com/books/refactoring.html; https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://codescene.com/blog/measure-code-health-of-your-codebase; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring]
+
+The effort-versus-benefit ratio is therefore highly uneven: targeted architectural work on high-churn boundaries can produce meaningful gains, while whole-repository rescue becomes more expensive as hidden coupling, duplication, and code-health decline accumulate. [inference; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://codescene.com/blog/measure-code-health-of-your-codebase]
+
+### Key Findings
+
+1. **The available evidence for architecture benefit is indirect rather than head-to-head: foundational module theory, modern context-management guidance, and configuration studies converge on the same mechanism, but none of them quantifies a universal uplift multiplier.** ([inference]; medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://arxiv.org/html/2511.09268v1)
+2. **Deep modules should improve AI codebase navigation and modification because they minimize the amount of design knowledge exposed across call sites, which lowers the context each change requires and keeps more reasoning inside a bounded implementation surface.** ([inference]; medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices)
+3. **Current agent guidance and configuration practice repeatedly elevate architecture, context scope, and verification rules as operational concerns rather than as afterthoughts, which shows that these surfaces are treated as first-class configuration targets in real agent workflows.** ([fact]; medium confidence; source: https://arxiv.org/html/2511.09268v1; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices)
+4. **Public practitioner evidence directly shows that explicit interface cues such as return types and durable rule files are treated as aids to future AI assistants' understanding of code intent, which gives a concrete small-scale example of the broader deep-module argument.** ([fact]; medium confidence; source: https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/cursor-rules-for-better-ai-development)
+5. **Contract-first delegation is the most defensible workflow pattern because it combines architecture, explicit types, tests, and repository instruction artifacts while preserving human ownership of contracts and verification, even though the pattern is better supported as a synthesis than as a named experimental method.** ([inference]; medium confidence; source: https://www.totaltypescript.com/should-you-declare-return-types; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html)
+6. **Bounded-task AI coding can be genuinely useful, but weaker human scrutiny and fragile multi-step reasoning make architecture and verifier boundaries more important than raw suggestion quality alone when changes must remain coherent across a codebase.** ([inference]; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331; https://arxiv.org/abs/2506.04785)
+7. **Rescue of a densely coupled codebase with weak boundaries is feasible through iterative refactoring, hotspot prioritization, persistent context, and small validated batches, and the available evidence favors that path over blind whole-repository rewrites.** ([inference]; medium confidence; source: https://martinfowler.com/books/refactoring.html; https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://codescene.com/blog/measure-code-health-of-your-codebase; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring)
+8. **The payoff from rescue is front-loaded on active hotspots and interface seams, while the cost rises as hidden coupling and declining code health accumulate, so no single effort-benefit ratio is portable across codebases.** ([inference]; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://codescene.com/blog/measure-code-health-of-your-codebase)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] The architecture-benefit case is indirect: theory, context guidance, and configuration evidence align, but no universal uplift multiplier is measured. | http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://arxiv.org/html/2511.09268v1 | medium | Indirect convergence |
+| [inference] Deep modules should reduce AI context burden per change. | http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices | medium | Theory plus agent guidance |
+| [fact] Architecture and context rules are prominent operational concerns in agent configuration practice. | https://arxiv.org/html/2511.09268v1; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/ | medium | Config ecosystem |
+| [fact] Explicit return types and durable rule files are used to help AI understand code intent. | https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/cursor-rules-for-better-ai-development | medium | Small-scale direct evidence |
+| [inference] Contract-first delegation is best supported when architecture is paired with types, tests, and repository instructions. | https://www.totaltypescript.com/should-you-declare-return-types; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html | medium | Convergent guidance |
+| [inference] Local AI quality gains do not remove the need for stronger architecture and verification. | https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331; https://arxiv.org/abs/2506.04785 | medium | Local gains, scrutiny limits |
+| [inference] Available rescue evidence favors iterative, hotspot-first cleanup over blind whole-repository rewrites. | https://martinfowler.com/books/refactoring.html; https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://codescene.com/blog/measure-code-health-of-your-codebase; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring | medium | Classic plus modern case |
+| [inference] Rescue return on investment (ROI) concentrates on high-churn hotspots and interface seams. | https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://codescene.com/blog/measure-code-health-of-your-codebase | medium | No universal ratio |
+
+### Assumptions
+
+- Interface-first guidance from TypeScript-centric sources is relevant to broader software engineering because the claimed mechanism is explicit contract surface rather than language choice alone. [assumption; source: https://www.totaltypescript.com/should-you-declare-return-types; https://www.anthropic.com/engineering/claude-code-best-practices]
+- Atlassian's feature-gate cleanup case is relevant to AI-generated-code rescue even though the target code was not described as wholly AI-generated, because the case still shows what large-scale, context-rich architectural cleanup requires in practice. [assumption; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring]
+- The absence of a direct benchmark in the accessible search is an evidence gap rather than proof that architecture does not matter. [assumption; source: https://arxiv.org/html/2511.09268v1]
+
+### Analysis
+
+The core analytic move is to combine a strong theoretical mechanism with modern agent constraints: information hiding reduces externally required knowledge, and context limits make externally required knowledge the scarce resource for AI agents. [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+The public AI-era evidence is stronger on design and workflow convergence than on causal measurement, which is why this item can recommend deep modules and contract-first delegation directionally without pretending the uplift is already numerically pinned down. [inference; source: https://arxiv.org/html/2511.09268v1; https://www.totaltypescript.com/should-you-declare-return-types; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/]
+
+A rival explanation is that verifier strength, test coverage, type information, naming and specification artifacts, and repository instructions drive most of the observed gain regardless of module depth. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/html/2511.09268v1; https://www.totaltypescript.com/should-you-declare-return-types]
+
+The evidence partly supports that rival explanation, which is why the strongest conclusion here is not that architecture dominates those controls, but that deep modules make them more local, legible, and enforceable inside real maintenance tasks. [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/]
+
+Rescue economics favor modular cleanup, namely identifying active seams, restoring boundaries, and iterating with tests and history-based metrics, because that is where current evidence ties effort to observable benefit. [inference; source: https://martinfowler.com/books/refactoring.html; https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://codescene.com/blog/measure-code-health-of-your-codebase; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring]
+
+### Risks, Gaps, and Uncertainties
+
+- The sources reviewed here do not provide a direct controlled study that compares otherwise similar deep-module and shallow-module codebases under the same AI task. [inference; source: https://arxiv.org/html/2511.09268v1; https://www.anthropic.com/engineering/claude-code-best-practices]
+- The strongest public evidence for contract-first delegation is practitioner guidance rather than controlled experimentation. [fact; source: https://www.totaltypescript.com/cursor-rules-for-better-ai-development; https://www.totaltypescript.com/should-you-declare-return-types]
+- The best rescue case in this item is a single detailed practitioner report rather than a multi-organization benchmark. [fact; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring]
+- Any whole-repository effort curve remains uncertain because rescue cost depends heavily on hidden coupling, hotspot distribution, and how much executable verification already exists. [inference; source: https://codescene.com/blog/measure-code-health-of-your-codebase; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html]
+
+### Open Questions
+
+- What measurable proxy for module depth best predicts agent success on multi-file maintenance tasks? [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign]
+- Can a controlled study randomize the same repository into deep-boundary and shallow-boundary variants to estimate the architecture effect on agent accuracy and context consumption directly? [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://arxiv.org/html/2511.09268v1]
+- Which hotspot-first rescue sequence gives the best return in real AI-heavy codebases: interface extraction, dependency inversion, module consolidation, or test-harness reinforcement? [inference; source: https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring]
+
+---
 
 ---
 
