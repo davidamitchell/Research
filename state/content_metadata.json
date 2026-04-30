@@ -1,6 +1,89 @@
 {
-  "extracted_at": "2026-04-30T21:26:55Z",
+  "extracted_at": "2026-04-30T21:42:10Z",
   "items": {
+    "2026-04-30-deep-modules-ai-augmented-codebases": {
+      "named_concepts": [
+        "deep modules",
+        "module depth",
+        "contract-first delegation",
+        "densely coupled",
+        "hidden coupling",
+        "ai coding",
+        "verifier strength",
+        "type information",
+        "repository instruction",
+        "instruction artifacts",
+        "coupled codebase",
+        "weak boundaries",
+        "universal uplift",
+        "uplift multiplier",
+        "agent guidance",
+        "configuration practice",
+        "operational concerns",
+        "return types",
+        "durable rule",
+        "rule files"
+      ],
+      "source_urls": [
+        "https://web.stanford.edu/~ouster/cgi-bin/book.php",
+        "https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign",
+        "https://martinfowler.com/books/refactoring.html",
+        "https://www.oreilly.com/library/view/design-patterns-elements/0201633612/",
+        "https://pragprog.com/titles/atevol/software-design-x-rays/",
+        "https://www.totaltypescript.com/cursor-rules-for-better-ai-development",
+        "https://www.totaltypescript.com/should-you-declare-return-types",
+        "https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://arxiv.org/html/2511.09268v1",
+        "https://arxiv.org/abs/2205.06537",
+        "https://arxiv.org/abs/2206.15331",
+        "https://arxiv.org/abs/2506.04785",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/",
+        "https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring",
+        "https://codescene.com/blog/change-coupling-visualize-the-cost-of-change",
+        "https://codescene.com/blog/measure-code-health-of-your-codebase",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The available evidence for architecture benefit is indirect rather than head-to-head: foundational module theory, modern context-management guidance, and configuration studies converge on the same mechanism, but none of them quantifies a universal uplift multiplier. (; medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://arxiv.org/html/2511.09268v1)",
+          "sources": []
+        },
+        {
+          "text": "Deep modules should improve AI codebase navigation and modification because they minimize the amount of design knowledge exposed across call sites, which lowers the context each change requires and keeps more reasoning inside a bounded implementation surface. (; medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices)",
+          "sources": []
+        },
+        {
+          "text": "Current agent guidance and configuration practice repeatedly elevate architecture, context scope, and verification rules as operational concerns rather than as afterthoughts, which shows that these surfaces are treated as first-class configuration targets in real agent workflows. (; medium confidence; source: https://arxiv.org/html/2511.09268v1; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices)",
+          "sources": []
+        },
+        {
+          "text": "Public practitioner evidence directly shows that explicit interface cues such as return types and durable rule files are treated as aids to future AI assistants' understanding of code intent, which gives a concrete small-scale example of the broader deep-module argument. (; medium confidence; source: https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/cursor-rules-for-better-ai-development)",
+          "sources": []
+        },
+        {
+          "text": "Contract-first delegation is the most defensible workflow pattern because it combines architecture, explicit types, tests, and repository instruction artifacts while preserving human ownership of contracts and verification, even though the pattern is better supported as a synthesis than as a named experimental method. (; medium confidence; source: https://www.totaltypescript.com/should-you-declare-return-types; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html)",
+          "sources": []
+        },
+        {
+          "text": "Bounded-task AI coding can be genuinely useful, but weaker human scrutiny and fragile multi-step reasoning make architecture and verifier boundaries more important than raw suggestion quality alone when changes must remain coherent across a codebase. (; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331; https://arxiv.org/abs/2506.04785)",
+          "sources": []
+        },
+        {
+          "text": "Rescue of a densely coupled codebase with weak boundaries is feasible through iterative refactoring, hotspot prioritization, persistent context, and small validated batches, and the available evidence favors that path over blind whole-repository rewrites. (; medium confidence; source: https://martinfowler.com/books/refactoring.html; https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://codescene.com/blog/measure-code-health-of-your-codebase; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring)",
+          "sources": []
+        },
+        {
+          "text": "The payoff from rescue is front-loaded on active hotspots and interface seams, while the cost rises as hidden coupling and declining code health accumulate, so no single effort-benefit ratio is portable across codebases. (; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://codescene.com/blog/measure-code-health-of-your-codebase)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-30-ai-code-entropy-quality-metrics": {
       "named_concepts": [
         "artificial intelligence",
