@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
