@@ -1,6 +1,83 @@
 {
-  "extracted_at": "2026-04-30T22:15:20Z",
+  "extracted_at": "2026-04-30T22:27:46Z",
   "items": {
+    "2026-04-30-grill-me-ai-alignment-shared-design": {
+      "named_concepts": [
+        "first-pass correctness",
+        "ambiguity reduction",
+        "baseline copilot",
+        "still lose",
+        "understand edit",
+        "interaction time",
+        "shared understanding",
+        "code generation",
+        "clarigen reports",
+        "three amigos",
+        "public examples",
+        "first-output correctness",
+        "direct clarification",
+        "clarification studies",
+        "alignment benefit",
+        "executive summary",
+        "summary grill",
+        "effective alignment",
+        "alignment technique",
+        "hidden intent"
+      ],
+      "source_urls": [
+        "https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md",
+        "https://www.aihero.dev/my-grill-me-skill-has-gone-viral",
+        "https://www.aihero.dev/5-agent-skills-i-use-every-day",
+        "https://arxiv.org/abs/2310.10996",
+        "https://openreview.net/forum?id=s566pj5E5M",
+        "https://aclanthology.org/2024.lrec-main.288/",
+        "https://ml4code.github.io/publications/vaithilingam2022expectation/",
+        "https://sarahnadi.org/assets/pdf/pubs/NguyenMSR22.pdf",
+        "https://arxiv.org/abs/2302.06590",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://arxiv.org/abs/2303.08733",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://johnfergusonsmart.com/three-amigos-requirements-discovery/",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Matt Pocock's Grill Me technique is a concrete clarification-first workflow in which the agent asks one question at a time, walks the design tree branch by branch, recommends answers, and stops only when shared understanding has been reached. (; medium confidence; source: https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://www.aihero.dev/my-grill-me-skill-has-gone-viral)",
+          "sources": []
+        },
+        {
+          "text": "Direct code-generation research shows that adding a targeted clarifying-question phase before code generation materially improves first-pass correctness on underspecified tasks, including a GPT-4 benchmark correctness increase from 70.96% to 80.80% in ClarifyGPT. (; medium confidence; source: https://arxiv.org/abs/2310.10996)",
+          "sources": []
+        },
+        {
+          "text": "A second clarification-before-code study, ClariGen, reports that high-quality clarifications improve code correctness and reliability while reducing later revision needs, which supports the same mechanism through a separate research program but currently with thinner evidence than ClarifyGPT. (; low confidence; source: https://openreview.net/forum?id=s566pj5E5M)",
+          "sources": []
+        },
+        {
+          "text": "Baseline Copilot usability evidence shows why Grill Me matters: users often prefer generated code as a starting point, but still lose effectiveness when they must understand, edit, and debug output produced from incomplete or mismatched requirements. (; high confidence; source: https://ml4code.github.io/publications/vaithilingam2022expectation/; https://sarahnadi.org/assets/pdf/pubs/NguyenMSR22.pdf)",
+          "sources": []
+        },
+        {
+          "text": "The strongest software-engineering analogue for Grill Me is requirements discovery rather than prompt optimization, because Three Amigos workshops use concrete examples, edge cases, technical constraints, and testability questions to surface hidden assumptions before implementation begins. (; medium confidence; source: https://johnfergusonsmart.com/three-amigos-requirements-discovery/; https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html)",
+          "sources": []
+        },
+        {
+          "text": "Pocock's public examples report Grill Me sessions ranging from 16 questions on a smaller feature to roughly 30 to 50 questions on more complex changes, and he says these conversations often last about 45 minutes, which suggests the practice is a real discovery phase rather than a one-line prompt enhancement. (; medium confidence; source: https://www.aihero.dev/my-grill-me-skill-has-gone-viral; https://www.aihero.dev/5-agent-skills-i-use-every-day)",
+          "sources": []
+        },
+        {
+          "text": "Compared with jumping directly to code, Grill Me is best supported as a way to improve first-output correctness and reduce correction rounds under ambiguity, but direct evidence that it always shortens total time-to-working-feature is still missing. (; medium confidence; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://arxiv.org/abs/2302.06590; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html)",
+          "sources": []
+        },
+        {
+          "text": "The available evidence suggests Grill Me is likely transferable across models and stacks because clarification gains appear in multi-model studies and the same explore-then-plan guidance appears in both Anthropic and GitHub workflow recommendations, but industrial cross-language head-to-head data remains thin. (; medium confidence; source: https://arxiv.org/abs/2310.10996; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-30-fundamentals-first-vs-specs-to-code": {
       "named_concepts": [
         "matt pocock",
