@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Deep modules in AI-augmented development: interface design, gray-box delegation, and architectural rescue of AI-generated codebases"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
