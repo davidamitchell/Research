@@ -1,0 +1,770 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI coding agents make custom software generation cheap? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI coding agents make custom software generation cheap?</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI coding agents make custom software generation cheap?</h1>
+  <p class="full-title-subtitle">Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?</p>
+  <div class="meta-bar">
+    <span>2026-04-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/software-cost.html">software-cost</a> <a class="tag" href="/Research/tags/saas.html">saas</a> <a class="tag" href="/Research/tags/build-vs-buy.html">build-vs-buy</a> <a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> <a class="tag" href="/Research/tags/platform-engineering.html">platform-engineering</a> <a class="tag" href="/Research/tags/observability.html">observability</a> <a class="tag" href="/Research/tags/identity.html">identity</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-software-demand-shift-ai-coding-era.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-28-software-demand-shift-ai-coding-era" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Commercial software categories whose value is mostly packaged business logic or user-interface convenience face the clearest near-term demand decline, because AI-assisted internal building sharply reduces the historical buy premium for those functions.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf)</li>
+<li>Current survey evidence shows that the replacement pressure is already concentrated in workflow automation, internal admin tools, business-intelligence tools, customer-relationship management adjacencies, project management, and customer-support tooling rather than evenly across all Software-as-a-Service categories.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026)</li>
+<li>Concrete enterprise cases such as Klarna&#39;s internal rebuild of customer-relationship workflows suggest that firms with strong proprietary context can justify rebuilding selected applications that would previously have been bought, even if the pattern is not universal.  (medium confidence; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html)</li>
+<li>Platform engineering and Internal Developer Platform demand rises when software becomes cheaper to produce, because the scarce asset shifts from raw coding capacity to a safe, low-friction path for many humans and agents to ship software repeatedly.  (high confidence; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)</li>
+<li>Cloud hosting, Continuous Integration and Continuous Delivery pipelines, and observability gain demand because higher software volume produces more release events, more environments, more telemetry, and more operational failure modes even when generating the code itself gets cheaper.  (medium confidence; source: https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)</li>
+<li>Identity-related software is likely to become more valuable, because every new application, integration, external participant, and non-human actor expands the access surface that must be authenticated, authorised, and audited.  (medium confidence; source: https://www.nist.gov/identity-access-management; https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/)</li>
+<li>Agent-facing interface layers, especially machine-readable Application Programming Interfaces and related tool-access surfaces, become a growth category because agents behave as software consumers that need explicit schemas, durable authentication, and predictable error handling at machine speed.  (medium confidence; source: https://blog.apify.com/api-agentic-economy/; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)</li>
+<li>The most durable commercial applications remain those with moats that AI-assisted building does not erase, including proprietary data, network effects, deep compliance packaging, or hard-to-replicate multi-tenant operating infrastructure, and incumbents can preserve demand by moving up into orchestration or broader suites rather than selling isolated logic.  (medium confidence; source: https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>As Artificial Intelligence (AI) coding agents, such as Anthropic Claude Code, OpenAI Codex, and GitHub Copilot Workspace, make custom software generation materially cheaper, which categories of commercial software face declining demand because the build-it-yourself path becomes viable, which categories face increasing demand because cheaper software production amplifies the need for them, and what structural properties distinguish each group?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Custom-software demand is most likely to substitute away from narrow application-layer SaaS categories, not from coordination-bearing infrastructure categories. The most exposed products are those whose buy premium came mainly from implementation effort, such as workflow automation, internal admin tools, lightweight business-intelligence tools, and some customer-relationship or project-management workflows. The categories most likely to gain demand are those that absorb scale, governance, deployment, identity, and operational complexity costs that AI coding does not remove, including platform engineering, cloud hosting, CI/CD, observability, identity, and agent-facing interface layers. This does not mean incumbent vendors or total application spend disappear, because vendors that move up the stack into orchestration, bundled suites, proprietary data, or broader workflow packaging can preserve or expand demand even while narrow logic-only tools commoditise.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Commercial software categories whose value is mostly packaged business logic or user-interface convenience face the clearest near-term demand decline, because AI-assisted internal building sharply reduces the historical buy premium for those functions.</strong> [inference] (medium confidence; source: <a href="https://retool.com/blog/ai-build-vs-buy-report-2026">Retool: The Build vs Buy Shift report 2026</a> <a href="https://simonwillison.net/2025/Mar/11/using-llms-for-code">simonwillison.net</a> <a href="https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf">Ronald Coase, The Nature of the Firm, Cornell-hosted PDF of the 1937 article</a></li>
+<li><strong>Current survey evidence shows that the replacement pressure is already concentrated in workflow automation, internal admin tools, business-intelligence tools, customer-relationship management adjacencies, project management, and customer-support tooling rather than evenly across all Software-as-a-Service categories.</strong> [fact] (medium confidence; source: <a href="https://retool.com/blog/ai-build-vs-buy-report-2026">Retool: The Build vs Buy Shift report 2026</a></li>
+<li><strong>Concrete enterprise cases such as Klarna's internal rebuild of customer-relationship workflows suggest that firms with strong proprietary context can justify rebuilding selected applications that would previously have been bought, even if the pattern is not universal.</strong> [inference] (medium confidence; source: <a href="https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/">TechCrunch: Klarna CEO doubts that other companies will replace Salesforce with Artificial Intelligence</a> <a href="https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html">Deloitte New Zealand: AI-assisted software engineering</a></li>
+<li><strong>Platform engineering and Internal Developer Platform demand rises when software becomes cheaper to produce, because the scarce asset shifts from raw coding capacity to a safe, low-friction path for many humans and agents to ship software repeatedly.</strong> [inference] (high confidence; source: <a href="https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report">Google Cloud and Enterprise Strategy Group (ESG): new platform engineering research report</a> <a href="https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full">Frontiers in Computer Science: platform engineering and internal developer portals multivocal literature review</a> <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Stripe: Minions, Stripe&#39;s one-shot end-to-end coding agents</a></li>
+<li><strong>Cloud hosting, Continuous Integration and Continuous Delivery pipelines, and observability gain demand because higher software volume produces more release events, more environments, more telemetry, and more operational failure modes even when generating the code itself gets cheaper.</strong> [inference] (medium confidence; source: <a href="https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html">Deloitte New Zealand: AI-assisted software engineering</a> <a href="https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html">Splunk: the complete guide to Continuous Integration and Continuous Delivery (CI/CD) pipeline monitoring</a> <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Stripe: Minions, Stripe&#39;s one-shot end-to-end coding agents</a></li>
+<li><strong>Identity-related software is likely to become more valuable, because every new application, integration, external participant, and non-human actor expands the access surface that must be authenticated, authorised, and audited.</strong> [inference] (medium confidence; source: <a href="https://www.nist.gov/identity-access-management">National Institute of Standards and Technology (NIST): Identity and Access Management resource center</a> <a href="https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/">Help Net Security summarising ConductorOne&#39;s survey on identity risks and complexity</a></li>
+<li><strong>Agent-facing interface layers, especially machine-readable Application Programming Interfaces and related tool-access surfaces, become a growth category because agents behave as software consumers that need explicit schemas, durable authentication, and predictable error handling at machine speed.</strong> [inference] (medium confidence; source: <a href="https://blog.apify.com/api-agentic-economy/">Apify: prepare your Application Programming Interface (API) for the agentic economy</a> <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Stripe: Minions, Stripe&#39;s one-shot end-to-end coding agents</a></li>
+<li><strong>The most durable commercial applications remain those with moats that AI-assisted building does not erase, including proprietary data, network effects, deep compliance packaging, or hard-to-replicate multi-tenant operating infrastructure, and incumbents can preserve demand by moving up into orchestration or broader suites rather than selling isolated logic.</strong> [inference] (medium confidence; source: <a href="https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf">Ronald Coase, The Nature of the Firm, Cornell-hosted PDF of the 1937 article</a> <a href="https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html">Reuters via Yahoo Finance: selloff wipes out nearly $1 trillion from software and services stocks as investors debate AI&#39;s existential threat</a> <a href="https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/">TechCrunch: Klarna CEO doubts that other companies will replace Salesforce with Artificial Intelligence</a> <a href="https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/">summary of the 2025 Artificial Intelligence deck</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Near-term demand shifts will show first in contract-renewal pressure, new-tool avoidance, and selective internal rebuilds rather than in a uniform collapse of incumbent software revenue. <strong>Justification:</strong> Direct evidence exists for category-level pressure and expanding internal builds, but not for a complete replacement wave.</li>
+<li><strong>Assumption:</strong> Control-plane categories that rise in enterprise settings will also capture value in the broader commercial market because software proliferation creates similar coordination problems outside any one firm. <strong>Justification:</strong> The available direct evidence is enterprise-heavy, so the broader-market extrapolation remains inferential.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence was weighted most heavily when it showed current category behavior rather than abstract future possibility. Retool is the strongest direct source for declining-demand categories because it identifies which SaaS classes customers are already replacing, while Google Cloud and the Frontiers review are the strongest direct sources for increasing-demand categories because they document current platform-engineering expansion rather than only arguing for it. The transaction-cost frame resolves the apparent contradiction between &quot;software gets cheaper&quot; and &quot;infrastructure becomes more valuable&quot;: AI removes some production cost, but it does not remove the coordination cost of running many artifacts safely, so value migrates toward categories that absorb that coordination burden. Repository companions strengthen that reading because previous constraint-removal episodes in this corpus repeatedly shifted value from local execution toward shared platforms and control planes.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The strongest direct replacement evidence comes from one vendor survey, so category-level magnitudes should be treated as directional rather than as market-share estimates.</li>
+<li>Public-equity volatility captures investor fear faster than product-market reality, so valuation moves overstate the certainty of near-term disruption.</li>
+<li>Large-firm rebuild examples may not generalise cleanly to smaller firms that lack data, engineering depth, or integration discipline.</li>
+<li>Agent-facing interface demand is likely real but still early, so the size and timing of that category expansion are more uncertain than the expansion in platform engineering or identity.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which public software vendors are already preserving demand by moving up the stack from application logic into orchestration, governance, or proprietary-data layers?</li>
+<li>How much of the new value pool will accrue to traditional identity vendors versus new machine-identity and agent-access vendors?</li>
+<li>At what point does software proliferation create enough maintenance burden to slow the rebound effect and favour consolidation back into shared platforms?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p>Starting points, checked and updated to working sources actually used in this item.</p>
+<ul>
+<li>[x] <a href="https://cdo.mit.edu/blog/2025/04/11/shopify-ceo-tobi-lutke-ai-is-now-a-fundamental-expectation-for-employeeslutke-says-managers-asking-for-new-human-talent-will-have-to-explain-why-the-job-cant-be-done-by-ai/">MIT Sloan Chief Data Officer (CDO): Shopify CEO Tobi Lutke says Artificial Intelligence is now a fundamental expectation</a> - accessible report quoting Lutke's memo and its software-building implication</li>
+<li>[x] <a href="https://simonwillison.net/2025/Mar/11/using-llms-for-code/">Simon Willison: Here's how I use Large Language Models (LLMs) to help me write code</a> - practitioner evidence that AI coding expands the set of projects worth building</li>
+<li>[x] <a href="https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html">Reuters via Yahoo Finance: selloff wipes out nearly $1 trillion from software and services stocks as investors debate AI's existential threat</a> - market evidence that investors see application-layer software as exposed</li>
+<li>[x] <a href="https://retool.com/blog/ai-build-vs-buy-report-2026">Retool: The Build vs Buy Shift report 2026</a> - survey evidence on which SaaS categories are already being replaced by custom builds</li>
+<li>[x] <a href="https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html">Deloitte New Zealand: AI-assisted software engineering</a> - enterprise commentary on build-vs-buy shifts and new bottlenecks</li>
+<li>[x] <a href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">GitHub: quantifying GitHub Copilot's impact on developer productivity and happiness</a> - controlled evidence that routine coding time can compress materially</li>
+<li>[x] <a href="https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/">TechCrunch: Klarna CEO doubts that other companies will replace Salesforce with Artificial Intelligence</a> - concrete build-vs-buy case where a firm rebuilt customer-relationship workflows internally</li>
+<li>[x] <a href="https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf">Ronald Coase, The Nature of the Firm, Cornell-hosted PDF of the 1937 article</a> - primary transaction-cost framing</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report">Google Cloud and Enterprise Strategy Group (ESG): new platform engineering research report</a> - public evidence that platform engineering expands as software delivery scales</li>
+<li>[x] <a href="https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full">Frontiers in Computer Science: platform engineering and internal developer portals multivocal literature review</a> - academic synthesis on Internal Developer Platform (IDP) adoption and value</li>
+<li>[x] <a href="https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html">Splunk: the complete guide to Continuous Integration and Continuous Delivery (CI/CD) pipeline monitoring</a> - evidence on why pipeline observability and delivery infrastructure become more critical as release volume increases</li>
+<li>[x] <a href="https://www.nist.gov/identity-access-management">National Institute of Standards and Technology (NIST): Identity and Access Management resource center</a> - standards-based evidence that identity remains a foundational control surface</li>
+<li>[x] <a href="https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/">Help Net Security summarising ConductorOne's survey on identity risks and complexity</a> - empirical evidence that more applications, external entities, and non-human identities raise identity complexity and budgets</li>
+<li>[x] <a href="https://blog.apify.com/api-agentic-economy/">Apify: prepare your Application Programming Interface (API) for the agentic economy</a> - evidence that AI agents increase demand for machine-readable interface layers</li>
+<li>[x] <a href="https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents">Stripe: Minions, Stripe's one-shot end-to-end coding agents</a> - evidence that software-factory patterns increase code volume and shift bottlenecks</li>
+<li>[x] <a href="https://www.ben-evans.com/presentations">Benedict Evans presentations page</a> and <a href="https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/">summary of the 2025 Artificial Intelligence deck</a> - market commentary that Artificial Intelligence compresses cross-application workflow steps rather than merely adding new apps</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-02-org-shape-software-cost-zero.html">The shape of organisations when software is no longer the constraint</a> <span class="related-note">via agentic-ai, software-cost, transaction-costs</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour</a> <span class="related-note">via agentic-ai, observability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html">Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity</a> <span class="related-note">via agentic-ai, saas</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a> <span class="related-note">via agentic-ai, identity</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</a> <span class="related-note">via agentic-ai, platform-engineering</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-02-org-shape-software-cost-zero.html">The shape of organisations when software is no longer the constraint</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-23-software-factory.html">The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-software-engineering-investment-case-llm.html">What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-02-28-jevons-paradox.html">Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html">LLM-as-judge as pipeline validation checkpoints</a></div>
+  </div>
+</main>
+</body>
+</html>
