@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: d71b0b3b5a093554dd975d8128ba033deaa6fd7e
+    changed: 2026-04-30
+    progress: progress/2026-04-30-deep-modules-ai-augmented-codebases.md
+    summary: "Initial completion"
 ---
 
 # Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases
