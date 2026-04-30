@@ -1,6 +1,92 @@
 {
-  "extracted_at": "2026-04-30T21:52:53Z",
+  "extracted_at": "2026-04-30T22:07:10Z",
   "items": {
+    "2026-04-30-fundamentals-first-vs-specs-to-code": {
+      "named_concepts": [
+        "matt pocock",
+        "prompt-only workflows",
+        "executable verification",
+        "repeatedly recommended",
+        "plausibly high-roi",
+        "context constraints",
+        "generated code",
+        "reduce ambiguity",
+        "explicit contracts",
+        "developers struggle",
+        "understand generated",
+        "code accept",
+        "accept ai",
+        "ai suggestions",
+        "less scrutiny",
+        "coherent synthesis",
+        "supported controls",
+        "beyond typescript",
+        "ai coding",
+        "high-roi fundamentals-first"
+      ],
+      "source_urls": [
+        "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/",
+        "https://blog.jetbrains.com/team/2024/12/11/the-state-of-developer-ecosystem-2024-unveiling-current-developer-trends-the-unstoppable-rise-of-ai-adoption-leading-languages-and-impact-on-developer-experience/",
+        "https://survey.stackoverflow.co/2024/",
+        "https://arxiv.org/abs/2302.06590",
+        "https://arxiv.org/abs/2205.06537",
+        "https://arxiv.org/abs/2206.15331",
+        "https://conf.researchr.org/details/msr-2022/msr-2022-technical-papers/11/An-Empirical-Evaluation-of-GitHub-Copilot-s-Code-Suggestions",
+        "https://doi.org/10.1145/3491101.3519665",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://arxiv.org/abs/2303.08733",
+        "https://arxiv.org/abs/2506.04785",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring",
+        "https://arxiv.org/html/2510.00328v1",
+        "https://www.ibm.com/think/topics/vibe-coding",
+        "https://arxiv.org/html/2602.00180v1",
+        "https://www.totaltypescript.com/cursor-rules-for-better-ai-development",
+        "https://www.totaltypescript.com/should-you-declare-return-types",
+        "https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era",
+        "https://www.aihero.dev/",
+        "https://github.com/mattpocock/skills",
+        "https://itrevolution.com/accelerate-book/"
+      ],
+      "key_claims": [
+        {
+          "text": "Controlled studies show that AI coding tools can deliver real short-run gains in speed and local quality, but those studies do not demonstrate that prompt-only workflows remain superior once work extends beyond a bounded task into a maintained project. (; medium confidence; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331)",
+          "sources": []
+        },
+        {
+          "text": "Executable verification is one of the most repeatedly recommended and plausibly high-ROI fundamentals-first practices, because tests and other external checks improve first-pass correctness and give agents a feedback loop that reduces blind trial-and-error during implementation. (; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://www.aihero.dev/; https://github.com/mattpocock/skills)",
+          "sources": []
+        },
+        {
+          "text": "Explicit contracts, specifications, and type signals are the next strongest ROI layer, because they reduce requirement ambiguity before generation and make AI output easier to review, modify, and preserve across sessions. (; medium confidence; source: https://arxiv.org/html/2602.00180v1; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.totaltypescript.com/should-you-declare-return-types; https://www.totaltypescript.com/the-case-for-typescript-in-the-ai-coding-era)",
+          "sources": []
+        },
+        {
+          "text": "Architecture and context constraints matter mainly through maintainability, not initial fluency, because repository-scale studies and practitioner cases show that duplication, entropy, and rescue cost rise when AI output is allowed to accumulate without structure. (; medium confidence; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://github.com/mattpocock/skills; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md)",
+          "sources": []
+        },
+        {
+          "text": "Review burden is a central operational reason fundamentals-first beats vibe coding on serious projects, because developers struggle to understand generated code, accept AI suggestions with less scrutiny, and can lose the saved time during debugging and integration. (; high confidence; source: https://doi.org/10.1145/3491101.3519665; https://arxiv.org/abs/2506.04785; https://arxiv.org/abs/2303.08733)",
+          "sources": []
+        },
+        {
+          "text": "The Matt Pocock stack is externally supportable as a coherent synthesis of known good controls, but current public evidence supports its components more strongly than it supports the exact four-part bundle as a measured package. (; medium confidence; source: https://github.com/mattpocock/skills; https://www.aihero.dev/; https://www.totaltypescript.com/cursor-rules-for-better-ai-development; https://www.totaltypescript.com/should-you-declare-return-types)",
+          "sources": []
+        },
+        {
+          "text": "Fundamentals-first benefits plausibly transfer beyond TypeScript when a stack offers strong interfaces, type or schema boundaries, and executable verification, but direct cross-stack evidence is limited and the uplift should not be assumed to be uniform. (; low confidence; source: https://conf.researchr.org/details/msr-2022/msr-2022-technical-papers/11/An-Empirical-Evaluation-of-GitHub-Copilot-s-Code-Suggestions; https://blog.jetbrains.com/team/2024/12/11/the-state-of-developer-ecosystem-2024-unveiling-current-developer-trends-the-unstoppable-rise-of-ai-adoption-leading-languages-and-impact-on-developer-experience/; https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/)",
+          "sources": []
+        },
+        {
+          "text": "The payback period is mixed: prompt-only workflows are advantaged for disposable prototypes, while fundamentals-first practices pay back quickly in reduced rework and more strongly later through lower entropy and cheaper feature addition. (; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2602.00180v1; https://itrevolution.com/accelerate-book/)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-30-deep-modules-ai-augmented-codebases": {
       "named_concepts": [
         "deep modules",
