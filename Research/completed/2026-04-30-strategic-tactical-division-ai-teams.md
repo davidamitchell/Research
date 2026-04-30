@@ -2,12 +2,12 @@
 review_count: 2
 title: "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale"
 added: 2026-04-30T20:31:45+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
 tags: [agentic-coding, software-engineering, agentic-ai, llm, organisational-design]
 started: 2026-04-30T22:28:28+00:00
-completed: ~
+completed: 2026-04-30T22:52:48+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-30-grill-me-ai-alignment-shared-design, 2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-fundamentals-first-vs-specs-to-code, 2026-04-02-org-shape-software-cost-zero]
 related: [2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-03-14-reliable-software-llm-era]
@@ -139,7 +139,7 @@ In an Artificial Intelligence (AI)-augmented software team, what is the optimal 
 #### A. Strategic human work versus tactical AI work
 
 - [fact; source: https://kentbeck.com/] Kent Beck's current public framing of augmented coding says AI deprecates language expertise while amplifying vision, strategy, task breakdown, and feedback loops, and he adds that today's AI assistants "lack taste" and therefore require preserved optionality, meaning preserved future choices, and maintained human judgment.
-- [fact; source: https://www.anthropic.com/engineering/claude-code-best-practices] Anthropic's Claude Code guidance says the context window is the most important resource to manage, recommends explore first, then plan, then code, and says the system performs dramatically better when it can verify its own work.
+- [fact; source: https://www.anthropic.com/engineering/claude-code-best-practices] Anthropic's Claude Code guidance says the context window, meaning the amount of prompt and repository state the model can actively use in one interaction, is the most important resource to manage, recommends explore first, then plan, then code, and says the system performs dramatically better when it can verify its own work.
 - [fact; source: https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/] GitHub's 2025 context-engineering guidance says complex work needs specification files, modular instructions, validation gates, and session splitting between planning, implementation, and testing.
 - [fact; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/] GitHub Copilot studies show strong tactical gains on bounded tasks, including materially faster task completion and higher success on explicit unit-test tasks.
 - [inference; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/] The best-supported division of labour is therefore human ownership of architecture, success criteria, context selection, interface design, and verification policy, with AI used as a bounded implementation engine once those constraints are explicit.
@@ -147,7 +147,7 @@ In an Artificial Intelligence (AI)-augmented software team, what is the optimal 
 #### B. Clarification before code and investigation before advice
 
 - [fact; source: https://arxiv.org/abs/2310.10996] ClarifyGPT introduces a workflow where the model detects ambiguity, asks targeted clarifying questions, refines the requirement, and only then generates code.
-- [fact; source: https://arxiv.org/abs/2310.10996] ClarifyGPT raises GPT-4 pass@1 on the Mostly Basic Python Problems (MBPP)-sanitized benchmark from 70.96% to 80.80%, and it also reports multi-benchmark gains for both GPT-4 and ChatGPT.
+- [fact; source: https://arxiv.org/abs/2310.10996] ClarifyGPT raises GPT-4 pass@1, meaning first-try success rate on a benchmark task, on the Mostly Basic Python Problems (MBPP)-sanitized benchmark from 70.96% to 80.80%, and it also reports multi-benchmark gains for both GPT-4 and ChatGPT.
 - [fact; source: https://openreview.net/forum?id=s566pj5E5M] ClariGen reports that a clarifying question-and-answer phase before code generation produces more contextually informed code, improves correctness and reliability, and reduces the need for later revisions.
 - [fact; source: https://aclanthology.org/2024.lrec-main.288/] Addlesee et al. show that contextually appropriate clarification behavior only emerges reliably in larger models and when prompted with suitable examples, which means clarification is useful but not automatic.
 - [fact; source: https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/] Microsoft's investigate-and-respond debugging study inside GitHub Copilot reports that this interaction pattern lowered conversation barriers and produced a 2.5x improvement in bug localization and a 3.5x improvement in bug resolution compared with earlier AI-assisted debugging in Visual Studio.
@@ -248,7 +248,7 @@ In an Artificial Intelligence (AI)-augmented software team, what is the optimal 
 
 **Analysis:**
 
-- [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://ml4code.github.io/publications/vaithilingam2022expectation/] The correct synthesis is not "AI is good" or "AI is bad," but that AI is strongest where goals are explicit and weakest where the system must infer hidden intent or integrate into messy contexts.
+- [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://ml4code.github.io/publications/vaithilingam2022expectation/] The strongest synthesis is that AI performs best where goals are explicit and performs worst where the system must infer hidden intent or integrate into messy contexts.
 - [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/] This makes the human's strategic job legible: force clarification, reduce ambiguity, and make the success condition machine-checkable before delegating tactical search.
 - [inference; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign] Daily design investment matters because the same naming, interface, and coupling decisions shape both later human changes and later model generations, so design quality becomes a reusable control rather than a one-off aesthetic choice.
 - [inference; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785; https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html] The economics shift against neglect because high-volume generation magnifies the penalty for weak review and weak architecture, which turns sloppy tactical delegation into a compounding systems-cost problem.
