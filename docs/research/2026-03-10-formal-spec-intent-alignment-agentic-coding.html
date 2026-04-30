@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -772,20 +776,20 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] Moseley, B. &amp; Marks, P. (2006). <em>Out of the Tar Pit</em>. <a href="https://curtclifton.net/papers/MoseleyMarks06a.pdf">curtclifton.net</a></li>
-<li>[x] Krakovna, V. et al. (2020). <em>Specification Gaming: The Flip Side of AI Ingenuity</em>. DeepMind blog + compendium. <a href="https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity">www.deepmind.com</a></li>
-<li>[x] Gao, L. et al. (2022). <em>Scaling Laws for Reward Model Overoptimization</em>. <a href="https://arxiv.org/abs/2210.10760">arxiv.org/abs/2210.10760</a></li>
-<li>[ ] Leino, K.R.M. (2023). <em>Program Proofs</em>. MIT Press (Dafny-based formal verification). <a href="https://program-proofs.com/">program-proofs.com</a></li>
-<li>[ ] Wadler, P. (2015). <em>Propositions as Types</em>. CACM. (Curry-Howard correspondence and why types are specs.) <a href="https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf">homepages.inf.ed.ac.uk</a></li>
+<li>[x] <a href="https://curtclifton.net/papers/MoseleyMarks06a.pdf">Moseley, B. &amp; Marks, P. (2006). <em>Out of the Tar Pit</em>.</a></li>
+<li>[x] <a href="https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity">Krakovna, V. et al. (2020). <em>Specification Gaming: The Flip Side of AI Ingenuity</em>. DeepMind blog + compendium.</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2210.10760">Gao, L. et al. (2022). <em>Scaling Laws for Reward Model Overoptimization</em>.</a></li>
+<li>[ ] <a href="https://program-proofs.com/">Leino, K.R.M. (2023). <em>Program Proofs</em>. MIT Press (Dafny-based formal verification).</a></li>
+<li>[ ] <a href="https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf">Wadler, P. (2015). <em>Propositions as Types</em>. CACM. (Curry-Howard correspondence and why types are specs.)</a></li>
 <li>[ ] Brady, E. (2017). <em>Type-Driven Development with Idris</em>. Manning. (Dependent types as executable specifications.)</li>
-<li>[x] Lamport, L. (2002). <em>Specifying Systems: The TLA+ Language and Tools</em>. <a href="https://lamport.azurewebsites.net/tla/book.html">lamport.azurewebsites.net</a></li>
-<li>[x] Hillel Wayne et al. — PlusCal/TLA+ usage at AWS, Microsoft. <a href="https://lamport.azurewebsites.net/tla/industrial-use.html">lamport.azurewebsites.net</a></li>
+<li>[x] <a href="https://lamport.azurewebsites.net/tla/book.html">Lamport, L. (2002). <em>Specifying Systems: The TLA+ Language and Tools</em>.</a></li>
+<li>[x] <a href="https://lamport.azurewebsites.net/tla/industrial-use.html">Hillel Wayne et al. — PlusCal/TLA+ usage at AWS, Microsoft.</a></li>
 <li>[ ] Hellerstein, J.M. et al. (2019). <em>Keeping CALM: When Distributed Consistency Is Easy</em>. CACM.</li>
-<li>[x] SWE-bench / SWE-agent papers (Princeton, 2024). <a href="https://swe-bench.github.io/">swe-bench.github.io</a></li>
-<li>[x] Research on &quot;functional core, imperative shell&quot; pattern. <a href="https://functional-architecture.org/functional_core_imperative_shell/">functional-architecture.org</a></li>
-<li>[x] Effect systems — Koka language. <a href="https://koka-lang.github.io/koka/doc/book.html">koka-lang.github.io</a></li>
-<li>[x] Rust ownership model empirical study. <a href="https://www.usenix.org/system/files/atc24-li-hongyu.pdf">www.usenix.org</a></li>
-<li>[x] Elm architecture as FRP-based accidental-complexity reduction. <a href="https://guide.elm-lang.org/architecture/">guide.elm-lang.org</a></li>
+<li>[x] <a href="https://swe-bench.github.io/">SWE-bench / SWE-agent papers (Princeton, 2024).</a></li>
+<li>[x] <a href="https://functional-architecture.org/functional_core_imperative_shell/">Research on &quot;functional core, imperative shell&quot; pattern.</a></li>
+<li>[x] <a href="https://koka-lang.github.io/koka/doc/book.html">Effect systems — Koka language.</a></li>
+<li>[x] <a href="https://www.usenix.org/system/files/atc24-li-hongyu.pdf">Rust ownership model empirical study.</a></li>
+<li>[x] <a href="https://guide.elm-lang.org/architecture/">Elm architecture as FRP-based accidental-complexity reduction.</a></li>
 <li>[ ] Agda/Coq/Lean for verified software: what production use cases exist?</li>
 </ul>
 <hr />

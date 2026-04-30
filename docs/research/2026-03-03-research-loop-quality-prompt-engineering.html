@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -757,10 +761,10 @@ main {
 <li>[x] <code>Research/completed/</code> — existing loop-produced items; corpus for the quality audit</li>
 <li>[x] <code>Research/completed/2026-03-01-github-specify-ralph-loop-lisa-planning.md</code> — completed research on the Ralph Wiggum Technique, loop phases (Specify → Plan → Build), and proof-driven development; covers loop <em>design</em> (this item covers loop output <em>quality</em> and prompt improvement)</li>
 <li>[x] <code>Research/backlog/2026-03-02-research-quality-assurance-methodology.md</code> — complement to this item: quality review methodology (downstream quality checks vs. this item's upstream prompt improvements)</li>
-<li>[<a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">x] Anthropic Prompt Engineering Guide</a>: <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">x] Anthropic Prompt Engineering Guide</a> — chain-of-thought, role prompting, negative constraints</li>
-<li>[ ] <a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt Engineering Guide</a>: <a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt Engineering Guide</a> — structured output, decomposition patterns (JS-protected, inaccessible)</li>
+<li>[x] <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Anthropic Prompt Engineering Guide</a> — chain-of-thought, role prompting, negative constraints</li>
+<li>[ ] <a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt Engineering Guide</a> — structured output, decomposition patterns (JS-protected, inaccessible)</li>
 <li>[x] LMSYS / arXiv — The Prompt Report (arXiv:2406.06608): systematic survey of 58+ LLM prompting techniques (2024)</li>
-<li>[<a href="https://github.com/danielmiessler/fabric">x] Fabric (Daniel Miessler)</a>: <a href="https://github.com/danielmiessler/fabric">x] Fabric (Daniel Miessler)</a> — prompt patterns for research extraction and synthesis; patterns like <code>extract_wisdom</code>, <code>summarize</code>, <code>create_report</code></li>
+<li>[x] <a href="https://github.com/danielmiessler/fabric">Fabric (Daniel Miessler)</a> — prompt patterns for research extraction and synthesis; patterns like <code>extract_wisdom</code>, <code>summarize</code>, <code>create_report</code></li>
 <li>[x] <code>docs-adr/0004-autonomous-research-loop.md</code> — ADR for the loop; safety controls and design rationale</li>
 </ul>
 <hr />

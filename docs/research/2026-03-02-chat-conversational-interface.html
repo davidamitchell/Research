@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -749,7 +753,7 @@ main {
 <p><strong><code>.github/mcp.json</code> is also used for Claude Code sessions.</strong> Adding the <code>research</code> server here means Claude Code in all sessions (not just research-loop sessions) will have access to the research tools. This is desirable for the owner's usage pattern but should be documented in the ADR.</p>
 </li>
 <li>
-<p><strong>The MCP Python SDK is at v1.x stable; v2 is in pre-alpha.</strong> The FastMCP interface is stable for production use. A v2 migration may require updates when v2 is released, but this is a low-risk, low-urgency future maintenance task.</p>
+<p><strong>The <a href="https://github.com/modelcontextprotocol/python-sdk">MCP Python SDK</a> is at v1.x stable; v2 is in pre-alpha.</strong> The FastMCP interface is stable for production use. A v2 migration may require updates when v2 is released, but this is a low-risk, low-urgency future maintenance task.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>
@@ -773,9 +777,9 @@ main {
 <li>Description: MCP server (<code>src/mcp/research_server.py</code>) with three tools (<code>search_research</code>, <code>get_research_item</code>, <code>get_related_items</code>) registered in <code>.github/mcp.json</code>; ADR documenting the design; Phase 1 implementation backlog slice; search layer dependency for Phase 2.</li>
 <li>Links:
 <ul>
-<li><a href="https://modelcontextprotocol.io/docs/concepts/tools">x] MCP tool creation docs</a> (MCP tools protocol specification)</li>
-<li><a href="https://github.com/modelcontextprotocol/python-sdk">x] MCP Python SDK</a> (MCP Python SDK — FastMCP)</li>
-<li><a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions">x] GitHub Copilot Extensions docs</a> (GitHub Copilot Extensions overview — confirms MCP as primary path)</li>
+<li><a href="https://modelcontextprotocol.io/docs/concepts/tools">MCP tool creation docs</a> (MCP tools protocol specification)</li>
+<li><a href="https://github.com/modelcontextprotocol/python-sdk">MCP Python SDK</a> (MCP Python SDK — FastMCP)</li>
+<li><a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions">GitHub Copilot Extensions docs</a> (GitHub Copilot Extensions overview — confirms MCP as primary path)</li>
 </ul>
 </li>
 </ul>
@@ -785,11 +789,11 @@ main {
 <li>[x] <code>Research/backlog/2026-02-27-interface-and-delivery.md</code> — upstream item covering all interface options including MCP</li>
 <li>[x] <code>Research/completed/2026-03-01-context-mode-llm-context-compression.md</code> — MCP server design pattern: compact summary + queryable store + drill-down tools (Key Finding 4)</li>
 <li>[x] <code>Research/backlog/2026-03-02-semantic-full-text-search.md</code> — search layer this interface depends on</li>
-<li>[<a href="https://modelcontextprotocol.io/docs/concepts/tools">x] MCP tool creation docs</a>: <a href="https://modelcontextprotocol.io/docs/concepts/tools">x] MCP tool creation docs</a> — how to build MCP tools</li>
-<li>[<a href="https://github.com/modelcontextprotocol/python-sdk">x] MCP Python SDK</a>: <a href="https://github.com/modelcontextprotocol/python-sdk">x] MCP Python SDK</a> — Python server implementation</li>
-<li>[<a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions">x] GitHub Copilot Extensions docs</a>: <a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions">x] GitHub Copilot Extensions docs</a> — custom Copilot chat providers</li>
+<li>[x] <a href="https://modelcontextprotocol.io/docs/concepts/tools">MCP tool creation docs</a> — how to build MCP tools</li>
+<li>[x] <a href="https://github.com/modelcontextprotocol/python-sdk">MCP Python SDK</a> — Python server implementation</li>
+<li>[x] <a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions">GitHub Copilot Extensions docs</a> — custom Copilot chat providers</li>
 <li>[x] RAG patterns for grounded QA: survey of prompt engineering patterns for citation-enforced answers</li>
-<li>[ ] <a href="https://docs.anthropic.com/">Anthropic Claude API docs (for CLI chatbot option)</a>: <a href="https://docs.anthropic.com/">Anthropic Claude API docs (for CLI chatbot option)</a></li>
+<li>[ ] <a href="https://docs.anthropic.com/">Anthropic Claude API docs (for CLI chatbot option)</a></li>
 </ul>
 <hr />
 

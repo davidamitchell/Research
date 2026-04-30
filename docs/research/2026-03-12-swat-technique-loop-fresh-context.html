@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -752,10 +756,10 @@ main {
 <li>[x] <code>Research/completed/2026-03-05-llm-hallucination-mechanisms.md</code>  -  hallucination propagation and types [consulted via failure mode taxonomy item citations]</li>
 <li>[x] <code>Research/completed/2026-03-08-context-engineering-first-principles.md</code>  -  context window mechanics and instruction conflict</li>
 <li>[x] <code>Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md</code>  -  failure mode taxonomy including Layer 1–5 cascade patterns</li>
-<li>[<a href="https://arxiv.org/abs/2005.11401">x] Lewis et al. (2020)  -  Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>: <a href="https://arxiv.org/abs/2005.11401">x] Lewis et al. (2020)  -  Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a></li>
-<li>[<a href="https://arxiv.org/abs/2104.07567">x] Shuster et al. (2021)  -  Retrieval Augmentation Reduces Hallucination in Conversation</a>: <a href="https://arxiv.org/abs/2104.07567">x] Shuster et al. (2021)  -  Retrieval Augmentation Reduces Hallucination in Conversation</a> [accessed via ACL anthology PDF]</li>
-<li>[ ] <a href="https://arxiv.org/abs/2310.13548">Perez et al. (2022)  -  Sycophancy in AI assistants</a>: <a href="https://arxiv.org/abs/2310.13548">Perez et al. (2022)  -  Sycophancy in AI assistants</a> [identified; Sharma et al. 2023 is the correct primary sycophancy paper at this URL; not directly accessed  -  SycEval AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025 and arXiv:2509.12517 used instead as more current primary sources]</li>
-<li>[x] SycEval (Fanous et al., AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025)  -  Evaluating LLM Sycophancy: <a href="https://ojs.aaai.org/index.php/AIES/article/view/36598">ojs.aaai.org</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2005.11401">Lewis et al. (2020)  -  Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2104.07567">Shuster et al. (2021)  -  Retrieval Augmentation Reduces Hallucination in Conversation</a> — [accessed via ACL anthology PDF]</li>
+<li>[ ] <a href="https://arxiv.org/abs/2310.13548">Perez et al. (2022)  -  Sycophancy in AI assistants</a> — [identified; Sharma et al. 2023 is the correct primary sycophancy paper at this URL; not directly accessed  -  SycEval AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025 and arXiv:2509.12517 used instead as more current primary sources]</li>
+<li>[x] <a href="https://ojs.aaai.org/index.php/AIES/article/view/36598">SycEval (Fanous et al., AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025)  -  Evaluating LLM Sycophancy</a></li>
 <li>[x] arXiv:2509.12517  -  Interaction Context Often Increases Sycophancy in LLMs (ACM Conference on Human Factors in Computing Systems (CHI) 2026)</li>
 <li>[x] arXiv:2512.07497  -  How Do LLMs Fail in Agentic Scenarios? (KAMI benchmark, qualitative analysis)</li>
 </ul>
@@ -763,11 +767,11 @@ main {
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour</a> <span class="related-note">via agentic-ai, hallucinations</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a> <span class="related-note">via agentic-ai, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour</a> <span class="related-note">via agentic-ai, hallucinations</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale</a> <span class="related-note">via agentic-ai, rag</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.html">Dependency ordering of foundational conditions for safe agentic Artificial Intelligence (AI) deployment: the prerequisite graph and the regulatory consequence of deploying at any layer before the layer below it is satisfied</a> <span class="related-note">via agentic-ai, rag</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs</a> <span class="related-note">via agentic-ai, rag</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html">Context Compression and RAG Techniques for Organisational Knowledge</a> <span class="related-note">via context-window, rag</span></div>
 </div></div>
 
   

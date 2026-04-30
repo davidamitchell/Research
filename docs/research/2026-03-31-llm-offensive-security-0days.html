@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -758,15 +762,15 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://red.anthropic.com/2026/zero-days/">Anthropic red team: 0-Days</a> -- Carlini et al. 2026 primary report on Claude Opus 4.6 finding 500+ zero-days in open source codebases</li>
-<li>[x] <a href="https://www.youtube.com/watch?v=1sd26pWhfmg">Nicholas Carlini - Black-hat LLMs | [un]prompted 2026</a> -- Carlini's conference talk on LLMs as offensive security tools</li>
-<li>[x] <a href="https://arxiv.org/abs/2404.08144">LLM Agents can Autonomously Exploit One-day Vulnerabilities (arXiv:2404.08144)</a> -- Fang, Bindu, Gupta, Kang 2024; GPT-4 exploits 87% of one-day CVEs</li>
-<li>[x] <a href="https://arxiv.org/abs/2406.05590">NYU CTF Bench (arXiv:2406.05590)</a> -- scalable open-source CTF benchmark for LLM cybersecurity capability</li>
-<li>[x] <a href="https://deepwiki.com/meta-llama/PurpleLlama/3-cyberseceval-benchmarks">CyberSecEval Benchmarks</a> -- Meta's suite for evaluating LLM cyber capability and compliance</li>
-<li>[x] <a href="https://nicholas.carlini.com/">Nicholas Carlini personal site</a> -- background on Carlini's prior adversarial ML research</li>
-<li>[x] <a href="https://www.hackthebox.com/blog/hack-the-box-ai-cybersecurity-benchmark-report">Hack The Box AI Cybersecurity Benchmark Report</a> -- AI-augmented teams vs human-only teams in live CTF</li>
-<li>[x] <a href="https://futurumgroup.com/insights/claude-found-500-zero-days-who-patches-them-before-attackers-arrive/">Claude Found 500 Zero-Days. Who Patches Them? - Futurum</a> -- analysis of patch burden and governance implications</li>
-<li>[x] <a href="https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/">Hardening Firefox with Anthropic's Red Team - Mozilla</a> -- Mozilla's experience receiving and patching Anthropic-discovered bugs</li>
+<li>[x] <a href="https://red.anthropic.com/2026/zero-days/">Anthropic red team: 0-Days</a> — -- Carlini et al. 2026 primary report on Claude Opus 4.6 finding 500+ zero-days in open source codebases</li>
+<li>[x] <a href="https://www.youtube.com/watch?v=1sd26pWhfmg">Nicholas Carlini — Black-hat LLMs, un-prompted 2026</a> — Carlini's conference talk on LLMs as offensive security tools</li>
+<li>[x] <a href="https://arxiv.org/abs/2404.08144">LLM Agents can Autonomously Exploit One-day Vulnerabilities (arXiv:2404.08144)</a> — -- Fang, Bindu, Gupta, Kang 2024; GPT-4 exploits 87% of one-day CVEs</li>
+<li>[x] <a href="https://arxiv.org/abs/2406.05590">NYU CTF Bench (arXiv:2406.05590)</a> — -- scalable open-source CTF benchmark for LLM cybersecurity capability</li>
+<li>[x] <a href="https://deepwiki.com/meta-llama/PurpleLlama/3-cyberseceval-benchmarks">CyberSecEval Benchmarks</a> — -- Meta's suite for evaluating LLM cyber capability and compliance</li>
+<li>[x] <a href="https://nicholas.carlini.com/">Nicholas Carlini personal site</a> — -- background on Carlini's prior adversarial ML research</li>
+<li>[x] <a href="https://www.hackthebox.com/blog/hack-the-box-ai-cybersecurity-benchmark-report">Hack The Box AI Cybersecurity Benchmark Report</a> — -- AI-augmented teams vs human-only teams in live CTF</li>
+<li>[x] <a href="https://futurumgroup.com/insights/claude-found-500-zero-days-who-patches-them-before-attackers-arrive/">Claude Found 500 Zero-Days. Who Patches Them? - Futurum</a> — -- analysis of patch burden and governance implications</li>
+<li>[x] <a href="https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/">Hardening Firefox with Anthropic's Red Team - Mozilla</a> — -- Mozilla's experience receiving and patching Anthropic-discovered bugs</li>
 </ul>
 <hr />
 

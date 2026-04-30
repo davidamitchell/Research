@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -767,9 +771,9 @@ main {
 <li>[x] <code>Research/backlog/2026-02-27-sources-of-research.md</code> — orthogonal question: where new items come from; this item answers what to do with them once they arrive</li>
 <li>[x] <code>Research/completed/2026-02-27-research-backlog-vs-repo-improvement-backlog.md</code> — the documented distinction between the two backlogs; apply the same clarity to agenda management</li>
 <li>[x] <code>BACKLOG.md</code> — existing prioritisation discipline for repo improvements; patterns to adapt</li>
-<li>[x] Personal Knowledge Management (PKM) literature on research agenda management: Tiago Forte's PARA method, progressive summarisation as a triage tool; relevant to deciding what to research vs. what to archive — <a href="https://fortelabs.com/blog/para/">fortelabs.com</a></li>
-<li>[x] Jobs-to-be-done framework (Christensen): structured approach to defining value and priority by outcome rather than by topic interest — applicable to research prioritisation — <a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done">hbr.org</a></li>
-<li>[x] OKR (Objectives and Key Results) methodology: assess whether a quarterly research OKR (e.g., &quot;understand the NZ AI regulatory landscape well enough to advise on compliance&quot;) provides useful top-down prioritisation constraints — <a href="https://www.whatmatters.com/faqs/okr-meaning-definition-example">www.whatmatters.com</a></li>
+<li>[x] <a href="https://fortelabs.com/blog/para/">Personal Knowledge Management (PKM) literature on research agenda management: Tiago Forte's PARA method, progressive summarisation as a triage tool; relevant to deciding what to research vs. what to archive</a></li>
+<li>[x] <a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done">Jobs-to-be-done framework (Christensen): structured approach to defining value and priority by outcome rather than by topic interest — applicable to research prioritisation</a></li>
+<li>[x] <a href="https://www.whatmatters.com/faqs/okr-meaning-definition-example">OKR (Objectives and Key Results) methodology: assess whether a quarterly research OKR (e.g., &quot;understand the NZ AI regulatory landscape well enough to advise on compliance&quot;) provides useful top-down prioritisation constraints</a></li>
 <li>[x] <code>Research/backlog/2026-03-02-research-quality-assurance-methodology.md</code> — identifies &quot;applicability testing&quot; as a quality dimension; agenda curation is the upstream version: only add items where the knowledge would be applicable</li>
 <li>[x] <code>src/research/item.py</code> and <code>src/research/cli.py</code> — existing YAML front-matter schema and CLI; extension points for <code>agenda</code> command</li>
 </ul>

@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -686,7 +690,7 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
-<p>MkDocs Material deployed to GitHub Pages via GitHub Actions — using only the already-approved GITHUB_TOKEN — is the recommended hosting stack for this research repository. A five-line workflow (<code>pip install mkdocs-material &amp;&amp; mkdocs gh-deploy --force</code>) converts <code>Research/completed/</code> Markdown to a navigable HTML site with tag indexes and built-in full-text search; Pagefind can be layered on as a post-processor to add tag-filtered, section-level search with under 50 kB payload at current corpus scale. No cloud-hosted vector database is free forever without a new credential; the only zero-credential path for semantic search is pre-computed embeddings stored as a static JSON file served by Orama in the browser. The recommended baseline stack requires no new infrastructure, no new credentials, and an estimated 30–60 second CI (continuous integration) build time.</p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/publishing-your-site/">MkDocs Material</a> deployed to GitHub Pages via GitHub Actions — using only the already-approved GITHUB_TOKEN — is the recommended hosting stack for this research repository. A five-line workflow (<code>pip install mkdocs-material &amp;&amp; mkdocs gh-deploy --force</code>) converts <code>Research/completed/</code> Markdown to a navigable HTML site with tag indexes and built-in full-text search; Pagefind can be layered on as a post-processor to add tag-filtered, section-level search with under 50 kB payload at current corpus scale. No cloud-hosted vector database is free forever without a new credential; the only zero-credential path for semantic search is pre-computed embeddings stored as a static JSON file served by Orama in the browser. The recommended baseline stack requires no new infrastructure, no new credentials, and an estimated 30–60 second CI (continuous integration) build time.</p>
 <h3>Key Findings</h3>
 <ol>
 <li>
@@ -714,7 +718,7 @@ main {
 <p>LanceDB Cloud is in public beta with a 30-day free trial — it is not a free-forever option — and LanceDB OSS is an in-process embedded database that cannot serve queries from a static site without a serverless function wrapper. [High confidence]</p>
 </li>
 <li>
-<p>Neo4j AuraDB Free (50,000 nodes, 175,000 relationships) could support graph-based tag and cross-reference navigation, but at current corpus scale (30–50 items) MkDocs Material's tags index is sufficient and any automated AuraDB integration requires a new credential not in the approved table. [High confidence]</p>
+<p><a href="https://neo4j.com/product/auradb/">Neo4j AuraDB</a> Free (50,000 nodes, 175,000 relationships) could support graph-based tag and cross-reference navigation, but at current corpus scale (30–50 items) MkDocs Material's tags index is sufficient and any automated AuraDB integration requires a new credential not in the approved table. [High confidence]</p>
 </li>
 <li>
 <p>The simplest end-to-end stack meeting all stated requirements — free, full-text search with tag filtering, push-to-main GitHub Actions workflow, zero new credentials — is MkDocs Material (SSG) + Pagefind (search post-processor) + GitHub Pages (hosting). [High confidence]</p>
@@ -749,17 +753,17 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] GitHub Pages docs — <a href="https://docs.github.com/en/pages">docs.github.com</a> (consulted: limits page)</li>
-<li>[x] Cloudflare Pages comparison — <a href="https://www.netlify.com/guides/cloudflare-pages-vs-netlify/">www.netlify.com</a> (consulted)</li>
-<li>[x] Vercel vs Netlify vs Cloudflare Pages 2025 — <a href="https://www.digitalapplied.com/blog/vercel-vs-netlify-vs-cloudflare-pages-comparison">www.digitalapplied.com</a> (consulted)</li>
-<li>[x] Pagefind official site — <a href="https://pagefind.app">pagefind.app</a> (consulted)</li>
-<li>[x] Pagefind tutorial — <a href="https://gebna.gg/blog/full-text-search-static-website-pagefind">gebna.gg</a> (consulted)</li>
-<li>[x] MkDocs Material — <a href="https://squidfunk.github.io/mkdocs-material/publishing-your-site/">squidfunk.github.io</a> (consulted: publishing + tags docs)</li>
-<li>[x] Quartz hosting docs — <a href="https://quartz.jzhao.xyz/hosting">quartz.jzhao.xyz</a> (consulted)</li>
-<li>[x] Orama search — <a href="https://nearform.com/digital-community/browser-based-vector-search-fast-private-and-no-backend-required/">nearform.com</a> (consulted)</li>
-<li>[x] Qdrant Cloud pricing — <a href="https://www.firecrawl.dev/blog/best-vector-databases">www.firecrawl.dev</a> (consulted)</li>
-<li>[x] LanceDB Cloud docs — <a href="https://docs.lancedb.com/cloud">docs.lancedb.com</a> (consulted)</li>
-<li>[x] Neo4j AuraDB — <a href="https://neo4j.com/product/auradb/">neo4j.com</a> (consulted)</li>
+<li>[x] <a href="https://docs.github.com/en/pages">GitHub Pages docs</a> — (consulted: limits page)</li>
+<li>[x] <a href="https://www.netlify.com/guides/cloudflare-pages-vs-netlify/">Cloudflare Pages comparison</a> — (consulted)</li>
+<li>[x] <a href="https://www.digitalapplied.com/blog/vercel-vs-netlify-vs-cloudflare-pages-comparison">Vercel vs Netlify vs Cloudflare Pages 2025</a> — (consulted)</li>
+<li>[x] <a href="https://pagefind.app">Pagefind official site</a> — (consulted)</li>
+<li>[x] <a href="https://gebna.gg/blog/full-text-search-static-website-pagefind">Pagefind tutorial</a> — (consulted)</li>
+<li>[x] <a href="https://squidfunk.github.io/mkdocs-material/publishing-your-site/">MkDocs Material</a> — (consulted: publishing + tags docs)</li>
+<li>[x] <a href="https://quartz.jzhao.xyz/hosting">Quartz hosting docs</a> — (consulted)</li>
+<li>[x] <a href="https://nearform.com/digital-community/browser-based-vector-search-fast-private-and-no-backend-required/">Orama search</a> — (consulted)</li>
+<li>[x] <a href="https://www.firecrawl.dev/blog/best-vector-databases">Qdrant Cloud pricing</a> — (consulted)</li>
+<li>[x] <a href="https://docs.lancedb.com/cloud">LanceDB Cloud docs</a> — (consulted)</li>
+<li>[x] <a href="https://neo4j.com/product/auradb/">Neo4j AuraDB</a> — (consulted)</li>
 </ul>
 <hr />
 

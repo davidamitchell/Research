@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -733,23 +737,23 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html">UELGF complete framework synthesis</a> - primary framework being extended</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html">UELGF runtime feedback loop</a> - escalation-path integration</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html">UELGF governed golden rails</a> - scaffold-field definition</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html">UELGF decommission lifecycle</a> - owner-absence and succession interaction</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html">UELGF policy architecture and 8-layer context</a> - approval-gate and stop-authority enforcement surface</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">Human intervention in Artificial Intelligence (AI)-driven and automated workflows</a> - foundational human-oversight research</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?</a> - accountability structures</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">UELGF agentic AI specific risks and runtime monitoring</a> - adjacent UELGF item showing that deployment-time approval alone is not an adequate control model for non-deterministic agents</li>
-<li>[x] <a href="https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf">Practices for Governing Agentic AI Systems</a> - OpenAI primary source on accountability, approval, action ledgers, reversibility, monitoring, and shutdown</li>
-<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14">EU AI Act, Article 14</a> - official human-oversight obligations</li>
-<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26">EU AI Act, Article 26</a> - official deployer obligations for competent natural-person oversight, monitoring, and logging</li>
-<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) AI Risk Management Framework (RMF) Core</a> - governance roles, periodic review, inventory, and decommission expectations</li>
-<li>[x] <a href="https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/">Information Commissioner's Office (ICO) human review toolkit</a> - reviewer authority, independence, manageable caseload, override logging, and fallback processes</li>
-<li>[x] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/">Automation bias systematic review</a> - accessible review of accountability, workload, and mitigation evidence</li>
-<li>[x] <a href="https://oecd.ai/en/dashboards/policy-initiatives/principles-to-promote-fairness-ethics-accountability-and-transparency-in-the-use-of-artificial-intelligence-and-data-analytics-in-singapores-financial-sector-3706">Organisation for Economic Co-operation and Development (OECD) entry for the Principles to Promote Fairness, Ethics, Accountability and Transparency (FEAT) in the Use of Artificial Intelligence and Data Analytics in Singapore's Financial Sector</a> - accessible record naming the Monetary Authority of Singapore (MAS) FEAT initiative</li>
-<li>[x] <a href="https://www.rajahtannasia.com/wp-content/uploads/2024/10/2022-02_Veritas_Phase_2-FEAT_principles.pdf">Veritas Phase 2 summary of the FEAT Principles</a> - accessible summary of FEAT accountability principles, materiality, monitoring, and appeals</li>
-<li>[x] <a href="https://www.sciencedirect.com/science/article/abs/pii/S107158199990349X">Skitka, Mosier, and Burdick (2000), Accountability and automation bias</a> - seeded primary study checked; direct abstract not accessible in this runtime</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html">UELGF complete framework synthesis</a> — - primary framework being extended</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html">UELGF runtime feedback loop</a> — - escalation-path integration</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html">UELGF governed golden rails</a> — - scaffold-field definition</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html">UELGF decommission lifecycle</a> — - owner-absence and succession interaction</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html">UELGF policy architecture and 8-layer context</a> — - approval-gate and stop-authority enforcement surface</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">Human intervention in Artificial Intelligence (AI)-driven and automated workflows</a> — - foundational human-oversight research</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?</a> — - accountability structures</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">UELGF agentic AI specific risks and runtime monitoring</a> — - adjacent UELGF item showing that deployment-time approval alone is not an adequate control model for non-deterministic agents</li>
+<li>[x] <a href="https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf">Practices for Governing Agentic AI Systems</a> — - OpenAI primary source on accountability, approval, action ledgers, reversibility, monitoring, and shutdown</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14">EU AI Act, Article 14</a> — - official human-oversight obligations</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26">EU AI Act, Article 26</a> — - official deployer obligations for competent natural-person oversight, monitoring, and logging</li>
+<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) AI Risk Management Framework (RMF) Core</a> — - governance roles, periodic review, inventory, and decommission expectations</li>
+<li>[x] <a href="https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/">Information Commissioner's Office (ICO) human review toolkit</a> — - reviewer authority, independence, manageable caseload, override logging, and fallback processes</li>
+<li>[x] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/">Automation bias systematic review</a> — - accessible review of accountability, workload, and mitigation evidence</li>
+<li>[x] <a href="https://oecd.ai/en/dashboards/policy-initiatives/principles-to-promote-fairness-ethics-accountability-and-transparency-in-the-use-of-artificial-intelligence-and-data-analytics-in-singapores-financial-sector-3706">Organisation for Economic Co-operation and Development (OECD) entry for the Principles to Promote Fairness, Ethics, Accountability and Transparency (FEAT) in the Use of Artificial Intelligence and Data Analytics in Singapore's Financial Sector</a> — - accessible record naming the Monetary Authority of Singapore (MAS) FEAT initiative</li>
+<li>[x] <a href="https://www.rajahtannasia.com/wp-content/uploads/2024/10/2022-02_Veritas_Phase_2-FEAT_principles.pdf">Veritas Phase 2 summary of the FEAT Principles</a> — - accessible summary of FEAT accountability principles, materiality, monitoring, and appeals</li>
+<li>[x] <a href="https://www.sciencedirect.com/science/article/abs/pii/S107158199990349X">Skitka, Mosier, and Burdick (2000), Accountability and automation bias</a> — - seeded primary study checked; direct abstract not accessible in this runtime</li>
 </ul>
 <hr />
 

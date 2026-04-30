@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -662,7 +666,7 @@ main {
     <div class="meta-bar">
     <span>2026-04-19</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/management.html">management</a> <a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
+    <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/software-cost.html">software-cost</a> <a class="tag" href="/Research/tags/management.html">management</a> <a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
@@ -737,44 +741,44 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1468-0335.1937.tb00002.x">The Nature of the Firm - Ronald Coase (1937)</a> - seeded primary source; checked, but the Wiley page returned status 403 from the runner, so it served as a source pointer rather than directly quotable evidence here</li>
-<li>[x] <a href="https://www.hup.harvard.edu/books/9780029348208">Markets and Hierarchies - Oliver Williamson (1975)</a> - seeded source pointer; the Harvard University Press page was accessible only as book metadata, so it was used for framing rather than direct quotation</li>
-<li>[x] <a href="https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/0393350649">The Second Machine Age - Brynjolfsson and McAfee (2014)</a> - seeded source pointer; the Amazon page was accessible but not directly useful for evidence extraction in this environment</li>
-<li>[x] <a href="https://www.mckinsey.com/~/media/mckinsey/featured%20insights/mckinsey%20explainers/whats%20the%20future%20of%20generative%20ai%20an%20early%20view%20in%2015%20charts/whats-the-future-of-generative-ai-an-early-view-in-15-charts.pdf">McKinsey: Unleashing developer productivity with generative AI, via McKinsey August 2023 explainer</a> - accessible McKinsey material citing the seeded article's task-speed results</li>
-<li>[x] <a href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">GitHub Copilot productivity research (Kalliamvakou, 2022)</a> - controlled experiment on task completion speed and developer experience</li>
-<li>[x] <a href="https://www.software.com/src/developer-productivity-a-bigger-constraint-to-innovation-than-capital">Stripe Developer Coefficient summary</a> - accessible summary quoting Stripe's 2018 findings on maintenance burden and developer productivity</li>
-<li>[x] <a href="https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf">CHAOS Report - Standish Group</a> - seeded link checked; returned status 404 and is not used as evidence</li>
-<li>[x] <a href="https://www.cognition.ai/blog/introducing-devin">Devin AI - Cognition Labs</a> - vendor primary claim about autonomous software-engineering capability; used with low evidentiary weight</li>
-<li>[x] <a href="https://cursor.com/">Cursor</a> - vendor site checked; useful as a signal of market positioning and adoption claims, not as independent productivity evidence</li>
-<li>[x] <a href="https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959">The Mythical Man-Month - Fred Brooks (1975)</a> - seeded source pointer for coordination-cost logic; the Amazon page was accessible only as book metadata</li>
-<li>[x] <a href="https://www.wired.com/story/vibe-coding-future-of-software/">Wired: &quot;Vibe coding&quot; and the future of software</a> - seeded link checked; returned status 404 and is not used as evidence</li>
-<li>[x] <a href="https://hbr.org/2016/09/excess-management-is-costing-the-us-3-trillion-per-year">Harvard Business Review: Excess Management Is Costing the U.S. $3 Trillion Per Year</a> - economy-wide bureaucracy baseline</li>
-<li>[x] <a href="https://www.london.edu/think/bureaucracy-where-to-liberate-3-trillion">London Business School: Bureaucracy, where to liberate $3 trillion</a> - accessible restatement of Hamel and Zanini's core management-overhead numbers</li>
-<li>[x] <a href="https://a16z.com/why-software-is-eating-the-world/">a16z: Why Software Is Eating the World</a> - framing source for software as a dominant production factor</li>
-<li>[x] <a href="https://www.gartner.com/en/information-technology/insights/low-code-no-code">Gartner: low-code and no-code market and organisational impact</a> - seeded link checked; returned status 403, so Microsoft and low-code governance sources below were used instead</li>
-<li>[x] <a href="https://mitsloan.mit.edu/ideas-made-to-matter/leadership-and-ai-insights-2025-latest-mit-sloan-management-review">Massachusetts Institute of Technology (MIT) Sloan: Leadership and AI insights for 2025</a> - accessible MIT Sloan Management Review gateway page covering AI governance and organisational design implications</li>
-<li>[x] <a href="https://survey.stackoverflow.co/2024/">Stack Overflow Developer Survey 2024</a> - empirical baseline on AI adoption and time spent searching for solutions</li>
-<li>[x] <a href="https://scrumguides.org/scrum-guide.html">Scrum Guide</a> - primary framework description of Scrum roles and responsibilities</li>
-<li>[x] <a href="https://www.atlassian.com/agile/scrum/roles">Atlassian: Agile Scrum roles and responsibilities</a> - accessible explanation of Scrum team composition and role structure</li>
-<li>[x] <a href="https://scaledagileframework.com/agile-release-train/">Scaled Agile Framework: Agile Release Train</a> - scaled-delivery role structure and headcount band</li>
-<li>[x] <a href="https://d3.harvard.edu/the-ai-revolution-in-software-development-how-generative-ai-is-reshaping-coding-practices/">Harvard Digital, Data and Design (D^3): The AI Revolution in Software Development</a> - accessible summary of the 2024 working paper &quot;Generative AI and the Nature of Work&quot;</li>
-<li>[x] <a href="https://cloud.google.com/blog/products/management-tools/identifying-and-tracking-toil-using-sre-principles">Google Cloud: Identifying and tracking toil using Site Reliability Engineering (SRE) principles</a> - automation of repetitive operations work</li>
-<li>[x] <a href="https://cloud.google.com/blog/products/management-tools/transitioning-a-typical-engineering-ops-team-into-an-sre-powerhouse">Google Cloud: Transitioning a typical engineering ops team into an SRE powerhouse</a> - operations automation changes team shape rather than eliminating operations</li>
-<li>[x] <a href="https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf">Amazon Web Services (AWS) Prescriptive Guidance: Building a Cloud Center of Excellence within your organization</a> - cloud-era governance and operating-model analogue</li>
-<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview">Microsoft Power Platform Center of Excellence Starter Kit overview</a> - low-code governance analogue</li>
-<li>[x] <a href="https://www.quickbase.com/blog/low-code-coe-enterprise-governance-it-director">Quickbase: Low-Code CoE, Governance for IT Directors</a> - low-code governance analogue</li>
-<li>[x] <a href="https://kissflow.com/no-code/how-to-set-up-a-no-code-coe/">Kissflow: How to Set Up a No-Code Center of Excellence</a> - low-code and no-code governance analogue</li>
-<li>[x] <a href="https://scholarworks.lib.csusb.edu/cgi/viewcontent.cgi?article=1104&amp;context=jitim">Strategic Approaches to ERP Implementation</a> - ERP centralization and process-standardization analogue</li>
+<li>[x] <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1468-0335.1937.tb00002.x">The Nature of the Firm - Ronald Coase (1937)</a> — - seeded primary source; checked, but the Wiley page returned status 403 from the runner, so it served as a source pointer rather than directly quotable evidence here</li>
+<li>[x] <a href="https://www.hup.harvard.edu/books/9780029348208">Markets and Hierarchies - Oliver Williamson (1975)</a> — - seeded source pointer; the Harvard University Press page was accessible only as book metadata, so it was used for framing rather than direct quotation</li>
+<li>[x] <a href="https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/0393350649">The Second Machine Age - Brynjolfsson and McAfee (2014)</a> — - seeded source pointer; the Amazon page was accessible but not directly useful for evidence extraction in this environment</li>
+<li>[x] <a href="https://www.mckinsey.com/~/media/mckinsey/featured%20insights/mckinsey%20explainers/whats%20the%20future%20of%20generative%20ai%20an%20early%20view%20in%2015%20charts/whats-the-future-of-generative-ai-an-early-view-in-15-charts.pdf">McKinsey: Unleashing developer productivity with generative AI, via McKinsey August 2023 explainer</a> — - accessible McKinsey material citing the seeded article's task-speed results</li>
+<li>[x] <a href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">GitHub Copilot productivity research (Kalliamvakou, 2022)</a> — - controlled experiment on task completion speed and developer experience</li>
+<li>[x] <a href="https://www.software.com/src/developer-productivity-a-bigger-constraint-to-innovation-than-capital">Stripe Developer Coefficient summary</a> — - accessible summary quoting Stripe's 2018 findings on maintenance burden and developer productivity</li>
+<li>[x] <a href="https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf">CHAOS Report - Standish Group</a> — - seeded link checked; returned status 404 and is not used as evidence</li>
+<li>[x] <a href="https://www.cognition.ai/blog/introducing-devin">Devin AI - Cognition Labs</a> — - vendor primary claim about autonomous software-engineering capability; used with low evidentiary weight</li>
+<li>[x] <a href="https://cursor.com/">Cursor</a> — - vendor site checked; useful as a signal of market positioning and adoption claims, not as independent productivity evidence</li>
+<li>[x] <a href="https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959">The Mythical Man-Month - Fred Brooks (1975)</a> — - seeded source pointer for coordination-cost logic; the Amazon page was accessible only as book metadata</li>
+<li>[x] <a href="https://www.wired.com/story/vibe-coding-future-of-software/">Wired: &quot;Vibe coding&quot; and the future of software</a> — - seeded link checked; returned status 404 and is not used as evidence</li>
+<li>[x] <a href="https://hbr.org/2016/09/excess-management-is-costing-the-us-3-trillion-per-year">Harvard Business Review: Excess Management Is Costing the U.S. $3 Trillion Per Year</a> — - economy-wide bureaucracy baseline</li>
+<li>[x] <a href="https://www.london.edu/think/bureaucracy-where-to-liberate-3-trillion">London Business School: Bureaucracy, where to liberate $3 trillion</a> — - accessible restatement of Hamel and Zanini's core management-overhead numbers</li>
+<li>[x] <a href="https://a16z.com/why-software-is-eating-the-world/">a16z: Why Software Is Eating the World</a> — - framing source for software as a dominant production factor</li>
+<li>[x] <a href="https://www.gartner.com/en/information-technology/insights/low-code-no-code">Gartner: low-code and no-code market and organisational impact</a> — - seeded link checked; returned status 403, so Microsoft and low-code governance sources below were used instead</li>
+<li>[x] <a href="https://mitsloan.mit.edu/ideas-made-to-matter/leadership-and-ai-insights-2025-latest-mit-sloan-management-review">Massachusetts Institute of Technology (MIT) Sloan: Leadership and AI insights for 2025</a> — - accessible MIT Sloan Management Review gateway page covering AI governance and organisational design implications</li>
+<li>[x] <a href="https://survey.stackoverflow.co/2024/">Stack Overflow Developer Survey 2024</a> — - empirical baseline on AI adoption and time spent searching for solutions</li>
+<li>[x] <a href="https://scrumguides.org/scrum-guide.html">Scrum Guide</a> — - primary framework description of Scrum roles and responsibilities</li>
+<li>[x] <a href="https://www.atlassian.com/agile/scrum/roles">Atlassian: Agile Scrum roles and responsibilities</a> — - accessible explanation of Scrum team composition and role structure</li>
+<li>[x] <a href="https://scaledagileframework.com/agile-release-train/">Scaled Agile Framework: Agile Release Train</a> — - scaled-delivery role structure and headcount band</li>
+<li>[x] <a href="https://d3.harvard.edu/the-ai-revolution-in-software-development-how-generative-ai-is-reshaping-coding-practices/">Harvard Digital, Data and Design (D^3): The AI Revolution in Software Development</a> — - accessible summary of the 2024 working paper &quot;Generative AI and the Nature of Work&quot;</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/management-tools/identifying-and-tracking-toil-using-sre-principles">Google Cloud: Identifying and tracking toil using Site Reliability Engineering (SRE) principles</a> — - automation of repetitive operations work</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/management-tools/transitioning-a-typical-engineering-ops-team-into-an-sre-powerhouse">Google Cloud: Transitioning a typical engineering ops team into an SRE powerhouse</a> — - operations automation changes team shape rather than eliminating operations</li>
+<li>[x] <a href="https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf">Amazon Web Services (AWS) Prescriptive Guidance: Building a Cloud Center of Excellence within your organization</a> — - cloud-era governance and operating-model analogue</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview">Microsoft Power Platform Center of Excellence Starter Kit overview</a> — - low-code governance analogue</li>
+<li>[x] <a href="https://www.quickbase.com/blog/low-code-coe-enterprise-governance-it-director">Quickbase: Low-Code CoE, Governance for IT Directors</a> — - low-code governance analogue</li>
+<li>[x] <a href="https://kissflow.com/no-code/how-to-set-up-a-no-code-coe/">Kissflow: How to Set Up a No-Code Center of Excellence</a> — - low-code and no-code governance analogue</li>
+<li>[x] <a href="https://scholarworks.lib.csusb.edu/cgi/viewcontent.cgi?article=1104&amp;context=jitim">Strategic Approaches to ERP Implementation</a> — - ERP centralization and process-standardization analogue</li>
 </ul>
 <hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-03-ai-workflow-todo-digest.html">Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management</a> <span class="related-note">via agentic-ai, automation</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-28-software-demand-shift-ai-coding-era.html">Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?</a> <span class="related-note">via agentic-ai, software-cost, transaction-costs</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-03-ai-workflow-todo-digest.html">Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management</a> <span class="related-note">via agentic-ai, automation</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit.html">Against bureaucracy: dismantling control systems to focus on value and opportunity exploration</a> <span class="related-note">via management, organisational-design</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a> <span class="related-note">via agentic-ai, organisational-design</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</a> <span class="related-note">via agentic-ai, organisational-design</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-02-ai-not-a-data-problem.html">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</a> <span class="related-note">via agentic-ai, organisational-design</span></div>
 </div></div>
 
   

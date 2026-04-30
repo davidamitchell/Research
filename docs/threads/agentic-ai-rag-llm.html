@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -661,7 +665,7 @@ main {
     <span>agentic-ai / rag / llm</span>
   </div>
   <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>agentic-ai / rag / llm</h1>
-  <p class="page-subtitle" style="margin-bottom:1.5rem">21 items</p>
+  <p class="page-subtitle" style="margin-bottom:1.5rem">26 items</p>
   <div class="featured-pills" style="margin-bottom:1.5rem"><a class="tag-pill-link tag" href="/Research/tags/agentic-ai.html">agentic-ai</a><a class="tag-pill-link tag" href="/Research/tags/rag.html">rag</a><a class="tag-pill-link tag" href="/Research/tags/llm.html">llm</a></div>
   <div class="card-grid">
     <a class="card" href="/Research/research/2026-03-02-agent-memory-management-context-injection.html" data-title="agent memory management and context injection" data-question="what is the current state of agent memory management systems — beyond rag — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di" data-tags="memory,rag,agentic-ai,knowledge-management,architecture,governance,dikw,knowledge-graph,embeddings">
@@ -685,11 +689,18 @@ main {
   <div class="card-excerpt">What techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agentic-ai,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
-  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
+<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="agentic-ai,benchmarks,evaluation,prompt-engineering">
+  <div class="card-title">General Agent Optimization Framework</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">agentic-ai</span><span class="tag">benchmarks</span><span class="tag">evaluation</span><span class="tag">prompt-engineering</span></div>
+  <div class="card-excerpt">What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system promp…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html" data-title="emergent patterns in software engineering prompts and sdlc guidance" data-question="what are the current and emergent best practices for crafting ai agent prompts and tooling guidance tailored to each phase of the software development life cycle (sdlc) — covering discovery, requireme" data-tags="agentic-ai,prompts,sdlc,software-engineering,best-practices,prompt-engineering,developer-tooling">
+  <div class="card-title">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">agentic-ai</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
-  <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
+  <div class="card-tags"><span class="tag">agentic-ai</span><span class="tag">prompts</span><span class="tag">sdlc</span><span class="tag">software-engineering</span><span class="tag">best-practices</span><span class="tag">prompt-engineering</span><span class="tag">developer-tooling</span></div>
+  <div class="card-excerpt">What are the current and emergent best practices for crafting AI agent prompts and tooling guidance tailored to each phase of the Software Development Life Cycle (SDLC) — covering discovery, requireme…</div>
 </a>
 <div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-03-08-context-engineering-first-principles.html" data-title="context engineering" data-question="what are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to" data-tags="context-engineering,prompt-engineering,llm,rag,compliance">
@@ -699,18 +710,18 @@ main {
   <div class="card-excerpt">What are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,agentic-ai,process-mapping,enterprise-architecture,tco">
-  <div class="card-title">ServiceNow Platform Strategy</div>
-  <div class="card-meta">2026-03-09</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">platform-strategy</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">agentic-ai</span><span class="tag">process-mapping</span><span class="tag">enterprise-architecture</span><span class="tag">tco</span></div>
-  <div class="card-excerpt">Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s…</div>
-</a>
-<div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html" data-title="servicenow ai" data-question="how is servicenow evolving its platform to support ai-powered knowledge management, retrieval-augmented generation (rag), and agent frameworks — and what should an organisation investing in servicenow" data-tags="servicenow,agentic-ai,now-assist,rag,knowledge-management,llm">
   <div class="card-title">ServiceNow AI</div>
   <div class="card-meta">2026-03-09</div>
   <div class="card-tags"><span class="tag">servicenow</span><span class="tag">agentic-ai</span><span class="tag">now-assist</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">llm</span></div>
   <div class="card-excerpt">How is ServiceNow evolving its platform to support AI-powered knowledge management, retrieval-augmented generation (RAG), and agent frameworks — and what should an organisation investing in ServiceNow…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,classification,prompt-engineering,context-engineering,memory,failure-modes,guardrails,skills,tools,agentic-ai">
+  <div class="card-title">AI concept classification taxonomy</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">classification</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">agentic-ai</span></div>
+  <div class="card-excerpt">What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering…</div>
 </a>
 <div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html" data-title="swat technique in a fresh-context loop" data-question="when the swat (strengths, weaknesses, assumptions, threats) technique is executed repeatedly in a loop where each invocation uses a fresh large language model (llm) context window and the caller blind" data-tags="agentic-ai,rag,hallucinations,context-window,grounding">
@@ -734,11 +745,11 @@ main {
   <div class="card-excerpt">What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="alignment,decision-making,enterprise-ai,rag,knowledge-management,synthesis">
-  <div class="card-title">Aligned Decision-Making</div>
-  <div class="card-meta">2026-03-17</div>
-  <div class="card-tags"><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">synthesis</span></div>
-  <div class="card-excerpt">What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and…</div>
+<a class="card" href="/Research/research/2026-03-15-latent-concept-extraction-confluence.html" data-title="latent concept extraction from confluence" data-question="what are the best approaches for extracting latent concepts from a confluence wiki, representing them as word embeddings in a vector database (vdb) and as a knowledge graph (kg), and how can the resul" data-tags="confluence,embeddings,vector-db,knowledge-graph,rag">
+  <div class="card-title">Latent Concept Extraction from Confluence</div>
+  <div class="card-meta">2026-03-16</div>
+  <div class="card-tags"><span class="tag">confluence</span><span class="tag">embeddings</span><span class="tag">vector-db</span><span class="tag">knowledge-graph</span><span class="tag">rag</span></div>
+  <div class="card-excerpt">What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resul…</div>
 </a>
 <div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html" data-title="prompt injection threat landscape" data-question="what is the current state of the prompt injection threat in agentic artificial intelligence (ai) systems: who is exploiting it, who is defending against it, and what does the research community consid" data-tags="prompt-injection,security,llm,agentic-ai,owasp,red-team,ai-governance">
@@ -755,6 +766,13 @@ main {
   <div class="card-excerpt">Ken Thompson&#39;s &quot;Trusting Trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin…</div>
 </a>
 <div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html" data-title="stateless-agent assumption failure" data-question="when an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp" data-tags="failure-modes,agentic-ai,state-management,workflow">
+  <div class="card-title">Stateless-agent assumption failure</div>
+  <div class="card-meta">2026-03-20</div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">agentic-ai</span><span class="tag">state-management</span><span class="tag">workflow</span></div>
+  <div class="card-excerpt">When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp…</div>
+</a>
+<div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html" data-title="api context hubs, retrieval-augmented generation, and the model context…" data-question="what approaches are being used to enable artificial intelligence (ai) agents to discover, understand, and invoke external application programming interfaces (apis), and how do the three major emerging" data-tags="rag,mcp,model-context-protocol,retrieval-augmented-generation,agentic-ai,tooling">
   <div class="card-title">API Context Hubs, Retrieval-Augmented Generation, and the Model Context…</div>
   <div class="card-meta">2026-03-20</div>
@@ -767,6 +785,38 @@ main {
   <div class="card-meta">2026-03-22</div>
   <div class="card-tags"><span class="tag">llm</span><span class="tag">rag</span><span class="tag">enterprise-ai</span><span class="tag">knowledge-management</span><span class="tag">organisational-context</span><span class="tag">architecture</span><span class="tag">retrieval-augmented-generation</span></div>
   <div class="card-excerpt">Is it technically feasible and economically viable for an organisation to build a customised Large Language Model (LLM) layer that injects and optimises over organisation-specific context - internal k…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,workflow,best-practices,multi-agent,memory-system,evaluation,agentic-ai">
+  <div class="card-title">Applied context engineering</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">workflow</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">memory-system</span><span class="tag">evaluation</span><span class="tag">agentic-ai</span></div>
+  <div class="card-excerpt">What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-22-using-awesome-copilot-across-repos.html" data-title="how to best use awesome-copilot in this repo and across personal repos" data-question="what resources from `davidamitchell/awesome-copilot` — github copilot (ghc) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this research repo a" data-tags="github-copilot,instructions,skills,agentic-ai,workflow,tooling,repo-setup">
+  <div class="card-title">How to best use awesome-copilot in this repo and across personal repos</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">github-copilot</span><span class="tag">instructions</span><span class="tag">skills</span><span class="tag">agentic-ai</span><span class="tag">workflow</span><span class="tag">tooling</span><span class="tag">repo-setup</span></div>
+  <div class="card-excerpt">What resources from `davidamitchell/awesome-copilot` — GitHub Copilot (GHC) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this Research repo a…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-04-03-oh-my-codex-patterns.html" data-title="oh-my-codex and ai agent workflow patterns" data-question="what patterns from oh-my-codex (omx) and similar ai agent workflow projects (agents.md, skill.md, etc.) are most applicable to improving the instructions, skills, agents, and tooling across davidamitc" data-tags="agentic-ai,tooling,instructions,skills,workflow,codex,copilot,agents-md">
+  <div class="card-title">oh-my-codex and AI Agent Workflow Patterns</div>
+  <div class="card-meta">2026-04-03</div>
+  <div class="card-tags"><span class="tag">agentic-ai</span><span class="tag">tooling</span><span class="tag">instructions</span><span class="tag">skills</span><span class="tag">workflow</span><span class="tag">codex</span><span class="tag">copilot</span><span class="tag">agents-md</span></div>
+  <div class="card-excerpt">What patterns from oh-my-codex (OMX) and similar AI agent workflow projects (AGENTS.md, SKILL.md, etc.) are most applicable to improving the instructions, skills, agents, and tooling across davidamitc…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-04-03-ai-workflow-todo-digest.html" data-title="ai-assisted daily productivity digest" data-question="what are the established patterns and tooling approaches for using artificial intelligence (ai) to generate actionable daily and weekly productivity digests from personal task management systems?
+
+sup" data-tags="agentic-ai,productivity,automation,slack,personal-assistant,memory-system,ios,workflow">
+  <div class="card-title">AI-assisted daily productivity digest</div>
+  <div class="card-meta">2026-04-19</div>
+  <div class="card-tags"><span class="tag">agentic-ai</span><span class="tag">productivity</span><span class="tag">automation</span><span class="tag">slack</span><span class="tag">personal-assistant</span><span class="tag">memory-system</span><span class="tag">ios</span><span class="tag">workflow</span></div>
+  <div class="card-excerpt">What are the established patterns and tooling approaches for using Artificial Intelligence (AI) to generate actionable daily and weekly productivity digests from personal task management systems?
+
+Sup…</div>
 </a>
 <div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html" data-title="rag in enterprise information architectures" data-question="what are the technical constraints on permission-safe retrieval-augmented generation (rag) in an enterprise information architecture with incoherent access controls, collaboration groups created ad ho" data-tags="rag,access-control,enterprise-ai,regulated-banking,agentic-ai">
@@ -797,18 +847,11 @@ main {
   <div class="card-excerpt">What does the synthesis of Yann LeCun&#39;s architectural critique of Large Language Models (LLMs), no causal world model, no consequence reasoning, verifiable only in formal systems, with the systems cap…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html" data-title="ai roadmap" data-question="what workflow orchestration and governance capabilities does servicenow currently provide for artificial intelligence (ai) agent workloads, specifically its identity resolution, permissions, audit tra" data-tags="servicenow,agentic-ai,enterprise-ai,governance,now-assist,ai-platform,cmdb,itsm,enterprise-architecture">
-  <div class="card-title">AI roadmap</div>
-  <div class="card-meta">2026-04-27</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">agentic-ai</span><span class="tag">enterprise-ai</span><span class="tag">governance</span><span class="tag">now-assist</span><span class="tag">ai-platform</span><span class="tag">cmdb</span><span class="tag">itsm</span><span class="tag">enterprise-architecture</span></div>
-  <div class="card-excerpt">What workflow orchestration and governance capabilities does ServiceNow currently provide for Artificial Intelligence (AI) agent workloads, specifically its identity resolution, permissions, audit tra…</div>
-</a>
-<div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-04-27-governance-moat-prior-research-implications.html" data-title="governance-as-moat thesis and prior research implications" data-question="how does the thesis advanced in the april 2026 liam hyland and leonis capital servicenow analysis, that governance is the durable, non-replicable value layer in ai-augmented enterprise technology stac" data-tags="governance,servicenow,uelgf,enterprise-architecture,agentic-ai,terminal-value,ai-commoditisation,regulated-financial-services">
-  <div class="card-title">Governance-as-moat thesis and prior research implications</div>
-  <div class="card-meta">2026-04-27</div>
-  <div class="card-tags"><span class="tag">governance</span><span class="tag">servicenow</span><span class="tag">uelgf</span><span class="tag">enterprise-architecture</span><span class="tag">agentic-ai</span><span class="tag">terminal-value</span><span class="tag">ai-commoditisation</span><span class="tag">regulated-financial-services</span></div>
-  <div class="card-excerpt">How does the thesis advanced in the April 2026 Liam Hyland and Leonis Capital ServiceNow analysis, that governance is the durable, non-replicable value layer in AI-augmented enterprise technology stac…</div>
+<a class="card" href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html" data-title="is knowledge scaffolding an established concept within context engineering for…" data-question="is knowledge scaffolding an established concept within context engineering for large language models (llms) and artificial intelligence (ai) agents, and if so, how is it defined, implemented, and dist" data-tags="context-engineering,llm,agentic-ai,rag,prompt-engineering,memory-system,workflow,knowledge-graph">
+  <div class="card-title">Is knowledge scaffolding an established concept within context engineering for…</div>
+  <div class="card-meta">2026-04-29</div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">llm</span><span class="tag">agentic-ai</span><span class="tag">rag</span><span class="tag">prompt-engineering</span><span class="tag">memory-system</span><span class="tag">workflow</span><span class="tag">knowledge-graph</span></div>
+  <div class="card-excerpt">Is knowledge scaffolding an established concept within context engineering for Large Language Models (LLMs) and Artificial Intelligence (AI) agents, and if so, how is it defined, implemented, and dist…</div>
 </a>
 
   </div>

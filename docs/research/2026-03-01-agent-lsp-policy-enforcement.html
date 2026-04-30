@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -748,9 +752,9 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[<a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/">x] LSP Specification</a>: <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/">x] LSP Specification</a> — particularly <code>textDocument/publishDiagnostics</code> and the JSON-RPC transport</li>
+<li>[x] <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/">LSP Specification</a> — particularly <code>textDocument/publishDiagnostics</code> and the JSON-RPC transport</li>
 <li>[ ] VS Code extension docs on agent mode and custom language server integration</li>
-<li>[x] GitHub: search <code>lsap agent lsp</code>, <code>lasp language agent</code>, <code>headless lsp client agent</code> for relevant repos — found <a href="https://github.com/lsp-client/LSAP/">github.com</a></li>
+<li>[x] <a href="https://github.com/lsp-client/LSAP/">GitHub: search <code>lsap agent lsp</code>, <code>lasp language agent</code>, <code>headless lsp client agent</code> for relevant repos — found</a></li>
 <li>[x] arXiv: search &quot;language server protocol agent&quot; and &quot;LSAP&quot; — found arXiv:2510.22907 (Lanser-CLI)</li>
 <li>[ ] OPA (Open Policy Agent) LSP extension or plugin documentation</li>
 <li>[x] Semgrep LSP server mode documentation</li>
@@ -758,8 +762,8 @@ main {
 <li>[ ] Devin (Cognition AI) public documentation on policy or constraint mechanisms</li>
 <li>[ ] Anthropic MCP specification — tool-use patterns that simulate in-loop feedback</li>
 <li>[x] LangChain / LangGraph: any &quot;guardrails&quot; or &quot;policy tool&quot; patterns</li>
-<li>[ ] <a href="https://github.com/guardrails-ai/guardrails">Guardrails AI</a>: <a href="https://github.com/guardrails-ai/guardrails">Guardrails AI</a> — closest existing analogue?</li>
-<li>[x] LinkedIn / X / blog posts referencing &quot;LSAP&quot; or &quot;LASP&quot; in an agent+LSP context — found <a href="https://lsp-client.github.io/blog/designing-lsap/">lsp-client.github.io</a></li>
+<li>[ ] <a href="https://github.com/guardrails-ai/guardrails">Guardrails AI</a> — closest existing analogue?</li>
+<li>[x] <a href="https://lsp-client.github.io/blog/designing-lsap/">LinkedIn / X / blog posts referencing &quot;LSAP&quot; or &quot;LASP&quot; in an agent+LSP context — found</a></li>
 </ul>
 <hr />
 

@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -746,41 +750,41 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://openai.com/careers">OpenAI Careers</a> - official source, but blocked by Cloudflare from the runner during this session</li>
-<li>[x] <a href="https://www.anthropic.com/careers">Anthropic Careers</a> - current careers landing page</li>
-<li>[x] <a href="https://www.anthropic.com/careers/jobs">Anthropic Jobs</a> - public job listing page</li>
-<li>[x] <a href="https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true">Anthropic Greenhouse jobs Application Programming Interface (API)</a> - structured live role data used for team counts</li>
-<li>[x] <a href="https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of">Anthropic expansion announcement</a> - official commercial expansion and executive hiring signal</li>
-<li>[x] <a href="https://deepmind.google/careers/">Google DeepMind Careers</a> - current careers landing page</li>
-<li>[x] <a href="https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true">Google DeepMind Greenhouse jobs API</a> - structured live role data used for team counts</li>
-<li>[x] <a href="https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/">Google DeepMind Gemini Robotics announcement</a> - official product direction</li>
-<li>[x] <a href="https://www.metacareers.com/areas-of-work/artificial-intelligence/">Meta AI Careers</a> - login wall from this runner</li>
-<li>[x] <a href="https://www.cnbc.com/2025/06/30/mark-zuckerberg-creating-meta-superintelligence-labs-read-the-memo.html">Meta Superintelligence Labs memo coverage</a> - public reporting on leadership concentration and strategic reorganisation</li>
-<li>[x] <a href="https://x.ai/careers">xAI Careers</a> - official source, but blocked by Cloudflare from the runner during this session</li>
-<li>[x] <a href="https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true">xAI Greenhouse jobs API</a> - structured live role data used for team counts</li>
-<li>[x] <a href="https://memphischamber.com/blog/press-release/xai-memphis-announces-expansion-of-supercomputer-with-addition-of-tech-companies-in-digital-delta/">xAI Memphis expansion announcement</a> - infrastructure expansion signal</li>
-<li>[x] <a href="https://mistral.ai/careers/">Mistral AI Careers</a> - current careers landing page</li>
-<li>[x] <a href="https://api.lever.co/v0/postings/mistral?mode=json">Mistral Lever jobs API</a> - structured live role data used for team counts</li>
-<li>[x] <a href="https://mistral.ai/news/le-chat-enterprise">Mistral Le Chat Enterprise announcement</a> - official enterprise strategy announcement</li>
-<li>[x] <a href="https://cohere.com/careers">Cohere Careers</a> - current careers landing page</li>
-<li>[x] <a href="https://jobs.ashbyhq.com/cohere">Cohere Ashby job board</a> - structured live role data used for team counts</li>
-<li>[x] <a href="https://cohere.com/north">Cohere North</a> - official enterprise agent platform positioning</li>
-<li>[x] <a href="https://cohere.com/private-deployments">Cohere private deployments</a> - official private deployment positioning</li>
-<li>[x] <a href="https://cohere.com/solutions/public-sector">Cohere public sector solutions</a> - official regulated deployment positioning</li>
-<li>[x] <a href="https://web.archive.org/">Wayback Machine</a> - archived snapshots used for historical comparison, strongest exact series was Mistral</li>
-<li>[x] <a href="https://builtin.com/company/openai/jobs">OpenAI jobs mirror on Built In</a> - secondary source used because OpenAI official page was blocked</li>
-<li>[x] <a href="https://developers.openai.com/blog/openai-for-developers-2025">OpenAI for Developers in 2025</a> - official product direction for Codex and agent tooling</li>
-<li>[x] <a href="https://www.linkedin.com/jobs/search/?keywords=artificial+intelligence+research">LinkedIn Jobs - AI companies</a> - public aggregate view only, weak company-level signal without login</li>
-<li>[x] <a href="https://www.glassdoor.com/Jobs/artificial-intelligence-jobs-SRCH_KO0,25.htm">Glassdoor AI company reviews and job listings</a> - blocked by anti-bot controls during this session</li>
-<li>[x] <a href="https://www.levels.fyi/companies/?search=AI">Levels.fyi AI company compensation data</a> - accessible company directory, but limited team-level signal</li>
-<li>[x] <a href="https://news.ycombinator.com/submitted?id=whoishiring">Hacker News &quot;Who is Hiring?&quot; threads</a> - rate-limited during this session</li>
-<li>[x] <a href="https://www.indeed.com/jobs?q=artificial+intelligence+research">Indeed AI company job postings</a> - blocked by anti-bot controls during this session</li>
-<li>[x] <a href="https://layoffs.fyi/">Layoffs.fyi tech layoffs tracker</a> - contextual check for contraction signals</li>
-<li>[x] <a href="https://www.theinformation.com/articles/the-great-ai-talent-war">The Information: AI talent wars coverage</a> - blocked by Cloudflare or subscription controls during this session</li>
-<li>[x] <a href="https://www.bloomberg.com/technology">Bloomberg: AI hiring and retention analysis</a> - blocked by anti-bot controls during this session</li>
-<li>[x] <a href="https://www.linkedin.com/in/sama/">Sam Altman LinkedIn</a> - login-limited during this session</li>
-<li>[x] <a href="https://www.linkedin.com/in/dario-amodei-3934934/">Dario Amodei LinkedIn</a> - login-limited during this session</li>
-<li>[x] <a href="https://www.linkedin.com/in/demishassabis/">Demis Hassabis LinkedIn</a> - login-limited during this session</li>
+<li>[x] <a href="https://openai.com/careers">OpenAI Careers</a> — - official source, but blocked by Cloudflare from the runner during this session</li>
+<li>[x] <a href="https://www.anthropic.com/careers">Anthropic Careers</a> — - current careers landing page</li>
+<li>[x] <a href="https://www.anthropic.com/careers/jobs">Anthropic Jobs</a> — - public job listing page</li>
+<li>[x] <a href="https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true">Anthropic Greenhouse jobs Application Programming Interface (API)</a> — - structured live role data used for team counts</li>
+<li>[x] <a href="https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of">Anthropic expansion announcement</a> — - official commercial expansion and executive hiring signal</li>
+<li>[x] <a href="https://deepmind.google/careers/">Google DeepMind Careers</a> — - current careers landing page</li>
+<li>[x] <a href="https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true">Google DeepMind Greenhouse jobs API</a> — - structured live role data used for team counts</li>
+<li>[x] <a href="https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/">Google DeepMind Gemini Robotics announcement</a> — - official product direction</li>
+<li>[x] <a href="https://www.metacareers.com/areas-of-work/artificial-intelligence/">Meta AI Careers</a> — - login wall from this runner</li>
+<li>[x] <a href="https://www.cnbc.com/2025/06/30/mark-zuckerberg-creating-meta-superintelligence-labs-read-the-memo.html">Meta Superintelligence Labs memo coverage</a> — - public reporting on leadership concentration and strategic reorganisation</li>
+<li>[x] <a href="https://x.ai/careers">xAI Careers</a> — - official source, but blocked by Cloudflare from the runner during this session</li>
+<li>[x] <a href="https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true">xAI Greenhouse jobs API</a> — - structured live role data used for team counts</li>
+<li>[x] <a href="https://memphischamber.com/blog/press-release/xai-memphis-announces-expansion-of-supercomputer-with-addition-of-tech-companies-in-digital-delta/">xAI Memphis expansion announcement</a> — - infrastructure expansion signal</li>
+<li>[x] <a href="https://mistral.ai/careers/">Mistral AI Careers</a> — - current careers landing page</li>
+<li>[x] <a href="https://api.lever.co/v0/postings/mistral?mode=json">Mistral Lever jobs API</a> — - structured live role data used for team counts</li>
+<li>[x] <a href="https://mistral.ai/news/le-chat-enterprise">Mistral Le Chat Enterprise announcement</a> — - official enterprise strategy announcement</li>
+<li>[x] <a href="https://cohere.com/careers">Cohere Careers</a> — - current careers landing page</li>
+<li>[x] <a href="https://jobs.ashbyhq.com/cohere">Cohere Ashby job board</a> — - structured live role data used for team counts</li>
+<li>[x] <a href="https://cohere.com/north">Cohere North</a> — - official enterprise agent platform positioning</li>
+<li>[x] <a href="https://cohere.com/private-deployments">Cohere private deployments</a> — - official private deployment positioning</li>
+<li>[x] <a href="https://cohere.com/solutions/public-sector">Cohere public sector solutions</a> — - official regulated deployment positioning</li>
+<li>[x] <a href="https://web.archive.org/">Wayback Machine</a> — - archived snapshots used for historical comparison, strongest exact series was Mistral</li>
+<li>[x] <a href="https://builtin.com/company/openai/jobs">OpenAI jobs mirror on Built In</a> — - secondary source used because OpenAI official page was blocked</li>
+<li>[x] <a href="https://developers.openai.com/blog/openai-for-developers-2025">OpenAI for Developers in 2025</a> — - official product direction for Codex and agent tooling</li>
+<li>[x] <a href="https://www.linkedin.com/jobs/search/?keywords=artificial+intelligence+research">LinkedIn Jobs - AI companies</a> — - public aggregate view only, weak company-level signal without login</li>
+<li>[x] <a href="https://www.glassdoor.com/Jobs/artificial-intelligence-jobs-SRCH_KO0,25.htm">Glassdoor AI company reviews and job listings</a> — - blocked by anti-bot controls during this session</li>
+<li>[x] <a href="https://www.levels.fyi/companies/?search=AI">Levels.fyi AI company compensation data</a> — - accessible company directory, but limited team-level signal</li>
+<li>[x] <a href="https://news.ycombinator.com/submitted?id=whoishiring">Hacker News &quot;Who is Hiring?&quot; threads</a> — - rate-limited during this session</li>
+<li>[x] <a href="https://www.indeed.com/jobs?q=artificial+intelligence+research">Indeed AI company job postings</a> — - blocked by anti-bot controls during this session</li>
+<li>[x] <a href="https://layoffs.fyi/">Layoffs.fyi tech layoffs tracker</a> — - contextual check for contraction signals</li>
+<li>[x] <a href="https://www.theinformation.com/articles/the-great-ai-talent-war">The Information: AI talent wars coverage</a> — - blocked by Cloudflare or subscription controls during this session</li>
+<li>[x] <a href="https://www.bloomberg.com/technology">Bloomberg: AI hiring and retention analysis</a> — - blocked by anti-bot controls during this session</li>
+<li>[x] <a href="https://www.linkedin.com/in/sama/">Sam Altman LinkedIn</a> — - login-limited during this session</li>
+<li>[x] <a href="https://www.linkedin.com/in/dario-amodei-3934934/">Dario Amodei LinkedIn</a> — - login-limited during this session</li>
+<li>[x] <a href="https://www.linkedin.com/in/demishassabis/">Demis Hassabis LinkedIn</a> — - login-limited during this session</li>
 </ul>
 <hr />
 

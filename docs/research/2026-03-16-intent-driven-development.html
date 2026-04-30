@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -688,10 +692,10 @@ main {
 <ul>
 <li>What is IDD? Is it a named methodology, an emergent practice, or a set of loosely related ideas? Who coined it or is actively defining it?</li>
 <li>How does IDD differ from TDD and SDD? What does each paradigm use as its primary constraint on the solution space, and where does each break down with AI-assisted development?</li>
-<li>What does StrongDM Factory (<a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> represent as a concrete implementation of intent-driven principles in infrastructure and access management? What can be generalised?</li>
+<li>What does StrongDM Factory (<a href="https://factory.strongdm.ai/">StrongDM Factory main page</a> represent as a concrete implementation of intent-driven principles in infrastructure and access management? What can be generalised?</li>
 <li>What is the structure of a complete &quot;intent layer&quot;? What artefacts (natural language, formal specs, constraints, examples, policies) are needed and in what combination?</li>
 <li>How do concept layering and context architecture interact with intent? What are the relevant findings from context-compression and aligned decision-making research?</li>
-<li>What does the Hacker News (HN) community (<a href="https://news.ycombinator.com/item?id=46924426">news.ycombinator.com</a> identify as the key challenges, precedents, and open problems in intent-driven approaches?</li>
+<li>What does the Hacker News (HN) community (<a href="https://news.ycombinator.com/item?id=46924426">Hacker News (HN) thread on intent-driven development</a> identify as the key challenges, precedents, and open problems in intent-driven approaches?</li>
 </ul>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
@@ -738,25 +742,25 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] Hacker News (HN) thread on intent-driven development — <a href="https://news.ycombinator.com/item?id=46924426">news.ycombinator.com</a></li>
-<li>[x] StrongDM Factory main page — <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a></li>
-<li>[x] StrongDM Factory principles — <a href="https://factory.strongdm.ai/principles">factory.strongdm.ai</a></li>
-<li>[x] StrongDM Factory techniques — <a href="https://factory.strongdm.ai/techniques">factory.strongdm.ai</a></li>
-<li>[x] StrongDM Factory products — <a href="https://factory.strongdm.ai/products">factory.strongdm.ai</a></li>
-<li>[x] StrongDM Attractor README — <a href="https://raw.githubusercontent.com/strongdm/attractor/main/README.md">raw.githubusercontent.com</a></li>
-<li>[x] StrongDM Attractor specification — <a href="https://raw.githubusercontent.com/strongdm/attractor/main/attractor-spec.md">raw.githubusercontent.com</a></li>
-<li>[x] StrongDM coding agent loop specification — <a href="https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md">raw.githubusercontent.com</a></li>
-<li>[x] AttractorBench README — <a href="https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md">raw.githubusercontent.com</a></li>
-<li>[x] Keyhole Software — &quot;Intent-Driven Development: A Modern SDLC for AI-Accelerated Teams&quot; — <a href="https://keyholesoftware.com/intent-driven-development-build-first-documentation/">keyholesoftware.com</a></li>
-<li>[x] Martin Fowler — &quot;Test-Driven Development&quot; — <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">martinfowler.com</a></li>
-<li>[x] Eiffel documentation — &quot;Design by Contract basics&quot; — <a href="https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405">www.eiffel.org</a></li>
+<li>[x] <a href="https://news.ycombinator.com/item?id=46924426">Hacker News (HN) thread on intent-driven development</a></li>
+<li>[x] <a href="https://factory.strongdm.ai/">StrongDM Factory main page</a></li>
+<li>[x] <a href="https://factory.strongdm.ai/principles">StrongDM Factory principles</a></li>
+<li>[x] <a href="https://factory.strongdm.ai/techniques">StrongDM Factory techniques</a></li>
+<li>[x] <a href="https://factory.strongdm.ai/products">StrongDM Factory products</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/README.md">StrongDM Attractor README</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/attractor-spec.md">StrongDM Attractor specification</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md">StrongDM coding agent loop specification</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md">AttractorBench README</a></li>
+<li>[x] <a href="https://keyholesoftware.com/intent-driven-development-build-first-documentation/">Keyhole Software — &quot;Intent-Driven Development: A Modern SDLC for AI-Accelerated Teams&quot;</a></li>
+<li>[x] <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">Martin Fowler — &quot;Test-Driven Development&quot;</a></li>
+<li>[x] <a href="https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405">Eiffel documentation — &quot;Design by Contract basics&quot;</a></li>
 <li>[x] Prior completed research: <code>Research/completed/2026-03-01-agent-lsp-policy-enforcement.md</code></li>
 <li>[x] Prior completed research: <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code></li>
 <li>[x] Prior completed research: <code>Research/completed/2026-03-14-reliable-software-llm-era.md</code></li>
 <li>[x] Prior completed research: <code>Research/completed/2026-03-14-ricardian-contract-model.md</code></li>
 <li>[x] Prior completed research: <code>Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md</code></li>
-<li>[ ] Amazon Web Services (AWS) — AI-driven development life cycle article linked from Keyhole — <a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/">aws.amazon.com</a></li>
-<li>[ ] Microsoft Azure Apps on Azure blog — AI-led SDLC article linked from Keyhole — <a href="https://techcommunity.microsoft.com/blog/appsonazureblog/an-ai-led-sdlc-building-an-end-to-end-agentic-software-development-lifecycle-wit/4491896">techcommunity.microsoft.com</a></li>
+<li>[ ] <a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/">Amazon Web Services (AWS) — AI-driven development life cycle article linked from Keyhole</a></li>
+<li>[ ] <a href="https://techcommunity.microsoft.com/blog/appsonazureblog/an-ai-led-sdlc-building-an-end-to-end-agentic-software-development-lifecycle-wit/4491896">Microsoft Azure Apps on Azure blog — AI-led SDLC article linked from Keyhole</a></li>
 </ul>
 <hr />
 

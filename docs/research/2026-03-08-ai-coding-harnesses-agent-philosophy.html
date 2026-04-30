@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -706,7 +710,7 @@ main {
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>Assumption:</strong> The YouTube video at <a href="https://youtu.be/09sFAO7pklo">youtu.be</a> does not contain claims that contradict or materially extend the findings from other primary sources consulted. <strong>Justification:</strong> All major harnesses have official documentation and engineering blog posts; the video was listed as a jump-off point rather than an exclusive source of evidence, and multiple independent sources covering the same territory were available.</li>
+<li><strong>Assumption:</strong> The YouTube video at <a href="https://youtu.be/09sFAO7pklo">primary jump-off point (agent philosophy talk) — inaccessible: video not indexed or private</a> does not contain claims that contradict or materially extend the findings from other primary sources consulted. <strong>Justification:</strong> All major harnesses have official documentation and engineering blog posts; the video was listed as a jump-off point rather than an exclusive source of evidence, and multiple independent sources covering the same territory were available.</li>
 <li><strong>Assumption:</strong> Absence of vector stores in documented coding agent architectures reflects a deliberate design choice rather than a documentation gap. <strong>Justification:</strong> Aider, Cline, and Opencode are fully open-source with published architectural analyses; none document vector store components in their default coding loop.</li>
 </ul>
 <h3>Analysis</h3>
@@ -715,7 +719,7 @@ main {
 <p>Context window management fragmentation is the clearest indicator the field has not converged. Each approach addresses a different slice of the problem: repo maps summarise codebase structure at low token cost, trading inline code detail for breadth; dynamic context discovery cuts token waste at the cost of tool orchestration complexity; LSP integration delivers the richest live semantics — diagnostics, symbol tables, type information — at the cost of editor coupling; compaction maintains session continuity but can degrade instruction fidelity at boundaries. That even frontier models with compaction fail on long-running tasks without structured progress files — per Anthropic's harness engineering findings — suggests larger context windows alone will not close this gap.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>The primary jump-off source (<a href="https://youtu.be/09sFAO7pklo">youtu.be</a> was inaccessible. Any unique framework or claim introduced there is absent.</li>
+<li>The primary jump-off source (<a href="https://youtu.be/09sFAO7pklo">primary jump-off point (agent philosophy talk) — inaccessible: video not indexed or private</a> was inaccessible. Any unique framework or claim introduced there is absent.</li>
 <li>Cursor's 47% token reduction figure for dynamic context discovery is reported from Cursor's own A/B testing via a single InfoQ article; no independent replication is available.</li>
 <li>AMP's sub-agent specialisation details come primarily from the Owner's Manual and secondary analysis; the internal model routing and prompt designs are not publicly documented.</li>
 <li>Zed's ACP is nascent (announced late 2025); real-world interoperability and adoption breadth remain to be established.</li>
@@ -734,22 +738,22 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[ ] <a href="https://youtu.be/09sFAO7pklo">youtu.be</a> — primary jump-off point (agent philosophy talk) — inaccessible: video not indexed or private</li>
-<li>[x] <a href="https://www.anthropic.com/research/building-effective-agents">www.anthropic.com</a> — Anthropic &quot;Building effective agents&quot; (Dec 2024)</li>
-<li>[ ] <a href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use">docs.anthropic.com</a> — Anthropic computer use documentation</li>
-<li>[ ] <a href="https://modelspec.anthropic.com">modelspec.anthropic.com</a> — Anthropic Model Spec (operator/user/assistant hierarchy)</li>
-<li>[ ] <a href="https://platform.openai.com/docs/guides/agents">platform.openai.com</a> — OpenAI Agents documentation</li>
-<li>[x] <a href="https://openai.com/index/openai-codex">openai.com</a> — OpenAI Codex agent design</li>
-<li>[ ] <a href="https://cursor.com/blog">cursor.com</a> — Cursor blog (agent mode philosophy)</li>
-<li>[ ] <a href="https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-your-ide/using-copilot-edits">docs.github.com</a> — GitHub Copilot agent/edits mode</li>
-<li>[x] <a href="https://github.com/sst/opencode">github.com</a> — Opencode OSS terminal coding agent (README, architecture, changelog)</li>
-<li>[x] <a href="https://ampcode.com">ampcode.com</a> — AMP by Sourcegraph (docs and blog)</li>
-<li>[x] <a href="https://aider.chat">aider.chat</a> — Aider: AI pair programming in the terminal (design philosophy, docs)</li>
-<li>[x] <a href="https://github.com/cline/cline">github.com</a> — Cline: autonomous coding agent for VS Code (README, docs, GitHub issues)</li>
-<li>[x] <a href="https://continue.dev/docs">continue.dev</a> — Continue.dev OSS coding assistant (architecture docs)</li>
-<li>[x] <a href="https://zed.dev/blog">zed.dev</a> — Zed AI (blog posts on agent and assistant design)</li>
-<li>[x] <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">www.anthropic.com</a> — Anthropic long-running agent harnesses (primary source)</li>
-<li>[x] <a href="https://cursor.com/docs/agent/overview">cursor.com</a> — Cursor agent mode documentation</li>
+<li>[ ] <a href="https://youtu.be/09sFAO7pklo">primary jump-off point (agent philosophy talk) — inaccessible: video not indexed or private</a></li>
+<li>[x] <a href="https://www.anthropic.com/research/building-effective-agents">Anthropic &quot;Building effective agents&quot; (Dec 2024)</a></li>
+<li>[ ] <a href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use">Anthropic computer use documentation</a></li>
+<li>[ ] <a href="https://modelspec.anthropic.com">Anthropic Model Spec (operator/user/assistant hierarchy)</a></li>
+<li>[ ] <a href="https://platform.openai.com/docs/guides/agents">OpenAI Agents documentation</a></li>
+<li>[x] <a href="https://openai.com/index/openai-codex">OpenAI Codex agent design</a></li>
+<li>[ ] <a href="https://cursor.com/blog">Cursor blog (agent mode philosophy)</a></li>
+<li>[ ] <a href="https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-your-ide/using-copilot-edits">GitHub Copilot agent/edits mode</a></li>
+<li>[x] <a href="https://github.com/sst/opencode">Opencode OSS terminal coding agent (README, architecture, changelog)</a></li>
+<li>[x] <a href="https://ampcode.com">AMP by Sourcegraph (docs and blog)</a></li>
+<li>[x] <a href="https://aider.chat">Aider: AI pair programming in the terminal (design philosophy, docs)</a></li>
+<li>[x] <a href="https://github.com/cline/cline">Cline: autonomous coding agent for VS Code (README, docs, GitHub issues)</a></li>
+<li>[x] <a href="https://continue.dev/docs">Continue.dev OSS coding assistant (architecture docs)</a></li>
+<li>[x] <a href="https://zed.dev/blog">Zed AI (blog posts on agent and assistant design)</a></li>
+<li>[x] <a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">Anthropic long-running agent harnesses (primary source)</a></li>
+<li>[x] <a href="https://cursor.com/docs/agent/overview">Cursor agent mode documentation</a></li>
 </ul>
 <hr />
 

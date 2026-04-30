@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -759,10 +763,10 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] ServiceNow release notes and documentation for Xanadu and Yokohama releases — <a href="https://docs.servicenow.com/">docs.servicenow.com</a></li>
-<li>[x] ServiceNow developer documentation on AI agent framework and Now Assist APIs — <a href="https://developer.servicenow.com/">developer.servicenow.com</a></li>
-<li>[x] ServiceNow blog posts and press releases on AI strategy and roadmap — <a href="https://www.servicenow.com/blogs/">www.servicenow.com</a></li>
-<li>[x] ServiceNow Community posts on Now Assist adoption experience — <a href="https://www.servicenow.com/community/">www.servicenow.com</a></li>
+<li>[x] <a href="https://docs.servicenow.com/">ServiceNow release notes and documentation for Xanadu and Yokohama releases</a></li>
+<li>[x] <a href="https://developer.servicenow.com/">ServiceNow developer documentation on AI agent framework and Now Assist APIs</a></li>
+<li>[x] <a href="https://www.servicenow.com/blogs/">ServiceNow blog posts and press releases on AI strategy and roadmap</a></li>
+<li>[x] <a href="https://www.servicenow.com/community/">ServiceNow Community posts on Now Assist adoption experience</a></li>
 <li>[x] External analyst and industry coverage (CIO.com, Constellation Research, No Jitter, Verdantix, Everest Group)</li>
 <li>[x] Prior research: agent memory (<code>2026-03-02-agent-memory-management-context-injection</code>), knowledge representation (<code>2026-03-03-knowledge-representation-agent-context</code>), AI strategy (<code>2026-02-28-ai-strategy</code>), CSDM (<code>2026-03-08-servicenow-csdm-data-modelling</code>)</li>
 <li>[ ] Gartner and Forrester research on ServiceNow AI positioning (not accessed — paywalled)</li>
@@ -772,11 +776,11 @@ main {
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a> <span class="related-note">via agentic-ai, now-assist, servicenow</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a> <span class="related-note">via agentic-ai, llm, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a> <span class="related-note">via agentic-ai, now-assist, servicenow</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</a> <span class="related-note">via knowledge-management, llm, rag</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via agentic-ai, knowledge-management, rag</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-27-governance-moat-prior-research-implications.html">Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?</a> <span class="related-note">via agentic-ai, servicenow</span></div>
-<div class="related-entry"><a href="/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</a> <span class="related-note">via agentic-ai, llm</span></div>
 </div></div>
 
   

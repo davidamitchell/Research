@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-29T10:12:20Z",
+  "extracted_at": "2026-04-30T09:14:26Z",
   "items": {
     "2026-04-29-knowledge-scaffolding-context-engineering": {
       "named_concepts": [
@@ -38,13 +38,34 @@
         "https://doi.org/10.48550/arXiv.2312.06185"
       ],
       "key_claims": [
-        "The mainstream LLM agent-engineering literature does not currently treat \"knowledge scaffolding\" as a standard architectural term, even though it discusses the underlying design space extensively through context engineering, retrieval, memory, prompt chaining, compaction, and progressive disclosure. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/)",
-        "Explicit scaffolding language is established mainly in pedagogical-agent research, where it refers to adaptive support for a human learner and not to a general-purpose policy for assembling agent context at inference time. (; medium confidence; source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503)",
-        "Retrieval-Augmented Generation is one concrete component of scaffolding-like behavior, because it retrieves external evidence into the prompt, but it is narrower than a full staged knowledge-loading policy that also governs ordering, compression, persistence, and task-stage transitions. (; medium confidence; source: https://doi.org/10.48550/arXiv.2005.11401; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md)",
-        "Knowledge-graph prompting frameworks such as Knowledge-Augmented language model PromptING (KAPING) and KnowGPT show that structured knowledge injection is already an established implementation pattern, but those papers frame the technique as prompt augmentation and knowledge extraction rather than as knowledge scaffolding. (; high confidence; source: https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185)",
-        "The strongest practical analogues to a scaffolding policy in mainstream engineering are progressive disclosure, just-in-time retrieval, structured note-taking, context compaction, memory selection, and context isolation, all of which explicitly control what the model sees and when it sees it. (; high confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents)",
-        "This repository's completed research already treats the substance of knowledge scaffolding as direct mechanisms, namely context shaping, layered abstraction, Retrieval-Augmented Generation boundaries, compression, routing, scratchpads, and workflow decomposition, rather than as a separate named category. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md)",
-        "For future repo guidance, \"knowledge scaffolding\" is best treated as a loose umbrella or explanatory metaphor, while prompts, reviews, and architecture notes should name the concrete mechanism in play so that reliability, governance, and security controls target the correct failure surface. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://simonwillison.net/2023/Apr/14/worst-that-can-happen/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)"
+        {
+          "text": "The mainstream LLM agent-engineering literature does not currently treat \"knowledge scaffolding\" as a standard architectural term, even though it discusses the underlying design space extensively through context engineering, retrieval, memory, prompt chaining, compaction, and progressive disclosure. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/)",
+          "sources": []
+        },
+        {
+          "text": "Explicit scaffolding language is established mainly in pedagogical-agent research, where it refers to adaptive support for a human learner and not to a general-purpose policy for assembling agent context at inference time. (; medium confidence; source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503)",
+          "sources": []
+        },
+        {
+          "text": "Retrieval-Augmented Generation is one concrete component of scaffolding-like behavior, because it retrieves external evidence into the prompt, but it is narrower than a full staged knowledge-loading policy that also governs ordering, compression, persistence, and task-stage transitions. (; medium confidence; source: https://doi.org/10.48550/arXiv.2005.11401; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md)",
+          "sources": []
+        },
+        {
+          "text": "Knowledge-graph prompting frameworks such as Knowledge-Augmented language model PromptING (KAPING) and KnowGPT show that structured knowledge injection is already an established implementation pattern, but those papers frame the technique as prompt augmentation and knowledge extraction rather than as knowledge scaffolding. (; high confidence; source: https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185)",
+          "sources": []
+        },
+        {
+          "text": "The strongest practical analogues to a scaffolding policy in mainstream engineering are progressive disclosure, just-in-time retrieval, structured note-taking, context compaction, memory selection, and context isolation, all of which explicitly control what the model sees and when it sees it. (; high confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents)",
+          "sources": []
+        },
+        {
+          "text": "This repository's completed research already treats the substance of knowledge scaffolding as direct mechanisms, namely context shaping, layered abstraction, Retrieval-Augmented Generation boundaries, compression, routing, scratchpads, and workflow decomposition, rather than as a separate named category. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md)",
+          "sources": []
+        },
+        {
+          "text": "For future repo guidance, \"knowledge scaffolding\" is best treated as a loose umbrella or explanatory metaphor, while prompts, reviews, and architecture notes should name the concrete mechanism in play so that reliability, governance, and security controls target the correct failure surface. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://simonwillison.net/2023/Apr/14/worst-that-can-happen/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)",
+          "sources": []
+        }
       ]
     },
     "2026-04-28-uelgf-tooling-reference-architecture": {
@@ -403,14 +424,38 @@
         "https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/"
       ],
       "key_claims": [
-        "Commercial software categories whose value is mostly packaged business logic or user-interface convenience face the clearest near-term demand decline, because AI-assisted internal building sharply reduces the historical buy premium for those functions.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf)",
-        "Current survey evidence shows that the replacement pressure is already concentrated in workflow automation, internal admin tools, business-intelligence tools, customer-relationship management adjacencies, project management, and customer-support tooling rather than evenly across all Software-as-a-Service categories.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026)",
-        "Concrete enterprise cases such as Klarna's internal rebuild of customer-relationship workflows suggest that firms with strong proprietary context can justify rebuilding selected applications that would previously have been bought, even if the pattern is not universal.  (medium confidence; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html)",
-        "Platform engineering and Internal Developer Platform demand rises when software becomes cheaper to produce, because the scarce asset shifts from raw coding capacity to a safe, low-friction path for many humans and agents to ship software repeatedly.  (high confidence; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
-        "Cloud hosting, Continuous Integration and Continuous Delivery pipelines, and observability gain demand because higher software volume produces more release events, more environments, more telemetry, and more operational failure modes even when generating the code itself gets cheaper.  (medium confidence; source: https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
-        "Identity-related software is likely to become more valuable, because every new application, integration, external participant, and non-human actor expands the access surface that must be authenticated, authorised, and audited.  (medium confidence; source: https://www.nist.gov/identity-access-management; https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/)",
-        "Agent-facing interface layers, especially machine-readable Application Programming Interfaces and related tool-access surfaces, become a growth category because agents behave as software consumers that need explicit schemas, durable authentication, and predictable error handling at machine speed.  (medium confidence; source: https://blog.apify.com/api-agentic-economy/; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
-        "The most durable commercial applications remain those with moats that AI-assisted building does not erase, including proprietary data, network effects, deep compliance packaging, or hard-to-replicate multi-tenant operating infrastructure, and incumbents can preserve demand by moving up into orchestration or broader suites rather than selling isolated logic.  (medium confidence; source: https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/)"
+        {
+          "text": "Commercial software categories whose value is mostly packaged business logic or user-interface convenience face the clearest near-term demand decline, because AI-assisted internal building sharply reduces the historical buy premium for those functions.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf)",
+          "sources": []
+        },
+        {
+          "text": "Current survey evidence shows that the replacement pressure is already concentrated in workflow automation, internal admin tools, business-intelligence tools, customer-relationship management adjacencies, project management, and customer-support tooling rather than evenly across all Software-as-a-Service categories.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026)",
+          "sources": []
+        },
+        {
+          "text": "Concrete enterprise cases such as Klarna's internal rebuild of customer-relationship workflows suggest that firms with strong proprietary context can justify rebuilding selected applications that would previously have been bought, even if the pattern is not universal.  (medium confidence; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html)",
+          "sources": []
+        },
+        {
+          "text": "Platform engineering and Internal Developer Platform demand rises when software becomes cheaper to produce, because the scarce asset shifts from raw coding capacity to a safe, low-friction path for many humans and agents to ship software repeatedly.  (high confidence; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
+          "sources": []
+        },
+        {
+          "text": "Cloud hosting, Continuous Integration and Continuous Delivery pipelines, and observability gain demand because higher software volume produces more release events, more environments, more telemetry, and more operational failure modes even when generating the code itself gets cheaper.  (medium confidence; source: https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
+          "sources": []
+        },
+        {
+          "text": "Identity-related software is likely to become more valuable, because every new application, integration, external participant, and non-human actor expands the access surface that must be authenticated, authorised, and audited.  (medium confidence; source: https://www.nist.gov/identity-access-management; https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/)",
+          "sources": []
+        },
+        {
+          "text": "Agent-facing interface layers, especially machine-readable Application Programming Interfaces and related tool-access surfaces, become a growth category because agents behave as software consumers that need explicit schemas, durable authentication, and predictable error handling at machine speed.  (medium confidence; source: https://blog.apify.com/api-agentic-economy/; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
+          "sources": []
+        },
+        {
+          "text": "The most durable commercial applications remain those with moats that AI-assisted building does not erase, including proprietary data, network effects, deep compliance packaging, or hard-to-replicate multi-tenant operating infrastructure, and incumbents can preserve demand by moving up into orchestration or broader suites rather than selling isolated logic.  (medium confidence; source: https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/)",
+          "sources": []
+        }
       ]
     },
     "2026-04-28-llm-as-judge-pipeline-validation-checkpoints": {
@@ -3102,6 +3147,8 @@
         "https://learn.microsoft.com/en-us/azure/search/search-security-overview",
         "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-permissions.html",
         "https://learn.microsoft.com/en-us/sharepoint/understanding-permission-levels",
+        "https://arxiv.org/abs/2309.11495",
+        "https://arxiv.org/abs/2401.05566",
         "https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview",
         "https://learn.microsoft.com/en-us/azure/search/search-query-access-control-rbac-enforcement",
         "https://learn.microsoft.com/en-us/azure/search/search-indexer-sharepoint-access-control-lists",
@@ -6076,7 +6123,6 @@
         "role clarity"
       ],
       "source_urls": [
-        "https://url",
         "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
         "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
         "https://faros.ai/blog/ai-acceleration-whiplash",
@@ -6190,7 +6236,6 @@
         "material processes"
       ],
       "source_urls": [
-        "https://url",
         "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
         "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
         "https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019_1.pdf",
@@ -6590,7 +6635,6 @@
         "low-risk internal"
       ],
       "source_urls": [
-        "https://url",
         "https://www.nist.gov/itl/ai-risk-management-framework",
         "https://doi.org/10.6028/NIST.AI.100-1",
         "https://www.iso.org/standard/81230.html",
@@ -6694,7 +6738,6 @@
         "ai platform"
       ],
       "source_urls": [
-        "https://url",
         "https://teamtopologies.com/key-concepts",
         "https://dora.dev/research/",
         "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
@@ -6811,7 +6854,6 @@
         "routing internalised"
       ],
       "source_urls": [
-        "https://url",
         "https://dora.dev/research/",
         "https://cloud.google.com/devops",
         "https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality",
@@ -6980,7 +7022,6 @@
         "skills opencode"
       ],
       "source_urls": [
-        "https://url",
         "https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot",
         "https://docs.github.com/en/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces",
         "https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces",
@@ -8039,6 +8080,7 @@
       ],
       "source_urls": [
         "https://red.anthropic.com/2026/zero-days/",
+        "https://www.youtube.com/watch?v=1sd26pWhfmg",
         "https://arxiv.org/abs/2404.08144",
         "https://arxiv.org/abs/2406.05590",
         "https://deepwiki.com/meta-llama/PurpleLlama/3-cyberseceval-benchmarks",
@@ -8182,7 +8224,6 @@
         "pull requests"
       ],
       "source_urls": [
-        "https://url",
         "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-as-an-agent",
         "https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot",
         "https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent",
@@ -8250,7 +8291,10 @@
         "github secrets",
         "env var"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://code.claude.com/docs/en/claude-code-on-the-web",
+        "https://docs.anthropic.com/en/docs/claude-code/settings"
+      ],
       "key_claims": [
         {
           "text": "Claude Code on the web clones the selected repository but does not run `git submodule update --init` automatically; submodule directories exist in the working tree but are empty, confirmed by a Reddit community report and two separate GitHub issues against the `anthropics/claude-code` repository",
@@ -8970,7 +9014,12 @@
         "shifts upstream",
         "requirement quality"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://alexop.dev/posts/the-software-factory/",
+        "https://news.ycombinator.com/item?id=47226107",
+        "https://news.ycombinator.com/item?id=47435275",
+        "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents"
+      ],
       "key_claims": [
         {
           "text": "The software factory pattern is production-validated at enterprise scale because Stripe's Minions system merges more than 1,300 AI-authored PRs per week using blueprints, a 500-tool Model Context Protocol (MCP) server, and isolated cloud devboxes. Source: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents",
@@ -9275,10 +9324,12 @@
         "https://github.com/stoplightio/spectral",
         "https://docs.stoplight.io/docs/spectral/",
         "https://www.checkov.io/",
+        "https://github.com/bridgecrewio/checkov",
         "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html",
         "https://github.com/dbt-labs/dbt-project-evaluator",
         "https://sqlfluff.com/",
         "https://golangci-lint.run/",
+        "https://github.com/golangci/golangci-lint",
         "https://github.com/zegl/kube-score",
         "https://www.asyncapi.com/tools/cli",
         "https://the-guild.dev/graphql/inspector/docs/index",
@@ -9355,6 +9406,7 @@
         "https://www.jetbrains.com/help/ai-assistant/settings-reference-rules.html",
         "https://docs.anthropic.com/en/prompt-library/library",
         "https://github.com/anthropics/skills",
+        "https://raw.githubusercontent.com/anthropics/skills/main/README.md",
         "https://platform.openai.com/docs/guides/prompt-engineering",
         "https://cookbook.openai.com/",
         "https://cookbook.openai.com/examples/skills_in_api",
@@ -9362,8 +9414,11 @@
         "https://cursor.com/docs/rules",
         "https://cursor.directory/",
         "https://github.com/PatrickJS/awesome-cursorrules",
+        "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/README.md",
         "https://github.com/VoltAgent/awesome-agent-skills",
+        "https://raw.githubusercontent.com/VoltAgent/awesome-agent-skills/main/README.md",
         "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+        "https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/README.md",
         "https://docs.cline.bot/",
         "https://docs.windsurf.com/windsurf/cascade/memories",
         "https://docs.windsurf.com/windsurf/cascade/skills",
@@ -9583,7 +9638,23 @@
         "repository instructions",
         "instructions handoff"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://docs.crewai.com/concepts/agents",
+        "https://microsoft.github.io/autogen/stable/",
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent",
+        "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent",
+        "https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions",
+        "https://github.blog/ai-and-ml/github-copilot/github-copilot-coding-agent-101-getting-started-with-agentic-workflows-on-github/",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://www.designcouncil.org.uk/our-resources/the-double-diamond/",
+        "https://doi.org/10.1016/j.tics.2016.07.002",
+        "https://doi.org/10.1111/cogs.12770",
+        "https://doi.org/10.1037/aca0000513",
+        "https://doi.org/10.1080/0960085X.2025.2475962",
+        "https://hal.cs.princeton.edu/reliability/",
+        "https://doi.org/10.6028/NIST.AI.100-1"
+      ],
       "key_claims": [
         {
           "text": "A reliable finisher architecture uses an explicit planner-executor-synthesiser-reviewer loop, because completion quality improves when planning, doing, packaging, and checking are treated as distinct responsibilities rather than collapsed into one unconstrained conversational turn. Sources: https://www.anthropic.com/research/building-effective-agents; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent",
@@ -9642,7 +9713,25 @@
         "executive summary",
         "single surveyed"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.opengroup.org/togaf",
+        "https://sabsa.org",
+        "https://bian.org",
+        "https://www.tmforum.org",
+        "https://doi.org/10.6028/NIST.SP.800-207",
+        "https://doi.org/10.6028/NIST.CSWP.29",
+        "https://dodcio.defense.gov/library/dod-architecture-framework/",
+        "https://www.nato.int/cps/en/natohq/topics_157575.htm",
+        "https://ivi.ie/it-cmf/",
+        "https://cmmiinstitute.com",
+        "https://learnwardleymapping.com",
+        "https://medium.com/wardleymaps",
+        "https://dora.dev",
+        "https://aws.amazon.com/architecture/well-architected/",
+        "https://learn.microsoft.com/en-us/azure/well-architected/",
+        "https://cloud.google.com/architecture/framework",
+        "https://www.gartner.com/en/information-technology/it-score"
+      ],
       "key_claims": [
         {
           "text": "No surveyed public framework is simultaneously a modern enterprise-wide technical capability taxonomy and a robust maturity model, so organisations that need both outcomes must combine at least one classification framework with at least one maturity overlay. Sources: `https://www.opengroup.org/togaf`; `https://ivi.ie/it-capability-maturity-framework/`; `https://cmmiinstitute.com/learning/appraisals/levels`",
@@ -9701,7 +9790,28 @@
         "service-management systems",
         "systems sources"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.ndepend.com/",
+        "https://github.com/bjorkstromm/depends",
+        "https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf",
+        "https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies",
+        "https://developer.hashicorp.com/terraform/cli/commands/graph",
+        "https://github.com/28mm/blast-radius",
+        "https://github.com/im2nguyen/rover",
+        "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape",
+        "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph",
+        "https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology",
+        "https://developer.atlassian.com/cloud/confluence/rest/v2/intro/",
+        "https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management",
+        "https://www.elastic.co/docs/solutions/observability/apm/service-map",
+        "https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM",
+        "https://docs.datadoghq.com/tracing/services/services_map/",
+        "https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446",
+        "https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow",
+        "https://backstage.io/docs/features/software-catalog/",
+        "https://structurizr.com/",
+        "https://rustic-ai.github.io/codeprism/"
+      ],
       "key_claims": [
         {
           "text": "Static extraction across .NET and Terraform should be the foundation of a dependency program because it provides the highest-confidence declared edges for code and infrastructure, but it cannot by itself prove live call paths, environment drift, or undocumented runtime coupling. Sources: `https://www.ndepend.com/`; `https://github.com/bjorkstromm/depends`; `https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf`; `https://developer.hashicorp.com/terraform/cli/commands/graph`; `https://github.com/28mm/blast-radius`; `https://github.com/im2nguyen/rover`",
@@ -9760,7 +9870,29 @@
         "layered system",
         "system built"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://arxiv.org/abs/2303.17564",
+        "https://arxiv.org/abs/2212.13138",
+        "https://www.harvey.ai/blog/expanding-harveys-model-offerings",
+        "https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service",
+        "https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation",
+        "https://arxiv.org/abs/2106.09685",
+        "https://arxiv.org/abs/2305.14314",
+        "https://www.nature.com/articles/s42256-023-00626-4",
+        "https://arxiv.org/abs/2004.10964",
+        "https://arxiv.org/abs/2406.04692",
+        "https://arxiv.org/abs/2309.11495",
+        "https://arxiv.org/abs/2212.08073",
+        "https://arxiv.org/abs/2401.05856",
+        "https://www.glean.com/resources/guides/glean-knowledge-graph",
+        "https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search",
+        "https://docs.cohere.com/docs/retrieval-augmented-generation-rag",
+        "https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+        "https://arxiv.org/abs/2306.11644",
+        "https://arxiv.org/abs/2203.05482",
+        "https://arxiv.org/abs/2504.12915"
+      ],
       "key_claims": [
         {
           "text": "Production enterprise customisation still starts with retrieval because all major current platform docs and the Morgan Stanley deployment treat proprietary context injection as the default answer to the private-knowledge gap rather than immediate weight-level retraining. (Sources: `https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html`; `https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview`; `https://docs.cohere.com/docs/retrieval-augmented-generation-rag`; `https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation`)",
@@ -9954,7 +10086,26 @@
         "express critical",
         "critical behavior"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://news.ycombinator.com/item?id=47404796",
+        "https://mistral.ai/news/leanstral",
+        "https://docs.mistral.ai/models/leanstral-26-03",
+        "https://github.com/mistralai/mistral-vibe/releases/tag/v2.5.0",
+        "https://lean-lang.org/documentation/",
+        "https://lean-lang.org/doc/reference/latest/",
+        "https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/",
+        "https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/",
+        "https://reservoir.lean-lang.org/@leanprover-community/mathlib",
+        "https://leandojo.org/leandojo.html",
+        "https://github.com/lean-dojo/ReProver",
+        "https://arxiv.org/abs/2310.04353",
+        "https://github.com/trishullab/copra",
+        "https://arxiv.org/abs/2404.12534",
+        "https://github.com/lean-dojo/LeanCopilot",
+        "https://news.ycombinator.com/item?id=47278720",
+        "https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant",
+        "https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/"
+      ],
       "key_claims": [
         {
           "text": "Leanstral is officially presented as an open-source Lean 4 proof-engineering agent with Mistral Vibe integration, a free model endpoint, and specialized training for realistic formal repositories, which makes it best understood as a focused proving tool rather than as a general-purpose safe-coding assistant. Sources: `https://mistral.ai/news/leanstral`; `https://docs.mistral.ai/models/leanstral-26-03`; `https://github.com/mistralai/mistral-vibe/releases/tag/v2.5.0`. Confidence: medium",
@@ -10077,7 +10228,14 @@
         "connected-server interoperability",
         "standardising capability"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://github.com/andrewyng/context-hub",
+        "https://modelcontextprotocol.io",
+        "https://github.com/modelcontextprotocol",
+        "https://swagger.io/specification/",
+        "https://python.langchain.com/docs/modules/agents/tools/",
+        "https://platform.openai.com/docs/guides/function-calling"
+      ],
       "key_claims": [
         {
           "text": "`context-hub` solves a narrow but practical problem by reducing hallucinated API usage and session-forgetting through curated, versioned documentation, persistent local annotations, and maintainer feedback loops that improve future agent runs. (Sources: `https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md`; `https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/feedback-and-annotations.md`)",
@@ -10207,7 +10365,23 @@
         "vl-jepa predicts",
         "concept prediction"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://ai.meta.com/research/publications/vl-jepa/",
+        "https://arxiv.org/abs/2512.10942",
+        "https://arxiv.org/html/2512.10942",
+        "https://openreview.net/forum?id=WFYbBOEOtv",
+        "https://arxiv.org/abs/2301.08243",
+        "https://arxiv.org/abs/2506.09985",
+        "https://openreview.net/pdf?id=BZ5a1r-kVsf",
+        "https://ai.meta.com/blog/",
+        "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs",
+        "https://docs.anthropic.com/en/docs/build-with-claude/vision",
+        "https://code.claude.com/docs/en/overview",
+        "https://code.claude.com/docs/en/best-practices",
+        "https://code.claude.com/docs/en/desktop",
+        "https://arxiv.org/abs/2303.08774",
+        "https://arxiv.org/abs/2312.11805"
+      ],
       "key_claims": [
         {
           "text": "VL-JEPA predicts the embedding of the target answer text from visual input and an optional query instead of predicting the next answer token, which lets the model learn semantic state before committing to any particular wording. Sources: https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942",
@@ -10336,7 +10510,35 @@
         "copilot amazon",
         "bedrock azure"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://github.com/open-gitagent/gitagent",
+        "https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md",
+        "https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md",
+        "https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md",
+        "https://api.github.com/repos/open-gitagent/gitagent",
+        "https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/agents-overview.md",
+        "https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/overview-declarative-agent.md",
+        "https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md",
+        "https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md",
+        "https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/includes/sample-manifests/declarative-agent-sample-manifest-1.6.json",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html",
+        "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html",
+        "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+        "https://modelcontextprotocol.io",
+        "https://developers.openai.com/api/docs/assistants/tools/",
+        "https://developers.openai.com/api/docs/guides/tools?api-mode=responses",
+        "https://developers.openai.com/api/docs/guides/tools-remote-mcp",
+        "https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json",
+        "https://raw.githubusercontent.com/openai/plugins-quickstart/main/openapi.yaml",
+        "https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore/",
+        "https://platform.openai.com/docs/assistants/overview",
+        "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview",
+        "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-manifest"
+      ],
       "key_claims": [
         {
           "text": "GitAgent defines an agent primarily as a Git repository rooted in `agent.yaml` and `SOUL.md`, and its specification deliberately extends that core with optional skills, tools, hooks, workflows, memory, compliance, and sub-agent directories rather than forcing one framework-specific runtime model. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md",
@@ -10398,18 +10600,35 @@
       "source_urls": [
         "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
         "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-17/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/",
         "https://csrc.nist.gov/publications/detail/sp/800-162/final",
         "https://csrc.nist.gov/publications/detail/sp/800-207/final",
         "https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control",
         "https://www.iso.org/standard/27001",
         "https://www.isms.online/iso-27001/annex-a-2022/",
+        "https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf",
         "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.openpolicyagent.org/docs/policy-testing",
+        "https://www.openpolicyagent.org/docs/management-decision-logs",
         "https://docs.cedarpolicy.com/policies/validation.html",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html",
         "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policies.html",
+        "https://aws.amazon.com/verified-permissions/features/",
         "https://docs.cerbos.dev/cerbos/latest/index.html",
+        "https://docs.cerbos.dev/cerbos/latest/tutorial/04_testing-policies.html",
+        "https://docs.cerbos.dev/cerbos/latest/policies/compile.html",
+        "https://www.cerbos.dev/features-benefits-and-use-cases/audit-logs",
         "https://owasp.org/www-project-application-security-verification-standard/",
         "https://www.oasis-open.org/committees/xacml/",
-        "https://arxiv.org/abs/2108.09293"
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://arxiv.org/abs/2108.09293",
+        "https://arxiv.org/html/2506.11022v2",
+        "https://arxiv.org/html/2412.15004v4"
       ],
       "key_claims": [
         {
@@ -10536,7 +10755,22 @@
         "canonical issue",
         "event objects"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://openlineage.io",
+        "https://openlineage.io/docs/spec/object-model/",
+        "https://openlineage.io/docs/1.38.0/guides/facets",
+        "https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue",
+        "https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github",
+        "https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/",
+        "https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/",
+        "https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0",
+        "https://docs.github.com/en/rest/deployments/deployments",
+        "https://support.pagerduty.com/main/docs/recent-changes",
+        "https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0",
+        "https://www.sleuth.io/post/dora-metrics-explained/",
+        "https://www.sleuth.io",
+        "https://asq.org/quality-resources/lean/value-stream-mapping"
+      ],
       "key_claims": [
         {
           "text": "Azure Boards, Jira Software, and GitHub all support explicit issue-to-code linkage, but they rely on product-specific identifiers and text conventions such as `AB#123`, Jira issue keys, and pull request closing keywords instead of one shared cross-system work identifier. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue",
@@ -10595,7 +10829,36 @@
         "cost categories",
         "saas platforms"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.salesforce.com/products/financial-services-cloud/overview/",
+        "https://ncino.com/products",
+        "https://trailhead.salesforce.com",
+        "https://www.gartner.com/en/banking-financial-services",
+        "https://www.forrester.com/research/financial-services-technology/",
+        "https://martinfowler.com/bliki/DomainDrivenDesign.html",
+        "https://en.wikipedia.org/wiki/Total_cost_of_ownership",
+        "https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/",
+        "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights",
+        "https://en.wikipedia.org/wiki/Software_as_a_service",
+        "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf",
+        "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf",
+        "https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide",
+        "https://www.salesforce.com/company/legal/trust-and-compliance-documentation/",
+        "https://www.salesforce.com/products/platform/overview/",
+        "https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture",
+        "https://www.ncino.com/our-platform",
+        "https://www.ncino.com/implementation",
+        "https://www.ncino.com/our-platform/commercial-banking",
+        "https://developer.ncino.com/",
+        "https://www.temenos.com/products/core-banking/",
+        "https://www.thoughtmachine.net/vault-core",
+        "https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey",
+        "https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html",
+        "https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html",
+        "https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html",
+        "https://www.seerene.com/news-research/banks-dilemma",
+        "https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f"
+      ],
       "key_claims": [
         {
           "text": "Confidence: high.  Salesforce Financial Services Cloud (FSC) and nCino provide invariant value mainly through reusable financial-services data models, packaged workflow shells, open integration surfaces, and vendor-operated platform services, rather than through institution-specific end-to-end banking outcomes. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://www.ncino.com/our-platform ; https://developer.ncino.com/",
@@ -10654,7 +10917,23 @@
         "case sources",
         "documented incidents"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://atlas.mitre.org/",
+        "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf",
+        "https://simonwillison.net/series/prompt-injection/",
+        "https://arxiv.org/abs/2302.12173",
+        "https://www.anthropic.com/research/many-shot-jailbreaking",
+        "https://www.anthropic.com/news/constitutional-classifiers",
+        "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection",
+        "https://arxiv.org/abs/2503.18813",
+        "https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf",
+        "https://github.com/lakeraai/pint-benchmark",
+        "https://www.lakera.ai/product-updates/lakera-pint-benchmark",
+        "https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/",
+        "https://aclanthology.org/2025.findings-naacl.395/"
+      ],
       "key_claims": [
         {
           "text": "Confidence: high. Once an agent ingests external text or tool output, prompt injection stops looking like a simple chat misuse and instead becomes a boundary failure between trusted instructions and untrusted data inside the control flow. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf)",
@@ -10843,7 +11122,9 @@
         "layer values",
         "memory gating"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://arxiv.org/abs/2309.11206"
+      ],
       "key_claims": [
         {
           "text": "The eight-layer context hierarchy (regulatory → immediate task) has a defined authority ordering — Layer 1 (Regulatory) overrides all others; Layer 8 (Task) is subordinate to all others — validated by the independent convergence of Constitutional AI design, enterprise AI architecture literature, and the neuroscience of PFC hierarchical control",
@@ -10902,7 +11183,17 @@
         "human evaluation",
         "memgpt letta"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://arxiv.org/abs/2312.10997",
+        "https://arxiv.org/abs/2310.05736",
+        "https://arxiv.org/abs/2310.08560",
+        "https://arxiv.org/abs/2401.18059",
+        "https://arxiv.org/abs/2403.12968",
+        "https://docs.llamaindex.ai/en/stable/",
+        "https://python.langchain.com/docs/concepts/rag/",
+        "https://github.com/microsoft/graphrag",
+        "https://weaviate.io/blog/advanced-rag"
+      ],
       "key_claims": [
         {
           "text": "Naive RAG fails for hierarchical organisational knowledge because a single cosine-similarity query cannot distinguish regulatory, strategic, and operational knowledge tiers; Advanced RAG with hybrid search and cross-encoder re-ranking is the minimum viable baseline for multi-tier retrieval",
@@ -10962,7 +11253,16 @@
         "emergent order"
       ],
       "source_urls": [
-        "https://taitc.buzzsprout.com/"
+        "https://taitc.buzzsprout.com/",
+        "https://en.wikipedia.org/wiki/Desire_path",
+        "https://en.wikipedia.org/wiki/Theory_of_Moral_Sentiments",
+        "https://en.wikipedia.org/wiki/The_Wealth_of_Nations",
+        "https://www.adamsmithworks.org/",
+        "https://plato.stanford.edu/entries/smith-moral-political/",
+        "https://newsletter.sergiocaredda.eu/p/the-intentional-organisation-issue-22-04-22",
+        "https://www.linkedin.com/pulse/desire-paths-workplace-art-building-processes-around-what-mitchell-mbyle",
+        "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html",
+        "https://knowledge.wharton.upenn.edu/article/real-ai-adoption-means-changing-human-behavior/"
       ],
       "key_claims": [
         {
@@ -11022,7 +11322,24 @@
         "ricardian triple",
         "prose code"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://iang.org/papers/ricardian_contract.html",
+        "https://iang.org/papers/intersection_ricardian_smart.html",
+        "https://iang.org/papers/why_the_ricardian.pdf",
+        "https://github.com/EOSIO/ricardian-template-toolkit",
+        "https://accordproject.org",
+        "https://openlaw.io",
+        "https://allcryptowhitepapers.com",
+        "https://astraea.law",
+        "https://mattereum.com",
+        "https://arxiv.org/abs/2510.20007",
+        "https://bitsonblocks.net/2016/02/01/gentle-introduction-digital-tokens/",
+        "https://corpgov.law.harvard.edu/2018/05/26/an-introduction-to-smart-contracts-and-their-potential-and-inherent-limitations/",
+        "https://www.researchgate.net/publication/389561234",
+        "https://tilburglawreview.com",
+        "https://iang.org/ricardo",
+        "https://arxiv.org/search/?query=ricardian+contract&searchtype=all"
+      ],
       "key_claims": [
         {
           "text": "The Ricardian Contract's formal seven-property definition  -  a single document that is human-readable, machine-readable, digitally signed, carries cryptographic keys and server information, and is allied with a unique hash-based identifier  -  has been stable since its 2004 IEEE First Workshop on Electronic Contracting publication and is reproduced without contradiction across all sources consulted. (Confidence: High)",
@@ -11081,7 +11398,13 @@
         "one week",
         "english protocol"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://quint-lang.org/posts/llm_era",
+        "https://news.ycombinator.com/item?id=47347901",
+        "https://github.com/informalsystems/quint-llm-kit",
+        "https://quint-lang.org/posts/cognitive_debt",
+        "https://hackage.haskell.org/package/spectacle"
+      ],
       "key_claims": [
         {
           "text": "Large Language Models produce text that *looks* correct, making validation - not code generation - the central reliability challenge in LLM-assisted software development; executable specifications provide a mechanically verifiable ground truth between prose requirements and implementation code",
@@ -11144,6 +11467,7 @@
         "https://www.cs.toronto.edu/km/tropos/",
         "https://dl.acm.org/doi/10.5555/257734.257738",
         "https://catala-lang.org/",
+        "https://dl.acm.org/doi/10.1145/3473582",
         "https://arxiv.org/abs/1612.04496",
         "https://github.com/EOSIO/ricardian-template-toolkit",
         "https://doi.org/10.1007/s10270-014-0395-8",
@@ -11684,6 +12008,8 @@
         "https://pubmed.ncbi.nlm.nih.gov/8700901/",
         "https://incompleteideas.net/book/the-book.html",
         "https://www.sciencedirect.com/science/article/pii/0048733382900111",
+        "https://journals.sagepub.com/doi/10.1287/orsc.1040.0075",
+        "https://www.jstor.org/stable/2486989",
         "https://www.sciencedirect.com/science/article/pii/S0001879109001018"
       ],
       "key_claims": [
@@ -12067,7 +12393,20 @@
         "llm intent",
         "proxy reward"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://curtclifton.net/papers/MoseleyMarks06a.pdf",
+        "https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity",
+        "https://arxiv.org/abs/2210.10760",
+        "https://program-proofs.com/",
+        "https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf",
+        "https://lamport.azurewebsites.net/tla/book.html",
+        "https://lamport.azurewebsites.net/tla/industrial-use.html",
+        "https://swe-bench.github.io/",
+        "https://functional-architecture.org/functional_core_imperative_shell/",
+        "https://koka-lang.github.io/koka/doc/book.html",
+        "https://www.usenix.org/system/files/atc24-li-hongyu.pdf",
+        "https://guide.elm-lang.org/architecture/"
+      ],
       "key_claims": [
         {
           "text": "Formal specification structurally reduces, but cannot fully eliminate, reward hacking: each constraint added to a specification mechanically closes off the gaming patterns within its coverage, but residual gaps remain for any finite specification. The protection is proportional to the specification's completeness relative to the full intent",
@@ -12127,6 +12466,7 @@
         "compression artifacts"
       ],
       "source_urls": [
+        "https://journals.lib.washington.edu/index.php/nasko/article/view/12806",
         "https://en.wikipedia.org/wiki/DIKW_Pyramid",
         "https://www.ebsco.com/research-starters/library-and-information-science/dikw-pyramid"
       ],
@@ -12521,6 +12861,7 @@
         "two independent"
       ],
       "source_urls": [
+        "https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html",
         "https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831",
         "https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf",
         "https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/",
@@ -13120,9 +13461,13 @@
         "https://apps.apple.com/app/claude-by-anthropic/id6473753684",
         "https://docs.anthropic.com/en/agents-and-tools/mcp-connector",
         "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
+        "https://support.anthropic.com/en/articles/11175166-what-is-claude-ai-s-connection-feature",
+        "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities",
+        "https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers",
         "https://support.claude.com/en/articles/11596036-anthropic-connectors-directory-faq",
         "https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors",
         "https://developers.cloudflare.com/agents/guides/remote-mcp-server/",
+        "https://simplescraper.io/blog/how-to-mcp",
         "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": [
@@ -13251,6 +13596,7 @@
       "source_urls": [
         "https://www.gov.uk/government/publications/business-case-guidance-for-projects-and-programmes",
         "https://assets.publishing.service.gov.uk/media/66449468ae748c43d3793bb8/Project_Business_Case_2018.pdf",
+        "https://www.gov.uk/government/publications/green-book-review-2025-findings-and-actions/green-book-review-2025-findings-and-actions",
         "https://www.knowledgetrain.co.uk/project-management/business-cases/five-case-model",
         "https://apmg-international.com/article/5-case-model-smarter-public-investment",
         "https://www.gov.uk/government/collections/infrastructure-and-projects-authority-assurance-review-toolkit",
@@ -13314,7 +13660,24 @@
         "problem repo",
         "competing approaches"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://youtu.be/09sFAO7pklo",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://docs.anthropic.com/en/docs/build-with-claude/computer-use",
+        "https://modelspec.anthropic.com",
+        "https://platform.openai.com/docs/guides/agents",
+        "https://openai.com/index/openai-codex",
+        "https://cursor.com/blog",
+        "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-your-ide/using-copilot-edits",
+        "https://github.com/sst/opencode",
+        "https://ampcode.com",
+        "https://aider.chat",
+        "https://github.com/cline/cline",
+        "https://continue.dev/docs",
+        "https://zed.dev/blog",
+        "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+        "https://cursor.com/docs/agent/overview"
+      ],
       "key_claims": [
         {
           "text": "All major AI coding harnesses implement tool-mediated execution as their core primitive: agents invoke discrete tools (file_read, file_write, bash, browser) rather than generating text that is interpreted as instructions, making every agent action visible and auditable",
@@ -13497,6 +13860,7 @@
       ],
       "source_urls": [
         "https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf",
+        "https://royalsocietypublishing.org/doi/10.1098/rsta.2015.0202",
         "https://ieeexplore.ieee.org/document/488968",
         "https://ieeexplore.ieee.org/document/585892",
         "https://ieeexplore.ieee.org/document/996017",
@@ -13635,7 +13999,9 @@
         "hallucination sycophancy",
         "objective rewards"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://arxiv.org/abs/2512.01797"
+      ],
       "key_claims": [
         {
           "text": "A sparse subset of FFN neurons (< 1‰ of total, ranging 0.01‰–0.35‰ across six models in Mistral, Gemma-3, and Llama-3 families) causally drives LLM hallucination via an over-compliance pathway, confirmed by controlled activation scaling experiments across four structurally independent benchmarks",
@@ -13696,6 +14062,7 @@
       ],
       "source_urls": [
         "https://arxiv.org/abs/2512.01797",
+        "https://youtu.be/1ONwQzauqkc",
         "https://transformer-circuits.pub/2022/toy_model/index.html",
         "https://arxiv.org/abs/2202.05262",
         "https://arxiv.org/abs/2404.14082"
@@ -13762,7 +14129,10 @@
         "https://arxiv.org/abs/2512.01797",
         "https://arxiv.org/abs/2203.15556",
         "https://arxiv.org/abs/2306.11644",
-        "https://transformer-circuits.pub/2022/toy_model/index.html"
+        "https://arxiv.org/abs/2306.01116",
+        "https://arxiv.org/abs/2212.08073",
+        "https://transformer-circuits.pub/2022/toy_model/index.html",
+        "https://arxiv.org/abs/2304.01373"
       ],
       "key_claims": [
         {
@@ -13824,7 +14194,11 @@
       ],
       "source_urls": [
         "https://arxiv.org/abs/2512.01797",
-        "https://arxiv.org/abs/2212.09251"
+        "https://arxiv.org/abs/2310.01405",
+        "https://arxiv.org/abs/2310.13548",
+        "https://arxiv.org/abs/2212.09251",
+        "https://arxiv.org/abs/2306.03341",
+        "https://arxiv.org/abs/2202.05262"
       ],
       "key_claims": [
         {
@@ -13959,13 +14333,18 @@
         "github blog"
       ],
       "source_urls": [
+        "https://github.blog/news-insights/product-news/github-copilot-workspace/",
         "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking",
         "https://platform.openai.com/docs/guides/prompt-engineering",
         "https://arxiv.org/abs/2201.11903",
         "https://arxiv.org/abs/2302.11382",
         "https://docs.cursor.com",
         "https://aider.chat/docs/usage/tips.html",
+        "https://arxiv.org/abs/2309.07864",
+        "https://arxiv.org/abs/2206.15000",
+        "https://arxiv.org/abs/2302.06590",
         "https://services.google.com/fh/files/misc/dora_one_pager_2024.pdf",
+        "https://getdx.com/blog/2024-dora-report/",
         "https://www.infoq.com/news/2024/11/thoughtworks-tech-radar-oct-2024/",
         "https://survey.stackoverflow.co/2024/ai",
         "https://arxiv.org/abs/2305.06599"
@@ -14234,8 +14613,9 @@
         "zero infrastructure"
       ],
       "source_urls": [
-        "https://www.stephenmwangi.com/obsidian-spaced-repetition/",
-        "https://www.supermemo.com/en/blog/application-of-a-computer-to-improve-the-results-obtained-in-working-with-the-supermemo-method"
+        "https://en.wikipedia.org/wiki/Forgetting_curve",
+        "https://www.supermemo.com/en/blog/application-of-a-computer-to-improve-the-results-obtained-in-working-with-the-supermemo-method",
+        "https://www.stephenmwangi.com/obsidian-spaced-repetition/"
       ],
       "key_claims": [
         {
@@ -14298,6 +14678,7 @@
       "source_urls": [
         "https://www.cs.bham.ac.uk/~pxt/IDA/lsa_ind.pdf",
         "https://lsa.colorado.edu/papers/dp1.LSAintro.pdf",
+        "https://arxiv.org/abs/2404.16130",
         "https://github.com/microsoft/graphrag",
         "https://www.taylorfrancis.com/books/mono/10.4324/9780203862001",
         "https://cmap.ihmc.us",
@@ -14432,8 +14813,8 @@
       ],
       "source_urls": [
         "https://plato.stanford.edu/entries/coase/",
-        "https://www.nobelprize.org",
-        "https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/AAE1E43E55B0BB9B99E16AFF6E3E2F69"
+        "https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/AAE1E43E55B0BB9B99E16AFF6E3E2F69",
+        "https://www.nobelprize.org"
       ],
       "key_claims": [
         {
@@ -14614,9 +14995,9 @@
       ],
       "source_urls": [
         "https://doi.org/10.1111/j.1467-9310.1989.tb00072.x",
-        "https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3",
         "https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691",
-        "https://zettelkasten.de/introduction/"
+        "https://zettelkasten.de/introduction/",
+        "https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3"
       ],
       "key_claims": [
         {
@@ -14947,23 +15328,44 @@
         "https://github.com/snap-research/LoCoMo",
         "https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/",
         "https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/",
+        "https://youtu.be/2JiMmye2ezg",
+        "https://www.mongodb.com/company/blog/technical/dont-just-build-agents-build-memory-augmented-ai-agents",
+        "https://www.letta.com/blog/agent-memory",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://blog.langchain.com/context-engineering-for-agents/",
+        "https://cognition.ai/blog/dont-build-multi-agents",
+        "https://research.trychroma.com/context-rot",
         "https://github.com/BAI-LAB/MemoryOS",
         "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/2043",
         "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "https://www.newamerica.org/oti/briefs/ai-agents-and-memory/",
+        "https://link.springer.com/article/10.1007/s42438-024-00462-8",
         "https://www.mdpi.com/2673-9585/4/2/7",
         "https://notes.andymatuschak.org/Evergreen_notes",
         "https://forum.obsidian.md/t/personal-knowledge-graphs/69264",
         "https://www.dsebastien.net/personal-knowledge-management-at-scale-analyzing-8-000-notes-and-64-000-links/",
+        "https://arxiv.org/abs/2308.09687",
         "https://link.springer.com/article/10.1007/s10489-024-05315-2",
+        "https://milvus.io/ai-quick-reference/what-is-the-relationship-between-embeddings-and-knowledge-graphs",
         "https://www.research-collection.ethz.ch/bitstreams/a03fe1a6-16b6-456c-83f2-c91296eda847/download",
+        "https://aclanthology.org/2024.acl-long.558.pdf",
         "https://towardsdatascience.com/combine-text-embeddings-and-knowledge-graph-embeddings-in-rag-systems-5e6d7e493925/",
         "https://github.com/MihaiCiprianChezan/Constitutional-memory-for-AI-agents",
+        "https://arxiv.org/abs/2602.20196",
         "https://cloudsecurityalliance.org/blog/2026/02/02/the-agentic-trust-framework-zero-trust-governance-for-ai-agents",
         "https://smartconnections.app/",
+        "https://link.springer.com/chapter/10.1007/978-3-031-89274-5_9",
         "https://hpcn.exeter.ac.uk/dikw2025/",
+        "https://arxiv.org/html/2508.19828v1",
+        "https://arxiv.org/abs/2409.19401",
+        "https://arxiv.org/pdf/2510.10397",
+        "https://arxiv.org/pdf/2511.08242",
+        "https://arxiv.org/abs/2503.10248",
+        "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2025.1532397/full",
+        "https://arxiv.org/abs/2512.13564",
         "https://yodaplus.com/blog/memory-refresh-cycles-in-gen-ai-systems-how-and-when-should-agents-forget/",
         "https://dev.to/kuldeep_paul/managing-ai-agent-drift-over-time-a-practical-framework-for-reliability-evals-and-observability-1fk8",
-        "https://arxiv.org/abs/2308.09687"
+        "https://aclanthology.org/2024.acl-long.108.pdf"
       ],
       "key_claims": [
         {
@@ -15085,7 +15487,11 @@
         "groundhog day",
         "web search"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://github.com/ghuntley/how-to-ralph-wiggum",
+        "https://github.com/ClaytonFarr/ralph-playbook",
+        "https://github.com/frankbria/ralph-claude-code"
+      ],
       "key_claims": [
         {
           "text": "The Ralph loop is three phases, two prompts, one outer loop. Phase 1 (human + LLM conversation) defines Jobs to Be Done (JTBD) and writes one spec file per Topic of Concern (`specs/FILENAME.md`). Phase 2 (PLANNING mode) does gap analysis against the code and writes a prioritised `IMPLEMENTATION_PLAN.md` — no implementation. Phase 3 (BUILDING mode) picks the most important task, implements it, runs backpressure (tests/lint), commits, updates the plan, and exits — the outer bash loop immediately restarts with a fresh context",
@@ -15144,7 +15550,13 @@
         "hn discussion",
         "subprocess isolation"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://mksg.lu/blog/context-mode",
+        "https://news.ycombinator.com/item?id=47193064",
+        "https://github.com/mksglu/claude-context-mode",
+        "https://blog.cloudflare.com/code-mode-mcp/",
+        "https://scottspence.com/posts/optimising-mcp-server-context-usage-in-claude-code"
+      ],
       "key_claims": [
         {
           "text": "The context problem is two-sided, and both sides are now being addressed. Tool definitions (the input side) can consume the entire context window before a session begins. With 81+ tools active, 143K tokens (72% of a 200K context) are consumed by definitions alone before the first user message. Cloudflare's Code Mode collapses an entire API (e.g., 1.17M tokens of Cloudflare API definitions) into ~1,000 tokens by replacing per-operation tools with two tools — `search()` and `execute()` — that let the model write and run JavaScript against a typed SDK. Context Mode addresses the other direction: tool outputs returned during the session. A single Playwright snapshot is 56 KB; 20 GitHub issues are 59 KB; one access log is 45 KB. After 30 minutes of a typical session, 40% of remaining context is consumed by raw output",
@@ -15205,7 +15617,9 @@
       ],
       "source_urls": [
         "https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/",
-        "https://github.com/guardrails-ai/guardrails"
+        "https://github.com/lsp-client/LSAP/",
+        "https://github.com/guardrails-ai/guardrails",
+        "https://lsp-client.github.io/blog/designing-lsap/"
       ],
       "key_claims": [
         {
@@ -15266,6 +15680,10 @@
         "foundation talk"
       ],
       "source_urls": [
+        "https://youtu.be/HYUoS0GkGCs",
+        "https://lab.cccb.org/en/anil-seth-reality-is-a-controlled-hallucination/",
+        "https://biologyinsights.com/anil-seth-on-consciousness-as-a-controlled-hallucination/",
+        "https://www.unpluggedpsych.com/the-controlled-hallucination-theory-anil-seths-perspective/",
         "https://doi.org/10.1016/j.tics.2013.09.007"
       ],
       "key_claims": [
@@ -15453,7 +15871,10 @@
         "contacts youtube"
       ],
       "source_urls": [
-        "https://ai.google.dev/gemini-api/docs/video-understanding"
+        "https://ai.google.dev/gemini-api/docs/video-understanding",
+        "https://vomo.ai/blog/can-gemini-transcribe-youtube-videos",
+        "https://ai-rockstars.com/tutorial-transcribing-youtube-videos-with-google-ai-studio/",
+        "https://ai.google.dev/gemini-api/docs/rate-limits"
       ],
       "key_claims": [
         {
@@ -15581,7 +16002,6 @@
         "controlled hallucination"
       ],
       "source_urls": [
-        "https://psycnet.apa.org/psycinfo/1999-11333-002",
         "https://www.cs.utexas.edu/~dana/nn.pdf",
         "https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf"
       ],
@@ -15958,7 +16378,9 @@
         "ordinary perception",
         "pathological hallucination"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.nature.com/articles/nn0199_79.pdf"
+      ],
       "key_claims": [
         {
           "text": "Predictive coding in visual cortex is mechanistically established: Rao & Ballard (1999) showed that hierarchical feedback predictions plus feedforward error signals account for extra-classical receptive field effects (surround suppression, end-stopping) in V1 that purely feedforward models cannot explain, providing the computational architecture underlying controlled hallucination",

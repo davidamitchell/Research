@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -734,7 +738,7 @@ main {
 <li>[x] Gartner — Run-Grow-Transform (RGT) IT spending model (search Gartner research library for RGT framework documentation)</li>
 <li>[ ] McKinsey — IT cost transparency and project-based categorisation reports (McKinsey Technology/Digital practice publications)</li>
 <li>[ ] Forrester — IT financial management and TBM (Technology Business Management) research</li>
-<li>[x] TBM Council / ATUM (Apptio TBM Unified Model) — official TBM framework documentation at tbmcouncil.org — <a href="https://www.tbmcouncil.org/">www.tbmcouncil.org</a></li>
+<li>[x] <a href="https://www.tbmcouncil.org/">TBM Council / ATUM (Apptio TBM Unified Model) — official TBM framework documentation at tbmcouncil.org</a></li>
 <li>[x] Scaled Agile / Mik Kersten &quot;Project to Product&quot; — Flow Framework® and Flow Distribution metrics</li>
 <li>[ ] Gartner IT Key Metrics Data (annual benchmark report on RUN/BUILD/TRANSFORM ratios by industry)</li>
 <li>[ ] Peer-reviewed case studies via Google Scholar: search &quot;IT run build split allocation&quot; + manufacturing/retail/finance, filtered post-2015</li>

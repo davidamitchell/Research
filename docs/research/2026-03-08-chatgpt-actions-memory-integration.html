@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -750,13 +754,13 @@ main {
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
 <li>[x] <code>Research/completed/2026-03-02-agent-memory-management-context-injection.md</code>  -  memory portability findings; &quot;ChatGPT memories don't export to Claude&quot;</li>
-<li>[<a href="https://platform.openai.com/docs/actions/introduction">x] OpenAI custom GPT Actions documentation</a>: <a href="https://platform.openai.com/docs/actions/introduction">x] OpenAI custom GPT Actions documentation</a></li>
-<li>[<a href="https://platform.openai.com/docs/actions/authentication">x] OpenAI custom GPT Actions authentication</a>: <a href="https://platform.openai.com/docs/actions/authentication">x] OpenAI custom GPT Actions authentication</a></li>
-<li>[<a href="https://help.openai.com/en/articles/8590148-memory-faq">x] OpenAI Memory documentation</a>: <a href="https://help.openai.com/en/articles/8590148-memory-faq">x] OpenAI Memory documentation</a></li>
-<li>[<a href="https://swagger.io/specification/">x] OpenAPI specification (for Actions schema)</a>: <a href="https://swagger.io/specification/">x] OpenAPI specification (for Actions schema)</a></li>
+<li>[x] <a href="https://platform.openai.com/docs/actions/introduction">OpenAI custom GPT Actions documentation</a></li>
+<li>[x] <a href="https://platform.openai.com/docs/actions/authentication">OpenAI custom GPT Actions authentication</a></li>
+<li>[x] <a href="https://help.openai.com/en/articles/8590148-memory-faq">OpenAI Memory documentation</a></li>
+<li>[x] <a href="https://swagger.io/specification/">OpenAPI specification (for Actions schema)</a></li>
 <li>[x] <code>2026-03-08-self-hosted-mcp-server-options.md</code>  -  prerequisite infrastructure item</li>
 <li>[x] <code>2026-03-08-claude-ios-mcp-remote-integration.md</code>  -  comparison item</li>
-<li>[x] <code>davidamitchell/Memory-System</code> BACKLOG.md W-0005  -  the corresponding discovery item that this research informs — <a href="https://github.com/davidamitchell/Memory-System">github.com</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Memory-System"><code>davidamitchell/Memory-System</code> BACKLOG.md W-0005  -  the corresponding discovery item that this research informs</a></li>
 </ul>
 <hr />
 

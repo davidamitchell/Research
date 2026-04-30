@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -686,7 +690,7 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
-<p>Outbound push delivery to Slack or MS Teams is viable, low-complexity, and immediately implementable using a single new GitHub Actions workflow file and one new secret per platform (<code>SLACK_WEBHOOK_URL</code> for Slack, or a Power Automate webhook URL for Teams). The same trigger pattern as <code>publish-wiki.yml</code> (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) applies directly; the official <code>slackapi/slack-github-action@v2.1.1</code> action handles the Slack POST. Inbound capture via Slack slash commands is blocked under the no-server constraint — Slack requires a 3-second HTTP response that GitHub Actions cannot provide — but a GitHub-issues-as-backlog-proxy workflow achieves equivalent inbound capture with zero new secrets. MS Teams Incoming Webhooks (old connector model) are deprecated; the supported replacement is a Power Automate workflow with a webhook trigger. Query-in-chat capability requires a persistent bot server and is out of scope without additional approved infrastructure.</p>
+<p>Outbound push delivery to Slack or MS Teams is viable, low-complexity, and immediately implementable using a single new GitHub Actions workflow file and one new secret per platform (<code>SLACK_WEBHOOK_URL</code> for Slack, or a Power Automate webhook URL for Teams). The same trigger pattern as <code>publish-wiki.yml</code> (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) applies directly; the official <code>slackapi/slack-github-action@v2.1.1</code> action handles the Slack POST. Inbound capture via Slack slash commands is blocked under the no-server constraint — Slack requires a 3-second HTTP response that GitHub Actions cannot provide — but a GitHub-issues-as-backlog-proxy workflow achieves equivalent inbound capture with zero new secrets. <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">MS Teams Incoming Webhook</a>s (old connector model) are deprecated; the supported replacement is a Power Automate workflow with a webhook trigger. Query-in-chat capability requires a persistent bot server and is out of scope without additional approved infrastructure.</p>
 <h3>Key Findings</h3>
 <ol>
 <li>
@@ -756,12 +760,12 @@ main {
 <li>[x] <code>Research/backlog/2026-02-27-interface-and-delivery.md</code> — upstream interface and delivery options item</li>
 <li>[x] <code>Research/completed/2026-03-01-github-wiki-research-content.md</code> — existing delivery channel (wiki), same trigger pattern to reuse</li>
 <li>[x] <code>Research/completed/2026-03-02-chat-conversational-interface.md</code> — conversational query interface (inbound query path)</li>
-<li>[<a href="https://api.slack.com/messaging/webhooks">x] Slack Incoming Webhooks docs</a>: <a href="https://api.slack.com/messaging/webhooks">x] Slack Incoming Webhooks docs</a></li>
-<li>[<a href="https://api.slack.com/interactivity/slash-commands">x] Slack app slash commands</a>: <a href="https://api.slack.com/interactivity/slash-commands">x] Slack app slash commands</a></li>
-<li>[<a href="https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">x] MS Teams Incoming Webhook</a>: <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">x] MS Teams Incoming Webhook</a></li>
-<li>[<a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots">x] MS Teams bot framework</a>: <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots">x] MS Teams bot framework</a></li>
+<li>[x] <a href="https://api.slack.com/messaging/webhooks">Slack Incoming Webhooks docs</a></li>
+<li>[x] <a href="https://api.slack.com/interactivity/slash-commands">Slack app slash commands</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">MS Teams Incoming Webhook</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots">MS Teams bot framework</a></li>
 <li>[ ] GitHub Actions: <code>workflow_dispatch</code> with <code>inputs</code> — for triggering backlog capture from external webhooks</li>
-<li>[x] <code>8398a7/action-slack</code>: <a href="https://github.com/8398a7/action-slack">x] `8398a7/action-slack`</a> — community Slack notification Action (archived Sep 2025; replaced by <code>slackapi/slack-github-action</code>)</li>
+<li>[x] <a href="https://github.com/8398a7/action-slack"><code>8398a7/action-slack</code></a> — community Slack notification Action (archived Sep 2025; replaced by <code>slackapi/slack-github-action</code>)</li>
 </ul>
 <hr />
 

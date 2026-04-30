@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -759,10 +763,10 @@ main {
 <li>[x] <code>Research/completed/2026-03-02-chat-conversational-interface.md</code> — query interface conclusions (MCP for agents, not for mobile users)</li>
 <li>[ ] <code>Research/backlog/2026-02-27-interface-and-delivery.md</code> — upstream interface and delivery item</li>
 <li>[ ] <code>Research/backlog/2026-03-02-chat-conversational-interface.md</code> — query interface (dependency for query shortcut Option B)</li>
-<li>[<a href="https://docs.github.com/en/rest/repos/contents">x] GitHub REST API — Contents</a>: <a href="https://docs.github.com/en/rest/repos/contents">x] GitHub REST API — Contents</a> — <code>PUT</code> to create/update a file</li>
-<li>[<a href="https://docs.github.com/en/rest/issues/issues">x] GitHub REST API — Issues</a>: <a href="https://docs.github.com/en/rest/issues/issues">x] GitHub REST API — Issues</a> — <code>POST</code> to create an issue</li>
-<li>[<a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">x] GitHub REST API — Actions (workflow_dispatch)</a>: <a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">x] GitHub REST API — Actions (workflow_dispatch)</a></li>
-<li>[<a href="https://support.apple.com/guide/shortcuts/welcome/ios">x] Apple Shortcuts User Guide</a>: <a href="https://support.apple.com/guide/shortcuts/welcome/ios">x] Apple Shortcuts User Guide</a> — Share Sheet, Get URL, Get Contents of URL, Ask for Input, Show Notification</li>
+<li>[x] <a href="https://docs.github.com/en/rest/repos/contents">GitHub REST API — Contents</a> — <code>PUT</code> to create/update a file</li>
+<li>[x] <a href="https://docs.github.com/en/rest/issues/issues">GitHub REST API — Issues</a> — <code>POST</code> to create an issue</li>
+<li>[x] <a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">GitHub REST API — Actions (workflow_dispatch)</a></li>
+<li>[x] <a href="https://support.apple.com/guide/shortcuts/welcome/ios">Apple Shortcuts User Guide</a> — Share Sheet, Get URL, Get Contents of URL, Ask for Input, Show Notification</li>
 <li>[x] Apple Shortcuts — Get Contents of URL action: supports arbitrary HTTP methods and headers (suitable for GitHub API calls)</li>
 <li>[x] Community iOS Shortcut examples for GitHub API calls — island94.org, theporteur.com, Apple Community discussions</li>
 </ul>

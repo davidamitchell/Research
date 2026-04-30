@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -750,11 +754,11 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] GitHub Octoverse: developer productivity impact of AI coding tools (2023, 2024) — <a href="https://octoverse.github.com/">octoverse.github.com</a></li>
+<li>[x] <a href="https://octoverse.github.com/">GitHub Octoverse: developer productivity impact of AI coding tools (2023, 2024)</a></li>
 <li>[x] Google AI impact on engineering productivity (internal reports surfaced in press)</li>
-<li>[x] McKinsey &quot;Developer Velocity&quot; report (AI-assisted coding outcomes) — <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/developer-velocity-at-work-key-lessons-from-industry-digital-leaders">www.mckinsey.com</a></li>
+<li>[x] <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/developer-velocity-at-work-key-lessons-from-industry-digital-leaders">McKinsey &quot;Developer Velocity&quot; report (AI-assisted coding outcomes)</a></li>
 <li>[ ] Proxify, MomoView, Kamiwaza — cited in Jevons Paradox research as early indicators</li>
-<li>[x] SWE-bench evaluations: autonomous coding agent performance data — <a href="https://www.swebench.com/">www.swebench.com</a></li>
+<li>[x] <a href="https://www.swebench.com/">SWE-bench evaluations: autonomous coding agent performance data</a></li>
 <li>[ ] NZ tech company case studies: Xero, Trade Me, Datacom AI SWE programmes (if disclosed)</li>
 <li>[ ] ACM and IEEE published SWE AI governance frameworks</li>
 </ul>

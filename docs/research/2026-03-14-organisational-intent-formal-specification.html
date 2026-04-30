@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -735,22 +739,23 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[ ] <strong>Yu, E. (1995) — Modelling Strategic Relationships for Process Reengineering.</strong> PhD thesis, University of Toronto. Original iStar thesis — SD and SR models. — <a href="https://www.cs.toronto.edu/km/tropos/">www.cs.toronto.edu</a></li>
-<li>[ ] <strong>Yu, E. &amp; Mylopoulos, J. (1994) — Understanding &quot;Why&quot; in Software Process Modelling, Analysis and Design.</strong> ICSE 1994. Foundational goal-orientation in requirements. — <a href="https://dl.acm.org/doi/10.5555/257734.257738">dl.acm.org</a></li>
-<li>[ ] <strong>Catala language documentation and Merigoux et al. (2021) — Catala: A Programming Language for the Law.</strong> ICFP 2021. Prose/spec inversion methodology. — <a href="https://catala-lang.org/">catala-lang.org</a> and <a href="https://dl.acm.org/doi/10.1145/3473582">dl.acm.org</a></li>
-<li>[ ] <strong>Clack, C.D., Bakshi, V.A., &amp; Braine, L. (2016) — Smart Contract Templates: foundations, design landscape and research directions.</strong> arXiv. Ricardian contracts and dual-artefact generation. — <a href="https://arxiv.org/abs/1612.04496">arxiv.org/abs/1612.04496</a></li>
-<li>[ ] <strong>EOSIO Ricardian Template Toolkit — documentation and specification.</strong> — <a href="https://github.com/EOSIO/ricardian-template-toolkit">github.com</a></li>
-<li>[ ] <strong>Governatori, G. et al. (2016) — Detecting Semantic Inconsistencies in Business Process Models.</strong> Norm conflict detection methodology. — <a href="https://doi.org/10.1007/s10270-014-0395-8">doi.org</a></li>
-<li>[ ] <strong>Governatori, G. &amp; Rotolo, A. (2008) — Logic of Violation: A Gentzen System for Reasoning with Contrary-to-Duty Obligations.</strong> Australasian Journal of Logic. Normative consistency foundations. — <a href="https://ojs.victoria.ac.nz/ajl/article/view/1779">ojs.victoria.ac.nz</a></li>
-<li>[ ] <strong>Deon Digital — Contract Specification Language (CSL) documentation.</strong> Normative obligation language separating intent from execution. — <a href="https://github.com/Deon-Digital/deon">github.com</a></li>
-<li>[ ] <strong>Hoshin Kanri X-matrix method</strong> — Hutchins, G. (2008) <em>Hoshin Kanri: The Strategic Approach to Continuous Improvement</em> — <a href="https://www.routledge.com/Hoshin-Kanri-The-Strategic-Approach-to-Continuous-Improvement/Hutchins/p/book/9780566088582">www.routledge.com</a></li>
-<li>[ ] <strong>Hope, J. &amp; Fraser, R. (2003) — Beyond Budgeting: How Managers Can Break Free from the Annual Performance Trap.</strong> Harvard Business School Press. Structural critique of funding cycle decoupling. — <a href="https://store.hbr.org/product/beyond-budgeting-how-managers-can-break-free-from-the-annual-performance-trap/2151">store.hbr.org</a></li>
-<li>[ ] <strong>Trigeorgis, L. (1996) — Real Options: Managerial Flexibility and Strategy in Resource Allocation.</strong> MIT Press. Real options applied to initiative portfolios. — <a href="https://mitpress.mit.edu/9780262200738/real-options/">mitpress.mit.edu</a></li>
-<li>[ ] <strong>Rumelt, R. (2011) — Good Strategy / Bad Strategy: The Difference and Why It Matters.</strong> Crown Business. Kernel model and falsifiability of strategy. — <a href="https://goodbadstrategy.com/">goodbadstrategy.com</a></li>
-<li>[ ] <strong>Teece, D.J., Pisano, G., &amp; Shuen, A. (1997) — Dynamic Capabilities and Strategic Management.</strong> Strategic Management Journal 18(7). Build-vs-buy derivability from strategic position. — <a href="https://doi.org/10.1002/smj.4250180904">doi.org</a></li>
-<li>[ ] <strong>Simon, H.A. (1962) — The Architecture of Complexity.</strong> Proceedings of the American Philosophical Society 106(6). Near-decomposability applied to intent propagation. — <a href="https://doi.org/10.2307/985654">doi.org</a></li>
-<li>[ ] <strong>van Lamsweerde, A. (2001) — Goal-Oriented Requirements Engineering: A Guided Tour.</strong> RE 2001. Survey of Goal-Oriented Requirements Engineering (GORE) methods including formal properties. — <a href="https://doi.org/10.1109/ISRE.2001.948567">doi.org</a></li>
-<li>[ ] <strong>Fuxman, A. et al. (2004) — Specifying and Analyzing Early Requirements in Tropos.</strong> Requirements Engineering 9(2). Formal analysis in i*/Tropos. — <a href="https://doi.org/10.1007/s00766-003-0185-8">doi.org</a></li>
+<li>[ ] <a href="https://www.cs.toronto.edu/km/tropos/"><strong>Yu, E. (1995) — Modelling Strategic Relationships for Process Reengineering.</strong> PhD thesis, University of Toronto. Original iStar thesis — SD and SR models.</a></li>
+<li>[ ] <a href="https://dl.acm.org/doi/10.5555/257734.257738"><strong>Yu, E. &amp; Mylopoulos, J. (1994) — Understanding &quot;Why&quot; in Software Process Modelling, Analysis and Design.</strong> ICSE 1994. Foundational goal-orientation in requirements.</a></li>
+<li>[ ] <a href="https://catala-lang.org/">Catala language documentation</a></li>
+<li>[ ] <a href="https://dl.acm.org/doi/10.1145/3473582">Merigoux et al. (2021) Catala: A Programming Language for the Law — ICFP 2021</a></li>
+<li>[ ] <a href="https://arxiv.org/abs/1612.04496"><strong>Clack, C.D., Bakshi, V.A., &amp; Braine, L. (2016) — Smart Contract Templates: foundations, design landscape and research directions.</strong> arXiv. Ricardian contracts and dual-artefact generation.</a></li>
+<li>[ ] <a href="https://github.com/EOSIO/ricardian-template-toolkit"><strong>EOSIO Ricardian Template Toolkit — documentation and specification.</strong></a></li>
+<li>[ ] <a href="https://doi.org/10.1007/s10270-014-0395-8"><strong>Governatori, G. et al. (2016) — Detecting Semantic Inconsistencies in Business Process Models.</strong> Norm conflict detection methodology.</a></li>
+<li>[ ] <a href="https://ojs.victoria.ac.nz/ajl/article/view/1779"><strong>Governatori, G. &amp; Rotolo, A. (2008) — Logic of Violation: A Gentzen System for Reasoning with Contrary-to-Duty Obligations.</strong> Australasian Journal of Logic. Normative consistency foundations.</a></li>
+<li>[ ] <a href="https://github.com/Deon-Digital/deon"><strong>Deon Digital — Contract Specification Language (CSL) documentation.</strong> Normative obligation language separating intent from execution.</a></li>
+<li>[ ] <a href="https://www.routledge.com/Hoshin-Kanri-The-Strategic-Approach-to-Continuous-Improvement/Hutchins/p/book/9780566088582"><strong>Hoshin Kanri X-matrix method</strong> — Hutchins, G. (2008) <em>Hoshin Kanri: The Strategic Approach to Continuous Improvement</em></a></li>
+<li>[ ] <a href="https://store.hbr.org/product/beyond-budgeting-how-managers-can-break-free-from-the-annual-performance-trap/2151"><strong>Hope, J. &amp; Fraser, R. (2003) — Beyond Budgeting: How Managers Can Break Free from the Annual Performance Trap.</strong> Harvard Business School Press. Structural critique of funding cycle decoupling.</a></li>
+<li>[ ] <a href="https://mitpress.mit.edu/9780262200738/real-options/"><strong>Trigeorgis, L. (1996) — Real Options: Managerial Flexibility and Strategy in Resource Allocation.</strong> MIT Press. Real options applied to initiative portfolios.</a></li>
+<li>[ ] <a href="https://goodbadstrategy.com/"><strong>Rumelt, R. (2011) — Good Strategy / Bad Strategy: The Difference and Why It Matters.</strong> Crown Business. Kernel model and falsifiability of strategy.</a></li>
+<li>[ ] <a href="https://doi.org/10.1002/smj.4250180904"><strong>Teece, D.J., Pisano, G., &amp; Shuen, A. (1997) — Dynamic Capabilities and Strategic Management.</strong> Strategic Management Journal 18(7). Build-vs-buy derivability from strategic position.</a></li>
+<li>[ ] <a href="https://doi.org/10.2307/985654"><strong>Simon, H.A. (1962) — The Architecture of Complexity.</strong> Proceedings of the American Philosophical Society 106(6). Near-decomposability applied to intent propagation.</a></li>
+<li>[ ] <a href="https://doi.org/10.1109/ISRE.2001.948567"><strong>van Lamsweerde, A. (2001) — Goal-Oriented Requirements Engineering: A Guided Tour.</strong> RE 2001. Survey of Goal-Oriented Requirements Engineering (GORE) methods including formal properties.</a></li>
+<li>[ ] <a href="https://doi.org/10.1007/s00766-003-0185-8"><strong>Fuxman, A. et al. (2004) — Specifying and Analyzing Early Requirements in Tropos.</strong> Requirements Engineering 9(2). Formal analysis in i*/Tropos.</a></li>
 </ul>
 <hr />
 

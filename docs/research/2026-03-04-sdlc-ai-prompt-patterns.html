@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -767,35 +771,36 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] GitHub Blog — &quot;GitHub Copilot Workspace: Welcome to the beginning of a new era&quot;: <a href="https://github.blog/news-insights/product-news/github-copilot-workspace/">x] GitHub Blog — &quot;GitHub Copilot Workspace: Welcome to the beginning of a new era&quot;</a></li>
-<li>[ ] Anthropic — &quot;Claude's extended thinking&quot;: <a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking">Anthropic — &quot;Claude&#39;s extended thinking&quot;</a> (inaccessible during investigation)</li>
-<li>[ ] <a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI — Prompt engineering guide</a>: <a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI — Prompt engineering guide</a> (inaccessible, HTTP 403 during investigation)</li>
+<li>[x] <a href="https://github.blog/news-insights/product-news/github-copilot-workspace/">GitHub Blog — &quot;GitHub Copilot Workspace: Welcome to the beginning of a new era&quot;</a></li>
+<li>[ ] <a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking">Anthropic — &quot;Claude's extended thinking&quot;</a> — (inaccessible during investigation)</li>
+<li>[ ] <a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI — Prompt engineering guide</a> — (inaccessible, HTTP 403 during investigation)</li>
 <li>[ ] Google DeepMind — &quot;Gemini for Google Workspace&quot; developer guide (no stable URL; not accessed)</li>
-<li>[x] Wei et al. — &quot;Chain-of-Thought Prompting Elicits Reasoning in Large Language Models&quot; (2022): <a href="https://arxiv.org/abs/2201.11903">x] Wei et al. — &quot;Chain-of-Thought Prompting Elicits Reasoning in Large Language Models&quot; (2022)</a></li>
-<li>[x] White et al. — &quot;A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT&quot; (2023): <a href="https://arxiv.org/abs/2302.11382">x] White et al. — &quot;A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT&quot; (2023)</a></li>
-<li>[ ] <a href="https://docs.cursor.com">Cursor documentation — rules for AI, context management</a>: <a href="https://docs.cursor.com">Cursor documentation — rules for AI, context management</a> (JavaScript-rendered, inaccessible as plain text)</li>
-<li>[<a href="https://aider.chat/docs/usage/tips.html">x] Aider documentation — best practices for prompting</a>: <a href="https://aider.chat/docs/usage/tips.html">x] Aider documentation — best practices for prompting</a></li>
-<li>[ ] Microsoft — &quot;The Rise and Potential of Large Language Model Based Agents: A Survey&quot; (2023): <a href="https://arxiv.org/abs/2309.07864">Microsoft — &quot;The Rise and Potential of Large Language Model Based Agents: A Survey&quot; (2023)</a> (not directly fetched; abstract reviewed via web search summary)</li>
+<li>[x] <a href="https://arxiv.org/abs/2201.11903">Wei et al. — &quot;Chain-of-Thought Prompting Elicits Reasoning in Large Language Models&quot; (2022)</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2302.11382">White et al. — &quot;A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT&quot; (2023)</a></li>
+<li>[ ] <a href="https://docs.cursor.com">Cursor documentation — rules for AI, context management</a> — (JavaScript-rendered, inaccessible as plain text)</li>
+<li>[x] <a href="https://aider.chat/docs/usage/tips.html">Aider documentation — best practices for prompting</a></li>
+<li>[ ] <a href="https://arxiv.org/abs/2309.07864">Microsoft — &quot;The Rise and Potential of Large Language Model Based Agents: A Survey&quot; (2023)</a> — (not directly fetched; abstract reviewed via web search summary)</li>
 <li>[ ] Vaithilingam et al. — &quot;Expectation vs. Experience: Evaluating the Usability of Code Generation Tools&quot; (CHI 2022) (no URL provided; inaccessible)</li>
-<li>[x] Barke et al. — &quot;Grounded Copilot: How Programmers Interact with Code-Generating Models&quot; (OOPSLA 2023): <a href="https://arxiv.org/abs/2206.15000">arxiv.org/abs/2206.15000</a></li>
-<li>[x] Peng et al. — &quot;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot&quot; (2023): <a href="https://arxiv.org/abs/2302.06590">x] Peng et al. — &quot;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot&quot; (2023)</a></li>
-<li>[<a href="https://services.google.com/fh/files/misc/dora_one_pager_2024.pdf">x] DORA — State of DevOps Report 2024 executive summary</a>: <a href="https://services.google.com/fh/files/misc/dora_one_pager_2024.pdf">x] DORA — State of DevOps Report 2024 executive summary</a> (via secondary summary at <a href="https://getdx.com/blog/2024-dora-report/">getdx.com</a></li>
-<li>[<a href="https://www.infoq.com/news/2024/11/thoughtworks-tech-radar-oct-2024/">x] Thoughtworks Technology Radar October 2024</a>: <a href="https://www.infoq.com/news/2024/11/thoughtworks-tech-radar-oct-2024/">x] Thoughtworks Technology Radar October 2024</a></li>
-<li>[<a href="https://survey.stackoverflow.co/2024/ai">x] Stack Overflow Developer Survey 2024 — AI section</a>: <a href="https://survey.stackoverflow.co/2024/ai">x] Stack Overflow Developer Survey 2024 — AI section</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2206.15000">Barke et al. — &quot;Grounded Copilot: How Programmers Interact with Code-Generating Models&quot; (OOPSLA 2023)</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2302.06590">Peng et al. — &quot;The Impact of AI on Developer Productivity: Evidence from GitHub Copilot&quot; (2023)</a></li>
+<li>[x] <a href="https://services.google.com/fh/files/misc/dora_one_pager_2024.pdf">DORA — State of DevOps Report 2024 executive summary</a></li>
+<li>[x] <a href="https://getdx.com/blog/2024-dora-report/">getdx — 2024 DORA Report secondary summary</a></li>
+<li>[x] <a href="https://www.infoq.com/news/2024/11/thoughtworks-tech-radar-oct-2024/">Thoughtworks Technology Radar October 2024</a></li>
+<li>[x] <a href="https://survey.stackoverflow.co/2024/ai">Stack Overflow Developer Survey 2024 — AI section</a></li>
 <li>[x] <code>.github/copilot-instructions.md</code> — this repo's own structured agent instructions as a real-world example</li>
 <li>[x] <code>.github/mcp.json</code> — MCP (Model Context Protocol) server configuration as tooling alignment example</li>
 <li>[x] <code>Research/completed/2026-02-28-ai-strategy-swe-focus.md</code> — prior research on SWE AI strategy and outcomes</li>
-<li>[x] Li et al. — &quot;Structured Chain-of-Thought Prompting for Code Generation&quot; (2023): <a href="https://arxiv.org/abs/2305.06599">x] Li et al. — &quot;Structured Chain-of-Thought Prompting for Code Generation&quot; (2023)</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2305.06599">Li et al. — &quot;Structured Chain-of-Thought Prompting for Code Generation&quot; (2023)</a></li>
 </ul>
 <hr />
 
 
   </div>
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a> <span class="related-note">via agentic-ai, prompts, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a> <span class="related-note">via agentic-ai, prompt-engineering</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a> <span class="related-note">via best-practices, prompts</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html">Applied context engineering: skills, workflows, and best practices for agent development</a> <span class="related-note">via agentic-ai, best-practices</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-16-intent-driven-development.html">Intent Driven Development: context and concept layering to bound the solution space</a> <span class="related-note">via developer-tooling, software-engineering</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a> <span class="related-note">via agentic-ai, software-engineering</span></div>
 </div></div>
 
   

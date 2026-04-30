@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -770,21 +774,21 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] Martin Fowler - &quot;DataMesh&quot; and operational vs. analytical data plane separation: <a href="https://martinfowler.com/articles/data-mesh-principles.html">x] Martin Fowler - &quot;DataMesh&quot; and operational vs. analytical data plane separation</a></li>
+<li>[x] <a href="https://martinfowler.com/articles/data-mesh-principles.html">Martin Fowler - &quot;DataMesh&quot; and operational vs. analytical data plane separation</a></li>
 <li>[ ] Zhamak Dehghani - <em>Data Mesh</em> (O'Reilly, 2022) - operational vs. analytical plane distinction</li>
-<li>[<a href="https://www.nist.gov/artificial-intelligence/ai-risk-management-framework">x] National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF)</a>: <a href="https://www.nist.gov/artificial-intelligence/ai-risk-management-framework">x] National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF)</a> - governance and organisational accountability</li>
-<li>[ ] <a href="https://www.rbnz.govt.nz">RBNZ - AI supervisory expectations and governance guidance</a>: <a href="https://www.rbnz.govt.nz">RBNZ - AI supervisory expectations and governance guidance</a></li>
-<li>[ ] Google Cloud Architecture - &quot;Separation of analytical and operational workloads&quot;: <a href="https://cloud.google.com/architecture">Google Cloud Architecture - &quot;Separation of analytical and operational workloads&quot;</a></li>
-<li>[ ] <a href="https://learn.microsoft.com/en-us/azure/well-architected/">Microsoft Azure Well-Architected Framework - AI workload NFRs</a>: <a href="https://learn.microsoft.com/en-us/azure/well-architected/">Microsoft Azure Well-Architected Framework - AI workload NFRs</a></li>
+<li>[x] <a href="https://www.nist.gov/artificial-intelligence/ai-risk-management-framework">National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF)</a> — governance and organisational accountability</li>
+<li>[ ] <a href="https://www.rbnz.govt.nz">RBNZ - AI supervisory expectations and governance guidance</a></li>
+<li>[ ] <a href="https://cloud.google.com/architecture">Google Cloud Architecture - &quot;Separation of analytical and operational workloads&quot;</a></li>
+<li>[ ] <a href="https://learn.microsoft.com/en-us/azure/well-architected/">Microsoft Azure Well-Architected Framework - AI workload NFRs</a></li>
 <li>[ ] Anthropic / OpenAI usage policies and agent architecture guidance</li>
-<li>[ ] McKinsey Global Institute - &quot;The state of AI in organisations&quot; (annual survey): <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey Global Institute - &quot;The state of AI in organisations&quot; (annual survey)</a></li>
+<li>[ ] <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey Global Institute - &quot;The state of AI in organisations&quot; (annual survey)</a></li>
 <li>[ ] Gartner - &quot;AI governance and organisational design&quot; research notes</li>
-<li>[<a href="https://datatracker.ietf.org/doc/html/rfc8693">x] OAuth 2.0 Token Exchange (RFC 8693) - STS delegation pattern for agents</a>: <a href="https://datatracker.ietf.org/doc/html/rfc8693">x] OAuth 2.0 Token Exchange (RFC 8693) - STS delegation pattern for agents</a></li>
-<li>[ ] <a href="https://www.w3.org/TR/did-core/">W3C Decentralised Identifiers (DID) spec</a>: <a href="https://www.w3.org/TR/did-core/">W3C Decentralised Identifiers (DID) spec</a></li>
-<li>[ ] <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a>: <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a></li>
-<li>[ ] <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a>: <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a></li>
+<li>[x] <a href="https://datatracker.ietf.org/doc/html/rfc8693">OAuth 2.0 Token Exchange (RFC 8693) - STS delegation pattern for agents</a></li>
+<li>[ ] <a href="https://www.w3.org/TR/did-core/">W3C Decentralised Identifiers (DID) spec</a></li>
+<li>[ ] <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a></li>
+<li>[ ] <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a></li>
 <li>[ ] Andreessen Horowitz (a16z) - AI enterprise architecture commentary</li>
-<li>[ ] <a href="https://www.thoughtworks.com/radar">Thoughtworks Technology Radar - Data mesh, API gateway, and agent architecture entries</a>: <a href="https://www.thoughtworks.com/radar">Thoughtworks Technology Radar - Data mesh, API gateway, and agent architecture entries</a></li>
+<li>[ ] <a href="https://www.thoughtworks.com/radar">Thoughtworks Technology Radar - Data mesh, API gateway, and agent architecture entries</a></li>
 <li>[x] <code>Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md</code> - NZ regulatory context</li>
 <li>[x] <code>Research/backlog/2026-02-28-ai-strategy-business-efficiency-examples.md</code> - AI strategy examples context (now completed)</li>
 <li>[x] <code>Research/backlog/2026-02-28-ai-line-1-line-2-risk-agents.md</code> - risk and governance framing (now completed)</li>
@@ -794,10 +798,10 @@ main {
 
   </div>
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via agentic-ai, architecture, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-28-software-demand-shift-ai-coding-era.html">Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?</a> <span class="related-note">via agentic-ai, identity</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards</a> <span class="related-note">via agentic-ai, governance</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a> <span class="related-note">via agentic-ai, governance</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-27-governance-moat-prior-research-implications.html">Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?</a> <span class="related-note">via agentic-ai, governance</span></div>
-<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-foundational-definitions-principles.html">Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail</a> <span class="related-note">via agentic-ai, governance</span></div>
 </div></div>
 
   

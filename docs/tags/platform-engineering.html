@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -655,11 +659,17 @@ main {
 <main>
   <div class="tag-page-header">
     <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tagged: platform-engineering</h1>
-    <p class="page-subtitle">4 items</p>
+    <p class="page-subtitle">5 items</p>
     <a class="back-link" href="/Research/tags/">← all tags</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-04-28-uelgf-tooling-reference-architecture.html" data-title="uelgf extension" data-question="what concrete reference architecture and tooling specification, covering policy-as-code engines such as open policy agent (opa) and cedar, observability pipelines such as opentelemetry (otel), and mod" data-tags="uelgf,tooling,policy-as-code,opa,governed-golden-rail,platform-engineering">
+    <a class="card" href="/Research/research/2026-04-28-software-demand-shift-ai-coding-era.html" data-title="ai coding agents make custom software generation cheap?" data-question="as artificial intelligence (ai) coding agents, such as anthropic claude code, openai codex, and github copilot workspace, make custom software generation materially cheaper, which categories of commer" data-tags="agentic-ai,agentic-coding,software-cost,saas,build-vs-buy,transaction-costs,platform-engineering,observability,identity">
+  <div class="card-title">AI coding agents make custom software generation cheap?</div>
+  <div class="card-meta">2026-04-28</div>
+  <div class="card-tags"><span class="tag">agentic-ai</span><span class="tag">agentic-coding</span><span class="tag">software-cost</span><span class="tag">saas</span><span class="tag">build-vs-buy</span><span class="tag">transaction-costs</span><span class="tag">platform-engineering</span><span class="tag">observability</span><span class="tag">identity</span></div>
+  <div class="card-excerpt">As Artificial Intelligence (AI) coding agents, such as Anthropic Claude Code, OpenAI Codex, and GitHub Copilot Workspace, make custom software generation materially cheaper, which categories of commer…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-28-uelgf-tooling-reference-architecture.html" data-title="uelgf extension" data-question="what concrete reference architecture and tooling specification, covering policy-as-code engines such as open policy agent (opa) and cedar, observability pipelines such as opentelemetry (otel), and mod" data-tags="uelgf,tooling,policy-as-code,opa,governed-golden-rail,platform-engineering">
   <div class="card-title">UELGF extension</div>
   <div class="card-meta">2026-04-28</div>
   <div class="card-tags"><span class="tag">uelgf</span><span class="tag">tooling</span><span class="tag">policy-as-code</span><span class="tag">opa</span><span class="tag">governed-golden-rail</span><span class="tag">platform-engineering</span></div>

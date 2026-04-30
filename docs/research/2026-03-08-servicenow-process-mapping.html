@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -757,17 +761,17 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] ServiceNow documentation: Flow Designer, Playbooks, Process Universe — consulted via ServiceNow docs site and community (<a href="https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html">www.servicenow.com</a></li>
-<li>[x] ServiceNow community: Flow Designer vs Playbooks comparison — <a href="https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831">www.servicenow.com</a></li>
-<li>[x] ServiceNow governance workbook — <a href="https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf">www.servicenow.com</a></li>
-<li>[x] CTMS practitioner survey on ITSM process map usage — <a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/">www.ctms-itsm.com</a></li>
-<li>[x] ITSM.tools: building a high-value process library — <a href="https://itsm.tools/build-valued-process-library-itsm/">itsm.tools</a></li>
-<li>[x] ServiceNow Process Mining product page — <a href="https://www.servicenow.com/products/process-mining.html">www.servicenow.com</a></li>
-<li>[x] ServiceNow Process Mining limitations analysis — <a href="https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/">servicenowspectaculars.com</a></li>
-<li>[x] GlydePath ServiceNow platform governance — <a href="https://glydepath.com.au/governance">glydepath.com.au</a></li>
-<li>[x] FitGap: minimum viable process blueprint — <a href="https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint">us.fitgap.com</a></li>
-<li>[x] FitGap: repeatable governance model for process changes — <a href="https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units">us.fitgap.com</a></li>
-<li>[x] ServiceNow CSDM and change management — <a href="https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257">www.servicenow.com</a></li>
+<li>[x] <a href="https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html">ServiceNow documentation: Flow Designer, Playbooks, Process Universe — consulted via ServiceNow docs site and community (</a></li>
+<li>[x] <a href="https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831">ServiceNow community: Flow Designer vs Playbooks comparison</a></li>
+<li>[x] <a href="https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf">ServiceNow governance workbook</a></li>
+<li>[x] <a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/">CTMS practitioner survey on ITSM process map usage</a></li>
+<li>[x] <a href="https://itsm.tools/build-valued-process-library-itsm/">ITSM.tools: building a high-value process library</a></li>
+<li>[x] <a href="https://www.servicenow.com/products/process-mining.html">ServiceNow Process Mining product page</a></li>
+<li>[x] <a href="https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/">ServiceNow Process Mining limitations analysis</a></li>
+<li>[x] <a href="https://glydepath.com.au/governance">GlydePath ServiceNow platform governance</a></li>
+<li>[x] <a href="https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint">FitGap: minimum viable process blueprint</a></li>
+<li>[x] <a href="https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units">FitGap: repeatable governance model for process changes</a></li>
+<li>[x] <a href="https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257">ServiceNow CSDM and change management</a></li>
 <li>[ ] Gartner research on ITSM process governance — not accessible (paywall)</li>
 <li>[ ] ServiceNow Knowledge conference presentations on process governance — not directly accessible</li>
 </ul>

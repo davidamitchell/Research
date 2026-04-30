@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -709,7 +713,7 @@ main {
 <p>Pydantic AI is the only surveyed framework that applies type-constrained output validation at every agent-tool boundary as a structural control, preventing Layer 1 generation failures by construction rather than by post-hoc parsing — a genuine architectural novelty absent from all other surveyed frameworks. Confidence: high.</p>
 </li>
 <li>
-<p>OpenHands demonstrated that inference-time scaling with a learned critic model increases SWE-bench Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high.</p>
+<p>OpenHands demonstrated that inference-time scaling with a learned critic model increases <a href="https://github.com/princeton-nlp/SWE-bench">SWE-bench</a> Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high.</p>
 </li>
 <li>
 <p>METR's time-horizon-of-completion metric — the maximum human-hours task duration at which an agent achieves at least 50% success, currently doubling approximately every seven months — characterises the agent's capability envelope rather than performance on a fixed benchmark, making it the most future-proof effectiveness signal identified in the survey. Confidence: high.</p>
@@ -758,8 +762,8 @@ main {
 <li><strong>Key sources:</strong>
 <ol>
 <li>Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025) — <a href="https://arxiv.org/abs/2503.16416">arxiv.org/abs/2503.16416</a></li>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">x] Hamel Husain &quot;Your AI Product Needs Evals&quot;</a></li>
-<li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">x] METR (Model Evaluation and Threat Research) task standard</a></li>
+<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain &quot;Your AI Product Needs Evals&quot;</a></li>
+<li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR (Model Evaluation and Threat Research) task standard</a></li>
 </ol>
 </li>
 </ul>
@@ -771,18 +775,18 @@ main {
 <li>[x] <code>Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md</code></li>
 <li>[x] <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code></li>
 <li>[x] <code>Research/completed/2026-03-10-ai-concept-classification-taxonomy.md</code></li>
-<li>[<a href="https://github.com/microsoft/autogen">x] AutoGen repo</a>: <a href="https://github.com/microsoft/autogen">x] AutoGen repo</a> — multi-agent conversation framework</li>
-<li>[<a href="https://github.com/crewAIInc/crewAI">x] CrewAI repo</a>: <a href="https://github.com/crewAIInc/crewAI">x] CrewAI repo</a> — role-based agent orchestration</li>
-<li>[<a href="https://github.com/langchain-ai/langgraph">x] LangGraph repo</a>: <a href="https://github.com/langchain-ai/langgraph">x] LangGraph repo</a> — stateful agent graphs</li>
-<li>[<a href="https://github.com/pydantic/pydantic-ai">x] Pydantic AI repo</a>: <a href="https://github.com/pydantic/pydantic-ai">x] Pydantic AI repo</a> — type-safe agent framework</li>
-<li>[<a href="https://github.com/agno-agi/agno">x] Agno repo</a>: <a href="https://github.com/agno-agi/agno">x] Agno repo</a> — multi-modal agent framework</li>
-<li>[<a href="https://github.com/All-Hands-AI/OpenHands">x] OpenHands (previously OpenDevin)</a>: <a href="https://github.com/All-Hands-AI/OpenHands">x] OpenHands (previously OpenDevin)</a> — software engineering agents</li>
-<li>[<a href="https://github.com/princeton-nlp/SWE-bench">x] SWE-bench</a>: <a href="https://github.com/princeton-nlp/SWE-bench">x] SWE-bench</a> — benchmark for software engineering agents</li>
+<li>[x] <a href="https://github.com/microsoft/autogen">AutoGen repo</a> — multi-agent conversation framework</li>
+<li>[x] <a href="https://github.com/crewAIInc/crewAI">CrewAI repo</a> — role-based agent orchestration</li>
+<li>[x] <a href="https://github.com/langchain-ai/langgraph">LangGraph repo</a> — stateful agent graphs</li>
+<li>[x] <a href="https://github.com/pydantic/pydantic-ai">Pydantic AI repo</a> — type-safe agent framework</li>
+<li>[x] <a href="https://github.com/agno-agi/agno">Agno repo</a> — multi-modal agent framework</li>
+<li>[x] <a href="https://github.com/All-Hands-AI/OpenHands">OpenHands (previously OpenDevin)</a> — software engineering agents</li>
+<li>[x] <a href="https://github.com/princeton-nlp/SWE-bench">SWE-bench</a> — benchmark for software engineering agents</li>
 <li>[x] Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025)</li>
 <li>[x] Mohammadi et al. &quot;Evaluation and Benchmarking of LLM Agents: A Survey&quot; arXiv:2507.21504 (2025)</li>
-<li>[<a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">x] METR (Model Evaluation and Threat Research) task standard</a>: <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">x] METR (Model Evaluation and Threat Research) task standard</a></li>
-<li>[x] Hamel Husain &quot;Your AI Product Needs Evals&quot;: <a href="https://hamel.dev/blog/posts/evals/">x] Hamel Husain &quot;Your AI Product Needs Evals&quot;</a></li>
-<li>[<a href="https://github.com/langchain-ai/agentevals">x] langchain-ai/agentevals</a>: <a href="https://github.com/langchain-ai/agentevals">x] langchain-ai/agentevals</a></li>
+<li>[x] <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR (Model Evaluation and Threat Research) task standard</a></li>
+<li>[x] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain &quot;Your AI Product Needs Evals&quot;</a></li>
+<li>[x] <a href="https://github.com/langchain-ai/agentevals">langchain-ai/agentevals</a></li>
 </ul>
 <hr />
 

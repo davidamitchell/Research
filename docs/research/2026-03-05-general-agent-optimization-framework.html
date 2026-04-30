@@ -558,6 +558,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -695,7 +699,7 @@ main {
 <li>TextGrad's text-backpropagation mechanism improved GPT-4o GPQA accuracy from 51% to 55% zero-shot, but its per-update LLM call overhead makes it a poor fit for repeated self-improvement cycles in API-cost-constrained environments. (Confidence: medium)</li>
 <li>DSPy MIPRO with default settings (~4 candidates, 4 demos, 10 trials, batch of 35) requires approximately 370 LLM API calls per optimization run, placing weekly automated runs within operational budget but ruling out per-commit CI integration. (Confidence: high)</li>
 <li>AgentBench is the only benchmark in the surveyed set with an explicit training split across 8 interactive environments, making it the best-suited source for DSPy inner-loop bootstrapping as opposed to evaluation-only use. (Confidence: high)</li>
-<li>Chambers and Partners Global Practice Guides are copyright-protected and their terms explicitly prohibit bulk extraction and redistribution for AI training purposes, requiring direct commercial negotiation for any Golden Set use — a path that is not self-serviceable. (Confidence: high)</li>
+<li><a href="https://practiceguides.chambers.com/">Chambers and Partners Global Practice Guides</a> are copyright-protected and their terms explicitly prohibit bulk extraction and redistribution for AI training purposes, requiring direct commercial negotiation for any Golden Set use — a path that is not self-serviceable. (Confidence: high)</li>
 <li>FinBen (36 datasets, 24 financial tasks, NeurIPS 2024) is open-source and directly applicable as a domain Golden Set for NZ financial services agents, though it requires NZ-specific regulatory supplementation because its tasks are US-centric. (Confidence: medium)</li>
 <li>Prompt length degrades LLM recall accuracy non-uniformly through context rot and the lost-in-the-middle effect; every Meta-Optimizer instruction update must include a compression step — LLMLingua achieves up to 20× compression with negligible performance loss. (Confidence: high)</li>
 <li>LLM-prompted paraphrase generation is the lowest-cost outer-loop variation method, but answer-consistency validation is mandatory because paraphrase generation can silently alter the semantically correct answer. Adversarial paraphrasing (NeurIPS 2025) is more effective at surface coverage but requires additional quality gates. (Confidence: medium)</li>
@@ -709,7 +713,7 @@ main {
 </ul>
 <h3>Analysis</h3>
 <p>The four frameworks (APE, OPRO, TextGrad, DSPy) form a progression from simple search (APE) to history-aware search (OPRO) to gradient-analogue feedback (TextGrad) to full pipeline programming (DSPy). The key discriminator for this repo's use case is not raw performance ceiling — all four show substantial gains over hand-tuning — but operational fit: weekly API-accessible runs, Python integration into <code>src/</code>, and explicit outer-loop support. DSPy wins on all three criteria.</p>
-<p>The benchmark landscape divides cleanly into three tiers for an optimization loop: bootstrapping sources (AgentBench — has training splits), evaluation harnesses (GPQA, MMLU-Pro, HLE, GAIA — held-out test sets), and domain Golden Sets (FinBen, LegalBench, SWE-bench). The absence of a training split in most benchmarks is a deliberate design choice to prevent contamination; this means the inner loop can only bootstrap from actual agent interaction traces, not from benchmark training data for most benchmarks.</p>
+<p>The benchmark landscape divides cleanly into three tiers for an optimization loop: bootstrapping sources (AgentBench — has training splits), evaluation harnesses (GPQA, <a href="https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro">MMLU-Pro</a>, HLE, GAIA — held-out test sets), and domain Golden Sets (FinBen, LegalBench, SWE-bench). The absence of a training split in most benchmarks is a deliberate design choice to prevent contamination; this means the inner loop can only bootstrap from actual agent interaction traces, not from benchmark training data for most benchmarks.</p>
 <p>The Chambers &amp; Partners assessment is a clear no-go for unilateral action. The structured Q&amp;A format of the Guides is ideal for a Golden Set, but the copyright barrier is absolute without a negotiated license. The open-source alternative (LegalBench + NZ statute text) is less curated but immediately actionable.</p>
 <p>Instruction drift is the central reliability risk of iterative prompt optimization. Every update that adds a new rule without removing redundant prior rules will lengthen the prompt and degrade performance through context rot. The mitigation architecture — Brevity Penalty in the objective + LLMLingua compression post-update — is grounded in empirical evidence but its specific implementation in DSPy is an engineering task, not a research question.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
@@ -731,30 +735,30 @@ main {
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] Khattab et al. (2023) — &quot;DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines&quot; — <a href="https://arxiv.org/abs/2310.03714">arxiv.org/abs/2310.03714</a></li>
-<li>[x] Yang et al. (2024) — &quot;OPRO: Large Language Models as Optimizers&quot; — <a href="https://arxiv.org/abs/2309.03409">arxiv.org/abs/2309.03409</a></li>
-<li>[x] Zhou et al. (2023) — &quot;Large Language Models Are Human-Level Prompt Engineers (APE)&quot; — <a href="https://arxiv.org/abs/2211.01910">arxiv.org/abs/2211.01910</a></li>
-<li>[x] Yuksekgonul et al. (2024) — &quot;TextGrad: Automatic 'Differentiation' via Text&quot; — <a href="https://arxiv.org/abs/2406.07496">arxiv.org/abs/2406.07496</a></li>
-<li>[x] Rein et al. (2023) — &quot;GPQA: A Graduate-Level Google-Proof Q&amp;A Benchmark&quot; — <a href="https://arxiv.org/abs/2311.12022">arxiv.org/abs/2311.12022</a></li>
-<li>[x] Mialon et al. (2023) — &quot;GAIA: A Benchmark for General AI Assistants&quot; — <a href="https://arxiv.org/abs/2311.12983">arxiv.org/abs/2311.12983</a></li>
-<li>[x] Xie et al. (2024) — &quot;FinBen: A Holistic Financial Benchmark for Large Language Models&quot; — <a href="https://arxiv.org/abs/2402.12659">arxiv.org/abs/2402.12659</a></li>
-<li>[x] Guha et al. (2023) — &quot;LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models&quot; — <a href="https://arxiv.org/abs/2308.11462">arxiv.org/abs/2308.11462</a></li>
-<li>[x] Jimenez et al. (2024) — &quot;SWE-bench: Can Language Models Resolve Real-World GitHub Issues?&quot; — <a href="https://arxiv.org/abs/2310.06770">arxiv.org/abs/2310.06770</a></li>
-<li>[x] Liu et al. (2023) — &quot;AgentBench: Evaluating LLMs as Agents&quot; — <a href="https://arxiv.org/abs/2308.03688">arxiv.org/abs/2308.03688</a></li>
-<li>[x] DSPy documentation — <a href="https://dspy.ai/">dspy.ai</a></li>
-<li>[x] Chambers and Partners Global Practice Guides — <a href="https://practiceguides.chambers.com/">practiceguides.chambers.com</a> (assess licensing and structured Q&amp;A availability)</li>
-<li>[x] HLE (Humanity's Last Exam) — <a href="https://agi.safe.ai/">agi.safe.ai</a> (assess data access and format)</li>
-<li>[x] MMLU-Pro — <a href="https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro">huggingface.co</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2310.03714">Khattab et al. (2023) — &quot;DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2309.03409">Yang et al. (2024) — &quot;OPRO: Large Language Models as Optimizers&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2211.01910">Zhou et al. (2023) — &quot;Large Language Models Are Human-Level Prompt Engineers (APE)&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2406.07496">Yuksekgonul et al. (2024) — &quot;TextGrad: Automatic 'Differentiation' via Text&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2311.12022">Rein et al. (2023) — &quot;GPQA: A Graduate-Level Google-Proof Q&amp;A Benchmark&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2311.12983">Mialon et al. (2023) — &quot;GAIA: A Benchmark for General AI Assistants&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2402.12659">Xie et al. (2024) — &quot;FinBen: A Holistic Financial Benchmark for Large Language Models&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2308.11462">Guha et al. (2023) — &quot;LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2310.06770">Jimenez et al. (2024) — &quot;SWE-bench: Can Language Models Resolve Real-World GitHub Issues?&quot;</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2308.03688">Liu et al. (2023) — &quot;AgentBench: Evaluating LLMs as Agents&quot;</a></li>
+<li>[x] <a href="https://dspy.ai/">DSPy documentation</a></li>
+<li>[x] <a href="https://practiceguides.chambers.com/">Chambers and Partners Global Practice Guides</a> — (assess licensing and structured Q&amp;A availability)</li>
+<li>[x] <a href="https://agi.safe.ai/">HLE (Humanity's Last Exam)</a> — (assess data access and format)</li>
+<li>[x] <a href="https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro">MMLU-Pro</a></li>
 </ul>
 <hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html">Applied context engineering: skills, workflows, and best practices for agent development</a> <span class="related-note">via agentic-ai, evaluation</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a> <span class="related-note">via agentic-ai, prompt-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html">Applied context engineering: skills, workflows, and best practices for agent development</a> <span class="related-note">via agentic-ai, evaluation</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</a> <span class="related-note">via agentic-ai, evaluation</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> <span class="related-note">via agentic-ai, evaluation</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</a> <span class="related-note">via agentic-ai, prompt-engineering</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</a> <span class="related-note">via agentic-ai, prompt-engineering</span></div>
 </div></div>
 
   
