@@ -2,12 +2,12 @@
 review_count: 2
 title: "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases"
 added: 2026-04-30T20:31:45+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
 tags: [agentic-coding, software-engineering, llm, evaluation, agentic-ai]
 started: 2026-04-30T21:18:01+00:00
-completed: ~
+completed: 2026-04-30T21:41:16+00:00
 output: [knowledge]
 cites: [2026-04-30-ai-code-entropy-quality-metrics, 2026-03-16-intent-driven-development, 2026-03-14-reliable-software-llm-era, 2026-04-26-llm-verifiability-asymmetry-code-world-action]
 related: [2026-04-26-software-engineering-investment-case-llm, 2026-03-22-coding-ai-agent-skills-survey, 2026-04-02-org-shape-software-cost-zero]
