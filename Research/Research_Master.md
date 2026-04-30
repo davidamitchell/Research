@@ -1,12 +1,14 @@
 # Research Master Document
 
-Generated on: 2026-04-29 07:32 UTC
+Generated on: 2026-04-29 10:12 UTC
 
 ## Table of Contents
 
+* [Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?](#2026-04-29-knowledge-scaffolding-context-engineering-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation](#2026-04-28-uelgf-tooling-reference-architecture-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards](#2026-04-28-uelgf-human-oversight-accountability-layer-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour](#2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring-md)
+* [Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?](#2026-04-28-software-demand-shift-ai-coding-era-md)
 * [Large Language Model (LLM)-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern](#2026-04-28-llm-as-judge-pipeline-validation-checkpoints-md)
 * [Alternative Continuous Integration and Continuous Delivery pipeline platforms for governing agents built with Microsoft Copilot Studio: Harness, Amazon Web Services CodeBuild and CodeDeploy, and Jenkins](#2026-04-28-alternative-pipeline-platforms-copilot-studio-agents-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee](#2026-04-27-uelgf-synthesis-complete-framework-md)
@@ -217,6 +219,80 @@ Generated on: 2026-04-29 07:32 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-29-knowledge-scaffolding-context-engineering-md"></a>
+
+## Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?
+
+**Tags:** [context-engineering, llm, agentic-ai, rag, prompt-engineering, memory-system, workflow, knowledge-graph]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md
+
+## Research Question
+
+Is knowledge scaffolding an established concept within context engineering for Large Language Models (LLMs) and Artificial Intelligence (AI) agents, and if so, how is it defined, implemented, and distinguished from adjacent techniques such as Retrieval-Augmented Generation (RAG), prompt chaining, and working-memory management?
+
+## Findings
+
+### Executive Summary
+
+Knowledge scaffolding is not currently a stable mainstream term for what Anthropic and LangChain describe as context engineering, the work of curating the right information, tools, and state for model inference; the dominant engineering literature instead names the design space through retrieval, memory, prompt chaining, compaction, and progressive disclosure. [inference; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.anthropic.com/research/building-effective-agents; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/]
+
+Where scaffolding language is explicit, it is concentrated in pedagogical-agent research, where scaffolding means adaptive support for a human learner rather than a general architecture for agent context assembly. [fact; source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503]
+
+In practice, the techniques a practitioner might loosely group under "knowledge scaffolding" are staged knowledge-injection mechanisms such as Retrieval-Augmented Generation, knowledge-graph prompt augmentation, prompt chaining, progressive disclosure, structured note-taking, context compression, and context isolation. [inference; source: https://doi.org/10.48550/arXiv.2005.11401; https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.langchain.com/blog/context-engineering-for-agents]
+
+For this repository, the most reusable definition is operational rather than terminological: treat "knowledge scaffolding" as a loose umbrella for policies that decide what knowledge enters context, at what abstraction level, and in what sequence, while naming the concrete mechanisms directly in prompts and architecture guidance. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md]
+
+### Key Findings
+
+1. **The mainstream LLM agent-engineering literature does not currently treat "knowledge scaffolding" as a standard architectural term, even though it discusses the underlying design space extensively through context engineering, retrieval, memory, prompt chaining, compaction, and progressive disclosure.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/)
+2. **Explicit scaffolding language is established mainly in pedagogical-agent research, where it refers to adaptive support for a human learner and not to a general-purpose policy for assembling agent context at inference time.** ([inference]; medium confidence; source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503)
+3. **Retrieval-Augmented Generation is one concrete component of scaffolding-like behavior, because it retrieves external evidence into the prompt, but it is narrower than a full staged knowledge-loading policy that also governs ordering, compression, persistence, and task-stage transitions.** ([inference]; medium confidence; source: https://doi.org/10.48550/arXiv.2005.11401; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md)
+4. **Knowledge-graph prompting frameworks such as Knowledge-Augmented language model PromptING (KAPING) and KnowGPT show that structured knowledge injection is already an established implementation pattern, but those papers frame the technique as prompt augmentation and knowledge extraction rather than as knowledge scaffolding.** ([fact]; high confidence; source: https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185)
+5. **The strongest practical analogues to a scaffolding policy in mainstream engineering are progressive disclosure, just-in-time retrieval, structured note-taking, context compaction, memory selection, and context isolation, all of which explicitly control what the model sees and when it sees it.** ([inference]; high confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents)
+6. **This repository's completed research already treats the substance of knowledge scaffolding as direct mechanisms, namely context shaping, layered abstraction, Retrieval-Augmented Generation boundaries, compression, routing, scratchpads, and workflow decomposition, rather than as a separate named category.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md)
+7. **For future repo guidance, "knowledge scaffolding" is best treated as a loose umbrella or explanatory metaphor, while prompts, reviews, and architecture notes should name the concrete mechanism in play so that reliability, governance, and security controls target the correct failure surface.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://simonwillison.net/2023/Apr/14/worst-that-can-happen/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| **[inference]** Mainstream engineering literature uses concrete mechanism names rather than "knowledge scaffolding". | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/ | medium | vocabulary boundary |
+| **[inference]** Explicit scaffolding language clusters in pedagogical-agent work. | https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503 | medium | learner-support framing |
+| **[inference]** Retrieval-Augmented Generation is narrower than a full staged knowledge-loading policy. | https://doi.org/10.48550/arXiv.2005.11401; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md | medium | retrieval-specific |
+| **[fact]** Knowledge-Augmented language model PromptING (KAPING) and KnowGPT implement structured knowledge injection through prompt augmentation and knowledge extraction. | https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185 | high | knowledge-graph prompting |
+| **[fact]** Progressive disclosure, just-in-time retrieval, note-taking, compaction, memory selection, and isolation are established operational patterns. | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents | high | practical pattern set |
+| **[inference]** Prior repo items already describe the same substance as direct mechanisms. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md | medium | repository alignment |
+| **[inference]** The repository should prefer mechanism naming over umbrella metaphor in future guidance. | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://simonwillison.net/2023/Apr/14/worst-that-can-happen/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md | medium | governance implication |
+
+### Assumptions
+
+- **[assumption]** The sampled public engineering sources are representative enough to support a medium-confidence claim about vocabulary stability. **Justification:** The sources are current and prominent, but the sample is not exhaustive. Source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/
+
+### Analysis
+
+The evidence was weighted by separating direct definitional sources from analogical or practitioner commentary. Definitions of Retrieval-Augmented Generation and knowledge-graph prompting came from the original papers, while current agent workflow vocabulary came from Anthropic and LangChain documentation. [fact; source: https://doi.org/10.48550/arXiv.2005.11401; https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering]
+
+The central interpretive move was to distinguish stable mechanisms from unstable naming. That distinction fits the source record better than either extreme claim that the term is fully canonical or that the practices are absent. [inference; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.langchain.com/blog/context-engineering-for-agents; https://doi.org/10.30191/ets.202404_27(2).rp08]
+
+The repository cross-reference matters because it shows the same pattern internally: the useful work is already being done through direct mechanism naming. That makes the recommended output a vocabulary clarification rather than a new architecture. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md]
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** Accessible direct evidence for the exact phrase "knowledge scaffolding" outside educational or pedagogical settings is sparse. Source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503
+- **[assumption]** The absence of the phrase in the sampled engineering references is a reasonable proxy for lack of stable mainstream adoption, but a larger corpus scan could strengthen or weaken that claim. Justification: the current sample is strong but not exhaustive. Source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/
+- **[fact]** The strongest accessible direct uses of scaffolding terminology come from learner-support systems, so any transfer into general agent engineering remains an interpretive move rather than a source-stated consensus. Source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503
+
+### Open Questions
+
+- **[inference]** Should the repository standardize a small mechanism taxonomy for future agent prompts, for example retrieval, layering, compaction, note-taking, and isolation, instead of relying on umbrella metaphors? Source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://www.langchain.com/blog/context-engineering-for-agents
+- **[inference]** Under what conditions does knowledge-graph prompt augmentation outperform plain Retrieval-Augmented Generation for a corpus shaped like this repository's completed research notes? Source: https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185
+- **[inference]** What evaluation protocol best separates retrieval failure, compression loss, stale memory, and prompt-ordering failure in long-running research agents? Source: https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+
+---
 
 ---
 
@@ -446,6 +522,74 @@ What agentic Artificial Intelligence (AI)-specific risk categories, specifically
 - [inference; source: https://arxiv.org/abs/2506.03053; https://openreview.net/forum?id=zt5JpGQ8WhH] Which graph-level metrics best distinguish healthy delegation from unsafe emergent coordination in enterprise multi-agent systems without generating excessive false positives?
 - [inference; source: https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html] Which verifier-disagreement patterns are most predictive of genuine goal drift versus benign task complexity in tool-rich enterprise agent environments?
 - [inference; source: https://arxiv.org/abs/2403.16527; https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129] How should groundedness and source-confidence thresholds vary by CIA tier and action class so that the rail remains usable while still fail-closing for high-consequence actions?
+
+---
+
+---
+
+<a id="2026-04-28-software-demand-shift-ai-coding-era-md"></a>
+
+## Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?
+
+**Tags:** [agentic-ai, agentic-coding, software-cost, saas, build-vs-buy, transaction-costs, platform-engineering, internal-developer-platform, observability, identity, market-structure]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-software-demand-shift-ai-coding-era.md
+
+## Research Question
+
+As Artificial Intelligence (AI) coding agents, such as Anthropic Claude Code, OpenAI Codex, and GitHub Copilot Workspace, make custom software generation materially cheaper, which categories of commercial software face declining demand because the build-it-yourself path becomes viable, which categories face increasing demand because cheaper software production amplifies the need for them, and what structural properties distinguish each group?
+
+## Findings
+
+### Executive Summary
+
+Custom-software demand is most likely to substitute away from narrow application-layer SaaS categories, not from coordination-bearing infrastructure categories. [inference; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf] The most exposed products are those whose buy premium came mainly from implementation effort, such as workflow automation, internal admin tools, lightweight business-intelligence tools, and some customer-relationship or project-management workflows. [fact; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code] The categories most likely to gain demand are those that absorb scale, governance, deployment, identity, and operational complexity costs that AI coding does not remove, including platform engineering, cloud hosting, CI/CD, observability, identity, and agent-facing interface layers. [inference; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://www.nist.gov/identity-access-management; https://blog.apify.com/api-agentic-economy] This does not mean incumbent vendors or total application spend disappear, because vendors that move up the stack into orchestration, bundled suites, proprietary data, or broader workflow packaging can preserve or expand demand even while narrow logic-only tools commoditise. [inference; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/]
+
+### Key Findings
+
+1. **Commercial software categories whose value is mostly packaged business logic or user-interface convenience face the clearest near-term demand decline, because AI-assisted internal building sharply reduces the historical buy premium for those functions.** [inference] (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf)
+2. **Current survey evidence shows that the replacement pressure is already concentrated in workflow automation, internal admin tools, business-intelligence tools, customer-relationship management adjacencies, project management, and customer-support tooling rather than evenly across all Software-as-a-Service categories.** [fact] (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026)
+3. **Concrete enterprise cases such as Klarna's internal rebuild of customer-relationship workflows suggest that firms with strong proprietary context can justify rebuilding selected applications that would previously have been bought, even if the pattern is not universal.** [inference] (medium confidence; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html)
+4. **Platform engineering and Internal Developer Platform demand rises when software becomes cheaper to produce, because the scarce asset shifts from raw coding capacity to a safe, low-friction path for many humans and agents to ship software repeatedly.** [inference] (high confidence; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)
+5. **Cloud hosting, Continuous Integration and Continuous Delivery pipelines, and observability gain demand because higher software volume produces more release events, more environments, more telemetry, and more operational failure modes even when generating the code itself gets cheaper.** [inference] (medium confidence; source: https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)
+6. **Identity-related software is likely to become more valuable, because every new application, integration, external participant, and non-human actor expands the access surface that must be authenticated, authorised, and audited.** [inference] (medium confidence; source: https://www.nist.gov/identity-access-management; https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/)
+7. **Agent-facing interface layers, especially machine-readable Application Programming Interfaces and related tool-access surfaces, become a growth category because agents behave as software consumers that need explicit schemas, durable authentication, and predictable error handling at machine speed.** [inference] (medium confidence; source: https://blog.apify.com/api-agentic-economy/; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)
+8. **The most durable commercial applications remain those with moats that AI-assisted building does not erase, including proprietary data, network effects, deep compliance packaging, or hard-to-replicate multi-tenant operating infrastructure, and incumbents can preserve demand by moving up into orchestration or broader suites rather than selling isolated logic.** [inference] (medium confidence; source: https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Logic-only application categories lose demand first because AI compresses their implementation premium. | https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf | medium | Demand shift, not instant collapse |
+| [fact] Replacement pressure is already highest in workflow automation, internal admin, business-intelligence, customer-relationship, project-management, and support tooling. | https://retool.com/blog/ai-build-vs-buy-report-2026 | medium | Direct survey categories |
+| [inference] Selected firms can now justify rebuilding application categories that were formerly bought. | https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html | medium | Concrete but not universal |
+| [inference] Platform engineering and Internal Developer Platforms gain demand as software volume scales. | https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | high | Coordination-bearing layer |
+| [inference] Cloud hosting, CI/CD, and observability gain demand because software volume raises operational complexity. | https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Volume-to-operations mechanism |
+| [inference] Identity demand is likely to rise with more apps, external actors, and non-human identities. | https://www.nist.gov/identity-access-management; https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/ | medium | Control-surface evidence implies demand direction |
+| [inference] Agent-facing interfaces become a growth category as agents consume software directly. | https://blog.apify.com/api-agentic-economy/; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Early but coherent evidence |
+| [inference] Moat-heavy applications remain more resilient than narrow tools, and incumbents can preserve demand by moving up into orchestration or broader suites. | https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/ | medium | Structural conclusion with incumbent adaptation path |
+
+### Assumptions
+
+- **Assumption:** Near-term demand shifts will show first in contract-renewal pressure, new-tool avoidance, and selective internal rebuilds rather than in a uniform collapse of incumbent software revenue. **Justification:** Direct evidence exists for category-level pressure and expanding internal builds, but not for a complete replacement wave. [assumption; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://davidamitchell.github.io/Research/research/2026-02-28-jevons-paradox.html]
+- **Assumption:** Control-plane categories that rise in enterprise settings will also capture value in the broader commercial market because software proliferation creates similar coordination problems outside any one firm. **Justification:** The available direct evidence is enterprise-heavy, so the broader-market extrapolation remains inferential. [assumption; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.nist.gov/identity-access-management]
+
+### Analysis
+
+The evidence was weighted most heavily when it showed current category behavior rather than abstract future possibility. [inference; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report] Retool is the strongest direct source for declining-demand categories because it identifies which SaaS classes customers are already replacing, while Google Cloud and the Frontiers review are the strongest direct sources for increasing-demand categories because they document current platform-engineering expansion rather than only arguing for it. [inference; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full] The transaction-cost frame resolves the apparent contradiction between "software gets cheaper" and "infrastructure becomes more valuable": AI removes some production cost, but it does not remove the coordination cost of running many artifacts safely, so value migrates toward categories that absorb that coordination burden. [inference; source: https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://www.nist.gov/identity-access-management] Repository companions strengthen that reading because previous constraint-removal episodes in this corpus repeatedly shifted value from local execution toward shared platforms and control planes. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-02-org-shape-software-cost-zero.html; https://davidamitchell.github.io/Research/research/2026-03-23-software-factory.html; https://davidamitchell.github.io/Research/research/2026-02-28-jevons-paradox.html]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://retool.com/blog/ai-build-vs-buy-report-2026] The strongest direct replacement evidence comes from one vendor survey, so category-level magnitudes should be treated as directional rather than as market-share estimates.
+- [fact; source: https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html] Public-equity volatility captures investor fear faster than product-market reality, so valuation moves overstate the certainty of near-term disruption.
+- [inference; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/] Large-firm rebuild examples may not generalise cleanly to smaller firms that lack data, engineering depth, or integration discipline.
+- [inference; source: https://blog.apify.com/api-agentic-economy/] Agent-facing interface demand is likely real but still early, so the size and timing of that category expansion are more uncertain than the expansion in platform engineering or identity.
+
+### Open Questions
+
+- [inference; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html] Which public software vendors are already preserving demand by moving up the stack from application logic into orchestration, governance, or proprietary-data layers?
+- [inference; source: https://www.nist.gov/identity-access-management; https://blog.apify.com/api-agentic-economy/] How much of the new value pool will accrue to traditional identity vendors versus new machine-identity and agent-access vendors?
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-02-28-jevons-paradox.html; https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report] At what point does software proliferation create enough maintenance burden to slow the rebound effect and favour consolidation back into shared platforms?
 
 ---
 

@@ -1,6 +1,52 @@
 {
-  "extracted_at": "2026-04-29T07:59:45Z",
+  "extracted_at": "2026-04-29T10:12:20Z",
   "items": {
+    "2026-04-29-knowledge-scaffolding-context-engineering": {
+      "named_concepts": [
+        "knowledge scaffolding",
+        "retrieval-augmented generation",
+        "progressive disclosure",
+        "prompt augmentation",
+        "prompt chaining",
+        "scaffolding language",
+        "knowledge-graph prompting",
+        "stable mainstream",
+        "context engineering",
+        "engineering literature",
+        "design space",
+        "retrieval memory",
+        "memory prompt",
+        "chaining compaction",
+        "human learner",
+        "agent context",
+        "knowledge-graph prompt",
+        "structured note-taking",
+        "note-taking context",
+        "context isolation"
+      ],
+      "source_urls": [
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://lilianweng.github.io/posts/2023-06-23-agent/",
+        "https://doi.org/10.48550/arXiv.2306.04136",
+        "https://simonwillison.net/2023/Apr/14/worst-that-can-happen/",
+        "https://doi.org/10.48550/arXiv.2005.11401",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://docs.langchain.com/oss/python/langchain/context-engineering",
+        "https://www.langchain.com/blog/context-engineering-for-agents",
+        "https://doi.org/10.48550/arXiv.2508.01503",
+        "https://doi.org/10.30191/ets.202404_27(2",
+        "https://doi.org/10.48550/arXiv.2312.06185"
+      ],
+      "key_claims": [
+        "The mainstream LLM agent-engineering literature does not currently treat \"knowledge scaffolding\" as a standard architectural term, even though it discusses the underlying design space extensively through context engineering, retrieval, memory, prompt chaining, compaction, and progressive disclosure. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents; https://lilianweng.github.io/posts/2023-06-23-agent/)",
+        "Explicit scaffolding language is established mainly in pedagogical-agent research, where it refers to adaptive support for a human learner and not to a general-purpose policy for assembling agent context at inference time. (; medium confidence; source: https://doi.org/10.30191/ets.202404_27(2).rp08; https://doi.org/10.48550/arXiv.2508.01503)",
+        "Retrieval-Augmented Generation is one concrete component of scaffolding-like behavior, because it retrieves external evidence into the prompt, but it is narrower than a full staged knowledge-loading policy that also governs ordering, compression, persistence, and task-stage transitions. (; medium confidence; source: https://doi.org/10.48550/arXiv.2005.11401; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md)",
+        "Knowledge-graph prompting frameworks such as Knowledge-Augmented language model PromptING (KAPING) and KnowGPT show that structured knowledge injection is already an established implementation pattern, but those papers frame the technique as prompt augmentation and knowledge extraction rather than as knowledge scaffolding. (; high confidence; source: https://doi.org/10.48550/arXiv.2306.04136; https://doi.org/10.48550/arXiv.2312.06185)",
+        "The strongest practical analogues to a scaffolding policy in mainstream engineering are progressive disclosure, just-in-time retrieval, structured note-taking, context compaction, memory selection, and context isolation, all of which explicitly control what the model sees and when it sees it. (; high confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.langchain.com/blog/context-engineering-for-agents)",
+        "This repository's completed research already treats the substance of knowledge scaffolding as direct mechanisms, namely context shaping, layered abstraction, Retrieval-Augmented Generation boundaries, compression, routing, scratchpads, and workflow decomposition, rather than as a separate named category. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-context-engineering-first-principles.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md)",
+        "For future repo guidance, \"knowledge scaffolding\" is best treated as a loose umbrella or explanatory metaphor, while prompts, reviews, and architecture notes should name the concrete mechanism in play so that reliability, governance, and security controls target the correct failure surface. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://simonwillison.net/2023/Apr/14/worst-that-can-happen/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)"
+      ]
+    },
     "2026-04-28-uelgf-tooling-reference-architecture": {
       "named_concepts": [
         "reference architecture",
@@ -312,6 +358,59 @@
             "https://deepmind.google/research/publications/78150/"
           ]
         }
+      ]
+    },
+    "2026-04-28-software-demand-shift-ai-coding-era": {
+      "named_concepts": [
+        "gain demand",
+        "platform engineering",
+        "workflow automation",
+        "automation internal",
+        "internal admin",
+        "cloud hosting",
+        "agent-facing interface",
+        "software volume",
+        "strongest direct",
+        "buy premium",
+        "admin tools",
+        "business-intelligence tools",
+        "operational complexity",
+        "hosting ci",
+        "ci cd",
+        "interface layers",
+        "near-term demand",
+        "replacement pressure",
+        "justify rebuilding",
+        "internal developer"
+      ],
+      "source_urls": [
+        "https://cdo.mit.edu/blog/2025/04/11/shopify-ceo-tobi-lutke-ai-is-now-a-fundamental-expectation-for-employeeslutke-says-managers-asking-for-new-human-talent-will-have-to-explain-why-the-job-cant-be-done-by-ai/",
+        "https://simonwillison.net/2025/Mar/11/using-llms-for-code/",
+        "https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html",
+        "https://retool.com/blog/ai-build-vs-buy-report-2026",
+        "https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html",
+        "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/",
+        "https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf",
+        "https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report",
+        "https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full",
+        "https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html",
+        "https://www.nist.gov/identity-access-management",
+        "https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/",
+        "https://blog.apify.com/api-agentic-economy/",
+        "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents",
+        "https://www.ben-evans.com/presentations",
+        "https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/"
+      ],
+      "key_claims": [
+        "Commercial software categories whose value is mostly packaged business logic or user-interface convenience face the clearest near-term demand decline, because AI-assisted internal building sharply reduces the historical buy premium for those functions.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026; https://simonwillison.net/2025/Mar/11/using-llms-for-code; https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf)",
+        "Current survey evidence shows that the replacement pressure is already concentrated in workflow automation, internal admin tools, business-intelligence tools, customer-relationship management adjacencies, project management, and customer-support tooling rather than evenly across all Software-as-a-Service categories.  (medium confidence; source: https://retool.com/blog/ai-build-vs-buy-report-2026)",
+        "Concrete enterprise cases such as Klarna's internal rebuild of customer-relationship workflows suggest that firms with strong proprietary context can justify rebuilding selected applications that would previously have been bought, even if the pattern is not universal.  (medium confidence; source: https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html)",
+        "Platform engineering and Internal Developer Platform demand rises when software becomes cheaper to produce, because the scarce asset shifts from raw coding capacity to a safe, low-friction path for many humans and agents to ship software repeatedly.  (high confidence; source: https://cloud.google.com/blog/products/application-modernization/new-platform-engineering-research-report; https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
+        "Cloud hosting, Continuous Integration and Continuous Delivery pipelines, and observability gain demand because higher software volume produces more release events, more environments, more telemetry, and more operational failure modes even when generating the code itself gets cheaper.  (medium confidence; source: https://www.deloitte.com/nz/en/services/consulting/perspectives/ai-assisted-software-engineering.html; https://www.splunk.com/en_us/blog/learn/monitoring-ci-cd.html; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
+        "Identity-related software is likely to become more valuable, because every new application, integration, external participant, and non-human actor expands the access surface that must be authenticated, authorised, and audited.  (medium confidence; source: https://www.nist.gov/identity-access-management; https://www.helpnetsecurity.com/2024/05/22/identity-risks-complexity-for-organizations/)",
+        "Agent-facing interface layers, especially machine-readable Application Programming Interfaces and related tool-access surfaces, become a growth category because agents behave as software consumers that need explicit schemas, durable authentication, and predictable error handling at machine speed.  (medium confidence; source: https://blog.apify.com/api-agentic-economy/; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents)",
+        "The most durable commercial applications remain those with moats that AI-assisted building does not erase, including proprietary data, network effects, deep compliance packaging, or hard-to-replicate multi-tenant operating infrastructure, and incumbents can preserve demand by moving up into orchestration or broader suites rather than selling isolated logic.  (medium confidence; source: https://courses.cit.cornell.edu/econ352jpw/readme/coase%20nature%20of%20firm.pdf; https://finance.yahoo.com/news/us-software-stocks-hit-anthropic-154249835.html; https://techcrunch.com/2025/03/04/klarna-ceo-doubts-that-other-companies-will-replace-salesforce-with-ai/; https://www.in-parallel.com/insight/benedict-evans-2025-ai-deck-what-it-actually-means-for-enterprises/)"
       ]
     },
     "2026-04-28-llm-as-judge-pipeline-validation-checkpoints": {
