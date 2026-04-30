@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
