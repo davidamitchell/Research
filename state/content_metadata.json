@@ -1,6 +1,89 @@
 {
-  "extracted_at": "2026-04-30T22:37:38Z",
+  "extracted_at": "2026-04-30T22:53:46Z",
   "items": {
+    "2026-04-30-strategic-tactical-division-ai-teams": {
+      "named_concepts": [
+        "bounded implementation",
+        "bad code",
+        "kent beck",
+        "invest continuously",
+        "design quality",
+        "one element",
+        "daily design-investment",
+        "downstream cost",
+        "repository mix",
+        "delivery pressure",
+        "competing hypothesis",
+        "tactical gains",
+        "ai scale",
+        "best-supported current",
+        "current explanation",
+        "human attention",
+        "executive summary",
+        "best-supported operating",
+        "operating model",
+        "artificial intelligence"
+      ],
+      "source_urls": [
+        "https://www.oreilly.com/library/view/tidy-first/9781098151232/",
+        "https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/",
+        "https://kentbeck.com/",
+        "https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign",
+        "https://pragprog.com/tips/",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://arxiv.org/abs/2205.06537",
+        "https://arxiv.org/abs/2302.06590",
+        "https://ml4code.github.io/publications/vaithilingam2022expectation/",
+        "https://arxiv.org/abs/2303.08733",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://arxiv.org/abs/2310.10996",
+        "https://openreview.net/forum?id=s566pj5E5M",
+        "https://aclanthology.org/2024.lrec-main.288/",
+        "https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/",
+        "https://arxiv.org/abs/2506.04785",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html",
+        "https://martinfowler.com/articles/legacy-modernization-gen-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-02-org-shape-software-cost-zero.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest available evidence, even allowing for the competing hypothesis that better specifications and verifiers could shift more strategic work to AI, still supports a strategist-builder split in which humans own architecture, interfaces, context, and verification policy, while AI executes bounded implementation tasks inside those constraints. (; medium confidence; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://arxiv.org/abs/2310.10996)",
+          "sources": []
+        },
+        {
+          "text": "Clarification and investigation before execution are the most directly evidenced ways to improve human-AI collaboration, because they reduce guessing before code or debugging advice is emitted and measurably improve correctness or resolution quality. (; medium confidence; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.microsoft.com/en-us/research/publication/lets-fix-this-together-conversational-debugging-with-github-copilot/; https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html)",
+          "sources": []
+        },
+        {
+          "text": "AI coding tools deliver genuine tactical gains on bounded work, including faster completion, better unit-test performance, and quicker code-review cycles when tasks and success criteria are explicit enough that the model is not forced to infer hidden intent. (; high confidence; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/)",
+          "sources": []
+        },
+        {
+          "text": "Kent Beck's advice to invest continuously in design quality is best read as a compounding-risk and compounding-optionality argument, and AI plausibly increases its value because future generations inherit today's structure rather than starting from a blank slate. (; low confidence; source: https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://se-radio.net/2024/05/se-radio-615-kent-beck-on-tidy-first/; https://pragprog.com/tips/; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)",
+          "sources": []
+        },
+        {
+          "text": "Bad code is becoming more expensive rather than less expensive at AI scale, because the best-supported current explanation for the observed downstream cost signals is that generation cost is falling faster than scrutiny, understanding, refactoring, and operational risk are falling across real development workflows, even though repository mix and delivery pressure may contribute at the margin. (; medium confidence; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/abs/2506.04785; https://ml4code.github.io/publications/vaithilingam2022expectation/; https://martinfowler.com/articles/exploring-gen-ai/i-still-care-about-the-code.html; https://martinfowler.com/articles/legacy-modernization-gen-ai.html)",
+          "sources": []
+        },
+        {
+          "text": "A dominant failure mode is human over-acceptance of locally useful output that later proves costly to integrate, explain, debug, or revise inside a larger codebase. (; medium confidence; source: https://ml4code.github.io/publications/vaithilingam2022expectation/; https://arxiv.org/abs/2303.08733; https://arxiv.org/abs/2205.06537)",
+          "sources": []
+        },
+        {
+          "text": "Human attention has highest return when spent on architecture, intent capture, tests, review standards, and prioritisation, while prompt ornamentation and manual boilerplate coding are lower-leverage uses of scarce expert time. (; medium confidence; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-30-grill-me-ai-alignment-shared-design": {
       "named_concepts": [
         "first-pass correctness",
