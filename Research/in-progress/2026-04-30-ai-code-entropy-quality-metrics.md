@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Artificial Intelligence code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
