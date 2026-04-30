@@ -2,12 +2,12 @@
 review_count: 2
 title: "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation"
 added: 2026-04-30T20:31:45+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
 tags: [agentic-coding, software-engineering, llm, evaluation, workflow, agentic-ai]
 started: 2026-04-30T22:07:42+00:00
-completed: ~
+completed: 2026-04-30T22:26:16+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-30-fundamentals-first-vs-specs-to-code, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-03-16-intent-driven-development]
 related: [2026-04-30-ai-code-entropy-quality-metrics, 2026-03-14-reliable-software-llm-era]

@@ -254,6 +254,8 @@ failed for this reason alone. Run it now, before Step 5:
 | PaaS | Platform as a Service (PaaS) |
 | MECE | Mutually Exclusive, Collectively Exhaustive (MECE) |
 | PR | pull request (PR) |
+| MBPP | Mostly Basic Python Problems (MBPP) |
+| A/B | A/B test, or rewrite to plain language such as head-to-head comparison |
 
 Also expand any domain-specific abbreviation introduced in this item's topic
 area. Fix every violation before moving on.
@@ -285,12 +287,14 @@ easily-detectable issues.
 
 **Check all of the following before proceeding:**
 
-1. **Acronym/abbreviation expansion** -- scan every section of
-   `## Research Skill Output` and `## Findings`. List every abbreviation used.
-   Confirm each is expanded at its **first occurrence in the entire document**
-   (not per-section). The most commonly failed ones are: LLM, API, CLI, SDK,
-   PAT, MCP, RAG, CoT, PDF, GPT, SRE, PR, ITSM, PINT, CVE, OWASP. Fix every
-   unexpanded abbreviation before proceeding.
+   1. **Acronym/abbreviation expansion** -- scan every section of
+    `## Research Skill Output` and `## Findings`. List every abbreviation used.
+    Confirm each is expanded at its **first occurrence in the entire document**
+    (not per-section). The most commonly failed ones are: LLM, API, CLI, SDK,
+    PAT, MCP, RAG, CoT, PDF, GPT, GPT-4, SRE, PR, ITSM, PINT, CVE, OWASP,
+    MBPP, and A/B. Fix every unexpanded abbreviation before proceeding, and
+    prefer rewriting comparison shorthand like `A/B` into plain language when
+    possible.
 
 1a. **Domain-term clarity** -- scan for non-self-evident shorthand such as
     "maturity ladder", "knowledge graph", "critic stack", "verifier stack",
