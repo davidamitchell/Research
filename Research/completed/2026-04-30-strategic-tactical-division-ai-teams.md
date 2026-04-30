@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "323cc193aa027589b2d3713a0f90f9a7a4c2e57b"
+    changed: 2026-04-30
+    progress: progress/2026-04-30-strategic-tactical-division-ai-teams.md
+    summary: "Initial completion"
 ---
 
 # Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale
