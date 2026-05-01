@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "ded26a726541dadc15a311276ce8f9a74a2dd7cb"
+    changed: 2026-05-01
+    progress: "progress/2026-05-01-human-bias-ai-trust-rlhf-sycophancy.md"
+    summary: "Initial completion"
 ---
 
 # Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits
