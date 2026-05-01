@@ -1,10 +1,13 @@
 # Research Master Document
 
-Generated on: 2026-05-01 09:16 UTC
+Generated on: 2026-05-01 21:53 UTC
 
 ## Table of Contents
 
 * [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
+* [How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?](#2026-05-01-compound-error-accumulation-ai-codebases-md)
+* [What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?](#2026-05-01-coding-agent-context-management-transparency-md)
+* [What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?](#2026-05-01-appropriate-task-selection-coding-agents-md)
 * [Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?](#2026-05-01-ai-coding-harness-quality-benchmarks-md)
 * [Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence](#2026-04-30-ubiquitous-language-ai-code-consistency-md)
 * [Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction](#2026-04-30-tdd-feedback-loops-ai-augmented-dev-md)
@@ -309,6 +312,253 @@ That interpretation also explains why Srinivasan aligns with WEF and McKinsey on
 - How far do the updated 2025 and 2026 versions of the Srinivasan research move the occupation rankings once more post-ChatGPT hiring data is included?
 - Can the full occupation-by-score dataset behind the Harvard Business School visualization be recovered from a public appendix or data release?
 - Which entry-level pathways are most vulnerable when postings fall in automation-prone occupations before unemployment visibly rises?
+
+---
+
+---
+
+<a id="2026-05-01-compound-error-accumulation-ai-codebases-md"></a>
+
+## How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?
+
+**Tags:** [agentic-ai, agentic-coding, llm, evaluation, technical-debt, governance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md
+
+## Research Question
+
+How do errors ("boooos") compound in codebases developed with high volumes of AI agent-generated code, including how local patches cause global regressions, and what review and governance strategies can reliably detect and limit this compounding effect?
+
+## Findings
+
+### Executive Summary
+
+Errors compound in AI-agent-heavy codebases mainly when code-generation throughput outruns independent verification capacity. The dominant risk is accumulated unverified complexity. [inference; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/]
+
+Bounded tasks with clear tests can still produce strong local outcomes, but long-context, multi-file, and high-coupling work remains materially harder, which is where local fixes are most likely to miss global invariants. [inference; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2602.08915v1; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+AI-generated tests are useful for coverage and regression scaffolding. They do not yet provide strong independent correctness oracles, especially when teams use coverage as a substitute for stronger properties or human review. [inference; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/; https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/]
+
+The evidence supports layered governance: narrow task selection, explicit acceptance criteria, machine validation, stronger tests that can independently distinguish correct from incorrect behavior for risky code, and expert human review on changes whose blast radius exceeds what automated checks can independently verify. [inference; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf; https://arxiv.org/html/2604.01527v1; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+
+### Key Findings
+
+1. **Task shape and verifier availability are important determinants of observed AI coding reliability in the retrieved evidence, because bounded tasks with executable checks perform far better than open-ended, multi-file work in both controlled studies and task-stratified repository data.** ([inference]; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2602.08915v1)
+2. **The best-supported mechanism for local patches becoming global regressions is incomplete context over coupled systems, because long-context repository benchmarks remain difficult and validation-tool use measurably improves outcomes on production-derived monorepo tasks.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2604.01527v1; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)
+3. **Compounding error in AI-heavy repositories shows up as persistent warning load, code complexity, duplication, and review burden, which suggests that maintainability debt accumulates even when short-run delivery speed initially improves.** ([inference]; medium confidence; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md)
+4. **AI-generated tests are valuable for fast regression scaffolding and additional coverage, but the current evidence does not justify using them as independent correctness oracles for the same AI-generated implementation.** ([inference]; medium confidence; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/)
+5. **Test coverage alone is a weak assurance signal for AI-generated change sets, while stronger properties and mutation-sensitive techniques provide a better chance of surfacing hidden defects before release.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf)
+6. **Human review coverage, participation, and expertise remain the strongest directly evidenced contextual control for release quality, even though review metrics interact with defect-prone modules and are not a universal direct causal predictor on their own.** ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217)
+7. **The accessible evidence base supports AI review as a complement to human and execution-based validation, not as a replacement terminal gate for high-blast-radius changes, because strong comparative evidence for AI-only review is still thin.** ([inference]; low confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Bounded tasks with executable checks outperform open-ended work in the retrieved evidence. | https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2602.08915v1 | medium | Controlled tasks plus task-stratified pull-request data |
+| [inference] Local-global regression risk is driven by context limits over coupled systems. | https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2604.01527v1; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md | medium | Mechanism inferred from multiple adjacent signals |
+| [inference] Repository-level drift appears as warnings, complexity, duplication, and slower later velocity. | https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md | medium | Causal study plus large industry report plus prior synthesis |
+| [inference] AI-generated tests help regression coverage more than they provide independent oracles. | https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/ | medium | Coverage strength clearer than oracle independence |
+| [inference] Coverage alone is weak assurance, while stronger properties detect more defects. | https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf | medium | Stronger oracles matter more than line execution counts |
+| [inference] Human review remains the strongest evidenced contextual release gate. | https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217 | medium | Review effects partly indirect, but material |
+| [inference] AI review should remain complementary on high-risk changes. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496 | low | Replacement evidence still preliminary |
+
+**Identified but not consulted:**
+
+- [ ] [Imai (2022) Is GitHub Copilot a Substitute for Human Pair-programming? An Empirical Study](https://doi.org/10.1145/3510454.3522684)
+
+### Assumptions
+
+- [assumption] The repository's completed items are synthesis support rather than independent primary evidence. Justification: they are useful cross-item controls, but not substitutes for external studies.
+- [assumption] Property-based testing evidence generalizes directionally to AI-heavy codebases because the question is oracle strength, not model family. Justification: the retrieved property-based testing study measures defect-detection power directly.
+- [assumption] When the same AI stack writes code and tests, assurance independence is lower even if some regressions are still caught. Justification: the literature supports the need for independent verifiers, but no retrieved study isolates this exact workflow.
+
+### Analysis
+
+AI-generated code quality varies by task shape, verifier strength, and timescale. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2511.04427v2]
+
+A major competing explanation says AI itself is not the core problem, and teams simply aim fast tools at work that already exceeds their review capacity. The retrieved evidence partly supports that view, which is why this item reaches a narrower conclusion: AI raises compounding risk when it increases change volume faster than independent verification scales. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2602.08915v1; https://arxiv.org/html/2511.04427v2]
+
+Instead, the studies align once task scope, verifier strength, and timescale are separated: bounded tasks with explicit tests often benefit, while repository-scale AI adoption creates warning growth, duplication, and slower later change unless verification capacity grows with the faster delivery rate. [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/html/2604.01527v1; https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+
+That is why "agent wrote the tests" is not a detail but a governance issue. A test suite is only a strong gate when its oracle meaning is independent enough to reject the same local assumptions that produced the implementation. [inference; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md]
+
+The practical implication is to bottleneck on assurance strength, not on generation speed: low-blast-radius tasks can use AI-first workflows with machine checks, while coupled or high-criticality changes need smaller slices, stronger properties, and expert human review. [inference; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+
+### Risks, Gaps, and Uncertainties
+
+- No retrieved study directly labels failures as "local patch caused global regression," so that mechanism remains a synthesis from benchmark design, context guidance, and repository outcomes. [fact; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2604.01527v1]
+- Accessible empirical evidence for AI-only code review remains thin compared with the human-review literature. [fact; source: https://arxiv.org/abs/2404.18496]
+- GitClear's findings are directionally useful but remain observational rather than randomized causal evidence. [fact; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+
+### Open Questions
+
+- How often do AI-written multi-file patches violate cross-module invariants relative to matched human-written patches in the same repositories? [inference; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2604.01527v1]
+- What precision and recall do AI review agents achieve against expert human reviewers on AI-generated pull requests in mature production codebases? [inference; source: https://arxiv.org/abs/2404.18496; https://link.springer.com/article/10.1007/s10664-015-9381-9]
+- Which mixes of human-authored acceptance tests and AI-generated regression tests give the best quality-cost trade-off? [inference; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/]
+
+---
+
+---
+
+<a id="2026-05-01-coding-agent-context-management-transparency-md"></a>
+
+## What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?
+
+**Tags:** [agentic-ai, agentic-coding, llm, agent-tooling, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md
+
+## Research Question
+
+What are the best practices for transparent, deterministic, and user-controlled context management in Large Language Model (LLM) coding agent harnesses, and what are the demonstrable harms of opaque context manipulation on agent reliability and user trust?
+
+## Findings
+
+### Executive Summary
+
+Transparent coding-agent context management works best when prompt changes, tool changes, context-provider choices, and compaction events are treated as explicit session state rather than hidden harness internals. [inference; source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://docs.continue.dev/reference; https://aider.chat/docs/usage/commands.html; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/]
+
+Dynamic context engineering is necessary, and because long-context performance degrades with distractors and irrelevant additions, unsignaled mutations should be treated as a meaningful reliability risk rather than as a harmless implementation detail. [inference; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://research.trychroma.com/context-rot]
+
+The best-practice pattern is hybrid and explicit: keep a small stable instruction core, retrieve or summarize additional context just in time, and surface every high-impact mutation to the user through inspectable commands, configuration, or logs. [inference; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/]
+
+Trust should be engineered as calibration, not persuasion, so harnesses need to expose reliability-changing context shifts at the moment they happen instead of relying on generic explanations after the fact. [inference; source: https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132]
+
+### Key Findings
+
+1. **Coding-agent harnesses should expose prompt revisions, tool-definition revisions, and context-provider selection as explicit, inspectable state because those surfaces materially influence model behavior and are already treated as mutable in first-party and framework documentation.** ([inference]; medium confidence; source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://docs.langchain.com/oss/python/langchain/context-engineering; https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json)
+2. **Hidden context additions and silent pruning should be treated as reliability risks because long-context performance degrades with distractors, irrelevant content, and ambiguous matches, and open harness guidance warns that excessive or low-signal files can confuse the model.** ([inference]; medium confidence; source: https://research.trychroma.com/context-rot; https://aider.chat/docs/usage.html; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+3. **The minimum viable observability interface should show active instructions, active tools, current context members and providers, compaction or summary artifacts, and context-budget usage, because those are the surfaces the retrieved harnesses and framework docs repeatedly treat as behavior-shaping.** ([inference]; medium confidence; source: https://docs.langchain.com/oss/python/langchain/context-engineering; https://docs.continue.dev/customize/custom-providers; https://aider.chat/docs/usage/commands.html; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+4. **Strong user-control patterns already exist in open harnesses: Aider exposes add, drop, read-only, context export, and token inspection; Continue exposes named context providers and versioned configuration; Pi publishes its system prompt, core tools, and extension points.** ([fact]; high confidence; source: https://aider.chat/docs/usage/commands.html; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers; https://docs.continue.dev/reference; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/badlogic/pi-mono)
+5. **Compaction is necessary for long-horizon tasks, and the safest harness design is to surface the resulting summaries or reset boundaries to users because Anthropic's own guidance says aggressive compaction can lose subtle but important information even while it preserves continuity across context resets.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+6. **Versioned files and declarative configuration are safer context-control surfaces than opaque vendor drift because they make prompt, rule, and provider changes auditable, reproducible, and team-reviewable.** ([inference]; medium confidence; source: https://docs.continue.dev/reference; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)
+7. **Transparency alone does not guarantee appropriate trust, because explanation interfaces can increase acceptance without improving correctness, while adaptive trust-calibration cues help users realign reliance with actual reliability.** ([fact]; high confidence; source: https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132)
+8. **The best current operating model is explicit automation: stable core instructions plus just-in-time retrieval, summaries, and memory aids, with every automatic transition surfaced to the user as part of the session record.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Prompt, tool, and provider mutation must be surfaced because they affect behavior. | https://platform.claude.com/docs/en/release-notes/system-prompts; https://docs.langchain.com/oss/python/langchain/context-engineering; https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json | Medium | Product mutability is first-party; specific failure anecdotes are practitioner evidence. |
+| [inference] Hidden additions and silent pruning should be treated as reliability risks under long-context limits. | https://research.trychroma.com/context-rot; https://aider.chat/docs/usage.html; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents | Medium | Long-context and open-harness guidance support the mechanism, while the hidden-mutation conclusion is derived. |
+| [inference] Minimum observability should include instructions, tools, members, summaries, and budget usage. | https://docs.langchain.com/oss/python/langchain/context-engineering; https://docs.continue.dev/customize/custom-providers; https://aider.chat/docs/usage/commands.html; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents | Medium | Derived from repeated explicit surfaces in retrieved systems. |
+| [fact] Aider, Continue, and Pi already implement explicit context-control patterns. | https://aider.chat/docs/usage/commands.html; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers; https://docs.continue.dev/reference; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/badlogic/pi-mono | High | Direct product documentation. |
+| [inference] Compaction is necessary but potentially lossy, so users should see its summaries or reset boundaries. | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents | Medium | The necessity and lossiness are first-party facts; the visibility requirement is a design inference. |
+| [inference] Declarative config and versioned files are safer governance surfaces than opaque drift. | https://docs.continue.dev/reference; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md | Medium | Strong architectural inference, not a single-source direct statement. |
+| [fact] Explanation alone can miscalibrate trust, while adaptive cues can improve calibration. | https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132 | High | Two independent human-AI trust studies. |
+| [inference] Explicit automation is a better default than hidden automation or fully manual control. | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers | Medium | Strong synthesis, but not a direct head-to-head comparative evaluation. |
+
+### Assumptions
+
+- [assumption] The retrieved open-source harness interfaces are representative enough to derive best-practice design patterns for context transparency. Justification: the item is about controllable design patterns, and the strongest directly inspectable evidence for those patterns is in open documentation and published source.
+- [assumption] The transcript archive accurately reflects the public Mario Zechner talk. Justification: it includes the matching YouTube source URL and produces quotes consistent with the later Pi post.
+
+### Analysis
+
+The retrieved evidence does not support a transparency-versus-capability dichotomy. Dynamic retrieval, note-taking, and compaction are capability enablers, but the open harnesses show that those mechanisms can still be surfaced as commands, config, or inspectable artifacts. [inference; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://aider.chat/docs/usage/commands.html; https://docs.continue.dev/reference]
+
+The most defensible design rule is therefore to surface every mutation boundary. A user does not need every internal token-level detail, but does need the control points where instructions, tools, summaries, and provider-fed context are altered. [inference; source: https://docs.langchain.com/oss/python/langchain/context-engineering; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://doi.org/10.1371/journal.pone.0229132]
+
+This rule also aligns with prior repository findings that bounded workflows, layered context, and iterative curation are safer than indiscriminate context loading. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+
+### Risks, Gaps, and Uncertainties
+
+- This item did not find a controlled study that isolates coding-agent interface transparency itself as an independent variable, so several harness-level claims still rely on practitioner evidence and architectural inference. [inference; source: https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132]
+- The specific Claude Code reminder-injection and tool-definition-churn claims are not documented in a first-party public page retrieved in this session. [fact; source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://platform.claude.com/docs/en/release-notes/system-prompts]
+- Product behavior in fast-moving harnesses may change quickly, so concrete tool comparisons are time-bounded. [inference; source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://github.com/badlogic/pi-mono]
+
+### Open Questions
+
+- Which observability surfaces most improve real developer decision quality: prompt diffs, provider diffs, compaction previews, or tool-result summaries? [inference; source: https://aider.chat/docs/usage/commands.html; https://docs.continue.dev/customize/custom-providers]
+- Can harness transparency itself be benchmarked with a reproducible rubric alongside correctness and cost? [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md]
+- What is the smallest user-visible mutation log that still supports appropriate trust calibration without overwhelming the user? [inference; source: https://doi.org/10.1371/journal.pone.0229132; https://arxiv.org/abs/2006.14779]
+
+---
+
+---
+
+<a id="2026-05-01-appropriate-task-selection-coding-agents-md"></a>
+
+## What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?
+
+**Tags:** [agentic-ai, agentic-coding, software-engineering, governance, llm, evaluation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md
+
+## Research Question
+
+What empirically grounded criteria define the characteristics of software development tasks where Artificial Intelligence (AI) coding agents reliably add value, versus tasks where agent autonomy introduces unacceptable systemic risk?
+
+## Findings
+
+### Executive Summary
+
+Current Artificial Intelligence (AI) coding agents add value most reliably on tasks that are locally bounded, objectively verifiable, low in blast radius, and structurally isolated from the rest of the codebase. [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2511.04824; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/]
+
+The clearest directly observed gains appear on documentation, localized consistency refactors, and bounded coding tasks with explicit test or review rubrics, although the field evidence does not fully separate task shape from reviewer tolerance or category-label effects. [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2511.04824; https://arxiv.org/abs/2310.06770]
+
+Verifier strength is the primary enabling condition, because the task must have a clear done definition that the agent or the human can check with tests, repro cases, linters, review rubrics, or similarly objective gates. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md]
+
+Systemic risk appears when the work is cross-cutting, mission-critical, judgment-heavy, or poorly modularized, because success then depends on diffuse context and consequences that local code correctness cannot fully verify. [inference; source: https://arxiv.org/abs/2310.06770; https://doi.org/10.1109/MC.1987.1663532; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md]
+
+### Key Findings
+
+1. **Task type is a strong observed correlate of real-world agent success, because large-scale field data shows sizeable acceptance-rate gaps between documentation, feature, and fix tasks, although that observational pattern can still reflect reviewer tolerance and task-label effects as well as underlying task difficulty.** ([inference]; medium confidence; source: https://arxiv.org/html/2602.08915v1)
+2. **Current coding agents look safest on localized, convergent work such as documentation, consistency refactors, and tightly scoped bug-fix tasks, but the evidence is stronger for those specific categories than for a universal claim that every small task is equally well-suited to delegation.** ([inference]; medium confidence; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2511.04824)
+3. **Bounded scope by itself is not enough; the task also needs an external success function, because the strongest positive studies for Copilot and the strongest workflow guidance for agents both rely on tests, review rubrics, or other executable checks that can reject bad work quickly.** ([inference]; high confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices)
+4. **Repository-scale issue resolution remains a weak delegation surface when the task requires long context, multi-file coordination, and open-ended reasoning, because Software Engineering Benchmark (SWE-bench) was built around exactly those demands and current first-party guidance also identifies long context as a degradation source for coding agents.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices)
+5. **Modularity is an enabling condition for safe delegation because deep modules and explicit interfaces reduce the amount of design knowledge that must be loaded outside the change boundary, even though direct controlled comparisons between modular and non-modular codebases for agents remain unavailable.** ([inference]; medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md)
+6. **Fast feedback loops such as failing tests, repro cases, and similar verifier gates can convert some debugging and polish work into safe delegation candidates, because they shrink the search space and turn diagnosis into bounded execution against an explicit repair target.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-tdd-feedback-loops-ai-augmented-dev.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://www.anthropic.com/engineering/claude-code-best-practices)
+7. **Tasks become systemically risky when success depends on architectural trade-offs, diffuse business intent, cross-cutting repository knowledge, or consequences that local code verifiers do not cover, because in those cases passing tests is no longer a sufficient proxy for a correct outcome.** ([inference]; high confidence; source: https://doi.org/10.1109/MC.1987.1663532; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://arxiv.org/abs/2310.06770)
+8. **The most useful practical delegation rule is therefore to give agents convergent execution work with a clear definition of done and to keep humans responsible for divergent judgment, scoping, architecture, and final acceptance, because that is where the evidence base shows the control stack is strongest.** ([inference]; high confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)
+9. **A developer can operationalize the taxonomy with five screening questions: can the agent find the necessary context, can success be checked objectively, is blast radius low and reversible, is the change isolated, and is the task mostly execution rather than decision-making.** ([inference]; medium confidence; source: https://arxiv.org/html/2602.08915v1; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Task type is a strong observed correlate of field success, but the observational result is not purely causal proof. | https://arxiv.org/html/2602.08915v1 | medium | Task-stratified PR evidence |
+| [inference] Localized, convergent work is the best-supported delegation surface, though not every apparently small task is equally safe. | https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2511.04824 | medium | Field data plus refactoring study |
+| [inference] Reliable delegation requires bounded scope plus an external success function. | https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices | high | Tests and review gates |
+| [inference] Repository-scale issue resolution remains difficult under long-context, multi-file conditions. | https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices | medium | Benchmark plus context-limit guidance |
+| [inference] Deep modules and explicit interfaces help agents by reducing external knowledge per change. | http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md | medium | Theory plus prior synthesis |
+| [inference] Verifier-gated debugging and polish work can be made safely delegatable. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-tdd-feedback-loops-ai-augmented-dev.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://www.anthropic.com/engineering/claude-code-best-practices | medium | Feedback-loop mechanism |
+| [inference] Systemic risk begins where architecture, judgment, or downstream consequence outrun local verification. | https://doi.org/10.1109/MC.1987.1663532; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://arxiv.org/abs/2310.06770 | high | Essential complexity plus verifier boundary |
+| [inference] Human ownership should stay on divergent judgment and acceptance, while agents handle bounded execution. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/ | high | Convergent workflow guidance |
+| [inference] Five screening questions make the taxonomy operational for everyday delegation decisions. | https://arxiv.org/html/2602.08915v1; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md | medium | Synthesized decision rule |
+
+### Assumptions
+
+- [assumption; source: https://arxiv.org/html/2602.08915v1] Documentation and low-ambiguity pull-request categories in the field study are treated here as proxies for other low-blast-radius repository tasks, even though they are not identical to every debugging or polish task a team might delegate.
+- [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-tdd-feedback-loops-ai-augmented-dev.md; https://www.anthropic.com/engineering/claude-code-best-practices] The framework assumes a team can usually create or identify at least one objective verifier for delegatable tasks, such as a failing test, a repro case, a review rubric, or a linter.
+- [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md] The task-selection rule here is intended for version-controlled software work, not for autonomous agents taking direct consequential world actions outside a strong verifier envelope.
+
+### Analysis
+
+The best interpretation of the evidence is that reliable delegation depends on the shape of the task more than on abstract model capability, because the field study, benchmark evidence, and practitioner guidance all separate bounded execution from open-ended judgment in different ways. [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+An important competing explanation is that documentation pull requests may be easier to accept because their stakes are lower or their labels compress heterogeneous work, which means the field study alone cannot prove that task shape is the only causal driver of the observed gap. [inference; source: https://arxiv.org/html/2602.08915v1]
+
+Teams should instead ask whether they have shaped the task so the agent can stay inside a legible boundary and know when it is done. [inference; source: https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md]
+
+Modularity matters inside that framing because it changes whether a requested edit is actually local or only appears local on the surface. [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md]
+
+The boundary condition is therefore architectural and governance-related at the same time: once local code checks stop being a sufficient proxy for the real outcome, human-led scoping and acceptance have to take over again. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://doi.org/10.1109/MC.1987.1663532]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://pi.dev/] The original conference transcript that motivated this research item was not publicly retrievable in this session, so the final criteria do not rely on proving the exact wording of the initial Mario framing.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md] Direct controlled studies comparing agent performance on otherwise similar modular and non-modular codebases were not located, which keeps the modularity-related claims at medium confidence.
+- [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2511.04824] Acceptance rates and localized refactoring outcomes are useful but incomplete proxies, because they say less about long-term maintainability and cross-release architectural coherence than about immediate task success.
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-tdd-feedback-loops-ai-augmented-dev.md; https://www.anthropic.com/engineering/claude-code-best-practices] Direct evidence specifically isolating rubber-duck debugging as a high-value task class is still thin, even though the broader verifier-gated debugging mechanism is well supported.
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://doi.org/10.1109/MC.1987.1663532] The exact threshold between mission-critical work and safe-enough work remains organization-specific because the blast radius depends on downstream consequence, not just on code complexity.
+
+### Open Questions
+
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md; https://arxiv.org/html/2602.08915v1] What measurable proxy for change isolation best predicts when a task crosses from a localized fix into an architectural change that current agents handle unreliably?
+- [inference; source: https://arxiv.org/abs/2511.04824; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md] How often do high-acceptance low-level agent tasks still contribute to long-run repository entropy when repeated at scale across many pull requests?
+- [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices] Which verifier types, unit tests, repro cases, static analysis, review rubrics, or screenshot diffs, deliver the best reliability gain per minute of setup cost for common software tasks?
 
 ---
 
