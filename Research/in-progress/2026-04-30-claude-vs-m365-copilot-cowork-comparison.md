@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison"
 added: 2026-04-30T19:01:01+00:00
 status: reviewing
