@@ -2,12 +2,12 @@
 review_count: 2
 title: "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits"
 added: 2026-04-30T06:52:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, governance, evaluation, human-oversight, alignment, explainability]
 started: 2026-05-01T02:55:33+00:00
-completed: ~
+completed: 2026-05-01T03:16:59+00:00
 output: [knowledge]
 cites: [2026-04-30-explainable-ai-xai-regulation-governance, 2026-04-26-human-in-the-loop-ai-automated-workflows]
 related: [2026-04-02-claude-mythos, 2026-04-28-uelgf-human-oversight-accountability-layer]
