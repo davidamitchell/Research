@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-05-01 02:00 UTC
+Generated on: 2026-05-01 02:24 UTC
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ Generated on: 2026-05-01 02:00 UTC
 * [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
 * [Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation](#2026-04-30-grill-me-ai-alignment-shared-design-md)
 * [Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices](#2026-04-30-fundamentals-first-vs-specs-to-code-md)
+* [Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives](#2026-04-30-deterministic-crr-mlr2017-risk-scoring-md)
 * [Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases](#2026-04-30-deep-modules-ai-augmented-codebases-md)
 * [Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison](#2026-04-30-claude-vs-m365-copilot-cowork-comparison-md)
 * [Artificial Intelligence code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?](#2026-04-30-ai-code-entropy-quality-metrics-md)
@@ -540,6 +541,85 @@ The Matt Pocock framework therefore reads less like a novel empirical discovery 
 - Which single artifact yields the biggest marginal ROI in practice: failing tests, a specification file, a shared vocabulary document, or an architecture review cadence?
 - How much of the apparent TypeScript advantage is typing itself versus stronger surrounding tooling and conventions?
 - Can a lightweight measurement stack built from duplication, hotspot health, review time, and change-failure proxies reliably detect when a team should shift from prompt-only speed to fundamentals-first discipline?
+
+---
+
+---
+
+<a id="2026-04-30-deterministic-crr-mlr2017-risk-scoring-md"></a>
+
+## Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives
+
+**Tags:** [governance, regulation, financial-services, audit, risk-management, compliance, machine-learning, explainability]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deterministic-crr-mlr2017-risk-scoring.md
+
+## Research Question
+
+To what extent do deterministic weighted scoring models (based on the four main risk factors: customer, geographic, product/service, and delivery channel) effectively support a proportionate risk-based approach to customer due diligence (CDD) under the Money Laundering Regulations 2017 (MLR 2017), and what are their limitations compared to hybrid or machine learning-enhanced alternatives?
+
+## Findings
+
+### Executive Summary
+
+Deterministic weighted customer risk rating (CRR) models are a legally defensible but only partially validated way to implement the Money Laundering Regulations 2017 (MLR 2017) risk-based approach, because the regulations require proportionate factor-based assessment but do not require fixed weights or prove that static scores predict suspicious outcomes. [inference; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.legislation.gov.uk/uksi/2017/692/regulation/28; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments; https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file]
+
+Their main advantage is auditability: firms can explain which customer, geography, product or service, and delivery-channel inputs drove a risk rating and then show why that rating led to standard or enhanced customer due diligence (CDD). [inference; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets; https://www.legislation.gov.uk/uksi/2017/692/regulation/28]
+
+Their main weakness is that public evidence reviewed here does not connect onboarding risk bands to suspicious activity report (SAR) or investigation outcomes, while both practitioner and banking-governance sources point to stale data, inconsistent factors, and missing behavioral context as recurring failure modes. [inference; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file; https://financialcrimeacademy.org/customer-risk-rating-models/; https://www.bis.org/bcbs/publ/d353.pdf]
+
+Hybrid models that keep an interpretable deterministic backbone and add behavioral, statistical, or network overlays are the best-supported improvement path, because open literature shows machine learning (ML) is more credible on richer behavioral data than on sparse labeled onboarding data, while prior finance-sector governance research still points toward explainability and human oversight as non-negotiable controls. [inference; source: https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://arxiv.org/abs/1608.00708; https://arxiv.org/abs/2201.04207; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md]
+
+### Key Findings
+
+1. **Deterministic weighted CRR models fit the legal shape of MLR 2017 because Regulation 18 and Regulation 28 require firms to assess customer, geography, product or service, transaction, and delivery-channel risks proportionately, but they do not prescribe a mandatory numeric weighting formula.** ([inference]; high confidence; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.legislation.gov.uk/uksi/2017/692/regulation/28; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments)
+2. **The main regulatory strength of deterministic CRR is auditability, because firms can show which factors, points, overrides, and thresholds produced a rating and then connect that rating to standard, enhanced, or simplified due-diligence decisions.** ([inference]; high confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets; https://www.legislation.gov.uk/uksi/2017/692/regulation/28)
+3. **Published practitioner descriptions show that real CRR models are usually point-based or weighted systems with factor-specific weights and automatic high-risk triggers rather than purely discretionary narratives, but the exact mechanics vary materially by institution.** ([fact]; medium confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://financialcrimeacademy.org/customer-risk-rating-models/)
+4. **Static deterministic CRR models are vulnerable to stale data, cross-business inconsistency, and missed interactions between factors, which means they tend to drift away from actual risk unless firms recalibrate them and update profiles continuously.** ([inference]; medium confidence; source: https://financialcrimeacademy.org/customer-risk-rating-models/; https://www.bis.org/bcbs/publ/d353.pdf)
+5. **Publicly accessible UK evidence supports deterministic CRR as a process control, but it does not validate deterministic customer-risk bands against SAR or investigation outcomes, so claims of predictive effectiveness remain materially under-evidenced.** ([inference]; medium confidence; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file; https://arxiv.org/abs/2201.04207)
+6. **Open-access AML research indicates that supervised ML is constrained by the scarcity of high-quality labeled laundering datasets, while unsupervised, reinforced, and network-oriented methods are more feasible for detecting unusual behavior than for replacing onboarding scores outright.** ([fact]; medium confidence; source: https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://arxiv.org/abs/2201.04207; https://arxiv.org/abs/1608.00708)
+7. **Basel guidance pushes firms beyond one-time deterministic scoring because it expects customer risk profiles to incorporate intended relationship purpose, expected activity, behavior over time, and ongoing monitoring, all of which reward dynamic rather than static models.** ([inference]; high confidence; source: https://www.bis.org/bcbs/publ/d353.pdf; https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities)
+8. **Hybrid models that keep an interpretable deterministic backbone and add behavioral, statistical, or network overlays are the most regulator-friendly improvement path because they address static-model weaknesses without abandoning explainability, auditability, or human oversight.** ([inference]; medium confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Deterministic weighted CRR fits the legal factor taxonomy, but fixed numeric weights are not mandated. | https://www.legislation.gov.uk/uksi/2017/692/regulation/18 ; https://www.legislation.gov.uk/uksi/2017/692/regulation/28 ; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments | high | legal-fit finding |
+| [inference] Deterministic CRR's strongest advantage is auditability and traceable due-diligence routing. | https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model ; https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets ; https://www.legislation.gov.uk/uksi/2017/692/regulation/28 | high | defensibility finding |
+| [fact] Real-world CRR models are typically weighted or point-based with overrides, not purely narrative. | https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model ; https://financialcrimeacademy.org/customer-risk-rating-models/ | medium | practitioner evidence |
+| [inference] Static deterministic models drift without recalibration and profile updates. | https://financialcrimeacademy.org/customer-risk-rating-models/ ; https://www.bis.org/bcbs/publ/d353.pdf | medium | operational limitation |
+| [inference] Public UK evidence does not validate deterministic CRR against suspicious outcomes. | https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file ; https://arxiv.org/abs/2201.04207 | medium | evidence gap |
+| [fact] Open literature limits supervised ML for AML because labeled data are weak and scarce. | https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf ; https://arxiv.org/abs/2201.04207 ; https://arxiv.org/abs/1608.00708 | medium | data-availability constraint |
+| [inference] Basel expectations make static one-time scoring insufficient on their own. | https://www.bis.org/bcbs/publ/d353.pdf ; https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities | high | dynamic-profile expectation |
+| [inference] Hybrid models are the best-supported improvement path under current governance expectations. | https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model ; https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md | medium | synthesis finding |
+
+### Assumptions
+
+- Deterministic CRR design conventions described by EY and Financial Crime Academy are broadly representative of mainstream bank practice rather than outlier implementations. [assumption; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://financialcrimeacademy.org/customer-risk-rating-models/]
+- Public absence of UK score-to-SAR validation evidence reflects an evidence gap in open sources, not proof that private firms never validate their models internally. [assumption; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file; https://arxiv.org/abs/2201.04207]
+
+### Analysis
+
+The legal and supervisory question was answered primarily from UK statutory text and official guidance, because those sources directly define what counts as an acceptable risk-based approach under MLR 2017. [fact; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.legislation.gov.uk/uksi/2017/692/regulation/28; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments]
+
+Those sources consistently support factor-based, proportionate, documented decision-making, but they do not require a fixed weight split, which means practitioner evidence on weighted or point-based CRR mechanics was used only to describe common implementation patterns rather than to infer legal obligation. [inference; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model]
+
+Effectiveness had to be judged on weaker public evidence, because the UKFIU publishes aggregate SAR and DAML outcomes rather than customer-risk-band validation, while open AML literature emphasizes sparse labeled datasets, interpretability, and data-quality limits more than direct benchmarking of deterministic onboarding scores. [inference; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file; https://arxiv.org/abs/2201.04207; https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf]
+
+That evidence pattern supports a split conclusion: deterministic models remain strong on explainability and supervisory defensibility, but hybrid models offer a better balance once firms want more adaptive risk detection without giving up auditable logic or human accountability. [inference; source: https://www.bis.org/bcbs/publ/d353.pdf; https://arxiv.org/abs/1608.00708; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md]
+
+### Risks, Gaps, and Uncertainties
+
+- Public UK data reviewed here do not show whether high-risk CRR bands actually produce more valuable SAR or DAML outcomes than lower-risk bands. [inference; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file]
+- The open-access literature reviewed here is stronger on transaction or network analytics than on pure onboarding CRR, so claims about full ML replacement remain less certain than claims about behavior overlays. [inference; source: https://arxiv.org/abs/1608.00708; https://arxiv.org/abs/2201.04207; https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf]
+- Publicly accessible primary UK sources reviewed here do not prescribe exact factor weights, so conclusions about detailed weighting conventions rely more on accessible law, regulator material, and practitioner descriptions than on directly quoted JMLSG Chapter 4 wording. [inference; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments; https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model]
+
+### Open Questions
+
+- What internal validation metrics do UK firms actually use to test whether customer-risk bands predict later suspicious activity?
+- Which hybrid governance pattern best preserves explainability when a behavioral overlay disagrees with a deterministic base score?
+- Will future FCA, HM Revenue & Customs, or JMLSG guidance become more explicit about acceptable use of ML inside customer risk-rating models?
 
 ---
 
