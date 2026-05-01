@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-05-01 02:24 UTC
+Generated on: 2026-05-01 02:55 UTC
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ Generated on: 2026-05-01 02:24 UTC
 * [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
 * [Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation](#2026-04-30-grill-me-ai-alignment-shared-design-md)
 * [Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices](#2026-04-30-fundamentals-first-vs-specs-to-code-md)
+* [Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries](#2026-04-30-explainable-ai-xai-regulation-governance-md)
 * [Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives](#2026-04-30-deterministic-crr-mlr2017-risk-scoring-md)
 * [Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases](#2026-04-30-deep-modules-ai-augmented-codebases-md)
 * [Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison](#2026-04-30-claude-vs-m365-copilot-cowork-comparison-md)
@@ -541,6 +542,89 @@ The Matt Pocock framework therefore reads less like a novel empirical discovery 
 - Which single artifact yields the biggest marginal ROI in practice: failing tests, a specification file, a shared vocabulary document, or an architecture review cadence?
 - How much of the apparent TypeScript advantage is typing itself versus stronger surrounding tooling and conventions?
 - Can a lightweight measurement stack built from duplication, hotspot health, review time, and change-failure proxies reliably detect when a team should shift from prompt-only speed to fundamentals-first discipline?
+
+---
+
+---
+
+<a id="2026-04-30-explainable-ai-xai-regulation-governance-md"></a>
+
+## Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries
+
+**Tags:** [agentic-ai, governance, regulation, financial-services, healthcare, eu-ai-act, audit, model-risk]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-explainable-ai-xai-regulation-governance.md
+
+## Research Question
+
+What is the current state of Explainable Artificial Intelligence (XAI) research, who leads it and what are the primary techniques, and how does XAI intersect with regulatory obligations, audit requirements, and accountability for automated decisions made by Artificial Intelligence (AI) agents in heavily regulated industries such as financial services and healthcare?
+
+## Findings
+
+### Executive Summary
+
+Current regulation in heavily regulated industries requires explainability mainly as a governance capability, not as a mandate to use any single Explainable Artificial Intelligence (XAI) method. [inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm] GDPR and Information Commissioner's Office (ICO) guidance still leaves room for cases where meaningful contestability requires a deeper account of model logic, but the cited texts frame that requirement in terms of meaningful information and safeguards rather than by naming a mandatory XAI method. [inference; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053] The strongest current obligations converge on logging, technical documentation, meaningful user information, human intervention, monitoring, and named accountability. [fact; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm] SHAP, Local Interpretable Model-agnostic Explanations (LIME), Testing with Concept Activation Vectors (TCAV), and related techniques are useful components of that governance stack, especially for validation, challenge, and audience-specific explanation artifacts, but none of them by itself satisfies the full regulated-sector burden. [inference; source: https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279; https://doi.org/10.6028/NIST.IR.8312] For agentic AI systems, current internal-mechanism research is promising but still too immature to replace workflow provenance, bounded authority, and human review. [inference; source: https://www.anthropic.com/research/tracing-thoughts-language-model; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689]
+
+### Key Findings
+
+1. **The current XAI field is organised in the literature as a taxonomy of complementary explanation methods, with stable axes such as local versus global, ante-hoc versus post-hoc, and model-specific versus model-agnostic appearing across the survey literature.** ([fact]; high confidence; source: https://doi.org/10.1016/j.inffus.2019.12.012; https://doi.org/10.48550/arXiv.1702.08608)
+2. **Public research leadership in XAI is distributed across agenda-setting programmes and standards bodies such as DARPA and NIST, while widely reused methods such as LIME, SHAP, and TCAV came from different author groups rather than one frontier institution.** ([inference]; high confidence; source: https://www.darpa.mil/program/explainable-artificial-intelligence; https://doi.org/10.6028/NIST.IR.8312; https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279)
+3. **Named XAI techniques explain different things, because LIME provides local surrogate explanations, SHAP assigns local feature contributions, and TCAV maps internal behaviour to human concepts.** ([fact]; high confidence; source: https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279)
+4. **Data-protection rules do not require source-code disclosure, but they do require meaningful information, significance, consequences, and contestability when solely automated decisions have legal or similarly significant effects on a person.** ([fact]; high confidence; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053)
+5. **The EU AI Act classifies creditworthiness, life and health insurance, and qualifying medical-device uses as high-risk and attaches logging, user information, human oversight, technical documentation, and robustness obligations to those systems.** ([fact]; high confidence; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)
+6. **Financial-services governance sources treat explainability as part of model-risk management and auditability, because SR 11-7, the Bank of England material, APRA CPS 230, and ISO/IEC 42001 all emphasise documentation, monitoring, effective challenge, critical operations, and traceable accountability.** ([inference]; high confidence; source: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning; https://www.apra.gov.au/operational-risk-management; https://www.iso.org/standard/42001)
+7. **In practice, XAI is most defensible in regulated audit and review when it is used as supporting evidence for validation, challenge, and review decisions, because no reviewed framework allows an explanation artifact to replace human accountability for a consequential decision.** ([inference]; medium confidence; source: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md)
+8. **Agentic systems create a harder explanation problem than single-model prediction systems, because decision responsibility is spread across prompts, model calls, tool invocations, and handoffs, while current mechanistic-interpretability work still captures only a partial and labor-intensive view of internal computation.** ([inference]; medium confidence; source: https://www.anthropic.com/research/tracing-thoughts-language-model; https://doi.org/10.6028/NIST.IR.8312; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] XAI taxonomy is multi-axis rather than single-method. | https://doi.org/10.1016/j.inffus.2019.12.012; https://doi.org/10.48550/arXiv.1702.08608 | high | Survey-level anchor. |
+| [fact] Field leadership is distributed across DARPA, NIST, and multiple author groups. | https://www.darpa.mil/program/explainable-artificial-intelligence; https://doi.org/10.6028/NIST.IR.8312; https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279 | high | No unsupported league table. |
+| [fact] LIME, SHAP, and TCAV explain different aspects of behaviour. | https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279 | high | Technique differences only. |
+| [fact] GDPR requires meaningful information and safeguards for covered automated decisions. | https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053 | high | Rights and safeguards focus. |
+| [fact] The EU AI Act assigns high-risk obligations to finance and healthcare uses such as creditworthiness, health and life insurance, and qualifying medical devices. | https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689 | high | Logging, information, oversight, robustness. |
+| [fact] Financial-services governance sources prioritise monitoring, challenge, and accountability. | https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning; https://www.apra.gov.au/operational-risk-management; https://www.iso.org/standard/42001 | high | Technology-neutral governance emphasis. |
+| [inference] XAI artifacts support review but do not replace accountable human decision ownership. | https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md | medium | Governance inference from reviewed sources. |
+| [inference] Agentic-system explainability remains immature relative to current compliance needs. | https://www.anthropic.com/research/tracing-thoughts-language-model; https://doi.org/10.6028/NIST.IR.8312; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689 | medium | Research frontier, not settled control. |
+
+### Assumptions
+
+- **Assumption:** The public ISO summary is sufficient for high-level governance claims, but not for clause-by-clause obligations. **Justification:** the accessible official ISO page describes management-system purpose, traceability, transparency, and continual improvement, but the full standard text is paywalled.
+- **Assumption:** The FDA draft-guidance landing page is adequate evidence for a current regulatory direction in healthcare, but not for a final binding obligation. **Justification:** the guidance is official and current, but still draft and not the sole basis of the healthcare conclusion.
+
+### Analysis
+
+The key interpretive move is to separate explanation methods from explanation obligations. [inference; source: https://doi.org/10.48550/arXiv.1702.08608; https://doi.org/10.6028/NIST.IR.8312] The methods literature asks how to make model behaviour more understandable, while the legal and supervisory material asks what an institution must disclose, document, review, monitor, and be accountable for. [fact; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm] That distinction explains why regulators rarely name SHAP or LIME directly: they regulate the control objective, not the internal analytics implementation. [inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm]
+
+The competing GDPR interpretation is that "meaningful information about the logic involved" can require a more substantive account of model behaviour when that detail is necessary for a person to understand or challenge an outcome. [inference; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053] The reviewed sources still stop short of requiring one named explanation technique, which is why the practical compliance problem remains selecting enough model-level and process-level evidence to make contestability real for the affected audience. [inference; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://doi.org/10.6028/NIST.IR.8312]
+
+The evidence also points to audience-specific explanation as the practical operating model. [inference; source: https://doi.org/10.6028/NIST.IR.8312; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf] A customer-facing explanation under GDPR is not the same artifact as a validator's challenge package under SR 11-7 or a technical dossier under the EU AI Act, even when they concern the same system. [fact; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689] For regulated institutions, the most supportable operating model is layered explanation: one set of artifacts for affected individuals, another for supervisors and auditors, and another for internal engineering and model-risk teams. [inference; source: https://doi.org/10.6028/NIST.IR.8312; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm]
+
+Agentic systems remain the sharpest open edge because explanation scope now includes orchestration and tool-use provenance, not just model output rationale. [inference; source: https://www.anthropic.com/research/tracing-thoughts-language-model; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689] Current mechanistic-interpretability work is valuable evidence that internal reasoning can sometimes be inspected, but it is not yet cheap, complete, or standardised enough to serve as the primary control for regulated deployment. [inference; source: https://www.anthropic.com/research/tracing-thoughts-language-model; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689]
+
+### Risks, Gaps, and Uncertainties
+
+- Publicly accessible evidence for ISO/IEC 42001 is summary-level rather than clause-level, so this item does not make detailed claims about exact internal control wording. [fact; source: https://www.iso.org/standard/42001]
+- The healthcare portion is narrower than the financial-services portion because the strongest accessible evidence in this session is the EU AI Act and official FDA lifecycle guidance, not a broad set of healthcare-sector supervisory statements. [fact; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://www.fda.gov/regulatory-information/search-fda-guidance-documents/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing]
+- The research question asks who "leads" XAI, but public evidence supports a distributed leadership answer better than a ranked list of top institutions. [inference; source: https://www.darpa.mil/program/explainable-artificial-intelligence; https://doi.org/10.6028/NIST.IR.8312; https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279]
+- Mechanistic interpretability is advancing quickly, so the current judgment that it is not yet a deployable compliance control could change materially within one or two research cycles. [inference; source: https://www.anthropic.com/research/tracing-thoughts-language-model]
+
+### Open Questions
+
+- Which explanation artifact set is sufficient for third-line audit of a multi-agent production workflow that spans multiple models and external tools?
+- Do any regulators move from technology-neutral explainability obligations toward named technical control expectations for agentic systems?
+- Which healthcare regulators outside the European Union and the United States publish the clearest operational expectations for explainability in AI-enabled clinical workflows?
+
+### Output
+
+- Type: knowledge
+- Description: Cross-sector synthesis of XAI research, leading institutions, and the way current regulation turns explainability into logging, documentation, oversight, and auditability duties.
+- Links:
+  - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689
+  - https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng
+  - https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm
 
 ---
 
