@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits"
 added: 2026-04-30T06:52:37+00:00
 status: reviewing
