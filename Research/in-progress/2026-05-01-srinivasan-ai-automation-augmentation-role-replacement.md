@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?"
 added: 2026-05-01T04:16:09+00:00
 status: reviewing
