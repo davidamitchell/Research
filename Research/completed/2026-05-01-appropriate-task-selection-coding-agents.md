@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c2aa0cf53c596454f3633a60f94021ae8f210de9
+    changed: 2026-05-01
+    progress: progress/2026-05-01-appropriate-task-selection-coding-agents.md
+    summary: "Initial completion"
 ---
 
 # What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?
