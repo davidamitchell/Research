@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T22:34:28Z",
+  "extracted_at": "2026-05-01T22:45:05Z",
   "items": {
     "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement": {
       "named_concepts": [
@@ -61,6 +61,92 @@
         },
         {
           "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-oss-sustainability-ai-generated-contributions": {
+      "named_concepts": [
+        "trust gates",
+        "maintainer capacity",
+        "already fragile",
+        "ai-generated intake",
+        "maintainer review",
+        "review time",
+        "task type",
+        "ai provenance",
+        "contributor pipelines",
+        "best-supported default",
+        "disclosure rules",
+        "scarce human",
+        "one-shot low-engagement",
+        "hard throttles",
+        "issue forms",
+        "interaction limits",
+        "operating model",
+        "selective openness",
+        "review cost",
+        "project surface"
+      ],
+      "source_urls": [
+        "https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json",
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+        "https://github.com/mitchellh/vouch",
+        "https://github.com/mitchellh/vouch/blob/main/FAQ.md",
+        "https://opensourcesurvey.org/2024/",
+        "https://research.tudelft.nl/en/publications/expectations-outcomes-and-challenges-of-modern-code-review/",
+        "https://arxiv.org/html/2602.08915v1",
+        "https://arxiv.org/html/2603.26487v1",
+        "https://arxiv.org/abs/2603.27249",
+        "https://arxiv.org/abs/2603.28592",
+        "https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md",
+        "https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects",
+        "https://devguide.python.org/getting-started/generative-ai/",
+        "https://matplotlib.org/devdocs/devel/contribute.html#generative-ai",
+        "https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions",
+        "https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions",
+        "https://github.com/tldraw/tldraw/issues/7695",
+        "https://lists.haxx.se/pipermail/daniel/2026-January/000143.html",
+        "https://curl.se/dev/contribute.html#on-ai-use-in-curl",
+        "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates",
+        "https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository",
+        "https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories",
+        "https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en",
+        "https://www.sonarsource.com/the-2024-tidelift-maintainer-impact-report.pdf",
+        "https://dl.acm.org/doi/10.1145/2597073.2597074",
+        "https://press.stripe.com/working-in-public"
+      ],
+      "key_claims": [
+        {
+          "text": "AI-generated OSS contribution pressure is best understood as a review-capacity asymmetry, because multiple sources show that generation has become cheaper while review, triage, and follow-up still consume scarce human attention. (; high confidence; source: https://arxiv.org/html/2603.26487v1; https://arxiv.org/abs/2603.27249; https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json)",
+          "sources": []
+        },
+        {
+          "text": "Real-world studies of AI-generated code show that outcomes depend heavily on task shape and that persistent debt remains material, which means maintainers should not treat all AI-assisted contributions as equally risky or equally cheap to review. (; high confidence; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2603.28592)",
+          "sources": []
+        },
+        {
+          "text": "The dominant OSS governance response in 2025 to 2026 is accountability-first rather than blanket prohibition, with projects requiring disclosure, human understanding, focused changes, tests, and the right to close or block repeated low-value AI-assisted submissions. (; high confidence; source: https://arxiv.org/html/2603.26487v1; https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://devguide.python.org/getting-started/generative-ai/; https://matplotlib.org/devdocs/devel/contribute.html#generative-ai; https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions; https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions)",
+          "sources": []
+        },
+        {
+          "text": "Explicit trust gates, including the \"vouch\" pattern, are a defensible middle path because they preserve legitimate newcomer entry while filtering the one-shot, low-engagement interaction style that many agent-generated submissions exhibit. (; medium confidence; source: https://github.com/mitchellh/vouch; https://github.com/mitchellh/vouch/blob/main/FAQ.md; https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json)",
+          "sources": []
+        },
+        {
+          "text": "Hard throttles, including auto-closing external pull requests or shutting down bounty channels, become rational once overload is already acute, because some projects are explicitly trading openness for reviewer survival and signal preservation. (; medium confidence; source: https://github.com/tldraw/tldraw/issues/7695; https://lists.haxx.se/pipermail/daniel/2026-January/000143.html; https://curl.se/dev/contribute.html#on-ai-use-in-curl)",
+          "sources": []
+        },
+        {
+          "text": "GitHub already provides useful but incomplete platform controls, including issue forms, pull request templates, interaction limits, and protected branches, so the main implementation gap is not missing mechanics alone but project willingness to define admissibility rules. (; medium confidence; source: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories)",
+          "sources": []
+        },
+        {
+          "text": "Maintainer sustainability data show that projects are defending an already fragile labor pool, not a healthy surplus of review capacity, because contributor pipelines, employer support, compensation, and retention all look weak in recent surveys. (; high confidence; source: https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://www.sonarsource.com/the-2024-tidelift-maintainer-impact-report.pdf)",
+          "sources": []
+        },
+        {
+          "text": "The best-supported operating model is therefore selective openness: keep low-cost discussion and structured issue intake open, but add progressively stronger friction as the expected maintainer review cost and the amount of project surface affected by a submission rises. (; medium confidence; source: https://github.com/mitchellh/vouch; https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://github.com/tldraw/tldraw/issues/7695)",
           "sources": []
         }
       ]
