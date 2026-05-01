@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives"
 added: 2026-04-30T19:11:29+00:00
 status: reviewing
