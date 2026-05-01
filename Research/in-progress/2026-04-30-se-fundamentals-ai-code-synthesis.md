@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
