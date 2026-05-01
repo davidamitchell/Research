@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "658f72dad0fae607f7e7e7c8f88ed28c5bd4c152"
+    changed: 2026-05-01
+    progress: "progress/2026-05-01-compound-error-accumulation-ai-codebases.md"
+    summary: "Initial completion"
 ---
 
 # How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?
