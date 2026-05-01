@@ -2,12 +2,12 @@
 review_count: 2
 title: "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?"
 added: 2026-05-01T08:17:39+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, llm, agent-tooling, workflow]
 started: 2026-05-01T21:12:35+00:00
-completed: ~
+completed: 2026-05-01T21:30:47+00:00
 output: [knowledge]
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-03-03-knowledge-representation-agent-context, 2026-03-15-context-layers-aligned-decisions-synthesis, 2026-03-22-applied-context-engineering-agent-workflows, 2026-04-29-knowledge-scaffolding-context-engineering, 2026-05-01-appropriate-task-selection-coding-agents]
 related: [2026-05-01-ai-coding-harness-quality-benchmarks, 2026-03-08-ai-coding-harnesses-agent-philosophy, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions]
@@ -204,7 +204,7 @@ The practical question is therefore not whether context engineering exists, but 
 ### §4 Consistency Check
 
 - [fact] No retrieved first-party source contradicts the claim that context should be actively curated; the disagreement is over how visible and user-steerable the curation should be. Source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://docs.langchain.com/oss/python/langchain/context-engineering; https://aider.chat/docs/usage/commands.html
-- [fact] The strongest direct evidence for the specific Claude Code failure modes remains the public talk transcript and Pi post, so findings about those exact behaviors are kept at medium confidence unless backed by a broader first-party principle. Source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/
+- [inference] Within the sources retrieved for this item, the direct public evidence for the specific Claude Code failure modes comes from the public talk transcript and Pi post, so findings about those exact behaviors are kept at medium confidence unless backed by a broader first-party principle. Source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/
 - [inference] The broader synthesis is still stable because it rests on converging evidence from official docs, open-source harness interfaces, long-context evaluation, and trust-calibration literature rather than on the single talk alone. Source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://aider.chat/docs/usage/commands.html; https://docs.continue.dev/customize/custom-providers; https://research.trychroma.com/context-rot; https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132
 
 ### §5 Depth and Breadth Expansion
@@ -260,7 +260,7 @@ The practical question is therefore not whether context engineering exists, but 
 
 **Risks, gaps, uncertainties**
 
-- [fact] There is little public controlled research that isolates coding-agent interface transparency itself as an independent variable, so several harness-level claims still rely on practitioner evidence and architecture inference rather than randomized comparisons. Source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132
+- [inference] This item did not find a controlled study that isolates coding-agent interface transparency itself as an independent variable, so several harness-level claims still rely on practitioner evidence and architecture inference rather than randomized comparisons. Source: https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132
 - [fact] The specific Claude Code reminder-injection and tool-definition-churn claims are not documented in a first-party public page retrieved in this session. Source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://platform.claude.com/docs/en/release-notes/system-prompts
 - [inference] Product behavior in fast-moving harnesses may change quickly, so any concrete comparison of named tools should be treated as time-bounded. Source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://github.com/badlogic/pi-mono
 
@@ -332,7 +332,7 @@ This rule also aligns with prior repository findings that bounded workflows, lay
 
 ### Risks, Gaps, and Uncertainties
 
-- There is little public controlled research that isolates coding-agent interface transparency itself as an independent variable, so several harness-level claims still rely on practitioner evidence and architectural inference. [fact; source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132]
+- This item did not find a controlled study that isolates coding-agent interface transparency itself as an independent variable, so several harness-level claims still rely on practitioner evidence and architectural inference. [inference; source: https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132]
 - The specific Claude Code reminder-injection and tool-definition-churn claims are not documented in a first-party public page retrieved in this session. [fact; source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://platform.claude.com/docs/en/release-notes/system-prompts]
 - Product behavior in fast-moving harnesses may change quickly, so concrete tool comparisons are time-bounded. [inference; source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://github.com/badlogic/pi-mono]
 
