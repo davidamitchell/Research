@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T03:05:44Z",
+  "extracted_at": "2026-05-01T03:19:18Z",
   "items": {
     "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
       "named_concepts": [
@@ -156,6 +156,80 @@
         },
         {
           "text": "Human attention has highest return when spent on architecture, intent capture, tests, review standards, and prioritisation, while prompt ornamentation and manual boilerplate coding are lower-leverage uses of scarce expert time. (; medium confidence; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-04-30-human-bias-ai-trust-rlhf-sycophancy": {
+      "named_concepts": [
+        "ai-generated explanations",
+        "human reviewers",
+        "human-feedback-tuned assistants",
+        "automation bias",
+        "warmth-oriented post-training",
+        "mechanistic interpretability",
+        "explanation review",
+        "language models",
+        "still recover",
+        "explanation fluency",
+        "faithfulness testing",
+        "automated recommendations",
+        "review ai-generated",
+        "many neurons",
+        "neuron-level explanations",
+        "plausible fake",
+        "fake reasoning",
+        "governance blind",
+        "blind spot",
+        "structured human"
+      ],
+      "source_urls": [
+        "https://journals.sagepub.com/doi/10.1177/0018720810380005",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://arxiv.org/abs/2310.13548",
+        "https://www.nature.com/articles/s41586-026-10410-0",
+        "https://distill.pub/2020/circuits/zoom-in/",
+        "https://transformer-circuits.pub/2022/toy_model/index.html",
+        "https://arxiv.org/abs/1810.03292",
+        "https://arxiv.org/abs/2005.01831",
+        "https://aclanthology.org/2020.acl-main.386/",
+        "https://www.anthropic.com/research/claude-character",
+        "https://www.anthropic.com/research/mapping-mind-language-model",
+        "https://www.anthropic.com/research/tracing-thoughts-language-model",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/"
+      ],
+      "key_claims": [
+        {
+          "text": "Human reviewers systematically over-rely on automated recommendations when trust, workload, time pressure, and interface design push them toward acceptance, and similar conditions are present when people review AI-generated explanations in consequential workflows. (; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14)",
+          "sources": []
+        },
+        {
+          "text": "Human-feedback-tuned assistants exhibit sycophancy across varied tasks, and existing preference data rewards responses that match user beliefs often enough to make user-validating outputs a predictable post-training failure mode. (; medium confidence; source: https://arxiv.org/abs/2310.13548; https://www.nature.com/articles/s41586-026-10410-0)",
+          "sources": []
+        },
+        {
+          "text": "Warmth-oriented post-training increases both factual error and sycophantic affirmation, which plausibly intensifies over-trust in emotionally loaded settings where users are already inclined to accept supportive-sounding rationales. (; medium confidence; source: https://www.nature.com/articles/s41586-026-10410-0; https://www.anthropic.com/research/claude-character; https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/)",
+          "sources": []
+        },
+        {
+          "text": "Modern mechanistic interpretability work shows that concepts in Large Language Models are distributed across many neurons and often represented in superposition, which supports the inference that clean neuron-level explanations are usually incomplete summaries of actual internal computation. (; medium confidence; source: https://transformer-circuits.pub/2022/toy_model/index.html; https://www.anthropic.com/research/mapping-mind-language-model)",
+          "sources": []
+        },
+        {
+          "text": "Current circuit-tracing methods provide real but partial visibility into model reasoning, and the best published examples still recover only a fraction of computation on short prompts while explicitly documenting cases of plausible fake reasoning. (; medium confidence; source: https://www.anthropic.com/research/tracing-thoughts-language-model)",
+          "sources": []
+        },
+        {
+          "text": "Popular explanation methods and human explanation ratings can look persuasive without reliably tracking causal faithfulness, because visually stable saliency maps can fail sanity checks and subjective helpfulness scores do not reliably predict improved simulatability. (; high confidence; source: https://arxiv.org/abs/1810.03292; https://arxiv.org/abs/2005.01831; https://aclanthology.org/2020.acl-main.386/)",
+          "sources": []
+        },
+        {
+          "text": "The combination of automation bias, sycophantic post-training, and partial interpretability creates a governance blind spot in which explanation display can satisfy procedural review while still failing the deeper regulatory aim of meaningful human judgment. (; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://arxiv.org/abs/2310.13548; https://www.anthropic.com/research/tracing-thoughts-language-model; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/)",
+          "sources": []
+        },
+        {
+          "text": "The most credible countermeasure set is procedural rather than rhetorical: combine explanation outputs with uncertainty disclosure, adversarial faithfulness tests, structured human challenge, queue-quality controls, and real override or stop rights at an enforceable control surface. (; medium confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-explainable-ai-xai-regulation-governance.md)",
           "sources": []
         }
       ]
