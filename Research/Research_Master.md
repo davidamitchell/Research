@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-30 22:54 UTC
+Generated on: 2026-05-01 01:35 UTC
 
 ## Table of Contents
 
+* [Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction](#2026-04-30-tdd-feedback-loops-ai-augmented-dev-md)
 * [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
 * [Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation](#2026-04-30-grill-me-ai-alignment-shared-design-md)
 * [Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices](#2026-04-30-fundamentals-first-vs-specs-to-code-md)
@@ -224,6 +225,90 @@ Generated on: 2026-04-30 22:54 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-30-tdd-feedback-loops-ai-augmented-dev-md"></a>
+
+## Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction
+
+**Tags:** [agentic-coding, software-engineering, tdd, evaluation, llm, agentic-ai]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-tdd-feedback-loops-ai-augmented-dev.md
+
+## Research Question
+
+How does enforcing Test-Driven Development (TDD) with AI coding assistants, writing failing tests before asking the AI to implement, change the quality and stability of the AI output compared to "write large chunks then test" approaches, and what is the impact of fast, high-quality feedback loops (type-safe languages, automated tests, browser tools) on the AI's ability to self-correct versus its tendency to "outrun its headlights" by generating large volumes of code beyond its effective verification horizon?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Enforcing a failing-test-first loop with fast external feedback gives AI coding a stronger verifier structure for stability and self-correction than bulk-generation workflows, but the support for that advantage is mechanism-level rather than direct field-comparison evidence. [inference; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models]
+
+The evidence is strongest on mechanism rather than on a single randomized TDD head-to-head trial, because execution feedback, unit tests, and static types measurably improve code correction while developers still struggle to understand and debug large unverified suggestions. [inference; source: https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128; https://link.springer.com/article/10.1007/s10664-013-9289-1; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models]
+
+TDD's main cost is upfront pacing, so its payoff is limited on disposable prototypes but stronger on non-trivial or persistent code where review burden, hidden defects, and entropy accumulate over time. [inference; source: https://arxiv.org/abs/2302.06590; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+
+The best-supported minimum viable feedback loop is small end-to-end increments, or vertical slices, with executable tests and fast static or runtime feedback, while browser tools are best treated as a plausible front-end extension rather than a settled empirical result. [inference; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://www.jamesshore.com/v2/books/aoad2/development; https://link.springer.com/article/10.1007/s10664-013-9289-1; https://arxiv.org/abs/2304.05128]
+
+### Key Findings
+
+1. **Matt Pocock's TDD skill explicitly rejects bulk test-writing in AI sessions, while James Shore's TDD guidance independently supports small test-refactor cycles and fast reliable feedback, so the combined evidence favors narrow, verifier-rich increments over large speculative batches.** ([inference]; medium confidence; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://www.jamesshore.com/v2/books/aoad2/development)
+2. **Controlled Copilot studies show that Artificial Intelligence (AI) coding tools can deliver real speed and local quality gains, but because those gains are still measured through external tests and review rubrics, the cited studies do not by themselves prove that delayed verification is a safe default workflow.** ([inference]; medium confidence; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331)
+3. **Usability and pair-programming studies indicate that developers often pay a comprehension and debugging tax on generated code, which is the human-side mechanism behind the "outrunning headlights" failure mode in bulk-generation sessions.** ([inference]; medium confidence; source: https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://doi.org/10.1145/3510454.3522684; https://arxiv.org/abs/2108.09293)
+4. **Execution-feedback papers such as Reflexion and Self-Debugging show that explicit test or runtime signals materially improve model self-correction over one-shot generation.** ([fact]; high confidence; source: https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128; https://arxiv.org/abs/2303.17651)
+5. **Static typing provides early maintainability and error-localization benefits, because Hanenberg et al. found advantages for understanding undocumented code and fixing type errors, but not for fixing semantic errors.** ([fact]; medium confidence; source: https://link.springer.com/article/10.1007/s10664-013-9289-1)
+6. **The direct public evidence for TDD with AI is thinner than the evidence for feedback-rich iteration more generally, so claims that test-first workflows always reduce total wall-clock delivery time remain unproven.** ([inference]; medium confidence; source: https://arxiv.org/abs/2302.06590; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://arxiv.org/abs/2206.15331; https://arxiv.org/abs/2304.05128)
+7. **The strongest justification for TDD in Artificial Intelligence (AI) sessions is control of search space and review load, especially on persistent codebases where unverified bulk generation compounds entropy and raises later change cost.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html; https://davidamitchell.github.io/Research/research/2026-04-26-software-engineering-investment-case-llm.html)
+8. **The minimum viable feedback loop for safer Artificial Intelligence (AI)-augmented development is small vertical slices, executable tests, and fast static or runtime feedback, while browser-tool evidence is best treated as a plausible extension rather than a settled comparative result.** ([inference]; medium confidence; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://www.jamesshore.com/v2/books/aoad2/development; https://link.springer.com/article/10.1007/s10664-013-9289-1; https://arxiv.org/abs/2304.05128)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Pocock's anti-bulk TDD guidance and Shore's fast-feedback TDD guidance jointly favor narrow verifier-rich increments over large speculative batches. | https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md ; https://www.jamesshore.com/v2/books/aoad2/development | medium | Mechanism synthesis across two practitioner sources |
+| [inference] AI coding tools can improve bounded-task speed and local quality under external evaluation, but the cited studies do not by themselves prove that delayed verification is a safe default workflow. | https://arxiv.org/abs/2302.06590 ; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/ ; https://arxiv.org/abs/2206.15331 | medium | Bounded-task evidence, not workflow proof |
+| [inference] Generated-code comprehension burden is a main driver of outrunning-headlights risk. | https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models ; https://doi.org/10.1145/3510454.3522684 ; https://arxiv.org/abs/2108.09293 | medium | Review burden plus defect evidence |
+| [fact] Execution feedback improves model self-correction on code tasks. | https://arxiv.org/abs/2303.11366 ; https://arxiv.org/abs/2304.05128 ; https://arxiv.org/abs/2303.17651 | high | Strong benchmark mechanism evidence |
+| [fact] Static typing improves maintainability-related tasks and type-error fixing, but not semantic-error fixing. | https://link.springer.com/article/10.1007/s10664-013-9289-1 | medium | Human-study evidence, not AI-specific |
+| [inference] Head-to-head public evidence for TDD with AI remains thinner than the broader feedback-loop evidence. | https://arxiv.org/abs/2302.06590 ; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models ; https://arxiv.org/abs/2206.15331 ; https://arxiv.org/abs/2304.05128 | medium | Evidence coverage is indirect |
+| [inference] TDD matters most where weak verification would otherwise compound entropy and later change cost. | https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html ; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html ; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html ; https://davidamitchell.github.io/Research/research/2026-04-26-software-engineering-investment-case-llm.html | medium | Same-repository synthesis sharpened by external evidence |
+| [inference] The minimum viable loop is tests plus fast static or runtime feedback, with browser tooling treated cautiously. | https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md ; https://www.jamesshore.com/v2/books/aoad2/development ; https://link.springer.com/article/10.1007/s10664-013-9289-1 ; https://arxiv.org/abs/2304.05128 | medium | Browser-tool evidence remains thin |
+
+### Assumptions
+
+- [assumption; source: https://github.com/mattpocock/skills; https://www.aihero.dev/] The current Matt Pocock first-party sources are acceptable replacements for the dead Total TypeScript seed URL because they preserve the same TDD and feedback-loop mechanics in public form.
+- [assumption; source: https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128; https://arxiv.org/abs/2303.17651] Benchmark evidence on execution feedback is a reasonable proxy for real coding sessions because both settings depend on external failure signals and iterative repair, even though production work adds collaboration and integration costs.
+- [assumption; source: https://github.com/mattpocock/skills; https://www.aihero.dev/] Browser developer tools belong to the same fast-feedback family as test runners, but their effect in AI-assisted development is kept assumption-level here because direct isolated evidence was not located.
+
+### Analysis
+
+The evidence was weighted most heavily where it directly measured coding outcomes under external evaluation, which is why the Copilot experiments and the execution-feedback papers carry more weight than practitioner rhetoric alone. [inference; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128]
+
+Direct TDD-with-AI evidence is still thin, so the argument for TDD is a synthesis of three stronger lines of evidence, fast external feedback improves code correction, developers struggle to verify large generated chunks, and persistent codebases pay later for weak verifier discipline. [inference; source: https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html]
+
+This makes the real comparison less "TDD versus no TDD" than "bounded verifier-rich iteration versus bulk generation with delayed judgment." [inference; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://arxiv.org/abs/2304.05128; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+
+The trade-off is therefore front-loaded pacing against downstream rework, which is why TDD looks highest-payoff on serious code that must survive review, debugging, and later change rather than on disposable prototypes. [inference; source: https://arxiv.org/abs/2302.06590; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html]
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://arxiv.org/abs/2302.06590; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://arxiv.org/abs/2206.15331] No accessible randomized field study in this session directly compared a failing-test-first AI workflow with a "write large chunks then test" workflow across maintained projects.
+- [inference; source: https://github.com/mattpocock/skills; https://www.aihero.dev/] The Matt Pocock evidence is first-party practitioner guidance, so it is useful for mechanics and rationale but weaker than an independent controlled trial for measured payback.
+- [fact; source: https://link.springer.com/article/10.1007/s10664-013-9289-1] The static-typing evidence is pre-AI and strongest on maintainability and type-error localization, not on semantic correctness or end-to-end AI workflow performance.
+- [inference; source: https://github.com/mattpocock/skills; https://www.aihero.dev/] Browser-tool effects remain plausible rather than settled because accessible evidence in this session was guidance-level, not comparative or experimental.
+- [fact; source: https://dblp.org/rec/conf/icse/Imai22; https://arxiv.org/abs/2208.04416] One seeded source identifier was wrong and had to be corrected, which slightly lowers confidence in claims that depend on the Imai paper because only metadata and abstract-level access were available in this session.
+
+### Open Questions
+
+- What is the smallest failing-test-first loop that preserves most of TDD's control benefit without slowing simple AI-assisted changes unnecessarily?
+- Can repository telemetry show whether TDD-paced AI sessions reduce later review comments, defect-fix churn, or revert rates compared with bulk-generation sessions?
+- Which front-end feedback instruments, browser developer tools, snapshot tests, or visual regression tools, most effectively keep AI-generated user-interface changes inside a human-verifiable horizon?
+
+---
 
 ---
 
