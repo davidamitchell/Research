@@ -2,12 +2,12 @@
 review_count: 2
 title: "Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions"
 added: 2026-04-30T20:31:45+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-coding, software-engineering, tdd, evaluation, agentic-ai, llm, synthesis]
 started: 2026-05-01T07:02:27+00:00
-completed: ~
+completed: 2026-05-01T07:25:57+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-30-grill-me-ai-alignment-shared-design, 2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-tdd-feedback-loops-ai-augmented-dev, 2026-04-30-strategic-tactical-division-ai-teams, 2026-04-30-fundamentals-first-vs-specs-to-code, 2026-03-12-volume-vs-correctness-ai-era, 2026-03-14-reliable-software-llm-era, 2026-04-26-llm-verifiability-asymmetry-code-world-action]
 related: [2026-04-26-software-engineering-investment-case-llm, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis]
@@ -188,7 +188,7 @@ This synthesis is conducted by the research agent after the planned primary corp
 - Traditional Software Engineering (SE) fundamentals improve Artificial Intelligence (AI)-generated code primarily by reducing ambiguity before generation and by adding external verification and boundary structure after generation, so they change the workflow's control system more than the model's raw fluency. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
 - Prompt-only workflows remain faster for disposable prototypes, but the combined evidence favors fundamentals-first once generated code must survive review, debugging, and repeated change inside a maintained repository. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html]
 - A practical stack suggested by the evidence combines clarification-first discovery, shared vocabulary discipline, executable verification, and explicit interfaces or deep modules, while the exact rollout sequence still depends on project context and existing weaknesses. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html]
-- Confidence is medium because the six completed primary items are mutually reinforcing, but the dedicated UL primary item was not completed and the strongest remaining gaps are longitudinal, whole-project comparisons of full fundamentals-first and prompt-only teams. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+- Confidence is medium because the six completed primary items are mutually reinforcing, but the dedicated UL primary item was not completed and the strongest remaining gaps are longitudinal, whole-project comparisons of full fundamentals-first and prompt-only teams. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
 
 **Key findings:**
 
@@ -245,7 +245,7 @@ This synthesis is conducted by the research agent after the planned primary corp
 ### §7 Recursive Review
 
 - [fact] Every key claim in §6 is either directly grounded in completed-item findings or explicitly marked as inference or assumption. [source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
-- [fact] Overall confidence remains medium because the synthesis is coherent and well-supported across six completed primary items, but the missing UL primary item and the absence of whole-project randomized workflow studies keep the strongest conclusions below high confidence. [source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+- [inference] Overall confidence remains medium because the synthesis is coherent and well-supported across six completed primary items, but the missing UL primary item and the absence of whole-project randomized workflow studies keep the strongest conclusions below high confidence. [source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
 
 ---
 
@@ -261,7 +261,7 @@ Prompt-only workflows remain faster for disposable prototypes, but the combined 
 
 A practical stack suggested by the evidence combines clarification-first discovery, shared vocabulary discipline, executable verification, and explicit interfaces or deep modules, while the exact rollout sequence still depends on project context and existing weaknesses. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html]
 
-Confidence is medium because the six completed primary items are mutually reinforcing, but the dedicated UL primary item was not completed and the strongest remaining gaps are longitudinal, whole-project comparisons of full fundamentals-first and prompt-only teams. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+Confidence is medium because the six completed primary items are mutually reinforcing, but the dedicated UL primary item was not completed and the strongest remaining gaps are longitudinal, whole-project comparisons of full fundamentals-first and prompt-only teams. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
 
 ### Key Findings
 
