@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability"
 added: 2026-04-30T06:52:37+00:00
 status: reviewing
