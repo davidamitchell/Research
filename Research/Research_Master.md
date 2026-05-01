@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-01 08:21 UTC
+Generated on: 2026-05-01 08:51 UTC
 
 ## Table of Contents
 
 * [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
+* [Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?](#2026-05-01-ai-coding-harness-quality-benchmarks-md)
 * [Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence](#2026-04-30-ubiquitous-language-ai-code-consistency-md)
 * [Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction](#2026-04-30-tdd-feedback-loops-ai-augmented-dev-md)
 * [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
@@ -307,6 +308,90 @@ That interpretation also explains why Srinivasan aligns with WEF and McKinsey on
 - How far do the updated 2025 and 2026 versions of the Srinivasan research move the occupation rankings once more post-ChatGPT hiring data is included?
 - Can the full occupation-by-score dataset behind the Harvard Business School visualization be recovered from a public appendix or data release?
 - Which entry-level pathways are most vulnerable when postings fall in automation-prone occupations before unemployment visibly rises?
+
+---
+
+---
+
+<a id="2026-05-01-ai-coding-harness-quality-benchmarks-md"></a>
+
+## Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?
+
+**Tags:** [agentic-coding, evaluation, benchmarks, agentic-ai, llm, agent-tooling, developer-tooling]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md
+
+## Research Question
+
+What benchmarks, metrics, and evaluation methodologies are used to measure the quality of Artificial Intelligence (AI) coding harnesses, including Integrated Development Environment (IDE) plugins, agentic coding assistants, and code completion tools, and which vendors and open-source projects score highest on those measures as of 2025-2026?
+
+## Findings
+
+### Executive Summary
+Public evidence for AI coding harness quality currently favors end-to-end software engineering benchmarks, with SWE-bench Verified carrying the most decision weight because it evaluates whether systems actually resolve real repository issues rather than merely emit plausible standalone code. [inference; source: https://www.swebench.com/verified.html; https://arxiv.org/abs/2310.06770]
+
+The strongest public leaderboard positions visible in accessible official sources are mostly held by simple or open harnesses paired with high-performing current models, while several branded assistants in this item are represented instead by controlled studies or internal evals rather than directly comparable leaderboard entries. [inference; source: https://www.swebench.com/; https://all-hands.dev/; https://cursor.com/blog/cursorbench; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/]
+
+That means tool selection in 2025-2026 should weight benchmark family and evidence credibility before raw score, because HumanEval, Mostly Basic Programming Problems (MBPP), Aider, GitHub Copilot studies, and CursorBench all measure different slices of quality. [inference; source: https://arxiv.org/abs/2107.03374; https://github.com/google-research/google-research/tree/master/mbpp; https://aider.chat/docs/leaderboards; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://cursor.com/blog/cursorbench]
+
+GitHub Copilot and Cursor both publish public evidence, but their retrieved official evidence is controlled-study or internal-eval evidence rather than first-party public leaderboard parity with benchmark-native harnesses such as mini-SWE-agent, OpenHands, Amazon Q Developer Agent, or Google Jules. [inference; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://cursor.com/blog/cursorbench; https://www.swebench.com/]
+
+The best-supported answer to the research question is therefore that no single benchmark is authoritative, but SWE-bench Verified is the strongest public anchor, and the current visible leaders in directly comparable public leaderboard evidence are open or benchmark-native agent systems. [inference; source: https://www.swebench.com/verified.html; https://www.swebench.com/]
+
+### Key Findings
+
+1. **SWE-bench Verified is currently the most decision-useful public benchmark for comparing agentic coding harnesses, because it uses human-filtered real GitHub issue tasks and scores whether a system actually resolves repository problems rather than merely generating plausible standalone code.** ([inference]; medium confidence; source: https://www.swebench.com/verified.html; https://arxiv.org/abs/2310.06770)
+2. **HumanEval and Mostly Basic Programming Problems (MBPP) remain important coding benchmarks, but they are weak direct proxies for harness quality because they evaluate standalone Python problem solving and unit-test passing rather than repository navigation, multi-file editing, and regression-safe issue resolution.** ([inference]; medium confidence; source: https://arxiv.org/abs/2107.03374; https://github.com/openai/human-eval; https://github.com/google-research/google-research/tree/master/mbpp; https://www.swebench.com/verified.html)
+3. **LiveCodeBench and BigCodeBench extend benchmark coverage beyond older standalone-function tests by emphasizing contamination resistance, self-repair, code execution, tool or library use, and harder instructions, yet they still rank models more directly than branded coding products or end-to-end harnesses.** ([fact]; high confidence; source: https://arxiv.org/abs/2403.07974; https://livecodebench.github.io/; https://openreview.net/forum?id=YrycTjllL0; https://bigcode-bench.github.io/)
+4. **The dominant public metrics are pass@k for sampled code generation and percent resolved for software engineering agents, while productivity studies add unit-test pass rates, approval rates, and readability or maintainability ratings that capture important but different aspects of coding-tool quality.** ([fact]; high confidence; source: https://arxiv.org/abs/2107.03374; https://github.com/openai/human-eval; https://www.swebench.com/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/)
+5. **The highest public SWE-bench Verified scores visible in accessible official sources are attached primarily to simple or open harnesses such as live-SWE-agent and mini-SWE-agent paired with current top-scoring models, with retrieved top entries at 79.2% for live-SWE-agent plus Claude 4.5 Opus medium and 76.8% for mini-SWE-agent plus Claude 4.5 Opus.** ([fact]; medium confidence; source: https://www.swebench.com/)
+6. **Among named open-source platform entries with direct public attribution, OpenHands has become a serious top-tier benchmark participant, appearing at 65.8% as a branded entry and 70.4% when paired with Claude 4 Sonnet on the retrieved SWE-bench Verified leaderboard.** ([fact]; medium confidence; source: https://www.swebench.com/; https://all-hands.dev/)
+7. **Among named commercial products with directly attributable public Verified entries in retrieved official sources, Amazon Q Developer Agent presently has stronger public end-to-end benchmark evidence than Google Jules, at 65.4% versus 52.2% on SWE-bench Verified.** ([inference]; medium confidence; source: https://www.swebench.com/; https://aws.amazon.com/q/developer/; https://developers.googleblog.com/en/the-next-chapter-of-the-gemini-era-for-developers/)
+8. **Devin's published 13.86% result on original SWE-bench was historically important because it normalized agent-style evaluation, but it should not be read as a current leaderboard position because it used a 25% subset of the older benchmark and not the current Verified leaderboard regime.** ([inference]; medium confidence; source: https://www.cognition.ai/blog/swe-bench-technical-report; https://www.cognition.ai/blog/introducing-devin; https://www.swebench.com/verified.html)
+9. **GitHub Copilot and Cursor both publish public evidence, but GitHub's evidence is primarily randomized controlled productivity and code-quality research while Cursor's evidence is primarily its internal CursorBench methodology, so neither currently offers first-party public leaderboard comparability with benchmark-native open harnesses.** ([inference]; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://cursor.com/blog/cursorbench; https://www.swebench.com/)
+10. **Benchmark credibility is now part of the quality question itself, because contamination risk, narrow grading, and benchmark-workflow mismatch are explicit public concerns in both LiveCodeBench and CursorBench, and practitioner trust in complex-task performance remains mixed even as usage grows.** ([inference]; medium confidence; source: https://arxiv.org/abs/2403.07974; https://livecodebench.github.io/; https://cursor.com/blog/cursorbench; https://survey.stackoverflow.co/2024/ai)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] SWE-bench Verified is the strongest public benchmark for end-to-end harness comparison. | https://www.swebench.com/verified.html; https://arxiv.org/abs/2310.06770 | medium | Comparative judgment derived from the benchmark design and public coverage. |
+| [inference] HumanEval and MBPP are weaker direct proxies for harness quality than SWE-bench family benchmarks. | https://arxiv.org/abs/2107.03374; https://github.com/openai/human-eval; https://github.com/google-research/google-research/tree/master/mbpp; https://www.swebench.com/verified.html | medium | Comparative judgment based on benchmark task design differences. |
+| [fact] LiveCodeBench and BigCodeBench broaden evaluation beyond older standalone-function tests. | https://arxiv.org/abs/2403.07974; https://livecodebench.github.io/; https://openreview.net/forum?id=YrycTjllL0; https://bigcode-bench.github.io/ | high | Freshness, contamination resistance, and tool or library use are central design goals. |
+| [fact] pass@k and percent resolved are the dominant quantitative benchmark metrics, while product studies add approval, quality, and speed metrics. | https://arxiv.org/abs/2107.03374; https://www.swebench.com/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/ | high | Metric families should not be collapsed into one scalar. |
+| [fact] The strongest current public Verified scores visible in accessible official sources belong mostly to live-SWE-agent and mini-SWE-agent variants. | https://www.swebench.com/ | medium | Retrieved top entries are 79.2% and 76.8%. |
+| [fact] OpenHands is a leading open-source branded platform entry on the public Verified leaderboard. | https://www.swebench.com/; https://all-hands.dev/ | medium | Branded OpenHands entries appear from 65.8% to 70.4% in retrieved data. |
+| [inference] Amazon Q Developer Agent currently has stronger directly attributable public Verified evidence than Google Jules. | https://www.swebench.com/; https://aws.amazon.com/q/developer/; https://developers.googleblog.com/en/the-next-chapter-of-the-gemini-era-for-developers/ | medium | Comparative synthesis based on the retrieved official public entries. |
+| [inference] Devin's best accessible official public score is still its original 13.86% SWE-bench result, not a current Verified score. | https://www.cognition.ai/blog/swe-bench-technical-report; https://www.cognition.ai/blog/introducing-devin; https://www.swebench.com/verified.html | medium | Important historical result, weak for current direct ranking. |
+| [inference] GitHub Copilot and Cursor publish public evidence that is not directly leaderboard-comparable with benchmark-native harnesses. | https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://cursor.com/blog/cursorbench; https://www.swebench.com/ | medium | Public evidence exists, but it is not presented as a first-party shared benchmark score. |
+| [inference] Benchmark credibility and benchmark-family fit now matter as much as raw score. | https://arxiv.org/abs/2403.07974; https://cursor.com/blog/cursorbench; https://survey.stackoverflow.co/2024/ai | medium | Public critiques and mixed practitioner trust justify the weighting rule. |
+
+### Assumptions
+
+- [assumption; source: https://www.swebench.com/; https://cursor.com/blog/cursorbench] If a popular branded tool did not appear in the retrieved official public leaderboard sources, this item treats that as missing public evidence, not as proof that the tool lacks any strong internal or private benchmark performance.
+- [assumption; source: https://www.swebench.com/; https://all-hands.dev/; https://aider.chat/docs/leaderboards/] When a score is reported for a harness paired with a frontier model, the analysis attributes the result to the combined system rather than claiming the harness alone deserves the full score.
+- [assumption; source: https://aider.chat/docs/leaderboards; https://www.swebench.com/verified.html] Aider benchmark results are used as evidence for harness-specific editing quality even though they are not directly comparable to SWE-bench Verified issue-resolution results.
+
+### Analysis
+
+- End-to-end harness selection should weight benchmark families by how much real software engineering behavior they contain, not by historical fame alone. [inference; source: https://www.swebench.com/verified.html; https://arxiv.org/abs/2107.03374; https://github.com/google-research/google-research/tree/master/mbpp]
+- That weighting puts SWE-bench Verified at the top for public harness comparison, followed by adjacent repository-scale proxies such as SWE-bench Lite and harness-specific editing suites such as Aider, while HumanEval and MBPP become supporting evidence about base-model coding ability. [inference; source: https://www.swebench.com/verified.html; https://www.swebench.com/lite.html; https://aider.chat/docs/leaderboards; https://arxiv.org/abs/2107.03374]
+- The public leaderboard leaders now show that simple scaffolds plus strong models can outperform more elaborate branded products, which means a vendor's user interface or market visibility should not be mistaken for public benchmark leadership. [inference; source: https://www.swebench.com/; https://all-hands.dev/]
+- At the same time, products such as GitHub Copilot and Cursor are not evidence-free; they simply publish different evidence types, namely controlled studies and internal eval loops, which are useful for workflow fit but weaker for external comparability. [fact; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://cursor.com/blog/cursorbench]
+- The resulting decision rule is to combine public benchmark strength, benchmark-family fit, and evidence credibility, and to treat any ranking that crosses those boundaries without adjustment as methodologically unsound. [inference; source: https://www.swebench.com/verified.html; https://cursor.com/blog/cursorbench; https://survey.stackoverflow.co/2024/ai]
+
+### Risks, Gaps, and Uncertainties
+
+- Public benchmark scores move quickly, so any 2025-2026 leader table is time-sensitive. [fact; source: https://www.swebench.com/; https://aider.chat/docs/leaderboards]
+- Several major products do not publish first-party public scores on shared harness benchmarks, which limits apples-to-apples comparison. [fact; source: https://cursor.com/blog/cursorbench; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.swebench.com/]
+- Static public benchmarks may miss long-running, ambiguous, externally integrated, or highly collaborative engineering tasks. [fact; source: https://cursor.com/blog/cursorbench; https://survey.stackoverflow.co/2024/ai]
+- Official OpenAI explanatory pages about SWE-bench Verified were linked from the SWE-bench site but not directly fetchable in this runtime, so Verified methodology claims here rely on the accessible SWE-bench Verified page itself rather than on the linked OpenAI copy. [fact; source: https://www.swebench.com/verified.html]
+
+### Open Questions
+
+- What public benchmark can reliably measure multi-day or multi-session engineering work that crosses external services, review loops, and deployment boundaries?
+- Which metric best captures post-generation review burden, not just whether tests eventually pass?
+- Will major commercial IDE assistants converge on shared public harness benchmarks, or will internal evals such as CursorBench become the dominant decision surface?
 
 ---
 
