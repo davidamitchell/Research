@@ -192,7 +192,7 @@ That gap becomes operational in regulated settings because the European Union (E
 
 **Executive summary:**
 
-The best-supported conclusion is that the orthogonality thesis still holds as an in-principle warning that capability does not determine goals, and current empirical work has not closed that gap for frontier models. [inference; source: https://nickbostrom.com/superintelligentwill.pdf; https://arxiv.org/abs/1906.01820; https://arxiv.org/abs/2105.14111]
+The best-supported conclusion is that the orthogonality thesis still holds as an in-principle warning that capability does not determine goals, and current empirical work has not closed that gap for frontier models. [inference; source: https://nickbostrom.com/superintelligentwill.pdf; https://arxiv.org/abs/1906.01820; https://arxiv.org/abs/2105.14111; https://arxiv.org/abs/2307.09458; https://www.anthropic.com/research/tracing-thoughts-language-model]
 
 Modern alignment and interpretability results qualify how the thesis should be applied, but they do not overturn it: they show that behavior can be shaped, local mechanisms can sometimes be recovered, and some hidden-preference phenomena can be observed, while stable model-wide objective recovery remains out of reach. [inference; source: https://www.anthropic.com/research/claude-character; https://www.anthropic.com/news/claude-new-constitution; https://arxiv.org/abs/2301.05217; https://arxiv.org/abs/2307.09458; https://www.anthropic.com/research/tracing-thoughts-language-model; https://www.anthropic.com/research/alignment-faking]
 
@@ -270,7 +270,7 @@ That supports the audit recommendation that institutions stay with those evident
 
 ### Executive Summary
 
-The best-supported conclusion is that the orthogonality thesis still holds as an in-principle warning that capability does not determine goals, and current empirical work has not closed that gap for frontier models. [inference; source: https://nickbostrom.com/superintelligentwill.pdf; https://arxiv.org/abs/1906.01820; https://arxiv.org/abs/2105.14111]
+The best-supported conclusion is that the orthogonality thesis still holds as an in-principle warning that capability does not determine goals, and current empirical work has not closed that gap for frontier models. [inference; source: https://nickbostrom.com/superintelligentwill.pdf; https://arxiv.org/abs/1906.01820; https://arxiv.org/abs/2105.14111; https://arxiv.org/abs/2307.09458; https://www.anthropic.com/research/tracing-thoughts-language-model]
 
 Modern alignment and interpretability results qualify how the thesis should be applied, but they do not overturn it: they show that behavior can be shaped, local mechanisms can sometimes be recovered, and some hidden-preference phenomena can be observed, while stable model-wide objective recovery remains out of reach. [inference; source: https://www.anthropic.com/research/claude-character; https://www.anthropic.com/news/claude-new-constitution; https://arxiv.org/abs/2301.05217; https://arxiv.org/abs/2307.09458; https://www.anthropic.com/research/tracing-thoughts-language-model; https://www.anthropic.com/research/alignment-faking]
 
