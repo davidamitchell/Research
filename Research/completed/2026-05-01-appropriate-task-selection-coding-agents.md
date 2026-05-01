@@ -2,12 +2,12 @@
 review_count: 2
 title: "What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?"
 added: 2026-05-01T08:17:39+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, software-engineering, governance, llm, evaluation]
 started: 2026-05-01T20:52:31+00:00
-completed: ~
+completed: 2026-05-01T21:09:30+00:00
 output: [knowledge]
 cites: [2026-03-22-agents-as-finishers-and-synthesisers, 2026-04-26-llm-verifiability-asymmetry-code-world-action, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-tdd-feedback-loops-ai-augmented-dev, 2026-04-30-ai-code-entropy-quality-metrics]
 related: [2026-03-22-applied-context-engineering-agent-workflows, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks]

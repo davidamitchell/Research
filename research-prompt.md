@@ -370,6 +370,14 @@ easily-detectable issues.
      pure-metadata form by default; do not turn "audit completed" notes into
      sourced claims unless the audit result itself is the subject of evidence.
 
+2c1. **§0 workflow-metadata claims** -- treat `§0` notes about output format,
+    workflow constraints, or evidence-handling rules as internal workflow
+    metadata, not as externally sourced facts. Do not attach outside URLs to
+    sentences such as "Constraints confirmed" or "Output format confirmed"
+    unless a cited source directly makes that exact claim. Rewrite these lines
+    as pure metadata or `[assumption]` with a justification when they describe
+    how this item will be handled rather than what the external evidence says.
+
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official
     page, update the entry in `## Sources` to the working official URL before
