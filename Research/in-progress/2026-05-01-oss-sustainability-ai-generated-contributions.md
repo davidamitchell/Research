@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?"
 added: 2026-05-01T08:17:39+00:00
 status: reviewing
