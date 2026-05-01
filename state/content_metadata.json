@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T02:35:53Z",
+  "extracted_at": "2026-05-01T03:05:44Z",
   "items": {
     "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
       "named_concepts": [
@@ -319,6 +319,85 @@
         },
         {
           "text": "The payback period is mixed: prompt-only workflows are advantaged for disposable prototypes, while fundamentals-first practices pay back quickly in reduced rework and more strongly later through lower entropy and cheaper feature addition. (; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2602.00180v1; https://itrevolution.com/accelerate-book/)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-04-30-explainable-ai-xai-regulation-governance": {
+      "named_concepts": [
+        "meaningful information",
+        "eu ai",
+        "ai act",
+        "agentic systems",
+        "current regulation",
+        "technical documentation",
+        "user information",
+        "information human",
+        "validation challenge",
+        "audience-specific explanation",
+        "lime shap",
+        "author groups",
+        "automated decisions",
+        "financial-services governance",
+        "governance sources",
+        "iso iec",
+        "explanation artifact",
+        "current mechanistic-interpretability",
+        "reviewed sources",
+        "model behaviour"
+      ],
+      "source_urls": [
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+        "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/",
+        "https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053",
+        "https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm",
+        "https://doi.org/10.6028/NIST.IR.8312",
+        "https://doi.org/10.1016/j.inffus.2019.12.012",
+        "https://doi.org/10.48550/arXiv.1702.08608",
+        "https://doi.org/10.48550/arXiv.1602.04938",
+        "https://doi.org/10.48550/arXiv.1705.07874",
+        "https://doi.org/10.48550/arXiv.1711.11279",
+        "https://www.darpa.mil/program/explainable-artificial-intelligence",
+        "https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning",
+        "https://www.apra.gov.au/operational-risk-management",
+        "https://www.iso.org/standard/42001",
+        "https://www.anthropic.com/research/tracing-thoughts-language-model",
+        "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing"
+      ],
+      "key_claims": [
+        {
+          "text": "The current XAI field is organised in the literature as a taxonomy of complementary explanation methods, with stable axes such as local versus global, ante-hoc versus post-hoc, and model-specific versus model-agnostic appearing across the survey literature. (; high confidence; source: https://doi.org/10.1016/j.inffus.2019.12.012; https://doi.org/10.48550/arXiv.1702.08608)",
+          "sources": []
+        },
+        {
+          "text": "Public research leadership in XAI is distributed across agenda-setting programmes and standards bodies such as DARPA and NIST, while widely reused methods such as LIME, SHAP, and TCAV came from different author groups rather than one frontier institution. (; high confidence; source: https://www.darpa.mil/program/explainable-artificial-intelligence; https://doi.org/10.6028/NIST.IR.8312; https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279)",
+          "sources": []
+        },
+        {
+          "text": "Named XAI techniques explain different things, because LIME provides local surrogate explanations, SHAP assigns local feature contributions, and TCAV maps internal behaviour to human concepts. (; high confidence; source: https://doi.org/10.48550/arXiv.1602.04938; https://doi.org/10.48550/arXiv.1705.07874; https://doi.org/10.48550/arXiv.1711.11279)",
+          "sources": []
+        },
+        {
+          "text": "Data-protection rules do not require source-code disclosure, but they do require meaningful information, significance, consequences, and contestability when solely automated decisions have legal or similarly significant effects on a person. (; high confidence; source: https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612053)",
+          "sources": []
+        },
+        {
+          "text": "The EU AI Act classifies creditworthiness, life and health insurance, and qualifying medical-device uses as high-risk and attaches logging, user information, human oversight, technical documentation, and robustness obligations to those systems. (; high confidence; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)",
+          "sources": []
+        },
+        {
+          "text": "Financial-services governance sources treat explainability as part of model-risk management and auditability, because SR 11-7, the Bank of England material, APRA CPS 230, and ISO/IEC 42001 all emphasise documentation, monitoring, effective challenge, critical operations, and traceable accountability. (; high confidence; source: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning; https://www.apra.gov.au/operational-risk-management; https://www.iso.org/standard/42001)",
+          "sources": []
+        },
+        {
+          "text": "In practice, XAI is most defensible in regulated audit and review when it is used as supporting evidence for validation, challenge, and review decisions, because no reviewed framework allows an explanation artifact to replace human accountability for a consequential decision. (; medium confidence; source: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm; https://www.bankofengland.co.uk/-/media/boe/files/fintech/ai-public-private-forum-final-report.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md)",
+          "sources": []
+        },
+        {
+          "text": "Agentic systems create a harder explanation problem than single-model prediction systems, because decision responsibility is spread across prompts, model calls, tool invocations, and handoffs, while current mechanistic-interpretability work still captures only a partial and labor-intensive view of internal computation. (; medium confidence; source: https://www.anthropic.com/research/tracing-thoughts-language-model; https://doi.org/10.6028/NIST.IR.8312; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)",
           "sources": []
         }
       ]
