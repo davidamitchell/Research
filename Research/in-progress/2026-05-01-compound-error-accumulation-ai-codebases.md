@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?"
 added: 2026-05-01T08:17:39+00:00
 status: reviewing
