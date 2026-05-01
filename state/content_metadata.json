@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T21:00:13Z",
+  "extracted_at": "2026-05-01T21:11:48Z",
   "items": {
     "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement": {
       "named_concepts": [
@@ -61,6 +61,78 @@
         },
         {
           "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-appropriate-task-selection-coding-agents": {
+      "named_concepts": [
+        "review rubrics",
+        "coding agents",
+        "blast radius",
+        "tests repro",
+        "repro cases",
+        "local code",
+        "bounded execution",
+        "field study",
+        "consistency refactors",
+        "task shape",
+        "reviewer tolerance",
+        "enabling condition",
+        "systemic risk",
+        "task type",
+        "strong observed",
+        "observed correlate",
+        "localized convergent",
+        "bounded scope",
+        "external success",
+        "success function"
+      ],
+      "source_urls": [
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+        "https://pi.dev/",
+        "https://arxiv.org/abs/2310.06770",
+        "https://arxiv.org/html/2602.08915v1",
+        "https://arxiv.org/abs/2511.04824",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign",
+        "https://doi.org/10.1109/MC.1987.1663532",
+        "https://www.ycombinator.com/library/MW-andrej-karpathy-software-is-changing-again"
+      ],
+      "key_claims": [
+        {
+          "text": "Task type is a strong observed correlate of real-world agent success, because large-scale field data shows sizeable acceptance-rate gaps between documentation, feature, and fix tasks, although that observational pattern can still reflect reviewer tolerance and task-label effects as well as underlying task difficulty. (; medium confidence; source: https://arxiv.org/html/2602.08915v1)",
+          "sources": []
+        },
+        {
+          "text": "Current coding agents look safest on localized, convergent work such as documentation, consistency refactors, and tightly scoped bug-fix tasks, but the evidence is stronger for those specific categories than for a universal claim that every small task is equally well-suited to delegation. (; medium confidence; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2511.04824)",
+          "sources": []
+        },
+        {
+          "text": "Bounded scope by itself is not enough; the task also needs an external success function, because the strongest positive studies for Copilot and the strongest workflow guidance for agents both rely on tests, review rubrics, or other executable checks that can reject bad work quickly. (; high confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices)",
+          "sources": []
+        },
+        {
+          "text": "Repository-scale issue resolution remains a weak delegation surface when the task requires long context, multi-file coordination, and open-ended reasoning, because Software Engineering Benchmark (SWE-bench) was built around exactly those demands and current first-party guidance also identifies long context as a degradation source for coding agents. (; medium confidence; source: https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices)",
+          "sources": []
+        },
+        {
+          "text": "Modularity is an enabling condition for safe delegation because deep modules and explicit interfaces reduce the amount of design knowledge that must be loaded outside the change boundary, even though direct controlled comparisons between modular and non-modular codebases for agents remain unavailable. (; medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html; https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deep-modules-ai-augmented-codebases.md)",
+          "sources": []
+        },
+        {
+          "text": "Fast feedback loops such as failing tests, repro cases, and similar verifier gates can convert some debugging and polish work into safe delegation candidates, because they shrink the search space and turn diagnosis into bounded execution against an explicit repair target. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-tdd-feedback-loops-ai-augmented-dev.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://www.anthropic.com/engineering/claude-code-best-practices)",
+          "sources": []
+        },
+        {
+          "text": "Tasks become systemically risky when success depends on architectural trade-offs, diffuse business intent, cross-cutting repository knowledge, or consequences that local code verifiers do not cover, because in those cases passing tests is no longer a sufficient proxy for a correct outcome. (; high confidence; source: https://doi.org/10.1109/MC.1987.1663532; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://arxiv.org/abs/2310.06770)",
+          "sources": []
+        },
+        {
+          "text": "The most useful practical delegation rule is therefore to give agents convergent execution work with a clear definition of done and to keep humans responsible for divergent judgment, scoping, architecture, and final acceptance, because that is where the evidence base shows the control stack is strongest. (; high confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)",
           "sources": []
         }
       ]
