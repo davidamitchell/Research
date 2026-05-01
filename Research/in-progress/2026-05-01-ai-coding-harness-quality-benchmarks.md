@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?"
 added: 2026-05-01T06:58:37+00:00
 status: reviewing
