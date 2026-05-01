@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 2a8993b568e9eb4d88118deb72d1ddd27194ed40
+    changed: 2026-05-01
+    progress: progress/2026-05-01-coding-agent-context-management-transparency.md
+    summary: "Initial completion"
 ---
 
 # What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?
