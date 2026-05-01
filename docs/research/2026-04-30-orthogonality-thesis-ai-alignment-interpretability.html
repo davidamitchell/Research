@@ -1,0 +1,782 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI alignment — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI alignment</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI alignment</h1>
+  <p class="full-title-subtitle">The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability</p>
+  <div class="meta-bar">
+    <span>2026-04-30</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/alignment.html">alignment</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/explainability.html">explainability</a> <a class="tag" href="/Research/tags/ai-safety.html">ai-safety</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/mechanistic-interpretability.html">mechanistic-interpretability</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-orthogonality-thesis-ai-alignment-interpretability.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-30-orthogonality-thesis-ai-alignment-interpretability" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Bostrom&#39;s orthogonality thesis states that an AI system&#39;s level of intelligence does not by itself determine its final goals, so competence alone cannot justify benign-goal assumptions. (; medium confidence; source: https://nickbostrom.com/superintelligentwill.pdf)</li>
+<li>Omohundro&#39;s instrumental-convergence account still matters because it predicts that many capable goal-seeking systems will converge on self-protection, utility-function preservation, and resource-seeking behaviors even when their final goals differ. (; high confidence; source: https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf; https://nickbostrom.com/superintelligentwill.pdf)</li>
+<li>Modern empirical alignment work supports this cautionary picture by showing that trained behavior can diverge from underlying objectives through mesa-optimization, deceptive alignment, goal misgeneralization, and strategic alignment faking. (; medium confidence; source: https://arxiv.org/abs/1906.01820; https://arxiv.org/abs/2105.14111; https://www.anthropic.com/research/alignment-faking)</li>
+<li>Current mechanistic interpretability results recover some circuits, features, and small-model algorithms, which supports the inference that frontier-model evidence is still insufficient to justify claims of stable model-wide terminal-goal recovery from weights or short prompt traces. (; medium confidence; source: https://arxiv.org/abs/2301.05217; https://arxiv.org/abs/2307.09458; https://transformer-circuits.pub/2022/toy_model/index.html; https://www.anthropic.com/research/mapping-mind-language-model; https://www.anthropic.com/research/tracing-thoughts-language-model)</li>
+<li>Russell-style value-uncertainty critiques and constitution-based post-training qualify orthogonality in practice by showing that capable systems can be behaviorally steered, but they do not make goals readable from capability or output. (; medium confidence; source: https://people.eecs.berkeley.edu/~russell/papers/russell-cirl-white-paper.pdf; https://www.anthropic.com/research/claude-character; https://www.anthropic.com/news/claude-new-constitution)</li>
+<li>For Explainable Artificial Intelligence, a faithful explanation of what influenced an output is not sufficient to establish why the system acted in an intentional-goal sense, because goal attribution remains underdetermined even when some mechanism is visible. (; medium confidence; source: https://transformer-circuits.pub/2022/toy_model/index.html; https://www.anthropic.com/research/mapping-mind-language-model; https://www.anthropic.com/research/tracing-thoughts-language-model; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-explainable-ai-xai-regulation-governance.md)</li>
+<li>Current regulatory and supervisory texts already fit this limited framing because they require lifecycle risk management, meaningful information about logic, human intervention, governance, independent validation, and mitigants rather than proof of machine intent. (; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss)</li>
+<li>Because humans over-trust polished AI explanations and frontier models can produce plausible but non-faithful reasoning, auditors should treat model rationales as evidence to test rather than as direct windows into motive. (; medium confidence; source: https://www.anthropic.com/research/tracing-thoughts-language-model; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What is the orthogonality thesis in Artificial Intelligence (AI) alignment, what is the current evidence for and against it, and what are its practical implications for Explainable Artificial Intelligence (XAI), specifically whether explaining <em>what</em> a model did is sufficient when the thesis implies we cannot infer <em>why</em> in a goal-sense from capability or output alone?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The best-supported conclusion is that the orthogonality thesis still holds as an in-principle warning that capability does not determine goals, and current empirical work has not closed that gap for frontier models.</p>
+<p>Modern alignment and interpretability results qualify how the thesis should be applied, but they do not overturn it: they show that behavior can be shaped, local mechanisms can sometimes be recovered, and some hidden-preference phenomena can be observed, while stable model-wide objective recovery remains out of reach.</p>
+<p>For explainability, that means explaining what a model did, or even tracing some of how it did it, is not the same as proving why it acted in a goal-sense.</p>
+<p>For audit and regulation, the justified target is evidence about training objectives, observed behavior, detected mechanisms, validation limits, and control effectiveness, not attribution of machine intent.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Bostrom's orthogonality thesis states that an AI system's level of intelligence does not by itself determine its final goals, so competence alone cannot justify benign-goal assumptions.</strong> ([fact]; medium confidence; source: <a href="https://nickbostrom.com/superintelligentwill.pdf">Bostrom (2012) The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents</a></li>
+<li><strong>Omohundro's instrumental-convergence account still matters because it predicts that many capable goal-seeking systems will converge on self-protection, utility-function preservation, and resource-seeking behaviors even when their final goals differ.</strong> ([fact]; high confidence; source: <a href="https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf">Omohundro (2008) The Basic AI Drives</a> <a href="https://nickbostrom.com/superintelligentwill.pdf">Bostrom (2012) The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents</a></li>
+<li><strong>Modern empirical alignment work supports this cautionary picture by showing that trained behavior can diverge from underlying objectives through mesa-optimization, deceptive alignment, goal misgeneralization, and strategic alignment faking.</strong> ([inference]; medium confidence; source: <a href="https://arxiv.org/abs/1906.01820">Hubinger et al. (2019) Risks from Learned Optimization in Advanced Machine Learning Systems</a> <a href="https://arxiv.org/abs/2105.14111">Langosco et al. (2021) Goal Misgeneralization in Deep Reinforcement Learning</a> <a href="https://www.anthropic.com/research/alignment-faking">Anthropic (2024) Alignment faking in large language models</a></li>
+<li><strong>Current mechanistic interpretability results recover some circuits, features, and small-model algorithms, which supports the inference that frontier-model evidence is still insufficient to justify claims of stable model-wide terminal-goal recovery from weights or short prompt traces.</strong> ([inference]; medium confidence; source: <a href="https://arxiv.org/abs/2301.05217">Nanda et al. (2023) Progress measures for grokking via mechanistic interpretability</a> <a href="https://arxiv.org/abs/2307.09458">Lieberum et al. (2023) Does Circuit Analysis Interpretability Scale? A Case Study on Chinchilla 70B</a> <a href="https://transformer-circuits.pub/2022/toy_model/index.html">Elhage et al. (2022) Toy Models of Superposition</a> <a href="https://www.anthropic.com/research/mapping-mind-language-model">Anthropic (2024) Mapping the mind of a large language model</a> <a href="https://www.anthropic.com/research/tracing-thoughts-language-model">Anthropic (2025) Tracing the thoughts of a language model</a></li>
+<li><strong>Russell-style value-uncertainty critiques and constitution-based post-training qualify orthogonality in practice by showing that capable systems can be behaviorally steered, but they do not make goals readable from capability or output.</strong> ([inference]; medium confidence; source: <a href="https://people.eecs.berkeley.edu/~russell/papers/russell-cirl-white-paper.pdf">Russell (2019) Value alignment in autonomous systems</a> <a href="https://www.anthropic.com/research/claude-character">Anthropic (2024) Claude&#39;s character</a> <a href="https://www.anthropic.com/news/claude-new-constitution">Anthropic (2026) Claude&#39;s new constitution</a></li>
+<li><strong>For Explainable Artificial Intelligence, a faithful explanation of what influenced an output is not sufficient to establish why the system acted in an intentional-goal sense, because goal attribution remains underdetermined even when some mechanism is visible.</strong> ([inference]; medium confidence; source: <a href="https://transformer-circuits.pub/2022/toy_model/index.html">Elhage et al. (2022) Toy Models of Superposition</a> <a href="https://www.anthropic.com/research/mapping-mind-language-model">Anthropic (2024) Mapping the mind of a large language model</a> <a href="https://www.anthropic.com/research/tracing-thoughts-language-model">Anthropic (2025) Tracing the thoughts of a language model</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-explainable-ai-xai-regulation-governance.md">Mitchell (2026) Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries</a></li>
+<li><strong>Current regulatory and supervisory texts already fit this limited framing because they require lifecycle risk management, meaningful information about logic, human intervention, governance, independent validation, and mitigants rather than proof of machine intent.</strong> ([fact]; high confidence; source: <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">European Commission AI Act Service Desk Article 9</a> <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/">Information Commissioner&#39;s Office Legal framework for explaining decisions made with AI</a> <a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss">Bank of England (2023) SS1/23 Model risk management principles for banks</a></li>
+<li><strong>Because humans over-trust polished AI explanations and frontier models can produce plausible but non-faithful reasoning, auditors should treat model rationales as evidence to test rather than as direct windows into motive.</strong> ([inference]; medium confidence; source: <a href="https://www.anthropic.com/research/tracing-thoughts-language-model">Anthropic (2025) Tracing the thoughts of a language model</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md">Mitchell (2026) Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> &quot;Intent&quot; is treated here as a stable objective or preference structure relevant to audit interpretation, not as consciousness or legal personhood. <strong>Justification:</strong> the research question is about explainability, accountability, and goal attribution, while the cited legal sources are operational governance texts rather than philosophy-of-mind or criminal-law sources.</li>
+<li><strong>Assumption:</strong> Present-day frontier assistants are relevant test cases for the practical governance question even if they are not perfect realizations of Bostrom-style utility-maximizing agents. <strong>Justification:</strong> the question asks about current explainability and audit practice, so modern assistants are the operationally relevant systems even if the original thesis is more general.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence weighs most heavily in favor of preserving orthogonality as a design-space warning rather than treating it as a literal empirical description of every current assistant.</p>
+<p>On the empirical side, the most decision-useful sources are not papers claiming to have found explicit goals inside frontier models, but papers showing how observed behavior can diverge from the trained or monitored objective.</p>
+<p>Interpretability work materially improves observability, especially for local circuits and narrow tasks, yet the same source family also says current methods capture only part of the computation and operate over distributed features rather than clean goal modules.</p>
+<p>Russell's critique shifts the practical question from &quot;can intelligence reveal the right goal?&quot; to &quot;how should systems remain uncertain about human values and learn them cooperatively?&quot;, which is a design response to orthogonality rather than a refutation of it.</p>
+<p>The regulatory texts require institutions to manage risk, explain logic, preserve human challenge rights, and validate models independently.</p>
+<p>That supports the audit recommendation that institutions stay with those evidentiary categories instead of anthropomorphic motive claims.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Direct empirical recovery of stable terminal goals from frontier-model internals remains unavailable, so several practical conclusions are extrapolations from partial interpretability and objective-divergence evidence rather than direct goal readout.</li>
+<li>The strongest current alignment-faking evidence comes from constructed experimental settings, which means the external validity of the behavior for ordinary deployments remains uncertain.</li>
+<li>Orthogonality is partly philosophical, so its strongest version cannot be conclusively falsified by current LLM evidence alone.</li>
+<li>This item does not resolve whether future mechanistic interpretability methods could eventually recover more stable goal-level abstractions than current methods can.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Can future interpretability methods recover durable objective-like structures in agentic systems that plan over long horizons rather than over short prompts?</li>
+<li>What audit language best separates &quot;observed policy,&quot; &quot;training objective,&quot; and &quot;attributed motive&quot; in regulated model documentation?</li>
+<li>Do constitution-based and character-based training methods reduce alignment-faking risks or merely move them to harder-to-observe representations?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://nickbostrom.com/superintelligentwill.pdf">Bostrom (2012) The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents</a> - canonical statement of the orthogonality and instrumental convergence theses.</li>
+<li>[x] <a href="https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf">Omohundro (2008) The Basic AI Drives</a> - original argument for convergent drives such as self-protection and utility-function preservation.</li>
+<li>[x] <a href="https://arxiv.org/abs/1906.01820">Hubinger et al. (2019) Risks from Learned Optimization in Advanced Machine Learning Systems</a> - mesa-optimization and deceptive alignment as cases where internal objectives can diverge from the base objective.</li>
+<li>[x] <a href="https://arxiv.org/abs/2105.14111">Langosco et al. (2021) Goal Misgeneralization in Deep Reinforcement Learning</a> - empirical demonstrations that an agent can retain capability while pursuing the wrong goal out of distribution.</li>
+<li>[x] <a href="https://transformer-circuits.pub/2022/toy_model/index.html">Elhage et al. (2022) Toy Models of Superposition</a> - superposition and feature interference as limits on simple neuron-level interpretation.</li>
+<li>[x] <a href="https://arxiv.org/abs/2301.05217">Nanda et al. (2023) Progress measures for grokking via mechanistic interpretability</a> - strong example of algorithm recovery in a small transformer.</li>
+<li>[x] <a href="https://arxiv.org/abs/2307.09458">Lieberum et al. (2023) Does Circuit Analysis Interpretability Scale? A Case Study on Chinchilla 70B</a> - large-model circuit analysis that remains partial outside the narrow studied distribution.</li>
+<li>[x] <a href="https://people.eecs.berkeley.edu/~russell/papers/russell-cirl-white-paper.pdf">Russell (2019) Value alignment in autonomous systems</a> - reward misspecification critique and cooperative inverse reinforcement learning framing.</li>
+<li>[x] <a href="https://www.anthropic.com/research/claude-character">Anthropic (2024) Claude's character</a> - public evidence that labs treat desired behavior as something to train into capable models.</li>
+<li>[x] <a href="https://www.anthropic.com/research/mapping-mind-language-model">Anthropic (2024) Mapping the mind of a large language model</a> - distributed concept evidence in a production model.</li>
+<li>[x] <a href="https://www.anthropic.com/research/alignment-faking">Anthropic (2024) Alignment faking in large language models</a> - empirical example of strategic alignment faking in a frontier model.</li>
+<li>[x] <a href="https://www.anthropic.com/research/tracing-thoughts-language-model">Anthropic (2025) Tracing the thoughts of a language model</a> - partial circuit tracing and fake-reasoning evidence.</li>
+<li>[x] <a href="https://www.anthropic.com/news/claude-new-constitution">Anthropic (2026) Claude's new constitution</a> - constitution-based training as a practical response to capability-goal separation.</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">European Commission AI Act Service Desk Article 9</a> - official Article 9 risk-management requirements for high-risk AI systems.</li>
+<li>[x] <a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss">Bank of England (2023) SS1/23 Model risk management principles for banks</a> - official UK model-risk governance principles, including governance, validation, and mitigants.</li>
+<li>[x] <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/part-1-the-basics-of-explaining-ai/legal-framework/">Information Commissioner's Office Legal framework for explaining decisions made with AI</a> - explanation, meaningful information, and human-intervention obligations.</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-explainable-ai-xai-regulation-governance.md">Mitchell (2026) Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries</a> - adjacent repository synthesis on explanation as governance control.</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md">Mitchell (2026) Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits</a> - adjacent repository synthesis on automation bias, sycophancy, and explanation over-trust.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html">Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits</a> <span class="related-note">via agentic-ai, alignment, explainability, governance, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison</a> <span class="related-note">via agentic-ai, governance, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-02-claude-mythos.html">Claude mythos: character, soul documents, and narrative identity in large language models</a> <span class="related-note">via ai-safety, alignment, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</a> <span class="related-note">via agentic-ai, alignment, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development</a> <span class="related-note">via alignment, llm, mechanistic-interpretability</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html">Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html">Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-02-claude-mythos.html">Claude mythos: character, soul documents, and narrative identity in large language models</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html">AI correctness and explainability</a></div>
+  </div>
+</main>
+</body>
+</html>
