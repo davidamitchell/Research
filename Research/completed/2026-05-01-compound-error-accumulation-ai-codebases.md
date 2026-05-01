@@ -2,12 +2,12 @@
 review_count: 2
 title: "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?"
 added: 2026-05-01T08:17:39+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, llm, evaluation, technical-debt, governance]
 started: 2026-05-01T21:32:27+00:00
-completed: ~
+completed: 2026-05-01T21:51:56+00:00
 output: [knowledge]
 cites: [2026-04-26-llm-verifiability-asymmetry-code-world-action, 2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-tdd-feedback-loops-ai-augmented-dev, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-coding-agent-context-management-transparency]
 related: [2026-03-14-reliable-software-llm-era, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks]
@@ -212,7 +212,7 @@ Bounded tasks with clear tests can still produce strong local outcomes, but long
 
 AI-generated tests are useful for coverage and regression scaffolding. They do not yet provide strong independent correctness oracles, especially when teams use coverage as a substitute for stronger properties or human review. [inference; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/; https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/]
 
-The most reliable mitigation is layered governance: narrow task selection, explicit acceptance criteria, machine validation, stronger test oracles for risky code, and expert human review on changes whose blast radius exceeds what automated checks can independently verify. [inference; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf; https://arxiv.org/html/2604.01527v1; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+The evidence supports layered governance: narrow task selection, explicit acceptance criteria, machine validation, stronger tests that can independently distinguish correct from incorrect behavior for risky code, and expert human review on changes whose blast radius exceeds what automated checks can independently verify. [inference; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf; https://arxiv.org/html/2604.01527v1; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
 
 **Key findings:**
 
@@ -222,7 +222,7 @@ The most reliable mitigation is layered governance: narrow task selection, expli
 4. **AI-generated tests are valuable for fast regression scaffolding and additional coverage, but the current evidence does not justify using them as independent correctness oracles for the same AI-generated implementation.** ([inference]; medium confidence; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/)
 5. **Test coverage alone is a weak assurance signal for AI-generated change sets, while stronger properties and mutation-sensitive techniques provide a better chance of surfacing hidden defects before release.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf)
 6. **Human review coverage, participation, and expertise remain the strongest directly evidenced contextual control for release quality, even though review metrics interact with defect-prone modules and are not a universal direct causal predictor on their own.** ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217)
-7. **The accessible evidence base supports AI review as a complement to human and execution-based validation, not as a replacement terminal gate for high-blast-radius changes, because strong comparative evidence for AI-only review is still thin.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496)
+7. **The accessible evidence base supports AI review as a complement to human and execution-based validation, not as a replacement terminal gate for high-blast-radius changes, because strong comparative evidence for AI-only review is still thin.** ([inference]; low confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496)
 
 **Evidence map:**
 
@@ -234,7 +234,7 @@ The most reliable mitigation is layered governance: narrow task selection, expli
 | [inference] AI-generated tests help regression coverage more than they provide independent oracles. | https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/ | medium | Coverage strength is clearer than oracle independence |
 | [inference] Coverage alone is weak assurance, while stronger properties detect more defects. | https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf | medium | Property-based testing evidence is AI-agnostic but directly relevant to oracle strength |
 | [inference] Human review remains the strongest evidenced contextual release gate. | https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217 | medium | Review effects are partly indirect, but still material |
-| [inference] AI review should remain complementary on high-risk changes. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496 | medium | Evidence for replacement remains preliminary |
+| [inference] AI review should remain complementary on high-risk changes. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496 | low | Evidence for replacement remains preliminary |
 
 **Identified but not consulted:**
 
@@ -289,7 +289,7 @@ Bounded tasks with clear tests can still produce strong local outcomes, but long
 
 AI-generated tests are useful for coverage and regression scaffolding. They do not yet provide strong independent correctness oracles, especially when teams use coverage as a substitute for stronger properties or human review. [inference; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/; https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/]
 
-The most reliable mitigation is layered governance: narrow task selection, explicit acceptance criteria, machine validation, stronger test oracles for risky code, and expert human review on changes whose blast radius exceeds what automated checks can independently verify. [inference; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf; https://arxiv.org/html/2604.01527v1; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+The evidence supports layered governance: narrow task selection, explicit acceptance criteria, machine validation, stronger tests that can independently distinguish correct from incorrect behavior for risky code, and expert human review on changes whose blast radius exceeds what automated checks can independently verify. [inference; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf; https://arxiv.org/html/2604.01527v1; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
 
 ### Key Findings
 
@@ -299,7 +299,7 @@ The most reliable mitigation is layered governance: narrow task selection, expli
 4. **AI-generated tests are valuable for fast regression scaffolding and additional coverage, but the current evidence does not justify using them as independent correctness oracles for the same AI-generated implementation.** ([inference]; medium confidence; source: https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/)
 5. **Test coverage alone is a weak assurance signal for AI-generated change sets, while stronger properties and mutation-sensitive techniques provide a better chance of surfacing hidden defects before release.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf)
 6. **Human review coverage, participation, and expertise remain the strongest directly evidenced contextual control for release quality, even though review metrics interact with defect-prone modules and are not a universal direct causal predictor on their own.** ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217)
-7. **The accessible evidence base supports AI review as a complement to human and execution-based validation, not as a replacement terminal gate for high-blast-radius changes, because strong comparative evidence for AI-only review is still thin.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496)
+7. **The accessible evidence base supports AI review as a complement to human and execution-based validation, not as a replacement terminal gate for high-blast-radius changes, because strong comparative evidence for AI-only review is still thin.** ([inference]; low confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496)
 
 ### Evidence Map
 
@@ -311,7 +311,7 @@ The most reliable mitigation is layered governance: narrow task selection, expli
 | [inference] AI-generated tests help regression coverage more than they provide independent oracles. | https://arxiv.org/abs/2302.06527; https://eprints.gla.ac.uk/324030/ | medium | Coverage strength clearer than oracle independence |
 | [inference] Coverage alone is weak assurance, while stronger properties detect more defects. | https://www.microsoft.com/en-us/research/publication/code-coverage-and-post-release-defects-a-large-scale-study-on-open-source-projects/; https://cseweb.ucsd.edu/~mcoblenz/assets/pdf/OOPSLA_2025_PBT.pdf | medium | Stronger oracles matter more than line execution counts |
 | [inference] Human review remains the strongest evidenced contextual release gate. | https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217 | medium | Review effects partly indirect, but material |
-| [inference] AI review should remain complementary on high-risk changes. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496 | medium | Replacement evidence still preliminary |
+| [inference] AI review should remain complementary on high-risk changes. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://arxiv.org/abs/2404.18496 | low | Replacement evidence still preliminary |
 
 **Identified but not consulted:**
 
@@ -339,7 +339,6 @@ The practical implication is to bottleneck on assurance strength, not on generat
 
 - No retrieved study directly labels failures as "local patch caused global regression," so that mechanism remains a synthesis from benchmark design, context guidance, and repository outcomes. [fact; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2604.01527v1]
 - Accessible empirical evidence for AI-only code review remains thin compared with the human-review literature. [fact; source: https://arxiv.org/abs/2404.18496]
-- The seeded Imai paper was identified but not consulted because the full paper was inaccessible in this session. [fact; source: https://doi.org/10.1145/3510454.3522684]
 - GitClear's findings are directionally useful but remain observational rather than randomized causal evidence. [fact; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research]
 
 ### Open Questions

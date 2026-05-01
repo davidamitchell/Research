@@ -183,6 +183,11 @@ aligned.
   interpretations resolved.
 - **Risks, Gaps, and Uncertainties** -- what is still unknown; where evidence
   is thin.
+  - Do **not** carry session-local access failures into Findings as sourced
+    factual claims, for example "paper X was inaccessible in this session"
+    supported only by the paper's DOI or landing page. Either omit the note, or
+    rewrite it as an evidence-scope gap grounded in accessible sources that are
+    actually used in the item.
 - **Open Questions** -- questions that surfaced but are out of scope; may become
   new backlog items.
 - **Output section** -- type (`knowledge`), description, and links to the three
