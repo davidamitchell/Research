@@ -2,12 +2,12 @@
 review_count: 2
 title: "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?"
 added: 2026-05-01T04:16:09+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-ai, ai-strategy, organisational-design, strategy]
 started: 2026-05-01T07:27:52+00:00
-completed: ~
+completed: 2026-05-01T07:53:31+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: []
 related: [2026-04-02-org-shape-software-cost-zero, 2026-04-02-ai-company-hiring-strategies]
