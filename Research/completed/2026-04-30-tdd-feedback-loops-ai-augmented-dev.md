@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 91d86408f19ab228f5b12a9a1891d9cb35e51772
+    changed: 2026-05-01
+    progress: progress/2026-05-01-tdd-feedback-loops-ai-augmented-dev.md
+    summary: "Initial completion"
 ---
 
 # Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction
