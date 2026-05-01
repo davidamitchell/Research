@@ -1,0 +1,776 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Deterministic weighted scoring models for customer risk rating under MLR 2017 — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Deterministic weighted scoring models for customer risk rating under MLR 2017</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Deterministic weighted scoring models for customer risk rating under MLR 2017</h1>
+  <p class="full-title-subtitle">Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives</p>
+  <div class="meta-bar">
+    <span>2026-04-30</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/regulation.html">regulation</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> <a class="tag" href="/Research/tags/audit.html">audit</a> <a class="tag" href="/Research/tags/risk-management.html">risk-management</a> <a class="tag" href="/Research/tags/compliance.html">compliance</a> <a class="tag" href="/Research/tags/machine-learning.html">machine-learning</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-deterministic-crr-mlr2017-risk-scoring.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-30-deterministic-crr-mlr2017-risk-scoring" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Deterministic weighted CRR models fit the legal shape of MLR 2017 because Regulation 18 and Regulation 28 require firms to assess customer, geography, product or service, transaction, and delivery-channel risks proportionately, but they do not prescribe a mandatory numeric weighting formula. (; high confidence; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.legislation.gov.uk/uksi/2017/692/regulation/28; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments)</li>
+<li>The main regulatory strength of deterministic CRR is auditability, because firms can show which factors, points, overrides, and thresholds produced a rating and then connect that rating to standard, enhanced, or simplified due-diligence decisions. (; high confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets; https://www.legislation.gov.uk/uksi/2017/692/regulation/28)</li>
+<li>Published practitioner descriptions show that real CRR models are usually point-based or weighted systems with factor-specific weights and automatic high-risk triggers rather than purely discretionary narratives, but the exact mechanics vary materially by institution. (; medium confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://financialcrimeacademy.org/customer-risk-rating-models/)</li>
+<li>Static deterministic CRR models are vulnerable to stale data, cross-business inconsistency, and missed interactions between factors, which means they tend to drift away from actual risk unless firms recalibrate them and update profiles continuously. (; medium confidence; source: https://financialcrimeacademy.org/customer-risk-rating-models/; https://www.bis.org/bcbs/publ/d353.pdf)</li>
+<li>Publicly accessible UK evidence supports deterministic CRR as a process control, but it does not validate deterministic customer-risk bands against SAR or investigation outcomes, so claims of predictive effectiveness remain materially under-evidenced. (; medium confidence; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file; https://arxiv.org/abs/2201.04207)</li>
+<li>Open-access AML research indicates that supervised ML is constrained by the scarcity of high-quality labeled laundering datasets, while unsupervised, reinforced, and network-oriented methods are more feasible for detecting unusual behavior than for replacing onboarding scores outright. (; medium confidence; source: https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://arxiv.org/abs/2201.04207; https://arxiv.org/abs/1608.00708)</li>
+<li>Basel guidance pushes firms beyond one-time deterministic scoring because it expects customer risk profiles to incorporate intended relationship purpose, expected activity, behavior over time, and ongoing monitoring, all of which reward dynamic rather than static models. (; high confidence; source: https://www.bis.org/bcbs/publ/d353.pdf; https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities)</li>
+<li>Hybrid models that keep an interpretable deterministic backbone and add behavioral, statistical, or network overlays are the most regulator-friendly improvement path because they address static-model weaknesses without abandoning explainability, auditability, or human oversight. (; medium confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>To what extent do deterministic weighted scoring models (based on the four main risk factors: customer, geographic, product/service, and delivery channel) effectively support a proportionate risk-based approach to customer due diligence (CDD) under the Money Laundering Regulations 2017 (MLR 2017), and what are their limitations compared to hybrid or machine learning-enhanced alternatives?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Deterministic weighted customer risk rating (CRR) models are a legally defensible but only partially validated way to implement the Money Laundering Regulations 2017 (MLR 2017) risk-based approach, because the regulations require proportionate factor-based assessment but do not require fixed weights or prove that static scores predict suspicious outcomes.</p>
+<p>Their main advantage is auditability: firms can explain which customer, geography, product or service, and delivery-channel inputs drove a risk rating and then show why that rating led to standard or enhanced customer due diligence (CDD).</p>
+<p>Their main weakness is that public evidence reviewed here does not connect onboarding risk bands to suspicious activity report (SAR) or investigation outcomes, while both practitioner and banking-governance sources point to stale data, inconsistent factors, and missing behavioral context as recurring failure modes.</p>
+<p>Hybrid models that keep an interpretable deterministic backbone and add behavioral, statistical, or network overlays are the best-supported improvement path, because open literature shows machine learning (ML) is more credible on richer behavioral data than on sparse labeled onboarding data, while prior finance-sector governance research still points toward explainability and human oversight as non-negotiable controls.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Deterministic weighted CRR models fit the legal shape of MLR 2017 because Regulation 18 and Regulation 28 require firms to assess customer, geography, product or service, transaction, and delivery-channel risks proportionately, but they do not prescribe a mandatory numeric weighting formula.</strong> ([inference]; high confidence; source: <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/18">UK Legislation (2017) Money Laundering Regulations 2017, Regulation 18</a> <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/28">UK Legislation (2017) Money Laundering Regulations 2017, Regulation 28</a> <a href="https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments">HM Government (2025) Money laundering regulations: risk assessments</a></li>
+<li><strong>The main regulatory strength of deterministic CRR is auditability, because firms can show which factors, points, overrides, and thresholds produced a rating and then connect that rating to standard, enhanced, or simplified due-diligence decisions.</strong> ([inference]; high confidence; source: <a href="https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model">EY (2023) How do you successfully operationalize your client risk rating model?</a> <a href="https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets">Financial Conduct Authority (2019, updated 2025) TR19/4 Understanding the money laundering risks in the capital markets</a> <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/28">UK Legislation (2017) Money Laundering Regulations 2017, Regulation 28</a></li>
+<li><strong>Published practitioner descriptions show that real CRR models are usually point-based or weighted systems with factor-specific weights and automatic high-risk triggers rather than purely discretionary narratives, but the exact mechanics vary materially by institution.</strong> ([fact]; medium confidence; source: <a href="https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model">EY (2023) How do you successfully operationalize your client risk rating model?</a> <a href="https://financialcrimeacademy.org/customer-risk-rating-models/">Financial Crime Academy (2022) Customer Risk Rating Models in Customer Due Diligence and Know Your Customer</a></li>
+<li><strong>Static deterministic CRR models are vulnerable to stale data, cross-business inconsistency, and missed interactions between factors, which means they tend to drift away from actual risk unless firms recalibrate them and update profiles continuously.</strong> ([inference]; medium confidence; source: <a href="https://financialcrimeacademy.org/customer-risk-rating-models/">Financial Crime Academy (2022) Customer Risk Rating Models in Customer Due Diligence and Know Your Customer</a> <a href="https://www.bis.org/bcbs/publ/d353.pdf">Basel Committee on Banking Supervision (2016) Sound management of risks related to money laundering and financing of terrorism</a></li>
+<li><strong>Publicly accessible UK evidence supports deterministic CRR as a process control, but it does not validate deterministic customer-risk bands against SAR or investigation outcomes, so claims of predictive effectiveness remain materially under-evidenced.</strong> ([inference]; medium confidence; source: <a href="https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file">National Crime Agency (2024) SARs Annual Report 2024</a> <a href="https://arxiv.org/abs/2201.04207">Jensen et al. (2023) Fighting Money Laundering with Statistics and Machine Learning</a></li>
+<li><strong>Open-access AML research indicates that supervised ML is constrained by the scarcity of high-quality labeled laundering datasets, while unsupervised, reinforced, and network-oriented methods are more feasible for detecting unusual behavior than for replacing onboarding scores outright.</strong> ([fact]; medium confidence; source: <a href="https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf">Canhoto (2021) Leveraging machine learning in the global fight against money laundering and terrorism financing: An affordances perspective</a> <a href="https://arxiv.org/abs/2201.04207">Jensen et al. (2023) Fighting Money Laundering with Statistics and Machine Learning</a> <a href="https://arxiv.org/abs/1608.00708">Savage et al. (2016) Detection of Money Laundering Groups: Supervised Learning on Small Networks</a></li>
+<li><strong>Basel guidance pushes firms beyond one-time deterministic scoring because it expects customer risk profiles to incorporate intended relationship purpose, expected activity, behavior over time, and ongoing monitoring, all of which reward dynamic rather than static models.</strong> ([inference]; high confidence; source: <a href="https://www.bis.org/bcbs/publ/d353.pdf">Basel Committee on Banking Supervision (2016) Sound management of risks related to money laundering and financing of terrorism</a> <a href="https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities">HM Government (2025) Money laundering regulations: your responsibilities</a></li>
+<li><strong>Hybrid models that keep an interpretable deterministic backbone and add behavioral, statistical, or network overlays are the most regulator-friendly improvement path because they address static-model weaknesses without abandoning explainability, auditability, or human oversight.</strong> ([inference]; medium confidence; source: <a href="https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model">EY (2023) How do you successfully operationalize your client risk rating model?</a> <a href="https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf">Canhoto (2021) Leveraging machine learning in the global fight against money laundering and terrorism financing: An affordances perspective</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md">Mitchell (2026) Global artificial intelligence agent regulation in financial services</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>Deterministic CRR design conventions described by EY and Financial Crime Academy are broadly representative of mainstream bank practice rather than outlier implementations.</li>
+<li>Public absence of UK score-to-SAR validation evidence reflects an evidence gap in open sources, not proof that private firms never validate their models internally.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The legal and supervisory question was answered primarily from UK statutory text and official guidance, because those sources directly define what counts as an acceptable risk-based approach under MLR 2017.</p>
+<p>Those sources consistently support factor-based, proportionate, documented decision-making, but they do not require a fixed weight split, which means practitioner evidence on weighted or point-based CRR mechanics was used only to describe common implementation patterns rather than to infer legal obligation.</p>
+<p>Effectiveness had to be judged on weaker public evidence, because the UKFIU publishes aggregate SAR and DAML outcomes rather than customer-risk-band validation, while open AML literature emphasizes sparse labeled datasets, interpretability, and data-quality limits more than direct benchmarking of deterministic onboarding scores.</p>
+<p>That evidence pattern supports a split conclusion: deterministic models remain strong on explainability and supervisory defensibility, but hybrid models offer a better balance once firms want more adaptive risk detection without giving up auditable logic or human accountability.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Public UK data reviewed here do not show whether high-risk CRR bands actually produce more valuable SAR or DAML outcomes than lower-risk bands.</li>
+<li>The open-access literature reviewed here is stronger on transaction or network analytics than on pure onboarding CRR, so claims about full ML replacement remain less certain than claims about behavior overlays.</li>
+<li>Publicly accessible primary UK sources reviewed here do not prescribe exact factor weights, so conclusions about detailed weighting conventions rely more on accessible law, regulator material, and practitioner descriptions than on directly quoted JMLSG Chapter 4 wording.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What internal validation metrics do UK firms actually use to test whether customer-risk bands predict later suspicious activity?</li>
+<li>Which hybrid governance pattern best preserves explainability when a behavioral overlay disagrees with a deterministic base score?</li>
+<li>Will future FCA, HM Revenue &amp; Customs, or JMLSG guidance become more explicit about acceptable use of ML inside customer risk-rating models?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/18">UK Legislation (2017) Money Laundering Regulations 2017, Regulation 18</a> - primary statutory text for the business-wide risk assessment requirement.</li>
+<li>[x] <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/28">UK Legislation (2017) Money Laundering Regulations 2017, Regulation 28</a> - primary statutory text for customer due diligence and ongoing monitoring.</li>
+<li>[ ] <a href="https://www.jmlsg.org.uk/guidance/current-guidance/">Joint Money Laundering Steering Group (2025) Current Guidance</a> - official industry guidance starting point for current UK convention statements.</li>
+<li>[x] <a href="https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments">HM Government (2025) Money laundering regulations: risk assessments</a> - official UK guidance on applying a risk-based approach and choosing methodology.</li>
+<li>[x] <a href="https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities">HM Government (2025) Money laundering regulations: your responsibilities</a> - official UK operational guidance on customer due diligence, enhanced due diligence, and controls.</li>
+<li>[x] <a href="https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets">Financial Conduct Authority (2019, updated 2025) TR19/4 Understanding the money laundering risks in the capital markets</a> - official FCA thematic-review page highlighting customer risk assessment and due diligence expectations.</li>
+<li>[x] <a href="https://handbook.fca.org.uk/handbook/FCG/3">Financial Conduct Authority (2025) FCG 3 Money laundering and terrorist financing</a> - official FCA handbook section used for customer due diligence and risk-based-approach expectations.</li>
+<li>[ ] <a href="https://www.fatf-gafi.org/media/fatf/documents/reports/Risk-Based-Approach-Banking-Sector.pdf">FATF (2014) Risk-Based Approach Guidance for the Banking Sector</a> - official international comparator for risk-factor taxonomies and proportionality.</li>
+<li>[x] <a href="https://www.bis.org/bcbs/publ/d353.pdf">Basel Committee on Banking Supervision (2016) Sound management of risks related to money laundering and financing of terrorism</a> - official banking guidance on customer risk profiles and ongoing monitoring.</li>
+<li>[x] <a href="https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file">National Crime Agency (2024) SARs Annual Report 2024</a> - official regime-level outcomes data for SAR and Defence Against Money Laundering activity.</li>
+<li>[x] <a href="https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model">EY (2023) How do you successfully operationalize your client risk rating model?</a> - practitioner description of point-based CRR mechanics, weights, and triggers.</li>
+<li>[x] <a href="https://financialcrimeacademy.org/customer-risk-rating-models/">Financial Crime Academy (2022) Customer Risk Rating Models in Customer Due Diligence and Know Your Customer</a> - practitioner source on static customer risk models and their operational weaknesses.</li>
+<li>[x] <a href="https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf">Canhoto (2021) Leveraging machine learning in the global fight against money laundering and terrorism financing: An affordances perspective</a> - open-access academic paper on where supervised, unsupervised, and reinforced ML fit in AML.</li>
+<li>[x] <a href="https://arxiv.org/abs/1608.00708">Savage et al. (2016) Detection of Money Laundering Groups: Supervised Learning on Small Networks</a> - open-access example of supervised learning succeeding in group-behavior detection rather than simple onboarding scoring.</li>
+<li>[x] <a href="https://arxiv.org/abs/2201.04207">Jensen et al. (2023) Fighting Money Laundering with Statistics and Machine Learning</a> - open-access review of client risk profiling, suspicious-behavior flagging, interpretability, and data scarcity.</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md">Mitchell (2026) Global artificial intelligence agent regulation in financial services</a> - prior repository item showing that explainability, auditability, and human oversight recur across finance-sector AI regulation.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html">Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls</a> <span class="related-note">via financial-services, governance, regulation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-22-historical-technology-adoption-enterprise-ai-capability-building.html">Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building</a> <span class="related-note">via financial-services, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html">Enterprise AI platform operating models: organisational structure and ownership</a> <span class="related-note">via financial-services, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions.html">Public sentiment on AI in banking and high-trust institutions</a> <span class="related-note">via financial-services, regulation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</a> <span class="related-note">via compliance, governance</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html">Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html">Automated governance assurance and change control verification patterns for AI-assisted delivery</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Artificial Intelligence code entropy and complexity</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T02:15:40Z",
+  "extracted_at": "2026-05-01T02:24:22Z",
   "items": {
     "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
       "named_concepts": [
@@ -319,6 +319,81 @@
         },
         {
           "text": "The payback period is mixed: prompt-only workflows are advantaged for disposable prototypes, while fundamentals-first practices pay back quickly in reduced rework and more strongly later through lower entropy and cheaper feature addition. (; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2602.00180v1; https://itrevolution.com/accelerate-book/)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-04-30-deterministic-crr-mlr2017-risk-scoring": {
+      "named_concepts": [
+        "deterministic crr",
+        "crr models",
+        "reviewed here",
+        "hybrid models",
+        "deterministic weighted",
+        "improvement path",
+        "customer risk",
+        "risk rating",
+        "suspicious outcomes",
+        "customer geography",
+        "geography product",
+        "suspicious activity",
+        "investigation outcomes",
+        "interpretable deterministic",
+        "deterministic backbone",
+        "add behavioral",
+        "behavioral statistical",
+        "network overlays",
+        "best-supported improvement",
+        "open literature"
+      ],
+      "source_urls": [
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/18",
+        "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+        "https://www.jmlsg.org.uk/guidance/current-guidance/",
+        "https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments",
+        "https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities",
+        "https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets",
+        "https://handbook.fca.org.uk/handbook/FCG/3",
+        "https://www.fatf-gafi.org/media/fatf/documents/reports/Risk-Based-Approach-Banking-Sector.pdf",
+        "https://www.bis.org/bcbs/publ/d353.pdf",
+        "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file",
+        "https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model",
+        "https://financialcrimeacademy.org/customer-risk-rating-models/",
+        "https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf",
+        "https://arxiv.org/abs/1608.00708",
+        "https://arxiv.org/abs/2201.04207"
+      ],
+      "key_claims": [
+        {
+          "text": "Deterministic weighted CRR models fit the legal shape of MLR 2017 because Regulation 18 and Regulation 28 require firms to assess customer, geography, product or service, transaction, and delivery-channel risks proportionately, but they do not prescribe a mandatory numeric weighting formula. (; high confidence; source: https://www.legislation.gov.uk/uksi/2017/692/regulation/18; https://www.legislation.gov.uk/uksi/2017/692/regulation/28; https://www.gov.uk/guidance/money-laundering-regulations-risk-assessments)",
+          "sources": []
+        },
+        {
+          "text": "The main regulatory strength of deterministic CRR is auditability, because firms can show which factors, points, overrides, and thresholds produced a rating and then connect that rating to standard, enhanced, or simplified due-diligence decisions. (; high confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://www.fca.org.uk/publications/thematic-reviews/tr19-4-understanding-money-laundering-risks-capital-markets; https://www.legislation.gov.uk/uksi/2017/692/regulation/28)",
+          "sources": []
+        },
+        {
+          "text": "Published practitioner descriptions show that real CRR models are usually point-based or weighted systems with factor-specific weights and automatic high-risk triggers rather than purely discretionary narratives, but the exact mechanics vary materially by institution. (; medium confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://financialcrimeacademy.org/customer-risk-rating-models/)",
+          "sources": []
+        },
+        {
+          "text": "Static deterministic CRR models are vulnerable to stale data, cross-business inconsistency, and missed interactions between factors, which means they tend to drift away from actual risk unless firms recalibrate them and update profiles continuously. (; medium confidence; source: https://financialcrimeacademy.org/customer-risk-rating-models/; https://www.bis.org/bcbs/publ/d353.pdf)",
+          "sources": []
+        },
+        {
+          "text": "Publicly accessible UK evidence supports deterministic CRR as a process control, but it does not validate deterministic customer-risk bands against SAR or investigation outcomes, so claims of predictive effectiveness remain materially under-evidenced. (; medium confidence; source: https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file; https://arxiv.org/abs/2201.04207)",
+          "sources": []
+        },
+        {
+          "text": "Open-access AML research indicates that supervised ML is constrained by the scarcity of high-quality labeled laundering datasets, while unsupervised, reinforced, and network-oriented methods are more feasible for detecting unusual behavior than for replacing onboarding scores outright. (; medium confidence; source: https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://arxiv.org/abs/2201.04207; https://arxiv.org/abs/1608.00708)",
+          "sources": []
+        },
+        {
+          "text": "Basel guidance pushes firms beyond one-time deterministic scoring because it expects customer risk profiles to incorporate intended relationship purpose, expected activity, behavior over time, and ongoing monitoring, all of which reward dynamic rather than static models. (; high confidence; source: https://www.bis.org/bcbs/publ/d353.pdf; https://www.gov.uk/guidance/money-laundering-regulations-your-responsibilities)",
+          "sources": []
+        },
+        {
+          "text": "Hybrid models that keep an interpretable deterministic backbone and add behavioral, statistical, or network overlays are the most regulator-friendly improvement path because they address static-model weaknesses without abandoning explainability, auditability, or human oversight. (; medium confidence; source: https://www.ey.com/en_ch/disrupting-financial-crime/how-do-you-successfully-operationalize-your-client-risk-rating-model; https://bura.brunel.ac.uk/bitstream/2438/25258/1/FullText.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md)",
           "sources": []
         }
       ]
