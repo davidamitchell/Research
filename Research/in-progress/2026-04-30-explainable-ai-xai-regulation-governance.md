@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries"
 added: 2026-04-30T06:42:30+00:00
 status: reviewing
