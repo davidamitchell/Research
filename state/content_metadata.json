@@ -1,6 +1,82 @@
 {
-  "extracted_at": "2026-05-01T01:23:33Z",
+  "extracted_at": "2026-05-01T01:35:32Z",
   "items": {
+    "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
+      "named_concepts": [
+        "ai coding",
+        "execution feedback",
+        "minimum viable",
+        "fast static",
+        "runtime feedback",
+        "matt pocock",
+        "ai sessions",
+        "tdd guidance",
+        "artificial intelligence",
+        "intelligence ai",
+        "later change",
+        "failing-test-first loop",
+        "fast external",
+        "external feedback",
+        "code correction",
+        "disposable prototypes",
+        "review burden",
+        "viable feedback",
+        "feedback loop",
+        "vertical slices"
+      ],
+      "source_urls": [
+        "https://www.oreilly.com/library/view/test-driven-development/0321146530/",
+        "https://github.com/mattpocock/skills",
+        "https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md",
+        "https://arxiv.org/abs/2302.06590",
+        "https://doi.org/10.1145/3510454.3522684",
+        "https://arxiv.org/abs/2206.15331",
+        "https://doi.org/10.1207/s15516709cog1202_4",
+        "https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models",
+        "https://arxiv.org/abs/2108.09293",
+        "https://www.jamesshore.com/v2/books/aoad2/development",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://arxiv.org/abs/2303.11366",
+        "https://arxiv.org/abs/2304.05128",
+        "https://arxiv.org/abs/2303.17651",
+        "https://link.springer.com/article/10.1007/s10664-013-9289-1",
+        "https://www.aihero.dev/"
+      ],
+      "key_claims": [
+        {
+          "text": "Matt Pocock's TDD skill explicitly rejects bulk test-writing in AI sessions, while James Shore's TDD guidance independently supports small test-refactor cycles and fast reliable feedback, so the combined evidence favors narrow, verifier-rich increments over large speculative batches. (; medium confidence; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://www.jamesshore.com/v2/books/aoad2/development)",
+          "sources": []
+        },
+        {
+          "text": "Controlled Copilot studies show that Artificial Intelligence (AI) coding tools can deliver real speed and local quality gains, but because those gains are still measured through external tests and review rubrics, the cited studies do not by themselves prove that delayed verification is a safe default workflow. (; medium confidence; source: https://arxiv.org/abs/2302.06590; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2206.15331)",
+          "sources": []
+        },
+        {
+          "text": "Usability and pair-programming studies indicate that developers often pay a comprehension and debugging tax on generated code, which is the human-side mechanism behind the \"outrunning headlights\" failure mode in bulk-generation sessions. (; medium confidence; source: https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://doi.org/10.1145/3510454.3522684; https://arxiv.org/abs/2108.09293)",
+          "sources": []
+        },
+        {
+          "text": "Execution-feedback papers such as Reflexion and Self-Debugging show that explicit test or runtime signals materially improve model self-correction over one-shot generation. (; high confidence; source: https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2304.05128; https://arxiv.org/abs/2303.17651)",
+          "sources": []
+        },
+        {
+          "text": "Static typing provides early maintainability and error-localization benefits, because Hanenberg et al. found advantages for understanding undocumented code and fixing type errors, but not for fixing semantic errors. (; medium confidence; source: https://link.springer.com/article/10.1007/s10664-013-9289-1)",
+          "sources": []
+        },
+        {
+          "text": "The direct public evidence for TDD with AI is thinner than the evidence for feedback-rich iteration more generally, so claims that test-first workflows always reduce total wall-clock delivery time remain unproven. (; medium confidence; source: https://arxiv.org/abs/2302.06590; https://par.nsf.gov/biblio/10366304-expectation-vs-experience-evaluating-usability-code-generation-tools-powered-large-language-models; https://arxiv.org/abs/2206.15331; https://arxiv.org/abs/2304.05128)",
+          "sources": []
+        },
+        {
+          "text": "The strongest justification for TDD in Artificial Intelligence (AI) sessions is control of search space and review load, especially on persistent codebases where unverified bulk generation compounds entropy and raises later change cost. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html; https://davidamitchell.github.io/Research/research/2026-04-26-software-engineering-investment-case-llm.html)",
+          "sources": []
+        },
+        {
+          "text": "The minimum viable feedback loop for safer Artificial Intelligence (AI)-augmented development is small vertical slices, executable tests, and fast static or runtime feedback, while browser-tool evidence is best treated as a plausible extension rather than a settled comparative result. (; medium confidence; source: https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md; https://www.jamesshore.com/v2/books/aoad2/development; https://link.springer.com/article/10.1007/s10664-013-9289-1; https://arxiv.org/abs/2304.05128)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-30-strategic-tactical-division-ai-teams": {
       "named_concepts": [
         "bounded implementation",

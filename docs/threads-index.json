@@ -9,7 +9,7 @@
       "rag"
     ],
     "concept_cluster": [],
-    "item_count": 30,
+    "item_count": 31,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -140,6 +140,11 @@
         "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
         "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
         "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
       },
       {
         "slug": "2026-04-30-strategic-tactical-division-ai-teams",
@@ -504,7 +509,7 @@
       "software-engineering"
     ],
     "concept_cluster": [],
-    "item_count": 28,
+    "item_count": 29,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -624,6 +629,11 @@
       {
         "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
         "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
         "added": "2026-04-30"
       },
       {
@@ -799,7 +809,7 @@
       "software-engineering"
     ],
     "concept_cluster": [],
-    "item_count": 24,
+    "item_count": 25,
     "items": [
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
@@ -895,6 +905,11 @@
         "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
         "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
         "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
       },
       {
         "slug": "2026-04-30-strategic-tactical-division-ai-teams",
@@ -1069,7 +1084,7 @@
       "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 22,
+    "item_count": 23,
     "items": [
       {
         "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
@@ -1160,6 +1175,11 @@
         "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
         "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
         "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
       },
       {
         "slug": "2026-04-30-strategic-tactical-division-ai-teams",
@@ -1418,6 +1438,236 @@
       }
     ],
     "url": "/Research/threads/low-code-ai-governance-agentic-ai.html"
+  },
+  {
+    "slug": "agentic-ai-software-engineering-llm",
+    "title": "agentic-ai / software-engineering / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "software-engineering",
+      "llm"
+    ],
+    "concept_cluster": [],
+    "item_count": 20,
+    "items": [
+      {
+        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-14-reliable-software-llm-era",
+        "title": "Reliable Software in the LLM Era",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-16-gitagent-declarative-agent-definition",
+        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-compliance-scanning-gh-actions",
+        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-23-agent-orchestration-anvil-max",
+        "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
+        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
+        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
+        "added": "2026-04-30"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-software-engineering-llm.html"
+  },
+  {
+    "slug": "agentic-ai-llm-software-engineering",
+    "title": "agentic-ai / llm / software-engineering",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "llm",
+      "software-engineering"
+    ],
+    "concept_cluster": [],
+    "item_count": 20,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy-security-focus",
+        "title": "AI Strategy Examples: Security Focus",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-14-reliable-software-llm-era",
+        "title": "Reliable Software in the LLM Era",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-31-llm-offensive-security-0days",
+        "title": "Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race",
+        "added": "2026-03-31"
+      },
+      {
+        "slug": "2026-04-26-multi-ai-provider-control-planes",
+        "title": "Multi-provider AI control planes: capabilities, vendors, and coverage gaps",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
+        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
+        "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
+        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
+        "added": "2026-04-30"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-llm-software-engineering.html"
   },
   {
     "slug": "agentic-ai-governance-servicenow",
@@ -1750,21 +2000,26 @@
     "url": "/Research/threads/agentic-ai-workflow-skills.html"
   },
   {
-    "slug": "agentic-ai-software-engineering-skills",
-    "title": "agentic-ai / software-engineering / skills",
+    "slug": "agentic-ai-workflow-evaluation",
+    "title": "agentic-ai / workflow / evaluation",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
-      "software-engineering",
-      "skills"
+      "workflow",
+      "evaluation"
     ],
     "concept_cluster": [],
     "item_count": 19,
     "items": [
       {
-        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
-        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
         "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-05-general-agent-optimization-framework",
+        "title": "General Agent Optimization Framework",
+        "added": "2026-03-05"
       },
       {
         "slug": "2026-03-04-sdlc-ai-prompt-patterns",
@@ -1777,19 +2032,19 @@
         "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-14-reliable-software-llm-era",
-        "title": "Reliable Software in the LLM Era",
-        "added": "2026-03-16"
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
+        "slug": "2026-03-10-research-loop-evaluation-rubric",
+        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-16-gitagent-declarative-agent-definition",
@@ -1797,18 +2052,13 @@
         "added": "2026-03-19"
       },
       {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
       },
       {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-compliance-scanning-gh-actions",
-        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
         "added": "2026-03-22"
       },
       {
@@ -1817,129 +2067,19 @@
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-23-agent-orchestration-anvil-max",
-        "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
-        "added": "2026-03-24"
-      },
-      {
-        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
-        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-29"
-      },
-      {
         "slug": "2026-04-03-oh-my-codex-patterns",
         "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
         "added": "2026-04-03"
       },
       {
-        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
-        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
-        "added": "2026-04-20"
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
       },
       {
-        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
-        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
-        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-software-engineering-skills.html"
-  },
-  {
-    "slug": "agentic-ai-llm-security",
-    "title": "agentic-ai / llm / security",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "llm",
-      "security"
-    ],
-    "concept_cluster": [],
-    "item_count": 19,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy-security-focus",
-        "title": "AI Strategy Examples: Security Focus",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-14-reliable-software-llm-era",
-        "title": "Reliable Software in the LLM Era",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-31-llm-offensive-security-0days",
-        "title": "Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race",
-        "added": "2026-03-31"
-      },
-      {
-        "slug": "2026-04-26-multi-ai-provider-control-planes",
-        "title": "Multi-provider AI control planes: capabilities, vendors, and coverage gaps",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
-        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
       },
       {
         "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
@@ -1947,8 +2087,8 @@
         "added": "2026-04-29"
       },
       {
-        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
-        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
         "added": "2026-04-30"
       },
       {
@@ -1967,7 +2107,7 @@
         "added": "2026-04-30"
       }
     ],
-    "url": "/Research/threads/agentic-ai-llm-security.html"
+    "url": "/Research/threads/agentic-ai-workflow-evaluation.html"
   },
   {
     "slug": "agentic-ai-hallucinations-alignment",
@@ -2080,111 +2220,6 @@
     "url": "/Research/threads/agentic-ai-hallucinations-alignment.html"
   },
   {
-    "slug": "agentic-ai-workflow-evaluation",
-    "title": "agentic-ai / workflow / evaluation",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "workflow",
-      "evaluation"
-    ],
-    "concept_cluster": [],
-    "item_count": 18,
-    "items": [
-      {
-        "slug": "2026-03-02-transaction-costs",
-        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-05-general-agent-optimization-framework",
-        "title": "General Agent Optimization Framework",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
-        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-research-loop-evaluation-rubric",
-        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      },
-      {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
-        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
-        "added": "2026-04-29"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
-        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-workflow-evaluation.html"
-  },
-  {
     "slug": "low-code-ai-governance-enterprise-governance",
     "title": "low-code / ai-governance / enterprise-governance",
     "kind": "implicit",
@@ -2283,6 +2318,101 @@
       }
     ],
     "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
+  },
+  {
+    "slug": "agentic-ai-agentic-coding-software-engineering",
+    "title": "agentic-ai / agentic-coding / software-engineering",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "agentic-coding",
+      "software-engineering"
+    ],
+    "concept_cluster": [],
+    "item_count": 16,
+    "items": [
+      {
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-saas-banking-invariants",
+        "title": "Invariants in Software as a Service (SaaS) Banking Software",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
+        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
+        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
+        "added": "2026-04-30"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-agentic-coding-software-engineering.html"
   },
   {
     "slug": "agentic-ai-uelgf-observability",
@@ -2473,96 +2603,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-workflow-memory-system.html"
-  },
-  {
-    "slug": "agentic-ai-agentic-coding-observability",
-    "title": "agentic-ai / agentic-coding / observability",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "agentic-coding",
-      "observability"
-    ],
-    "concept_cluster": [],
-    "item_count": 15,
-    "items": [
-      {
-        "slug": "2026-03-02-transaction-costs",
-        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-saas-banking-invariants",
-        "title": "Invariants in Software as a Service (SaaS) Banking Software",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-02-org-shape-software-cost-zero",
-        "title": "The shape of organisations when software is no longer the constraint",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
-        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
-        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
-        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
-        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
-        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-agentic-coding-observability.html"
   },
   {
     "slug": "governance-citizen-development-low-code",
@@ -4560,13 +4600,13 @@
     "url": "/Research/threads/policy-as-code-compliance-dotnet.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-claude-code",
-    "title": "copilot coding / coding agent / claude code",
+    "slug": "coding-agent-copilot-coding-claude-code",
+    "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "claude code"
     ],
     "item_count": 5,
@@ -4597,7 +4637,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
     "slug": "cost-allocation-tbm-council-financial-services",
@@ -4640,14 +4680,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
-      "agents md"
+      "copilot coding",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -4677,7 +4717,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -4715,13 +4755,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -4747,16 +4787,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "copilot studio"
     ],
     "item_count": 4,
@@ -4782,16 +4822,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -4817,7 +4857,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "enterprise-architecture-csdm-servicenow",
@@ -4970,14 +5010,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
-      "direct publish"
+      "power platform",
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -4997,16 +5037,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-iso-iec",
-    "title": "ai rmf / nist ai / iso iec",
+    "slug": "nist-ai-ai-rmf-iso-iec",
+    "title": "nist ai / ai rmf / iso iec",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "iso iec"
     ],
     "item_count": 3,
@@ -5027,17 +5067,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-iso-iec.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-iso-iec.html"
   },
   {
-    "slug": "ai-systems-agentic-ai-prompt-injection",
-    "title": "ai systems / agentic ai / prompt injection",
+    "slug": "agentic-ai-ai-systems-nist-ai",
+    "title": "agentic ai / ai systems / nist ai",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai systems",
       "agentic ai",
-      "prompt injection"
+      "ai systems",
+      "nist ai"
     ],
     "item_count": 3,
     "items": [
@@ -5057,6 +5097,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
+    "url": "/Research/threads/agentic-ai-ai-systems-nist-ai.html"
   }
 ]
