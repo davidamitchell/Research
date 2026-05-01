@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
