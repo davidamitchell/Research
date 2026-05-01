@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?"
 added: 2026-05-01T08:17:39+00:00
 status: reviewing
