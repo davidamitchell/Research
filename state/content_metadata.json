@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T22:08:12Z",
+  "extracted_at": "2026-05-01T22:21:18Z",
   "items": {
     "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement": {
       "named_concepts": [
@@ -61,6 +61,81 @@
         },
         {
           "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-human-oversight-ai-software-development": {
+      "named_concepts": [
+        "artificial intelligence",
+        "human review",
+        "bounded low-risk",
+        "human oversight",
+        "intelligence coding",
+        "bounded tasks",
+        "stronger human",
+        "human ownership",
+        "deeper review",
+        "quality gate",
+        "review remains",
+        "best empirical",
+        "human bottleneck",
+        "ownership expertise",
+        "psychological pain",
+        "failure cost",
+        "review removes",
+        "removes defects",
+        "defects early",
+        "always direct"
+      ],
+      "source_urls": [
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+        "https://dl.acm.org/doi/10.1109/ICSE.2013.6606617",
+        "https://research.tudelft.nl/en/publications/expectations-outcomes-and-challenges-of-modern-code-review/",
+        "https://dl.acm.org/doi/10.1147/sj.153.0182",
+        "https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf",
+        "https://link.springer.com/article/10.1007/s10664-015-9381-9",
+        "https://dl.acm.org/doi/10.1109/2.962984",
+        "https://arxiv.org/abs/2005.09217",
+        "https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/",
+        "https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://arxiv.org/abs/2310.06770",
+        "https://arxiv.org/html/2511.04427v2",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core"
+      ],
+      "key_claims": [
+        {
+          "text": "Human review is a real software-quality gate because formal inspections and modern code-review studies both show that review removes defects early and that review coverage, participation, and reviewer expertise are linked to better quality, even if those effects are not always direct in every post-release defect model. (; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217)",
+          "sources": []
+        },
+        {
+          "text": "Human oversight matters partly because review catches understanding, maintainability, and integration problems, not only obvious functional bugs, which makes it especially relevant when Artificial Intelligence increases the volume of locally plausible but globally fragile code. (; medium confidence; source: https://research.tudelft.nl/en/publications/expectations-outcomes-and-challenges-of-modern-code-review/; https://link.springer.com/article/10.1007/s10664-015-9381-9)",
+          "sources": []
+        },
+        {
+          "text": "The best empirical support for the bottleneck hypothesis is indirect: ownership concentration, developer-specific experience, and low-expertise change patterns are associated with faults and failures, which suggests that maintenance responsibility and deep local knowledge are part of why human oversight works. (; medium confidence; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/; https://doi.org/10.1145/1985793.1985860)",
+          "sources": []
+        },
+        {
+          "text": "Artificial Intelligence coding assistance performs best on bounded tasks with executable checks, while real repository issues that require long context and multi-file coordination remain materially harder, so oversight becomes more important as task scope widens. (; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2310.06770)",
+          "sources": []
+        },
+        {
+          "text": "The strongest available evidence for weak oversight in the Artificial Intelligence era is repository-scale drift in warnings, complexity, duplication, and maintainability burden rather than a single clean experiment in fully autonomous development. (; medium confidence; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md)",
+          "sources": []
+        },
+        {
+          "text": "Review quality depends on scarce expert attention, so \"review everything\" is not a serious control design; the gate has to be selective, verifier-backed, and aimed at the changes whose failure cost exceeds machine-verification strength. (; medium confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md)",
+          "sources": []
+        },
+        {
+          "text": "For critical, low-reversibility, or cross-cutting changes, the evidence supports stronger human ownership, narrower change scopes, and deeper review than teams can justify for bounded low-risk work. (; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://www.anthropic.com/engineering/claude-code-best-practices)",
           "sources": []
         }
       ]
