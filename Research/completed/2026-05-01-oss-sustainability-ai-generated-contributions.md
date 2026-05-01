@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a451ec984cf72bd3563251d3a46c01a651f6cec8
+    changed: 2026-05-01
+    progress: progress/2026-05-01-oss-sustainability-ai-generated-contributions.md
+    summary: Initial completion
 ---
 
 # What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?
