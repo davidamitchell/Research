@@ -1,6 +1,70 @@
 {
-  "extracted_at": "2026-05-01T07:43:28Z",
+  "extracted_at": "2026-05-01T07:55:17Z",
   "items": {
+    "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement": {
+      "named_concepts": [
+        "harvard business",
+        "business school",
+        "top automation",
+        "top augmentation",
+        "specialist roles",
+        "automation quartile",
+        "augmentation quartile",
+        "task mix",
+        "crossover rule",
+        "total occupational",
+        "top quartile",
+        "exposure experienced",
+        "later harvard",
+        "summary reports",
+        "codifiable language",
+        "mixed-task specialist",
+        "quartile postings",
+        "postings fall",
+        "accessible paper",
+        "school summary"
+      ],
+      "source_urls": [
+        "https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf",
+        "https://aisel.aisnet.org/amcis2025/sig_cnow/sig_cnow/18/",
+        "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+        "https://hbr.org/2026/03/research-how-ai-is-changing-the-labor-market",
+        "https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america",
+        "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
+        "https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf",
+        "https://www.weforum.org/press/2023/04/future-of-jobs-report-2023-up-to-a-quarter-of-jobs-expected-to-change-in-next-five-years/"
+      ],
+      "key_claims": [
+        {
+          "text": "The accessible Srinivasan research measures automation and augmentation as different constructs, so it does not present a formal crossover rule in which a higher automation score than augmentation score automatically means total occupational replacement. (; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)",
+          "sources": []
+        },
+        {
+          "text": "The working paper finds that occupations in the top quartile of automation exposure experienced a 17% decline in job postings per firm per quarter after ChatGPT, while occupations in the top quartile of augmentation exposure experienced a 22% increase. (; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)",
+          "sources": []
+        },
+        {
+          "text": "The later Harvard Business School Working Knowledge summary reports updated effects, including a 13% decline for structured repetitive occupations and 20% growth for more analytical, technical, or creative occupations. (; medium confidence; source: https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs)",
+          "sources": []
+        },
+        {
+          "text": "The most automation-exposed occupations are concentrated in clerical and codifiable language work, including correspondence clerks, interpreters and translators, court clerks, medical transcriptionists, telemarketers, typists, and payroll clerks. (; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)",
+          "sources": []
+        },
+        {
+          "text": "The most augmentation-exposed occupations are mixed-task specialist roles such as clinical neuropsychologists, medical dosimetrists, agricultural engineers, cartographers, microbiologists, and mediators, where AI can compress sub-tasks but not displace the need for human judgment or responsibility. (; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs)",
+          "sources": []
+        },
+        {
+          "text": "The study supports a role-redesign thesis more than an occupation-extinction thesis, because its outcome variables are posting volume and skill composition rather than observed full elimination of whole job families. (; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)",
+          "sources": []
+        },
+        {
+          "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
       "named_concepts": [
         "ai coding",

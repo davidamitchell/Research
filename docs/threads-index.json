@@ -1139,7 +1139,7 @@
       "organisational-design"
     ],
     "concept_cluster": [],
-    "item_count": 27,
+    "item_count": 28,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -1275,6 +1275,11 @@
         "slug": "2026-04-30-strategic-tactical-division-ai-teams",
         "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
         "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
       }
     ],
     "url": "/Research/threads/agentic-ai-governance-organisational-design.html"
@@ -2905,6 +2910,91 @@
     "url": "/Research/threads/agentic-ai-workflow-memory-system.html"
   },
   {
+    "slug": "agentic-ai-organisational-design-strategy",
+    "title": "agentic-ai / organisational-design / strategy",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "organisational-design",
+      "strategy"
+    ],
+    "concept_cluster": [],
+    "item_count": 14,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
+        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+        "title": "Adam Smith, Organisational Design, Desire Paths, and AI Strategy",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-26-cost-reduction-is-not-strategy",
+        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-customer-contact-and-delight",
+        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
+        "title": "AI Funding and Capital Investment Landscape",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-02-ai-company-hiring-strategies",
+        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-organisational-design-strategy.html"
+  },
+  {
     "slug": "agentic-ai-uelgf-regulated-banking",
     "title": "agentic-ai / uelgf / regulated-banking",
     "kind": "implicit",
@@ -3590,6 +3680,76 @@
     "url": "/Research/threads/rag-knowledge-management-synthesis.html"
   },
   {
+    "slug": "agentic-ai-organisational-design-productivity",
+    "title": "agentic-ai / organisational-design / productivity",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "organisational-design",
+      "productivity"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
+        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+        "title": "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-volume-vs-correctness-ai-era",
+        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
+        "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
+        "added": "2026-03-23"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-organisational-design-productivity.html"
+  },
+  {
     "slug": "mobile-ios-memory-system",
     "title": "mobile / ios / memory-system",
     "kind": "implicit",
@@ -3658,6 +3818,76 @@
       }
     ],
     "url": "/Research/threads/mobile-ios-memory-system.html"
+  },
+  {
+    "slug": "ai-strategy-financial-services-agentic-ai",
+    "title": "ai-strategy / financial-services / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-strategy",
+      "financial-services",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+        "title": "AI Strategy Examples: Business Efficiency Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
+        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
+        "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/ai-strategy-financial-services-agentic-ai.html"
   },
   {
     "slug": "agentic-ai-transaction-costs-knowledge-management",
@@ -3730,6 +3960,71 @@
     "url": "/Research/threads/agentic-ai-transaction-costs-knowledge-management.html"
   },
   {
+    "slug": "agentic-ai-organisational-design-transaction-costs",
+    "title": "agentic-ai / organisational-design / transaction-costs",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "organisational-design",
+      "transaction-costs"
+    ],
+    "concept_cluster": [],
+    "item_count": 10,
+    "items": [
+      {
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
+        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-organisational-design-transaction-costs.html"
+  },
+  {
     "slug": "agentic-ai-synthesis-productivity",
     "title": "agentic-ai / synthesis / productivity",
     "kind": "implicit",
@@ -3795,13 +4090,13 @@
     "url": "/Research/threads/agentic-ai-synthesis-productivity.html"
   },
   {
-    "slug": "agentic-ai-organisational-design-productivity",
-    "title": "agentic-ai / organisational-design / productivity",
+    "slug": "agentic-ai-organisational-design-multi-agent",
+    "title": "agentic-ai / organisational-design / multi-agent",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "organisational-design",
-      "productivity"
+      "multi-agent"
     ],
     "concept_cluster": [],
     "item_count": 10,
@@ -3817,29 +4112,24 @@
         "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
-        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
-        "added": "2026-03-14"
-      },
-      {
         "slug": "2026-03-12-ai-team-size-strike-team-thesis",
         "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
         "added": "2026-03-14"
       },
       {
-        "slug": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
-        "title": "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit",
-        "added": "2026-03-14"
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
       },
       {
-        "slug": "2026-03-12-volume-vs-correctness-ai-era",
-        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
-        "added": "2026-03-14"
+        "slug": "2026-03-16-gitagent-declarative-agent-definition",
+        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+        "added": "2026-03-19"
       },
       {
-        "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
-        "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
-        "added": "2026-03-23"
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-04-02-org-shape-software-cost-zero",
@@ -3847,17 +4137,22 @@
         "added": "2026-04-19"
       },
       {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
       },
       {
         "slug": "2026-04-30-strategic-tactical-division-ai-teams",
         "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
         "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
       }
     ],
-    "url": "/Research/threads/agentic-ai-organisational-design-productivity.html"
+    "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
     "slug": "financial-services-ai-strategy-risk-management",
@@ -3925,21 +4220,31 @@
     "url": "/Research/threads/financial-services-ai-strategy-risk-management.html"
   },
   {
-    "slug": "agentic-ai-organisational-design-transaction-costs",
-    "title": "agentic-ai / organisational-design / transaction-costs",
+    "slug": "agentic-ai-ai-strategy-financial-services",
+    "title": "agentic-ai / ai-strategy / financial-services",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
-      "organisational-design",
-      "transaction-costs"
+      "ai-strategy",
+      "financial-services"
     ],
     "concept_cluster": [],
-    "item_count": 9,
+    "item_count": 10,
     "items": [
       {
-        "slug": "2026-03-02-transaction-costs",
-        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
-        "added": "2026-03-02"
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-03-02-ai-not-a-data-problem",
@@ -3947,42 +4252,37 @@
         "added": "2026-03-07"
       },
       {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
       },
       {
-        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
-        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
-        "added": "2026-03-14"
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
       },
       {
-        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
-        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
-        "added": "2026-03-26"
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
       },
       {
-        "slug": "2026-04-02-org-shape-software-cost-zero",
-        "title": "The shape of organisations when software is no longer the constraint",
-        "added": "2026-04-19"
+        "slug": "2026-04-26-access-control-amplification-agentic-operations",
+        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
+        "added": "2026-04-26"
       },
       {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
-        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
-        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
+        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
         "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
       }
     ],
-    "url": "/Research/threads/agentic-ai-organisational-design-transaction-costs.html"
+    "url": "/Research/threads/agentic-ai-ai-strategy-financial-services.html"
   },
   {
     "slug": "agentic-ai-copilot-multi-agent",
@@ -4105,66 +4405,6 @@
     "url": "/Research/threads/agentic-ai-failure-modes-intent-alignment.html"
   },
   {
-    "slug": "agentic-ai-organisational-design-multi-agent",
-    "title": "agentic-ai / organisational-design / multi-agent",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "organisational-design",
-      "multi-agent"
-    ],
-    "concept_cluster": [],
-    "item_count": 9,
-    "items": [
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
-        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-02-org-shape-software-cost-zero",
-        "title": "The shape of organisations when software is no longer the constraint",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
-        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
-  },
-  {
     "slug": "mobile-interface-delivery",
     "title": "mobile / interface / delivery",
     "kind": "implicit",
@@ -4223,6 +4463,116 @@
       }
     ],
     "url": "/Research/threads/mobile-interface-delivery.html"
+  },
+  {
+    "slug": "agentic-ai-strategy-anthropic",
+    "title": "agentic-ai / strategy / anthropic",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "strategy",
+      "anthropic"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+        "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-26-cost-reduction-is-not-strategy",
+        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-customer-contact-and-delight",
+        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
+        "title": "AI Funding and Capital Investment Landscape",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
+        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-ai-company-hiring-strategies",
+        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-strategy-anthropic.html"
+  },
+  {
+    "slug": "strategy-behavioral-economics-agentic-ai",
+    "title": "strategy / behavioral-economics / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "strategy",
+      "behavioral-economics",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
+        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-cost-reduction-is-not-strategy",
+        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-customer-contact-and-delight",
+        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-measuring-opportunity-cost",
+        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-rory-sutherland-core-tenets",
+        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
+        "title": "AI Funding and Capital Investment Landscape",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-ai-company-hiring-strategies",
+        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/strategy-behavioral-economics-agentic-ai.html"
   },
   {
     "slug": "rory-sutherland-behavioral-economics-strategy",
@@ -4328,106 +4678,6 @@
       }
     ],
     "url": "/Research/threads/ai-governance-security-agentic-ai.html"
-  },
-  {
-    "slug": "agentic-ai-strategy-anthropic",
-    "title": "agentic-ai / strategy / anthropic",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "strategy",
-      "anthropic"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
-        "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-26-cost-reduction-is-not-strategy",
-        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
-        "added": "2026-03-27"
-      },
-      {
-        "slug": "2026-03-26-customer-contact-and-delight",
-        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
-        "added": "2026-03-27"
-      },
-      {
-        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
-        "title": "AI Funding and Capital Investment Landscape",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
-        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-02-ai-company-hiring-strategies",
-        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
-        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-strategy-anthropic.html"
-  },
-  {
-    "slug": "strategy-behavioral-economics-rory-sutherland",
-    "title": "strategy / behavioral-economics / rory-sutherland",
-    "kind": "implicit",
-    "tag_cluster": [
-      "strategy",
-      "behavioral-economics",
-      "rory-sutherland"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
-        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-03-26-cost-reduction-is-not-strategy",
-        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
-        "added": "2026-03-27"
-      },
-      {
-        "slug": "2026-03-26-customer-contact-and-delight",
-        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
-        "added": "2026-03-27"
-      },
-      {
-        "slug": "2026-03-26-measuring-opportunity-cost",
-        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
-        "added": "2026-03-27"
-      },
-      {
-        "slug": "2026-03-26-rory-sutherland-core-tenets",
-        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
-        "added": "2026-03-27"
-      },
-      {
-        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
-        "title": "AI Funding and Capital Investment Landscape",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-02-ai-company-hiring-strategies",
-        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
-        "added": "2026-04-19"
-      }
-    ],
-    "url": "/Research/threads/strategy-behavioral-economics-rory-sutherland.html"
   },
   {
     "slug": "predictive-processing-consciousness-anil-seth",
@@ -4660,6 +4910,46 @@
     "url": "/Research/threads/policy-as-code-compliance-dotnet.html"
   },
   {
+    "slug": "organisational-design-ai-strategy-coase",
+    "title": "organisational-design / ai-strategy / coase",
+    "kind": "implicit",
+    "tag_cluster": [
+      "organisational-design",
+      "ai-strategy",
+      "coase"
+    ],
+    "concept_cluster": [],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-10-nature-of-the-firm-coase-organisations",
+        "title": "The Nature of the Firm: why organisations exist, their fitness functions, and invariants",
+        "added": "2026-03-13"
+      },
+      {
+        "slug": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+        "title": "Adam Smith, Organisational Design, Desire Paths, and AI Strategy",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      }
+    ],
+    "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
+  },
+  {
     "slug": "coding-agent-copilot-coding-claude-code",
     "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
@@ -4700,14 +4990,14 @@
     "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -4737,16 +5027,16 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "agents md"
     ],
     "item_count": 5,
@@ -4777,7 +5067,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -4850,14 +5140,14 @@
     "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai rmf",
       "nist ai",
-      "copilot studio"
+      "environment separation"
     ],
     "item_count": 4,
     "items": [
@@ -4882,7 +5172,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -5100,13 +5390,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "native governance"
     ],
     "item_count": 3,
@@ -5127,17 +5417,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-iso-iec",
-    "title": "ai rmf / nist ai / iso iec",
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai rmf",
       "nist ai",
-      "iso iec"
+      "environment separation"
     ],
     "item_count": 3,
     "items": [
@@ -5157,16 +5447,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-iso-iec.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
   },
   {
-    "slug": "ai-systems-agentic-ai-prompt-injection",
-    "title": "ai systems / agentic ai / prompt injection",
+    "slug": "agentic-ai-ai-systems-prompt-injection",
+    "title": "agentic ai / ai systems / prompt injection",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai systems",
       "agentic ai",
+      "ai systems",
       "prompt injection"
     ],
     "item_count": 3,
@@ -5187,6 +5477,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
+    "url": "/Research/threads/agentic-ai-ai-systems-prompt-injection.html"
   }
 ]
