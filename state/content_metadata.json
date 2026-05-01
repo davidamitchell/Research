@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T07:12:13Z",
+  "extracted_at": "2026-05-01T07:27:20Z",
   "items": {
     "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
       "named_concepts": [
@@ -156,6 +156,82 @@
         },
         {
           "text": "Human attention has highest return when spent on architecture, intent capture, tests, review standards, and prioritisation, while prompt ornamentation and manual boilerplate coding are lower-leverage uses of scarce expert time. (; medium confidence; source: https://kentbeck.com/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-04-30-se-fundamentals-ai-code-synthesis": {
+      "named_concepts": [
+        "shared vocabulary",
+        "reducing ambiguity",
+        "clarification-first discovery",
+        "executable verification",
+        "explicit interfaces",
+        "deep modules",
+        "six completed",
+        "dedicated ul",
+        "traditional software",
+        "software engineering",
+        "engineering se",
+        "se fundamentals",
+        "generated code",
+        "prompt-only workflows",
+        "prompt-only teams",
+        "fundamentals help",
+        "constraining search",
+        "search around",
+        "best-supported first",
+        "first controls"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html",
+        "https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/",
+        "https://web.stanford.edu/~ouster/cgi-bin/book.php",
+        "https://www.oreilly.com/library/view/tidy-first/9781098151232/",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://www.aihero.dev/5-agent-skills-i-use-every-day",
+        "https://github.com/mattpocock/skills"
+      ],
+      "key_claims": [
+        {
+          "text": "Traditional Software Engineering (SE) fundamentals help AI-generated code mainly by reducing ambiguity and constraining search around the model, which is why the strongest gains appear when clarification, interfaces, and tests are all present together. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html)",
+          "sources": []
+        },
+        {
+          "text": "Prompt-only or specs-to-code workflows retain a real speed advantage on bounded prototyping tasks, but the evidence no longer supports them as the best default for persistent codebases once review cost, debugging burden, and future change are included. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html)",
+          "sources": []
+        },
+        {
+          "text": "Clarification-first discovery is one of the best-supported first controls under ambiguity, because direct evidence shows that targeted questioning before code generation improves first-pass correctness and reduces later correction rounds. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html)",
+          "sources": []
+        },
+        {
+          "text": "Shared vocabulary or glossary discipline is a plausible pre-generation control, because stable domain names should reduce synonymous prompt phrasing and session-to-session naming drift, although this conclusion remains partly inferential because the planned UL primary item is still backlog. (; low confidence; source: https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md)",
+          "sources": []
+        },
+        {
+          "text": "Executable verification through Test-Driven Development (TDD), fast tests, and runtime feedback is the strongest post-generation control in the corpus, because it turns AI coding into verifier-paced search and materially improves self-correction compared with one-shot generation. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html)",
+          "sources": []
+        },
+        {
+          "text": "Explicit interfaces and deep modules make delegation safer by localizing the context each change requires, which limits hidden design leakage and reduces the chance that locally plausible code creates repository-scale entropy later. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://web.stanford.edu/~ouster/cgi-bin/book.php)",
+          "sources": []
+        },
+        {
+          "text": "The strongest current team operating model keeps humans responsible for architecture, context curation, vocabulary, interfaces, and verification policy, while AI performs bounded implementation inside those constraints, because that is where human attention still has the highest leverage. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)",
+          "sources": []
+        },
+        {
+          "text": "The dominant system-level failure mode in the corpus is generation volume outpacing human verification and structural discipline, which is why the downstream signal appears first as review overload, duplication, and rising change cost instead of immediate total failure. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html)",
           "sources": []
         }
       ]

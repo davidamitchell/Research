@@ -1,0 +1,790 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Software Engineering fundamentals and AI code generation — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Software Engineering fundamentals and AI code generation</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Software Engineering fundamentals and AI code generation</h1>
+  <p class="full-title-subtitle">Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions</p>
+  <div class="meta-bar">
+    <span>2026-04-30</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/tdd.html">tdd</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-synthesis">synthesis</span> <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-se-fundamentals-ai-code-synthesis.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-30-se-fundamentals-ai-code-synthesis" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Traditional Software Engineering (SE) fundamentals help AI-generated code mainly by reducing ambiguity and constraining search around the model, which is why the strongest gains appear when clarification, interfaces, and tests are all present together. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html)</li>
+<li>Prompt-only or specs-to-code workflows retain a real speed advantage on bounded prototyping tasks, but the evidence no longer supports them as the best default for persistent codebases once review cost, debugging burden, and future change are included. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html)</li>
+<li>Clarification-first discovery is one of the best-supported first controls under ambiguity, because direct evidence shows that targeted questioning before code generation improves first-pass correctness and reduces later correction rounds. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html)</li>
+<li>Shared vocabulary or glossary discipline is a plausible pre-generation control, because stable domain names should reduce synonymous prompt phrasing and session-to-session naming drift, although this conclusion remains partly inferential because the planned UL primary item is still backlog. (; low confidence; source: https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md)</li>
+<li>Executable verification through Test-Driven Development (TDD), fast tests, and runtime feedback is the strongest post-generation control in the corpus, because it turns AI coding into verifier-paced search and materially improves self-correction compared with one-shot generation. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html)</li>
+<li>Explicit interfaces and deep modules make delegation safer by localizing the context each change requires, which limits hidden design leakage and reduces the chance that locally plausible code creates repository-scale entropy later. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://web.stanford.edu/~ouster/cgi-bin/book.php)</li>
+<li>The strongest current team operating model keeps humans responsible for architecture, context curation, vocabulary, interfaces, and verification policy, while AI performs bounded implementation inside those constraints, because that is where human attention still has the highest leverage. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)</li>
+<li>The dominant system-level failure mode in the corpus is generation volume outpacing human verification and structural discipline, which is why the downstream signal appears first as review overload, duplication, and rising change cost instead of immediate total failure. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Drawing on the planned seven-item research programme on Software Engineering (SE) fundamentals in Artificial Intelligence (AI)-augmented development, six completed primary items plus external anchors for the missing Ubiquitous Language (UL) dimension, covering structured alignment (Grill-Me), code entropy and quality metrics, deep modules and architectural design, UL, Test-Driven Development (TDD) and feedback loops, strategic versus tactical roles, and empirical comparisons of fundamentals-first versus specs-to-code workflows, what is the overall relationship between traditional SE fundamentals and the effectiveness, reliability, and long-term maintainability of AI-generated code, and what are the key proposed insights and priority follow-up research directions?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Traditional Software Engineering (SE) fundamentals improve Artificial Intelligence (AI)-generated code primarily by reducing ambiguity before generation and by adding external verification and boundary structure after generation, so they change the workflow's control system more than the model's raw fluency.</p>
+<p>Prompt-only workflows remain faster for disposable prototypes, but the combined evidence favors fundamentals-first once generated code must survive review, debugging, and repeated change inside a maintained repository.</p>
+<p>A practical stack suggested by the evidence combines clarification-first discovery, shared vocabulary discipline, executable verification, and explicit interfaces or deep modules, while the exact rollout sequence still depends on project context and existing weaknesses.</p>
+<p>Confidence is medium because the six completed primary items are mutually reinforcing, but the dedicated UL primary item was not completed and the strongest remaining gaps are longitudinal, whole-project comparisons of full fundamentals-first and prompt-only teams.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Traditional Software Engineering (SE) fundamentals help AI-generated code mainly by reducing ambiguity and constraining search around the model, which is why the strongest gains appear when clarification, interfaces, and tests are all present together.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Mitchell (2026) Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html">Mitchell (2026) Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Mitchell (2026) Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a></li>
+<li><strong>Prompt-only or specs-to-code workflows retain a real speed advantage on bounded prototyping tasks, but the evidence no longer supports them as the best default for persistent codebases once review cost, debugging burden, and future change are included.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html">Mitchell (2026) Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment (ROI) of Software Engineering (SE) practices</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Mitchell (2026) Artificial Intelligence (AI) code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">Mitchell (2026) AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></li>
+<li><strong>Clarification-first discovery is one of the best-supported first controls under ambiguity, because direct evidence shows that targeted questioning before code generation improves first-pass correctness and reduces later correction rounds.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Mitchell (2026) Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a></li>
+<li><strong>Shared vocabulary or glossary discipline is a plausible pre-generation control, because stable domain names should reduce synonymous prompt phrasing and session-to-session naming drift, although this conclusion remains partly inferential because the planned UL primary item is still backlog.</strong> ([inference]; low confidence; source: <a href="https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/">Evans (2003) Domain-Driven Design: Tackling Complexity in the Heart of Software</a> <a href="https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/">GitHub (2025) How to build reliable AI workflows with agentic primitives and context engineering</a> <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic Claude Code best practices</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md">github.com</a></li>
+<li><strong>Executable verification through Test-Driven Development (TDD), fast tests, and runtime feedback is the strongest post-generation control in the corpus, because it turns AI coding into verifier-paced search and materially improves self-correction compared with one-shot generation.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Mitchell (2026) Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">Mitchell (2026) What is the precise technical distinction between code generation and other Large Language Model (LLM) outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</a></li>
+<li><strong>Explicit interfaces and deep modules make delegation safer by localizing the context each change requires, which limits hidden design leakage and reduces the chance that locally plausible code creates repository-scale entropy later.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html">Mitchell (2026) Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Mitchell (2026) Artificial Intelligence (AI) code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?</a> <a href="https://web.stanford.edu/~ouster/cgi-bin/book.php">Ousterhout (2018) A Philosophy of Software Design</a></li>
+<li><strong>The strongest current team operating model keeps humans responsible for architecture, context curation, vocabulary, interfaces, and verification policy, while AI performs bounded implementation inside those constraints, because that is where human attention still has the highest leverage.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html">Mitchell (2026) Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale</a> <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic Claude Code best practices</a> <a href="https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/">GitHub (2025) How to build reliable AI workflows with agentic primitives and context engineering</a></li>
+<li><strong>The dominant system-level failure mode in the corpus is generation volume outpacing human verification and structural discipline, which is why the downstream signal appears first as review overload, duplication, and rising change cost instead of immediate total failure.</strong> ([inference]; medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">Mitchell (2026) AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Mitchell (2026) Artificial Intelligence (AI) code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html">Mitchell (2026) Reliable Software in the Large Language Model (LLM) era</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] The missing dedicated UL primary item would probably sharpen, not reverse, the shared-vocabulary conclusion, because the remaining external and companion evidence is directionally aligned. Justification: the mechanism already appears in Domain-Driven Design (DDD), context-engineering guidance, and multiple completed companion items. [source: <a href="https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/">Evans (2003) Domain-Driven Design: Tackling Complexity in the Heart of Software</a> <a href="https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/">GitHub (2025) How to build reliable AI workflows with agentic primitives and context engineering</a> <a href="https://www.anthropic.com/engineering/claude-code-best-practices]">www.anthropic.com</a></li>
+<li>[assumption] The six completed primary items are sufficiently representative of the fundamentals-first bundle to support an overall synthesis even though one planned dimension is incomplete. Justification: the same core control surfaces recur across the six completed items and the adjacent companion items. [source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Mitchell (2026) Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Mitchell (2026) Artificial Intelligence (AI) code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html]">davidamitchell.github.io</a></li>
+<li>[assumption] Combining ambiguity reduction, verifier hardening, and architecture hardening likely compounds benefits, because downstream controls are cheaper when upstream ambiguity is already reduced. Justification: each completed item describes costs that rise when earlier control surfaces are weak. [source: <a href="https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Mitchell (2026) Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Mitchell (2026) Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html]">davidamitchell.github.io</a></li>
+</ul>
+<h3>Analysis</h3>
+<p>The synthesis weighs direct empirical outcome evidence most heavily where available, which is why clarification gains and verifier-feedback gains sit at the center of the final model rather than at the margin.</p>
+<p>Repository-scale evidence matters even though it is more observational, because the research question explicitly asks about long-term maintainability and that outcome cannot be inferred from bounded benchmark wins alone.</p>
+<p>The most important trade-off is front-loaded discipline versus downstream rework, because fundamentals-first practices slow the first move but reduce the volume of ambiguous, weakly verified, or weakly structured code that later has to be understood and repaired.</p>
+<p>A rival explanation is that fundamentals-first teams may simply be more mature, use stronger tools, or work in more disciplined codebases than prompt-only teams, and the current evidence does not fully isolate those factors from the workflow effects described here.</p>
+<p>The evidence supports a layered recommendation rather than a single silver bullet, because ambiguity reduction, shared vocabulary, verification, and interface design each solve different failure mechanisms and reinforce one another when combined.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The planned dedicated UL primary item was not completed, so the shared-vocabulary contribution is less directly evidenced than the other six dimensions.</li>
+<li>Repository-scale maintainability evidence remains partly observational and does not cleanly randomize entire codebases into alternative AI workflow conditions.</li>
+<li>The strongest team-operating-model conclusions are still synthesis-level rather than bundle-level experimental findings.</li>
+<li>Shared-vocabulary and context-engineering sources provide a plausible mechanism, but they do not yet provide a strong longitudinal naming-drift benchmark for AI-assisted repositories.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What does a twelve-month controlled comparison show for defect escape rate, review time, revert rate, and code-health decline in fundamentals-first versus prompt-only AI teams?</li>
+<li>What is the minimum viable glossary artifact that captures most of the shared-vocabulary benefit without creating heavy maintenance overhead?</li>
+<li>Which telemetry bundle best signals that a team should move from prototype-speed mode into fundamentals-first discipline, review time, hotspot decline, duplication, or change coupling?</li>
+<li>How much of the observed advantage comes from the bundle effect, clarification plus vocabulary plus verification plus interfaces, versus from any single practice in isolation?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p><em>(Sources for this synthesis are the completed primary items and any additional external evidence gathered during the synthesis phase.)</em></p>
+<ul>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Mitchell (2026) Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Mitchell (2026) Artificial Intelligence (AI) code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html">Mitchell (2026) Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Mitchell (2026) Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html">Mitchell (2026) Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html">Mitchell (2026) Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment (ROI) of Software Engineering (SE) practices</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">Mitchell (2026) AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html">Mitchell (2026) Reliable Software in the Large Language Model (LLM) era</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">Mitchell (2026) What is the precise technical distinction between code generation and other Large Language Model (LLM) outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</a></li>
+<li>[x] <a href="https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/">Evans (2003) Domain-Driven Design: Tackling Complexity in the Heart of Software</a></li>
+<li>[x] <a href="https://web.stanford.edu/~ouster/cgi-bin/book.php">Ousterhout (2018) A Philosophy of Software Design</a></li>
+<li>[x] <a href="https://www.oreilly.com/library/view/tidy-first/9781098151232/">Beck (2023) Tidy First? A Personal Exercise in Empirical Software Design</a></li>
+<li>[x] <a href="https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/">GitHub (2025) How to build reliable AI workflows with agentic primitives and context engineering</a></li>
+<li>[x] <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic Claude Code best practices</a></li>
+<li>[x] <a href="https://www.aihero.dev/5-agent-skills-i-use-every-day">Pocock (2025) 5 agent skills I use every day</a></li>
+<li>[x] <a href="https://github.com/mattpocock/skills">Pocock Skills repository</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a> <span class="related-note">via agentic-ai, agentic-coding, evaluation, llm, software-engineering, tdd</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html">Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices</a> <span class="related-note">via agentic-ai, agentic-coding, evaluation, llm, software-engineering, tdd</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <span class="related-note">via agentic-ai, agentic-coding, evaluation, llm, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html">Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases</a> <span class="related-note">via agentic-ai, agentic-coding, evaluation, llm, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html">Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale</a> <span class="related-note">via agentic-ai, agentic-coding, llm, software-engineering</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Artificial Intelligence code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html">Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html">Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html">Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-software-engineering-investment-case-llm.html">What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html">Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html">AI-augmented software teams</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Grill-Me technique</a></div>
+  </div>
+</main>
+</body>
+</html>
