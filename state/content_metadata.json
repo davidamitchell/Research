@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T21:22:02Z",
+  "extracted_at": "2026-05-01T21:32:04Z",
   "items": {
     "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement": {
       "named_concepts": [
@@ -61,6 +61,84 @@
         },
         {
           "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-coding-agent-context-management-transparency": {
+      "named_concepts": [
+        "long-context performance",
+        "performance degrades",
+        "surface every",
+        "silent pruning",
+        "reliability risks",
+        "open harnesses",
+        "reset boundaries",
+        "versioned files",
+        "appropriate trust",
+        "explicit automation",
+        "instructions tools",
+        "design patterns",
+        "transparency itself",
+        "executive summary",
+        "summary transparent",
+        "transparent coding-agent",
+        "coding-agent context",
+        "context management",
+        "prompt changes",
+        "changes tool"
+      ],
+      "source_urls": [
+        "https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json",
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+        "https://github.com/badlogic/pi-mono",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://platform.claude.com/docs/en/release-notes/system-prompts",
+        "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://aider.chat/docs/usage.html",
+        "https://aider.chat/docs/usage/commands.html",
+        "https://aider.chat/docs/usage/caching.html",
+        "https://aider.chat/docs/usage/copypaste.html",
+        "https://docs.continue.dev/customize/custom-providers",
+        "https://docs.continue.dev/reference",
+        "https://docs.langchain.com/oss/python/langchain/context-engineering",
+        "https://research.trychroma.com/context-rot",
+        "https://arxiv.org/abs/2006.14779",
+        "https://doi.org/10.1371/journal.pone.0229132",
+        "https://modelcontextprotocol.io/introduction"
+      ],
+      "key_claims": [
+        {
+          "text": "Coding-agent harnesses should expose prompt revisions, tool-definition revisions, and context-provider selection as explicit, inspectable state because those surfaces materially influence model behavior and are already treated as mutable in first-party and framework documentation. (; medium confidence; source: https://platform.claude.com/docs/en/release-notes/system-prompts; https://docs.langchain.com/oss/python/langchain/context-engineering; https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json)",
+          "sources": []
+        },
+        {
+          "text": "Hidden context additions and silent pruning should be treated as reliability risks because long-context performance degrades with distractors, irrelevant content, and ambiguous matches, and open harness guidance warns that excessive or low-signal files can confuse the model. (; medium confidence; source: https://research.trychroma.com/context-rot; https://aider.chat/docs/usage.html; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)",
+          "sources": []
+        },
+        {
+          "text": "The minimum viable observability interface should show active instructions, active tools, current context members and providers, compaction or summary artifacts, and context-budget usage, because those are the surfaces the retrieved harnesses and framework docs repeatedly treat as behavior-shaping. (; medium confidence; source: https://docs.langchain.com/oss/python/langchain/context-engineering; https://docs.continue.dev/customize/custom-providers; https://aider.chat/docs/usage/commands.html; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)",
+          "sources": []
+        },
+        {
+          "text": "Strong user-control patterns already exist in open harnesses: Aider exposes add, drop, read-only, context export, and token inspection; Continue exposes named context providers and versioned configuration; Pi publishes its system prompt, core tools, and extension points. (; high confidence; source: https://aider.chat/docs/usage/commands.html; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers; https://docs.continue.dev/reference; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/badlogic/pi-mono)",
+          "sources": []
+        },
+        {
+          "text": "Compaction is necessary for long-horizon tasks, and the safest harness design is to surface the resulting summaries or reset boundaries to users because Anthropic's own guidance says aggressive compaction can lose subtle but important information even while it preserves continuity across context resets. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)",
+          "sources": []
+        },
+        {
+          "text": "Versioned files and declarative configuration are safer context-control surfaces than opaque vendor drift because they make prompt, rule, and provider changes auditable, reproducible, and team-reviewable. (; medium confidence; source: https://docs.continue.dev/reference; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md)",
+          "sources": []
+        },
+        {
+          "text": "Transparency alone does not guarantee appropriate trust, because explanation interfaces can increase acceptance without improving correctness, while adaptive trust-calibration cues help users realign reliance with actual reliability. (; high confidence; source: https://arxiv.org/abs/2006.14779; https://doi.org/10.1371/journal.pone.0229132)",
+          "sources": []
+        },
+        {
+          "text": "The best current operating model is explicit automation: stable core instructions plus just-in-time retrieval, summaries, and memory aids, with every automatic transition surfaced to the user as part of the session record. (; medium confidence; source: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://www.anthropic.com/research/building-effective-agents; https://aider.chat/docs/usage/copypaste.html; https://docs.continue.dev/customize/custom-providers)",
           "sources": []
         }
       ]
