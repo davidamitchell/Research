@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence"
 added: 2026-04-30T20:31:45+00:00
 status: reviewing
