@@ -1,10 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-05-01 21:54 UTC
+Generated on: 2026-05-01 22:44 UTC
 
 ## Table of Contents
 
 * [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
+* [What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?](#2026-05-01-oss-sustainability-ai-generated-contributions-md)
+* [What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?](#2026-05-01-human-oversight-ai-software-development-md)
 * [How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?](#2026-05-01-compound-error-accumulation-ai-codebases-md)
 * [What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?](#2026-05-01-coding-agent-context-management-transparency-md)
 * [What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?](#2026-05-01-appropriate-task-selection-coding-agents-md)
@@ -312,6 +314,168 @@ That interpretation also explains why Srinivasan aligns with WEF and McKinsey on
 - How far do the updated 2025 and 2026 versions of the Srinivasan research move the occupation rankings once more post-ChatGPT hiring data is included?
 - Can the full occupation-by-score dataset behind the Harvard Business School visualization be recovered from a public appendix or data release?
 - Which entry-level pathways are most vulnerable when postings fall in automation-prone occupations before unemployment visibly rises?
+
+---
+
+---
+
+<a id="2026-05-01-oss-sustainability-ai-generated-contributions-md"></a>
+
+## What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?
+
+**Tags:** [open-source, agentic-ai, governance, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md
+
+## Research Question
+
+What strategies are effective for open-source software (OSS) maintainers in filtering, managing, and sustaining project health against a rising volume of low-quality Artificial Intelligence (AI) agent-generated contributions, including pull requests, issues, and comments?
+
+## Findings
+
+### Executive Summary
+
+The most effective strategies are layered intake controls that make human accountability hard to fake and maintainer review time easy to protect, rather than a single universal ban on AI use. [inference; source: https://arxiv.org/html/2603.26487v1; https://arxiv.org/abs/2603.27249; https://github.com/mitchellh/vouch; https://github.com/tldraw/tldraw/issues/7695]
+
+Empirical evidence shows that AI-generated contributions vary sharply by task type and can leave persistent maintenance debt, so maintainers should gate by scope and verification burden, not by AI provenance alone. [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2603.28592]
+
+OSS maintainer capacity is already fragile, with weak contributor pipelines, weak institutional support, and high quit-or-considered-quitting rates before AI-generated intake is added. [fact; source: https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://www.sonarsource.com/the-2024-tidelift-maintainer-impact-report.pdf]
+
+Across the cited public GitHub project examples, the best-supported default is a ladder of structured templates, disclosure rules, human-understanding requirements, small-change expectations, and selective trust gates, with harder throttles reserved for overload cases. [inference; source: https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions; https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions; https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository]
+
+### Key Findings
+
+1. **AI-generated OSS contribution pressure is best understood as a review-capacity asymmetry, because multiple sources show that generation has become cheaper while review, triage, and follow-up still consume scarce human attention.** ([inference]; high confidence; source: https://arxiv.org/html/2603.26487v1; https://arxiv.org/abs/2603.27249; https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json)
+2. **Real-world studies of AI-generated code show that outcomes depend heavily on task shape and that persistent debt remains material, which means maintainers should not treat all AI-assisted contributions as equally risky or equally cheap to review.** ([fact]; high confidence; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2603.28592)
+3. **The dominant OSS governance response in 2025 to 2026 is accountability-first rather than blanket prohibition, with projects requiring disclosure, human understanding, focused changes, tests, and the right to close or block repeated low-value AI-assisted submissions.** ([fact]; high confidence; source: https://arxiv.org/html/2603.26487v1; https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://devguide.python.org/getting-started/generative-ai/; https://matplotlib.org/devdocs/devel/contribute.html#generative-ai; https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions; https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions)
+4. **Explicit trust gates, including the "vouch" pattern, are a defensible middle path because they preserve legitimate newcomer entry while filtering the one-shot, low-engagement interaction style that many agent-generated submissions exhibit.** ([inference]; medium confidence; source: https://github.com/mitchellh/vouch; https://github.com/mitchellh/vouch/blob/main/FAQ.md; https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json)
+5. **Hard throttles, including auto-closing external pull requests or shutting down bounty channels, become rational once overload is already acute, because some projects are explicitly trading openness for reviewer survival and signal preservation.** ([inference]; medium confidence; source: https://github.com/tldraw/tldraw/issues/7695; https://lists.haxx.se/pipermail/daniel/2026-January/000143.html; https://curl.se/dev/contribute.html#on-ai-use-in-curl)
+6. **GitHub already provides useful but incomplete platform controls, including issue forms, pull request templates, interaction limits, and protected branches, so the main implementation gap is not missing mechanics alone but project willingness to define admissibility rules.** ([inference]; medium confidence; source: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories)
+7. **Maintainer sustainability data show that projects are defending an already fragile labor pool, not a healthy surplus of review capacity, because contributor pipelines, employer support, compensation, and retention all look weak in recent surveys.** ([fact]; high confidence; source: https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://www.sonarsource.com/the-2024-tidelift-maintainer-impact-report.pdf)
+8. **The best-supported operating model is therefore selective openness: keep low-cost discussion and structured issue intake open, but add progressively stronger friction as the expected maintainer review cost and the amount of project surface affected by a submission rises.** ([inference]; medium confidence; source: https://github.com/mitchellh/vouch; https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://github.com/tldraw/tldraw/issues/7695)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Review-cost asymmetry is the main problem shape. | https://arxiv.org/html/2603.26487v1; https://arxiv.org/abs/2603.27249; https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json | high | qualitative convergence |
+| [fact] Task type materially changes acceptance and debt outcomes. | https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2603.28592 | high | empirical studies |
+| [fact] Accountability-first policies dominate current project responses. | https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://devguide.python.org/getting-started/generative-ai/; https://matplotlib.org/devdocs/devel/contribute.html#generative-ai; https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions; https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions; https://arxiv.org/html/2603.26487v1 | high | policy text plus corpus study |
+| [inference] Trust gates preserve some openness while filtering one-shot low-engagement submissions. | https://github.com/mitchellh/vouch; https://github.com/mitchellh/vouch/blob/main/FAQ.md; https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json | medium | practitioner pattern |
+| [inference] Hard throttles are used when overload becomes unsustainable. | https://github.com/tldraw/tldraw/issues/7695; https://lists.haxx.se/pipermail/daniel/2026-January/000143.html; https://curl.se/dev/contribute.html#on-ai-use-in-curl | medium | primary project statements plus synthesis |
+| [inference] GitHub controls help structure intake but do not replace policy judgment. | https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://docs.github.com/en/repositories/creating-and-managing-repositories/best-practices-for-repositories | medium | platform docs plus synthesis |
+| [fact] Maintainer capacity is already fragile before AI-generated intake is added. | https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://www.sonarsource.com/the-2024-tidelift-maintainer-impact-report.pdf | high | survey data |
+| [inference] Selective openness is the best-supported default operating model. | https://github.com/mitchellh/vouch; https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://github.com/tldraw/tldraw/issues/7695 | medium | synthesis claim |
+
+### Assumptions
+
+- [assumption] "Effective" is defined primarily as preserving maintainer capacity and project health rather than maximizing total contribution count. Justification: the empirical and policy evidence is concentrated on review burden and sustainability.
+- [assumption] Project-policy case studies are operational exemplars rather than prevalence estimates across all OSS repositories. Justification: the retrieved policy corpus supports pattern extraction more strongly than global frequency measurement.
+- [assumption] The absence of comparative filter-accuracy metrics means recommended strategy order should be read as a response ladder, not as a mathematically proven optimum. Justification: current evidence is stronger on problem shape than on exact control effect sizes.
+
+### Analysis
+
+The evidence weights toward intake friction before detailed review because OSS maintainers are defending a scarce human resource, not operating a surplus review function that can absorb more plausible-looking noise. [inference; source: https://arxiv.org/html/2603.26487v1; https://arxiv.org/abs/2603.27249; https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://www.sonarsource.com/the-2024-tidelift-maintainer-impact-report.pdf]
+
+Task heterogeneity matters because the same AI provenance can be harmless in documentation or narrowly scoped maintenance work but costly in high-context feature or security work, so gating should track review cost and the amount of project surface affected rather than ideology. [inference; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2603.28592; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md]
+
+The strategies line up into a coherent ladder: start with structured intake and accountability requirements, escalate to explicit social trust gates when noise remains high, and reserve full channel throttles for cases where maintainers are already underwater. [inference; source: https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://github.com/apache/airflow/blob/main/contributing-docs/05_pull_requests.rst#gen-ai-assisted-contributions; https://datafusion.apache.org/contributor-guide/index.html#ai-assisted-contributions; https://github.com/mitchellh/vouch; https://github.com/tldraw/tldraw/issues/7695; https://curl.se/dev/contribute.html#on-ai-use-in-curl]
+
+The platform can help by making structure and access control easier, but the decisive governance work stays local because a project must still decide what counts as enough understanding, enough relationship, and enough verification to deserve review time. [inference; source: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates; https://docs.github.com/en/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository; https://github.com/mitchellh/vouch]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://arxiv.org/html/2603.26487v1; https://arxiv.org/abs/2603.27249] Current research is strong on qualitative pattern recognition, but weak on controlled comparisons of policy effectiveness across repositories.
+- [fact; source: https://arxiv.org/html/2602.08915v1; https://arxiv.org/abs/2603.28592] Acceptance-rate and debt studies show task heterogeneity and persistence, but they do not isolate the exact share of maintainer pain caused by low-quality AI-generated intake versus other concurrent workflow pressures.
+- [assumption] Smaller or lower-traffic repositories may experience different trade-offs from flagship projects such as Ghostty, tldraw, or cURL. Justification: the retrieved policy examples are skewed toward visible projects with enough volume to publish explicit responses.
+- [assumption] Human-voice and trust-gate filters may exclude some legitimate contributors who are unfamiliar, anxious, or writing in a non-native language. Justification: no retrieved source reports systematic false-positive rates for these controls.
+
+### Open Questions
+
+- [assumption] What false-positive and false-negative rates do human-voice gates, disclosure rules, and vouch systems produce in practice? Justification: no retrieved dataset measures them directly.
+- [assumption] Which combinations of issue forms, interaction limits, and trust gating minimize maintainer hours per accepted change? Justification: retrieved evidence identifies the components, not the optimal bundle.
+- [assumption] Can GitHub expose richer contributor-trust and follow-through signals without unduly harming pseudonymous participation or newcomer access? Justification: current GitHub controls are coarse relative to the policy problem.
+
+---
+
+---
+
+<a id="2026-05-01-human-oversight-ai-software-development-md"></a>
+
+## What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?
+
+**Tags:** [agentic-ai, agentic-coding, software-engineering, governance, human-oversight]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md
+
+## Research Question
+
+What is the empirical evidence that human oversight, specifically the human bottleneck property of limited throughput and pain response, functions as an effective quality gate, meaning the control point that determines whether a software change proceeds, is reworked, or is rejected, in Artificial Intelligence (AI)-assisted software development, and what does this imply for how organisations should structure human review in AI-heavy development workflows?
+
+## Findings
+
+### Executive Summary
+
+Human oversight is an effective quality gate in Artificial Intelligence (AI)-assisted software development because expert human review remains one of the strongest evidence-backed ways to catch quality problems before release. [inference; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217]
+
+Artificial Intelligence improves local bounded-task performance under strong verifiers, yet the repository-scale evidence shows quality degradation when output volume grows faster than teams can independently verify and remediate it. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+
+The best empirical support for the "human bottleneck" idea comes from ownership, expertise, and maintenance-responsibility effects rather than from direct measurement of psychological pain. [inference; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/]
+
+A cautious operating heuristic is to escalate human review intensity as task coupling, ambiguity, and failure cost rise, while letting bounded low-risk work rely more on machine-backed checks. [inference; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+
+### Key Findings
+
+1. **Human review is a real software-quality gate because formal inspections and modern code-review studies both show that review removes defects early and that review coverage, participation, and reviewer expertise are linked to better quality, even if those effects are not always direct in every post-release defect model.** ([inference]; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217)
+2. **Human oversight matters partly because review catches understanding, maintainability, and integration problems, not only obvious functional bugs, which makes it especially relevant when Artificial Intelligence increases the volume of locally plausible but globally fragile code.** ([inference]; medium confidence; source: https://research.tudelft.nl/en/publications/expectations-outcomes-and-challenges-of-modern-code-review/; https://link.springer.com/article/10.1007/s10664-015-9381-9)
+3. **The best empirical support for the bottleneck hypothesis is indirect: ownership concentration, developer-specific experience, and low-expertise change patterns are associated with faults and failures, which suggests that maintenance responsibility and deep local knowledge are part of why human oversight works.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/; https://doi.org/10.1145/1985793.1985860)
+4. **Artificial Intelligence coding assistance performs best on bounded tasks with executable checks, while real repository issues that require long context and multi-file coordination remain materially harder, so oversight becomes more important as task scope widens.** ([inference]; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2310.06770)
+5. **The strongest available evidence for weak oversight in the Artificial Intelligence era is repository-scale drift in warnings, complexity, duplication, and maintainability burden rather than a single clean experiment in fully autonomous development.** ([inference]; medium confidence; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md)
+6. **Review quality depends on scarce expert attention, so "review everything" is not a serious control design; the gate has to be selective, verifier-backed, and aimed at the changes whose failure cost exceeds machine-verification strength.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md)
+7. **For critical, low-reversibility, or cross-cutting changes, the evidence supports stronger human ownership, narrower change scopes, and deeper review than teams can justify for bounded low-risk work.** ([inference]; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://www.anthropic.com/engineering/claude-code-best-practices)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Human review removes defects early and remains a real quality gate, but with model-sensitive effects on post-release defects. | https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217 | medium | Early defect removal is clearer than a single universal effect size. |
+| [inference] Review adds value through understanding and maintainability, not only direct bug finding. | https://research.tudelft.nl/en/publications/expectations-outcomes-and-challenges-of-modern-code-review/; https://link.springer.com/article/10.1007/s10664-015-9381-9 | medium | Modern review is broader than defect hunting. |
+| [inference] Ownership, expertise, and maintenance responsibility are the strongest indirect support for the human-bottleneck claim. | https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/; https://doi.org/10.1145/1985793.1985860 | medium | Supports responsibility and knowledge, not literal pain measurement. |
+| [inference] Bounded tasks with explicit verifiers are the strongest positive surface for Artificial Intelligence coding assistance. | https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/abs/2310.06770 | medium | Strong evidence for bounded-task gains; the oversight-escalation part remains a synthesis across sources. |
+| [inference] Weak oversight in Artificial Intelligence-heavy development appears mainly as repository-scale maintainability drift. | https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md | medium | One causal study plus one observational industry study plus prior synthesis. |
+| [inference] Review gates must be selective because scarce expert attention is part of what makes oversight useful. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md | medium | Workflow guidance and prior oversight synthesis align. |
+| [inference] Critical or cross-cutting code needs stronger human ownership and deeper review than bounded low-risk work. | https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://www.anthropic.com/engineering/claude-code-best-practices | medium | Conservative inference from strongest review evidence plus current agent limits. |
+
+### Assumptions
+
+- [assumption] The "pain response" component is interpreted through ownership, accountability, and maintenance burden rather than through a direct psychological metric. Justification: no retrieved study directly operationalizes pain as a software-quality variable.
+- [assumption] The repository's completed items are treated as same-repository synthesis support rather than independent external evidence. Justification: they sharpen control-surface interpretation but do not replace primary studies.
+- [assumption] The recommendation for stronger human ownership and deeper review on critical code is a conservative policy inference from review effectiveness and current agent limitations rather than a directly benchmarked rule. Justification: no retrieved study tests that exact heuristic as a standalone intervention.
+
+### Analysis
+
+Human review remains valuable because the evidence shows that review quality, expertise, and coverage are still among the strongest contextual controls available before release. [inference; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://arxiv.org/abs/2005.09217]
+
+The apparent contradiction between positive Artificial Intelligence coding studies and negative repository-scale studies disappears once the evidence is split by scope and timescale: local bounded tasks improve, but long-run codebase health can worsen if the same faster generation rate is not matched by stronger verification. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research]
+
+A major competing explanation says Artificial Intelligence itself is not the main problem, and teams simply point faster tools at work that already exceeds human review capacity. The retrieved evidence partly supports that view, which is why the conclusion focuses on verification capacity and task scope rather than on a blanket claim that Artificial Intelligence-written code is inherently worse. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2511.04427v2; https://arxiv.org/abs/2310.06770]
+
+The human bottleneck argument becomes more precise when it is reframed around ownership and maintenance exposure. Real owners have limited bandwidth, specialized history, and downstream maintenance exposure, which makes them more discriminating gates than a purely throughput-maximizing agent loop. [inference; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/]
+
+The practical question is where to place scarce human judgment. Strong organisations should spend it on scoping, acceptance, critical paths, and ambiguous cross-cutting changes, while using machine checks and lighter review for bounded low-risk work. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+
+### Risks, Gaps, and Uncertainties
+
+- The evidence base includes Mario Zechner's essay articulation of the thesis, but it does not include an independently archived transcript of the originating conference talk, so exact conference wording remains outside the supported claims in this item. [fact; source: https://mariozechner.at/posts/2025-11-30-pi-coding-agent/]
+- The replication literature weakens any claim that code-review measures are always direct causal predictors of post-release defects, so the item keeps review claims at medium rather than high confidence. [fact; source: https://arxiv.org/abs/2005.09217]
+- No retrieved source directly measures the hypothesized psychological "pain response," so that part of the argument remains inferential. [fact; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://www.microsoft.com/en-us/research/publication/an-analysis-of-the-effect-of-code-ownership-on-software-quality-across-windows-eclipse-and-firefox/]
+- The strongest Artificial Intelligence-era degradation evidence is large and useful, but it is still a mix of observational and model-based evidence rather than a decisive randomized study of review-free autonomous teams. [fact; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2511.04427v2]
+
+### Open Questions
+
+- How much of the ownership effect comes from specialized technical knowledge versus accountability for future maintenance work? [inference; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://doi.org/10.1145/1985793.1985860]
+- At what repository scale or weekly change volume does Artificial Intelligence-assisted output begin to outrun realistic expert verification capacity in practice? [inference; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2511.04427v2]
+- Which exact review protocol for critical Artificial Intelligence-assisted changes yields the best quality-cost trade-off: full line-by-line review, checklist-based review, or smaller mandatory change slices with repeated review? [inference; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://www.anthropic.com/engineering/claude-code-best-practices]
 
 ---
 
