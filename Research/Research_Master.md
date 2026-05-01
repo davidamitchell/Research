@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-05-01 03:19 UTC
+Generated on: 2026-05-01 07:27 UTC
 
 ## Table of Contents
 
 * [Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction](#2026-04-30-tdd-feedback-loops-ai-augmented-dev-md)
 * [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
+* [Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions](#2026-04-30-se-fundamentals-ai-code-synthesis-md)
 * [Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits](#2026-04-30-human-bias-ai-trust-rlhf-sycophancy-md)
 * [Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation](#2026-04-30-grill-me-ai-alignment-shared-design-md)
 * [Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices](#2026-04-30-fundamentals-first-vs-specs-to-code-md)
@@ -390,6 +391,92 @@ The long-run economic hazard is that teams may over-index on the visible speed g
 - What is the smallest repeatable package of design artifacts that yields most of the strategist-builder benefit in day-to-day team work?
 - How should team staffing, incentives, and review norms change once architectural judgment becomes more valuable than manual implementation volume?
 - Which leading indicators best show that an AI-heavy team has crossed from productive delegation into unsustainable review debt?
+
+---
+
+---
+
+<a id="2026-04-30-se-fundamentals-ai-code-synthesis-md"></a>
+
+## Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions
+
+**Tags:** [agentic-coding, software-engineering, tdd, evaluation, agentic-ai, llm, synthesis]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-se-fundamentals-ai-code-synthesis.md
+
+## Research Question
+
+Drawing on the planned seven-item research programme on Software Engineering (SE) fundamentals in Artificial Intelligence (AI)-augmented development, six completed primary items plus external anchors for the missing Ubiquitous Language (UL) dimension, covering structured alignment (Grill-Me), code entropy and quality metrics, deep modules and architectural design, UL, Test-Driven Development (TDD) and feedback loops, strategic versus tactical roles, and empirical comparisons of fundamentals-first versus specs-to-code workflows, what is the overall relationship between traditional SE fundamentals and the effectiveness, reliability, and long-term maintainability of AI-generated code, and what are the key proposed insights and priority follow-up research directions?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Traditional Software Engineering (SE) fundamentals improve Artificial Intelligence (AI)-generated code primarily by reducing ambiguity before generation and by adding external verification and boundary structure after generation, so they change the workflow's control system more than the model's raw fluency. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+
+Prompt-only workflows remain faster for disposable prototypes, but the combined evidence favors fundamentals-first once generated code must survive review, debugging, and repeated change inside a maintained repository. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html]
+
+A practical stack suggested by the evidence combines clarification-first discovery, shared vocabulary discipline, executable verification, and explicit interfaces or deep modules, while the exact rollout sequence still depends on project context and existing weaknesses. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html]
+
+Confidence is medium because the six completed primary items are mutually reinforcing, but the dedicated UL primary item was not completed and the strongest remaining gaps are longitudinal, whole-project comparisons of full fundamentals-first and prompt-only teams. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+
+### Key Findings
+
+1. **Traditional Software Engineering (SE) fundamentals help AI-generated code mainly by reducing ambiguity and constraining search around the model, which is why the strongest gains appear when clarification, interfaces, and tests are all present together.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html)
+2. **Prompt-only or specs-to-code workflows retain a real speed advantage on bounded prototyping tasks, but the evidence no longer supports them as the best default for persistent codebases once review cost, debugging burden, and future change are included.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html)
+3. **Clarification-first discovery is one of the best-supported first controls under ambiguity, because direct evidence shows that targeted questioning before code generation improves first-pass correctness and reduces later correction rounds.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html)
+4. **Shared vocabulary or glossary discipline is a plausible pre-generation control, because stable domain names should reduce synonymous prompt phrasing and session-to-session naming drift, although this conclusion remains partly inferential because the planned UL primary item is still backlog.** ([inference]; low confidence; source: https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md)
+5. **Executable verification through Test-Driven Development (TDD), fast tests, and runtime feedback is the strongest post-generation control in the corpus, because it turns AI coding into verifier-paced search and materially improves self-correction compared with one-shot generation.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html)
+6. **Explicit interfaces and deep modules make delegation safer by localizing the context each change requires, which limits hidden design leakage and reduces the chance that locally plausible code creates repository-scale entropy later.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://web.stanford.edu/~ouster/cgi-bin/book.php)
+7. **The strongest current team operating model keeps humans responsible for architecture, context curation, vocabulary, interfaces, and verification policy, while AI performs bounded implementation inside those constraints, because that is where human attention still has the highest leverage.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)
+8. **The dominant system-level failure mode in the corpus is generation volume outpacing human verification and structural discipline, which is why the downstream signal appears first as review overload, duplication, and rising change cost instead of immediate total failure.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Fundamentals help primarily by reducing ambiguity and constraining search around generation. | https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html | medium | Cross-item mechanism convergence |
+| [inference] Prompt-only workflows lose relative advantage once maintenance work begins. | https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html | medium | Prototype speed differs from repository economics |
+| [inference] Clarification-first discovery is one of the best-supported first controls under ambiguity because it improves first-pass correctness on ambiguous tasks. | https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html | medium | Strongest direct causal evidence in bundle |
+| [inference] Shared vocabulary likely reduces naming drift and ambiguity, but direct corpus evidence is incomplete. | https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md | low | Missing completed primary item limits confidence |
+| [inference] Executable verification is the strongest post-generation control surface. | https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html | medium | Direct item plus deployment-boundary companion |
+| [inference] Deep modules and explicit interfaces lower delegation risk by localizing context. | https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://web.stanford.edu/~ouster/cgi-bin/book.php | medium | Theory plus repository-scale consequence |
+| [inference] Humans should own strategic control artifacts while AI handles bounded implementation. | https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/ | medium | Team-operating-model synthesis |
+| [inference] The central scaling risk is volume outrunning verification and structural discipline. | https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-14-reliable-software-llm-era.html | medium | Cross-item governance and telemetry surface |
+
+### Assumptions
+
+- [assumption] The missing dedicated UL primary item would probably sharpen, not reverse, the shared-vocabulary conclusion, because the remaining external and companion evidence is directionally aligned. Justification: the mechanism already appears in Domain-Driven Design (DDD), context-engineering guidance, and multiple completed companion items. [source: https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://www.anthropic.com/engineering/claude-code-best-practices]
+- [assumption] The six completed primary items are sufficiently representative of the fundamentals-first bundle to support an overall synthesis even though one planned dimension is incomplete. Justification: the same core control surfaces recur across the six completed items and the adjacent companion items. [source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html]
+- [assumption] Combining ambiguity reduction, verifier hardening, and architecture hardening likely compounds benefits, because downstream controls are cheaper when upstream ambiguity is already reduced. Justification: each completed item describes costs that rise when earlier control surfaces are weak. [source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html]
+
+### Analysis
+
+The synthesis weighs direct empirical outcome evidence most heavily where available, which is why clarification gains and verifier-feedback gains sit at the center of the final model rather than at the margin. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html]
+
+Repository-scale evidence matters even though it is more observational, because the research question explicitly asks about long-term maintainability and that outcome cannot be inferred from bounded benchmark wins alone. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+
+The most important trade-off is front-loaded discipline versus downstream rework, because fundamentals-first practices slow the first move but reduce the volume of ambiguous, weakly verified, or weakly structured code that later has to be understood and repaired. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html; https://www.oreilly.com/library/view/tidy-first/9781098151232/; https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html]
+
+A rival explanation is that fundamentals-first teams may simply be more mature, use stronger tools, or work in more disciplined codebases than prompt-only teams, and the current evidence does not fully isolate those factors from the workflow effects described here. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html]
+
+The evidence supports a layered recommendation rather than a single silver bullet, because ambiguity reduction, shared vocabulary, verification, and interface design each solve different failure mechanisms and reinforce one another when combined. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html; https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html; https://davidamitchell.github.io/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-04-30-ubiquitous-language-ai-code-consistency.md] The planned dedicated UL primary item was not completed, so the shared-vocabulary contribution is less directly evidenced than the other six dimensions.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://davidamitchell.github.io/Research/research/2026-03-12-volume-vs-correctness-ai-era.html] Repository-scale maintainability evidence remains partly observational and does not cleanly randomize entire codebases into alternative AI workflow conditions.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://davidamitchell.github.io/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html] The strongest team-operating-model conclusions are still synthesis-level rather than bundle-level experimental findings.
+- [inference; source: https://www.oreilly.com/library/view/domain-driven-design-tackling/0321125215/; https://www.anthropic.com/engineering/claude-code-best-practices] Shared-vocabulary and context-engineering sources provide a plausible mechanism, but they do not yet provide a strong longitudinal naming-drift benchmark for AI-assisted repositories.
+
+### Open Questions
+
+- What does a twelve-month controlled comparison show for defect escape rate, review time, revert rate, and code-health decline in fundamentals-first versus prompt-only AI teams?
+- What is the minimum viable glossary artifact that captures most of the shared-vocabulary benefit without creating heavy maintenance overhead?
+- Which telemetry bundle best signals that a team should move from prototype-speed mode into fundamentals-first discipline, review time, hotspot decline, duplication, or change coupling?
+- How much of the observed advantage comes from the bundle effect, clarification plus vocabulary plus verification plus interfaces, versus from any single practice in isolation?
 
 ---
 
