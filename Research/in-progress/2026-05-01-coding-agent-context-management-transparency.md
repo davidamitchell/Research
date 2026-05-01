@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?"
 added: 2026-05-01T08:17:39+00:00
 status: reviewing
