@@ -400,6 +400,12 @@ easily-detectable issues.
     only one side does not support the comparison by itself: either add the
     missing source, narrow the sentence to the supported half, or keep it as
     `[inference]` and lower confidence.
+    Benchmark-ranking, "best benchmark," "most decision-useful," "stronger
+    evidence," "leader," "laggard," "most popular," and similar comparative
+    synthesis claims should default to `[inference]` unless a cited source
+    itself makes that comparison directly. Do not treat benchmark design facts
+    or score tables as if they automatically prove the evaluative judgment you
+    derive from them.
 
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
