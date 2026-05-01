@@ -407,6 +407,13 @@ easily-detectable issues.
     or score tables as if they automatically prove the evaluative judgment you
     derive from them.
 
+2h. **Executive-summary clause coverage** -- if one Executive Summary sentence
+    combines a conceptual or philosophical thesis claim with a present-day
+    empirical, interpretability, or deployment claim, ensure the citation set
+    directly supports **each clause**. Do not let a theory source carry a
+    frontier-model evidence claim, and do not let a frontier-model source stand
+    in for the original thesis statement.
+
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.

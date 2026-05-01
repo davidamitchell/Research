@@ -2,12 +2,12 @@
 review_count: 2
 title: "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability"
 added: 2026-04-30T06:52:37+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [alignment, governance, explainability, ai-safety, llm, agentic-ai, mechanistic-interpretability]
 started: 2026-05-01T08:51:56+00:00
-completed: ~
+completed: 2026-05-01T09:14:23+00:00
 output: [knowledge]
 cites: [2026-04-30-explainable-ai-xai-regulation-governance, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy]
 related: [2026-04-02-claude-mythos, 2026-03-15-context-layers-aligned-decisions-synthesis, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
