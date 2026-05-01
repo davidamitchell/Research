@@ -2,13 +2,13 @@
 review_count: 1
 title: "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives"
 added: 2026-04-30T19:11:29+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [governance, regulation, financial-services, audit, risk-management, compliance, machine-learning, explainability]
 started: 2026-05-01T02:01:23+00:00
-completed: ~
-output: []  # skill | tool | agent | knowledge | backlog-item
+completed: 2026-05-01T02:23:08+00:00
+output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-24-ai-agent-regulation-global-financial-services]
 related: [2026-04-22-ai-governance-assurance-change-control-verification, 2026-02-28-rbnz-ai-supervisory-expectations]
 superseded_by: ~
