@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "bcc7fb2c51f859f5b49f0e6e99a42f49f757b1ed"
+    changed: 2026-05-01
+    progress: "progress/2026-05-01-srinivasan-ai-automation-augmentation-role-replacement.md"
+    summary: "Initial completion"
 ---
 
 # Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?
