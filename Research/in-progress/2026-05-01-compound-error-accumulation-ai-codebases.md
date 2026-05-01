@@ -146,7 +146,7 @@ This item asks when AI-generated local improvements accumulate faster than the c
 
 #### B. The local-fix / global-regression mechanism is best explained by context limits, coupling, and missing independent verification
 
-- [fact; source: https://arxiv.org/abs/2310.06770] SWE-bench was built around real repository issues precisely because they require long contexts, coordinated multi-file edits, and interaction with execution environments, and the original paper reports only 1.96% resolution by the best model evaluated there.
+- [fact; source: https://arxiv.org/abs/2310.06770] Software Engineering Benchmark (SWE-bench) was built around real repository issues precisely because they require long contexts, coordinated multi-file edits, and interaction with execution environments, and the original paper reports only 1.96% resolution by the best model evaluated there.
 - [fact; source: https://www.anthropic.com/engineering/claude-code-best-practices] Anthropic's Claude Code guidance states that context windows fill quickly and performance degrades as they fill, making context the main resource to manage during agentic coding sessions.
 - [fact; source: https://arxiv.org/html/2604.01527v1] ProdCodeBench reports solve rates of 53.2% to 72.2% on production-derived monorepo tasks and finds that models using validation tools such as tests and static analysis more often achieve higher solve rates.
 - [fact; source: https://raw.githubusercontent.com/The-Focus-AI/youtube-feed/main/ai-engineer/videos/RjfbvDXpFls.json; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/] Mario Zechner's transcript and Pi essay describe the same failure mechanism from practice: hidden context mutation, silent pruning, and overgrown harness scope make the model's working context less legible and less stable.
@@ -156,7 +156,7 @@ This item asks when AI-generated local improvements accumulate faster than the c
 
 - [fact; source: https://arxiv.org/html/2511.04427v2] He et al. estimate that Cursor adoption produces transient velocity gains but persistent increases in static-analysis warnings and code complexity, and their panel models tie that technical-debt accumulation to later velocity slowdown.
 - [fact; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research] GitClear's 2025 repository-scale analysis reports rising cloned-code prevalence, rising short-term churn, and a sharp decline in moved or refactored code during the AI-assistance era.
-- [fact; source: https://arxiv.org/html/2601.20112v1] IBM's 2026 survey paper summarizes a broad literature pattern in which developers report productivity gains together with persistent concerns about maintainability, integration, and correctness.
+- [fact; source: https://arxiv.org/html/2601.20112v1] International Business Machines (IBM)'s 2026 survey paper summarizes a broad literature pattern in which developers report productivity gains together with persistent concerns about maintainability, integration, and correctness.
 - [inference; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://arxiv.org/html/2601.20112v1; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md] Compounding error should therefore be read as accumulated maintainability debt and verification load, not only as a count of immediately visible functional bugs.
 
 #### D. AI-generated tests are useful regression scaffolds, but weak as independent correctness oracles
