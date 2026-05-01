@@ -2,12 +2,12 @@
 review_count: 2
 title: "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?"
 added: 2026-05-01T08:17:39+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [open-source, agentic-ai, governance, workflow]
 started: 2026-05-01T22:21:59+00:00
-completed: ~
+completed: 2026-05-01T22:42:53+00:00
 output: [knowledge]
 cites: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-05-01-compound-error-accumulation-ai-codebases, 2026-05-01-human-oversight-ai-software-development]
 related: [2026-04-30-ai-code-entropy-quality-metrics, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-coding-agent-context-management-transparency]
