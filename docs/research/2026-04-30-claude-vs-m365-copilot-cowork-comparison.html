@@ -1,0 +1,802 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork</h1>
+  <p class="full-title-subtitle">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison</p>
+  <div class="meta-bar">
+    <span>2026-04-30</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/microsoft.html">microsoft</a> <a class="tag" href="/Research/tags/copilot.html">copilot</a> <a class="tag" href="/Research/tags/cowork.html">cowork</a> <a class="tag" href="/Research/tags/anthropic.html">anthropic</a> <a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/security.html">security</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-synthesis">synthesis</span> <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-claude-vs-m365-copilot-cowork-comparison.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-30-claude-vs-m365-copilot-cowork-comparison" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Direct Claude access and Microsoft 365 Copilot Cowork both use Anthropic technology, but they package it through materially different workflow boundaries, with Anthropic centering connectors, coding, projects, and research while Microsoft centers Outlook, Teams, files, meetings, and Microsoft Graph-grounded actions. (; high confidence; source: https://www.anthropic.com/enterprise; https://claude.com/pricing; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor)</li>
+<li>Anthropic publishes lower entry pricing for Team and a usage-metered Enterprise model, while Microsoft publishes a $30 per user per month Copilot add-on price and no separate public Cowork price. (; high confidence; source: https://claude.com/pricing; https://support.claude.com/en/articles/9266767-what-is-the-team-plan; https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan; https://blogs.microsoft.com/blog/2023/07/18/furthering-our-ai-ambitions-announcing-bing-chat-enterprise-and-microsoft-365-copilot-pricing/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started; https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise)</li>
+<li>Microsoft Cowork can directly draft and send communications, schedule meetings, create files, and run scheduled prompts inside the user&#39;s Microsoft 365 estate rather than through a separate workspace. (; high confidence; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork)</li>
+<li>Anthropic Enterprise is stronger on explicit product-level governance primitives because it offers formal audit logs, a Compliance API, retention controls, spend controls, and Enterprise-only SCIM provisioning that are described directly in Anthropic&#39;s own administration documentation. (; high confidence; source: https://support.claude.com/en/articles/9970975-access-audit-logs; https://support.claude.com/en/articles/13015708-access-the-compliance-api; https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans; https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance)</li>
+<li>Anthropic says Cowork activity is not captured in audit logs, data exports, or Compliance API outputs, and that conversation history is stored locally on user devices. (; medium confidence; source: https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans; https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)</li>
+<li>Microsoft Cowork inherits Microsoft 365 audit, Data Loss Prevention, and admin controls, but its control story is qualified by Anthropic subprocessor geography exclusions, a documented prompt-attachment inspection gap, and custom-skill governance that depends on OneDrive folder controls and admin group scoping. (; medium confidence; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/audit-copilot; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq)</li>
+<li>Human oversight risk differs by path, because Microsoft normalizes approval and skill creation inside everyday work tools, while Anthropic exposes a more separate agent workspace but offers weaker formal accountability for Claude Cowork sessions. (; medium confidence; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)</li>
+<li>The safest enterprise choice is route-specific, so Microsoft Cowork is preferable when Microsoft-resident workflow automation is the objective, and direct Claude is preferable when cross-platform knowledge work and vendor-boundary flexibility matter more than in-app Microsoft action depth. (; medium confidence; source: https://www.anthropic.com/enterprise; https://claude.com/pricing; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ms-copilot-cowork.html)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How do Anthropic Claude, specifically the Team and Enterprise plans, and Microsoft 365 (M365) Copilot Cowork compare across capability, pricing, user experience, and guardrails, and what are the security, human oversight, operational, and long-term strategic risks of each product for enterprise adoption, noting that M365 Copilot Cowork currently uses Anthropic as an underlying model subprocessor?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Microsoft 365 Copilot Cowork is the stronger choice for enterprises that want Anthropic-powered automation directly inside Microsoft workflows, while Anthropic Claude Team or Enterprise is the stronger choice for enterprises that want cross-platform Claude access, clearer Anthropic-specific administration, and less dependence on Microsoft's productivity boundary.</p>
+<p><a href="https://www.anthropic.com/enterprise">Anthropic Enterprise</a> exposes stronger explicit product-level governance controls than Microsoft Cowork's current preview surface, but Anthropic's own Cowork preview remains materially weaker for regulated workloads because it lacks formal audit logging and centralized retention.</p>
+<p>Microsoft Cowork inherits Microsoft 365 audit, Data Loss Prevention (DLP), and admin controls, but that control story is qualified by Anthropic regional exclusions, a prompt-attachment DLP gap, and custom-skill governance that depends on OneDrive folder controls and admin group scoping.</p>
+<p>The practical decision depends on which control boundary better matches the enterprise's existing workflow estate, approval discipline, and compensating controls.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Direct Claude access and Microsoft 365 Copilot Cowork both use Anthropic technology, but they package it through materially different workflow boundaries, with Anthropic centering connectors, coding, projects, and research while Microsoft centers Outlook, Teams, files, meetings, and Microsoft Graph-grounded actions.</strong> ([inference]; high confidence; source: <a href="https://www.anthropic.com/enterprise">Anthropic Enterprise</a> <a href="https://claude.com/pricing">Anthropic Claude Pricing</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork">Microsoft Learn Use Cowork</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor">Microsoft Learn Anthropic as a subprocessor for Microsoft Online Services</a></li>
+<li><strong>Anthropic publishes lower entry pricing for Team and a usage-metered Enterprise model, while Microsoft publishes a $30 per user per month Copilot add-on price and no separate public Cowork price.</strong> ([fact]; high confidence; source: <a href="https://claude.com/pricing">Anthropic Claude Pricing</a> <a href="https://support.claude.com/en/articles/9266767-what-is-the-team-plan">Anthropic Support What is the Team plan?</a> <a href="https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan">Anthropic Support What is the Enterprise plan?</a> <a href="https://blogs.microsoft.com/blog/2023/07/18/furthering-our-ai-ambitions-announcing-bing-chat-enterprise-and-microsoft-365-copilot-pricing/">Microsoft (2023) furthering our AI ambitions, announcing Bing Chat Enterprise and Microsoft 365 Copilot pricing</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started">Microsoft Learn Get started with Cowork</a> <a href="https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise">Microsoft 365 Copilot pricing for enterprise</a></li>
+<li><strong>Microsoft Cowork can directly draft and send communications, schedule meetings, create files, and run scheduled prompts inside the user's Microsoft 365 estate rather than through a separate workspace.</strong> ([fact]; high confidence; source: <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/">Microsoft Learn Microsoft 365 Copilot Cowork overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork">Microsoft Learn Use Cowork</a></li>
+<li><strong>Anthropic Enterprise is stronger on explicit product-level governance primitives because it offers formal audit logs, a Compliance API, retention controls, spend controls, and Enterprise-only SCIM provisioning that are described directly in Anthropic's own administration documentation.</strong> ([inference]; high confidence; source: <a href="https://support.claude.com/en/articles/9970975-access-audit-logs">Anthropic Support Access audit logs</a> <a href="https://support.claude.com/en/articles/13015708-access-the-compliance-api">Anthropic Support Access the Compliance API</a> <a href="https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans">Anthropic Support Configure custom data retention controls for Enterprise plans</a> <a href="https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning">Anthropic Support Set up Just-in-Time (JIT) or SCIM provisioning</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance">Microsoft Learn Manage Cowork for your organization</a></li>
+<li><strong>Anthropic says Cowork activity is not captured in audit logs, data exports, or Compliance API outputs, and that conversation history is stored locally on user devices.</strong> ([fact]; medium confidence; source: <a href="https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans">Anthropic Support Use Claude Cowork on Team and Enterprise plans</a> <a href="https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry">Anthropic Support Monitor Claude Cowork activity with OpenTelemetry</a></li>
+<li><strong>Microsoft Cowork inherits Microsoft 365 audit, Data Loss Prevention, and admin controls, but its control story is qualified by Anthropic subprocessor geography exclusions, a documented prompt-attachment inspection gap, and custom-skill governance that depends on OneDrive folder controls and admin group scoping.</strong> ([inference]; medium confidence; source: <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft Learn Data, privacy, and security for Microsoft 365 Copilot</a> <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Learn Overview of audit logs for Microsoft Copilot and AI applications</a> <a href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about">Microsoft Learn Data Loss Prevention (DLP) location for Microsoft 365 Copilot</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor">Microsoft Learn Anthropic as a subprocessor for Microsoft Online Services</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance">Microsoft Learn Manage Cowork for your organization</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq">Microsoft Learn Cowork FAQ</a></li>
+<li><strong>Human oversight risk differs by path, because Microsoft normalizes approval and skill creation inside everyday work tools, while Anthropic exposes a more separate agent workspace but offers weaker formal accountability for Claude Cowork sessions.</strong> ([inference]; medium confidence; source: <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq">Microsoft Learn Cowork FAQ</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork">Microsoft Learn Use Cowork</a> <a href="https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans">Anthropic Support Use Claude Cowork on Team and Enterprise plans</a></li>
+<li><strong>The safest enterprise choice is route-specific, so Microsoft Cowork is preferable when Microsoft-resident workflow automation is the objective, and direct Claude is preferable when cross-platform knowledge work and vendor-boundary flexibility matter more than in-app Microsoft action depth.</strong> ([inference]; medium confidence; source: <a href="https://www.anthropic.com/enterprise">Anthropic Enterprise</a> <a href="https://claude.com/pricing">Anthropic Claude Pricing</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html">Research Enterprise AI use-case routing frameworks</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html">Research Business-led low-code agent governance</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html">Research Vendor platform governance constraints and compensating controls</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ms-copilot-cowork.html">Research Microsoft 365 Copilot Cowork governance risks</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The Anthropic comparison includes Claude Cowork because Anthropic's current paid-plan documentation treats Cowork as part of the direct Claude product path. <strong>Justification:</strong> Excluding Cowork would understate the current Anthropic workflow surface.</li>
+<li><strong>Assumption:</strong> Microsoft preview contradictions are interpreted conservatively as product instability rather than as settled product commitments. <strong>Justification:</strong> The checked pages disagree on skill limits and rollout conditions.</li>
+<li><strong>Assumption:</strong> No separate public Cowork price exists in the checked Microsoft pages. <strong>Justification:</strong> The official pages consistently document Copilot licensing and Cowork prerequisites, but no distinct Cowork commercial offer was found.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The strongest evidence shows that the comparison turns on control boundary because the two products package Claude into different enterprise operating surfaces.</p>
+<p>Anthropic's core Enterprise plan looks comparatively mature on identity, logging, retention, and spend governance, but Anthropic's own Cowork preview is still missing the formal audit and retention surface that regulated teams usually require.</p>
+<p>Microsoft Cowork looks stronger when Microsoft 365 is already the enterprise system of work, because permissions, storage, audit, and retention are inherited from the surrounding tenant, but that benefit is narrowed by Anthropic provider exclusions and prompt-attachment inspection gaps.</p>
+<p>The commercial models reinforce the same split, because Microsoft makes Cowork primarily a seat-license decision inside an existing suite, while Anthropic Enterprise makes the decision partly a usage-governance and cost-monitoring problem.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Microsoft preview instability remains unresolved because official pages still disagree on exact skill limits and rollout conditions.</li>
+<li>Anthropic's own documentation says Cowork lacks formal audit logging and centralized retention, which limits confidence that direct Anthropic Cowork is currently suitable for tightly regulated production workflows.</li>
+<li>Anthropic Enterprise price transparency is lower than Team price transparency because the public documentation explains the billing model but does not publish the Enterprise seat fee itself.</li>
+<li>Microsoft's checked public pages do not expose a separate Cowork commercial price, so organizations still need tenant-specific validation of the exact preview and licensing path.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Will Anthropic add compliance-grade audit and retention support to Claude Cowork quickly enough for regulated-enterprise deployment?</li>
+<li>Will Microsoft add tenant-level skill inventory, approval, or versioning for Cowork custom skills before general availability?</li>
+<li>How will the Microsoft and Anthropic commercial models evolve if both vendors keep bundling more agentic features into their base plans?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://claude.com/pricing">Anthropic Claude Pricing</a> - official Anthropic pricing, packaged features, seat ranges, and published Team plan rates</li>
+<li>[x] <a href="https://www.anthropic.com/enterprise">Anthropic Enterprise</a> - official enterprise feature overview, controls, connectors, and Claude Cowork positioning</li>
+<li>[x] <a href="https://www.anthropic.com/news/claude-for-enterprise">Anthropic (2024) Claude for Enterprise</a> - official launch post for the Enterprise plan, 500K context window, and security features</li>
+<li>[x] <a href="https://www.anthropic.com/legal/privacy">Anthropic Privacy Policy</a> - official privacy and controller or processor framing for Anthropic commercial services</li>
+<li>[x] <a href="https://www.anthropic.com/responsible-scaling-policy">Anthropic Responsible Scaling Policy</a> - official Anthropic safety-governance posture</li>
+<li>[x] <a href="https://support.claude.com/en/articles/9266767-what-is-the-team-plan">Anthropic Support What is the Team plan?</a> - official Team plan seat ranges, usage model, and plan scope</li>
+<li>[x] <a href="https://support.claude.com/en/articles/12004354-purchase-and-manage-seats-on-team-plans">Anthropic Support Purchase and manage seats on Team plans</a> - official Team seat-allocation and seat-tier management</li>
+<li>[x] <a href="https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan">Anthropic Support What is the Enterprise plan?</a> - official Enterprise plan structure, self-serve versus sales-assisted minimums, and usage model</li>
+<li>[x] <a href="https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan">Anthropic Support How am I billed for my Enterprise plan?</a> - official Enterprise billing mechanics and spend-control model</li>
+<li>[x] <a href="https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso">Anthropic Support Set up single sign-on (SSO)</a> - official Single Sign-On (SSO) setup for Team and Enterprise</li>
+<li>[x] <a href="https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning">Anthropic Support Set up Just-in-Time (JIT) or SCIM provisioning</a> - official Just-in-Time (JIT) and System for Cross-domain Identity Management (SCIM) provisioning scope</li>
+<li>[x] <a href="https://support.claude.com/en/articles/9970975-access-audit-logs">Anthropic Support Access audit logs</a> - official Anthropic audit-log export capability</li>
+<li>[x] <a href="https://support.claude.com/en/articles/13015708-access-the-compliance-api">Anthropic Support Access the Compliance API</a> - official Anthropic Compliance API documentation</li>
+<li>[x] <a href="https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans">Anthropic Support Configure custom data retention controls for Enterprise plans</a> - official Anthropic retention controls</li>
+<li>[x] <a href="https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans">Anthropic Support View usage analytics for Team and Enterprise plans</a> - official Anthropic usage, spend, and Cowork analytics surface</li>
+<li>[x] <a href="https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans">Anthropic Support Use Claude Cowork on Team and Enterprise plans</a> - official Claude Cowork controls and compliance limitations</li>
+<li>[x] <a href="https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry">Anthropic Support Monitor Claude Cowork activity with OpenTelemetry</a> - official Cowork monitoring guidance and limitations</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/">Microsoft Learn Microsoft 365 Copilot Cowork overview</a> - official Cowork capability overview</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork">Microsoft Learn Use Cowork</a> - official task flow, approvals, file handling, and custom skill behavior</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started">Microsoft Learn Get started with Cowork</a> - official prerequisites, preview status, and access conditions</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq">Microsoft Learn Cowork FAQ</a> - official skill-limit, validation, and governance caveats</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance">Microsoft Learn Manage Cowork for your organization</a> - official admin controls and rollout surface</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor">Microsoft Learn Anthropic as a subprocessor for Microsoft Online Services</a> - official Anthropic provider-control, region, and data-boundary rules inside Microsoft</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/ai/responsible-ai">Microsoft Responsible AI</a> - official Microsoft responsible AI principles</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing">Microsoft Learn Microsoft 365 Copilot licensing</a> - official eligible base licenses and add-on structure</li>
+<li>[x] <a href="https://blogs.microsoft.com/blog/2023/07/18/furthering-our-ai-ambitions-announcing-bing-chat-enterprise-and-microsoft-365-copilot-pricing/">Microsoft (2023) furthering our AI ambitions, announcing Bing Chat Enterprise and Microsoft 365 Copilot pricing</a> - official Microsoft announcement of the public Microsoft 365 Copilot seat price</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise">Microsoft 365 Copilot pricing for enterprise</a> - official current Microsoft pricing page for the enterprise Copilot offer</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft Learn Data, privacy, and security for Microsoft 365 Copilot</a> - official Microsoft privacy, retention, and permission model</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot">Microsoft Learn Data residency commitments for Microsoft 365 Copilot</a> - official Microsoft residency commitments</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Learn Overview of audit logs for Microsoft Copilot and AI applications</a> - official Microsoft Copilot audit scope</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about">Microsoft Learn Data Loss Prevention (DLP) location for Microsoft 365 Copilot</a> - official Microsoft DLP coverage and gaps</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/sharepoint/onedrive-privacy-security-overview">Microsoft Learn Privacy, security, and compliance in OneDrive</a> - official OneDrive storage and protection commitments relevant to Cowork file handling</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ms-copilot-cowork.html">Research Microsoft 365 Copilot Cowork governance risks</a> - prior completed repository work on Cowork governance and control gaps</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html">Research Business-led low-code agent governance</a> - prior completed repository work on governed business-led automation</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html">Research Enterprise AI use-case routing frameworks</a> - prior completed repository work on risk-based lane selection</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html">Research Vendor platform governance constraints and compensating controls</a> - prior completed repository work on vendor governance surfaces</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html">Research AI governance cost, performance, and delivery impact</a> - prior completed repository work on control overhead and governance economics</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-02-claude-mythos.html">Research Claude mythos</a> - prior completed repository work on Anthropic's public Claude identity framing</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ms-copilot-cowork.html">What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?</a> <span class="related-note">via copilot, cowork, enterprise, governance, microsoft</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-31-llm-offensive-security-0days.html">Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race</a> <span class="related-note">via anthropic, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a> <span class="related-note">via agentic-ai, copilot, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html">Trusting Trust and AI Corpus Contamination</a> <span class="related-note">via agentic-ai, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html">Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</a> <span class="related-note">via agentic-ai, llm, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ms-copilot-cowork.html">What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-24-business-led-low-code-agent-governance.html">Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html">Enterprise AI use-case routing frameworks</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html">What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html">What is the cost, performance, and delivery impact of governance controls on AI and low-code development?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-02-claude-mythos.html">Claude mythos: character, soul documents, and narrative identity in large language models</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html">Artificial Intelligence code entropy and complexity</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for…</a></div>
+  </div>
+</main>
+</body>
+</html>

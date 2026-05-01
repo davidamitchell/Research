@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T01:47:50Z",
+  "extracted_at": "2026-05-01T02:15:40Z",
   "items": {
     "2026-04-30-tdd-feedback-loops-ai-augmented-dev": {
       "named_concepts": [
@@ -402,6 +402,104 @@
         },
         {
           "text": "The payoff from rescue is front-loaded on active hotspots and interface seams, while the cost rises as hidden coupling and declining code health accumulate, so no single effort-benefit ratio is portable across codebases. (; medium confidence; source: https://www.atlassian.com/blog/development/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring; https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html; https://codescene.com/blog/measure-code-health-of-your-codebase)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-04-30-claude-vs-m365-copilot-cowork-comparison": {
+      "named_concepts": [
+        "microsoft cowork",
+        "anthropic enterprise",
+        "formal audit",
+        "explicit product-level",
+        "cowork inherits",
+        "inherits microsoft",
+        "direct claude",
+        "separate public",
+        "public cowork",
+        "cowork price",
+        "says cowork",
+        "claude cowork",
+        "microsoft copilot",
+        "copilot cowork",
+        "stronger choice",
+        "claude access",
+        "stronger explicit",
+        "product-level governance",
+        "cowork preview",
+        "lacks formal"
+      ],
+      "source_urls": [
+        "https://claude.com/pricing",
+        "https://www.anthropic.com/enterprise",
+        "https://www.anthropic.com/news/claude-for-enterprise",
+        "https://www.anthropic.com/legal/privacy",
+        "https://www.anthropic.com/responsible-scaling-policy",
+        "https://support.claude.com/en/articles/9266767-what-is-the-team-plan",
+        "https://support.claude.com/en/articles/12004354-purchase-and-manage-seats-on-team-plans",
+        "https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan",
+        "https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan",
+        "https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso",
+        "https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning",
+        "https://support.claude.com/en/articles/9970975-access-audit-logs",
+        "https://support.claude.com/en/articles/13015708-access-the-compliance-api",
+        "https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans",
+        "https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans",
+        "https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans",
+        "https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor",
+        "https://www.microsoft.com/en-us/ai/responsible-ai",
+        "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing",
+        "https://blogs.microsoft.com/blog/2023/07/18/furthering-our-ai-ambitions-announcing-bing-chat-enterprise-and-microsoft-365-copilot-pricing/",
+        "https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise",
+        "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+        "https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot",
+        "https://learn.microsoft.com/en-us/purview/audit-copilot",
+        "https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about",
+        "https://learn.microsoft.com/en-us/sharepoint/onedrive-privacy-security-overview",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ms-copilot-cowork.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-02-claude-mythos.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Direct Claude access and Microsoft 365 Copilot Cowork both use Anthropic technology, but they package it through materially different workflow boundaries, with Anthropic centering connectors, coding, projects, and research while Microsoft centers Outlook, Teams, files, meetings, and Microsoft Graph-grounded actions. (; high confidence; source: https://www.anthropic.com/enterprise; https://claude.com/pricing; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor)",
+          "sources": []
+        },
+        {
+          "text": "Anthropic publishes lower entry pricing for Team and a usage-metered Enterprise model, while Microsoft publishes a $30 per user per month Copilot add-on price and no separate public Cowork price. (; high confidence; source: https://claude.com/pricing; https://support.claude.com/en/articles/9266767-what-is-the-team-plan; https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan; https://blogs.microsoft.com/blog/2023/07/18/furthering-our-ai-ambitions-announcing-bing-chat-enterprise-and-microsoft-365-copilot-pricing/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started; https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise)",
+          "sources": []
+        },
+        {
+          "text": "Microsoft Cowork can directly draft and send communications, schedule meetings, create files, and run scheduled prompts inside the user's Microsoft 365 estate rather than through a separate workspace. (; high confidence; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork)",
+          "sources": []
+        },
+        {
+          "text": "Anthropic Enterprise is stronger on explicit product-level governance primitives because it offers formal audit logs, a Compliance API, retention controls, spend controls, and Enterprise-only SCIM provisioning that are described directly in Anthropic's own administration documentation. (; high confidence; source: https://support.claude.com/en/articles/9970975-access-audit-logs; https://support.claude.com/en/articles/13015708-access-the-compliance-api; https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans; https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance)",
+          "sources": []
+        },
+        {
+          "text": "Anthropic says Cowork activity is not captured in audit logs, data exports, or Compliance API outputs, and that conversation history is stored locally on user devices. (; medium confidence; source: https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans; https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)",
+          "sources": []
+        },
+        {
+          "text": "Microsoft Cowork inherits Microsoft 365 audit, Data Loss Prevention, and admin controls, but its control story is qualified by Anthropic subprocessor geography exclusions, a documented prompt-attachment inspection gap, and custom-skill governance that depends on OneDrive folder controls and admin group scoping. (; medium confidence; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/audit-copilot; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq)",
+          "sources": []
+        },
+        {
+          "text": "Human oversight risk differs by path, because Microsoft normalizes approval and skill creation inside everyday work tools, while Anthropic exposes a more separate agent workspace but offers weaker formal accountability for Claude Cowork sessions. (; medium confidence; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)",
+          "sources": []
+        },
+        {
+          "text": "The safest enterprise choice is route-specific, so Microsoft Cowork is preferable when Microsoft-resident workflow automation is the objective, and direct Claude is preferable when cross-platform knowledge work and vendor-boundary flexibility matter more than in-app Microsoft action depth. (; medium confidence; source: https://www.anthropic.com/enterprise; https://claude.com/pricing; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ms-copilot-cowork.html)",
           "sources": []
         }
       ]
