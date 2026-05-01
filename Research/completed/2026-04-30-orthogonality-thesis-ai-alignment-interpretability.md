@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 201fd73a6f37396554f49c31f0fb0296504618be
+    changed: 2026-05-01
+    progress: progress/2026-05-01-orthogonality-thesis-ai-alignment-interpretability.md
+    summary: Initial completion
 ---
 
 # The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability
