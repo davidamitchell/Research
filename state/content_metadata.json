@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-01T08:35:58Z",
+  "extracted_at": "2026-05-01T08:51:33Z",
   "items": {
     "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement": {
       "named_concepts": [
@@ -61,6 +61,88 @@
         },
         {
           "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-ai-coding-harness-quality-benchmarks": {
+      "named_concepts": [
+        "swe-bench verified",
+        "public leaderboard",
+        "public benchmark",
+        "github copilot",
+        "accessible official",
+        "official sources",
+        "retrieved official",
+        "public verified",
+        "harness quality",
+        "software engineering",
+        "strongest public",
+        "open harnesses",
+        "directly comparable",
+        "publish public",
+        "first-party public",
+        "developer agent",
+        "google jules",
+        "verified leaderboard",
+        "official public",
+        "plausible standalone"
+      ],
+      "source_urls": [
+        "https://www.swebench.com/",
+        "https://arxiv.org/abs/2310.06770",
+        "https://www.swebench.com/verified.html",
+        "https://www.swebench.com/lite.html",
+        "https://arxiv.org/abs/2107.03374",
+        "https://github.com/openai/human-eval",
+        "https://github.com/google-research/google-research/tree/master/mbpp",
+        "https://arxiv.org/abs/2403.07974",
+        "https://livecodebench.github.io/",
+        "https://bigcode-bench.github.io/",
+        "https://openreview.net/forum?id=YrycTjllL0",
+        "https://aider.chat/docs/leaderboards/",
+        "https://survey.stackoverflow.co/2024/ai",
+        "https://www.cognition.ai/blog/swe-bench-technical-report",
+        "https://www.cognition.ai/blog/introducing-devin",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
+        "https://aws.amazon.com/q/developer/",
+        "https://developers.googleblog.com/en/the-next-chapter-of-the-gemini-era-for-developers/",
+        "https://cursor.com/blog/cursorbench",
+        "https://all-hands.dev/"
+      ],
+      "key_claims": [
+        {
+          "text": "SWE-bench Verified is currently the most decision-useful public benchmark for comparing agentic coding harnesses, because it uses human-filtered real GitHub issue tasks and scores whether a system actually resolves repository problems rather than merely generating plausible standalone code. (; medium confidence; source: https://www.swebench.com/verified.html; https://arxiv.org/abs/2310.06770)",
+          "sources": []
+        },
+        {
+          "text": "HumanEval and Mostly Basic Programming Problems (MBPP) remain important coding benchmarks, but they are weak direct proxies for harness quality because they evaluate standalone Python problem solving and unit-test passing rather than repository navigation, multi-file editing, and regression-safe issue resolution. (; medium confidence; source: https://arxiv.org/abs/2107.03374; https://github.com/openai/human-eval; https://github.com/google-research/google-research/tree/master/mbpp; https://www.swebench.com/verified.html)",
+          "sources": []
+        },
+        {
+          "text": "LiveCodeBench and BigCodeBench extend benchmark coverage beyond older standalone-function tests by emphasizing contamination resistance, self-repair, code execution, tool or library use, and harder instructions, yet they still rank models more directly than branded coding products or end-to-end harnesses. (; high confidence; source: https://arxiv.org/abs/2403.07974; https://livecodebench.github.io/; https://openreview.net/forum?id=YrycTjllL0; https://bigcode-bench.github.io/)",
+          "sources": []
+        },
+        {
+          "text": "The dominant public metrics are pass@k for sampled code generation and percent resolved for software engineering agents, while productivity studies add unit-test pass rates, approval rates, and readability or maintainability ratings that capture important but different aspects of coding-tool quality. (; high confidence; source: https://arxiv.org/abs/2107.03374; https://github.com/openai/human-eval; https://www.swebench.com/; https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/)",
+          "sources": []
+        },
+        {
+          "text": "The highest public SWE-bench Verified scores visible in accessible official sources are attached primarily to simple or open harnesses such as live-SWE-agent and mini-SWE-agent paired with current top-scoring models, with retrieved top entries at 79.2% for live-SWE-agent plus Claude 4.5 Opus medium and 76.8% for mini-SWE-agent plus Claude 4.5 Opus. (; medium confidence; source: https://www.swebench.com/)",
+          "sources": []
+        },
+        {
+          "text": "Among named open-source platform entries with direct public attribution, OpenHands has become a serious top-tier benchmark participant, appearing at 65.8% as a branded entry and 70.4% when paired with Claude 4 Sonnet on the retrieved SWE-bench Verified leaderboard. (; medium confidence; source: https://www.swebench.com/; https://all-hands.dev/)",
+          "sources": []
+        },
+        {
+          "text": "Among named commercial products with directly attributable public Verified entries in retrieved official sources, Amazon Q Developer Agent presently has stronger public end-to-end benchmark evidence than Google Jules, at 65.4% versus 52.2% on SWE-bench Verified. (; medium confidence; source: https://www.swebench.com/; https://aws.amazon.com/q/developer/; https://developers.googleblog.com/en/the-next-chapter-of-the-gemini-era-for-developers/)",
+          "sources": []
+        },
+        {
+          "text": "Devin's published 13.86% result on original SWE-bench was historically important because it normalized agent-style evaluation, but it should not be read as a current leaderboard position because it used a 25% subset of the older benchmark and not the current Verified leaderboard regime. (; medium confidence; source: https://www.cognition.ai/blog/swe-bench-technical-report; https://www.cognition.ai/blog/introducing-devin; https://www.swebench.com/verified.html)",
           "sources": []
         }
       ]
