@@ -1,9 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-01 07:27 UTC
+Generated on: 2026-05-01 08:21 UTC
 
 ## Table of Contents
 
+* [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
+* [Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence](#2026-04-30-ubiquitous-language-ai-code-consistency-md)
 * [Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction](#2026-04-30-tdd-feedback-loops-ai-augmented-dev-md)
 * [Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale](#2026-04-30-strategic-tactical-division-ai-teams-md)
 * [Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions](#2026-04-30-se-fundamentals-ai-code-synthesis-md)
@@ -230,6 +232,154 @@ Generated on: 2026-05-01 07:27 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md"></a>
+
+## Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?
+
+**Tags:** [agentic-ai, ai-strategy, organisational-design, strategy]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-srinivasan-ai-automation-augmentation-role-replacement.md
+
+## Research Question
+
+What does Prof Suraj Srinivasan's research framework for measuring Automation and Augmentation (A&A) scores across job roles and industries reveal about which roles face full Artificial Intelligence (AI) replacement, specifically the finding that roles where automation score exceeds augmentation score are those AI will replace in totality, and what are the strategic implications for workforce and organisational planning?
+
+## Findings
+
+### Executive Summary
+
+Srinivasan's accessible research does not show that occupations with automation scores above augmentation scores will be replaced entirely by AI; it shows that occupations in the top automation quartile lose postings and skill breadth, while occupations in the top augmentation quartile gain demand and AI-related skill requirements. [inference; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+
+The framework combines an exposure-based automation index with a task-mix augmentation index, so the two numbers are complementary measures rather than a single binary cutoff. [fact; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf]
+
+The occupations most exposed to automation are clerical, transcription, translation, and other structured cognitive roles, while the occupations most exposed to augmentation are specialist roles that still depend on judgment, accountability, and mixed task portfolios. [fact; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+
+For workforce planning, the practical implication is to redesign roles and training around task mix: automate repetitive sub-tasks, reskill workers leaving clerical pipelines, and deliberately strengthen AI literacy in occupations that remain human-led but AI-assisted. [inference; source: https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs; https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf]
+
+### Key Findings
+
+1. **The accessible Srinivasan research measures automation and augmentation as different constructs, so it does not present a formal crossover rule in which a higher automation score than augmentation score automatically means total occupational replacement.** ([fact]; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
+2. **The working paper finds that occupations in the top quartile of automation exposure experienced a 17% decline in job postings per firm per quarter after ChatGPT, while occupations in the top quartile of augmentation exposure experienced a 22% increase.** ([fact]; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
+3. **The later Harvard Business School Working Knowledge summary reports updated effects, including a 13% decline for structured repetitive occupations and 20% growth for more analytical, technical, or creative occupations.** ([fact]; medium confidence; source: https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs)
+4. **The most automation-exposed occupations are concentrated in clerical and codifiable language work, including correspondence clerks, interpreters and translators, court clerks, medical transcriptionists, telemarketers, typists, and payroll clerks.** ([fact]; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
+5. **The most augmentation-exposed occupations are mixed-task specialist roles such as clinical neuropsychologists, medical dosimetrists, agricultural engineers, cartographers, microbiologists, and mediators, where AI can compress sub-tasks but not displace the need for human judgment or responsibility.** ([fact]; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs)
+6. **The study supports a role-redesign thesis more than an occupation-extinction thesis, because its outcome variables are posting volume and skill composition rather than observed full elimination of whole job families.** ([inference]; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf)
+7. **Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work.** ([inference]; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Automation and augmentation are defined through separate indices, not a published crossover rule. | https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf | medium | score construction |
+| [fact] Top automation quartile postings fall 17% while top augmentation quartile postings rise 22% in the accessible paper version. | https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf | medium | Table 7 |
+| [fact] Updated Harvard Business School summary reports 13% decline and 20% growth. | https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs | medium | later sample window |
+| [fact] Top automation occupations cluster in clerical and codifiable language work. | https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf | medium | Table 3 |
+| [fact] Top augmentation occupations cluster in mixed-task specialist roles. | https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs | medium | Table 3 plus article examples |
+| [inference] The evidence supports role redesign and contraction pressure more strongly than total occupational disappearance. | https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf | medium | postings and skills, not headcount exits |
+| [inference] WEF and McKinsey point in the same direction on routine clerical decline and judgment-rich augmentation. | https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier | medium | directional triangulation |
+
+### Assumptions
+
+- The February 2026 Harvard Business School Working Knowledge article reflects a later revision of the same research program rather than a different model specification, because it cites the same authors, paper title, and qualitative conclusions while updating the sample window and headline percentages. [assumption; source: https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+- The original infographic likely visualizes a larger set of occupations than the paper's published top-10 table, so this item relies on the table and article examples rather than claiming a complete reconstruction of every plotted point. [assumption; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+
+### Analysis
+
+The paper traces how generative AI changes labor demand across occupations by linking task composition and skill mix to posting changes. [inference; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf]
+
+That distinction matters because a firm can automate large parts of a role without making the role disappear, especially where non-automatable decision rights, interpersonal accountability, or physical-world execution remain attached to the job. [inference; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+
+The best-supported strategic response is a portfolio approach that separates automatable tasks, non-automatable judgment tasks, and new AI-coordination tasks inside each occupation. [inference; source: https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs; https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf]
+
+That interpretation also explains why Srinivasan aligns with WEF and McKinsey on clerical decline and high-skill augmentation without collapsing all three frameworks into the same claim, since Srinivasan is grounded in postings and task mix while the others emphasize survey expectations and macro transitions. [inference; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america]
+
+### Risks, Gaps, and Uncertainties
+
+- The accessible paper and the later Harvard Business School summary expose different sample end dates and different effect sizes, so the exact percentages should be treated as version-specific rather than timeless constants. [fact; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+- The accessible sources do not provide a full industry-by-role coordinate dump for the infographic, so the occupation mapping here is strongest for the published top-ranked roles and weaker for exhaustive quadrant reconstruction. [fact; source: https://www.hbs.edu/ris/Publication%20Files/25-039_05fbec84-1f23-459b-8410-e3cd7ab6c88a.pdf; https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs]
+- The McKinsey comparison is useful for directional triangulation but less precise than the Harvard Business School and WEF evidence in this item because this synthesis relies on McKinsey's official summary framing rather than line-by-line extraction of the underlying report text. [inference; source: https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier]
+
+### Open Questions
+
+- How far do the updated 2025 and 2026 versions of the Srinivasan research move the occupation rankings once more post-ChatGPT hiring data is included?
+- Can the full occupation-by-score dataset behind the Harvard Business School visualization be recovered from a public appendix or data release?
+- Which entry-level pathways are most vulnerable when postings fall in automation-prone occupations before unemployment visibly rises?
+
+---
+
+---
+
+<a id="2026-04-30-ubiquitous-language-ai-code-consistency-md"></a>
+
+## Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence
+
+**Tags:** [agentic-coding, software-engineering, llm, agentic-ai, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ubiquitous-language-ai-code-consistency.md
+
+## Research Question
+
+How significantly does maintaining a living Ubiquitous Language (UL), in the Domain-Driven Design (DDD) sense of a shared, precise domain vocabulary used consistently in both code and conversation, improve the precision and consistency of Artificial Intelligence (AI)-generated code, reduce AI verbosity, and prevent naming drift across a growing codebase over time?
+
+## Findings
+
+### Executive Summary
+
+Living Ubiquitous Language (UL) maintenance is very likely to improve the precision and naming consistency of Artificial Intelligence (AI)-generated code, but current public evidence supports that conclusion mainly through mechanism-level studies on ambiguity sensitivity rather than through glossary-only trials. [inference; source: https://martinfowler.com/bliki/UbiquitousLanguage.html; https://openpracticelibrary.com/practice/ubiquitous-language/; https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204] The strongest direct evidence is that code-generation quality changes materially when wording changes or when models ask clarifying questions before writing code, which suggests terminology is part of the causal input rather than incidental phrasing. [inference; source: https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204; https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] Matt Pocock's public UL skill shows one concrete way to operationalize that insight: externalize canonical terms, aliases to avoid, and domain relationships into a reusable glossary file that future sessions can reload. [fact; source: https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md] The remaining uncertainty is about magnitude, because direct measures of reduced verbosity, reduced rename churn, or slower naming drift over long repository lifecycles are not yet accessible in the public literature reviewed here. [inference; source: https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204; https://www.anthropic.com/engineering/claude-code-best-practices]
+
+### Key Findings
+
+1. **Domain-Driven Design sources define Ubiquitous Language as a shared, rigorous vocabulary used in conversations, code, and evolving domain models, so the practice is fundamentally about ambiguity reduction rather than stylistic naming preference.** ([fact]; high confidence; source: https://martinfowler.com/bliki/UbiquitousLanguage.html; https://openpracticelibrary.com/practice/ubiquitous-language/)
+2. **Open Practice Library and Matt Pocock's public skill both operationalize Ubiquitous Language as a maintained glossary artifact with canonical terms, definitions, aliases to avoid, and visible review, which provides a concrete artifact model rather than only an abstract naming principle.** ([fact]; medium confidence; source: https://openpracticelibrary.com/practice/ubiquitous-language/; https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md)
+3. **Code-generation studies show that modest changes to natural-language problem statements can materially change correctness, with NLPerturbator reporting up to a 21.2% performance drop under real-world prompt variations and Code Roulette showing sensitivity to user background and prompt augmentations.** ([fact]; high confidence; source: https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204)
+4. **Clarification-before-code studies show that making requirements linguistically richer before generation improves output quality, including Wang et al.'s reported increase from 70.96% to 80.80% Pass@1 on Mostly Basic Python Problems (MBPP)-sanitized tasks, which supports the same ambiguity-reduction mechanism that a domain glossary is meant to provide.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M)
+5. **Current agent workflow guidance from Anthropic and GitHub recommends persistent repository instruction files, specification files, memory files, and precise language, which means a short glossary file fits the dominant cross-session control pattern for keeping agents focused on the right terms.** ([inference]; medium confidence; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html)
+6. **Matt Pocock's deprecated but still public Ubiquitous Language skill makes the AI-specific mechanics explicit: scan conversations for domain nouns and verbs, flag synonyms and overloaded terms, choose canonical vocabulary, and externalize the result into a reusable glossary file.** ([fact]; medium confidence; source: https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md)
+7. **The glossary-specific benefit is most defensible when the failure mode is domain-term ambiguity, because current evidence does not show that glossary files outperform any other persistent structured context artifact on tasks whose terminology is already settled.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/)
+8. **The accessible evidence base supports living Ubiquitous Language as a medium-to-high-return practice for long-lived, domain-heavy codebases, but it does not yet justify a universal multiplier because direct glossary-versus-no-glossary longitudinal repository experiments remain missing and some benefit may come from structured context more generally.** ([inference]; medium confidence; source: https://openpracticelibrary.com/practice/ubiquitous-language/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html; https://arxiv.org/abs/2310.10996)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Ubiquitous Language is a shared rigorous vocabulary used across conversation, code, and evolving domain models. | https://martinfowler.com/bliki/UbiquitousLanguage.html; https://openpracticelibrary.com/practice/ubiquitous-language/ | high | DDD foundation |
+| [fact] Ubiquitous Language can be operationalized as a maintained glossary artifact with canonical terms and aliases to avoid. | https://openpracticelibrary.com/practice/ubiquitous-language/; https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md | medium | Concrete mechanics |
+| [fact] Code generation quality is sensitive to real-world prompt wording changes and user-background variation. | https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204 | high | Direct sensitivity evidence |
+| [inference] Clarification studies support the same ambiguity-reduction mechanism that a glossary is meant to provide. | https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M | medium | Mechanism transfer |
+| [inference] A short glossary file fits the dominant cross-session context-control pattern in current agent workflows. | https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html | medium | Persistent artifact fit |
+| [fact] Pocock's public UL skill explicitly tells the agent to extract canonical terms, flag ambiguities, and write a reusable glossary file. | https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md | medium | Practitioner artifact |
+| [inference] Precision and naming consistency are better supported outcomes than quantified verbosity reduction. | https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204; https://www.anthropic.com/engineering/claude-code-best-practices; https://davidamitchell.github.io/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html | medium | Outcome asymmetry |
+| [inference] Living Ubiquitous Language appears highest-return on long-lived domain-heavy projects, but no universal multiplier is currently justified. | https://openpracticelibrary.com/practice/ubiquitous-language/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html | medium | Return bounded by evidence gap |
+
+### Assumptions
+
+- [assumption; source: https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md] The current public Pocock GitHub skill is an acceptable substitute for the dead Total TypeScript seed URL because it exposes the same underlying glossary mechanic in first-party form. Justification: the skill file and repository README are first-party sources describing the glossary output directly.
+- [assumption; source: https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204; https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] The absence of a direct glossary intervention study means long-run naming-drift and verbosity claims must be inferred from prompt-sensitivity, clarification, and workflow-guidance evidence rather than asserted as measured facts. Justification: the accessible literature reviewed here measures wording sensitivity and clarification benefit, not glossary-specific repository outcomes.
+- [assumption; source: https://openpracticelibrary.com/practice/ubiquitous-language/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/] Open Practice Library's recommendation to store the glossary in git generalizes to AI instruction ecosystems where glossary files are loaded as durable project context. Justification: current Anthropic and GitHub workflow guidance already treat small repository files as the normal way to preserve reusable agent context.
+
+### Analysis
+
+The evidence base is asymmetric: DDD sources directly justify why shared vocabulary matters, while AI-specific studies directly show that wording and clarification materially change code outcomes. [inference; source: https://martinfowler.com/bliki/UbiquitousLanguage.html; https://openpracticelibrary.com/practice/ubiquitous-language/; https://arxiv.org/abs/2406.19783; https://arxiv.org/abs/2506.10204; https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] A live competing explanation is that much of the observed gain may come from any structured clarification phase or persistent context artifact, not from glossary-specific vocabulary control by itself. [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/] The reason glossary discipline still looks valuable is that it is the smallest artifact in this evidence set that targets lexical ambiguity directly by fixing canonical terms, aliases to avoid, and relationships before those distinctions spread through code and conversation. [inference; source: https://martinfowler.com/bliki/UbiquitousLanguage.html; https://openpracticelibrary.com/practice/ubiquitous-language/; https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md] Anthropic and GitHub guidance also explain why the artifact must stay short and versioned, because persistent instruction files only work when they fit scarce context budget and remain easy to reload across sessions. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html] The likely economic pattern is therefore high leverage on long-lived domains with repeated feature work and lower leverage on disposable or one-off tasks, where glossary maintenance would not have time to amortize. [inference; source: https://openpracticelibrary.com/practice/ubiquitous-language/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/; https://davidamitchell.github.io/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html]
+
+### Risks, Gaps, and Uncertainties
+
+- [assumption] The accessible literature clusters around prompt robustness, clarification, and workflow guidance rather than glossary-only experiments, so the direct empirical base for naming-drift prevention remains thin. Justification: the consulted accessible sources on code generation focus on prompt perturbation, clarifying questions, and persistent context artifacts.
+- [fact; source: https://github.com/mattpocock/skills/blob/main/skills/deprecated/README.md; https://github.com/mattpocock/skills/blob/main/skills/deprecated/ubiquitous-language/SKILL.md] Pocock's UL skill is published in the deprecated section of his repository, so it is evidence of a real mechanic but not proof that it remains a current flagship workflow component.
+- [fact; source: https://arxiv.org/abs/2112.00114; https://arxiv.org/abs/2307.10680] Two seeded academic URLs resolved to unrelated papers rather than the claimed code-generation studies, which reduced the amount of directly reusable seed evidence and required source substitution.
+- [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M] Clarification studies measure better-specified task prompts, not long-running repository naming governance, so their support for glossary maintenance is mechanistic rather than direct.
+- [inference; source: https://arxiv.org/abs/2310.10996; https://openreview.net/forum?id=s566pj5E5M; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/] Some of the observed benefit may come from generic structured context and clarification rather than from vocabulary control specifically, so the glossary-specific uplift should be treated as incremental rather than isolated.
+
+### Open Questions
+
+- What is the smallest glossary structure that captures most of the precision benefit without adding enough maintenance burden to be ignored?
+- Can repository instrumentation measure naming drift directly, for example by tracking synonym introduction, rename churn, or reviewer comments on domain terminology?
+- Should glossary enforcement happen only through context loading, or should linters, code review templates, and architecture checks also reject aliases-to-avoid?
+- Can an agent safely propose glossary updates from repository changes without creating circular drift in the glossary itself?
+
+---
 
 ---
 
