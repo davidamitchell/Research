@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "299b6b07eff6dd75732bf3c51871fa8610df5a20"
+    changed: 2026-05-01
+    progress: progress/2026-05-01-human-oversight-ai-software-development.md
+    summary: "Initial completion"
 ---
 
 # What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?
