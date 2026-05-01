@@ -186,7 +186,9 @@ aligned.
 - **Open Questions** -- questions that surfaced but are out of scope; may become
   new backlog items.
 - **Output section** -- type (`knowledge`), description, and links to the three
-  most important sources.
+  most important sources. Treat the `Description` line as claim-bearing prose:
+  if it makes a substantive claim, append a suffix epistemic label and
+  URL-backed source just as you would in Executive Summary or Analysis.
 - **Inline evidence discipline in Findings** -- every sentence in Findings that
   asserts a factual or inferential claim must bind its epistemic label and
   supporting source inline. Use the **suffix** (trailing) form:
@@ -364,7 +366,9 @@ easily-detectable issues.
     `§7 Recursive Review` is audited the same way as the rest of `## Research Skill Output`:
     if you leave visible review-outcome sentences there, they need `[fact]`,
     `[inference]`, or `[assumption]` labels and either an explicit GitHub URL
-    citation for the item or a rewrite into pure metadata fragments.
+     citation for the item or a rewrite into pure metadata fragments. Prefer the
+     pure-metadata form by default; do not turn "audit completed" notes into
+     sourced claims unless the audit result itself is the subject of evidence.
 
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official
