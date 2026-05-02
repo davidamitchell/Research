@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
