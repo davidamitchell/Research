@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T10:25:09Z",
+  "extracted_at": "2026-05-02T10:40:34Z",
   "items": {
     "2026-05-02-systematic-review-methodology-ai-synthesis": {
       "named_concepts": [
@@ -262,6 +262,122 @@
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
             "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls": {
+      "named_concepts": [
+        "shadow ai",
+        "skill decay",
+        "runtime safety",
+        "prompt injection",
+        "local cost",
+        "incentive misalignment",
+        "rail bypass",
+        "skill-preservation routines",
+        "four failure",
+        "failure modes",
+        "delivery pressure",
+        "bypass remains",
+        "operating model",
+        "capability domains",
+        "incentive alignment",
+        "alignment sanctioned",
+        "enforcement governance",
+        "governance observability",
+        "human capability",
+        "capability preservation"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+        "https://www.ibm.com/reports/data-breach",
+        "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+        "https://link.springer.com/article/10.1007/s42979-025-03962-x",
+        "https://aisel.aisnet.org/misq/vol34/iss3/7/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/",
+        "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+        "https://publicera.kb.se/ir/article/view/47143"
+      ],
+      "key_claims": [
+        {
+          "text": "Enterprise governance fails when local incentives reward speed and convenience more clearly than they reward governed use, because employees can rationalize policy violations when sanctioned tools or approvals slow delivery",
+          "sources": [
+            "https://aisel.aisnet.org/misq/vol34/iss3/7/",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html"
+          ]
+        },
+        {
+          "text": "Public survey and telemetry evidence indicate that shadow AI is already a material enterprise control problem, because non-corporate AI account usage and sensitive-data flows outside sanctioned channels are common enough to undermine auditability and policy enforcement",
+          "sources": [
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://www.ibm.com/reports/data-breach",
+            "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+            "https://link.springer.com/article/10.1007/s42979-025-03962-x"
+          ]
+        },
+        {
+          "text": "Rail bypass remains a live control-design problem, because prompt injection and related attack paths can still induce data exfiltration, unintended actions, or persistent memory poisoning unless tool access, content boundaries, and exfiltration paths are constrained",
+          "sources": [
+            "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+            "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+            "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html"
+          ]
+        },
+        {
+          "text": "Skill decay is a governance problem, not only a learning-and-development problem, because organisations that repeatedly delegate judgment to AI can lose the human expertise required to verify outputs, challenge unsafe behavior, and recover from automation failure",
+          "sources": [
+            "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+            "https://publicera.kb.se/ir/article/view/47143",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html"
+          ]
+        },
+        {
+          "text": "Detection of these four failure modes requires combined telemetry across governance, platform, runtime, and workforce surfaces, because shadow adoption, prompt attacks, queue distortion, and human deskilling do not appear in one audit stream",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+            "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        },
+        {
+          "text": "Governed fast lanes, preconfigured low-risk patterns, and clear exception ownership reduce the incentive to move into unofficial channels because they lower the local cost of sanctioned use without removing enterprise controls",
+          "sources": [
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention"
+          ]
+        },
+        {
+          "text": "Per-item human review does not scale as the primary control once AI systems operate at machine speed, so mature enterprises need exception-based oversight, recurring technical audits, and tested stop or rollback mechanisms instead of universal synchronous approval",
+          "sources": [
+            "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        },
+        {
+          "text": "An enterprise AI capability model needs explicit ownership for incentive alignment, sanctioned platform design, runtime rail enforcement, governance observability, and human capability preservation if it is to contain behavioural and control failure at scale",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html"
           ]
         }
       ]
