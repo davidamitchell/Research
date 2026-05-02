@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "1d8a1b116c63d02f6ca45abed175c18275710da5"
+    changed: 2026-05-02
+    progress: progress/2026-05-02-systematic-review-methodology-ai-synthesis.md
+    summary: "Initial completion"
 ---
 
 # What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?
