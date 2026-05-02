@@ -5740,13 +5740,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
+      "power platform",
       "direct publish"
     ],
     "item_count": 3,
@@ -5767,7 +5767,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   },
   {
     "slug": "ai-rmf-nist-ai-iso-iec",
@@ -5800,13 +5800,13 @@
     "url": "/Research/threads/ai-rmf-nist-ai-iso-iec.html"
   },
   {
-    "slug": "agentic-ai-ai-systems-prompt-injection",
-    "title": "agentic ai / ai systems / prompt injection",
+    "slug": "ai-systems-agentic-ai-prompt-injection",
+    "title": "ai systems / agentic ai / prompt injection",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agentic ai",
       "ai systems",
+      "agentic ai",
       "prompt injection"
     ],
     "item_count": 3,
@@ -5827,6 +5827,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/agentic-ai-ai-systems-prompt-injection.html"
+    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
   }
 ]
