@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem"
 added: 2026-05-02T01:38:25+00:00
 status: reviewing
