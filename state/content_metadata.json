@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T01:26:06Z",
+  "extracted_at": "2026-05-02T01:37:36Z",
   "items": {
     "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks": {
       "named_concepts": [
@@ -211,6 +211,85 @@
         },
         {
           "text": "Srinivasan's results align with broader labor-market frameworks from the WEF and McKinsey, both of which also place the highest near-term risk on clerical or routine support work and place the strongest augmentation effects in higher-judgment knowledge work. (; medium confidence; source: https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf; https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america; https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-self-modifying-agent-architectures": {
+      "named_concepts": [
+        "in-session extension",
+        "extension authoring",
+        "claude code",
+        "workflow adaptation",
+        "formal corrigibility",
+        "external permissions",
+        "bounded in-session",
+        "visible mutation",
+        "live in-session",
+        "live self-modification",
+        "adjacent benchmark",
+        "retrieved public",
+        "public documentation",
+        "harder debugging",
+        "corrigibility literature",
+        "justify trusting",
+        "explicit permissions",
+        "permissions visible",
+        "mutation logs",
+        "reviewable reload"
+      ],
+      "source_urls": [
+        "https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json",
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md",
+        "https://intelligence.org/files/Corrigibility.pdf",
+        "https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf",
+        "https://docs.anthropic.com/en/docs/claude-code/hooks",
+        "https://docs.anthropic.com/en/docs/claude-code/plugins",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://aider.chat/docs/usage.html",
+        "https://aider.chat/docs/usage/commands.html",
+        "https://aider.chat/docs/usage/caching.html",
+        "https://opencode.ai/docs/agents",
+        "https://opencode.ai/docs/config",
+        "https://opencode.ai/docs/plugins",
+        "https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html",
+        "https://code.visualstudio.com/api/advanced-topics/extension-host",
+        "https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en"
+      ],
+      "key_claims": [
+        {
+          "text": "The retrieved coding-agent harnesses sit on a spectrum from bounded, user-steered interfaces such as aider to plugin-configured systems such as Claude Code and OpenCode, with Pi at the far end of live in-session mutation rather than a clean binary split between self-modifying and fixed systems. (; medium confidence; source: https://aider.chat/docs/usage/commands.html; https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md)",
+          "sources": []
+        },
+        {
+          "text": "Pi's self-modifying architecture is operationally real, because its public documentation shows that the agent can write and hot-reload TypeScript extensions that register tools, commands, providers, state, and compaction behavior inside the active runtime. (; medium confidence; source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md)",
+          "sources": []
+        },
+        {
+          "text": "The strongest supported benefit of self-modification is rapid local workflow adaptation without fork-and-redeploy friction, especially for niche tools, custom provider paths, and task-specific compaction or summary policies that bounded harnesses usually expose only through pre-authored configuration or upstream product changes. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://opencode.ai/docs/plugins; https://docs.anthropic.com/en/docs/claude-code/plugins)",
+          "sources": []
+        },
+        {
+          "text": "The strongest documented costs are reproducibility loss, harder debugging, and expanded security surface, because live reload and mutable extension code create stale-state and blast-radius problems that mature plugin ecosystems explicitly mitigate with cleanup rules, permission declarations, runtime separation, and activation controls. (; high confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host)",
+          "sources": []
+        },
+        {
+          "text": "Formal Artificial Intelligence safety literature does not support trusting a self-modifying agent to preserve its own corrigibility, because default utility-maximizing systems resist correction and safe shutdown remains a non-trivial design problem even before broad self-modification is introduced. (; medium confidence; source: https://intelligence.org/files/Corrigibility.pdf; https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf)",
+          "sources": []
+        },
+        {
+          "text": "For practical coding agents, the retrieved evidence favors a small stable kernel plus explicit extension points, external permissions, and inspectable mutation boundaries as the most defensible current default for shared deployments, even though it does not prove that no safer bounded self-modification regime exists. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-extension-systems-ai-coding-agents.md)",
+          "sources": []
+        },
+        {
+          "text": "Public evidence does not show that live self-modification is necessary for strong coding performance, and adjacent benchmark work in this repository indicates that minimal, bounded harnesses can already perform strongly on realistic command-line coding tasks. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md)",
+          "sources": []
+        },
+        {
+          "text": "A hybrid model, bounded in-session extension authoring under explicit permissions, visible mutation logs, and reviewable reload boundaries, is the strongest plausible route for preserving some self-modification benefits without accepting the full governance cost of an unconstrained runtime, but the retrieved evidence does not yet show how much of Pi's adaptation advantage survives that constraint. (; medium confidence; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)",
           "sources": []
         }
       ]
