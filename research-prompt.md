@@ -262,6 +262,7 @@ failed for this reason alone. Run it now, before Step 5:
 | MECE | Mutually Exclusive, Collectively Exhaustive (MECE) |
 | PR | pull request (PR) |
 | MBPP | Mostly Basic Python Problems (MBPP) |
+| D3 | Data-Driven Documents (D3) |
 | A/B | A/B test, or rewrite to plain language such as head-to-head comparison |
 
 Also expand any domain-specific abbreviation introduced in this item's topic
@@ -387,8 +388,10 @@ easily-detectable issues.
     metadata, not as externally sourced facts. Do not attach outside URLs to
     sentences such as "Constraints confirmed" or "Output format confirmed"
     unless a cited source directly makes that exact claim. Rewrite these lines
-    as pure metadata or `[assumption]` with a justification when they describe
-    how this item will be handled rather than what the external evidence says.
+    as pure metadata fragments, for example `Question: ...`, `Scope: ...`, or
+    `Constraints: ...`, or as `[assumption]` with a justification when they
+    describe how this item will be handled rather than what the external
+    evidence says.
 
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official

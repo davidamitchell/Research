@@ -111,15 +111,16 @@ Smith's *Theory of Moral Sentiments* (ToMS, 1759) supplies the generative mechan
 
 ## Thread 3 — The DIKW pyramid describes organisational learning velocity
 
-**The learning:** An organisation's competitive advantage is not its data or its information — it is the speed at which it moves *up* the DIKW stack. Data-rich, insight-poor organisations are stuck at the D→I transition. Knowledge-rich, wisdom-poor organisations make technically correct but strategically wrong decisions. The transformation functions at each level are the bottlenecks. Understanding which transformation is rate-limiting in any given organisation is a more precise diagnostic than generic "data maturity" frameworks.
+**The learning:** An organisation's competitive advantage is not its data or its information; it is the speed at which it moves *up* the DIKW stack. Data-rich, insight-poor organisations are stuck at the D→I transition. Knowledge-rich, wisdom-poor organisations make technically correct but strategically wrong decisions. The transformation functions at each level are the bottlenecks. Understanding which transformation is rate-limiting in any given organisation is a more precise diagnostic than generic "data maturity" frameworks. The new cross-item synthesis architecture item makes this operational inside a file-based research system: per-item summaries, graph edges, cluster manifests, and scheduled digests turn the fetch→summary→cluster→digest path into an explicit D→I→K pipeline, while `learnings.md` updates and higher-order synthesis outputs are the first practical candidates for a K→W step in this repository.
 
 **Evidence:**
 - `Research/completed/2026-03-10-dikw-transformation-functions.md` — the research question directly addresses this
 - `Research/completed/2026-03-03-knowledge-representation-agent-context.md` — representation structures affect the quality of the I→K transformation (GraphRAG, RAPTOR, hierarchical summarisation)
 - `Research/completed/2026-03-03-knowledge-retention-active-recall.md` — knowledge decays; without active recall mechanisms, the K layer degrades back toward I
 - `Research/completed/2026-02-27-information-synthesis-entropy.md` — information-theoretic framing: synthesis is entropy reduction; the D→I transformation is lossy by design
+- `Research/completed/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md` — operationalises the open thread with a concrete file-based architecture: summary artifacts, graph JSON, cluster manifests, and scheduled distillation provide measurable D→I→K transitions for this corpus
 
-**Open thread:** Can the DIKW transformation functions be instrumented in an AI-assisted research system? E.g., is each fetch→synthesise→link cycle a measurable D→I→K step? What would a K→W step look like in this corpus?
+**Open thread:** The instrumentation path is now clearer, but one major question remains: when does a weekly digest or `learnings.md` update become a genuine K→W transformation rather than another K-layer compression step? A second unresolved question is what metrics best measure transition quality: cluster stability, contradiction resolution rate, digest reuse, or decision impact.
 
 ---
 
