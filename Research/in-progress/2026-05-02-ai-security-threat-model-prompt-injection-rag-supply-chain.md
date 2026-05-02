@@ -250,7 +250,7 @@ Relative to the "API access + audit" baseline, the decisive additions are not mo
 - Metadata: Prior-work sweep completed across prompt injection, identity, control-plane, Retrieval-Augmented Generation, access-amplification, runtime-monitoring, deployment-pipeline, and systems-capability-debt items.
 - Metadata: All visible claims in §§0-6 are labeled or written as pure metadata fragments.
 - Metadata: Acronym first-use audit checked for AI, API, RAG, LLM, ONNX, OWASP, and AI RMF.
-- Metadata: Main unresolved uncertainty is prevalence and exploitability variance across enterprise-specific retrieval and connector surfaces, not whether the control families are needed.
+- Metadata: Remaining uncertainty item recorded on enterprise-specific retrieval and connector-surface exploitability.
 - Metadata: Verdict: PASS.
 
 ---
