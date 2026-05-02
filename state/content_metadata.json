@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T10:04:14Z",
+  "extracted_at": "2026-05-02T10:16:12Z",
   "items": {
     "2026-05-02-systematic-review-methodology-ai-synthesis": {
       "named_concepts": [
@@ -262,6 +262,117 @@
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
             "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp": {
+      "named_concepts": [
+        "human review",
+        "verification intensity",
+        "review queues",
+        "time pressure",
+        "override logs",
+        "meaningful human",
+        "scaled oversight",
+        "synchronous approval",
+        "queue depth",
+        "pre-execution human",
+        "artificial intelligence",
+        "careful human",
+        "nominal sign-off",
+        "automated recommendations",
+        "explicit error",
+        "manageable caseload",
+        "improve verification",
+        "rights-significant high-harm",
+        "hard-to-reverse actions",
+        "approval-by-exception stratified"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html",
+        "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://gdpr-info.eu/art-22-gdpr/",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/"
+      ],
+      "key_claims": [
+        {
+          "text": "Universal pre-execution human review becomes a weak control at high volume because overload, nuisance prompts, and time pressure predictably reduce reviewer vigilance and turn formal review into bottleneck or rubber-stamp behavior",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/",
+            "https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/"
+          ]
+        },
+        {
+          "text": "Over-reliance on automated recommendations, the failure mode the review literature calls automation bias, rises under workload, complexity, and trust pressure, while the best-supported mitigators are explicit error salience, evidence visibility, and manageable caseload rather than a simple reminder that the human is accountable",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
+          ]
+        },
+        {
+          "text": "Meaningful human review in regulated settings requires competent and independent reviewers with authority, training, sufficient time, structured sampling or testing methods, and durable override logs, which means passive sign-off does not satisfy the strongest official guidance",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26"
+          ]
+        },
+        {
+          "text": "The most defensible scaled oversight model is risk-tiered: keep synchronous approval for rights-significant, high-harm, boundary-crossing, or hard-to-reverse actions, and move lower-risk reversible actions to approval-by-exception, stratified sampling, and asynchronous audit",
+          "sources": [
+            "https://gdpr-info.eu/art-22-gdpr/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://handbook.apra.gov.au/standard/cps-230",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html"
+          ]
+        },
+        {
+          "text": "Scaled oversight quality should be monitored through queue depth, review latency, override and disagreement rates, verification-intensity signals, nuisance-prompt share, and fallback-trigger rates, because these measures show whether review remains active enough to catch system error",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/"
+          ]
+        },
+        {
+          "text": "Regulation supports this selective model only when humans can actually understand system limits, detect anomalies, disregard or reverse outputs, suspend operation, and retain logs, so review-volume relief cannot be separated from control-surface design",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        },
+        {
+          "text": "General Data Protection Regulation Article 22 narrows the hard legal requirement to solely automated decisions with legal or similarly significant effects, while broader Artificial Intelligence Act duties require risk-proportionate operational monitoring and competent human oversight across high-risk use",
+          "sources": [
+            "https://gdpr-info.eu/art-22-gdpr/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26"
+          ]
+        },
+        {
+          "text": "The practical transition pattern is staged: synchronous approval for irreversible external-impact actions, exception review plus sampling for medium-risk bounded workflows, and continuous monitoring plus periodic audit for low-risk high-volume work that has safe defaults and reliable rollback paths",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://handbook.apra.gov.au/standard/cps-230",
+            "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html"
           ]
         }
       ]

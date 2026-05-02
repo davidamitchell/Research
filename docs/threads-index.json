@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 53,
+    "item_count": 54,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -262,6 +262,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
         "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
         "added": "2026-05-02"
@@ -289,7 +294,7 @@
       "agentic-coding"
     ],
     "concept_cluster": [],
-    "item_count": 50,
+    "item_count": 51,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -532,6 +537,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
         "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
         "added": "2026-05-02"
@@ -554,7 +564,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 47,
+    "item_count": 48,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -775,6 +785,11 @@
         "slug": "2026-05-01-appropriate-task-selection-coding-agents",
         "title": "What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?",
         "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
       },
       {
         "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
@@ -2299,7 +2314,7 @@
       "skills"
     ],
     "concept_cluster": [],
-    "item_count": 25,
+    "item_count": 26,
     "items": [
       {
         "slug": "2026-02-27-simple-process-for-adding-research-item",
@@ -2417,6 +2432,11 @@
         "added": "2026-05-01"
       },
       {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
         "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
         "added": "2026-05-02"
@@ -2439,7 +2459,7 @@
       "security"
     ],
     "concept_cluster": [],
-    "item_count": 24,
+    "item_count": 25,
     "items": [
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
@@ -2557,12 +2577,152 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
         "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
         "added": "2026-05-02"
       }
     ],
     "url": "/Research/threads/agentic-ai-ai-governance-security.html"
+  },
+  {
+    "slug": "agentic-ai-workflow-llm",
+    "title": "agentic-ai / workflow / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "workflow",
+      "llm"
+    ],
+    "concept_cluster": [],
+    "item_count": 24,
+    "items": [
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-capability-model",
+        "title": "Enterprise AI capability model for use-case maturity decisions",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
+        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
+        "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
+        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-coding-agent-context-management-transparency",
+        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
+        "added": "2026-05-02"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-workflow-llm.html"
   },
   {
     "slug": "agentic-ai-llm-hallucinations",
@@ -2709,7 +2869,7 @@
       "agentic-ai"
     ],
     "concept_cluster": [],
-    "item_count": 22,
+    "item_count": 23,
     "items": [
       {
         "slug": "2026-03-08-servicenow-platform-strategy",
@@ -2817,6 +2977,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
         "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
         "added": "2026-05-02"
@@ -2834,7 +2999,7 @@
       "memory-system"
     ],
     "concept_cluster": [],
-    "item_count": 21,
+    "item_count": 22,
     "items": [
       {
         "slug": "2026-03-08-claude-ios-mcp-remote-integration",
@@ -2930,6 +3095,11 @@
         "slug": "2026-05-01-coding-agent-context-management-transparency",
         "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
         "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
       },
       {
         "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
@@ -5510,14 +5680,14 @@
     "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -5547,7 +5717,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
     "slug": "coding-agent-copilot-coding-agents-md",
@@ -5660,14 +5830,14 @@
     "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-copilot-studio",
-    "title": "nist ai / ai rmf / copilot studio",
+    "slug": "nist-ai-ai-rmf-rmf-core",
+    "title": "nist ai / ai rmf / rmf core",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
       "ai rmf",
-      "copilot studio"
+      "rmf core"
     ],
     "item_count": 4,
     "items": [
@@ -5692,7 +5862,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-rmf-core.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
