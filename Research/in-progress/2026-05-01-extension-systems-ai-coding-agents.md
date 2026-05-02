@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?"
 added: 2026-05-01T08:17:39+00:00
 status: reviewing
