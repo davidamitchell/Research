@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-05-02 09:08 UTC
+Generated on: 2026-05-02 09:30 UTC
 
 ## Table of Contents
 
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
 * [Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](#2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md)
+* [What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?](#2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain-md)
 * [What does TerminalBench reveal about minimal toolsets and coding agent performance?](#2026-05-01-terminal-bench-minimal-coding-agent-benchmarks-md)
 * [What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?](#2026-05-01-sustainable-ai-software-development-synthesis-md)
 * [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
@@ -449,6 +450,86 @@ What is the complete set of architectural capabilities required to run Artificia
 - How much of Microsoft 365 agents governance will become generally available outside Frontier, and how quickly will its MCP governance become standard rather than preview-limited?
 - Will GitHub Models move from preview governance features to a durable enterprise control surface with tighter audit and runtime-policy integration?
 - How quickly will AWS add first-party benefit-tracking and budget-governance patterns that connect runtime spend to business outcomes rather than only to infrastructure telemetry?
+
+---
+
+---
+
+<a id="2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain-md"></a>
+
+## What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?
+
+**Tags:** [security, prompt-injection, rag, agentic-ai, llm, ai-governance, enterprise, access-control, supply-chain, runtime-monitoring]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.md
+
+## Research Question
+
+What security capabilities are required in an enterprise Artificial Intelligence (AI) system, beyond basic Application Programming Interface (API) access controls and audit logging, to address prompt injection (direct and indirect), Retrieval-Augmented Generation (RAG)-based attacks (data poisoning, context manipulation, indirect injection via retrieved documents), model supply chain compromise (malicious fine-tuned weights, compromised model registries, trojan base models), and data exfiltration (sensitive data leakage through model outputs or tool calls), and how should these capabilities be incorporated into a complete enterprise AI security threat model?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Enterprise AI systems need a security stack that goes beyond access control and audit logs by adding controls for prompt and retrieval boundary integrity, model and connector provenance, identity-scoped execution, deterministic egress control, and runtime circuit breakers. [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/]
+
+Prompt injection and Retrieval-Augmented Generation (RAG) attacks are structural because trusted instructions and untrusted content share model context, so the enterprise has to constrain what the model can do even after content is retrieved or interpreted. [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://arxiv.org/abs/2302.12173; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html]
+
+Model supply chain compromise and unsafe model-loading paths are already operational risks, not hypothetical edge cases, because public machine-learning ecosystems have documented malicious dependency compromise and still rely heavily on formats that can execute code at load time. [fact; source: https://pytorch.org/blog/compromised-nightly-dependency/; https://huggingface.co/docs/hub/security-pickle; https://huggingface.co/blog/safetensors-security-audit]
+
+The resulting enterprise threat model should treat the prompt plane, retrieval corpus, model artifact pipeline, tool-execution surface, and runtime governance plane as separate assets with distinct indicators and control families, then map those families back into the enterprise capability model as explicit security subdomains. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html]
+
+### Key Findings
+
+1. **A baseline of Application Programming Interface access controls plus audit logging is insufficient for enterprise AI, because it does not verify prompt integrity, retrieval-boundary correctness, model provenance, deterministic tool mediation, or pre-action containment once a model can ingest untrusted content and invoke connected systems.** ([inference]; high confidence; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/)
+2. **Prompt injection remains a structural risk rather than a filter-tuning problem, because authoritative sources and current research converge on the point that indirect content can still steer model behavior unless control flow, tool access, and approval boundaries are enforced outside the model itself.** ([inference]; high confidence; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2503.18813)
+3. **Retrieval-Augmented Generation introduces a second security boundary beyond prompt injection, because poisoned documents, stale access-control metadata, embedding inversion, and retrieval-database membership leakage can all expose or reshape sensitive knowledge even when ordinary authentication is present.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.06816; https://arxiv.org/abs/2405.20446; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html)
+4. **Model supply chain security must be treated as a first-class enterprise capability, because compromised machine-learning dependencies and unsafe serialization formats have already created code-execution and exfiltration paths that ordinary access controls do not detect before model loading occurs.** ([inference]; medium confidence; source: https://pytorch.org/blog/compromised-nightly-dependency/; https://huggingface.co/docs/hub/security-pickle; https://huggingface.co/blog/safetensors-security-audit)
+5. **Data exfiltration control for enterprise AI has to be enforced at the agent-execution layer, because the decisive risk is whether the system can read sensitive data and send it through tools, triggers, or outbound connectors before a human or audit process reviews the event.** ([inference]; high confidence; source: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+6. **The minimum additional control stack is separate machine identities, least-privilege delegation, prompt and document attack detection, permission-safe retrieval architecture, model-artifact provenance and scanning, deterministic egress controls, human approval for high-consequence actions, and runtime anomaly detection with halt or quarantine paths.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://huggingface.co/docs/hub/security-pickle; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html)
+7. **The evidence base is strongest for indirect prompt injection telemetry, retrieval-leakage research, and machine-learning dependency compromise, while public evidence for large-scale nation-state use of these exact AI-native techniques remains materially thinner than the evidence for researchers, red teams, and opportunistic attackers.** ([inference]; medium confidence; source: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/; https://arxiv.org/abs/2405.20446; https://pytorch.org/blog/compromised-nightly-dependency/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html)
+8. **In the enterprise AI capability model, security should no longer be a single generic domain, because the evidence supports at least four distinct security subdomains, prompt and retrieval boundary defense, identity-scoped execution control, model and connector supply-chain assurance, and runtime assurance.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] API access control plus audit logging leaves prompt, retrieval, provenance, and runtime gaps. | https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/ | high | Convergent governance and control-stack evidence. |
+| [inference] Prompt injection is structural and needs external controls, not prompt wording alone. | https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://arxiv.org/abs/2503.18813 | high | OWASP and both papers agree on the core mechanism. |
+| [inference] Retrieval threats include corpus poisoning, embedding inversion, and Membership Inference Attack leakage. | https://arxiv.org/abs/2310.06816 ; https://arxiv.org/abs/2405.20446 ; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html | medium | External research plus prior repository synthesis. |
+| [inference] Machine-learning supply-chain compromise is operationally real and unsafe model loading is a concrete risk. | https://pytorch.org/blog/compromised-nightly-dependency/ ; https://huggingface.co/docs/hub/security-pickle ; https://huggingface.co/blog/safetensors-security-audit | medium | Real incident plus official mitigation guidance. |
+| [inference] Exfiltration control belongs at the execution and egress layer. | https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/ ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | high | Document-attack outcomes and machine-identity control patterns align. |
+| [inference] The minimum safe stack includes machine identity, retrieval architecture, provenance, egress control, and runtime monitoring. | https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html ; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html ; https://huggingface.co/docs/hub/security-pickle ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/ ; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html | medium | Cross-source synthesis now covers identity, retrieval, provenance, egress, and runtime controls. |
+| [inference] Public evidence is stronger for research, red-team, and opportunistic attack activity than for separately measured nation-state campaigns. | https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://pytorch.org/blog/compromised-nightly-dependency/ ; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html | medium | Evidence shows exploitation, but prevalence attribution remains incomplete. |
+| [inference] Enterprise capability models should split AI security into multiple subdomains. | https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html ; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html | medium | Repository synthesis with clear architectural separation. |
+
+### Assumptions
+
+- [assumption; source: https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection] The target enterprise wants AI systems that can call tools or process third-party documents rather than a strictly isolated chat interface. **Justification:** the control gap only becomes material once the model can read untrusted content or cause side effects.
+- [assumption; source: https://huggingface.co/docs/hub/security-pickle; https://pytorch.org/blog/compromised-nightly-dependency/] The enterprise either consumes public model artifacts directly or inherits upstream components built from public machine-learning ecosystems. **Justification:** otherwise model-supply-chain risk can be reduced substantially through full internal curation and signing.
+
+### Analysis
+
+The complete enterprise threat model separates five assets: the prompt and instruction plane, the retrieval corpus and permission state, the model artifact and dependency pipeline, the tool-execution surface, and the runtime governance plane. Prompt injection primarily targets instruction integrity and tool authority; Retrieval-Augmented Generation attacks target retrieval integrity, permission correctness, and corpus confidentiality; supply-chain attacks target model provenance and loader safety; exfiltration attacks target secrets in context, outputs, and tool arguments; and runtime-governance failures target the organization's ability to detect unsafe precursor signals before action. [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://pytorch.org/blog/compromised-nightly-dependency/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html]
+
+The control trade-off is between adaptability and determinism. Enterprises want agents to reason flexibly over new content and workflows, but the evidence shows security cannot be delegated to that same flexible reasoning loop. The durable pattern is therefore layered: scoped identity and policy outside the model, bounded retrieval inside explicit knowledge architectures, safe model promotion through provenance checks, and runtime monitoring that can halt execution when behavior moves outside the permitted envelope. [inference; source: https://arxiv.org/abs/2503.18813; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html]
+
+Relative to the "API access + audit" baseline, the decisive additions are not more logs but more chokepoints. The enterprise needs promotion-time checks before models, prompts, and tools reach production; execution-time checks before tools or outbound channels are used; and runtime checks that stop suspicious sequences before they accumulate into machine-speed harm. Audit logs remain necessary, but in this evidence set they are forensic evidence, not the main preventive control. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/] The prompt-injection evidence base now includes in-the-wild telemetry, but the public record still exposes only part of actual attacker prevalence and does not yet support a precise ranking of threat-actor classes.
+- [fact; source: https://arxiv.org/abs/2310.06816; https://arxiv.org/abs/2405.20446] Retrieval-leakage evidence is strong in research settings, but the exact exploitability of every managed enterprise vector service will still depend on its exposure model, permission architecture, and outbound interface surface.
+- [fact; source: https://huggingface.co/docs/hub/security-pickle; https://huggingface.co/blog/safetensors-security-audit] Safer serialization and trust signals reduce model-loading risk, but they do not by themselves prove that a model is behaviorally safe, policy-compliant, or free of targeted backdoors.
+
+### Open Questions
+
+1. What is the minimum practical evidence package for promoting a third-party model, adapter, or connector into a regulated enterprise environment?
+2. Which runtime precursor signals are most predictive of exfiltration attempts before any data leaves the boundary?
+3. How should enterprises quantify acceptable stale-permission windows for copied retrieval corpora?
+4. Which evaluation suite best tests combined prompt, retrieval, and tool-path abuse in the same agent workflow?
 
 ---
 
