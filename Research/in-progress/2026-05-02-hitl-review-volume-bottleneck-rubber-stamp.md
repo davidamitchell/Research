@@ -1,0 +1,360 @@
+---
+title: "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?"
+added: 2026-05-02T06:00:57+00:00
+status: reviewing
+priority: high  # low | medium | high
+blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+tags: [human-in-the-loop, automation-bias, ai-governance, agentic-ai, enterprise, workflow, regulated-enterprise]
+started: 2026-05-02T09:55:44+00:00
+completed: ~
+output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+cites: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-28-uelgf-human-oversight-accountability-layer, 2026-04-26-ai-governance-cost-performance-delivery-impact, 2026-04-22-enterprise-ai-capability-model, 2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-risk-tier-classification-controls, 2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-26-ai-lowcode-decision-rights-accountability-liability]
+related: [2026-05-01-human-oversight-ai-software-development, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring, 2026-04-27-uelgf-runtime-feedback-loop]
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+---
+
+# How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?
+
+## Research Question
+
+How should human-in-the-loop (HITL) design be adapted when Artificial Intelligence (AI) review volume reaches the point where human reviewers become a throughput bottleneck or default to rubber-stamping decisions without genuine scrutiny, and what alternative or complementary oversight mechanisms can maintain meaningful human control without blocking AI throughput or creating automation bias at scale?
+
+## Scope
+
+**In scope:**
+- Empirical evidence and theoretical frameworks on automation bias, rubber-stamping, and alert fatigue in human-AI oversight systems
+- Throughput ceiling analysis: at what scale does HITL become a de facto bottleneck, and what are the observable indicators?
+- Alternative oversight mechanisms: sampling-based review, risk-tiered escalation, asynchronous audit, automated pre-screening, peer review rotation, and oversight-by-exception models
+- Quality of oversight metrics: how to measure whether human review is genuine vs nominal, and what signals distinguish informed approval from rubber-stamping
+- Regulatory and compliance constraints on HITL relaxation in high-risk decision domains (financial services, healthcare, regulated banking)
+- Governance design patterns for transitioning from synchronous HITL to asynchronous or statistical oversight as AI maturity increases
+- How HITL design changes interact with incentive misalignment and skill decay (connection to companion backlog item)
+
+**Out of scope:**
+- Full machine learning safety alignment literature not directly addressing enterprise review workflows
+- Consumer AI products without regulated-enterprise oversight requirements
+- Detailed workforce planning or Human Resources (HR) process design
+
+**Constraints:**
+- Expand all acronyms on first use
+- Distinguish between oversight mechanisms that satisfy regulatory requirements and those that only satisfy internal governance goals
+- Flag automation bias literature that is specific to safety-critical domains (aviation, medicine) when applying findings to enterprise AI; generalisation risks must be noted
+- Prior corpus research on HITL design provides baseline; this item must address the scale-breakage problem specifically
+
+## Context
+
+Prior completed items in this corpus already establish trigger conditions and control shapes for human oversight in Artificial Intelligence-automated systems. [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html]
+
+Those items largely assume a steady-state review capacity that remains adequate to action volume, while adjacent governance and culture items imply that review cost and incentive distortion worsen as queue volume rises. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html]
+
+This item therefore asks how oversight should change once review queues become the failure surface, either because humans become the throughput bottleneck or because they keep pace only by rubber-stamping. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/]
+
+## Approach
+
+1. **Volume threshold analysis**: Review empirical and theoretical literature on the scale at which HITL transitions from a meaningful control to a bottleneck or rubber-stamp; identify observable leading indicators.
+2. **Automation bias literature**: Survey evidence on when and why human reviewers default to approving AI outputs without scrutiny; identify conditions that increase and decrease automation bias.
+3. **Alternative oversight mechanisms**: Document and evaluate each alternative model, sampling, tiered escalation, statistical audit, exception-based review, including evidence for effectiveness and regulatory acceptability.
+4. **Quality of oversight metrics**: Identify what signals can be used to detect when human review has become nominal rather than genuine; assess measurability in enterprise settings.
+5. **Regulatory constraints**: Assess which oversight alternatives are consistent with financial services, banking, and comparable regulatory requirements for human accountability.
+6. **Design pattern synthesis**: Produce a structured set of HITL design patterns that adapt to increasing AI volume while maintaining meaningful oversight, with transition criteria between patterns.
+
+## Sources
+
+- [x] [Mitchell (2026) When and how should human intervention be incorporated into AI-driven and automated workflows?](https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html) - baseline HITL trigger conditions and control shapes in the corpus
+- [x] [Mitchell (2026) Universal Entity Lifecycle Governance Framework (UELGF) human oversight and accountability layer](https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html) - prior accountability-layer synthesis in the corpus
+- [x] [Massachusetts Institute of Technology (MIT) Sloan Management Review (2025) Agentic AI at Scale: Redefining Management for a Superhuman Workforce](https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/) - expert-panel evidence on scale, accountability, and selective intervention
+- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - official governance and lifecycle risk-management framework
+- [x] [Goddard et al. (2012) Automation bias: a systematic review of frequency, effect mediators, and mitigators](https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/) - accessible systematic review of workload, trust, complexity, and mitigators
+- [x] [Capi et al. (2025) Exploring automation bias in human-AI collaboration: a review and research agenda](https://link.springer.com/article/10.1007/s00146-025-02422-7) - recent review specific to human-AI decision-making
+- [x] [Schubert et al. (2023) Strategies to reduce automation bias in AI-based personnel preselection](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full) - experimental evidence on verification intensity, error briefing, and data aggregation
+- [x] [Brazil et al. (2019) Artificial intelligence technologies for coping with alarm fatigue in hospital environments](https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/) - direct overload evidence for high-volume alert environments
+- [x] [European Union (2024) AI Act Article 14](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14) - official human-oversight requirements and automation-bias recognition
+- [x] [European Union (2024) AI Act Article 26](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26) - deployer duties for competence, monitoring, suspension, and logs
+- [x] [Information Commissioner's Office Human review toolkit](https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/) - official guidance on meaningful human review, sampling, caseload, and override logs
+- [x] [General Data Protection Regulation (GDPR) Article 22](https://gdpr-info.eu/art-22-gdpr/) - human-intervention right for solely automated significant decisions
+- [x] [Australian Prudential Regulation Authority (APRA) CPS 230 Operational Risk Management](https://handbook.apra.gov.au/standard/cps-230) - regulated-operations tolerance, monitoring, and resilience requirements
+- [x] [MIT Sloan Management Review (2025) AI explainability: how to avoid rubber-stamping recommendations](https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/) - direct discussion of rubber-stamping risk in human oversight
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill, retained verbatim in the completed item. Sections 0 to 5 are the investigation; section 6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- Question: How should human-in-the-loop review change once review volume makes per-item approval either slow or nominal?
+- Scope: Enterprise and regulated-workflow oversight design, not general alignment research or consumer-product design.
+- Output format: Structured synthesis with executive summary, key findings, evidence map, assumptions, analysis, risks, gaps, uncertainties, and open questions.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html] Adjacent completed items already establish the baseline case for human oversight, governance economics, capability dependencies, and incentive effects, so this item focuses on where volume breaks synchronous review rather than on whether oversight matters at all.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] The core enterprise failure mode can be analyzed through automation-bias and alert-fatigue evidence from healthcare and personnel-selection settings, because the shared mechanism is recommendation review under workload, time pressure, and imperfect information rather than domain-specific physical control.
+
+### §1 Question Decomposition
+
+- Root question: How should human-in-the-loop design change when review volume makes humans a bottleneck or rubber-stamp risk?
+  - Volume-threshold branch:
+    - Atomic question 1.1: What evidence shows that rising alert or review volume degrades human scrutiny?
+    - Atomic question 1.2: What observable indicators show that review has become nominal rather than meaningful?
+  - Automation-bias branch:
+    - Atomic question 2.1: Which factors increase over-reliance on automated recommendations?
+    - Atomic question 2.2: Which interventions actually increase verification intensity or review quality?
+  - Alternative-oversight branch:
+    - Atomic question 3.1: Which tasks still require pre-execution human approval?
+    - Atomic question 3.2: Which tasks can move to sampling, exception review, or asynchronous audit without collapsing oversight?
+    - Atomic question 3.3: What architectural controls must exist for lower-touch oversight to stay real?
+  - Metrics branch:
+    - Atomic question 4.1: Which measurable signals distinguish careful review from rubber-stamping?
+    - Atomic question 4.2: Which signals can be collected in enterprise operations rather than only in laboratory studies?
+  - Regulatory branch:
+    - Atomic question 5.1: What do official sources require for meaningful human review in significant or high-risk decisions?
+    - Atomic question 5.2: Where do official sources allow risk-proportionate monitoring rather than universal pre-approval?
+  - Design-pattern branch:
+    - Atomic question 6.1: What transition criteria should move a workflow from synchronous approval to selective intervention?
+    - Atomic question 6.2: What final pattern preserves meaningful human control once volume exceeds line-by-line review capacity?
+
+### §2 Investigation
+
+- Prior completed-item sweep:
+  - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html] The closest completed items converge on the same prerequisite set for meaningful oversight: risk-tiering, named accountability, enforceable stop or override surfaces, and attributable telemetry.
+  - [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html] The gap left by prior corpus work is not control shape but scale-breakage: earlier items explain where human review belongs, yet they do not answer how review should narrow once queue volume degrades the review itself.
+
+- Atomic question 1.1, overload and degraded scrutiny:
+  - [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] Hospital alarm studies report that 80% to 99% of alarms can be false or clinically insignificant and that repeated high-volume alarms desensitize staff, slow response, and increase the chance that important events are missed.
+  - [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] One monitored-care setting reported an average of roughly 700 physiologic monitor alarms per patient per day, which directly illustrates how raw volume can exceed realistic human attention.
+  - [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/] High-volume AI review queues are not identical to clinical alarm systems, but both present the same attention-allocation problem: too many low-value prompts train operators to conserve effort by assuming the system is usually right.
+  - [fact; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/] MIT Sloan Management Review's 2025 expert panel argues that old management models were built for human-paced systems and break when agentic systems operate at superhuman speed and scale, which creates the need for explicit rules, thresholds, monitoring, and intervention design.
+
+- Atomic question 1.2, indicators of nominal review:
+  - [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The Information Commissioner's Office explicitly recommends documenting sampling method and size, target accuracy rates, tolerances, override logs, and manageable caseload, which implies those are valid operational indicators of review quality.
+  - [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] Schubert et al. use verification-intensity indicators and objective decision quality together, showing that more active checking correlates with better decisions.
+  - [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] Queue depth, review latency, override rate, disagreement rate, verification intensity, and nuisance-alert share are the most defensible leading indicators that review is becoming nominal.
+
+- Atomic question 2.1, drivers of automation bias:
+  - [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/] Goddard et al. find that workload, task complexity, time constraint, trust, confidence, and user experience all mediate automation bias.
+  - [fact; source: https://link.springer.com/article/10.1007/s00146-025-02422-7] The 2025 review of automation bias in human-AI collaboration states that high workload reallocates attention away from checking the automation, increasing delayed detection of system errors and blind reliance.
+  - [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] In AI-assisted personnel preselection, thoughtless acceptance of recommendations is treated as automation bias, and the paper links legal and ethical human-oversight duties to active verification rather than passive approval.
+  - [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] Access note: search query `"10.1518/001872010X12546899239615"` and the seeded Sage landing page did not yield accessible full text in this session, so downstream claims use accessible reviews that cite Parasuraman and Manzey (2010) rather than treating the inaccessible page as evidence.
+
+- Atomic question 2.2, mitigators that improve review:
+  - [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/] Goddard et al. report that training, emphasizing user accountability, confidence cues, screen-position choices, and presenting information rather than raw recommendations can mitigate automation bias.
+  - [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] Schubert et al. find that briefing reviewers about possible system errors increased verification intensity, while simply reminding reviewers of responsibility did not produce the same effect.
+  - [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] Less aggregated information helped reviewers inspect evidence rather than staying at a superficial dashboard layer.
+  - [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] The most robust anti-rubber-stamp interventions are therefore evidence visibility, explicit possibility of model error, and manageable caseload, not a generic instruction that a human is "responsible."
+
+- Atomic question 3.1, where pre-execution approval remains necessary:
+  - [fact; source: https://gdpr-info.eu/art-22-gdpr/] GDPR Article 22 requires human intervention, contestation, and expression rights when a decision is based solely on automated processing and has legal or similarly significant effects.
+  - [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14] AI Act Article 14 requires human oversight proportionate to risk, autonomy, and context, including the ability to understand limitations, detect anomalies, override outputs, and stop the system safely.
+  - [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14] For certain biometric-identification uses, Article 14 requires separate verification and confirmation by at least two competent natural persons, which shows that some high-risk surfaces still demand explicit pre-decision human confirmation rather than later audit alone.
+  - [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html] Rights-significant, high-harm, boundary-crossing, or hard-to-reverse actions remain the strongest case for synchronous human approval.
+
+- Atomic question 3.2, where lower-touch oversight is acceptable:
+  - [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The Information Commissioner's Office recommends structured sampling methods, tolerance targets, fallback options, stand-in manual modes, and manual review when tolerance levels are breached, which is stronger support for selective review than for universal approval.
+  - [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] AI Act Article 26 requires deployers to assign competent overseers, monitor operation, suspend use when risk emerges, and keep automatically generated logs, which supports continuous supervision plus intervention rather than mandatory pre-approval of every action.
+  - [fact; source: https://handbook.apra.gov.au/standard/cps-230] APRA CPS 230 requires effective controls, monitoring, remediation, tolerance levels for critical operations, and resilience through disruption, which aligns with supervisory and tolerance-based control models.
+  - [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://handbook.apra.gov.au/standard/cps-230] Lower-risk, reversible, bounded actions can therefore move to approval-by-exception, stratified sampling, and asynchronous audit if humans retain real stop rights, fallbacks, and telemetry.
+
+- Atomic question 3.3, architectural prerequisites:
+  - [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] NIST's Artificial Intelligence Risk Management Framework treats governance as cross-cutting across map, measure, and manage, and emphasizes lifecycle monitoring, documentation, impact assessment, and alignment between technical controls and organizational risk tolerance.
+  - [fact; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/] MIT Sloan's expert panel recommends explicit decision protocols, escalation paths, monitoring, documentation, and life-cycle-based management rather than one-time review.
+  - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html] The repository's completed architecture items argue that meaningful override requires real enforcement points, attributable telemetry, and named decision rights.
+  - [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html] If those control surfaces do not exist, moving from pre-approval to lighter-touch review merely hides the loss of control rather than preserving it.
+
+- Atomic question 4.1 and 4.2, measurable signals:
+  - [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The Information Commissioner's Office explicitly names sampling size, acceptable tolerance, override logging, reviewer qualifications, independence, and manageable caseload as review-control elements that should be documented.
+  - [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] Verification-intensity measures can be collected in human-review interfaces by capturing inspection depth and time spent reviewing supporting evidence.
+  - [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] False or nuisance-alarm ratio is a measurable overload signal that predicts desensitization in alert systems and is a useful analogue for low-value AI review prompts.
+  - [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] The strongest practical oversight metrics are queue depth, review latency, override and disagreement rates, evidence-inspection depth, nuisance-prompt share, and breach-trigger rate for manual fallback.
+
+- Atomic question 5.1 and 5.2, regulatory constraints:
+  - [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The Information Commissioner's Office says meaningful human review requires knowledge, experience, authority, independence, training, and enough time and resourcing to review outputs effectively.
+  - [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] The AI Act requires competent natural persons, understanding of system limits, override or halt rights, operational monitoring, suspension on risk emergence, and log retention.
+  - [fact; source: https://gdpr-info.eu/art-22-gdpr/] GDPR Article 22 applies to solely automated decisions with legal or similarly significant effects, not to every automated assistive step in a wider process.
+  - [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] Regulation therefore supports risk-proportionate supervisory review for many high-volume workflows, but not passive sign-off or the removal of meaningful human intervention from rights-significant decisions.
+
+- Atomic question 6.1 and 6.2, transition logic:
+  - [fact; source: https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/] MIT Sloan Management Review warns that without explainability and oversight humans are reduced to rubber-stamping machine decisions, which directly names the failure mode at issue.
+  - [fact; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/] MIT Sloan's expert panel recommends reserving human intervention for higher-risk scenarios while governance defines boundaries, monitoring, and accountability for lower-risk scenarios.
+  - [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230] A defensible transition path is staged: keep synchronous approval for irreversible or rights-significant actions, move reversible medium-risk work to approval-by-exception plus sampling, and use continuous monitoring plus periodic audit for low-risk high-volume bounded actions.
+
+### §3 Reasoning
+
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] The overload evidence supports a causal chain from high prompt volume to reduced vigilance to nominal review, even though the reviewed studies come mostly from healthcare rather than enterprise operations.
+- [inference; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The most reliable operational test for "meaningful review" is not whether a human touched the workflow, but whether the workflow preserves time, evidence, authority, and measurable disagreement.
+- [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] Regulation does not demand one uniform oversight mode; it demands real human capacity to understand, challenge, override, suspend, and document decisions when risk justifies that intervention.
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/standard/cps-230; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/] Once review volume outruns human scrutiny capacity, the rational response is not to approve faster but to narrow the pre-approval surface and strengthen monitoring, escalation, and safe defaults.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] That shift only works if the organization already has enforcement points, stop surfaces, logs, and accountable owners; otherwise, lighter-touch review becomes theater.
+
+### §4 Consistency Check
+
+- [fact; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] No reviewed regulation requires universal pre-approval for every AI-assisted action, but all require meaningful human authority and intervention for significant or high-risk effects.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] The behavioural evidence is consistent that workload, complexity, and alert overload degrade human checking, while error briefing, evidence visibility, and manageable workload improve it.
+- [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/] There is no contradiction between "human review matters" and "review everything fails"; the combined evidence implies that scarce human attention must be concentrated where it changes outcomes.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] The main unresolved uncertainty is transferability from clinical and personnel-selection settings to enterprise AI operations, so the final synthesis keeps numeric thresholds out of the conclusions.
+
+### §5 Depth and Breadth Expansion
+
+- Technical lens:
+  - [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] Lower-touch oversight is only technically credible when logs, thresholds, anomaly detection, and fallback paths already exist.
+- Regulatory lens:
+  - [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] Meaningful human control is a quality of review, competence, authority, and challengeability, not merely a count of human touchpoints.
+- Economic lens:
+  - [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/] Universal pre-approval becomes increasingly expensive exactly when AI volume is supposed to deliver scale, so the economically coherent model is selective approval plus shared monitoring.
+- Behavioural lens:
+  - [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html; https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/] If review queues become performative, staff incentives will drift toward speed and formal compliance rather than scrutiny, which increases rubber-stamping even when policy still says "human review."
+- Organisational-design lens:
+  - [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html] The oversight model therefore depends on mature shared capabilities, especially routing, logging, escalation, and named ownership, rather than on reviewer headcount alone.
+
+### §6 Synthesis
+
+**Executive summary:**
+
+Human-in-the-loop review should stop being the default control for every Artificial Intelligence action once review volume outgrows careful human verification, because high-volume queues predictably degrade into bottlenecks or nominal sign-off rather than meaningful oversight. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/]
+
+The strongest available evidence shows that workload, time pressure, complexity, and nuisance-prompt volume increase automation bias, while explicit error briefings, richer evidence presentation, and manageable caseload improve verification intensity. [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+
+Regulated oversight should therefore become risk-tiered: reserve synchronous human approval for rights-significant, high-harm, or hard-to-reverse actions, and govern lower-risk bounded actions through approval-by-exception, stratified sampling, continuous monitoring, override logs, and safe fallback paths. [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+
+This shift preserves meaningful human control only when reviewers retain real authority, competence, independence, stop rights, and visibility into system limits, and when the architecture already exposes enforcement points, telemetry, and escalation routes. [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html]
+
+**Key findings:**
+
+1. **Universal pre-execution human-in-the-loop review becomes a weak control at high volume because overload, nuisance prompts, and time pressure predictably reduce reviewer vigilance and turn formal review into bottleneck or rubber-stamp behavior.** ([inference]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/)
+2. **Automation bias rises when humans review automated recommendations under workload, complexity, and trust pressure, and the best-supported mitigators are explicit error salience, evidence visibility, and manageable caseload rather than a simple reminder that the human is accountable.** ([fact]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full)
+3. **Meaningful human review in regulated settings requires competent and independent reviewers with authority, training, sufficient time, structured sampling or testing methods, and durable override logs, which means passive sign-off does not satisfy the strongest official guidance.** ([fact]; high confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26)
+4. **The most defensible scaled oversight model is risk-tiered: keep synchronous approval for rights-significant, high-harm, boundary-crossing, or hard-to-reverse actions, and move lower-risk reversible actions to approval-by-exception, stratified sampling, and asynchronous audit.** ([inference]; medium confidence; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html)
+5. **Scaled oversight quality should be monitored through queue depth, review latency, override and disagreement rates, verification-intensity signals, nuisance-prompt share, and fallback-trigger rates, because these measures show whether review remains active enough to catch system error.** ([inference]; medium confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/)
+6. **Regulation supports this selective model only when humans can actually understand system limits, detect anomalies, disregard or reverse outputs, suspend operation, and retain logs, so review-volume relief cannot be separated from control-surface design.** ([inference]; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html)
+7. **General Data Protection Regulation Article 22 narrows the hard legal requirement to solely automated decisions with legal or similarly significant effects, while broader Artificial Intelligence Act duties require risk-proportionate operational monitoring and competent human oversight across high-risk use.** ([fact]; high confidence; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26)
+8. **The practical transition pattern is staged: synchronous approval for irreversible external-impact actions, exception review plus sampling for medium-risk bounded workflows, and continuous monitoring plus periodic audit for low-risk high-volume work that has safe defaults and reliable rollback paths.** ([inference]; medium confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html)
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Universal pre-execution review degrades under overload and becomes a bottleneck or nominal sign-off. | https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/ | medium | Behavioural and overload evidence align, but most direct studies are not enterprise-specific. |
+| [fact] Workload, complexity, and trust pressure increase automation bias, while error briefing and richer evidence improve verification. | https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full | medium | Strong cross-source direction; mitigator effect sizes remain context-sensitive. |
+| [fact] Meaningful human review requires competence, independence, authority, training, sampling discipline, and override logs. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 | high | Direct official guidance. |
+| [inference] Risk-tiered approval and audit is the most defensible scaled oversight model. | https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html | medium | Regulatory text supports proportionality; exact tier boundaries are synthesis. |
+| [inference] Queue depth, latency, override rates, verification intensity, nuisance share, and fallback-trigger rates are the best leading indicators of rubber-stamping. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/ | medium | Composite operational metric bundle rather than one directly published standard. |
+| [inference] Selective oversight only works when understanding, override, suspension, logs, and enforcement points exist in the system design. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html | high | External requirements and repository architecture work line up closely. |
+| [fact] GDPR and the AI Act impose different but complementary human-oversight duties. | https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 | high | Direct legal text. |
+| [inference] The practical transition path is staged from synchronous approval to exception review to monitoring plus periodic audit. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html | medium | Strong directional support, but the stage model is synthesized. |
+
+**Assumptions:**
+
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] Enterprise review queues will exhibit the same core overload mechanism as clinical alarm and decision-support queues, even though the harm surface and timing differ by domain.
+- [assumption; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230] Each organization will need local numeric thresholds for queue depth, tolerance, and response windows, because the reviewed sources support proportional calibration but do not provide portable constants.
+- [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] The organization has at least one real enforcement point, attributable logging path, and safe fallback mode, because without those capabilities the lighter-touch patterns remain desirable but not implementable.
+
+**Analysis:**
+
+The evidence weighs against the naive response of "review everything faster." [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] Once prompt volume exceeds careful human attention, the control problem changes from whether humans are in the loop to whether the loop still contains meaningful verification. [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+
+The official sources resolve an important ambiguity. They do not require a human to manually approve every AI-assisted action, but they do require that natural persons can understand, challenge, override, suspend, and document outcomes when risk justifies intervention. [fact; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] That makes selective oversight legally and operationally stronger than universal nominal approval. [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+
+The strongest design implication is that scarce human judgment should move upward in the stack. Humans should spend time classifying risk, setting boundaries, reviewing anomalies, investigating sampled cases, and approving irreversible exceptions, while machines handle routine bounded execution under logging, tolerance thresholds, and safe defaults. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html]
+
+This also resolves the bottleneck versus control trade-off. The oversight question is not whether humans touch every action, but whether the system preserves challengeable human authority where consequences are large and evidence of machine error can still be acted on. [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+
+**Risks, gaps, uncertainties:**
+
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] The strongest overload evidence comes from healthcare and alerting environments rather than from large public datasets of enterprise AI review queues.
+- [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] The best direct experiment on verification intensity is in personnel selection rather than in software or operations review, so the mitigation claims are strong on mechanism but not universal on interface details.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7] The seeded Parasuraman and Manzey source could not be read in full here, so the automation-bias synthesis relies on accessible later reviews that summarize the earlier literature.
+- [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230] Official sources support proportional oversight design, but they do not publish a universal queue-depth cap, response-time number, or sample-rate formula for every domain.
+
+**Open questions:**
+
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] Which interface design best preserves verification intensity in high-volume enterprise review queues: richer evidence packs, disagreement prompts, forced comparison steps, or peer rotation?
+- [inference; source: https://handbook.apra.gov.au/standard/cps-230; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] What queue-depth and latency thresholds should trigger automatic fallback from approval-by-exception to manual hold in regulated enterprise operations?
+- [inference; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html] Which management incentives most effectively prevent reviewers from optimizing for queue clearance rather than scrutiny once AI action volume increases?
+
+### §7 Recursive Review
+
+- Claim-label audit: completed.
+- Acronym-expansion audit: completed.
+- Findings and section-6 parity: aligned.
+- Adjacent completed-item sweep: repeated before synthesis.
+- Remaining uncertainty kept in assumptions and risks, not promoted to high-confidence findings.
+
+---
+
+## Findings
+
+### Executive Summary
+
+Human-in-the-loop review should stop being the default control for every Artificial Intelligence action once review volume outgrows careful human verification, because high-volume queues predictably degrade into bottlenecks or nominal sign-off rather than meaningful oversight. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/]
+
+The strongest available evidence shows that workload, time pressure, complexity, and nuisance-prompt volume increase automation bias, while explicit error briefings, richer evidence presentation, and manageable caseload improve verification intensity. [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+
+Regulated oversight should therefore become risk-tiered: reserve synchronous human approval for rights-significant, high-harm, or hard-to-reverse actions, and govern lower-risk bounded actions through approval-by-exception, stratified sampling, continuous monitoring, override logs, and safe fallback paths. [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+
+This shift preserves meaningful human control only when reviewers retain real authority, competence, independence, stop rights, and visibility into system limits, and when the architecture already exposes enforcement points, telemetry, and escalation routes. [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html]
+
+### Key Findings
+
+1. **Universal pre-execution human-in-the-loop review becomes a weak control at high volume because overload, nuisance prompts, and time pressure predictably reduce reviewer vigilance and turn formal review into bottleneck or rubber-stamp behavior.** ([inference]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/)
+2. **Automation bias rises when humans review automated recommendations under workload, complexity, and trust pressure, and the best-supported mitigators are explicit error salience, evidence visibility, and manageable caseload rather than a simple reminder that the human is accountable.** ([fact]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full)
+3. **Meaningful human review in regulated settings requires competent and independent reviewers with authority, training, sufficient time, structured sampling or testing methods, and durable override logs, which means passive sign-off does not satisfy the strongest official guidance.** ([fact]; high confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26)
+4. **The most defensible scaled oversight model is risk-tiered: keep synchronous approval for rights-significant, high-harm, boundary-crossing, or hard-to-reverse actions, and move lower-risk reversible actions to approval-by-exception, stratified sampling, and asynchronous audit.** ([inference]; medium confidence; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html)
+5. **Scaled oversight quality should be monitored through queue depth, review latency, override and disagreement rates, verification-intensity signals, nuisance-prompt share, and fallback-trigger rates, because these measures show whether review remains active enough to catch system error.** ([inference]; medium confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/)
+6. **Regulation supports this selective model only when humans can actually understand system limits, detect anomalies, disregard or reverse outputs, suspend operation, and retain logs, so review-volume relief cannot be separated from control-surface design.** ([inference]; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html)
+7. **General Data Protection Regulation Article 22 narrows the hard legal requirement to solely automated decisions with legal or similarly significant effects, while broader Artificial Intelligence Act duties require risk-proportionate operational monitoring and competent human oversight across high-risk use.** ([fact]; high confidence; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26)
+8. **The practical transition pattern is staged: synchronous approval for irreversible external-impact actions, exception review plus sampling for medium-risk bounded workflows, and continuous monitoring plus periodic audit for low-risk high-volume work that has safe defaults and reliable rollback paths.** ([inference]; medium confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Universal pre-execution review degrades under overload and becomes a bottleneck or nominal sign-off. | https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://sloanreview.mit.edu/article/ai-explainability-how-to-avoid-rubber-stamping-recommendations/ | medium | Behavioural and overload evidence align, but most direct studies are not enterprise-specific. |
+| [fact] Workload, complexity, and trust pressure increase automation bias, while error briefing and richer evidence improve verification. | https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full | medium | Strong cross-source direction; mitigator effect sizes remain context-sensitive. |
+| [fact] Meaningful human review requires competence, independence, authority, training, sampling discipline, and override logs. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 | high | Direct official guidance. |
+| [inference] Risk-tiered approval and audit is the most defensible scaled oversight model. | https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html | medium | Regulatory text supports proportionality; exact tier boundaries are synthesis. |
+| [inference] Queue depth, latency, override rates, verification intensity, nuisance share, and fallback-trigger rates are the best leading indicators of rubber-stamping. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/ | medium | Composite operational metric bundle rather than one directly published standard. |
+| [inference] Selective oversight only works when understanding, override, suspension, logs, and enforcement points exist in the system design. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html | high | External requirements and repository architecture work line up closely. |
+| [fact] GDPR and the AI Act impose different but complementary human-oversight duties. | https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 | high | Direct legal text. |
+| [inference] The practical transition path is staged from synchronous approval to exception review to monitoring plus periodic audit. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html | medium | Strong directional support, but the stage model is synthesized. |
+
+### Assumptions
+
+- The core overload mechanism transfers from healthcare and personnel-selection review queues to enterprise AI review queues because the shared problem is recommendation verification under workload and time pressure, not domain-specific motor control. [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+- Each organization must set its own numeric thresholds for queue depth, tolerance, and response windows because the reviewed sources support proportional calibration but do not provide portable constants. [assumption; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+- The lighter-touch oversight patterns assume the presence of at least one real enforcement point, attributable logging path, and safe fallback mode. [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html]
+
+### Analysis
+
+The evidence weighs against the naive response of "review everything faster." [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/] Once prompt volume exceeds careful human attention, the control problem changes from whether humans are in the loop to whether the loop still contains meaningful verification. [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+
+The official sources resolve an important ambiguity. They do not require a human to manually approve every AI-assisted action, but they do require that natural persons can understand, challenge, override, suspend, and document outcomes when risk justifies intervention. [fact; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] That makes selective oversight legally and operationally stronger than universal nominal approval. [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+
+The strongest design implication is that scarce human judgment should move upward in the stack. Humans should spend time classifying risk, setting boundaries, reviewing anomalies, investigating sampled cases, and approving irreversible exceptions, while machines handle routine bounded execution under logging, tolerance thresholds, and safe defaults. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html]
+
+This resolves the bottleneck versus control trade-off. The oversight question is not whether humans touch every action, but whether the system preserves challengeable human authority where consequences are large and evidence of machine error can still be acted on. [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+
+### Risks, Gaps, and Uncertainties
+
+- The strongest overload evidence comes from healthcare and alerting environments rather than from large public datasets of enterprise AI review queues. [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/articles/PMC6904899/]
+- The best direct experiment on verification intensity is in personnel selection rather than in software or operations review, so the mitigation claims are strong on mechanism but not universal on interface details. [fact; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+- The seeded Parasuraman and Manzey source could not be read in full here, so the automation-bias synthesis relies on accessible later reviews that summarize the earlier literature. [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://link.springer.com/article/10.1007/s00146-025-02422-7]
+- Official sources support proportional oversight design, but they do not publish a universal queue-depth cap, response-time number, or sample-rate formula for every domain. [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+
+### Open Questions
+
+- Which interface design best preserves verification intensity in high-volume enterprise review queues: richer evidence packs, disagreement prompts, forced comparison steps, or peer rotation? [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full]
+- What queue-depth and latency thresholds should trigger automatic fallback from approval-by-exception to manual hold in regulated enterprise operations? [inference; source: https://handbook.apra.gov.au/standard/cps-230; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+- Which management incentives most effectively prevent reviewers from optimizing for queue clearance rather than scrutiny once AI action volume increases? [inference; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html]
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: A risk-tiered oversight design for high-volume Artificial Intelligence workflows that narrows synchronous human approval to consequential actions and shifts lower-risk bounded work toward exception review, sampling, monitoring, and audit while preserving real human authority. [inference; source: https://gdpr-info.eu/art-22-gdpr/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://handbook.apra.gov.au/standard/cps-230]
+- Links:
+  - https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/
+  - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14
+  - https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/
