@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
