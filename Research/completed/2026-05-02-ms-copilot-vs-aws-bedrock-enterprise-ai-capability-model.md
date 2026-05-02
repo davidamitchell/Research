@@ -2,12 +2,12 @@
 review_count: 2
 title: "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem"
 added: 2026-05-02T01:38:25+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, enterprise, ai-governance, microsoft, aws, capability-model, control-plane, finops, observability, security, identity, github-copilot, regulated-enterprise]
 started: 2026-05-02T01:50:41+00:00
-completed: ~
+completed: 2026-05-02T02:18:20+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-26-multi-ai-provider-control-planes, 2026-04-22-enterprise-ai-capability-model, 2026-04-22-enterprise-ai-platform-operating-models, 2026-04-26-ms-copilot-cowork, 2026-04-26-vendor-platform-governance-constraints-compensating-controls, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-04-28-alternative-pipeline-platforms-copilot-studio-agents]
 related: [2026-04-28-alternative-pipeline-platforms-copilot-studio-agents, 2026-04-30-claude-vs-m365-copilot-cowork-comparison]
