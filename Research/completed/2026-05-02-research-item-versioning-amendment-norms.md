@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: 2026-04-27-academic-post-publication-amendment-practices
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c79230354f588083610163db2f03c4e70233ceff
+    changed: 2026-05-02
+    progress: progress/2026-05-02-research-item-versioning-amendment-norms.md
+    summary: Initial completion
 ---
 
 # What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?
