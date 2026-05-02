@@ -176,3 +176,71 @@ def test_no_source_bracket_produces_empty_sources() -> None:
     claims = extract_key_claims(findings)
     assert len(claims) == 1
     assert claims[0]["sources"] == []
+
+
+# ---------------------------------------------------------------------------
+# Format 4 — suffix style: **Claim text.** ([inference]; confidence; source: URL)
+# ---------------------------------------------------------------------------
+
+
+def test_format4_suffix_extracts_sources_from_parens() -> None:
+    """Format 4 suffix citations extract source URLs from the trailing parenthetical."""
+    findings = """\
+### Key Findings
+
+1. **Bounded automation outperforms end-to-end autonomy for reliable coding tasks.** ([inference]; medium confidence; source: https://example.com/paper1; https://example.com/paper2)
+"""
+    claims = extract_key_claims(findings)
+    assert len(claims) == 1
+    assert claims[0]["sources"] == [
+        "https://example.com/paper1",
+        "https://example.com/paper2",
+    ]
+
+
+def test_format4_suffix_strips_annotation_from_claim_text() -> None:
+    """Format 4 suffix citations strip the trailing parenthetical from the claim text."""
+    findings = """\
+### Key Findings
+
+1. **Bounded automation outperforms end-to-end autonomy for reliable coding tasks.** ([inference]; medium confidence; source: https://example.com/paper1)
+"""
+    claims = extract_key_claims(findings)
+    assert len(claims) == 1
+    assert claims[0]["text"] == (
+        "Bounded automation outperforms end-to-end autonomy for reliable coding tasks"
+    )
+    assert "confidence" not in claims[0]["text"].lower()
+    assert "source" not in claims[0]["text"].lower()
+    assert "inference" not in claims[0]["text"].lower()
+
+
+def test_format4_high_confidence_variant() -> None:
+    """Format 4 works with high confidence label."""
+    findings = """\
+### Key Findings
+
+1. **Test-first development reduces defect rates in well-studied projects.** ([fact]; high confidence; source: https://example.com/study)
+"""
+    claims = extract_key_claims(findings)
+    assert len(claims) == 1
+    assert claims[0]["text"] == (
+        "Test-first development reduces defect rates in well-studied projects"
+    )
+    assert claims[0]["sources"] == ["https://example.com/study"]
+
+
+def test_format4_multiple_items() -> None:
+    """Format 4 handles multiple numbered Key Findings."""
+    findings = """\
+### Key Findings
+
+1. **First claim about coding agents.** ([inference]; medium confidence; source: https://a.com; https://b.com)
+2. **Second claim about oversight.** ([inference]; high confidence; source: https://c.com)
+"""
+    claims = extract_key_claims(findings)
+    assert len(claims) == 2
+    assert "First claim" in claims[0]["text"]
+    assert claims[0]["sources"] == ["https://a.com", "https://b.com"]
+    assert "Second claim" in claims[1]["text"]
+    assert claims[1]["sources"] == ["https://c.com"]
