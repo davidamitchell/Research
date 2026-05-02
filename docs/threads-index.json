@@ -5075,14 +5075,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -5112,7 +5112,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -5150,13 +5150,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -5182,17 +5182,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-rmf-core",
-    "title": "nist ai / ai rmf / rmf core",
+    "slug": "ai-rmf-nist-ai-copilot-studio",
+    "title": "ai rmf / nist ai / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
-      "rmf core"
+      "nist ai",
+      "copilot studio"
     ],
     "item_count": 4,
     "items": [
@@ -5217,16 +5217,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-rmf-core.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -5252,7 +5252,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "governance-microsoft-copilot",
@@ -5525,13 +5525,13 @@
     "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-iso-iec",
-    "title": "nist ai / ai rmf / iso iec",
+    "slug": "ai-rmf-nist-ai-iso-iec",
+    "title": "ai rmf / nist ai / iso iec",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "iso iec"
     ],
     "item_count": 3,
@@ -5552,16 +5552,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-iso-iec.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-iso-iec.html"
   },
   {
-    "slug": "agentic-ai-ai-systems-nist-ai",
-    "title": "agentic ai / ai systems / nist ai",
+    "slug": "ai-systems-agentic-ai-nist-ai",
+    "title": "ai systems / agentic ai / nist ai",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agentic ai",
       "ai systems",
+      "agentic ai",
       "nist ai"
     ],
     "item_count": 3,
@@ -5582,6 +5582,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/agentic-ai-ai-systems-nist-ai.html"
+    "url": "/Research/threads/ai-systems-agentic-ai-nist-ai.html"
   }
 ]
