@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?"
 added: 2026-05-02T06:00:57+00:00
 status: reviewing
