@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
