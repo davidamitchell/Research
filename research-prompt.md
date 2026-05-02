@@ -502,6 +502,11 @@ REVIEW_COUNT=$(grep -m1 '^review_count:' Research/in-progress/<filename> | awk '
   gh run view "$LAST_RUN" --log | grep -E "OVERALL:|VIOLATION:" || true
   ```
 
+  **Do not trust the workflow conclusion alone.** On the second-pass auto-pass
+  path, the workflow can finish with a successful run conclusion while the log
+  still contains `OVERALL: FAIL` and concrete `VIOLATION:` lines. The log is
+  the source of truth for whether the item is actually clean.
+
   - **OVERALL: PASS** (or `review_count >= 2`, which auto-passes): proceed to
     Step 9.
   - **OVERALL: FAIL and `review_count` is 1:** fix the flagged violations in
