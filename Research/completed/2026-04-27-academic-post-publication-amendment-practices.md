@@ -11,7 +11,7 @@ completed: 2026-04-27T09:27:23+00:00
 output: [knowledge]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
-superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+superseded_by: 2026-05-02-research-item-versioning-amendment-norms   # slug of a later item that overrides this one (null if not superseded)
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low

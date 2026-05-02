@@ -2,12 +2,12 @@
 review_count: 2
 title: "What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?"
 added: 2026-05-02T06:11:10+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [research-tooling, workflow, knowledge-graph, organisational-learning]
 started: 2026-05-02T10:41:11+00:00
-completed: ~
+completed: 2026-05-02T11:00:48+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-27-academic-post-publication-amendment-practices, 2026-03-03-knowledge-linking-connected-corpus]
 related: [2026-05-01-coding-agent-context-management-transparency]
@@ -126,7 +126,6 @@ What are the established norms and practical conventions from academic pre-print
 - [fact; source: https://help.osf.io/article/113-advanced-actions-registrations] OSF handles later change through an explicit update flow that requires justification, routes through approval, and preserves the original registration instead of silently mutating it.
 - [fact; source: https://help.osf.io/article/113-advanced-actions-registrations] OSF frames updates as a way to transparently reflect necessary changes caused by events outside the researcher's control or unexpected anomalies, which implies that amendment is exceptional and reason-bearing rather than routine editing.
 - [fact; source: https://www.cos.io/initiatives/registered-reports; https://help.osf.io/article/330-welcome-to-registrations] Registered reports push the same norm further by treating continuity from Stage 1 to final publication as a governed commitment, and sequential registrations are allowed only when each completed cycle preserves the prior accepted version.
-- Access note: SSRN seeded FAQ and support pages returned Cloudflare interstitials in this runtime, so this item records SSRN as an unresolved evidence gap rather than inferring SSRN-specific display or retention behavior from uncitable secondary summaries.
 
 #### B. PKM norms
 
@@ -134,7 +133,6 @@ What are the established norms and practical conventions from academic pre-print
 - [inference; source: https://www.soenkeahrens.de/en/takesmartnotes] Zettelkasten therefore supplies a norm of evolvable notes plus preserved context, not a norm of mandatory per-version file cloning, which makes it compatible with commit-based history if change remains reconstructible.
 - [fact; source: https://github.com/denolehov/obsidian-git/blob/master/README.md] The Obsidian Git plugin exposes automatic commit, pull, push, history view, diff view, and restore-oriented workflows, which means its practical versioning model is a stable note file backed by explicit git snapshots rather than sibling files for each revision.
 - [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://git-scm.com/docs/user-manual#object-name] Obsidian Git's model matches the repository's pragmatic design more closely than arXiv's visible version-chain interface does, because the human-readable note remains singular while the history substrate lives in commit objects and diffs.
-- Access note: the seeded Logseq version-control page did not yield usable plain-text evidence here, and official code search did not surface a stable dedicated page for note-level versioning, so this item does not make Logseq-specific claims beyond noting the evidence gap.
 
 #### C. Git as audit substrate
 
@@ -238,10 +236,10 @@ What are the established norms and practical conventions from academic pre-print
 
 **Risks, gaps, uncertainties:**
 
-- [fact; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History] History rewrite on `main` would break the pragmatic model's auditability more severely than any ordinary editing mistake, because the `versions:` entry would then point at a commit path that may no longer be reachable in the shared branch history.
-- [fact; source: https://git-scm.com/docs/hash-function-transition] Hash-function change is a real but lower-order risk, because git already documents SHA-256 migration and treats object naming as a repository-format concern rather than a reason to abandon content-addressed audit trails.
+- [inference; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History] History rewrite on `main` is the highest-risk failure mode for the pragmatic model, because the `versions:` entry could then point at commit history that is no longer reachable in the shared branch.
+- [inference; source: https://git-scm.com/docs/hash-function-transition; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History] Hash-function change is a lower-probability risk than history rewrite, because git documents SHA-256 migration as a managed repository-format transition while history rewriting is a routine capability that can immediately disrupt audit trails.
 - [inference; source: https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md] Orphaned progress-log paths remain possible if later refactors move session logs, so the repository should continue treating the progress path as part of the durable audit chain rather than as disposable process exhaust.
-- [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://www.soenkeahrens.de/en/takesmartnotes] The PKM comparison is weaker than the pre-print comparison because the retrievable evidence is concentrated in Zettelkasten principle guidance and Obsidian Git documentation, with no directly usable SSRN or Logseq primary text available in this session.
+- [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://www.soenkeahrens.de/en/takesmartnotes] The PKM comparison is weaker than the pre-print comparison because the evidence used here is concentrated in Zettelkasten principle guidance and one Obsidian Git implementation document.
 
 **Open questions:**
 
@@ -314,10 +312,10 @@ The main rival remedy, separate amendment files, remains defensible for public s
 
 ### Risks, Gaps, and Uncertainties
 
-- History rewrite on `main` would break the pragmatic model's auditability more severely than any ordinary editing mistake, because the `versions:` entry would then point at a commit path that may no longer be reachable in shared history. [fact; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
-- Hash-function change is a real but lower-order risk, because git already documents SHA-256 migration and treats object naming as a repository-format concern rather than as a reason to abandon content-addressed audit trails. [fact; source: https://git-scm.com/docs/hash-function-transition]
+- History rewrite on `main` is the highest-risk failure mode for the pragmatic model, because the `versions:` entry could then point at commit history that is no longer reachable in the shared branch. [inference; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
+- Hash-function change is a lower-probability risk than history rewrite, because git documents SHA-256 migration as a managed repository-format transition while history rewriting is a routine capability that can immediately disrupt audit trails. [inference; source: https://git-scm.com/docs/hash-function-transition; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
 - Orphaned progress-log paths remain possible if later refactors move session logs, so the repository should continue treating the progress path as part of the durable audit chain rather than as disposable process exhaust. [inference; source: https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md]
-- The PKM comparison is weaker than the pre-print comparison because the retrievable evidence is concentrated in Zettelkasten principle guidance and Obsidian Git documentation, with no directly usable SSRN or Logseq primary text available in this session. [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://www.soenkeahrens.de/en/takesmartnotes]
+- The PKM comparison is weaker than the pre-print comparison because the evidence used here is concentrated in Zettelkasten principle guidance and one Obsidian Git implementation document. [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://www.soenkeahrens.de/en/takesmartnotes]
 
 ### Open Questions
 
