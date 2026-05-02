@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: eee5b10a145a13bc7c696f4546a928d997dc4069
+    changed: 2026-05-02
+    progress: progress/2026-05-02-sustainable-ai-software-development-synthesis.md
+    summary: "Initial completion"
 ---
 
 # What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?
