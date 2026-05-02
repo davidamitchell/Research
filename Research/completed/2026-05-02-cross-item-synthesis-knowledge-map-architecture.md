@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 325c27782d7b921f8653d7f69716a5e0020fdec1
+    changed: 2026-05-02
+    progress: progress/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md
+    summary: "Initial completion"
 ---
 
 # What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?
