@@ -2,12 +2,12 @@
 review_count: 2
 title: "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?"
 added: 2026-05-02T06:11:10+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-02-research-to-publication-authoring-workflow]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, llm, workflow, knowledge-graph, evaluation, hallucinations]
 started: 2026-05-02T08:41:24+00:00
-completed: ~
+completed: 2026-05-02T09:05:51+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-02-27-information-synthesis-entropy, 2026-03-03-cross-item-synthesis-meta-insights, 2026-03-03-knowledge-linking-connected-corpus, 2026-03-12-exploration-synthesis-gap]
 related: [2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-04-27-uelgf-synthesis-complete-framework]
@@ -277,12 +277,12 @@ The trade-off is therefore clear: optimize first for provenance and contradictio
 
 ### §7 Recursive Review
 
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-systematic-review-methodology-ai-synthesis.md] Coverage check completed across sections 0 through 6.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-systematic-review-methodology-ai-synthesis.md] Prior-work sweep reflected in `cites:` and `related:`.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-systematic-review-methodology-ai-synthesis.md] Acronym audit completed.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-systematic-review-methodology-ai-synthesis.md] Inline citation audit completed.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-systematic-review-methodology-ai-synthesis.md] Evidence-map coverage includes every key finding.
-- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-systematic-review-methodology-ai-synthesis.md; https://link.springer.com/article/10.1186/s12874-025-02528-y] Remaining uncertainty is concentrated in tool-comparison evidence for vendor-managed products.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] Coverage check completed across sections 0 through 6.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] Prior-work sweep reflected in `cites:` and `related:`.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] Acronym audit completed.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] Inline citation audit completed.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] Evidence-map coverage includes every key finding.
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md; https://link.springer.com/article/10.1186/s12874-025-02528-y] Remaining uncertainty is concentrated in tool-comparison evidence for vendor-managed products.
 
 ---
 
