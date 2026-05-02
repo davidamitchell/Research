@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?"
 added: 2026-05-02T06:00:57+00:00
 status: reviewing
