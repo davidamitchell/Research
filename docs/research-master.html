@@ -666,7 +666,151 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-05-02 02:22 UTC</p>
+<p>Generated on: 2026-05-02 09:08 UTC</p>
+<p><a id="2026-05-02-systematic-review-methodology-ai-synthesis-md"></a></p>
+<h2>What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?</h2>
+<p><strong>Tags:</strong> [agentic-ai, llm, workflow, knowledge-graph, evaluation, hallucinations]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md</p>
+<h2>Research Question</h2>
+<p>What systematic review methodologies, Preferred Reporting Items for Systematic reviews and Meta-Analyses (PRISMA), Cochrane review, narrative synthesis, meta-ethnography, and realist synthesis, and what Artificial Intelligence (AI)-assisted knowledge synthesis tool architectures are most appropriate for producing accurate, provenance-preserving cross-item synthesis from a growing file-based research corpus of about 200 items managed by AI agents? More specifically: what synthesis methodology best prevents hallucination and claim conflation across source items, what provenance-linking mechanism ensures each synthesis claim traces to specific source items, and what workflow design, GitHub Actions <code>workflow_dispatch</code>, agent prompt, and output directory structure, best delivers a <code>synthesis-prompt.md</code> and <code>synthesis-loop.yml</code> implementation for W-0051?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>A systematic-review-inspired hybrid is the best design for this repository: Cochrane and PRISMA provide rigor, narrative synthesis provides the default method for integrating heterogeneous studies, and realist synthesis or meta-ethnography should be used only when the question is explicitly about mechanisms, contexts, or meanings. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/; https://training.cochrane.org/handbook/current/chapter-09; https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/; https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21; https://link.springer.com/article/10.1186/s12874-018-0600-0]</p>
+<p>Preventing hallucination in this corpus depends on extracting and clustering claims before prose generation, because retrieval grounding alone does not stop claim conflation across related source items. [inference; source: https://arxiv.org/abs/2401.01313; https://aclanthology.org/2024.acl-long.586/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md]</p>
+<p>Architecturally, the strongest pattern is STORM-style perspective expansion combined with LlamaIndex-style source-node retention, while map-reduce summarization should remain a bounded reduction tactic rather than the provenance layer. [inference; source: https://arxiv.org/abs/2402.14207; https://github.com/stanford-oval/storm; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/; https://langchain-doc.readthedocs.io/en/latest/modules/indexes/chain_examples/summarize.html]</p>
+<p>Prior repository work on the exploration-synthesis gap also supports explicit agent-mediated synthesis, because exploratory work performed by agents is not always fully reconstructible by human supervisors. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md]</p>
+<p>Accordingly, the first implementation should remain manual-only, require explicit <code>source_items</code> and <code>synthesis_question</code>, write to <code>Knowledge/</code>, and carry an ADR for the new knowledge schema, provenance format, and publication-path changes. [inference; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml; https://github.com/davidamitchell/Research/blob/main/.github/workflows/publish-wiki.yml; https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md]</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>A defensible synthesis workflow for this corpus should combine Cochrane-style protocol discipline with narrative synthesis as the default integration method, because PRISMA improves transparency while narrative synthesis is the best fit for heterogeneous, non-meta-analytic evidence.</strong> ([inference]; high confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/; https://training.cochrane.org/handbook/current/chapter-03; https://training.cochrane.org/handbook/current/chapter-09; https://training.cochrane.org/handbook/current/chapter-12; https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/)</li>
+<li><strong>Realist synthesis and meta-ethnography are better treated as optional interpretive passes than as the base workflow, because they preserve context and mechanism but are narrower and more specialized than the repository's general cross-item synthesis need.</strong> ([inference]; medium confidence; source: https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21; https://link.springer.com/article/10.1186/s12874-018-0600-0; https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/)</li>
+<li><strong>The repository's main anti-hallucination control should be claim extraction before prose generation, because retrieval grounding alone does not stop a Large Language Model (LLM) from conflating adjacent source-item claims into an unsupported synthesis sentence.</strong> ([inference]; medium confidence; source: https://arxiv.org/abs/2401.01313; https://aclanthology.org/2024.acl-long.586/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md)</li>
+<li><strong>Each synthesis claim needs a minimum provenance record that includes source item slug, source location, epistemic label, confidence rationale, and contradiction status, because transparent non-meta-analytic synthesis still depends on visible evidence mapping and grouping decisions.</strong> ([inference]; high confidence; source: https://training.cochrane.org/handbook/current/chapter-09; https://training.cochrane.org/handbook/current/chapter-12; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md)</li>
+<li><strong>STORM and LlamaIndex provide the strongest architectural patterns for this use case, because STORM broadens evidence collection through perspective-guided questioning while LlamaIndex preserves source nodes through iterative synthesis.</strong> ([inference]; medium confidence; source: https://arxiv.org/abs/2402.14207; https://github.com/stanford-oval/storm; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/; https://developers.llamaindex.ai/python/examples/low_level/response_synthesis/)</li>
+<li><strong>Generic map-reduce summarization is useful for scale but insufficient as the provenance layer, because it summarizes documents independently and then reduces summaries, which preserves throughput better than claim-level traceability.</strong> ([inference]; medium confidence; source: https://langchain-doc.readthedocs.io/en/latest/modules/indexes/chain_examples/summarize.html; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/)</li>
+<li><strong>Artificial Intelligence (AI)-assisted review tools such as Elicit should be treated as complementary accelerators rather than authoritative synthesizers, because empirical evaluation shows value in search and organization but also substantial variability and incomplete overlap with traditional review results.</strong> ([inference]; medium confidence; source: https://link.springer.com/article/10.1186/s12874-025-02528-y; https://pmc.ncbi.nlm.nih.gov/articles/PMC11504244/)</li>
+<li><strong>Contradictions must be first-class synthesis outputs rather than silent prompt-internal reasoning, because preserving context-dependent differences is essential to prevent false consensus and because prior repository work already defines usable cross-item relationship types.</strong> ([inference]; medium confidence; source: https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21; https://link.springer.com/article/10.1186/s12874-018-0600-0; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md)</li>
+<li><strong>The first repository implementation should be a manual-only <code>synthesis-loop.yml</code> that requires explicit <code>source_items</code> and <code>synthesis_question</code>, because owner-selected scope is both the current repository norm and the safest control against low-quality bulk synthesis.</strong> ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml; https://github.com/davidamitchell/Research/blob/main/research-prompt.md)</li>
+<li><strong>An ADR is warranted before W-0051 implementation because introducing <code>Knowledge/</code>, a new synthesis schema, and new site-rendering behavior changes the repository's information architecture and publication path, not just one workflow file.</strong> ([fact]; high confidence; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/publish-wiki.yml)</li>
+<li><strong>Agent-mediated synthesis deserves explicit support in the design because prior repository research shows that exploratory work performed by agents is often not fully reconstructible by human supervisors, which weakens human-only synthesis as a transfer mechanism.</strong> ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md; https://github.com/stanford-oval/storm)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Hybrid method stack, Cochrane plus PRISMA plus narrative synthesis, is the best default for heterogeneous repository synthesis.</td>
+<td>https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/; https://training.cochrane.org/handbook/current/chapter-03; https://training.cochrane.org/handbook/current/chapter-09; https://training.cochrane.org/handbook/current/chapter-12; https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/</td>
+<td>high</td>
+<td>Default method stack</td>
+</tr>
+<tr>
+<td>[inference] Realist synthesis and meta-ethnography should be optional interpretive passes rather than the base workflow.</td>
+<td>https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21; https://link.springer.com/article/10.1186/s12874-018-0600-0</td>
+<td>medium</td>
+<td>Mechanism or meaning questions</td>
+</tr>
+<tr>
+<td>[inference] Claim extraction before prose generation is the main anti-hallucination control for this corpus.</td>
+<td>https://arxiv.org/abs/2401.01313; https://aclanthology.org/2024.acl-long.586/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md</td>
+<td>medium</td>
+<td>Prevents false consensus</td>
+</tr>
+<tr>
+<td>[inference] Each synthesis claim needs a structured provenance record with source slug, location, epistemic label, confidence rationale, and contradiction status.</td>
+<td>https://training.cochrane.org/handbook/current/chapter-09; https://training.cochrane.org/handbook/current/chapter-12; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md</td>
+<td>high</td>
+<td>Minimum audit unit</td>
+</tr>
+<tr>
+<td>[inference] STORM plus LlamaIndex patterns are safer than generic summarization chains for provenance-preserving synthesis.</td>
+<td>https://arxiv.org/abs/2402.14207; https://github.com/stanford-oval/storm; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/; https://developers.llamaindex.ai/python/examples/low_level/response_synthesis/</td>
+<td>medium</td>
+<td>Breadth plus source nodes</td>
+</tr>
+<tr>
+<td>[inference] Generic map-reduce summarization is useful for scale but insufficient as the provenance layer.</td>
+<td>https://langchain-doc.readthedocs.io/en/latest/modules/indexes/chain_examples/summarize.html; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/</td>
+<td>medium</td>
+<td>Reduction primitive only</td>
+</tr>
+<tr>
+<td>[inference] Elicit-like review assistants are complementary accelerators rather than authoritative synthesizers.</td>
+<td>https://link.springer.com/article/10.1186/s12874-025-02528-y; https://pmc.ncbi.nlm.nih.gov/articles/PMC11504244/</td>
+<td>medium</td>
+<td>Useful, not sufficient</td>
+</tr>
+<tr>
+<td>[inference] Contradictions must be explicit synthesis outputs with dispositions rather than silent prompt-internal choices.</td>
+<td>https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21; https://link.springer.com/article/10.1186/s12874-018-0600-0; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md</td>
+<td>medium</td>
+<td>Resolved, open, or excluded</td>
+</tr>
+<tr>
+<td>[inference] <code>synthesis-loop.yml</code> should be manual-only and require explicit source selection.</td>
+<td>https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml; https://github.com/davidamitchell/Research/blob/main/research-prompt.md</td>
+<td>medium</td>
+<td>Governance control</td>
+</tr>
+<tr>
+<td>[fact] An ADR is required for the new knowledge document type, provenance schema, and publication-path changes.</td>
+<td>https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/publish-wiki.yml</td>
+<td>high</td>
+<td>Architecture change</td>
+</tr>
+<tr>
+<td>[inference] Agent-mediated synthesis deserves explicit support because human supervisors may not fully reconstruct agent-performed exploratory work.</td>
+<td>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md; https://github.com/stanford-oval/storm</td>
+<td>medium</td>
+<td>Transfer-mechanism constraint</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml] The first synthesis workflow will operate on owner-selected clusters rather than automatic whole-corpus batches, because that is the implementation pattern already fixed by W-0051 and reinforced by the existing research-loop safety model.</li>
+<li>[assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md] Existing completed items provide enough prior-art context to shape the provenance model without first implementing a full semantic-search or graph-database layer.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence does not support copying one named academic review method unchanged into the repository. [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/; https://training.cochrane.org/handbook/current/chapter-12]</p>
+<p>Instead, it supports separating three layers that are often muddled together in casual design discussions: review discipline, synthesis method, and generation architecture. [inference; source: https://training.cochrane.org/handbook/current/chapter-09; https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/; https://arxiv.org/abs/2402.14207; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/]</p>
+<p>Review discipline comes from Cochrane and PRISMA, which force explicit boundaries, grouping logic, and visible reporting. [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/; https://training.cochrane.org/handbook/current/chapter-03; https://training.cochrane.org/handbook/current/chapter-09]</p>
+<p>Default synthesis method comes from narrative synthesis, because the repository corpus is heterogeneous and design-oriented, while realist-synthesis and meta-ethnography are better invoked as specialized passes when the question is explanatory or interpretive. [inference; source: https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/; https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21; https://link.springer.com/article/10.1186/s12874-018-0600-0]</p>
+<p>Generation architecture should be grounded in perspective expansion, source-node retention, and visible contradiction handling, because those are the controls that directly counter false consensus and citation drift. [inference; source: https://github.com/stanford-oval/storm; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/; https://arxiv.org/abs/2401.01313; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md]</p>
+<p>That architectural recommendation also aligns with prior repository research on the exploration-synthesis gap, which argues that agent-mediated synthesis becomes more necessary when the exploratory work itself is performed by agents and cannot be fully re-explained by humans afterward. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The tool-comparison evidence is uneven, because open architectures such as STORM and LlamaIndex expose more inspectable detail than vendor-managed products. [inference; source: https://github.com/stanford-oval/storm; https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/; https://link.springer.com/article/10.1186/s12874-025-02528-y]</li>
+<li>No external benchmark in this evidence set directly measures claim conflation across repository-style Markdown items, so the recommended control stack remains evidence-informed design rather than benchmark-proven doctrine. [fact; source: https://arxiv.org/abs/2401.01313; https://aclanthology.org/2024.acl-long.586/]</li>
+<li>The recommendation to keep the first workflow manual-only is strongly justified by repository governance and safety constraints, but it is not a general property of systematic-review methodology. [inference; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the first <code>Knowledge/</code> schema require excerpt-level evidence quotes, or is source item slug plus section identifier sufficient for version 1?</li>
+<li>Should contradiction handling be stored only in the synthesis file, or also in machine-readable sidecar data for later tooling?</li>
+<li>When the corpus grows further, should source-item clustering remain manual-only, or should a later version add opt-in semantic expansion after the provenance model is stable?</li>
+</ul>
+<h3>Output</h3>
+<ul>
+<li>Type: knowledge</li>
+<li>Description: This item recommends a hybrid synthesis methodology, a claim-first provenance model, and a manual-only workflow design for W-0051 so that future <code>Knowledge/</code> artifacts can be generated without silent claim conflation. [inference; source: https://training.cochrane.org/handbook/current/chapter-09; https://arxiv.org/abs/2401.01313; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md]</li>
+<li>Links:
+<ul>
+<li>https://training.cochrane.org/handbook/current/chapter-09</li>
+<li>https://arxiv.org/abs/2402.14207</li>
+<li>https://github.com/davidamitchell/Research/blob/main/BACKLOG.md</li>
+</ul>
+</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md"></a></p>
 <h2>Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem</h2>
 <p><strong>Tags:</strong> [agentic-ai, enterprise, ai-governance, microsoft, aws, capability-model, control-plane, finops, observability, security, identity, github-copilot, regulated-enterprise]</p>
