@@ -2,12 +2,12 @@
 review_count: 2
 title: "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?"
 added: 2026-05-02T06:00:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, ai-governance, shadow-it, incentives, governance-behaviour, human-factors, skill-decay, enterprise, regulated-enterprise, culture]
 started: 2026-05-02T10:16:41+00:00
-completed: ~
+completed: 2026-05-02T10:37:35+00:00
 output: [knowledge]
 cites: [2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal, 2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-22-enterprise-ai-capability-model, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp]
 related: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-04-24-business-led-low-code-agent-governance, 2026-04-26-ai-lowcode-governance-maturity-model]
