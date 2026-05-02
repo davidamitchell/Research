@@ -1,10 +1,10 @@
 # Tag Report
 
 **Total tags:** 935  
-**Items scanned:** 216  
-**Singleton tags:** 648  
+**Items scanned:** 240  
+**Singleton tags:** 643  
 **Strong synonym pairs:** 22  
-**Near-duplicate candidates:** 58
+**Near-duplicate candidates:** 57
 
 ---
 
@@ -18,7 +18,7 @@
 | `anil-seth` | `consciousness` | 5 | 1.0 | 0.833 |
 | `behavioral-economics` | `rory-sutherland` | 5 | 1.0 | 1.0 |
 | `delivery` | `interface` | 5 | 1.0 | 1.0 |
-| `mechanistic-interpretability` | `reliability` | 5 | 1.0 | 0.833 |
+| `mechanistic-interpretability` | `reliability` | 5 | 0.833 | 0.833 |
 | `coase` | `institutional-economics` | 3 | 1.0 | 1.0 |
 | `active-inference` | `karl-friston` | 2 | 1.0 | 1.0 |
 | `ai-commoditisation` | `terminal-value` | 2 | 1.0 | 1.0 |
@@ -47,6 +47,7 @@
 
 | Tag A | Count A | Tag B | Count B | Distance | Overlap |
 |---|---|---|---|---|---|
+| `ddd` | 2 | `tdd` | 5 | 1 | 0.667 |
 | `pap` | 4 | `pdp` | 4 | 1 | 0.333 |
 | `pap` | 4 | `pep` | 4 | 1 | 0.333 |
 | `pap` | 4 | `pip` | 4 | 1 | 0.333 |
@@ -55,12 +56,11 @@
 | `pep` | 4 | `pip` | 4 | 1 | 0.333 |
 | `apm` | 2 | `npm` | 2 | 1 | 0.667 |
 | `apm` | 2 | `spm` | 2 | 1 | 0.667 |
-| `ddd` | 2 | `tdd` | 2 | 1 | 0.667 |
 | `npm` | 2 | `spm` | 2 | 1 | 0.667 |
-| `apm` | 2 | `llm` | 21 | 2 | 0.333 |
-| `irm` | 2 | `llm` | 21 | 2 | 0.333 |
-| `llm` | 21 | `npm` | 2 | 2 | 0.333 |
-| `llm` | 21 | `spm` | 2 | 2 | 0.333 |
+| `apm` | 2 | `llm` | 39 | 2 | 0.333 |
+| `irm` | 2 | `llm` | 39 | 2 | 0.333 |
+| `llm` | 39 | `npm` | 2 | 2 | 0.333 |
+| `llm` | 39 | `spm` | 2 | 2 | 0.333 |
 | `pap` | 4 | `rag` | 15 | 2 | 0.0 |
 | `aws` | 2 | `ios` | 7 | 2 | 0.333 |
 | `bot` | 3 | `ios` | 7 | 2 | 0.0 |
@@ -73,6 +73,8 @@
 | `mcp` | 6 | `pip` | 4 | 2 | 0.333 |
 | `mcp` | 6 | `tco` | 2 | 2 | 0.0 |
 | `pap` | 4 | `pbac` | 5 | 2 | 0.25 |
+| `pdp` | 4 | `tdd` | 5 | 2 | 0.0 |
+| `tco` | 2 | `tdd` | 5 | 2 | 0.333 |
 | `apm` | 2 | `pap` | 4 | 2 | 0.0 |
 | `apra` | 2 | `dora` | 4 | 2 | 0.5 |
 | `ci` | 2 | `pip` | 4 | 2 | 0.0 |
@@ -83,7 +85,6 @@
 | `git` | 2 | `pip` | 4 | 2 | 0.0 |
 | `irm` | 2 | `itsm` | 4 | 2 | 0.25 |
 | `opa` | 2 | `pap` | 4 | 2 | 0.0 |
-| `pdp` | 4 | `tdd` | 2 | 2 | 0.0 |
 | `aws` | 2 | `saas` | 3 | 2 | 0.25 |
 | `bot` | 3 | `git` | 2 | 2 | 0.333 |
 | `git` | 2 | `grc` | 3 | 2 | 0.333 |
@@ -99,12 +100,10 @@
 | `ci` | 2 | `tco` | 2 | 2 | 0.0 |
 | `ci` | 2 | `ux` | 2 | 2 | 0.0 |
 | `fso` | 2 | `tco` | 2 | 2 | 0.333 |
-| `hosting` | 2 | `testing` | 2 | 2 | 0.714 |
 | `irm` | 2 | `npm` | 2 | 2 | 0.333 |
 | `irm` | 2 | `spm` | 2 | 2 | 0.333 |
 | `npm` | 2 | `opa` | 2 | 2 | 0.0 |
 | `opa` | 2 | `spm` | 2 | 2 | 0.0 |
-| `tco` | 2 | `tdd` | 2 | 2 | 0.333 |
 
 ---
 
@@ -114,7 +113,7 @@
 > specific enough to warrant a dedicated tag or should be merged
 > into a broader canonical form.
 
-`HR`, `academic-publishing`, `access-management`, `actions`, `active-recall`, `activity-based-costing`, `adam-smith`, `ado`, `adversarial`, `adversarial-ai`, `adversarial-analysis`, `adversarial-collaboration`, `adversarial-review`, `agent-automation`, `agent-autonomy`, `agent-frameworks`, `agent-instructions`, `agent-skills`, `agentic-artificial-intelligence`, `agentic-swe`, `agentic-tarpit`, `aggregation`, `agile`, `ai`, `ai-agents`, `ai-architecture`, `ai-coding`, `ai-critique`, `ai-models`, `ai-safety`, `ai-systems`, `aider`, `algorithms`, `ambition`, `amendments`, `amplification`, `anomaly-detection`, `ansible`, `anti-bureaucracy`, `apac`, `api-design`, `api-discovery`, `api-gateway`, `api-integration`, `api-layer`, `application`, `architecture-governance`, `archive`, `arms-race`, `artificial-intelligence-vendors`, `assemblyai`, `assessment`, `assumptions`, `attention`, `attribution`, `auditability`, `authorization`, `automated-enforcement`, `automated-workflows`, `automation-risk`, `autonomous-agents`, `autonomous-development`, `autonomous-intelligence`, `autonomous-research`, `awesome-copilot`, `aws-bedrock`, `aws-codebuild`, `aws-codedeploy`, `azure`, `baby-boomers`, `backlinks`, `backlog-management`, `backpressure`, `basel-committee`, `bayesian-reasoning`, `bbc`, `beast-machine`, `behaviour`, `bian`, `blast-radius`, `blockchain`, `bpm`, `brooks-law`, `business-capability-model`, `business-case`, `business-efficiency`, `cannot-do-now`, `cap-theorem`, `capability-modelling`, `capability-security`, `capacity-expansion`, `case-studies`, `cedar`, `centralised-governance`, `chalmers`, `change-control`, `character`, `chat`, `chatgpt`, `checkpoint-resume`, `clean-architecture`, `cline`, `cloudflare`, `codeql`, `coding`, `cognitive-debt`, `cognitive-science`, `cognitive-styles`, `compensating-controls`, `competency-coverage`, `competitive-analysis`, `competitive-intelligence`, `compliance-automation`, `concentration-risk`, `concept-generation`, `concept-maps`, `concept-prediction`, `configuration-management`, `configuration-management-database`, `consequential-actions`, `consistency`, `consistency-checking`, `consistency-model`, `content-addressing`, `context`, `context-architecture`, `context-hub`, `context-injection`, `context-layering`, `context-synthesis`, `continuous-evaluation`, `continuous-integration-continuous-delivery`, `contracts`, `control-failure`, `control-gate`, `control-testing`, `controlled-hallucination`, `conversational-interface`, `conways-law`, `copilot-extension`, `copilot-sdk`, `copilot-setup-steps`, `copilot-spaces`, `corpus`, `corpus-contamination`, `corrections`, `correctness`, `corrigendum`, `cost-of-software`, `cost-reduction`, `coupling`, `coverage`, `cowork`, `cqrs`, `creator-workflows`, `credential-management`, `credential-revocation`, `credentials`, `cross-agent`, `cross-item`, `cross-references`, `cross-repo-analysis`, `cryptographic-binding`, `cryptography`, `ctf`, `culture`, `curation`, `customer-delight`, `customer-service`, `customer-thinking`, `customer-trust`, `customisation`, `cybersecurity`, `cynefin`, `data-access`, `data-classification`, `data-leakage`, `data-pipelines`, `data-products`, `data-visualisation`, `dbt`, `decision-framework`, `decision-logging`, `decision-rights`, `declarative-agent`, `decommissioning`, `deep-learning`, `delegation`, `delivery-performance`, `delivery-pipeline`, `delivery-pipelines`, `demand-signal`, `demographics`, `dependency-elimination`, `dependency-map`, `dependency-mapping`, `dependency-ordering`, `deployment-architecture`, `deployment-boundary`, `deployment-controls`, `design-methodology`, `desire-paths`, `devcontainer`, `developer-friction`, `developer-productivity`, `deviation-handling`, `dia`, `dimensionality-reduction`, `distribution`, `document-compression`, `documentation`, `doi`, `dsl`, `dspy`, `dunbar-number`, `duolingo`, `dynatrace`, `economic-model`, `effectiveness`, `ego`, `embedding-inference`, `embodied-cognition`, `emergent-behaviour`, `empirical-evidence`, `engineering-investment`, `enterprise-data`, `enterprise-engineering`, `enterprise-iam`, `enterprise-risk`, `entity-taxonomy`, `environment`, `environment-setup`, `episodic-memory`, `epistemics`, `erratum`, `error-bars`, `evaluations`, `eventing`, `evidence`, `evolutionary-computation`, `evolutionary-psychology`, `exploit-explore`, `exploitation`, `explore-exploit`, `external-verifiers`, `fair-trading`, `feasibility`, `feature-flags`, `federated-governance`, `feedback-loops`, `fetching`, `finance`, `financial-forecasting`, `financial-regulation`, `fine-tuning`, `finishing`, `finops`, `fintech`, `first-principles`, `five-case-model`, `flow-designer`, `flow-metrics`, `fma`, `force-multiplier`, `foundation-models`, `foundational-conditions`, `framework-design`, `free-energy`, `free-tier`, `frontier-models`, `full-text-search`, `future-of-work`, `gartner`, `gdpr`, `genai`, `general-relativity`, `genetic-algorithms`, `ghas`, `ghost-entity`, `gitagent`, `github`, `github-api`, `goal-alignment`, `goal-misalignment`, `goal-modelling`, `golang`, `google`, `google-deepmind`, `governance-behaviour`, `governance-cost`, `governance-decay`, `governance-enforcement`, `governance-moat`, `governance-profile`, `graph-api`, `graph-of-thoughts`, `graph-theory`, `graphrag`, `hard-problem`, `harness`, `headcount`, `headless-agents`, `history`, `hoshin-kanri`, `human-ai-collaboration`, `human-factors`, `human-in-the-loop`, `human-nature`, `human-owner`, `iac`, `iam`, `ian-grigg`, `ide`, `idempotency`, `idp`, `immutability`, `implicit-controls`, `incident-scenarios`, `information-architecture`, `information-to-wisdom`, `infrastructure-costing`, `insights`, `inspiration`, `institutional-knowledge`, `institutions`, `integration`, `intellectual-property`, `intent-driven-development`, `intent-engineering`, `intent-preservation`, `internal-audit`, `internal-developer-platform`, `intervention`, `interventions`, `invariant-registry`, `investment`, `investment-frameworks`, `investment-thesis`, `iso-27001`, `iso-42001`, `it-architecture`, `it-run-costs`, `it-strategy`, `itom`, `jenkins`, `jepa`, `jevons-paradox`, `jira`, `job-market`, `jupyter`, `kafka`, `knowledge`, `knowledge-architecture`, `knowledge-base`, `knowledge-decay`, `knowledge-layering`, `knowledge-scaffolding`, `knowledge-sharing`, `kubernetes`, `lancedb`, `large-language-model-as-judge`, `large-language-model-proxy`, `latent-concepts`, `lattice-access-control`, `layer-5`, `layered-llm`, `leak`, `learning`, `legal`, `legal-technology`, `liability`, `life`, `lifecycle`, `lifecycle-management`, `line-1`, `line-2`, `lineage`, `linking`, `lisa-planning`, `llm-as-judge`, `llm-code-generation`, `log-aggregation`, `logging`, `loop-reliability`, `lsa`, `lse`, `lsp`, `machine-identity`, `maestro`, `market-structure`, `maturity-assessment`, `maturity-framework`, `maturity-model`, `mbie`, `measurement`, `memory-management`, `messaging`, `meta`, `meta-ai`, `meta-analysis`, `metrics`, `microsoft-power-platform`, `military`, `mitre-atlas`, `model-selection`, `moral-philosophy`, `ms-teams`, `multi-model`, `multi-platform`, `multi-provider`, `multi-repo`, `multi-session`, `munger`, `ncino`, `network-theory`, `new-zealand`, `new-zealand-legislation`, `next-token-prediction`, `nicholas-carlini`, `nlp`, `non-determinism`, `non-functional-requirements`, `normative-systems`, `notifications`, `notion`, `novelty-assessment`, `nz-specific`, `obsidian`, `off-rail-detection`, `offensive-security`, `okrs`, `open-policy-agent`, `openai-practices`, `opentelemetry`, `operational-failures`, `opportunity-cost`, `opportunity-mindset`, `optimisation`, `optimization`, `organisational-change`, `organisational-strategy`, `oss`, `ostrom`, `out-of-the-tar-pit`, `output-language`, `outputs`, `override`, `palantir`, `pap-pdp-pep`, `parameter-efficient-fine-tuning`, `pattern-analysis`, `pca`, `peer-review`, `performance`, `persona-adapted`, `phenomenology`, `philosophy`, `philosophy-of-mind`, `physics`, `pipeline`, `pipeline-platforms`, `pkm`, `platform-limitations`, `platform-roadmap`, `policy`, `policy-independence`, `policy-invalidation`, `policy-lsp`, `policy-propagation`, `policy-synchronisation`, `portability`, `portfolio`, `portfolio-planning`, `post-publication`, `predictive-coding`, `prefrontal-cortex`, `primary-sources`, `prior-research-synthesis`, `prioritisation`, `privacy`, `privacy-act`, `process-mining`, `procter-and-gamble-study`, `procurement`, `product-management`, `product-strategy`, `production-agents`, `progression`, `project-development`, `prompting`, `prompting-techniques`, `proof-driven-development`, `proof-engineering`, `proportionality`, `provenance`, `prudential-regulation`, `psychology`, `public-sector`, `quality-gate`, `quality-gates`, `quint`, `raci`, `rail-adoption`, `rail-improvement`, `ralph-loop`, `rate-limiting`, `rds`, `react`, `rebound-effect`, `rebuttal`, `reference`, `reference-architecture`, `regulated-environments`, `regulatory`, `reinforcement-learning`, `release-engineering`, `release-management`, `reporting`, `research-agenda`, `research-drift`, `research-prompt`, `resource-allocation`, `rest-api`, `retention`, `retractions`, `revenue-per-employee`, `revocable-credentials`, `risk`, `risk-agents`, `risk-classification`, `risk-framework`, `risk-tiers`, `rlhf`, `rollback`, `rss`, `rubric`, `runtime-monitoring`, `sabsa`, `safety`, `sarif`, `scaffold-generation`, `scope-boundary`, `scope-drift`, `selection-pressure`, `self`, `self-improvement`, `self-management`, `self-service`, `semantic-search`, `semantic-stability`, `sensitive-data`, `seven-layer-stack`, `shared-context`, `sharepoint`, `shopify`, `signal-aggregation`, `siri`, `smart-contracts`, `software-delivery`, `software-factory`, `software-reliability`, `software-repricing-matrix`, `solid`, `sources`, `spaced-repetition`, `specification-driven-development`, `specify`, `sqlite`, `standards`, `static-analysis`, `static-site`, `statistics`, `steering`, `strike-team`, `structured-output`, `submodules`, `supadata`, `superpowers`, `survey-data`, `swarm-intelligence`, `swat`, `swe`, `switching-costs`, `sycophancy`, `synthetic-data`, `talent-market`, `task-management`, `tbc-framework`, `tbm`, `team-topologies`, `technical-capability-model`, `technical-debt`, `technology`, `technology-forecasting`, `telegram`, `telemetry`, `thematic-analysis`, `thermodynamics`, `threat-detection`, `three-lines-model`, `throughput`, `time-horizons`, `time-series`, `tmf`, `togaf`, `token-prediction`, `tool-design`, `total-cost-of-ownership`, `traceability`, `tracking`, `training-dynamics`, `transaction-cost-economics`, `transformers`, `trends`, `triage`, `trust`, `trustworthy-ai`, `type-theory`, `typescript`, `uipath`, `uncertainty-modelling`, `use-cases`, `validation`, `value-creation`, `value-distribution`, `values-alignment`, `vector-search`, `vendor-governance`, `venture-capital`, `verifiability`, `vision-language`, `volume`, `vulnerability-discovery`, `waivers`, `wayback-machine`, `web-search`, `whisper`, `wiki`, `work-tracking`, `workflow-orchestration`, `workforce`, `xacml`, `xai`, `yt-dlp`, `zapier`, `zen-buddhism`, `zero-day`, `zettelkasten`
+`HR`, `academic-publishing`, `access-management`, `actions`, `active-recall`, `activity-based-costing`, `adam-smith`, `ado`, `adversarial`, `adversarial-ai`, `adversarial-analysis`, `adversarial-collaboration`, `adversarial-review`, `agent-automation`, `agent-autonomy`, `agent-frameworks`, `agent-instructions`, `agent-skills`, `agentic-artificial-intelligence`, `agentic-swe`, `agentic-tarpit`, `aggregation`, `agile`, `ai-architecture`, `ai-critique`, `ai-models`, `ai-systems`, `aider`, `algorithms`, `ambition`, `amendments`, `amplification`, `anomaly-detection`, `ansible`, `anti-bureaucracy`, `apac`, `api-design`, `api-discovery`, `api-gateway`, `api-integration`, `api-layer`, `application`, `architecture-governance`, `archive`, `arms-race`, `artificial-intelligence-vendors`, `assemblyai`, `assessment`, `assumptions`, `attention`, `attribution`, `auditability`, `authorization`, `automated-enforcement`, `automated-workflows`, `automation-risk`, `autonomous-agents`, `autonomous-development`, `autonomous-intelligence`, `autonomous-research`, `awesome-copilot`, `aws-bedrock`, `aws-codebuild`, `aws-codedeploy`, `azure`, `baby-boomers`, `backlinks`, `backlog-management`, `backpressure`, `basel-committee`, `bayesian-reasoning`, `bbc`, `beast-machine`, `behaviour`, `bian`, `blast-radius`, `blockchain`, `bpm`, `brooks-law`, `business-capability-model`, `business-case`, `business-efficiency`, `cannot-do-now`, `cap-theorem`, `capability-modelling`, `capability-security`, `capacity-expansion`, `case-studies`, `cedar`, `centralised-governance`, `chalmers`, `change-control`, `character`, `chat`, `chatgpt`, `checkpoint-resume`, `clean-architecture`, `cline`, `cloudflare`, `code-quality`, `codeql`, `coding`, `coding-agents`, `cognitive-debt`, `cognitive-science`, `cognitive-styles`, `compensating-controls`, `competency-coverage`, `competitive-analysis`, `competitive-intelligence`, `compliance-automation`, `concentration-risk`, `concept-generation`, `concept-maps`, `concept-prediction`, `configuration-management`, `configuration-management-database`, `consequential-actions`, `consistency`, `consistency-checking`, `consistency-model`, `content-addressing`, `context`, `context-architecture`, `context-hub`, `context-injection`, `context-layering`, `context-synthesis`, `continuous-evaluation`, `continuous-integration-continuous-delivery`, `contracts`, `control-failure`, `control-gate`, `control-testing`, `controlled-hallucination`, `conversational-interface`, `conways-law`, `copilot-extension`, `copilot-sdk`, `copilot-setup-steps`, `copilot-spaces`, `corpus`, `corpus-contamination`, `corrections`, `correctness`, `corrigendum`, `cost-of-software`, `cost-reduction`, `coupling`, `coverage`, `cqrs`, `creator-workflows`, `credential-management`, `credential-revocation`, `credentials`, `cross-agent`, `cross-item`, `cross-references`, `cross-repo-analysis`, `cryptographic-binding`, `cryptography`, `ctf`, `culture`, `curation`, `customer-delight`, `customer-service`, `customer-thinking`, `customer-trust`, `customisation`, `cybersecurity`, `cynefin`, `data-access`, `data-classification`, `data-leakage`, `data-pipelines`, `data-products`, `data-visualisation`, `dbt`, `decision-framework`, `decision-logging`, `decision-rights`, `declarative-agent`, `decommissioning`, `deep-learning`, `delegation`, `delivery-performance`, `delivery-pipeline`, `delivery-pipelines`, `demand-signal`, `demographics`, `dependency-elimination`, `dependency-map`, `dependency-mapping`, `dependency-ordering`, `deployment-architecture`, `deployment-boundary`, `deployment-controls`, `design-methodology`, `desire-paths`, `devcontainer`, `developer-friction`, `developer-productivity`, `deviation-handling`, `dia`, `dimensionality-reduction`, `distribution`, `document-compression`, `documentation`, `doi`, `dsl`, `dspy`, `dunbar-number`, `duolingo`, `dynatrace`, `economic-model`, `effectiveness`, `ego`, `embedding-inference`, `embodied-cognition`, `emergent-behaviour`, `empirical-evidence`, `engineering-investment`, `enterprise-data`, `enterprise-engineering`, `enterprise-iam`, `enterprise-risk`, `entity-taxonomy`, `environment`, `environment-setup`, `episodic-memory`, `epistemics`, `erratum`, `error-bars`, `evaluations`, `eventing`, `evidence`, `evolutionary-computation`, `evolutionary-psychology`, `exploit-explore`, `exploitation`, `explore-exploit`, `external-verifiers`, `fair-trading`, `feasibility`, `feature-flags`, `federated-governance`, `feedback-loops`, `fetching`, `finance`, `financial-forecasting`, `financial-regulation`, `fine-tuning`, `finishing`, `finops`, `fintech`, `first-principles`, `five-case-model`, `flow-designer`, `flow-metrics`, `fma`, `force-multiplier`, `foundation-models`, `foundational-conditions`, `framework-design`, `free-energy`, `free-tier`, `frontier-models`, `full-text-search`, `future-of-work`, `gartner`, `gdpr`, `genai`, `general-relativity`, `genetic-algorithms`, `ghas`, `ghost-entity`, `gitagent`, `github`, `github-api`, `goal-alignment`, `goal-misalignment`, `goal-modelling`, `golang`, `google`, `google-deepmind`, `governance-behaviour`, `governance-cost`, `governance-decay`, `governance-enforcement`, `governance-moat`, `governance-profile`, `graph-api`, `graph-of-thoughts`, `graph-theory`, `graphrag`, `hard-problem`, `harness`, `headcount`, `headless-agents`, `healthcare`, `history`, `hoshin-kanri`, `hosting`, `human-factors`, `human-in-the-loop`, `human-nature`, `human-owner`, `iac`, `iam`, `ian-grigg`, `ide`, `idempotency`, `immutability`, `implicit-controls`, `incident-scenarios`, `information-architecture`, `information-to-wisdom`, `infrastructure-costing`, `insights`, `inspiration`, `institutional-knowledge`, `institutions`, `integration`, `intellectual-property`, `intent-driven-development`, `intent-engineering`, `intent-preservation`, `internal-audit`, `internal-developer-platform`, `intervention`, `interventions`, `invariant-registry`, `investment`, `investment-frameworks`, `investment-thesis`, `iso-27001`, `iso-42001`, `it-architecture`, `it-run-costs`, `it-strategy`, `itom`, `jenkins`, `jepa`, `jevons-paradox`, `jira`, `job-market`, `jupyter`, `kafka`, `knowledge`, `knowledge-architecture`, `knowledge-base`, `knowledge-decay`, `knowledge-layering`, `knowledge-sharing`, `kubernetes`, `lancedb`, `large-language-model-as-judge`, `large-language-model-proxy`, `latent-concepts`, `lattice-access-control`, `layer-5`, `layered-llm`, `leak`, `learning`, `legal`, `legal-technology`, `liability`, `life`, `lifecycle`, `lifecycle-management`, `line-1`, `line-2`, `lineage`, `linking`, `lisa-planning`, `llm-as-judge`, `llm-code-generation`, `log-aggregation`, `logging`, `loop-reliability`, `lsa`, `lse`, `lsp`, `machine-identity`, `maestro`, `market-structure`, `maturity-assessment`, `maturity-framework`, `maturity-model`, `mbie`, `measurement`, `messaging`, `meta`, `meta-ai`, `meta-analysis`, `metrics`, `microsoft-power-platform`, `military`, `mitre-atlas`, `model-selection`, `moral-philosophy`, `ms-teams`, `multi-model`, `multi-platform`, `multi-provider`, `multi-repo`, `multi-session`, `munger`, `ncino`, `network-theory`, `new-zealand`, `new-zealand-legislation`, `next-token-prediction`, `nicholas-carlini`, `nlp`, `non-determinism`, `non-functional-requirements`, `normative-systems`, `notifications`, `notion`, `novelty-assessment`, `nz-specific`, `obsidian`, `off-rail-detection`, `offensive-security`, `okrs`, `open-policy-agent`, `openai-practices`, `opentelemetry`, `operational-failures`, `opportunity-cost`, `opportunity-mindset`, `optimisation`, `optimization`, `organisational-change`, `organisational-strategy`, `oss`, `ostrom`, `out-of-the-tar-pit`, `output-language`, `outputs`, `override`, `palantir`, `pap-pdp-pep`, `parameter-efficient-fine-tuning`, `pattern-analysis`, `pca`, `peer-review`, `performance`, `persona-adapted`, `phenomenology`, `philosophy`, `philosophy-of-mind`, `physics`, `pipeline`, `pipeline-platforms`, `pkm`, `platform-limitations`, `platform-roadmap`, `policy`, `policy-independence`, `policy-invalidation`, `policy-lsp`, `policy-propagation`, `policy-synchronisation`, `portability`, `portfolio`, `portfolio-planning`, `post-publication`, `predictive-coding`, `prefrontal-cortex`, `primary-sources`, `prior-research-synthesis`, `prioritisation`, `privacy`, `privacy-act`, `process-mining`, `procter-and-gamble-study`, `procurement`, `product-management`, `product-strategy`, `production-agents`, `progression`, `project-development`, `prompting`, `prompting-techniques`, `proof-driven-development`, `proof-engineering`, `proportionality`, `provenance`, `prudential-regulation`, `psychology`, `public-sector`, `quality-gate`, `quality-gates`, `quint`, `raci`, `rail-adoption`, `rail-improvement`, `ralph-loop`, `rate-limiting`, `rds`, `react`, `rebound-effect`, `rebuttal`, `reference`, `reference-architecture`, `regulated-environments`, `regulatory`, `reinforcement-learning`, `release-engineering`, `release-management`, `reporting`, `research-agenda`, `research-drift`, `research-prompt`, `resource-allocation`, `rest-api`, `retention`, `retractions`, `revenue-per-employee`, `revocable-credentials`, `risk`, `risk-agents`, `risk-classification`, `risk-framework`, `risk-tiers`, `rlhf`, `rollback`, `rss`, `rubric`, `runtime-monitoring`, `sabsa`, `safety`, `sarif`, `scaffold-generation`, `scope-boundary`, `scope-drift`, `selection-pressure`, `self`, `self-improvement`, `self-management`, `self-service`, `semantic-search`, `semantic-stability`, `sensitive-data`, `seven-layer-stack`, `shared-context`, `sharepoint`, `shopify`, `signal-aggregation`, `siri`, `smart-contracts`, `software-architecture`, `software-delivery`, `software-factory`, `software-reliability`, `software-repricing-matrix`, `solid`, `sources`, `spaced-repetition`, `specification-driven-development`, `specify`, `sqlite`, `standards`, `static-analysis`, `static-site`, `statistics`, `steering`, `strike-team`, `structured-output`, `submodules`, `supadata`, `superpowers`, `survey-data`, `swarm-intelligence`, `swat`, `swe`, `switching-costs`, `sycophancy`, `synthetic-data`, `talent-market`, `task-management`, `tbc-framework`, `tbm`, `team-topologies`, `technical-capability-model`, `technology`, `technology-forecasting`, `telegram`, `telemetry`, `thematic-analysis`, `thermodynamics`, `threat-detection`, `three-lines-model`, `throughput`, `time-horizons`, `time-series`, `tmf`, `togaf`, `token-prediction`, `tool-design`, `total-cost-of-ownership`, `traceability`, `tracking`, `training-dynamics`, `transaction-cost-economics`, `transformers`, `trends`, `triage`, `trust`, `trustworthy-ai`, `type-theory`, `typescript`, `uipath`, `uncertainty-modelling`, `use-cases`, `validation`, `value-creation`, `value-distribution`, `values-alignment`, `vector-search`, `vendor-governance`, `venture-capital`, `verifiability`, `vision-language`, `volume`, `vulnerability-discovery`, `waivers`, `wayback-machine`, `web-search`, `whisper`, `wiki`, `work-tracking`, `workflow-orchestration`, `workforce`, `xacml`, `xai`, `yt-dlp`, `zapier`, `zen-buddhism`, `zero-day`, `zettelkasten`
 
 ---
 
@@ -122,56 +121,58 @@
 
 | Tag | Item count |
 |---|---|
-| `agentic-ai` | 73 |
-| `llm` | 21 |
-| `governance` | 19 |
+| `agentic-ai` | 97 |
+| `llm` | 39 |
+| `governance` | 29 |
+| `agentic-coding` | 22 |
+| `software-engineering` | 21 |
 | `low-code` | 19 |
 | `ai-governance` | 18 |
+| `evaluation` | 17 |
 | `regulated-banking` | 16 |
+| `workflow` | 16 |
 | `rag` | 15 |
+| `ai-strategy` | 13 |
 | `citizen-development` | 13 |
 | `knowledge-management` | 13 |
-| `ai-strategy` | 12 |
-| `strategy` | 12 |
-| `synthesis` | 11 |
+| `strategy` | 13 |
+| `financial-services` | 12 |
+| `synthesis` | 12 |
+| `alignment` | 11 |
+| `memory-system` | 11 |
+| `organisational-design` | 11 |
 | `tooling` | 11 |
 | `uelgf` | 11 |
 | `claude` | 10 |
+| `copilot` | 10 |
 | `enterprise-governance` | 10 |
-| `financial-services` | 10 |
-| `memory-system` | 10 |
-| `workflow` | 10 |
-| `alignment` | 9 |
-| `copilot` | 9 |
 | `operational-risk` | 9 |
-| `organisational-design` | 9 |
+| `security` | 9 |
 | `skills` | 9 |
-| `software-engineering` | 9 |
 | `architecture` | 8 |
 | `enterprise-architecture` | 8 |
 | `hallucinations` | 8 |
-| `security` | 8 |
 | `systems-capability-debt` | 8 |
+| `agent-tooling` | 7 |
+| `anthropic` | 7 |
+| `compliance` | 7 |
 | `ios` | 7 |
 | `mobile` | 7 |
+| `observability` | 7 |
 | `servicenow` | 7 |
 | `access-control` | 6 |
-| `anthropic` | 6 |
 | `claude-code` | 6 |
-| `compliance` | 6 |
 | `consciousness` | 6 |
 | `enterprise-ai` | 6 |
-| `evaluation` | 6 |
 | `github-copilot` | 6 |
 | `instructions` | 6 |
 | `mcp` | 6 |
+| `mechanistic-interpretability` | 6 |
 | `memory` | 6 |
-| `observability` | 6 |
 | `policy-as-code` | 6 |
 | `prompt-engineering` | 6 |
 | `reliability` | 6 |
 | `youtube` | 6 |
-| `agentic-coding` | 5 |
 | `anil-seth` | 5 |
 | `automation` | 5 |
 | `behavioral-economics` | 5 |
@@ -179,35 +180,42 @@
 | `context-engineering` | 5 |
 | `context-management` | 5 |
 | `delivery` | 5 |
+| `developer-tooling` | 5 |
 | `failure-modes` | 5 |
 | `formal-methods` | 5 |
 | `governed-golden-rail` | 5 |
 | `interface` | 5 |
-| `mechanistic-interpretability` | 5 |
+| `knowledge-graph` | 5 |
+| `machine-learning` | 5 |
 | `multi-agent` | 5 |
 | `neuroscience` | 5 |
 | `pbac` | 5 |
 | `platform-engineering` | 5 |
 | `predictive-processing` | 5 |
 | `productivity` | 5 |
+| `regulation` | 5 |
 | `rory-sutherland` | 5 |
+| `tdd` | 5 |
 | `agents-md` | 4 |
 | `ai-platform` | 4 |
 | `artificial-intelligence` | 4 |
+| `audit` | 4 |
 | `best-practices` | 4 |
 | `csdm` | 4 |
 | `decision-making` | 4 |
 | `dikw` | 4 |
 | `dora` | 4 |
+| `enterprise` | 4 |
+| `eu-ai-act` | 4 |
 | `formal-verification` | 4 |
 | `h-neurons` | 4 |
+| `human-oversight` | 4 |
+| `identity` | 4 |
 | `indexing` | 4 |
 | `intent-alignment` | 4 |
 | `itsm` | 4 |
-| `knowledge-graph` | 4 |
 | `large-language-models` | 4 |
 | `lifecycle-governance` | 4 |
-| `machine-learning` | 4 |
 | `operating-model` | 4 |
 | `orchestration` | 4 |
 | `organisation` | 4 |
@@ -219,11 +227,12 @@
 | `prompts` | 4 |
 | `regulated-financial-services` | 4 |
 | `reward-hacking` | 4 |
+| `risk-management` | 4 |
 | `transaction-costs` | 4 |
 | `transcripts` | 4 |
-| `agent-tooling` | 3 |
 | `ai-native` | 3 |
 | `banking` | 3 |
+| `benchmarks` | 3 |
 | `bot` | 3 |
 | `cia-classification` | 3 |
 | `coase` | 3 |
@@ -233,21 +242,18 @@
 | `context-window` | 3 |
 | `copilot-studio` | 3 |
 | `deployment-pipeline` | 3 |
-| `developer-tooling` | 3 |
 | `dotnet` | 3 |
 | `economics` | 3 |
 | `embeddings` | 3 |
-| `enterprise` | 3 |
 | `entropy` | 3 |
 | `epistemology` | 3 |
 | `escalation` | 3 |
-| `eu-ai-act` | 3 |
+| `explainability` | 3 |
 | `formal-specification` | 3 |
 | `free-energy-principle` | 3 |
 | `github-actions` | 3 |
 | `github-issues` | 3 |
 | `grc` | 3 |
-| `identity` | 3 |
 | `infrastructure` | 3 |
 | `institutional-economics` | 3 |
 | `intent` | 3 |
@@ -255,6 +261,8 @@
 | `lean` | 3 |
 | `lecun` | 3 |
 | `management` | 3 |
+| `microsoft` | 3 |
+| `model-risk` | 3 |
 | `nist` | 3 |
 | `openai` | 3 |
 | `over-compliance` | 3 |
@@ -265,21 +273,21 @@
 | `rbnz` | 3 |
 | `red-team` | 3 |
 | `regulated-enterprise` | 3 |
-| `regulation` | 3 |
 | `regulatory-compliance` | 3 |
 | `retrieval-augmented-generation` | 3 |
-| `risk-management` | 3 |
 | `saas` | 3 |
 | `search` | 3 |
 | `self-hosted` | 3 |
 | `shadow-it` | 3 |
 | `slack` | 3 |
 | `taxonomy` | 3 |
+| `technical-debt` | 3 |
 | `tools` | 3 |
 | `versioning` | 3 |
 | `accountability` | 2 |
 | `active-inference` | 2 |
 | `ai-commoditisation` | 2 |
+| `ai-safety` | 2 |
 | `airflow` | 2 |
 | `analytics` | 2 |
 | `apm` | 2 |
@@ -287,10 +295,8 @@
 | `apra` | 2 |
 | `apra-cps-230` | 2 |
 | `arxiv` | 2 |
-| `audit` | 2 |
 | `aws` | 2 |
 | `benchmarking` | 2 |
-| `benchmarks` | 2 |
 | `board-risk` | 2 |
 | `build-vs-buy` | 2 |
 | `bureaucracy` | 2 |
@@ -307,6 +313,7 @@
 | `controls` | 2 |
 | `coordination-overhead` | 2 |
 | `cost-allocation` | 2 |
+| `cowork` | 2 |
 | `cursor` | 2 |
 | `data-governance` | 2 |
 | `data-platform` | 2 |
@@ -328,8 +335,7 @@
 | `grounding` | 2 |
 | `guardrails` | 2 |
 | `hiring` | 2 |
-| `hosting` | 2 |
-| `human-oversight` | 2 |
+| `human-ai-collaboration` | 2 |
 | `incentives` | 2 |
 | `information-theory` | 2 |
 | `infrastructure-as-code` | 2 |
@@ -342,16 +348,15 @@
 | `least-privilege` | 2 |
 | `local` | 2 |
 | `marketing` | 2 |
-| `microsoft` | 2 |
 | `microsoft-365` | 2 |
 | `model-context-protocol` | 2 |
-| `model-risk` | 2 |
 | `monitoring` | 2 |
 | `north` | 2 |
 | `now-assist` | 2 |
 | `npm` | 2 |
 | `nz-rbnz` | 2 |
 | `opa` | 2 |
+| `open-source` | 2 |
 | `opencode` | 2 |
 | `operations` | 2 |
 | `organisational-behaviour` | 2 |
@@ -394,7 +399,6 @@
 | `storage` | 2 |
 | `systems-thinking` | 2 |
 | `tco` | 2 |
-| `tdd` | 2 |
 | `team-size` | 2 |
 | `technology-adoption` | 2 |
 | `terminal-value` | 2 |
@@ -432,13 +436,9 @@
 | `agentic-tarpit` | 1 |
 | `aggregation` | 1 |
 | `agile` | 1 |
-| `ai` | 1 |
-| `ai-agents` | 1 |
 | `ai-architecture` | 1 |
-| `ai-coding` | 1 |
 | `ai-critique` | 1 |
 | `ai-models` | 1 |
-| `ai-safety` | 1 |
 | `ai-systems` | 1 |
 | `aider` | 1 |
 | `algorithms` | 1 |
@@ -512,8 +512,10 @@
 | `clean-architecture` | 1 |
 | `cline` | 1 |
 | `cloudflare` | 1 |
+| `code-quality` | 1 |
 | `codeql` | 1 |
 | `coding` | 1 |
+| `coding-agents` | 1 |
 | `cognitive-debt` | 1 |
 | `cognitive-science` | 1 |
 | `cognitive-styles` | 1 |
@@ -561,7 +563,6 @@
 | `cost-reduction` | 1 |
 | `coupling` | 1 |
 | `coverage` | 1 |
-| `cowork` | 1 |
 | `cqrs` | 1 |
 | `creator-workflows` | 1 |
 | `credential-management` | 1 |
@@ -711,9 +712,10 @@
 | `harness` | 1 |
 | `headcount` | 1 |
 | `headless-agents` | 1 |
+| `healthcare` | 1 |
 | `history` | 1 |
 | `hoshin-kanri` | 1 |
-| `human-ai-collaboration` | 1 |
+| `hosting` | 1 |
 | `human-factors` | 1 |
 | `human-in-the-loop` | 1 |
 | `human-nature` | 1 |
@@ -723,7 +725,6 @@
 | `ian-grigg` | 1 |
 | `ide` | 1 |
 | `idempotency` | 1 |
-| `idp` | 1 |
 | `immutability` | 1 |
 | `implicit-controls` | 1 |
 | `incident-scenarios` | 1 |
@@ -765,7 +766,6 @@
 | `knowledge-base` | 1 |
 | `knowledge-decay` | 1 |
 | `knowledge-layering` | 1 |
-| `knowledge-scaffolding` | 1 |
 | `knowledge-sharing` | 1 |
 | `kubernetes` | 1 |
 | `lancedb` | 1 |
@@ -804,7 +804,6 @@
 | `maturity-model` | 1 |
 | `mbie` | 1 |
 | `measurement` | 1 |
-| `memory-management` | 1 |
 | `messaging` | 1 |
 | `meta` | 1 |
 | `meta-ai` | 1 |
@@ -967,6 +966,7 @@
 | `signal-aggregation` | 1 |
 | `siri` | 1 |
 | `smart-contracts` | 1 |
+| `software-architecture` | 1 |
 | `software-delivery` | 1 |
 | `software-factory` | 1 |
 | `software-reliability` | 1 |
@@ -1000,7 +1000,6 @@
 | `tbm` | 1 |
 | `team-topologies` | 1 |
 | `technical-capability-model` | 1 |
-| `technical-debt` | 1 |
 | `technology` | 1 |
 | `technology-forecasting` | 1 |
 | `telegram` | 1 |
