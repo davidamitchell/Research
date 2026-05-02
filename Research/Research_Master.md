@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-05-01 22:44 UTC
+Generated on: 2026-05-02 00:29 UTC
 
 ## Table of Contents
 
+* [What does TerminalBench reveal about minimal toolsets and coding agent performance?](#2026-05-01-terminal-bench-minimal-coding-agent-benchmarks-md)
 * [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
 * [What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?](#2026-05-01-oss-sustainability-ai-generated-contributions-md)
 * [What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?](#2026-05-01-human-oversight-ai-software-development-md)
@@ -239,6 +240,92 @@ Generated on: 2026-05-01 22:44 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-05-01-terminal-bench-minimal-coding-agent-benchmarks-md"></a>
+
+## What does TerminalBench reveal about minimal toolsets and coding agent performance?
+
+**Tags:** [agentic-ai, agentic-coding, agent-tooling, evaluation, llm]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md
+
+## Research Question
+
+What does the TerminalBench benchmark reveal about the relationship between toolset minimalism and coding agent performance, and what design principles does it suggest for effective Artificial Intelligence (AI) coding agent harnesses?
+
+## Findings
+
+### Executive Summary
+
+TerminalBench shows that harness design materially changes coding-agent outcomes, but the accessible public leaderboards do not support the stronger claim that minimal terminal-native harnesses consistently beat richer native harnesses across model families. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+
+TerminalBench measures end-to-end terminal task completion in real environments, and the cited benchmark papers together support the inference that shell-state management, interactive terminal control, and environment diagnosis are more central here than in HumanEval and only partly covered by SWE-bench. [inference; source: https://arxiv.org/abs/2601.11868; https://arxiv.org/abs/2310.06770; https://arxiv.org/abs/2107.03374]
+
+Benchmark-native minimal agents such as Terminus remain competitive and sometimes outperform richer installed harnesses, which suggests that smaller tool surfaces can reduce context burden and hidden-state failure modes. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/]
+
+The design lesson is to keep the core action surface small, explicit, and terminal-native, then add richer helpers only when they deliver measured gains on the target workload. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/]
+
+### Key Findings
+
+1. **Terminal-Bench measures end-to-end terminal-task completion rather than isolated code generation, because each task combines an instruction, a sandboxed environment, automated verification, and, in version 2.0, 89 curated terminal tasks with human-written solutions.** ([fact]; medium confidence; source: https://arxiv.org/abs/2601.11868; https://github.com/laude-institute/terminal-bench)
+2. **Benchmark-native minimal agents in TerminalBench operate primarily through exact terminal keystrokes and terminal-state reads, while installed product agents are evaluated as packaged systems running inside the benchmark container with their own dependencies and tool surfaces.** ([fact]; medium confidence; source: https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/terminus_1.py; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/terminus_2/terminus_2.py; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/installed_agents/abstract_installed_agent.py)
+3. **Public leaderboard rows show large within-model harness spreads, such as Claude Sonnet 4 on Terminal-Bench 1.0 ranging from 30.6 percent with Terminus 1 to 54.8 percent with Ante, which supports the inference that harness architecture materially changes observed performance.** ([inference]; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0)
+4. **The accessible public leaderboards do not show a universal "minimal beats rich native harnesses" pattern, because Terminal-Bench 2.0 includes GPT-5.2, Claude Opus 4.5, and Gemini 3 Pro rows with richer agents above Terminus 2.** ([fact]; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0)
+5. **Minimal benchmark-native agents still beat several richer native harnesses on both 1.0 and 2.0, so the public evidence supports minimalism as a strong baseline and a useful diagnostic for harness-induced overhead rather than as a guaranteed path to first place.** ([inference]; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0)
+6. **The most plausible public explanation for that competitiveness is lower context pollution and fewer hidden mutations, because Mario Zechner's practitioner evidence argues that oversized tool menus and opaque context injection degrade predictability, and Terminus exposes one regular terminal interaction surface.** ([inference]; medium confidence; source: https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/terminus_1.py)
+7. **TerminalBench complements HumanEval and SWE-bench by adding shell-state management, interactive terminal control, and environment diagnosis to the evaluation target, which makes it a distinct signal about harness behavior rather than a substitute for function-level or issue-resolution benchmarks.** ([inference]; medium confidence; source: https://arxiv.org/abs/2601.11868; https://arxiv.org/abs/2310.06770; https://arxiv.org/abs/2107.03374)
+8. **The best-supported harness design rule is minimal-by-default and explicit-by-exception: keep the core terminal interaction surface small and inspectable, and justify every extra helper with measured gains rather than assuming that more built-in tools will automatically improve outcomes.** ([inference]; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Terminal-Bench evaluates end-to-end terminal tasks with automated verification and curated task environments. | https://arxiv.org/abs/2601.11868; https://github.com/laude-institute/terminal-bench | medium | Benchmark mechanics |
+| [fact] Terminus uses keystrokes plus terminal-state reads, while installed agents run as packaged systems inside the container. | https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/terminus_1.py; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/terminus_2/terminus_2.py; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/installed_agents/abstract_installed_agent.py | medium | Interface contrast |
+| [inference] Terminal-Bench leaderboard spreads support the conclusion that harness architecture materially changes observed performance. | https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0 | medium | Claude Sonnet 4 and GPT-5 examples |
+| [fact] Terminal-Bench 2.0 public rows do not show Terminus 2 universally beating richer agents on the same model families. | https://www.tbench.ai/leaderboard/terminal-bench/2.0 | medium | GPT-5.2, Claude Opus 4.5, Gemini 3 Pro |
+| [inference] Minimal agents remain strong baselines and useful diagnostics for harness-induced overhead. | https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0 | medium | Competitive, not dominant |
+| [inference] Lower context pollution and fewer hidden mutations are plausible reasons for minimal harness competitiveness. | https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/terminus_1.py | medium | Mechanism, not direct ablation |
+| [inference] TerminalBench complements HumanEval and SWE-bench by exposing a distinct harness-behavior signal around terminal control and environment management. | https://arxiv.org/abs/2601.11868; https://arxiv.org/abs/2310.06770; https://arxiv.org/abs/2107.03374 | medium | Different control surface |
+| [inference] The strongest design rule is minimal-by-default and explicit-by-exception. | https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.md | medium | Operational synthesis |
+
+### Assumptions
+
+- The public leaderboard pages are sufficiently representative of the time-sensitive claim even though the original motivating talk snapshot is unavailable. [assumption; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+- Richer harnesses above or below Terminus differ on more than tool-count alone, so the causal role of minimalism cannot be isolated from packaging and orchestration quality. [assumption; source: https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/installed_agents/abstract_installed_agent.py; https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+- Model-family comparisons across near-identical names are informative but imperfect because the public tables distinguish closely related variants such as GPT-5, GPT-5.1, GPT-5.2, and GPT-5.3-Codex. [assumption; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+
+### Analysis
+
+TerminalBench shifts evaluation from isolated code generation toward whether a full harness can steer a model through a real terminal task. [inference; source: https://arxiv.org/abs/2601.11868; https://github.com/laude-institute/terminal-bench]
+
+That shift makes the public leaderboards informative for harness design, because once identical or closely related model families appear under multiple wrappers, the score spread becomes evidence about prompt shape, tool surface, installation friction, context handling, and recovery strategy. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+
+Several richer systems outrank Terminus 2 on the same model families, so the public leaderboard does not support a universal "simpler is always better" rule. [fact; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+
+Smaller, regular, terminal-native interfaces are still competitive enough that every additional helper should earn its place empirically, because more tooling does not guarantee better results. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/]
+
+The installed-agent adapter warning matters because it shows that product-native scores blend agent intelligence with packaging portability and container fit. [fact; source: https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/installed_agents/abstract_installed_agent.py]
+
+TerminalBench is best read as a benchmark of deployable harnesses, not only of abstract reasoning policies, because packaging portability and container fit affect the published outcomes. [inference; source: https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/installed_agents/abstract_installed_agent.py; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md]
+
+### Risks, Gaps, and Uncertainties
+
+- The motivating talk claim can only be reconstructed from Mario Zechner's later public posts and the accessible official leaderboards, not from a retrievable public transcript of the original talk wording. [assumption; source: https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+- The accessible Terminal-Bench sources do not publish a controlled ablation over tool-count, prompt opacity, or hidden context injection, so the mechanism behind minimal-harness competitiveness remains inferential rather than experimentally isolated. [assumption; source: https://arxiv.org/abs/2601.11868; https://github.com/laude-institute/terminal-bench]
+- The live leaderboard remains a moving target, so any cross-harness ranking should be treated as a snapshot rather than as a stable, once-for-all ordering. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0]
+- Public agent names do not reveal every hidden prompt, retry, or orchestration choice, so some observed score differences may come from undocumented implementation details rather than from visible tool surfaces alone. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://github.com/laude-institute/terminal-bench/blob/main/terminal_bench/agents/installed_agents/abstract_installed_agent.py]
+
+### Open Questions
+
+- Which specific harness features explain the gap between Terminus 2 and the top richer systems on Terminal-Bench 2.0 for the same model families?
+- Would a controlled benchmark ablation over tool-count, prompt size, and hidden context injection replicate the public leaderboard pattern?
+- How much of the installed-agent penalty is due to packaging friction versus cognitive overhead from richer tool surfaces?
+- Should a future research item compare benchmark-native minimal wrappers with intentionally transparent richer wrappers to identify the best small-but-sufficient design?
+
+---
 
 ---
 
