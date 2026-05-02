@@ -3,7 +3,7 @@ title: "What structured approaches and AI agent workflow patterns exist for conv
 added: 2026-05-02T06:11:10+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: medium  # low | medium | high
-blocks: [2026-05-02-systematic-review-methodology-ai-synthesis]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, llm, workflow, research-tooling, strategy-author]
 started: ~
 completed: ~

@@ -21,7 +21,7 @@ versions: []
 
 ## Research Question
 
-How does the STORM (Synthesis of Topic Outlines through Retrieval and Multi-perspective question generation) system's perspective discovery step generate diverse expert viewpoints before decomposing a research question into sub-questions — specifically what algorithm, prompt structure, and diversity criteria it uses — and what is the minimum-viable prompt template that replicates the coverage breadth improvement reported in the NAACL 2024 paper (+10% against baseline Retrieval-Augmented Generation) within a single-agent automated research workflow that cannot conduct real conversations with simulated experts?
+How does the STORM (Synthesis of Topic Outlines through Retrieval and Multi-perspective question generation) system's perspective discovery step generate diverse expert viewpoints before decomposing a research question into sub-questions — specifically what algorithm, prompt structure, and diversity criteria it uses — and what is the minimum-viable prompt template that replicates the coverage breadth improvement reported in the NAACL 2024 paper (+10% against baseline Retrieval-Augmented Generation (RAG)) within a single-agent automated research workflow that cannot conduct real conversations with simulated experts?
 
 ## Scope
 

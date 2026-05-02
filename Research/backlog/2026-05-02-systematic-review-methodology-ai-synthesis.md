@@ -3,7 +3,7 @@ title: "What systematic review methodologies and AI-assisted synthesis tool arch
 added: 2026-05-02T06:11:10+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: high  # low | medium | high
-blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+blocks: [2026-05-02-research-to-publication-authoring-workflow]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, llm, workflow, research-tooling, knowledge-graph, evaluation]
 started: ~
 completed: ~
@@ -26,10 +26,10 @@ What systematic review methodologies (Preferred Reporting Items for Systematic r
 ## Scope
 
 **In scope:**
-- Systematic review methodologies: PRISMA (Preferred Reporting Items for Systematic reviews and Meta-Analyses) reporting standard, Cochrane review protocol, narrative synthesis, meta-ethnography, and realist synthesis — their core steps and applicability to LLM-based synthesis
+- Systematic review methodologies: PRISMA (Preferred Reporting Items for Systematic reviews and Meta-Analyses) reporting standard, Cochrane review protocol, narrative synthesis, meta-ethnography, and realist synthesis — their core steps and applicability to Large Language Model (LLM)-based synthesis
 - AI-assisted synthesis tools: STORM synthesis pipeline, LlamaIndex summary index, Langchain map-reduce, Elicit AI (systematic review assistant), Consensus (evidence synthesis AI) — architecture and hallucination prevention mechanisms
 - Provenance-linking: how synthesis claims trace back to specific source items (cites: field, inline references, evidence map); what minimum provenance record is required for a synthesis item to be auditable
-- Hallucination prevention: retrieval-augmented generation (RAG) with source-grounded generation, citation verification steps, and contradiction detection across source items
+- Hallucination prevention: Retrieval-Augmented Generation (RAG) with source-grounded generation, citation verification steps, and contradiction detection across source items
 - Contradiction detection: how conflicting findings across source items should be handled (flagged, excluded, resolved with reasoning)
 - Workflow design: `synthesis-loop.yml` trigger design (manual `workflow_dispatch` only, never scheduled), input parameters (source_items: comma-separated slugs, synthesis_question), and output directory structure (`Knowledge/`)
 - `synthesis-prompt.md` structure: analogous to `research-prompt.md` but for multi-item synthesis — §§ structure, perspective requirements, citation requirements
