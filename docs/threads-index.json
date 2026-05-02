@@ -5340,14 +5340,14 @@
     "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -5377,7 +5377,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
     "slug": "copilot-coding-coding-agent-agents-md",
@@ -5455,13 +5455,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -5487,17 +5487,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "copilot studio"
+      "ai rmf",
+      "environment separation"
     ],
     "item_count": 4,
     "items": [
@@ -5522,7 +5522,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -5740,13 +5740,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "direct publish"
     ],
     "item_count": 3,
@@ -5767,16 +5767,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-environment-separation",
-    "title": "ai rmf / nist ai / environment separation",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "environment separation"
     ],
     "item_count": 3,
@@ -5797,7 +5797,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   },
   {
     "slug": "agentic-ai-ai-systems-nist-ai",
