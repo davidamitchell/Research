@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: "3e5c4ab7198b3595d5c5d2a201da89b154a01aaf"
+    changed: 2026-05-02
+    progress: "progress/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.md"
+    summary: "Initial completion"
 ---
 
 # Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem
