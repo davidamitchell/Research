@@ -666,7 +666,315 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-05-02 01:16 UTC</p>
+<p>Generated on: 2026-05-02 02:21 UTC</p>
+<p><a id="2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md"></a></p>
+<h2>Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem</h2>
+<p><strong>Tags:</strong> [agentic-ai, enterprise, ai-governance, microsoft, aws, capability-model, control-plane, finops, observability, security, identity, github-copilot, regulated-enterprise]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.md</p>
+<h2>Research Question</h2>
+<p>What is the complete set of architectural capabilities required to run Artificial Intelligence (AI) safely at scale in a regulated enterprise, how do Microsoft's Copilot family (Microsoft 365 Copilot Chat, Copilot Retrieval-Augmented Generation, Copilot Studio, Copilot Cowork) and Microsoft's GitHub family (GitHub Copilot, GitHub Actions, GitHub Advanced Security, GitHub Models) each address those capabilities, and how does Amazon Web Services' (AWS) AI ecosystem (Bedrock, Bedrock Agent Core, Strands Agents, Bedrock Tool Gateway, Bedrock Guardrails) compare across the same vendor-agnostic capability map?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>Neither the Microsoft Copilot family, the GitHub family, nor the AWS Bedrock ecosystem natively delivers the full regulated-enterprise Artificial Intelligence (AI) capability stack on its own. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview; https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html]</li>
+<li>Microsoft Copilot has the strongest fit when the enterprise problem is governed reuse of tenant-bound work data, because Purview, Microsoft Graph permissions, and first-party agent administration sit close to the underlying business content. [inference; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html]</li>
+<li>GitHub has the strongest fit when the enterprise problem is delivery-pipeline rigor, developer telemetry, and build assurance, because Actions, GitHub Advanced Security, GitHub Copilot policies, and GitHub Models all operate inside the same repository workflow. [inference; source: https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security; https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html]</li>
+<li>AWS has the strongest fit when the enterprise problem is modular runtime architecture, because Bedrock, Bedrock Guardrails, Knowledge Bases, and AgentCore together cover model access, tool mediation, registry, policy, observability, and evaluation more completely than the other two families. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html]</li>
+<li>Those rankings would change somewhat if Microsoft adjacent admin services were excluded, if GitHub were judged only as a delivery plane, or if AWS were weighted more heavily on business-user content governance, which is why the comparison is more reliable as a boundary-aware synthesis than as an absolute winner table. [inference; source: https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://github.blog/news-insights/product-news/github-copilot-workspace/; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html]</li>
+<li>A layered multi-family architecture is usually the safer fit for regulated enterprises that need breadth across business knowledge, software delivery, and modular runtime operations, while a single-vendor estate plus adjacent controls can still be the better trade-off where operational simplicity matters more than capability breadth. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization]</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>A regulated-enterprise AI capability model needs at least 22 control domains across foundation, delivery, runtime, security, governance, and economics, and no single family in this comparison covers them all natively.</strong> ([inference]; high confidence; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html)</li>
+<li><strong>Under the family boundaries used in this item, the Microsoft Copilot family is strongest for knowledge management, data stewardship, and business-user governance because Microsoft Graph permissions, Purview controls, Copilot Studio policy enforcement, and the Microsoft agent registry sit close to the underlying work data.</strong> ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html)</li>
+<li><strong>The Microsoft Copilot family remains incomplete for generalized CI/CD, portable egress mediation, and fleet-level kill-switch control, so a regulated deployment still needs adjacent Microsoft admin services, GitHub workflows, or third-party control points.</strong> ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio; https://learn.microsoft.com/en-us/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization)</li>
+<li><strong>Under the family boundaries used in this item, the GitHub family is strongest for agent delivery pipelines because GitHub Actions, GitHub Advanced Security, GitHub Copilot policies, audit logs, and GitHub Models combine change control, security assurance, and model evaluation inside one repository-centered operating loop.</strong> ([inference]; medium confidence; source: https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html)</li>
+<li><strong>The GitHub family does not natively provide the enterprise runtime controls needed for regulated business-user agents, especially full local prompt-session logging, tenant-bound business-data stewardship, and a clearly durable runtime control surface beyond preview-oriented workspace material.</strong> ([inference]; medium confidence; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale; https://github.blog/news-insights/product-news/github-copilot-workspace/; https://githubnext.com/projects/copilot-workspace/)</li>
+<li><strong>Under the family boundaries used in this item, the AWS Bedrock ecosystem is strongest for modular runtime capability because Bedrock plus AgentCore provides model access, guardrails, retrieval, runtime, registry, policy, observability, evaluations, and tool gateway services within one family.</strong> ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html)</li>
+<li><strong>The AWS Bedrock ecosystem still requires customer-built governance integration for identity boundaries, Region policy, logging destinations, and economic accountability, so it is a strong runtime platform but not a complete enterprise governance plane by itself.</strong> ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html)</li>
+<li><strong>A layered multi-family architecture is usually the most defensible target state for regulated enterprises that need broad capability coverage, although a single-vendor estate plus adjacent controls can still be the better trade-off where integration simplicity outweighs capability breadth.</strong> ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] The capability model must span 22 domains across governance, delivery, runtime, security, and economics, and no one family covers all of them.</td>
+<td>https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html</td>
+<td>high</td>
+<td>baseline synthesis</td>
+</tr>
+<tr>
+<td>[inference] Under the family boundaries used here, Microsoft Copilot is strongest on knowledge management, data stewardship, and business-user governance.</td>
+<td>https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html</td>
+<td>medium</td>
+<td>boundary-sensitive ranking</td>
+</tr>
+<tr>
+<td>[inference] Microsoft Copilot remains incomplete for generalized CI/CD, egress mediation, and fleet kill switches.</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio; https://learn.microsoft.com/en-us/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization</td>
+<td>medium</td>
+<td>adjacent controls required</td>
+</tr>
+<tr>
+<td>[inference] Under the family boundaries used here, GitHub is strongest on delivery-pipeline capability, change control, and model experimentation.</td>
+<td>https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html</td>
+<td>medium</td>
+<td>boundary-sensitive ranking</td>
+</tr>
+<tr>
+<td>[inference] GitHub lacks native business-data stewardship and a durable runtime control surface beyond preview-oriented workspace material.</td>
+<td>https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale; https://github.blog/news-insights/product-news/github-copilot-workspace/; https://githubnext.com/projects/copilot-workspace/</td>
+<td>medium</td>
+<td>runtime gap</td>
+</tr>
+<tr>
+<td>[inference] Under the family boundaries used here, AWS Bedrock is strongest on modular runtime architecture.</td>
+<td>https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html</td>
+<td>medium</td>
+<td>boundary-sensitive ranking</td>
+</tr>
+<tr>
+<td>[inference] AWS still needs customer-built governance integration for identity, logging, Region policy, and economics.</td>
+<td>https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html</td>
+<td>medium</td>
+<td>shared responsibility</td>
+</tr>
+<tr>
+<td>[inference] A layered multi-family architecture is usually the most defensible target state, although some estates may still prefer single-vendor simplicity plus adjacent controls.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization</td>
+<td>medium</td>
+<td>trade-off-sensitive synthesis</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide] Microsoft Agent Registry and Tools are counted as Microsoft-side capability coverage even though they are adjacent admin services, because the research question asks about the complete Microsoft family operating model rather than one isolated chat surface. Justification: they are first-party governance surfaces used to manage the same agents and tools.</li>
+<li>[assumption; source: https://github.blog/news-insights/product-news/github-copilot-workspace/; https://githubnext.com/projects/copilot-workspace/] GitHub Copilot Workspace is excluded from durable regulated-enterprise scoring because current public evidence remains preview-oriented and does not show a stable long-term control surface comparable to GitHub Actions, GitHub Copilot, or GitHub Models. Justification: counting it as fully shipping enterprise coverage would overstate GitHub's runtime completeness.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>The evidence favors a family-level comparison because each vendor distributes capabilities across multiple products and admin planes rather than inside one monolith. [inference; source: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models]</li>
+<li>Microsoft Copilot leads where the enterprise problem is secure reuse of existing work data and managed business-user access, not where the problem is generalized software delivery or cloud-neutral runtime control. [inference; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html]</li>
+<li>GitHub leads where the enterprise problem is turning agent changes into reviewable, testable, and auditable software artifacts, not where the problem is protecting non-repository business content or mediating live business actions. [inference; source: https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html]</li>
+<li>Microsoft can still be a reasonable single-vendor choice for some regulated estates if they prioritize operational simplicity and are willing to accept narrower delivery-pipeline flexibility than a layered multi-family design would provide. [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html]</li>
+<li>AWS leads where the enterprise problem is building and operating modular autonomous runtimes, but its shared-responsibility model means governance completeness still depends on how the customer wires identity, logs, budgets, and Region policy around the runtime. [inference; source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html]</li>
+<li>The ranking results are therefore conditional rather than absolute: excluding Microsoft adjacent admin surfaces would weaken Microsoft, scoping GitHub only as a delivery plane would strengthen GitHub's relative fit, and weighting business-data governance above runtime modularity would weaken AWS's headline advantage. [inference; source: https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://github.blog/news-insights/product-news/github-copilot-workspace/; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html]</li>
+</ul>
+<h4>Capability comparison matrix</h4>
+<table>
+<thead>
+<tr>
+<th>Capability domain</th>
+<th>Microsoft Copilot family</th>
+<th>GitHub family</th>
+<th>AWS ecosystem</th>
+<th>Source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Knowledge management</td>
+<td>Native</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</td>
+<td>Microsoft Graph and Bedrock Knowledge Bases are first-party grounding layers.</td>
+</tr>
+<tr>
+<td>[inference] Compliance training and testing of agents</td>
+<td>Partial</td>
+<td>Native</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>Microsoft needs adjacent Foundry or admin controls.</td>
+</tr>
+<tr>
+<td>[inference] CI/CD pipeline for agents</td>
+<td>Partial</td>
+<td>Native</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>GitHub owns the cleanest build pipeline story.</td>
+</tr>
+<tr>
+<td>[inference] Change control</td>
+<td>Partial</td>
+<td>Native</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio; https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html</td>
+<td>Microsoft and AWS require adjacent workflow discipline.</td>
+</tr>
+<tr>
+<td>[inference] Agent and tool registry and discovery</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>AWS AgentCore Registry is the clearest runtime registry.</td>
+</tr>
+<tr>
+<td>[inference] Capacity management and FinOps</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide; https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management; https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html</td>
+<td>Metrics exist, unified per-agent FinOps does not.</td>
+</tr>
+<tr>
+<td>[inference] API integration</td>
+<td>Native</td>
+<td>Native</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview; https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html</td>
+<td>All three families expose integration surfaces.</td>
+</tr>
+<tr>
+<td>[inference] Egress gateway</td>
+<td>Compensating control required</td>
+<td>Compensating control required</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://docs.github.com/en/copilot/concepts/policies; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html</td>
+<td>Only AWS documents an explicit managed egress layer.</td>
+</tr>
+<tr>
+<td>[inference] Identity</td>
+<td>Native</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html</td>
+<td>GitHub identity is user-centric rather than agent-centric.</td>
+</tr>
+<tr>
+<td>[inference] Access management</td>
+<td>Native</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies; https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html</td>
+<td>AWS and Microsoft expose stronger policy detail.</td>
+</tr>
+<tr>
+<td>[inference] Auditing of agent build</td>
+<td>Partial</td>
+<td>Native</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</td>
+<td>repository-centered build audit trail</td>
+</tr>
+<tr>
+<td>[inference] Auditing of agent actions</td>
+<td>Native</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/purview/audit-copilot; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</td>
+<td>GitHub lacks local prompt visibility by default.</td>
+</tr>
+<tr>
+<td>[inference] Data stewardship</td>
+<td>Native</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html</td>
+<td>Microsoft is strongest because the data boundary is product-native.</td>
+</tr>
+<tr>
+<td>[inference] Benefit tracking</td>
+<td>Partial</td>
+<td>Native</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide; https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html</td>
+<td>GitHub has the clearest developer impact telemetry.</td>
+</tr>
+<tr>
+<td>[inference] Observability and APM</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio; https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview; https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>managed runtime telemetry emphasis</td>
+</tr>
+<tr>
+<td>[inference] Alerting and incident raising</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</td>
+<td>All three rely on adjacent alerting stacks.</td>
+</tr>
+<tr>
+<td>[inference] Dynamic model routing</td>
+<td>Compensating control required</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html</td>
+<td>None documents rich policy-based model brokering end to end.</td>
+</tr>
+<tr>
+<td>[inference] Agent gateways</td>
+<td>Compensating control required</td>
+<td>Compensating control required</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization; https://github.blog/news-insights/product-news/github-copilot-workspace/; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>explicit managed gateway documentation</td>
+</tr>
+<tr>
+<td>[inference] Tool gateways and approved external tool connectivity</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Native</td>
+<td>https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html</td>
+<td>Microsoft and GitHub govern Model Context Protocol (MCP) usage more than they host the tool endpoints themselves.</td>
+</tr>
+<tr>
+<td>[inference] Agent throttling and kill switches</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://docs.github.com/en/copilot/concepts/policies; https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html</td>
+<td>Fast disable exists, dedicated kill-switch plane does not.</td>
+</tr>
+<tr>
+<td>[inference] Cross-plane coordination for agents, policy, and operations</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>Family-local operating surfaces exist, but estate-wide coordination still requires layering.</td>
+</tr>
+<tr>
+<td>[inference] Enterprise-wide governance coverage</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>https://www.nist.gov/itl/ai-risk-management-framework; https://learn.microsoft.com/en-us/purview/audit-copilot; https://docs.github.com/en/copilot/concepts/policies; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html</td>
+<td>Governance obligations remain broader than any one family.</td>
+</tr>
+</tbody>
+</table>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>GitHub Copilot Workspace remains a weak evidence surface for current enterprise planning because the publicly accessible material is still preview-centered rather than a current stable operations manual. [inference; source: https://github.blog/news-insights/product-news/github-copilot-workspace/; https://githubnext.com/projects/copilot-workspace/]</li>
+<li>The Microsoft comparison partly relies on adjacent governance surfaces such as Agent Registry, Tools, Foundry Control Plane, and Purview, which means some &quot;Microsoft-native&quot; coverage is family-native rather than Copilot-surface-native. [inference; source: https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide; https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview]</li>
+<li>The AWS economics plane is still fragmented across pricing pages, quotas, logging, and account-level billing rather than one clearly documented per-agent value-management surface. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>How much of Microsoft 365 agents governance will become generally available outside Frontier, and how quickly will its MCP governance become standard rather than preview-limited?</li>
+<li>Will GitHub Models move from preview governance features to a durable enterprise control surface with tighter audit and runtime-policy integration?</li>
+<li>How quickly will AWS add first-party benefit-tracking and budget-governance patterns that connect runtime spend to business outcomes rather than only to infrastructure telemetry?</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-05-01-terminal-bench-minimal-coding-agent-benchmarks-md"></a></p>
 <h2>What does TerminalBench reveal about minimal toolsets and coding agent performance?</h2>
 <p><strong>Tags:</strong> [agentic-ai, agentic-coding, agent-tooling, evaluation, llm]</p>
@@ -989,6 +1297,117 @@ main {
 <li>How far do the updated 2025 and 2026 versions of the Srinivasan research move the occupation rankings once more post-ChatGPT hiring data is included?</li>
 <li>Can the full occupation-by-score dataset behind the Harvard Business School visualization be recovered from a public appendix or data release?</li>
 <li>Which entry-level pathways are most vulnerable when postings fall in automation-prone occupations before unemployment visibly rises?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-05-01-self-modifying-agent-architectures-md"></a></p>
+<h2>What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?</h2>
+<p><strong>Tags:</strong> [agentic-ai, agentic-coding, agent-tooling, llm, software-engineering]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-self-modifying-agent-architectures.md</p>
+<h2>Research Question</h2>
+<p>What are the design tradeoffs, in capability, reliability, safety, and maintainability, between self-modifying agent architectures, where the agent can alter its own toolset, prompts, or extensions at runtime, and fixed-architecture agents, where the harness is static and immutable during a session?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Self-modifying coding-agent architectures trade bounded predictability for local adaptability, and the retrieved evidence supports them as powerful but governance-heavy expert surfaces rather than as a proven general default. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md]</p>
+<p>Within the retrieved public documentation, Pi exposes the broadest live mutation surface, while aider appears the most bounded and user-steered, and Claude Code plus OpenCode occupy a plugin and hook middle layer. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://aider.chat/docs/usage/commands.html; https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins]</p>
+<p>The clearest benefits of self-modification are rapid workflow adaptation and feature creation without forking or waiting for upstream releases, but the clearest costs are larger security surfaces, weaker reproducibility, and harder debugging. [inference; source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en]</p>
+<p>Formal corrigibility literature does not justify trusting a self-modifying runtime to preserve its own correction path, so practical safety should stay anchored in external permissions, review, and deployment controls. [inference; source: https://intelligence.org/files/Corrigibility.pdf; https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf; https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config]</p>
+<p>A hybrid middle path, bounded in-session extension authoring under explicit permissions, visible mutation logs, and reviewable reload boundaries, is the most plausible route for preserving some self-modification benefits without accepting a fully trusted-admin runtime, but the retrieved evidence does not yet show how much of the benefit survives those constraints. [inference; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html]</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The retrieved coding-agent harnesses sit on a spectrum from bounded, user-steered interfaces such as aider to plugin-configured systems such as Claude Code and OpenCode, with Pi at the far end of live in-session mutation rather than a clean binary split between self-modifying and fixed systems.</strong> ([inference]; medium confidence; source: https://aider.chat/docs/usage/commands.html; https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md)</li>
+<li><strong>Pi's self-modifying architecture is operationally real, because its public documentation shows that the agent can write and hot-reload TypeScript extensions that register tools, commands, providers, state, and compaction behavior inside the active runtime.</strong> ([fact]; medium confidence; source: https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md)</li>
+<li><strong>The strongest supported benefit of self-modification is rapid local workflow adaptation without fork-and-redeploy friction, especially for niche tools, custom provider paths, and task-specific compaction or summary policies that bounded harnesses usually expose only through pre-authored configuration or upstream product changes.</strong> ([inference]; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://opencode.ai/docs/plugins; https://docs.anthropic.com/en/docs/claude-code/plugins)</li>
+<li><strong>The strongest documented costs are reproducibility loss, harder debugging, and expanded security surface, because live reload and mutable extension code create stale-state and blast-radius problems that mature plugin ecosystems explicitly mitigate with cleanup rules, permission declarations, runtime separation, and activation controls.</strong> ([inference]; high confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host)</li>
+<li><strong>Formal Artificial Intelligence safety literature does not support trusting a self-modifying agent to preserve its own corrigibility, because default utility-maximizing systems resist correction and safe shutdown remains a non-trivial design problem even before broad self-modification is introduced.</strong> ([inference]; medium confidence; source: https://intelligence.org/files/Corrigibility.pdf; https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf)</li>
+<li><strong>For practical coding agents, the retrieved evidence favors a small stable kernel plus explicit extension points, external permissions, and inspectable mutation boundaries as the most defensible current default for shared deployments, even though it does not prove that no safer bounded self-modification regime exists.</strong> ([inference]; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-extension-systems-ai-coding-agents.md)</li>
+<li><strong>Public evidence does not show that live self-modification is necessary for strong coding performance, and adjacent benchmark work in this repository indicates that minimal, bounded harnesses can already perform strongly on realistic command-line coding tasks.</strong> ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md)</li>
+<li><strong>A hybrid model, bounded in-session extension authoring under explicit permissions, visible mutation logs, and reviewable reload boundaries, is the strongest plausible route for preserving some self-modification benefits without accepting the full governance cost of an unconstrained runtime, but the retrieved evidence does not yet show how much of Pi's adaptation advantage survives that constraint.</strong> ([inference]; medium confidence; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Retrieved harnesses form a spectrum from bounded to live self-modifying rather than a strict binary.</td>
+<td>https://aider.chat/docs/usage/commands.html; https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md</td>
+<td>medium</td>
+<td>architecture comparison</td>
+</tr>
+<tr>
+<td>[fact] Pi documents live in-session extension authoring and reload across tools, providers, and compaction.</td>
+<td>https://github.com/The-Focus-AI/youtube-feed/blob/main/ai-engineer/videos/RjfbvDXpFls.json; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md</td>
+<td>medium</td>
+<td>direct primary docs</td>
+</tr>
+<tr>
+<td>[inference] Self-modification's clearest benefit is local workflow adaptation without fork-and-redeploy overhead.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://opencode.ai/docs/plugins; https://docs.anthropic.com/en/docs/claude-code/plugins</td>
+<td>medium</td>
+<td>documentary evidence</td>
+</tr>
+<tr>
+<td>[inference] Reproducibility, debugging, and security costs rise because reloadable mutation needs lifecycle cleanup and containment.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host</td>
+<td>high</td>
+<td>convergent platform guidance</td>
+</tr>
+<tr>
+<td>[inference] Corrigibility literature does not justify trusting a self-modifying agent to preserve safe correction by default.</td>
+<td>https://intelligence.org/files/Corrigibility.pdf; https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf</td>
+<td>medium</td>
+<td>formal safety qualifier</td>
+</tr>
+<tr>
+<td>[inference] The current evidence favors a stable kernel plus external permissions and visible mutation boundaries as the most defensible shared-deployment default, without proving that no safer bounded self-modification regime exists.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-extension-systems-ai-coding-agents.md</td>
+<td>medium</td>
+<td>control-surface synthesis</td>
+</tr>
+<tr>
+<td>[inference] Strong coding performance does not yet require live self-modification.</td>
+<td>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md</td>
+<td>medium</td>
+<td>adjacent benchmark qualifier</td>
+</tr>
+<tr>
+<td>[inference] A bounded in-session extension model is the strongest plausible compromise, but the retrieved evidence does not yet quantify how much benefit survives those constraints.</td>
+<td>https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/config; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html</td>
+<td>medium</td>
+<td>hybrid-path qualifier</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>The retrieved public manuals describe the dominant control surfaces accurately enough to compare architecture classes, even though unpublished internal implementation details or incidents may exist. [assumption; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins]</li>
+<li>The absence of a documented live in-session extension API in the retrieved aider pages is enough to classify aider as the most bounded harness in this comparison, even though other pages not retrieved could expose additional customization features. [assumption; source: https://aider.chat/docs/usage.html; https://aider.chat/docs/usage/commands.html; https://aider.chat/docs/usage/caching.html]</li>
+</ul>
+<h3>Analysis</h3>
+<p>The practical distinction concerns the location of authorship and activation: every inspected system has some customization path, but only some of them let the agent author and activate new capability inside the running session itself. [inference; source: https://aider.chat/docs/usage/commands.html; https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md]</p>
+<p>Pi pushes that boundary furthest by collapsing extension authoring, activation, and use into one loop, which plausibly reduces adaptation latency for expert users but also makes runtime state hygiene and mutation observability part of everyday harness operation. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md]</p>
+<p>The comparison platforms show what is lost when that boundary moves inward: Chrome, VS Code, JetBrains, Claude Code, and OpenCode all rely on explicit manifests, permissions, lifecycle hooks, or startup-loaded plugins to keep mutable power subordinate to a more stable host. [inference; source: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html; https://docs.anthropic.com/en/docs/claude-code/hooks; https://opencode.ai/docs/plugins]</p>
+<p>Formal corrigibility work sharpens the safety reading: broad self-modification and safe self-constraint are difficult to align even in stylized settings, so coding-agent deployments should not assume that an agent which can modify its own runtime will also preserve the human's preferred control boundaries without external enforcement. [inference; source: https://intelligence.org/files/Corrigibility.pdf; https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf]</p>
+<p>The strongest deployment conclusion is therefore conditional rather than absolutist: self-modification is a real and useful capability for expert experimentation, but bounded extensibility remains the stronger default for shared environments where debugging, auditability, and least-privilege governance matter more than local feature velocity. [inference; source: https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The evidence base for benefits is thinner than the evidence base for control patterns, because the retrieved sources document architecture and workflow examples more often than they report controlled outcome measurements. [inference; source: https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md]</li>
+<li>Formal corrigibility results concern broad agent objectives more directly than narrow runtime extension loading, so they qualify the safety story without fully determining the correct governance pattern for coding harnesses. [inference; source: https://intelligence.org/files/Corrigibility.pdf; https://cdn.aaai.org/ocs/ws/ws0354/15156-68335-1-PB.pdf]</li>
+<li>OpenCode and Claude Code clearly document plugin and hook surfaces, but the retrieved docs do not quantify how often agents in practice author those surfaces autonomously versus humans pre-configuring them. [inference; source: https://docs.anthropic.com/en/docs/claude-code/plugins; https://opencode.ai/docs/plugins]</li>
+<li>Adjacent benchmark evidence constrains claims about core capability, but it does not yet isolate the marginal performance effect of self-modification itself. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What experimental design would isolate the effect of live self-modification from the effects of model quality, task selection, and ordinary plugin support?</li>
+<li>Which mutation events must be surfaced to users in real time for a self-modifying harness to remain debuggable under team use?</li>
+<li>Can a bounded permission model for in-session extension authoring preserve most of Pi's adaptation benefits without accepting a full trusted-admin runtime?</li>
 </ul>
 <hr />
 <hr />
