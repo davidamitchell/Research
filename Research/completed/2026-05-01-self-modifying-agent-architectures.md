@@ -2,12 +2,12 @@
 review_count: 2
 title: "What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?"
 added: 2026-05-01T08:17:39+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [agentic-ai, agentic-coding, agent-tooling, llm, software-engineering]
 started: 2026-05-02T01:17:07+00:00
-completed: ~
+completed: 2026-05-02T01:36:10+00:00
 output: [knowledge]
 cites: [2026-05-01-extension-systems-ai-coding-agents, 2026-05-01-coding-agent-context-management-transparency, 2026-05-01-sustainable-ai-software-development-synthesis, 2026-04-26-access-control-amplification-agentic-operations, 2026-05-01-terminal-bench-minimal-coding-agent-benchmarks]
 related: [2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks, 2026-05-01-appropriate-task-selection-coding-agents]

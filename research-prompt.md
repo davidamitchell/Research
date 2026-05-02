@@ -336,6 +336,13 @@ easily-detectable issues.
      change in `§6 Synthesis` before proceeding. The two sections are mirrored
      outputs and must not diverge.
 
+2ab. **Assumption-source audit** -- every visible `[assumption]` bullet in
+     `## Research Skill Output`, especially `§0` working hypotheses and `§6`
+     `Assumptions`, must still carry URL-backed source context. The source does
+     not "prove" the assumption, but it must anchor why the assumption is
+     reasonable in this item. Do not leave `[assumption]` bullets with only a
+     justification sentence and no URL-backed source binding.
+
 
 2b. **Context and Evidence Map audit** -- treat the `## Context` section and
     every Evidence Map row as claim-bearing prose, not as exempt scaffolding.
