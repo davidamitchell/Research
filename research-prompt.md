@@ -317,6 +317,15 @@ easily-detectable issues.
     `Definition needed:` and explain the nearest evidence-backed functional
     equivalent rather than presenting the label as settled terminology.
 
+1aa. **Full-document domain-term sweep** -- extend the domain-term clarity audit
+    beyond `## Research Skill Output` and `## Findings`: scan `## Scope`,
+    `## Context`, `## Approach`, `## Sources`, `§6 Synthesis`, and Findings for
+    non-acronym specialist terms such as "automation bias", "alert fatigue",
+    "approval-by-exception", "rubber-stamping", "human-on-the-loop", and
+    "oversight-by-exception". On first use in the entire document, either
+    define the term in plain language or bind it to an authoritative source.
+    Do not assume that acronym expansion alone satisfies this requirement.
+
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
     `[assumption]` label. Headings and question decomposition sub-headings are
@@ -436,6 +445,14 @@ easily-detectable issues.
     directly supports **each clause**. Do not let a theory source carry a
     frontier-model evidence claim, and do not let a frontier-model source stand
     in for the original thesis statement.
+
+2i. **Preferred-model challenge check** -- if the item recommends one oversight,
+    governance, or control model as the preferred scaled design, include at
+    least one sentence in Analysis that engages plausible rival remedies, for
+    example preserving per-item review by adding staff, relying on stronger
+    model-quality gates, or redesigning the interface instead of changing the
+    control pattern. If you reject those rivals, say why with evidence or keep
+    the recommendation explicitly inferential.
 
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
