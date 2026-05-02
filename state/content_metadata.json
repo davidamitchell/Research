@@ -1,6 +1,116 @@
 {
-  "extracted_at": "2026-05-02T08:51:50Z",
+  "extracted_at": "2026-05-02T09:08:23Z",
   "items": {
+    "2026-05-02-systematic-review-methodology-ai-synthesis": {
+      "named_concepts": [
+        "narrative synthesis",
+        "prior repository",
+        "agent-mediated synthesis",
+        "realist synthesis",
+        "prose generation",
+        "claim conflation",
+        "map-reduce summarization",
+        "provenance layer",
+        "human supervisors",
+        "false consensus",
+        "provenance model",
+        "retrieval grounding",
+        "grounding alone",
+        "perspective expansion",
+        "source-node retention",
+        "exploration-synthesis gap",
+        "fully reconstructible",
+        "remain manual-only",
+        "publication-path changes",
+        "synthesis workflow"
+      ],
+      "source_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/",
+        "https://training.cochrane.org/handbook/current/chapter-03",
+        "https://training.cochrane.org/handbook/current/chapter-09",
+        "https://training.cochrane.org/handbook/current/chapter-12",
+        "https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/",
+        "https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21",
+        "https://link.springer.com/article/10.1186/s12874-018-0600-0",
+        "https://arxiv.org/abs/2402.14207",
+        "https://github.com/stanford-oval/storm",
+        "https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/",
+        "https://developers.llamaindex.ai/python/examples/low_level/response_synthesis/",
+        "https://langchain-doc.readthedocs.io/en/latest/modules/indexes/chain_examples/summarize.html",
+        "https://link.springer.com/article/10.1186/s12874-025-02528-y",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11504244/",
+        "https://aclanthology.org/2024.acl-long.586/",
+        "https://arxiv.org/abs/2401.01313"
+      ],
+      "key_claims": [
+        {
+          "text": "A defensible synthesis workflow for this corpus should combine Cochrane-style protocol discipline with narrative synthesis as the default integration method, because PRISMA improves transparency while narrative synthesis is the best fit for heterogeneous, non-meta-analytic evidence",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC8005925/",
+            "https://training.cochrane.org/handbook/current/chapter-03",
+            "https://training.cochrane.org/handbook/current/chapter-09",
+            "https://training.cochrane.org/handbook/current/chapter-12",
+            "https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/"
+          ]
+        },
+        {
+          "text": "Realist synthesis and meta-ethnography are better treated as optional interpretive passes than as the base workflow, because they preserve context and mechanism but are narrower and more specialized than the repository's general cross-item synthesis need",
+          "sources": [
+            "https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21",
+            "https://link.springer.com/article/10.1186/s12874-018-0600-0",
+            "https://research.tees.ac.uk/en/publications/guidance-on-the-conduct-of-narrative-synthesis-in-sytematic-revie/"
+          ]
+        },
+        {
+          "text": "The repository's main anti-hallucination control should be claim extraction before prose generation, because retrieval grounding alone does not stop a Large Language Model (LLM) from conflating adjacent source-item claims into an unsupported synthesis sentence",
+          "sources": [
+            "https://arxiv.org/abs/2401.01313",
+            "https://aclanthology.org/2024.acl-long.586/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md"
+          ]
+        },
+        {
+          "text": "Each synthesis claim needs a minimum provenance record that includes source item slug, source location, epistemic label, confidence rationale, and contradiction status, because transparent non-meta-analytic synthesis still depends on visible evidence mapping and grouping decisions",
+          "sources": [
+            "https://training.cochrane.org/handbook/current/chapter-09",
+            "https://training.cochrane.org/handbook/current/chapter-12",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md"
+          ]
+        },
+        {
+          "text": "STORM and LlamaIndex provide the strongest architectural patterns for this use case, because STORM broadens evidence collection through perspective-guided questioning while LlamaIndex preserves source nodes through iterative synthesis",
+          "sources": [
+            "https://arxiv.org/abs/2402.14207",
+            "https://github.com/stanford-oval/storm",
+            "https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/",
+            "https://developers.llamaindex.ai/python/examples/low_level/response_synthesis/"
+          ]
+        },
+        {
+          "text": "Generic map-reduce summarization is useful for scale but insufficient as the provenance layer, because it summarizes documents independently and then reduces summaries, which preserves throughput better than claim-level traceability",
+          "sources": [
+            "https://langchain-doc.readthedocs.io/en/latest/modules/indexes/chain_examples/summarize.html",
+            "https://developers.llamaindex.ai/python/framework/module_guides/querying/response_synthesizers/response_synthesizers/"
+          ]
+        },
+        {
+          "text": "Artificial Intelligence (AI)-assisted review tools such as Elicit should be treated as complementary accelerators rather than authoritative synthesizers, because empirical evaluation shows value in search and organization but also substantial variability and incomplete overlap with traditional review results",
+          "sources": [
+            "https://link.springer.com/article/10.1186/s12874-025-02528-y",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11504244/"
+          ]
+        },
+        {
+          "text": "Contradictions must be first-class synthesis outputs rather than silent prompt-internal reasoning, because preserving context-dependent differences is essential to prevent false consensus and because prior repository work already defines usable cross-item relationship types",
+          "sources": [
+            "https://bmcmedicine.biomedcentral.com/articles/10.1186/1741-7015-11-21",
+            "https://link.springer.com/article/10.1186/s12874-018-0600-0",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        }
+      ]
+    },
     "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model": {
       "named_concepts": [
         "partial partial",
