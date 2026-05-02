@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?"
 added: 2026-05-01T08:17:39+00:00
 status: reviewing
