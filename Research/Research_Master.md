@@ -1,11 +1,13 @@
 # Research Master Document
 
-Generated on: 2026-05-02 10:16 UTC
+Generated on: 2026-05-02 11:02 UTC
 
 ## Table of Contents
 
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
+* [What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?](#2026-05-02-research-item-versioning-amendment-norms-md)
 * [Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](#2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md)
+* [What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?](#2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls-md)
 * [How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?](#2026-05-02-hitl-review-volume-bottleneck-rubber-stamp-md)
 * [What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?](#2026-05-02-cross-item-synthesis-knowledge-map-architecture-md)
 * [What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?](#2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain-md)
@@ -351,6 +353,90 @@ That architectural recommendation also aligns with prior repository research on 
 
 ---
 
+<a id="2026-05-02-research-item-versioning-amendment-norms-md"></a>
+
+## What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?
+
+**Tags:** [research-tooling, workflow, knowledge-graph, organisational-learning]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-research-item-versioning-amendment-norms.md
+
+## Research Question
+
+What are the established norms and practical conventions from academic pre-print repositories (arXiv, Social Science Research Network (SSRN), Open Science Framework (OSF)) and Personal Knowledge Management (PKM) implementations (Zettelkasten, Obsidian, Roam Research, Logseq) for how published research items should be corrected, versioned, retracted, or extended after initial publication, specifically: what auditability standards must a versioning model meet, how is the distinction between minor correction and substantive revision defined, and does a pragmatic model using a YAML Ain't Markup Language (YAML) frontmatter `versions:` array (version number, commit SHA (Secure Hash Algorithm), date, progress log path, one-line summary) combined with git commit history as the diff provide sufficient auditability, or is a stricter arXiv-style immutable-file-per-version approach warranted?
+
+## Findings
+
+### Executive Summary
+
+The repository's frontmatter `versions:` array plus git commit history is sufficient for this corpus if it is treated as a visible, append-only version chain with full commit SHAs and progress-log links, rather than as a lightweight note-to-self on top of silently mutable files. [inference; source: https://info.arxiv.org/help/versions.html; https://help.osf.io/article/113-advanced-actions-registrations; https://git-scm.com/docs/user-manual#object-name; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
+
+arXiv and OSF both preserve prior state and surface later change explicitly. [fact; source: https://info.arxiv.org/help/versions.html; https://help.osf.io/article/113-advanced-actions-registrations]
+
+Those patterns mean this repository does not need an arXiv-style vN-file scheme to satisfy the same minimum auditability norm, because a visible version chain can be implemented without duplicating full-text files. [inference; source: https://info.arxiv.org/help/versions.html; https://help.osf.io/article/113-advanced-actions-registrations; https://git-scm.com/docs/user-manual#object-name]
+
+The retrievable PKM evidence points the same way, because Zettelkasten is tool-agnostic about note evolution and Obsidian Git uses one canonical note backed by commit history, diff view, and restore workflows rather than one full file per revision. [inference; source: https://www.soenkeahrens.de/en/takesmartnotes; https://github.com/denolehov/obsidian-git/blob/master/README.md]
+
+The main repository change still required is therefore governance, not storage layout: ADR-0013 should define correction-versus-revision thresholds explicitly and treat rewrite of pushed `main` history as disallowed for completed items that carry `versions:` entries. [inference; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md]
+
+### Key Findings
+
+1. **arXiv's governing norm is a stable identifier with an explicit visible version chain, because replacements, withdrawals, errata, annual updates, and living reviews all remain linked under one record while prior versions stay accessible.** ([fact]; high confidence; source: https://info.arxiv.org/help/versions.html; https://arxiv.org/abs/2206.04615)
+2. **OSF's governing norm is frozen primary records plus explicit update workflow, because submitted registrations cannot be edited in place and later changes require a separate, justified update process that preserves the original registration.** ([fact]; high confidence; source: https://help.osf.io/article/330-welcome-to-registrations; https://help.osf.io/article/113-advanced-actions-registrations)
+3. **Registered-reports practice reinforces the same principle by making amendment acceptable only when continuity and justification remain explicit, which favours reader-visible notice chains over silent mutation.** ([inference]; medium confidence; source: https://www.cos.io/initiatives/registered-reports; https://help.osf.io/article/113-advanced-actions-registrations)
+4. **The retrievable PKM evidence does not support mandatory immutable per-version note files, because Zettelkasten is tool-agnostic and Obsidian Git implements auditability through commits, diffs, and history views around one canonical note.** ([inference]; medium confidence; source: https://www.soenkeahrens.de/en/takesmartnotes; https://github.com/denolehov/obsidian-git/blob/master/README.md)
+5. **Git can satisfy the "what changed" inspection requirement because commits are content-addressed snapshots, but git can only serve as a trustworthy audit substrate when pushed history is treated as append-only.** ([inference]; high confidence; source: https://git-scm.com/docs/user-manual#object-name; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
+6. **The repository's current `versions:` model is therefore sufficient if each substantive edit records a visible version number, changed date, one-line reason, full commit SHA, and linked progress log, because together those fields recreate the minimum audit trail that the sampled systems require.** ([inference]; medium confidence; source: https://info.arxiv.org/help/versions.html; https://help.osf.io/article/113-advanced-actions-registrations; https://git-scm.com/docs/user-manual#object-name; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md)
+7. **The correction-versus-revision boundary should be formalised as minor when findings and evidence balance stay unchanged, and major when any finding, confidence grade, recommendation, or cited-source identity changes.** ([inference]; medium confidence; source: https://help.osf.io/article/113-advanced-actions-registrations; https://info.arxiv.org/help/versions.html; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md)
+8. **`corrects:` should be added to the relationship vocabulary because it expresses authoritative amendment lineage, while `replicates:` should wait until the corpus actually tracks a repeatable replication programme that needs a distinct edge.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-academic-post-publication-amendment-practices.md; https://info.arxiv.org/help/versions.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] arXiv preserves prior versions under one stable identifier and exposes version history publicly. | https://info.arxiv.org/help/versions.html; https://arxiv.org/abs/2206.04615 | high | Stable identifier plus visible version chain |
+| [fact] OSF freezes submitted registrations and routes later changes through explicit updates. | https://help.osf.io/article/330-welcome-to-registrations; https://help.osf.io/article/113-advanced-actions-registrations | high | Read-only record plus justified update |
+| [inference] Registered reports favour explicit continuity and staged amendment over silent mutation. | https://www.cos.io/initiatives/registered-reports; https://help.osf.io/article/113-advanced-actions-registrations | medium | Continuity logic rather than one-line rule |
+| [inference] PKM evidence supports one canonical note plus git-backed history rather than duplicate full-text files. | https://www.soenkeahrens.de/en/takesmartnotes; https://github.com/denolehov/obsidian-git/blob/master/README.md | medium | Logseq remains a gap |
+| [inference] Git can satisfy the inspection requirement if pushed history stays append-only. | https://git-scm.com/docs/user-manual#object-name; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History | high | Git properties plus governance constraint |
+| [inference] `versions:` plus git meets the minimum norm if version number, date, reason, full SHA, and progress link stay visible. | https://info.arxiv.org/help/versions.html; https://help.osf.io/article/113-advanced-actions-registrations; https://git-scm.com/docs/user-manual#object-name; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md | medium | Reader-visible notice plus diff substrate |
+| [inference] Minor versus major version boundaries should follow interpretive impact, not text length. | https://help.osf.io/article/113-advanced-actions-registrations; https://info.arxiv.org/help/versions.html; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md | medium | Governance threshold derived from sampled systems |
+| [inference] `corrects:` is warranted now, while `replicates:` is not yet warranted. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-academic-post-publication-amendment-practices.md; https://info.arxiv.org/help/versions.html | medium | Distinct amendment lineage versus future replication need |
+
+### Assumptions
+
+- Obsidian Git is a reasonable proxy for PKM systems that externalise versioning into git, because it is an official implementation document for one widely used markdown-note workflow and exposes the exact audit surfaces this item evaluates. [assumption; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://git-scm.com/docs/user-manual#object-name]
+- The repository can enforce an append-only norm on `main` well enough for audit purposes, even though git itself technically permits history rewriting. [assumption; source: https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
+
+### Analysis
+
+The core norm across the sampled academic systems is preservation plus explanation, not preservation plus file duplication, so the repository should optimise for reader legibility of change rather than mimic arXiv's exact storage surface. [inference; source: https://info.arxiv.org/help/versions.html; https://help.osf.io/article/113-advanced-actions-registrations]
+
+Git already supplies the diff and immutable snapshot identity that arXiv exposes through public file versions, which means the repository only needs a human-readable notice index on top of git rather than a second full-text archival layer. [inference; source: https://git-scm.com/docs/user-manual#object-name; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
+
+PKM practice matters because this corpus is both a publication surface and a working knowledge base, and the retrievable PKM evidence suggests that keeping one canonical note and pushing version granularity into history tools lowers maintenance friction. [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://www.soenkeahrens.de/en/takesmartnotes]
+
+The strongest challenge to the pragmatic model is not insufficiency of frontmatter fields but governance slippage, because a `versions:` array is only as trustworthy as the repository rule that prevents later disappearance or replacement of the commit it names. [inference; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md]
+
+The main rival remedy, separate amendment files, remains defensible for public scholarly systems with indexing infrastructure, but in this repository it adds coordination overhead without giving readers more exact diff fidelity than git already provides. [inference; source: https://help.osf.io/article/113-advanced-actions-registrations; https://www.cos.io/initiatives/registered-reports]
+
+### Risks, Gaps, and Uncertainties
+
+- History rewrite on `main` is the highest-risk failure mode for the pragmatic model, because the `versions:` entry could then point at commit history that is no longer reachable in the shared branch. [inference; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
+- Hash-function change is a lower-probability risk than history rewrite, because git documents SHA-256 migration as a managed repository-format transition while history rewriting is a routine capability that can immediately disrupt audit trails. [inference; source: https://git-scm.com/docs/hash-function-transition; https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History]
+- Orphaned progress-log paths remain possible if later refactors move session logs, so the repository should continue treating the progress path as part of the durable audit chain rather than as disposable process exhaust. [inference; source: https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md]
+- The PKM comparison is weaker than the pre-print comparison because the evidence used here is concentrated in Zettelkasten principle guidance and one Obsidian Git implementation document. [inference; source: https://github.com/denolehov/obsidian-git/blob/master/README.md; https://www.soenkeahrens.de/en/takesmartnotes]
+
+### Open Questions
+
+- Should the repository add an automated check that rejects history rewrites or non-full SHAs in `versions:` entries so the append-only assumption is enforced rather than merely documented? [inference; source: https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History; https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md]
+- If `corrects:` is added, should the site render a stronger reader warning for corrected items in the same way it already renders `superseded_by:` banners? [inference; source: https://info.arxiv.org/help/versions.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md]
+- If the corpus starts producing deliberate replications of earlier claims, should `replicates:` become part of the canonical edge vocabulary at that point rather than now? [inference; source: https://help.osf.io/article/330-welcome-to-registrations; https://www.cos.io/initiatives/registered-reports]
+
+---
+
+---
+
 <a id="2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md"></a>
 
 ## Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem
@@ -452,6 +538,85 @@ What is the complete set of architectural capabilities required to run Artificia
 - How much of Microsoft 365 agents governance will become generally available outside Frontier, and how quickly will its MCP governance become standard rather than preview-limited?
 - Will GitHub Models move from preview governance features to a durable enterprise control surface with tighter audit and runtime-policy integration?
 - How quickly will AWS add first-party benefit-tracking and budget-governance patterns that connect runtime spend to business outcomes rather than only to infrastructure telemetry?
+
+---
+
+---
+
+<a id="2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls-md"></a>
+
+## What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?
+
+**Tags:** [agentic-ai, ai-governance, shadow-it, incentives, governance-behaviour, human-factors, skill-decay, enterprise, regulated-enterprise, culture]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.md
+
+## Research Question
+
+What capability and control design is needed, at enterprise scale, to mitigate incentive misalignment (where individuals are rewarded for bypassing governance), shadow Artificial Intelligence (AI) (AI tooling adopted outside sanctioned channels), rail bypass (deliberate circumvention of agent guardrails), and human skill decay (loss of practitioner capability through over-reliance on AI automation), and how should each failure mode be detected, deterred, and remediated within an enterprise AI governance framework?
+
+## Findings
+
+### Executive Summary
+
+Enterprise-scale mitigation of incentive misalignment, shadow AI, rail bypass, and skill decay requires a dual design: make the sanctioned path faster and more useful than the workaround, then back it with runtime controls, telemetry, and deliberate skill-preservation routines that do not assume humans can review machine-speed activity line by line. [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html]
+
+The four failure modes are coupled, because delivery pressure and legitimacy gaps push work into shadow channels, unmanaged channels weaken safety rails, runtime bypass remains technically possible, and repeated over-delegation erodes the human judgment needed to detect or correct failure. [inference; source: https://aisel.aisnet.org/misq/vol34/iss3/7/; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk; https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8]
+
+The appropriate enterprise response is an operating model with five capability domains: incentive alignment, sanctioned AI platform management, runtime safety enforcement, governance observability and incident response, and human capability preservation. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html]
+
+Confidence is medium because shadow-AI prevalence and prompt-injection risk are well supported by current public evidence, while skill-decay evidence remains more transfer-based and less measured in enterprise field settings. [inference; source: https://www.ibm.com/reports/data-breach; https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8]
+
+### Key Findings
+
+1. **Enterprise governance fails when local incentives reward speed and convenience more clearly than they reward governed use, because employees can rationalize policy violations when sanctioned tools or approvals slow delivery.** ([inference]; medium confidence; source: https://aisel.aisnet.org/misq/vol34/iss3/7/; https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html)
+2. **Public survey and telemetry evidence indicate that shadow AI is already a material enterprise control problem, because non-corporate AI account usage and sensitive-data flows outside sanctioned channels are common enough to undermine auditability and policy enforcement.** ([inference]; medium confidence; source: https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://www.ibm.com/reports/data-breach; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk; https://link.springer.com/article/10.1007/s42979-025-03962-x)
+3. **Rail bypass remains a live control-design problem, because prompt injection and related attack paths can still induce data exfiltration, unintended actions, or persistent memory poisoning unless tool access, content boundaries, and exfiltration paths are constrained.** ([inference]; medium confidence; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html)
+4. **Skill decay is a governance problem, not only a learning-and-development problem, because organisations that repeatedly delegate judgment to AI can lose the human expertise required to verify outputs, challenge unsafe behavior, and recover from automation failure.** ([inference]; medium confidence; source: https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8; https://publicera.kb.se/ir/article/view/47143; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html)
+5. **Detection of these four failure modes requires combined telemetry across governance, platform, runtime, and workforce surfaces, because shadow adoption, prompt attacks, queue distortion, and human deskilling do not appear in one audit stream.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html)
+6. **Governed fast lanes, preconfigured low-risk patterns, and clear exception ownership reduce the incentive to move into unofficial channels because they lower the local cost of sanctioned use without removing enterprise controls.** ([inference]; medium confidence; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention)
+7. **Per-item human review does not scale as the primary control once AI systems operate at machine speed, so mature enterprises need exception-based oversight, recurring technical audits, and tested stop or rollback mechanisms instead of universal synchronous approval.** ([inference]; medium confidence; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html)
+8. **An enterprise AI capability model needs explicit ownership for incentive alignment, sanctioned platform design, runtime rail enforcement, governance observability, and human capability preservation if it is to contain behavioural and control failure at scale.** ([inference]; medium confidence; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Incentive misalignment drives bypass when sanctioned paths impose local cost and unofficial paths preserve throughput. | https://aisel.aisnet.org/misq/vol34/iss3/7/; https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html | medium | behavioural mechanism |
+| [inference] Shadow AI is already a material enterprise control problem because unmanaged account usage and sensitive-data flows are common enough to weaken auditability and policy enforcement. | https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://www.ibm.com/reports/data-breach; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk; https://link.springer.com/article/10.1007/s42979-025-03962-x | medium | survey plus telemetry |
+| [inference] Prompt injection and related bypass paths remain a live control-design problem because they can trigger disclosure, unsafe tool use, and persistent manipulation. | https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html | medium | runtime safety |
+| [inference] Skill decay reduces the human capacity needed for verification, escalation, and recovery. | https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8; https://publicera.kb.se/ir/article/view/47143; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html | medium | transfer from reviewed domains |
+| [inference] Detection must span traffic, agent configuration, runtime prompts, approvals, overrides, and competency signals. | https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html | medium | cross-surface telemetry |
+| [inference] Governed fast lanes, preconfigured low-risk patterns, and clear exception ownership reduce the incentive to move into unofficial channels by lowering the local cost of sanctioned use. | https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention | medium | enablement plus controls |
+| [inference] Machine-speed systems force oversight toward exception review, audits, and stop mechanisms. | https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html | medium | scale effect |
+| [inference] Five explicit capability domains are needed to contain behavioural and runtime governance failure. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html | medium | model extension |
+
+### Assumptions
+
+- Skill-decay evidence from medicine and knowledge-work settings transfers sufficiently to enterprise AI governance because the shared mechanism is repeated delegation of cognitive work to AI under time pressure. [assumption; source: https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8; https://publicera.kb.se/ir/article/view/47143]
+- Public vendor data on shadow AI is sufficiently directionally reliable for control design even though it is not an industry-neutral census. [assumption; source: https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk]
+
+### Analysis
+
+This item has direct public measurements for shadow-AI prevalence and direct official guidance for rail-bypass risk, while the skill-decay case relies more on transfer from adjacent domains. [inference; source: https://www.ibm.com/reports/data-breach; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk; https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8]
+
+The incentive-misalignment case is slightly more inferential, but the neutralization literature, IBM worker survey, DORA findings, and prior corpus work point in the same direction: workers route around governance when official paths are misaligned with delivery pressure. [inference; source: https://aisel.aisnet.org/misq/vol34/iss3/7/; https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html]
+
+The skill-decay case is the least directly measured in enterprise field studies, so the recommendation is to treat skill preservation as a prudential control: monitor it now rather than wait for a larger incident dataset after expertise has already degraded. [inference; source: https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8; https://publicera.kb.se/ir/article/view/47143]
+
+One plausible rival remedy is to preserve strict per-item review by adding more reviewers, but the reviewed scale evidence suggests this only delays the bottleneck unless the operating model also shifts toward bounded autonomy, exception handling, and stronger platform controls. [inference; source: https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html]
+
+### Risks, Gaps, and Uncertainties
+
+- Enterprise-grade public field data on skill decay remains thinner than the public data on shadow AI and prompt injection. [fact; source: https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8; https://publicera.kb.se/ir/article/view/47143]
+- Public prevalence data for shadow AI comes mainly from vendors and vendor-sponsored studies, which means exact percentages should be treated as directional rather than universal. [fact; source: https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks; https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk]
+- The reviewed sources support the need for explicit skill-preservation routines, but they do not yet define a single validated enterprise metric set for measuring capability loss across different job families. [fact; source: https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8; https://publicera.kb.se/ir/article/view/47143]
+
+### Open Questions
+
+- Which workforce metrics best distinguish healthy AI augmentation from hidden deskilling in software, operations, and customer-service roles?
+- How should compensation and performance frameworks be redesigned so teams are rewarded for governed throughput rather than unofficial acceleration?
+- Which runtime safety controls for agent memory, tools, and publishing channels are most cost-effective across different platform stacks?
 
 ---
 
