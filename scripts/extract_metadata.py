@@ -514,7 +514,8 @@ def extract_key_claims(findings_text: str) -> list[dict]:
         # Strip trailing parenthetical confidence+source annotations.
         # Handles both the simple "(high confidence)" form and the suffix form
         # "(; medium confidence; source: URL1; URL2)" that remains after bracket removal
-        # strips the embedded [inference] token.
+        # strips the embedded [inference] token from the opening "[inference]" fragment.
+        # The broader pattern covers both forms via [;,\s]* before the confidence keyword.
         text = re.sub(
             r"\s*\([;,\s]*(?:high|medium|low)\s+confidence[^)]*\)\s*$",
             "",

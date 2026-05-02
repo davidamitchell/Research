@@ -446,8 +446,8 @@ def test_strip_evidence_labels_suffix_format_c_high_confidence() -> None:
 def test_strip_evidence_labels_suffix_format_c_no_brackets() -> None:
     """Suffix format without bracket around epistemic label is also stripped."""
     text = "1. **Claim text.** (medium confidence; source: https://example.com)"
-    # This style has no [inference] part — the regex requires the epistemic label
-    # so this simpler form is not stripped (different format).
+    # This style has no [inference] part — _KEY_FINDING_SUFFIX_RE requires an epistemic
+    # label (inference|fact|assumption) so this simpler form is not stripped (different format).
     result = strip_evidence_labels(text)
     # Should pass through unchanged since no [inference/fact/assumption] wrapper
     assert result == text
