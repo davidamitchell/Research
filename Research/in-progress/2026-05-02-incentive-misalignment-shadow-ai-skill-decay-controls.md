@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?"
 added: 2026-05-02T06:00:57+00:00
 status: reviewing
