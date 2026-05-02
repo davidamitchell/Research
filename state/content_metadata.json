@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T10:50:28Z",
+  "extracted_at": "2026-05-02T11:02:12Z",
   "items": {
     "2026-05-02-systematic-review-methodology-ai-synthesis": {
       "named_concepts": [
@@ -107,6 +107,107 @@
             "https://link.springer.com/article/10.1186/s12874-018-0600-0",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-research-item-versioning-amendment-norms": {
+      "named_concepts": [
+        "version chain",
+        "visible version",
+        "obsidian git",
+        "one canonical",
+        "commit history",
+        "retrievable pkm",
+        "pushed history",
+        "stable identifier",
+        "plus git",
+        "full commit",
+        "full-text files",
+        "governing norm",
+        "prior versions",
+        "submitted registrations",
+        "later changes",
+        "justified update",
+        "reader-visible notice",
+        "silent mutation",
+        "inspection requirement",
+        "version number"
+      ],
+      "source_urls": [
+        "https://info.arxiv.org/help/versions.html",
+        "https://www.ssrn.com/index.cfm/en/ssrn-faq/#papercitation",
+        "https://support.ssrn.com/knowledgebase/articles/271237-how-do-i-submit-a-revised-paper",
+        "https://help.osf.io/article/330-welcome-to-registrations",
+        "https://help.osf.io/article/113-advanced-actions-registrations",
+        "https://www.cos.io/initiatives/registered-reports",
+        "https://www.soenkeahrens.de/en/takesmartnotes",
+        "https://github.com/denolehov/obsidian-git/blob/master/README.md",
+        "https://docs.logseq.com/#/page/version%20control",
+        "https://git-scm.com/docs/user-manual#object-name",
+        "https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History",
+        "https://git-scm.com/docs/hash-function-transition",
+        "https://arxiv.org/abs/2206.04615"
+      ],
+      "key_claims": [
+        {
+          "text": "arXiv's governing norm is a stable identifier with an explicit visible version chain, because replacements, withdrawals, errata, annual updates, and living reviews all remain linked under one record while prior versions stay accessible",
+          "sources": [
+            "https://info.arxiv.org/help/versions.html",
+            "https://arxiv.org/abs/2206.04615"
+          ]
+        },
+        {
+          "text": "OSF's governing norm is frozen primary records plus explicit update workflow, because submitted registrations cannot be edited in place and later changes require a separate, justified update process that preserves the original registration",
+          "sources": [
+            "https://help.osf.io/article/330-welcome-to-registrations",
+            "https://help.osf.io/article/113-advanced-actions-registrations"
+          ]
+        },
+        {
+          "text": "Registered-reports practice reinforces the same principle by making amendment acceptable only when continuity and justification remain explicit, which favours reader-visible notice chains over silent mutation",
+          "sources": [
+            "https://www.cos.io/initiatives/registered-reports",
+            "https://help.osf.io/article/113-advanced-actions-registrations"
+          ]
+        },
+        {
+          "text": "The retrievable PKM evidence does not support mandatory immutable per-version note files, because Zettelkasten is tool-agnostic and Obsidian Git implements auditability through commits, diffs, and history views around one canonical note",
+          "sources": [
+            "https://www.soenkeahrens.de/en/takesmartnotes",
+            "https://github.com/denolehov/obsidian-git/blob/master/README.md"
+          ]
+        },
+        {
+          "text": "Git can satisfy the \"what changed\" inspection requirement because commits are content-addressed snapshots, but git can only serve as a trustworthy audit substrate when pushed history is treated as append-only",
+          "sources": [
+            "https://git-scm.com/docs/user-manual#object-name",
+            "https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History"
+          ]
+        },
+        {
+          "text": "The repository's current `versions:` model is therefore sufficient if each substantive edit records a visible version number, changed date, one-line reason, full commit SHA, and linked progress log, because together those fields recreate the minimum audit trail that the sampled systems require",
+          "sources": [
+            "https://info.arxiv.org/help/versions.html",
+            "https://help.osf.io/article/113-advanced-actions-registrations",
+            "https://git-scm.com/docs/user-manual#object-name",
+            "https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md"
+          ]
+        },
+        {
+          "text": "The correction-versus-revision boundary should be formalised as minor when findings and evidence balance stay unchanged, and major when any finding, confidence grade, recommendation, or cited-source identity changes",
+          "sources": [
+            "https://help.osf.io/article/113-advanced-actions-registrations",
+            "https://info.arxiv.org/help/versions.html",
+            "https://github.com/davidamitchell/Research/blob/main/docs-adr/0013-research-item-frontmatter-schema-extension.md"
+          ]
+        },
+        {
+          "text": "`corrects:` should be added to the relationship vocabulary because it expresses authoritative amendment lineage, while `replicates:` should wait until the corpus actually tracks a repeatable replication programme that needs a distinct edge",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-academic-post-publication-amendment-practices.md",
+            "https://info.arxiv.org/help/versions.html"
           ]
         }
       ]
