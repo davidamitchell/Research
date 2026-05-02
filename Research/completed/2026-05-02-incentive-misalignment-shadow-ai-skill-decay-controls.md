@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "049273815faa4fddc42b1f9bc3a33be88488e07e"
+    changed: 2026-05-02
+    progress: progress/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.md
+    summary: "Initial completion"
 ---
 
 # What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?
