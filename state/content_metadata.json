@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T09:17:21Z",
+  "extracted_at": "2026-05-02T09:30:25Z",
   "items": {
     "2026-05-02-systematic-review-methodology-ai-synthesis": {
       "named_concepts": [
@@ -262,6 +262,122 @@
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
             "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain": {
+      "named_concepts": [
+        "prompt injection",
+        "enterprise ai",
+        "retrieval-augmented generation",
+        "untrusted content",
+        "enterprise capability",
+        "attacks target",
+        "ai systems",
+        "access control",
+        "audit logs",
+        "retrieval boundary",
+        "identity-scoped execution",
+        "deterministic egress",
+        "egress control",
+        "model supply",
+        "supply chain",
+        "public machine-learning",
+        "machine-learning ecosystems",
+        "dependency compromise",
+        "enterprise threat",
+        "threat model"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://atlas.mitre.org/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://arxiv.org/abs/2302.12173",
+        "https://arxiv.org/abs/2503.18813",
+        "https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/",
+        "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection",
+        "https://arxiv.org/abs/2310.06816",
+        "https://arxiv.org/abs/2405.20446",
+        "https://pytorch.org/blog/compromised-nightly-dependency/",
+        "https://huggingface.co/docs/hub/security-pickle",
+        "https://huggingface.co/blog/safetensors-security-audit",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/"
+      ],
+      "key_claims": [
+        {
+          "text": "A baseline of Application Programming Interface access controls plus audit logging is insufficient for enterprise AI, because it does not verify prompt integrity, retrieval-boundary correctness, model provenance, deterministic tool mediation, or pre-action containment once a model can ingest untrusted content and invoke connected systems",
+          "sources": [
+            "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/"
+          ]
+        },
+        {
+          "text": "Prompt injection remains a structural risk rather than a filter-tuning problem, because authoritative sources and current research converge on the point that indirect content can still steer model behavior unless control flow, tool access, and approval boundaries are enforced outside the model itself",
+          "sources": [
+            "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2503.18813"
+          ]
+        },
+        {
+          "text": "Retrieval-Augmented Generation introduces a second security boundary beyond prompt injection, because poisoned documents, stale access-control metadata, embedding inversion, and retrieval-database membership leakage can all expose or reshape sensitive knowledge even when ordinary authentication is present",
+          "sources": [
+            "https://arxiv.org/abs/2310.06816",
+            "https://arxiv.org/abs/2405.20446",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html"
+          ]
+        },
+        {
+          "text": "Model supply chain security must be treated as a first-class enterprise capability, because compromised machine-learning dependencies and unsafe serialization formats have already created code-execution and exfiltration paths that ordinary access controls do not detect before model loading occurs",
+          "sources": [
+            "https://pytorch.org/blog/compromised-nightly-dependency/",
+            "https://huggingface.co/docs/hub/security-pickle",
+            "https://huggingface.co/blog/safetensors-security-audit"
+          ]
+        },
+        {
+          "text": "Data exfiltration control for enterprise AI has to be enforced at the agent-execution layer, because the decisive risk is whether the system can read sensitive data and send it through tools, triggers, or outbound connectors before a human or audit process reviews the event",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection",
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        },
+        {
+          "text": "The minimum additional control stack is separate machine identities, least-privilege delegation, prompt and document attack detection, permission-safe retrieval architecture, model-artifact provenance and scanning, deterministic egress controls, human approval for high-consequence actions, and runtime anomaly detection with halt or quarantine paths",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+            "https://huggingface.co/docs/hub/security-pickle",
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection",
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        },
+        {
+          "text": "The evidence base is strongest for indirect prompt injection telemetry, retrieval-leakage research, and machine-learning dependency compromise, while public evidence for large-scale nation-state use of these exact AI-native techniques remains materially thinner than the evidence for researchers, red teams, and opportunistic attackers",
+          "sources": [
+            "https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/",
+            "https://arxiv.org/abs/2405.20446",
+            "https://pytorch.org/blog/compromised-nightly-dependency/",
+            "https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html"
+          ]
+        },
+        {
+          "text": "In the enterprise AI capability model, security should no longer be a single generic domain, because the evidence supports at least four distinct security subdomains, prompt and retrieval boundary defense, identity-scoped execution control, model and connector supply-chain assurance, and runtime assurance",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
           ]
         }
       ]
