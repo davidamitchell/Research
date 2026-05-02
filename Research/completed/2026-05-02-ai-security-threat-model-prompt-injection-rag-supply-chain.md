@@ -2,12 +2,12 @@
 review_count: 2
 title: "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?"
 added: 2026-05-02T06:00:57+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [security, prompt-injection, rag, agentic-ai, llm, ai-governance, enterprise, access-control, supply-chain, runtime-monitoring]
 started: 2026-05-02T09:08:55+00:00
-completed: ~
+completed: 2026-05-02T09:28:33+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-03-15-prompt-injection-threat-landscape, 2026-04-22-enterprise-ai-capability-model, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-permission-safe-rag-enterprise-information-architecture, 2026-04-26-access-control-amplification-agentic-operations, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
 related: [2026-04-26-deployment-pipeline-citizen-development-governed-gate, 2026-04-26-systems-capability-debt-citizen-development-empirical-evidence, 2026-04-28-uelgf-tooling-reference-architecture]
