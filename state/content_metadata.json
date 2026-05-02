@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T00:39:00Z",
+  "extracted_at": "2026-05-02T00:54:59Z",
   "items": {
     "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks": {
       "named_concepts": [
@@ -77,6 +77,76 @@
         },
         {
           "text": "The best-supported harness design rule is minimal-by-default and explicit-by-exception: keep the core terminal interaction surface small and inspectable, and justify every extra helper with measured gains rather than assuming that more built-in tools will automatically improve outcomes. (; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.md)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-sustainable-ai-software-development-synthesis": {
+      "named_concepts": [
+        "bounded automation",
+        "core action",
+        "intermediate maturity",
+        "maturity stage",
+        "self-modifying behavior",
+        "end-to-end autonomy",
+        "opaque tool",
+        "tool abundance",
+        "verifier strength",
+        "change isolation",
+        "determine whether",
+        "human oversight",
+        "ai-assisted throughput",
+        "retrieved oss",
+        "accountability-first selective",
+        "selective openness",
+        "deployment gates",
+        "block promotion",
+        "two planned",
+        "task shape"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2601.11868",
+        "https://www.tbench.ai/leaderboard/terminal-bench/1.0",
+        "https://www.tbench.ai/leaderboard/terminal-bench/2.0",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en",
+        "https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md",
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest positive evidence for coding-agent use comes from bounded automation, not from end-to-end autonomy, and the winning task profile is locally scoped, objectively verifiable work with low downstream consequence and low reversibility cost. (; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md)",
+          "sources": []
+        },
+        {
+          "text": "TerminalBench leaderboards and context-curation evidence both favor harnesses whose core action and context surfaces stay small, explicit, and inspectable, while opaque tool abundance and hidden context mutation add reliability risk without guaranteed payoff. (; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)",
+          "sources": []
+        },
+        {
+          "text": "More than abstract model capability, verifier strength and change isolation determine whether delegation is reliable, with bounded tasks that have tests or rubrics outperforming long-context, multi-file, and high-coupling work. (; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md)",
+          "sources": []
+        },
+        {
+          "text": "For high-consequence work, human oversight still acts as the decisive quality gate, since review expertise, ownership, and maintenance responsibility outperform purely throughput-maximizing agent loops on cross-cutting or ambiguous changes. (; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md)",
+          "sources": []
+        },
+        {
+          "text": "Repository-scale studies show what happens when AI-assisted throughput outruns independent verification: warning load, duplication, complexity, and review burden rise, and maintainability debt grows instead of compounding durable productivity. (; medium confidence; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md)",
+          "sources": []
+        },
+        {
+          "text": "Across the retrieved OSS policy set, maintainers are moving toward accountability-first selective openness, using disclosure, small-change expectations, trust gates, and selective throttles to ration scarce review time instead of treating all AI-assisted submissions as equally reviewable. (; medium confidence; source: https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md)",
+          "sources": []
+        },
+        {
+          "text": "Deployment gates help only after policy, access, identity, and information-architecture prerequisites are machine-checkable and able to block promotion when the required evidence is missing. (; medium confidence; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md)",
+          "sources": []
+        },
+        {
+          "text": "Current evidence describes an intermediate maturity stage: harness and workflow design already show material outcome effects, yet extension-first and self-modifying architectures remain under-evidenced because the two dedicated primary items are still backlog-only. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)",
           "sources": []
         }
       ]

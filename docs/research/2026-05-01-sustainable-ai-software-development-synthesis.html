@@ -1,0 +1,800 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>What principles and governance practices enable sustainable, high-quality… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>What principles and governance practices enable sustainable, high-quality…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>What principles and governance practices enable sustainable, high-quality…</h1>
+  <p class="full-title-subtitle">What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?</p>
+  <div class="meta-bar">
+    <span>2026-05-01</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/open-source.html">open-source</a> <a class="tag" href="/Research/tags/human-ai-collaboration.html">human-ai-collaboration</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-synthesis">synthesis</span> <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-01-sustainable-ai-software-development-synthesis" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The strongest positive evidence for coding-agent use comes from bounded automation, not from end-to-end autonomy, and the winning task profile is locally scoped, objectively verifiable work with low downstream consequence and low reversibility cost. (; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md)</li>
+<li>TerminalBench leaderboards and context-curation evidence both favor harnesses whose core action and context surfaces stay small, explicit, and inspectable, while opaque tool abundance and hidden context mutation add reliability risk without guaranteed payoff. (; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)</li>
+<li>More than abstract model capability, verifier strength and change isolation determine whether delegation is reliable, with bounded tasks that have tests or rubrics outperforming long-context, multi-file, and high-coupling work. (; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md)</li>
+<li>For high-consequence work, human oversight still acts as the decisive quality gate, since review expertise, ownership, and maintenance responsibility outperform purely throughput-maximizing agent loops on cross-cutting or ambiguous changes. (; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md)</li>
+<li>Repository-scale studies show what happens when AI-assisted throughput outruns independent verification: warning load, duplication, complexity, and review burden rise, and maintainability debt grows instead of compounding durable productivity. (; medium confidence; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md)</li>
+<li>Across the retrieved OSS policy set, maintainers are moving toward accountability-first selective openness, using disclosure, small-change expectations, trust gates, and selective throttles to ration scarce review time instead of treating all AI-assisted submissions as equally reviewable. (; medium confidence; source: https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md)</li>
+<li>Deployment gates help only after policy, access, identity, and information-architecture prerequisites are machine-checkable and able to block promotion when the required evidence is missing. (; medium confidence; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md)</li>
+<li>Current evidence describes an intermediate maturity stage: harness and workflow design already show material outcome effects, yet extension-first and self-modifying architectures remain under-evidenced because the two dedicated primary items are still backlog-only. (; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What principles and governance practices, spanning harness design, task selection, human oversight, and open-source software (OSS) ecosystem health, enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents, and what does the current evidence say about where the field sits in its maturation arc?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Today, sustainable high-quality software development with Artificial Intelligence (AI) coding agents depends on bounded automation under explicit human and governance gates, not on broad end-to-end agent autonomy.</p>
+<p>Rather than maximizing built-in tooling, the strongest evidence-backed harness pattern keeps the core action surface and context state explicit, then adds helpers only when they justify themselves on real tasks.</p>
+<p>Verification capacity, not generation capacity, is the main sustainability bottleneck, since review, acceptance, and maintainer follow-through remain scarce while AI raises output volume.</p>
+<p>Taken together, the evidence points to an intermediate maturity stage: scoping, transparency, review, and intake governance already show recurring patterns, while self-modifying behavior and extension-first architectures still lack equally strong coverage.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The strongest positive evidence for coding-agent use comes from bounded automation, not from end-to-end autonomy, and the winning task profile is locally scoped, objectively verifiable work with low downstream consequence and low reversibility cost.</strong> ([inference]; medium confidence; source: <a href="https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/">GitHub (2026) Does GitHub Copilot improve code quality? Here&#39;s what the data says</a> <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic (2026) Claude Code best practices</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md">Mitchell (2026) What criteria define tasks where Artificial Intelligence coding agents reliably add value versus where they introduce systemic risk?</a></li>
+<li><strong>TerminalBench leaderboards and context-curation evidence both favor harnesses whose core action and context surfaces stay small, explicit, and inspectable, while opaque tool abundance and hidden context mutation add reliability risk without guaranteed payoff.</strong> ([inference]; medium confidence; source: <a href="https://www.tbench.ai/leaderboard/terminal-bench/1.0">Laude Institute (2026) Terminal-Bench 1.0 leaderboard</a> <a href="https://www.tbench.ai/leaderboard/terminal-bench/2.0">Laude Institute (2026) Terminal-Bench 2.0 leaderboard</a> <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic (2025) Effective context engineering for AI agents</a> <a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Zechner (2025) What I learned building an opinionated and minimal coding agent</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md">Mitchell (2026) What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a></li>
+<li><strong>More than abstract model capability, verifier strength and change isolation determine whether delegation is reliable, with bounded tasks that have tests or rubrics outperforming long-context, multi-file, and high-coupling work.</strong> ([inference]; medium confidence; source: <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">github.blog</a> <a href="https://arxiv.org/abs/2310.06770">arxiv.org/abs/2310.06770</a> <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic (2026) Claude Code best practices</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md">Mitchell (2026) What criteria define tasks where Artificial Intelligence coding agents reliably add value versus where they introduce systemic risk?</a></li>
+<li><strong>For high-consequence work, human oversight still acts as the decisive quality gate, since review expertise, ownership, and maintenance responsibility outperform purely throughput-maximizing agent loops on cross-cutting or ambiguous changes.</strong> ([inference]; medium confidence; source: <a href="https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf">www.research.ibm.com</a> <a href="https://link.springer.com/article/10.1007/s10664-015-9381-9">link.springer.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md">Mitchell (2026) Is human oversight a quality feature rather than a bottleneck in Artificial Intelligence-assisted software development?</a></li>
+<li><strong>Repository-scale studies show what happens when AI-assisted throughput outruns independent verification: warning load, duplication, complexity, and review burden rise, and maintainability debt grows instead of compounding durable productivity.</strong> ([inference]; medium confidence; source: <a href="https://arxiv.org/html/2511.04427v2">arxiv.org</a> <a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear (2025) AI assistant code quality 2025 research</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md">Mitchell (2026) How do local Artificial Intelligence coding gains turn into compound errors and codebase degradation over time?</a></li>
+<li><strong>Across the retrieved OSS policy set, maintainers are moving toward accountability-first selective openness, using disclosure, small-change expectations, trust gates, and selective throttles to ration scarce review time instead of treating all AI-assisted submissions as equally reviewable.</strong> ([inference]; medium confidence; source: <a href="https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md">Ghostty (2026) AI policy for open-source contributions</a> <a href="https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects">www.eff.org</a> <a href="https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en">The Linux Foundation (2023) Open Source Maintainers Report</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md">Mitchell (2026) How should open-source projects respond to AI-generated contribution overload without closing themselves to genuine newcomers?</a></li>
+<li><strong>Deployment gates help only after policy, access, identity, and information-architecture prerequisites are machine-checkable and able to block promotion when the required evidence is missing.</strong> ([inference]; medium confidence; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">csrc.nist.gov</a> <a href="https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/">aws.amazon.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md">Mitchell (2026) What dependency order best governs safe enterprise deployment of agentic Artificial Intelligence?</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md">Mitchell (2026) Is the deployment pipeline the strongest enforceable control point for governing citizen-developed agents in a Microsoft low-code estate?</a></li>
+<li><strong>Current evidence describes an intermediate maturity stage: harness and workflow design already show material outcome effects, yet extension-first and self-modifying architectures remain under-evidenced because the two dedicated primary items are still backlog-only.</strong> ([inference]; medium confidence; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md">Mitchell (2026) What are the design tradeoffs of self-modifying, malleable AI agent architectures versus fixed-architecture agents?</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md">Mitchell (2026) What design patterns govern effective extension and plugin systems for AI coding agent harnesses?</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md">Mitchell (2026) What does TerminalBench reveal about minimal toolsets and coding agent performance?</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md">Mitchell (2026) What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] Six completed primary items are enough to answer the main governance question even though two planned primary items remain unfinished. Justification: the completed items already cover benchmark design, context control, task shape, review, throughput, and ecosystem governance, which are the dominant control surfaces in the retrieved evidence.</li>
+<li>[assumption] Adjacent April 2026 governance items are used as qualification on shared control surfaces, not as substitutes for the missing primary items on self-modification and extension systems. Justification: they sharpen permission, pipeline, and systems-capability claims that the Pi-cluster items touch but do not explore in full.</li>
+<li>[assumption] Pi-related practitioner material is sufficient to mark malleability and extensibility as plausible future levers without treating them as proven maturity markers yet. Justification: the evidence available in this session is descriptive and design-philosophy heavy rather than comparative.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The completed evidence repeatedly separates bounded execution from open-ended judgment, which is why the most stable synthesis is about governance of task shape and verification rather than about which frontier model is &quot;best.&quot;</p>
+<p>Minimal harness evidence should not be read as anti-extensibility doctrine, because richer systems can outperform benchmark-native minimal agents when their extra structure is well engineered and justified by the workload.</p>
+<p>Positive local productivity studies and negative repository-scale quality studies are compatible once timescale changes, because the same acceleration that helps a bounded task can overwhelm review and maintenance capacity at the portfolio level.</p>
+<p>The main reason the maturation-arc claim stays moderate rather than strong is evidence distribution, not source contradiction, because the pending self-modification and extension-system items leave the part of the thesis focused on running-harness self-modification underdeveloped.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Two planned primary inputs remain backlog items, so the synthesis has weaker direct evidence on whether self-modifying or extension-first harnesses improve software quality rather than merely customization speed.</li>
+<li>Benchmark and field evidence remains much stronger for bounded coding tasks than for multi-session engineering work that spans external services, prolonged review loops, and deployment boundaries.</li>
+<li>Several governance conclusions rely on combining adjacent repository syntheses with official framework or platform material, so they are decision-useful but not equivalent to a single definitive longitudinal study of write-capable coding-agent deployment.</li>
+<li>The current evidence base is strongest on what to bound and gate, and weaker on which positive architecture patterns most reliably unlock safe autonomy beyond today's bounded-envelope use cases.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does hot-reload extensibility improve software quality outcomes, or does it mainly improve customization speed and local developer experience?</li>
+<li>Which measurable verifier-capacity metric best predicts when AI-assisted throughput becomes unsustainable for a team or repository?</li>
+<li>What benchmark best captures long-horizon engineering work that crosses review, integration, deployment, and rollback boundaries rather than only task completion inside a development environment?</li>
+<li>Which internal-team trust-gate patterns are the best analogue of OSS disclosure, vouch, and selective-throttle policies for high-volume AI-assisted change intake?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md">Mitchell (2026) What does TerminalBench reveal about minimal toolsets and coding agent performance?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md">Mitchell (2026) What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md">Mitchell (2026) What criteria define tasks where Artificial Intelligence coding agents reliably add value versus where they introduce systemic risk?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md">Mitchell (2026) Is human oversight a quality feature rather than a bottleneck in Artificial Intelligence-assisted software development?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md">Mitchell (2026) How do local Artificial Intelligence coding gains turn into compound errors and codebase degradation over time?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md">Mitchell (2026) How should open-source projects respond to AI-generated contribution overload without closing themselves to genuine newcomers?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md">Mitchell (2026) Which public benchmarks and evidence sources best evaluate Artificial Intelligence coding harness quality?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.md">Mitchell (2026) Is systems capability debt the missing link between shadow IT, citizen development, and agentic Artificial Intelligence risk?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md">Mitchell (2026) Does agentic operation amplify access-control risk beyond what existing frameworks already assume?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-permission-safe-rag-enterprise-information-architecture.md">Mitchell (2026) What must be true about an enterprise information architecture before permission-safe Retrieval-Augmented Generation (RAG) can work?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.md">Mitchell (2026) Do current control frameworks explicitly account for the removal of implicit human rate-limiting in agentic systems?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md">Mitchell (2026) Is the deployment pipeline the strongest enforceable control point for governing citizen-developed agents in a Microsoft low-code estate?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md">Mitchell (2026) What dependency order best governs safe enterprise deployment of agentic Artificial Intelligence?</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2601.11868">Merrill et al. (2026) Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces</a></li>
+<li>[x] <a href="https://www.tbench.ai/leaderboard/terminal-bench/1.0">Laude Institute (2026) Terminal-Bench 1.0 leaderboard</a></li>
+<li>[x] <a href="https://www.tbench.ai/leaderboard/terminal-bench/2.0">Laude Institute (2026) Terminal-Bench 2.0 leaderboard</a></li>
+<li>[x] <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic (2025) Effective context engineering for AI agents</a></li>
+<li>[x] <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Anthropic (2026) Claude Code best practices</a></li>
+<li>[x] <a href="https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/">GitHub (2026) Does GitHub Copilot improve code quality? Here's what the data says</a></li>
+<li>[x] <a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear (2025) AI assistant code quality 2025 research</a></li>
+<li>[x] <a href="https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en">The Linux Foundation (2023) Open Source Maintainers Report</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md">Ghostty (2026) AI policy for open-source contributions</a></li>
+<li>[x] <a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Zechner (2025) What I learned building an opinionated and minimal coding agent</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md">Mitchell (2026) What are the design tradeoffs of self-modifying, malleable AI agent architectures versus fixed-architecture agents?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md">Mitchell (2026) What design patterns govern effective extension and plugin systems for AI coding agent harnesses?</a></li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-01-human-oversight-ai-software-development.html">What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?</a> <span class="related-note">via agentic-ai, agentic-coding, governance, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-appropriate-task-selection-coding-agents.html">What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?</a> <span class="related-note">via agentic-ai, agentic-coding, governance, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-oss-sustainability-ai-generated-contributions.html">What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?</a> <span class="related-note">via agentic-ai, governance, open-source</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-compound-error-accumulation-ai-codebases.html">How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?</a> <span class="related-note">via agentic-ai, agentic-coding, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-ubiquitous-language-ai-code-consistency.html">Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence</a> <span class="related-note">via agentic-ai, agentic-coding, software-engineering</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html">What does TerminalBench reveal about minimal toolsets and coding agent performance?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-coding-agent-context-management-transparency.html">What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-appropriate-task-selection-coding-agents.html">What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-human-oversight-ai-software-development.html">What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-compound-error-accumulation-ai-codebases.html">How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-oss-sustainability-ai-generated-contributions.html">What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html">Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html">Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.html">Dependency ordering of foundational conditions for safe agentic Artificial Intelligence (AI) deployment: the prerequisite graph and the regulatory consequence of deploying at any layer before the layer below it is satisfied</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-22-agents-as-finishers-and-synthesisers.html">Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html">What does TerminalBench reveal about minimal toolsets and coding agent…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-01-oss-sustainability-ai-generated-contributions.html">AI-generated low-quality contributions at scale?</a></div>
+  </div>
+</main>
+</body>
+</html>
