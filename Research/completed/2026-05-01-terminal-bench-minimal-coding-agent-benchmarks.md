@@ -8,14 +8,19 @@ blocks: []
 tags: [agentic-ai, agentic-coding, agent-tooling, evaluation, llm]
 started: 2026-05-02T00:06:44+00:00
 completed: 2026-05-02T00:28:54+00:00
-output: []
+output: [knowledge]
 cites: [2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-coding-agent-context-management-transparency]
 related: [2026-03-08-ai-coding-harnesses-agent-philosophy]
 superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "009c313b3d8fff2a88b115d0034ffce08e7e6b40"
+    changed: 2026-05-02
+    progress: "progress/2026-05-02-terminal-bench-minimal-coding-agent-benchmarks.md"
+    summary: "Initial completion"
 ---
 
 # What does TerminalBench reveal about minimal toolsets and coding agent performance?
