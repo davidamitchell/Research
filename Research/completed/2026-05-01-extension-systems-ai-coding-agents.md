@@ -2,12 +2,12 @@
 review_count: 2
 title: "What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?"
 added: 2026-05-01T08:17:39+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [agentic-ai, agent-tooling, agentic-coding, llm, developer-tooling]
 started: 2026-05-02T00:55:44+00:00
-completed: ~
+completed: 2026-05-02T01:15:27+00:00
 output: [knowledge]
 cites: [2026-05-01-coding-agent-context-management-transparency, 2026-05-01-sustainable-ai-software-development-synthesis, 2026-04-26-access-control-amplification-agentic-operations, 2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 related: [2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-terminal-bench-minimal-coding-agent-benchmarks, 2026-05-01-ai-coding-harness-quality-benchmarks]
