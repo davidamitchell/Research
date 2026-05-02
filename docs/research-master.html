@@ -666,7 +666,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-05-02 00:30 UTC</p>
+<p>Generated on: 2026-05-02 01:16 UTC</p>
 <p><a id="2026-05-01-terminal-bench-minimal-coding-agent-benchmarks-md"></a></p>
 <h2>What does TerminalBench reveal about minimal toolsets and coding agent performance?</h2>
 <p><strong>Tags:</strong> [agentic-ai, agentic-coding, agent-tooling, evaluation, llm]</p>
@@ -777,6 +777,117 @@ main {
 <li>Would a controlled benchmark ablation over tool-count, prompt size, and hidden context injection replicate the public leaderboard pattern?</li>
 <li>How much of the installed-agent penalty is due to packaging friction versus cognitive overhead from richer tool surfaces?</li>
 <li>Should a future research item compare benchmark-native minimal wrappers with intentionally transparent richer wrappers to identify the best small-but-sufficient design?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-05-01-sustainable-ai-software-development-synthesis-md"></a></p>
+<h2>What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?</h2>
+<p><strong>Tags:</strong> [agentic-ai, agentic-coding, software-engineering, governance, code-quality, open-source, human-ai-collaboration]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md</p>
+<h2>Research Question</h2>
+<p>What principles and governance practices, spanning harness design, task selection, human oversight, and open-source software (OSS) ecosystem health, enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents, and what does the current evidence say about where the field sits in its maturation arc?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Today, sustainable high-quality software development with Artificial Intelligence (AI) coding agents depends on bounded automation under explicit human and governance gates, not on broad end-to-end agent autonomy. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]</p>
+<p>Rather than maximizing built-in tooling, the strongest evidence-backed harness pattern keeps the core action surface and context state explicit, then adds helpers only when they justify themselves on real tasks. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md]</p>
+<p>Verification capacity, not generation capacity, is the main sustainability bottleneck, since review, acceptance, and maintainer follow-through remain scarce while AI raises output volume. [inference; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en]</p>
+<p>Taken together, the evidence points to an intermediate maturity stage: scoping, transparency, review, and intake governance already show recurring patterns, while self-modifying behavior and extension-first architectures still lack equally strong coverage. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md]</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The strongest positive evidence for coding-agent use comes from bounded automation, not from end-to-end autonomy, and the winning task profile is locally scoped, objectively verifiable work with low downstream consequence and low reversibility cost.</strong> ([inference]; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md)</li>
+<li><strong>TerminalBench leaderboards and context-curation evidence both favor harnesses whose core action and context surfaces stay small, explicit, and inspectable, while opaque tool abundance and hidden context mutation add reliability risk without guaranteed payoff.</strong> ([inference]; medium confidence; source: https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)</li>
+<li><strong>More than abstract model capability, verifier strength and change isolation determine whether delegation is reliable, with bounded tasks that have tests or rubrics outperforming long-context, multi-file, and high-coupling work.</strong> ([inference]; medium confidence; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md)</li>
+<li><strong>For high-consequence work, human oversight still acts as the decisive quality gate, since review expertise, ownership, and maintenance responsibility outperform purely throughput-maximizing agent loops on cross-cutting or ambiguous changes.</strong> ([inference]; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md)</li>
+<li><strong>Repository-scale studies show what happens when AI-assisted throughput outruns independent verification: warning load, duplication, complexity, and review burden rise, and maintainability debt grows instead of compounding durable productivity.</strong> ([inference]; medium confidence; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md)</li>
+<li><strong>Across the retrieved OSS policy set, maintainers are moving toward accountability-first selective openness, using disclosure, small-change expectations, trust gates, and selective throttles to ration scarce review time instead of treating all AI-assisted submissions as equally reviewable.</strong> ([inference]; medium confidence; source: https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md)</li>
+<li><strong>Deployment gates help only after policy, access, identity, and information-architecture prerequisites are machine-checkable and able to block promotion when the required evidence is missing.</strong> ([inference]; medium confidence; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md)</li>
+<li><strong>Current evidence describes an intermediate maturity stage: harness and workflow design already show material outcome effects, yet extension-first and self-modifying architectures remain under-evidenced because the two dedicated primary items are still backlog-only.</strong> ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Sustainable use currently means bounded automation rather than end-to-end autonomy.</td>
+<td>https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md</td>
+<td>medium</td>
+<td>Converges across field data, guidance, and prior synthesis</td>
+</tr>
+<tr>
+<td>[inference] Small explicit harness surfaces are more sustainable than opaque tool abundance.</td>
+<td>https://www.tbench.ai/leaderboard/terminal-bench/1.0; https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/</td>
+<td>medium</td>
+<td>Competitive minimal baselines, not universal dominance</td>
+</tr>
+<tr>
+<td>[inference] Verifier strength and change isolation dominate reliable delegation.</td>
+<td>https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://arxiv.org/abs/2310.06770; https://www.anthropic.com/engineering/claude-code-best-practices</td>
+<td>medium</td>
+<td>Strong agreement on bounded, checked work</td>
+</tr>
+<tr>
+<td>[inference] Human oversight remains the decisive gate on high-consequence work.</td>
+<td>https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-human-oversight-ai-software-development.md</td>
+<td>medium</td>
+<td>Review evidence stronger than AI-only replacement evidence</td>
+</tr>
+<tr>
+<td>[inference] Verification-capacity limits drive compound quality decay under high throughput.</td>
+<td>https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-compound-error-accumulation-ai-codebases.md</td>
+<td>medium</td>
+<td>Repository-scale evidence, not one definitive randomized trial</td>
+</tr>
+<tr>
+<td>[inference] The retrieved OSS evidence converges on accountability-first selective openness.</td>
+<td>https://raw.githubusercontent.com/ghostty-org/ghostty/main/AI_POLICY.md; https://www.eff.org/deeplinks/2026/02/effs-policy-llm-assisted-contributions-our-open-source-projects; https://project.linuxfoundation.org/hubfs/LF%20Research/Open%20Source%20Maintainers%202023%20-%20Report.pdf?hsLang=en</td>
+<td>medium</td>
+<td>Retrieved-policy convergence, not a field census</td>
+</tr>
+<tr>
+<td>[inference] Governance prerequisites determine whether deployment gates can block promotion effectively.</td>
+<td>https://csrc.nist.gov/pubs/sp/800/207/final; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md</td>
+<td>medium</td>
+<td>Shared governance-surface synthesis</td>
+</tr>
+<tr>
+<td>[inference] The current maturation arc is intermediate because design effects are evident while self-modifying behavior evidence is still missing.</td>
+<td>https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md</td>
+<td>medium</td>
+<td>Evidence-coverage claim, not a universal maturity taxonomy</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] Six completed primary items are enough to answer the main governance question even though two planned primary items remain unfinished. Justification: the completed items already cover benchmark design, context control, task shape, review, throughput, and ecosystem governance, which are the dominant control surfaces in the retrieved evidence.</li>
+<li>[assumption] Adjacent April 2026 governance items are used as qualification on shared control surfaces, not as substitutes for the missing primary items on self-modification and extension systems. Justification: they sharpen permission, pipeline, and systems-capability claims that the Pi-cluster items touch but do not explore in full.</li>
+<li>[assumption] Pi-related practitioner material is sufficient to mark malleability and extensibility as plausible future levers without treating them as proven maturity markers yet. Justification: the evidence available in this session is descriptive and design-philosophy heavy rather than comparative.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The completed evidence repeatedly separates bounded execution from open-ended judgment, which is why the most stable synthesis is about governance of task shape and verification rather than about which frontier model is &quot;best.&quot; [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://www.anthropic.com/engineering/claude-code-best-practices; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]</p>
+<p>Minimal harness evidence should not be read as anti-extensibility doctrine, because richer systems can outperform benchmark-native minimal agents when their extra structure is well engineered and justified by the workload. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md]</p>
+<p>Positive local productivity studies and negative repository-scale quality studies are compatible once timescale changes, because the same acceleration that helps a bounded task can overwhelm review and maintenance capacity at the portfolio level. [inference; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research]</p>
+<p>The main reason the maturation-arc claim stays moderate rather than strong is evidence distribution, not source contradiction, because the pending self-modification and extension-system items leave the part of the thesis focused on running-harness self-modification underdeveloped. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Two planned primary inputs remain backlog items, so the synthesis has weaker direct evidence on whether self-modifying or extension-first harnesses improve software quality rather than merely customization speed. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md]</li>
+<li>Benchmark and field evidence remains much stronger for bounded coding tasks than for multi-session engineering work that spans external services, prolonged review loops, and deployment boundaries. [inference; source: https://www.tbench.ai/leaderboard/terminal-bench/2.0; https://www.swebench.com/verified.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md]</li>
+<li>Several governance conclusions rely on combining adjacent repository syntheses with official framework or platform material, so they are decision-useful but not equivalent to a single definitive longitudinal study of write-capable coding-agent deployment. [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md]</li>
+<li>The current evidence base is strongest on what to bound and gate, and weaker on which positive architecture patterns most reliably unlock safe autonomy beyond today's bounded-envelope use cases. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.md; https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-self-modifying-agent-architectures.md]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does hot-reload extensibility improve software quality outcomes, or does it mainly improve customization speed and local developer experience? [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-01-extension-systems-ai-coding-agents.md; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/]</li>
+<li>Which measurable verifier-capacity metric best predicts when AI-assisted throughput becomes unsustainable for a team or repository? [inference; source: https://arxiv.org/html/2511.04427v2; https://www.gitclear.com/ai_assistant_code_quality_2025_research]</li>
+<li>What benchmark best captures long-horizon engineering work that crosses review, integration, deployment, and rollback boundaries rather than only task completion inside a development environment? [inference; source: https://www.swebench.com/verified.html; https://www.tbench.ai/leaderboard/terminal-bench/2.0]</li>
+<li>Which internal-team trust-gate patterns are the best analogue of OSS disclosure, vouch, and selective-throttle policies for high-volume AI-assisted change intake? [inference; source: https://github.com/mitchellh/vouch; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-oss-sustainability-ai-generated-contributions.md]</li>
 </ul>
 <hr />
 <hr />
@@ -1092,6 +1203,124 @@ main {
 <li>How much of the ownership effect comes from specialized technical knowledge versus accountability for future maintenance work? [inference; source: https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/; https://doi.org/10.1145/1985793.1985860]</li>
 <li>At what repository scale or weekly change volume does Artificial Intelligence-assisted output begin to outrun realistic expert verification capacity in practice? [inference; source: https://arxiv.org/abs/2310.06770; https://arxiv.org/html/2511.04427v2]</li>
 <li>Which exact review protocol for critical Artificial Intelligence-assisted changes yields the best quality-cost trade-off: full line-by-line review, checklist-based review, or smaller mandatory change slices with repeated review? [inference; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://www.anthropic.com/engineering/claude-code-best-practices]</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-05-01-extension-systems-ai-coding-agents-md"></a></p>
+<h2>What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?</h2>
+<p><strong>Tags:</strong> [agentic-ai, agent-tooling, agentic-coding, llm, developer-tooling]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-extension-systems-ai-coding-agents.md</p>
+<h2>Research Question</h2>
+<p>What design patterns and architectural principles govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses, and what are the key trade-offs between extensibility, safety, and developer experience?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Effective extension systems for AI coding harnesses use a small trusted kernel with explicit extension points rather than encouraging harness forks or hidden mutation surfaces, because inversion of control, manifest-declared contributions, and typed lifecycle hooks let the host stay stable while extensions vary. [inference; source: https://martinfowler.com/articles/injection.html; https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html; https://code.visualstudio.com/api/references/contribution-points; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md]</p>
+<p>The minimum useful extension surface for an AI harness is broader than ordinary editor plugins, because tools, commands, lifecycle hooks, session state, compaction hooks, and model-provider transport all shape agent behavior inside a live session. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://docs.anthropic.com/en/docs/claude-code/hooks]</p>
+<p>Hot reload is valuable only when teardown, rebind, and state reconstruction are explicit, because Pi's reload warnings and JetBrains' dynamic-plugin restrictions both show stale references and leaked resources as the governing failure modes. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html]</p>
+<p>The central trade-off is that every gain in expressiveness widens the trust surface, so mature systems compensate with lazy activation, runtime isolation, permission manifests, namespacing, and higher-order governance gates rather than with unrestricted plugin power alone. [inference; source: https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md]</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The best extension architectures keep a small stable host kernel and invert control at explicit extension points, because hosts that instantiate concrete integrations directly become harder to evolve, govern, and reload safely.</strong> ([inference]; medium confidence; source: https://martinfowler.com/articles/injection.html; https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html; https://code.visualstudio.com/api/references/contribution-points)</li>
+<li><strong>An Artificial Intelligence coding harness needs a richer extension surface than a conventional editor when it aims to adapt in-session, because tools, commands, lifecycle hooks, session state, compaction, and model-provider transport all influence agent behavior.</strong> ([inference]; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://docs.anthropic.com/en/docs/claude-code/hooks)</li>
+<li><strong>Hot reload remains most dependable when extensions teardown and rebuild state explicitly, and both Pi and JetBrains documentation warn that stale references, leaked resources, and old call frames can survive reload boundaries if the lifecycle is underspecified.</strong> ([inference]; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)</li>
+<li><strong>Safety controls should default to capability boundaries and lazy activation rather than trust-by-convention, because Chrome, VS Code, and JetBrains all narrow extension blast radius with permissions, runtime separation, or dynamic-plugin constraints.</strong> ([inference]; medium confidence; source: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)</li>
+<li><strong>Declarative metadata is a core part of extension safety and usability rather than mere packaging overhead, because manifests, contribution points, activation events, and namespacing support discovery, lazy load, review, and conflict reduction before arbitrary code executes.</strong> ([inference]; medium confidence; source: https://code.visualstudio.com/api/references/contribution-points; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://docs.anthropic.com/en/docs/claude-code/plugins)</li>
+<li><strong>Pi documents a live-session extension surface that spans built-in tool overrides, provider-transport rewrites, tool-call interception, compaction customization, and hot reload from project directories.</strong> ([fact]; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md)</li>
+<li><strong>Claude Code hooks are intentionally narrower than Pi-style in-process extensions, because they center on event-triggered shell, HTTP, or prompt handlers with allow-or-deny control, while plugins mainly package those capabilities for reuse and distribution.</strong> ([inference]; medium confidence; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://docs.anthropic.com/en/docs/claude-code/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md)</li>
+<li><strong>VS Code documents an ecosystem-scale extension governance model that pairs broad contribution surfaces with multiple extension hosts, lazy activation, browser-sandboxed web extensions, publication tooling, user-experience guidance, and sample repositories.</strong> ([fact]; medium confidence; source: https://code.visualstudio.com/api; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://code.visualstudio.com/api/ux-guidelines/overview; https://github.com/microsoft/vscode-extension-samples)</li>
+<li><strong>For enterprise coding-agent deployment, extension systems should be treated as governed control surfaces rather than harmless customization, because provider overrides, remote tool delegation, and request rewriting can amplify existing access, identity, and deployment risks.</strong> ([inference]; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Stable kernels plus explicit extension points outperform direct host-to-plugin coupling.</td>
+<td>https://martinfowler.com/articles/injection.html; https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html; https://code.visualstudio.com/api/references/contribution-points</td>
+<td>medium</td>
+<td>Architectural synthesis</td>
+</tr>
+<tr>
+<td>[inference] AI harnesses need tools, commands, lifecycle hooks, summaries, and provider transport in their extension surface.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://docs.anthropic.com/en/docs/claude-code/hooks</td>
+<td>medium</td>
+<td>Harness-specific claim</td>
+</tr>
+<tr>
+<td>[inference] Reliable reload depends on teardown and state reconstruction.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html</td>
+<td>medium</td>
+<td>Comparative lifecycle inference</td>
+</tr>
+<tr>
+<td>[inference] Capability boundaries and lazy activation are safer defaults than unrestricted trust.</td>
+<td>https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html</td>
+<td>medium</td>
+<td>Comparator-supported safety pattern</td>
+</tr>
+<tr>
+<td>[inference] Declarative metadata improves both usability and governance.</td>
+<td>https://code.visualstudio.com/api/references/contribution-points; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://docs.anthropic.com/en/docs/claude-code/plugins</td>
+<td>medium</td>
+<td>Discovery and control claim</td>
+</tr>
+<tr>
+<td>[fact] Pi documents a live-session extension surface spanning tools, provider transport, compaction, and hot reload.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md</td>
+<td>medium</td>
+<td>First-party surface description</td>
+</tr>
+<tr>
+<td>[inference] Claude hooks are narrower than Pi-style runtime extensions even though plugins improve packaging.</td>
+<td>https://docs.anthropic.com/en/docs/claude-code/hooks; https://docs.anthropic.com/en/docs/claude-code/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md</td>
+<td>medium</td>
+<td>Packaging does not erase runtime-surface difference</td>
+</tr>
+<tr>
+<td>[fact] VS Code documents an ecosystem-scale governance model with multiple hosts, lazy activation, web sandboxing, and publication guidance.</td>
+<td>https://code.visualstudio.com/api; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://code.visualstudio.com/api/ux-guidelines/overview; https://github.com/microsoft/vscode-extension-samples</td>
+<td>medium</td>
+<td>First-party governance description</td>
+</tr>
+<tr>
+<td>[inference] Extension systems become governed control surfaces once they can alter tools, providers, or execution paths.</td>
+<td>https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md</td>
+<td>medium</td>
+<td>Same-repo governance qualifier plus external surface evidence</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Public platform documentation is sufficient to extract the dominant extension-system design patterns. <strong>Justification:</strong> The question is architectural, and the first-party manuals explicitly describe extension surfaces, lifecycle hooks, and runtime boundaries.</li>
+<li><strong>Assumption:</strong> Pi's documented extension model is representative enough to analyze live-session extensibility even though the product may evolve after this snapshot. <strong>Justification:</strong> The retrieved evidence includes a creator blog post plus maintained extension, provider, and compaction manuals.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Across the retrieved systems, explicit boundaries appear more consistently than raw plugin count as the decisive design pattern. Fowler, JetBrains, and VS Code all converge on the same structural move: keep the host stable, define named extension points, and let the host decide when and how extensions load. [inference; source: https://martinfowler.com/articles/injection.html; https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html; https://code.visualstudio.com/api/references/contribution-points]</p>
+<p>Pi demonstrates why AI harnesses stretch ordinary plugin design. Once tools, model transport, compaction, and prompt-adjacent events are all mutable at runtime, the extension surface becomes part of the agent's operating model rather than an add-on to it. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md]</p>
+<p>That added power explains the safety gap between Pi and the comparison platforms. Chrome and VS Code place more of the trust negotiation into permissions, host isolation, and activation control, while Pi places more responsibility on extension authors and host-level governance choices. [inference; source: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md]</p>
+<p>The prior repository findings on context transparency and foundational governance fit this result cleanly: extensibility is beneficial when it keeps mutable behavior visible and auditable, and it becomes dangerous when it silently alters the control surfaces that identity, access, and deployment policy depend on. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The retrieved evidence is rich on architecture and platform mechanics but thin on controlled outcome studies that isolate extension-system design as an independent variable in coding-agent quality or productivity. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://code.visualstudio.com/api; https://docs.anthropic.com/en/docs/claude-code/hooks]</li>
+<li>Pi's current documentation shows a very powerful extension surface, but it does not by itself prove how well that model scales under third-party ecosystem growth, multi-user governance, or adversarial extensions. [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md]</li>
+<li>Claude Code's broader plugin story includes skills, agents, and Model Context Protocol (MCP) servers, so the comparison here should be read specifically as a comparison of the documented hook surface against Pi and VS Code extension APIs, not as a claim that Claude Code lacks any extension story at all. [fact; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://docs.anthropic.com/en/docs/claude-code/plugins]</li>
+<li>Same-repository governance items are used to qualify shared control-surface risks, not to substitute for external evidence about VS Code, Chrome, JetBrains, or Claude internals. [assumption]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does live extension authoring inside a running coding harness improve software-quality outcomes, or does it mainly improve local customization speed and developer satisfaction? [inference; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://mariozechner.at/posts/2025-11-30-pi-coding-agent/]</li>
+<li>What is the smallest permission model that meaningfully reduces extension blast radius in AI harnesses without making custom tools or provider adapters unusably hard to build? [inference; source: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md]</li>
+<li>Which extension-surface metrics would best predict when a harness should stay hook-oriented rather than graduating to a full plugin or runtime-extension model? [inference; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://docs.anthropic.com/en/docs/claude-code/plugins; https://code.visualstudio.com/api/references/contribution-points]</li>
+<li>How should deployment gates review or sign off extension changes that alter tools, provider transport, or request payload serialization in enterprise coding harnesses? [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md]</li>
 </ul>
 <hr />
 <hr />
