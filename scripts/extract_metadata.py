@@ -426,16 +426,29 @@ def extract_source_urls(sources_text: str, exclude_repo: str) -> list[str]:
 
 
 def _extract_sources_from_line(line: str) -> list[str]:
-    """Extract all https:// source URLs from [...] brackets that contain a 'source:' key."""
+    """Extract all https:// source URLs from [...] brackets or (...) parentheticals containing a 'source:' key.
+
+    Handles both the prefix bracket format ``[inference; source: URL]`` and the
+    suffix parenthetical format ``([inference]; medium confidence; source: URL)``.
+    """
     sources: list[str] = []
-    for bracket_match in re.finditer(r"\[([^\]]+)\]", line):
-        content = bracket_match.group(1)
+
+    def _collect_urls(content: str) -> None:
         if not re.search(r"\bsource\s*:", content, re.IGNORECASE):
-            continue
+            return
         for url_match in re.finditer(r"https?://\S+", content):
             url = url_match.group(0).rstrip(".,;)")
             if url and url not in sources:
                 sources.append(url)
+
+    # Search in [...] brackets (prefix format: [inference; source: URL])
+    for m in re.finditer(r"\[([^\]]+)\]", line):
+        _collect_urls(m.group(1))
+
+    # Search in (...) parentheticals (suffix format: ([inference]; confidence; source: URL))
+    for m in re.finditer(r"\(([^)]+)\)", line):
+        _collect_urls(m.group(1))
+
     return sources
 
 
@@ -466,10 +479,11 @@ def _extract_key_claims_fallback(findings_text: str) -> list[dict]:
 def extract_key_claims(findings_text: str) -> list[dict]:
     """Extract key claims with source URLs from the ### Key Findings subsection.
 
-    Handles three bullet formats produced by the research loop:
+    Handles four bullet formats produced by the research loop:
       1. ``1. **Claim text.** (confidence level)``  — older style
       2. ``1. **High confidence.** [source; URL] Claim text``  — mid-era style
       3. ``1. [source; URL] **Medium confidence:** Claim text``  — current style
+      4. ``1. **Claim text.** ([inference]; medium confidence; source: URL)``  — suffix style
 
     Returns a list of dicts: ``{"text": str, "sources": [url, ...]}``.
     """
@@ -485,7 +499,7 @@ def extract_key_claims(findings_text: str) -> list[dict]:
         # Match any numbered or bulleted list item
         if not re.match(r"^\s*(\d+\.\s+|-\s+)", line):
             continue
-        # Capture source URLs before stripping brackets
+        # Capture source URLs before stripping brackets/parens
         sources = _extract_sources_from_line(line)
         # Strip list marker
         text = re.sub(r"^\s*\d+\.\s+", "", line)
@@ -497,8 +511,17 @@ def extract_key_claims(findings_text: str) -> list[dict]:
         text = _CONFIDENCE_LABEL_RE.sub("", text)
         # Strip any remaining bold markers
         text = re.sub(r"\*\*", "", text)
-        # Strip trailing parenthetical confidence labels, e.g. "(high confidence)"
-        text = re.sub(r"\s*\((high|medium|low)\s+confidence\)\s*$", "", text, flags=re.IGNORECASE)
+        # Strip trailing parenthetical confidence+source annotations.
+        # Handles both the simple "(high confidence)" form and the suffix form
+        # "(; medium confidence; source: URL1; URL2)" that remains after bracket removal
+        # strips the embedded [inference] token from the opening "[inference]" fragment.
+        # The broader pattern covers both forms via [;,\s]* before the confidence keyword.
+        text = re.sub(
+            r"\s*\([;,\s]*(?:high|medium|low)\s+confidence[^)]*\)\s*$",
+            "",
+            text,
+            flags=re.IGNORECASE,
+        )
         text = text.strip().rstrip(".")
         if text:
             claims.append({"text": text, "sources": sources})

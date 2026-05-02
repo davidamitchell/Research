@@ -1101,10 +1101,22 @@ def strip_evidence_map_table(text: str) -> str:
 
 
 # Regex for inline evidence source labels: [inference; source: ...], [fact; source: ...],
-# [assumption; source: ...].  Only matches the semicolon-source form, not bare [inference] /
-# [fact] / [assumption] labels used in older items which have a different meaning in context.
+# [assumption; source: ...].  Also matches the mid-era form that includes a confidence
+# keyword: [inference; confidence: medium; source: ...].
+# Only matches the semicolon-source form, not bare [inference] / [fact] / [assumption]
+# labels used in older items which have a different meaning in context.
 _EVIDENCE_SOURCE_LABEL_RE = re.compile(
-    r"\[(?:inference|fact|assumption);\s*source:[^\]]+\]\s*",
+    r"\[(?:inference|fact|assumption)(?:;\s*confidence:\s*(?:high|medium|low))?;\s*source:[^\]]+\]\s*",
+    re.IGNORECASE,
+)
+
+# Regex for the current suffix-style Key Finding citation annotation:
+#   ``([inference]; medium confidence; source: URL1; URL2)``
+# This trailing parenthetical appears at the end of numbered/bulleted Key Finding items
+# and must be stripped so the rendered HTML shows clean claim text with separate citation
+# links rather than raw annotation text.
+_KEY_FINDING_SUFFIX_RE = re.compile(
+    r"\s*\(\[?(?:inference|fact|assumption)\]?;?\s*(?:high|medium|low)\s+confidence;\s*source:[^)]+\)\s*$",
     re.IGNORECASE,
 )
 
@@ -1112,14 +1124,19 @@ _EVIDENCE_SOURCE_LABEL_RE = re.compile(
 def strip_evidence_labels(text: str) -> str:
     """Strip inline ``[type; source: ...]`` evidence labels from markdown section content.
 
-    Two cases handled:
+    Three cases handled:
 
     1. A non-list paragraph line that *starts* with an evidence label is split on label
        boundaries; each non-empty text fragment becomes a ``- `` bullet item so the
        Executive Summary and Analysis sections render as readable lists.
 
     2. All other lines (list items, headings, table rows, mixed-content lines) have
-       embedded labels stripped in-place, leaving the surrounding text intact.
+       embedded ``[type; source: ...]`` labels stripped in-place, leaving the surrounding
+       text intact.
+
+    3. Numbered/bulleted list items that end with a suffix-style Key Finding citation
+       ``([inference]; medium confidence; source: URL)`` have that trailing annotation
+       stripped, leaving only the clean claim text.
     """
     lines = text.split("\n")
     result: list[str] = []
@@ -1152,8 +1169,11 @@ def strip_evidence_labels(text: str) -> str:
                 if seg:
                     result.append(f"- {seg}")
         else:
-            # List items and inline occurrences: strip labels in-place.
-            result.append(_EVIDENCE_SOURCE_LABEL_RE.sub("", line))
+            # List items and inline occurrences: strip prefix labels in-place,
+            # then strip any trailing suffix-style Key Finding citation annotation.
+            line = _EVIDENCE_SOURCE_LABEL_RE.sub("", line)
+            line = _KEY_FINDING_SUFFIX_RE.sub("", line)
+            result.append(line)
 
     return "\n".join(result)
 
