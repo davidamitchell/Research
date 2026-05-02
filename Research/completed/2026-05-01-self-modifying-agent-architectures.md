@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a8cf846f7ca9c60d0657f6f6796582993e63ce36
+    changed: 2026-05-02
+    progress: progress/2026-05-02-self-modifying-agent-architectures.md
+    summary: "Initial completion"
 ---
 
 # What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?
