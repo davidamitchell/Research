@@ -1,6 +1,113 @@
 {
-  "extracted_at": "2026-05-02T02:00:58Z",
+  "extracted_at": "2026-05-02T02:21:45Z",
   "items": {
+    "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model": {
+      "named_concepts": [
+        "partial partial",
+        "microsoft copilot",
+        "enterprise problem",
+        "family boundaries",
+        "github copilot",
+        "compensating control",
+        "control required",
+        "copilot family",
+        "github family",
+        "aws bedrock",
+        "github models",
+        "modular runtime",
+        "layered multi-family",
+        "adjacent controls",
+        "control surface",
+        "bedrock ecosystem",
+        "strongest fit",
+        "microsoft graph",
+        "actions github",
+        "adjacent admin"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview",
+        "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+        "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide",
+        "https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about",
+        "https://learn.microsoft.com/en-us/purview/audit-copilot",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide",
+        "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
+        "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization",
+        "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide",
+        "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide",
+        "https://docs.github.com/en/copilot/concepts/policies",
+        "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies",
+        "https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics",
+        "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs",
+        "https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security",
+        "https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models",
+        "https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale",
+        "https://docs.github.com/en/actions/get-started/understand-github-actions",
+        "https://github.blog/news-insights/product-news/github-copilot-workspace/",
+        "https://githubnext.com/projects/copilot-workspace/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/strands-agents.html",
+        "https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://www.iso.org/standard/81230.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ms-copilot-cowork.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A regulated-enterprise AI capability model needs at least 22 control domains across foundation, delivery, runtime, security, governance, and economics, and no single family in this comparison covers them all natively. (; high confidence; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html)",
+          "sources": []
+        },
+        {
+          "text": "Under the family boundaries used in this item, the Microsoft Copilot family is strongest for knowledge management, data stewardship, and business-user governance because Microsoft Graph permissions, Purview controls, Copilot Studio policy enforcement, and the Microsoft agent registry sit close to the underlying work data. (; medium confidence; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html)",
+          "sources": []
+        },
+        {
+          "text": "The Microsoft Copilot family remains incomplete for generalized CI/CD, portable egress mediation, and fleet-level kill-switch control, so a regulated deployment still needs adjacent Microsoft admin services, GitHub workflows, or third-party control points. (; medium confidence; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio; https://learn.microsoft.com/en-us/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization)",
+          "sources": []
+        },
+        {
+          "text": "Under the family boundaries used in this item, the GitHub family is strongest for agent delivery pipelines because GitHub Actions, GitHub Advanced Security, GitHub Copilot policies, audit logs, and GitHub Models combine change control, security assurance, and model evaluation inside one repository-centered operating loop. (; medium confidence; source: https://docs.github.com/en/actions/get-started/understand-github-actions; https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/github-models/about-github-models; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html)",
+          "sources": []
+        },
+        {
+          "text": "The GitHub family does not natively provide the enterprise runtime controls needed for regulated business-user agents, especially full local prompt-session logging, tenant-bound business-data stewardship, and a clearly durable runtime control surface beyond preview-oriented workspace material. (; medium confidence; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale; https://github.blog/news-insights/product-news/github-copilot-workspace/; https://githubnext.com/projects/copilot-workspace/)",
+          "sources": []
+        },
+        {
+          "text": "Under the family boundaries used in this item, the AWS Bedrock ecosystem is strongest for modular runtime capability because Bedrock plus AgentCore provides model access, guardrails, retrieval, runtime, registry, policy, observability, evaluations, and tool gateway services within one family. (; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html)",
+          "sources": []
+        },
+        {
+          "text": "The AWS Bedrock ecosystem still requires customer-built governance integration for identity boundaries, Region policy, logging destinations, and economic accountability, so it is a strong runtime platform but not a complete enterprise governance plane by itself. (; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html)",
+          "sources": []
+        },
+        {
+          "text": "A layered multi-family architecture is usually the most defensible target state for regulated enterprises that need broad capability coverage, although a single-vendor estate plus adjacent controls can still be the better trade-off where integration simplicity outweighs capability breadth. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization)",
+          "sources": []
+        }
+      ]
+    },
     "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks": {
       "named_concepts": [
         "model families",
