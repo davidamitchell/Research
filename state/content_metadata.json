@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T09:42:12Z",
+  "extracted_at": "2026-05-02T09:54:59Z",
   "items": {
     "2026-05-02-systematic-review-methodology-ai-synthesis": {
       "named_concepts": [
@@ -262,6 +262,103 @@
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
             "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-cross-item-synthesis-knowledge-map-architecture": {
+      "named_concepts": [
+        "graph json",
+        "strongest default",
+        "publishing model",
+        "retrieval layer",
+        "memory split",
+        "cluster formation",
+        "graph navigation",
+        "summary artifacts",
+        "llm synthesis",
+        "static d3",
+        "current corpus",
+        "ad hoc",
+        "letta-style memory",
+        "cluster manifests",
+        "recent digests",
+        "searchable archival",
+        "document-summary index",
+        "index pattern",
+        "best first",
+        "first retrieval"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2402.14207",
+        "https://developers.llamaindex.ai/python/examples/index_structs/doc_summary/docsummary/",
+        "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
+        "https://docs.letta.com/guides/ade/archival-memory",
+        "https://obsidian.md/publish",
+        "https://mermaid.js.org/syntax/flowchart.html",
+        "https://d3js.org/d3-force/simulation",
+        "https://json-ld.org/",
+        "https://openknowledgemaps.org/"
+      ],
+      "key_claims": [
+        {
+          "text": "This repository should use heuristic relationship extraction and cluster formation as the backbone of the system, and reserve LLM synthesis for bounded candidate sets, because the corpus already exposes explicit signals such as tags, `cites`, `related`, and changed files that are cheap to compute and safer than whole-corpus prompting",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        },
+        {
+          "text": "A document-summary index pattern is the best first retrieval layer for active synthesis in this repo, because it stores one summary per item, retrieves whole documents by summary relevance, and fits the file-based constraints better than introducing vector infrastructure before W-0025 is revived",
+          "sources": [
+            "https://developers.llamaindex.ai/python/examples/index_structs/doc_summary/docsummary/",
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md"
+          ]
+        },
+        {
+          "text": "A D3 force-directed graph over graph JSON is the strongest default knowledge-map renderer for this repository's current corpus and publishing model, while Mermaid is better treated as a low-cost derivative for small subgraphs rather than as the primary full-corpus map",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md",
+            "https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml",
+            "https://d3js.org/d3-force/simulation",
+            "https://mermaid.js.org/syntax/flowchart.html",
+            "https://obsidian.md/publish"
+          ]
+        },
+        {
+          "text": "Graph JSON should be the primary runtime artifact and JSON-LD should be a secondary export, because graph JSON is the simplest structure for Python transforms and browser rendering, while JSON-LD adds semantic interoperability without being the easiest working format for static graph navigation",
+          "sources": [
+            "https://json-ld.org/",
+            "https://d3js.org/d3-force/simulation"
+          ]
+        },
+        {
+          "text": "The best-aligned initial trigger design is `push` for deterministic artifact refresh, `schedule` for weekly or batched distillation, and `workflow_dispatch` for ad hoc synthesis, because the repository already uses those patterns successfully and each trigger aligns with a distinct cost and freshness profile",
+          "sources": [
+            "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows",
+            "https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml",
+            "https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml"
+          ]
+        },
+        {
+          "text": "STORM-like multi-perspective synthesis should be a selective second-stage method for broad, ambiguous, or contradiction-heavy clusters rather than the default path, because it improves organization and breadth but carries materially higher reasoning and orchestration cost than deterministic selection plus ordinary synthesis prompts",
+          "sources": [
+            "https://arxiv.org/abs/2402.14207",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        },
+        {
+          "text": "The repository should publish new synthesized insights as ordinary completed synthesis items plus targeted `learnings.md` updates, not as a new content store, because the current item schema already supports citations, confidence, provenance, and version history for exactly this kind of output",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        },
+        {
+          "text": "A Letta-style memory split is the right mental model for the synthesis interface, with summaries and recent digests acting as working memory and the full corpus acting as searchable archival memory, because that preserves provenance and keeps prompt size bounded without requiring a standing service",
+          "sources": [
+            "https://docs.letta.com/guides/ade/archival-memory",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md"
           ]
         }
       ]

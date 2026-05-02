@@ -1,0 +1,783 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>What technical architecture best supports cross-item synthesis, knowledge… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>What technical architecture best supports cross-item synthesis, knowledge…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>What technical architecture best supports cross-item synthesis, knowledge…</h1>
+  <p class="full-title-subtitle">What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?</p>
+  <div class="meta-bar">
+    <span>2026-05-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-02-cross-item-synthesis-knowledge-map-architecture" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>This repository should use heuristic relationship extraction and cluster formation as the backbone of the system, and reserve LLM synthesis for bounded candidate sets, because the corpus already exposes explicit signals such as tags, `cites`, `related`, and changed files that are cheap to compute and safer than whole-corpus prompting<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/BACKLOG.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/BACKLOG.md">Github (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md">Mitchell (2026)</a></span></li>
+<li>A document-summary index pattern is the best first retrieval layer for active synthesis in this repo, because it stores one summary per item, retrieves whole documents by summary relevance, and fits the file-based constraints better than introducing vector infrastructure before W-0025 is revived<span class="claim-sources"><a class="claim-source-link" href="https://developers.llamaindex.ai/python/examples/index_structs/doc_summary/docsummary/" target="_blank" rel="noopener" title="https://developers.llamaindex.ai/python/examples/index_structs/doc_summary/docsummary/">LlamaIndex (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/BACKLOG.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/BACKLOG.md">Github (n.d.)</a></span></li>
+<li>A D3 force-directed graph over graph JSON is the strongest default knowledge-map renderer for this repository&#39;s current corpus and publishing model, while Mermaid is better treated as a low-cost derivative for small subgraphs rather than as the primary full-corpus map<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/BACKLOG.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/BACKLOG.md">Github (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml">GitHub workflow (n.d.)</a><a class="claim-source-link" href="https://d3js.org/d3-force/simulation" target="_blank" rel="noopener" title="https://d3js.org/d3-force/simulation">D3js (n.d.)</a><a class="claim-source-link" href="https://mermaid.js.org/syntax/flowchart.html" target="_blank" rel="noopener" title="https://mermaid.js.org/syntax/flowchart.html">Mermaid (n.d.)</a><a class="claim-source-link" href="https://obsidian.md/publish" target="_blank" rel="noopener" title="https://obsidian.md/publish">Obsidian (n.d.)</a></span></li>
+<li>Graph JSON should be the primary runtime artifact and JSON-LD should be a secondary export, because graph JSON is the simplest structure for Python transforms and browser rendering, while JSON-LD adds semantic interoperability without being the easiest working format for static graph navigation<span class="claim-sources"><a class="claim-source-link" href="https://json-ld.org/" target="_blank" rel="noopener" title="https://json-ld.org/">JSON (n.d.)</a><a class="claim-source-link" href="https://d3js.org/d3-force/simulation" target="_blank" rel="noopener" title="https://d3js.org/d3-force/simulation">D3js (n.d.)</a></span></li>
+<li>The best-aligned initial trigger design is `push` for deterministic artifact refresh, `schedule` for weekly or batched distillation, and `workflow_dispatch` for ad hoc synthesis, because the repository already uses those patterns successfully and each trigger aligns with a distinct cost and freshness profile<span class="claim-sources"><a class="claim-source-link" href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows" target="_blank" rel="noopener" title="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">GitHub Docs (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml">GitHub workflow (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml">GitHub workflow (n.d.)</a></span></li>
+<li>STORM-like multi-perspective synthesis should be a selective second-stage method for broad, ambiguous, or contradiction-heavy clusters rather than the default path, because it improves organization and breadth but carries materially higher reasoning and orchestration cost than deterministic selection plus ordinary synthesis prompts<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2402.14207" target="_blank" rel="noopener" title="https://arxiv.org/abs/2402.14207">Shao et al. (2024)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md">Mitchell (2026)</a></span></li>
+<li>The repository should publish new synthesized insights as ordinary completed synthesis items plus targeted `learnings.md` updates, not as a new content store, because the current item schema already supports citations, confidence, provenance, and version history for exactly this kind of output<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md">Mitchell (2026)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md">Mitchell (2026)</a></span></li>
+<li>A Letta-style memory split is the right mental model for the synthesis interface, with summaries and recent digests acting as working memory and the full corpus acting as searchable archival memory, because that preserves provenance and keeps prompt size bounded without requiring a standing service<span class="claim-sources"><a class="claim-source-link" href="https://docs.letta.com/guides/ade/archival-memory" target="_blank" rel="noopener" title="https://docs.letta.com/guides/ade/archival-memory">Letta Docs (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md">Mitchell (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What technical architecture best supports three distinct but related capabilities in a file-based research corpus (~200 items, growing weekly): (1) a meta-distillation layer that proactively aggregates findings across items to surface higher-order themes and emergent insights not visible in any single item; (2) a knowledge map that renders relationships between items, concepts, and tags as a connected, navigable structure that regenerates automatically; and (3) a search and synthesis interface that answers ad-hoc queries with provenance links and publishes new distilled insights without requiring manual intervention - and what are the concrete tool choices, index formats, active/reactive trigger designs, and Large Language Model (LLM)-vs-heuristic trade-offs for each?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The best-fit architecture is a hybrid, file-based stack that refreshes deterministic graph and summary artifacts on every corpus change, then applies Large Language Model (LLM) synthesis only to shortlisted clusters or queries rather than to the whole corpus each time.</p>
+<p>For the knowledge map, a precomputed nodes-and-edges JSON file rendered as a static D3 force graph is the strongest default for this repository's current corpus and publishing model, while Mermaid should be reserved for small thematic subgraphs and <a href="https://json-ld.org/">JSON-LD</a> should be emitted as an interoperability export rather than as the primary runtime index.</p>
+<p>For active insight generation, the lowest-risk trigger pattern is push-driven index refresh plus scheduled weekly distillation and on-demand <code>workflow_dispatch</code> query synthesis, because <code>push</code> keeps artifacts fresh, <code>schedule</code> amortizes expensive multi-item reasoning, and manual dispatch preserves a website-only control surface for ad hoc questions.</p>
+<p>The retrieval layer should follow a Letta-style memory split: distilled per-item summaries, cluster manifests, and recent digests stay in prompt-resident working context, while the full Markdown corpus and graph artifacts remain searchable archival state on disk, which keeps provenance explicit without requiring a persistent database.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>This repository should use heuristic relationship extraction and cluster formation as the backbone of the system, and reserve LLM synthesis for bounded candidate sets, because the corpus already exposes explicit signals such as tags, <code>cites</code>, <code>related</code>, and changed files that are cheap to compute and safer than whole-corpus prompting.</strong></li>
+<li><strong>A document-summary index pattern is the best first retrieval layer for active synthesis in this repo, because it stores one summary per item, retrieves whole documents by summary relevance, and fits the file-based constraints better than introducing vector infrastructure before W-0025 is revived.</strong></li>
+<li><strong>A D3 force-directed graph over graph JSON is the strongest default knowledge-map renderer for this repository's current corpus and publishing model, while Mermaid is better treated as a low-cost derivative for small subgraphs rather than as the primary full-corpus map.</strong></li>
+<li><strong>Graph JSON should be the primary runtime artifact and JSON-LD should be a secondary export, because graph JSON is the simplest structure for Python transforms and browser rendering, while JSON-LD adds semantic interoperability without being the easiest working format for static graph navigation.</strong></li>
+<li><strong>The best-aligned initial trigger design is <code>push</code> for deterministic artifact refresh, <code>schedule</code> for weekly or batched distillation, and <code>workflow_dispatch</code> for ad hoc synthesis, because the repository already uses those patterns successfully and each trigger aligns with a distinct cost and freshness profile.</strong></li>
+<li><strong>STORM-like multi-perspective synthesis should be a selective second-stage method for broad, ambiguous, or contradiction-heavy clusters rather than the default path, because it improves organization and breadth but carries materially higher reasoning and orchestration cost than deterministic selection plus ordinary synthesis prompts.</strong></li>
+<li><strong>The repository should publish new synthesized insights as ordinary completed synthesis items plus targeted <code>learnings.md</code> updates, not as a new content store, because the current item schema already supports citations, confidence, provenance, and version history for exactly this kind of output.</strong></li>
+<li><strong>A Letta-style memory split is the right mental model for the synthesis interface, with summaries and recent digests acting as working memory and the full corpus acting as searchable archival memory, because that preserves provenance and keeps prompt size bounded without requiring a standing service.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] The corpus will remain modest enough through the next implementation phase that graph JSON generation, per-item summary refresh, and static D3 layout computation all fit comfortably inside a normal GitHub Actions run. Justification: the existing site-build workflow already regenerates derived artifacts on <code>push</code>, and D3 explicitly supports offline computation of static layouts. [source: <a href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml">GitHub workflow: Build and Deploy Research Site</a> <a href="https://d3js.org/d3-force/simulation]">d3js.org</a></li>
+<li>[assumption] Existing <code>cites</code> and <code>related</code> metadata can be populated consistently enough to become useful edge types in the first graph build without adding a new annotation workflow first. Justification: recent completed items already use these fields materially, so the graph can start from them and improve over time. [source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md">Mitchell (2026) Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents?</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md]">github.com</a></li>
+</ul>
+<h3>Analysis</h3>
+<p>The decisive design move is to separate structure generation from interpretation rather than trying to make one artifact serve both perfectly.</p>
+<p>That separation produces a coherent stack: Python scripts extract summaries and edges into JSON, D3 renders graph navigation from that JSON, and a later synthesis workflow consumes those same artifacts to decide what deserves LLM reasoning.</p>
+<p>The most important trade-off is freshness versus cost, not simple automation versus manual work.</p>
+<p>Refreshing deterministic artifacts on every <code>push</code> gives immediate navigability at low risk, while delaying expensive distillation to a weekly schedule keeps the active requirement without paying STORM-like costs after every single completion.</p>
+<p>The graph-format choice follows the same logic: graph JSON is operationally simplest, D3 is interaction-rich enough for the full map, Mermaid remains useful for small embedded cluster views, and JSON-LD preserves future interoperability without complicating the primary pipeline.</p>
+<p>This also keeps the system legible to reviewers, because every synthesized conclusion can point back to stable source items, summary artifacts, and explicit cluster manifests instead of disappearing into an opaque vector store or a one-shot whole-corpus prompt.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The recommendation is strongest on architecture shape and weakest on exact cluster-quality thresholds, because the sources support layered selection and synthesis more clearly than they specify the precise heuristic cutoffs that will work best for this corpus.</li>
+<li>The evidence for <a href="https://openknowledgemaps.org/">Open Knowledge Maps</a> and <a href="https://obsidian.md/publish">Obsidian Publish</a> supports the value of graph navigation, but it does not by itself prove which specific interaction design will be optimal for this repository's tag density and link structure.</li>
+<li>STORM provides strong evidence that multi-perspective pre-writing improves broad synthesis, but it is an article-generation system rather than a repository-governance workflow, so the recommendation to use it selectively remains an architectural inference rather than a direct product-level prescription.</li>
+<li>Embeddings may still become necessary later if heuristic cluster formation degrades as the corpus grows, but current evidence does not justify making them part of the baseline architecture before W-0025 is revived.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>At what corpus size or cluster-count does heuristic cluster formation stop being good enough and require persisted embeddings or another semantic-retrieval layer?</li>
+<li>Which edge types should be weighted most heavily in the first graph: <code>cites</code>, <code>related</code>, shared tags, or shared extracted concepts from summaries?</li>
+<li>Should active weekly digests update <code>learnings.md</code> automatically, open a draft synthesis item automatically, or do both depending on whether the new insight is thematic or transient?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://arxiv.org/abs/2402.14207">Shao et al. (2024) Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models</a></li>
+<li>[x] <a href="https://developers.llamaindex.ai/python/examples/index_structs/doc_summary/docsummary/">LlamaIndex Document Summary Index</a></li>
+<li>[x] <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows">GitHub Docs: Events that trigger workflows</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/build_site.yml">GitHub workflow: Build and Deploy Research Site</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml">GitHub workflow: Research Loop</a></li>
+<li>[x] <a href="https://docs.letta.com/guides/ade/archival-memory">Letta Docs: Archival memory</a></li>
+<li>[x] <a href="https://obsidian.md/publish">Obsidian Publish</a></li>
+<li>[x] <a href="https://mermaid.js.org/syntax/flowchart.html">Mermaid Flowcharts - Basic Syntax</a></li>
+<li>[x] <a href="https://d3js.org/d3-force/simulation">D3 Force Simulation</a></li>
+<li>[x] <a href="https://json-ld.org/">JSON-LD</a></li>
+<li>[x] <a href="https://openknowledgemaps.org/">Open Knowledge Maps</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md">Mitchell (2026) Cross-item synthesis: methodology and tooling for extracting meta-insights from the research corpus</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md">Mitchell (2026) Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md">Mitchell (2026) Application Programming Interface context hubs, Retrieval-Augmented Generation, and the Model Context Protocol</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md">Mitchell (2026) Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md">Mitchell (2026) What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence coding agents?</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a> <span class="related-note">via agentic-ai, knowledge-graph, llm, memory-system, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-systematic-review-methodology-ai-synthesis.html">What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?</a> <span class="related-note">via agentic-ai, knowledge-graph, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-coding-agent-context-management-transparency.html">What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-ubiquitous-language-ai-code-consistency.html">Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <span>2026-03-03-cross-item-synthesis-meta-insights</span></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-28-uelgf-tooling-reference-architecture.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-sustainable-ai-software-development-synthesis.html">What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-extension-systems-ai-coding-agents.html">What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-02-systematic-review-methodology-ai-synthesis.html">AI-assisted synthesis tool architectures are most appropriate for cross-item…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">AI system to address prompt injection, RAG-based attacks, model supply chain…</a></div>
+  </div>
+</main>
+</body>
+</html>
