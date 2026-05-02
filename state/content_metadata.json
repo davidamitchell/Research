@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-02T01:07:06Z",
+  "extracted_at": "2026-05-02T01:16:46Z",
   "items": {
     "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks": {
       "named_concepts": [
@@ -372,6 +372,85 @@
         },
         {
           "text": "For critical, low-reversibility, or cross-cutting changes, the evidence supports stronger human ownership, narrower change scopes, and deeper review than teams can justify for bounded low-risk work. (; medium confidence; source: https://www.research.ibm.com/journal/sj/153/ibmsj1503C.pdf; https://link.springer.com/article/10.1007/s10664-015-9381-9; https://www.anthropic.com/engineering/claude-code-best-practices)",
+          "sources": []
+        }
+      ]
+    },
+    "2026-05-01-extension-systems-ai-coding-agents": {
+      "named_concepts": [
+        "extension surface",
+        "vs code",
+        "lifecycle hooks",
+        "lazy activation",
+        "extension points",
+        "hot reload",
+        "extension systems",
+        "explicit extension",
+        "tools commands",
+        "commands lifecycle",
+        "claude code",
+        "control surfaces",
+        "ai harnesses",
+        "provider transport",
+        "coding harnesses",
+        "hooks session",
+        "session state",
+        "state compaction",
+        "model-provider transport",
+        "agent behavior"
+      ],
+      "source_urls": [
+        "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/development.md",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md",
+        "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md",
+        "https://code.visualstudio.com/api",
+        "https://code.visualstudio.com/api/references/activation-events",
+        "https://code.visualstudio.com/api/advanced-topics/extension-host",
+        "https://code.visualstudio.com/api/references/contribution-points",
+        "https://code.visualstudio.com/api/extension-guides/web-extensions",
+        "https://code.visualstudio.com/api/working-with-extensions/publishing-extension",
+        "https://code.visualstudio.com/api/ux-guidelines/overview",
+        "https://github.com/microsoft/vscode-extension-samples",
+        "https://docs.anthropic.com/en/docs/claude-code/hooks",
+        "https://docs.anthropic.com/en/docs/claude-code/plugins",
+        "https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html",
+        "https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html",
+        "https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en",
+        "https://martinfowler.com/articles/injection.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The best extension architectures keep a small stable host kernel and invert control at explicit extension points, because hosts that instantiate concrete integrations directly become harder to evolve, govern, and reload safely. (; medium confidence; source: https://martinfowler.com/articles/injection.html; https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html; https://code.visualstudio.com/api/references/contribution-points)",
+          "sources": []
+        },
+        {
+          "text": "An Artificial Intelligence coding harness needs a richer extension surface than a conventional editor when it aims to adapt in-session, because tools, commands, lifecycle hooks, session state, compaction, and model-provider transport all influence agent behavior. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://docs.anthropic.com/en/docs/claude-code/hooks)",
+          "sources": []
+        },
+        {
+          "text": "Hot reload remains most dependable when extensions teardown and rebuild state explicitly, and both Pi and JetBrains documentation warn that stale references, leaked resources, and old call frames can survive reload boundaries if the lifecycle is underspecified. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)",
+          "sources": []
+        },
+        {
+          "text": "Safety controls should default to capability boundaries and lazy activation rather than trust-by-convention, because Chrome, VS Code, and JetBrains all narrow extension blast radius with permissions, runtime separation, or dynamic-plugin constraints. (; medium confidence; source: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)",
+          "sources": []
+        },
+        {
+          "text": "Declarative metadata is a core part of extension safety and usability rather than mere packaging overhead, because manifests, contribution points, activation events, and namespacing support discovery, lazy load, review, and conflict reduction before arbitrary code executes. (; medium confidence; source: https://code.visualstudio.com/api/references/contribution-points; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://docs.anthropic.com/en/docs/claude-code/plugins)",
+          "sources": []
+        },
+        {
+          "text": "Pi documents a live-session extension surface that spans built-in tool overrides, provider-transport rewrites, tool-call interception, compaction customization, and hot reload from project directories. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md)",
+          "sources": []
+        },
+        {
+          "text": "Claude Code hooks are intentionally narrower than Pi-style in-process extensions, because they center on event-triggered shell, HTTP, or prompt handlers with allow-or-deny control, while plugins mainly package those capabilities for reuse and distribution. (; medium confidence; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://docs.anthropic.com/en/docs/claude-code/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md)",
+          "sources": []
+        },
+        {
+          "text": "VS Code documents an ecosystem-scale extension governance model that pairs broad contribution surfaces with multiple extension hosts, lazy activation, browser-sandboxed web extensions, publication tooling, user-experience guidance, and sample repositories. (; medium confidence; source: https://code.visualstudio.com/api; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://code.visualstudio.com/api/ux-guidelines/overview; https://github.com/microsoft/vscode-extension-samples)",
           "sources": []
         }
       ]

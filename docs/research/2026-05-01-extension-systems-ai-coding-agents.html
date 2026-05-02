@@ -1,0 +1,793 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI coding agent harnesses? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI coding agent harnesses?</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI coding agent harnesses?</h1>
+  <p class="full-title-subtitle">What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?</p>
+  <div class="meta-bar">
+    <span>2026-05-01</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/agent-tooling.html">agent-tooling</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-extension-systems-ai-coding-agents.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-01-extension-systems-ai-coding-agents" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The best extension architectures keep a small stable host kernel and invert control at explicit extension points, because hosts that instantiate concrete integrations directly become harder to evolve, govern, and reload safely. (; medium confidence; source: https://martinfowler.com/articles/injection.html; https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html; https://code.visualstudio.com/api/references/contribution-points)</li>
+<li>An Artificial Intelligence coding harness needs a richer extension surface than a conventional editor when it aims to adapt in-session, because tools, commands, lifecycle hooks, session state, compaction, and model-provider transport all influence agent behavior. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md; https://docs.anthropic.com/en/docs/claude-code/hooks)</li>
+<li>Hot reload remains most dependable when extensions teardown and rebuild state explicitly, and both Pi and JetBrains documentation warn that stale references, leaked resources, and old call frames can survive reload boundaries if the lifecycle is underspecified. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)</li>
+<li>Safety controls should default to capability boundaries and lazy activation rather than trust-by-convention, because Chrome, VS Code, and JetBrains all narrow extension blast radius with permissions, runtime separation, or dynamic-plugin constraints. (; medium confidence; source: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)</li>
+<li>Declarative metadata is a core part of extension safety and usability rather than mere packaging overhead, because manifests, contribution points, activation events, and namespacing support discovery, lazy load, review, and conflict reduction before arbitrary code executes. (; medium confidence; source: https://code.visualstudio.com/api/references/contribution-points; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://docs.anthropic.com/en/docs/claude-code/plugins)</li>
+<li>Pi documents a live-session extension surface that spans built-in tool overrides, provider-transport rewrites, tool-call interception, compaction customization, and hot reload from project directories. (; medium confidence; source: https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md)</li>
+<li>Claude Code hooks are intentionally narrower than Pi-style in-process extensions, because they center on event-triggered shell, HTTP, or prompt handlers with allow-or-deny control, while plugins mainly package those capabilities for reuse and distribution. (; medium confidence; source: https://docs.anthropic.com/en/docs/claude-code/hooks; https://docs.anthropic.com/en/docs/claude-code/plugins; https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md)</li>
+<li>VS Code documents an ecosystem-scale extension governance model that pairs broad contribution surfaces with multiple extension hosts, lazy activation, browser-sandboxed web extensions, publication tooling, user-experience guidance, and sample repositories. (; medium confidence; source: https://code.visualstudio.com/api; https://code.visualstudio.com/api/references/activation-events; https://code.visualstudio.com/api/advanced-topics/extension-host; https://code.visualstudio.com/api/extension-guides/web-extensions; https://code.visualstudio.com/api/working-with-extensions/publishing-extension; https://code.visualstudio.com/api/ux-guidelines/overview; https://github.com/microsoft/vscode-extension-samples)</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What design patterns and architectural principles govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses, and what are the key trade-offs between extensibility, safety, and developer experience?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Effective extension systems for AI coding harnesses use a small trusted kernel with explicit extension points rather than encouraging harness forks or hidden mutation surfaces, because inversion of control, manifest-declared contributions, and typed lifecycle hooks let the host stay stable while extensions vary.</p>
+<p>The minimum useful extension surface for an AI harness is broader than ordinary editor plugins, because tools, commands, lifecycle hooks, session state, compaction hooks, and model-provider transport all shape agent behavior inside a live session.</p>
+<p>Hot reload is valuable only when teardown, rebind, and state reconstruction are explicit, because Pi's reload warnings and JetBrains' dynamic-plugin restrictions both show stale references and leaked resources as the governing failure modes.</p>
+<p>The central trade-off is that every gain in expressiveness widens the trust surface, so mature systems compensate with lazy activation, runtime isolation, permission manifests, namespacing, and higher-order governance gates rather than with unrestricted plugin power alone.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The best extension architectures keep a small stable host kernel and invert control at explicit extension points, because hosts that instantiate concrete integrations directly become harder to evolve, govern, and reload safely.</strong> ([inference]; medium confidence; source: <a href="https://martinfowler.com/articles/injection.html">Fowler (2004) Inversion of Control Containers and the Dependency Injection pattern</a> <a href="https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html">JetBrains plugin extension points guide</a> <a href="https://code.visualstudio.com/api/references/contribution-points">Microsoft VS Code contribution points reference</a></li>
+<li><strong>An Artificial Intelligence coding harness needs a richer extension surface than a conventional editor when it aims to adapt in-session, because tools, commands, lifecycle hooks, session state, compaction, and model-provider transport all influence agent behavior.</strong> ([inference]; medium confidence; source: <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md">Zechner (2026) Pi extensions documentation</a> <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md">Zechner (2026) Pi custom provider documentation</a> <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md">Zechner (2026) Pi compaction documentation</a> <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Anthropic Claude Code hooks reference</a></li>
+<li><strong>Hot reload remains most dependable when extensions teardown and rebuild state explicitly, and both Pi and JetBrains documentation warn that stale references, leaked resources, and old call frames can survive reload boundaries if the lifecycle is underspecified.</strong> ([inference]; medium confidence; source: <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md">Zechner (2026) Pi extensions documentation</a> <a href="https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html">JetBrains dynamic plugins guide</a></li>
+<li><strong>Safety controls should default to capability boundaries and lazy activation rather than trust-by-convention, because Chrome, VS Code, and JetBrains all narrow extension blast radius with permissions, runtime separation, or dynamic-plugin constraints.</strong> ([inference]; medium confidence; source: <a href="https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en">Google Chrome declare permissions guide</a> <a href="https://code.visualstudio.com/api/advanced-topics/extension-host">Microsoft VS Code extension host guide</a> <a href="https://code.visualstudio.com/api/extension-guides/web-extensions">Microsoft VS Code web extensions guide</a> <a href="https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html">JetBrains dynamic plugins guide</a></li>
+<li><strong>Declarative metadata is a core part of extension safety and usability rather than mere packaging overhead, because manifests, contribution points, activation events, and namespacing support discovery, lazy load, review, and conflict reduction before arbitrary code executes.</strong> ([inference]; medium confidence; source: <a href="https://code.visualstudio.com/api/references/contribution-points">Microsoft VS Code contribution points reference</a> <a href="https://code.visualstudio.com/api/references/activation-events">Microsoft VS Code activation events reference</a> <a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension">Microsoft VS Code extension publishing guide</a> <a href="https://docs.anthropic.com/en/docs/claude-code/plugins">Anthropic Claude Code plugins guide</a></li>
+<li><strong>Pi documents a live-session extension surface that spans built-in tool overrides, provider-transport rewrites, tool-call interception, compaction customization, and hot reload from project directories.</strong> ([fact]; medium confidence; source: <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md">Zechner (2026) Pi extensions documentation</a> <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md">Zechner (2026) Pi custom provider documentation</a> <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md">Zechner (2026) Pi compaction documentation</a></li>
+<li><strong>Claude Code hooks are intentionally narrower than Pi-style in-process extensions, because they center on event-triggered shell, HTTP, or prompt handlers with allow-or-deny control, while plugins mainly package those capabilities for reuse and distribution.</strong> ([inference]; medium confidence; source: <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Anthropic Claude Code hooks reference</a> <a href="https://docs.anthropic.com/en/docs/claude-code/plugins">Anthropic Claude Code plugins guide</a> <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md">Zechner (2026) Pi extensions documentation</a></li>
+<li><strong>VS Code documents an ecosystem-scale extension governance model that pairs broad contribution surfaces with multiple extension hosts, lazy activation, browser-sandboxed web extensions, publication tooling, user-experience guidance, and sample repositories.</strong> ([fact]; medium confidence; source: <a href="https://code.visualstudio.com/api">Microsoft Visual Studio Code (VS Code) Extension API overview</a> <a href="https://code.visualstudio.com/api/references/activation-events">Microsoft VS Code activation events reference</a> <a href="https://code.visualstudio.com/api/advanced-topics/extension-host">Microsoft VS Code extension host guide</a> <a href="https://code.visualstudio.com/api/extension-guides/web-extensions">Microsoft VS Code web extensions guide</a> <a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension">Microsoft VS Code extension publishing guide</a> <a href="https://code.visualstudio.com/api/ux-guidelines/overview">Microsoft VS Code extension user experience guidelines</a> <a href="https://github.com/microsoft/vscode-extension-samples">Microsoft VS Code extension samples repository</a></li>
+<li><strong>For enterprise coding-agent deployment, extension systems should be treated as governed control surfaces rather than harmless customization, because provider overrides, remote tool delegation, and request rewriting can amplify existing access, identity, and deployment risks.</strong> ([inference]; medium confidence; source: <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md">Zechner (2026) Pi extensions documentation</a> <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md">Zechner (2026) Pi custom provider documentation</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md">Mitchell (2026) Access control amplification under agentic operations</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md">Mitchell (2026) Dependency ordering of foundational conditions for safe agentic Artificial Intelligence deployment</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Public platform documentation is sufficient to extract the dominant extension-system design patterns. <strong>Justification:</strong> The question is architectural, and the first-party manuals explicitly describe extension surfaces, lifecycle hooks, and runtime boundaries.</li>
+<li><strong>Assumption:</strong> Pi's documented extension model is representative enough to analyze live-session extensibility even though the product may evolve after this snapshot. <strong>Justification:</strong> The retrieved evidence includes a creator blog post plus maintained extension, provider, and compaction manuals.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Across the retrieved systems, explicit boundaries appear more consistently than raw plugin count as the decisive design pattern. Fowler, JetBrains, and VS Code all converge on the same structural move: keep the host stable, define named extension points, and let the host decide when and how extensions load.</p>
+<p>Pi demonstrates why AI harnesses stretch ordinary plugin design. Once tools, model transport, compaction, and prompt-adjacent events are all mutable at runtime, the extension surface becomes part of the agent's operating model rather than an add-on to it.</p>
+<p>That added power explains the safety gap between Pi and the comparison platforms. Chrome and VS Code place more of the trust negotiation into permissions, host isolation, and activation control, while Pi places more responsibility on extension authors and host-level governance choices.</p>
+<p>The prior repository findings on context transparency and foundational governance fit this result cleanly: extensibility is beneficial when it keeps mutable behavior visible and auditable, and it becomes dangerous when it silently alters the control surfaces that identity, access, and deployment policy depend on.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The retrieved evidence is rich on architecture and platform mechanics but thin on controlled outcome studies that isolate extension-system design as an independent variable in coding-agent quality or productivity.</li>
+<li>Pi's current documentation shows a very powerful extension surface, but it does not by itself prove how well that model scales under third-party ecosystem growth, multi-user governance, or adversarial extensions.</li>
+<li>Claude Code's broader plugin story includes skills, agents, and Model Context Protocol (MCP) servers, so the comparison here should be read specifically as a comparison of the documented hook surface against Pi and VS Code extension APIs, not as a claim that Claude Code lacks any extension story at all.</li>
+<li>Same-repository governance items are used to qualify shared control-surface risks, not to substitute for external evidence about VS Code, Chrome, JetBrains, or Claude internals. [assumption]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does live extension authoring inside a running coding harness improve software-quality outcomes, or does it mainly improve local customization speed and developer satisfaction?</li>
+<li>What is the smallest permission model that meaningfully reduces extension blast radius in AI harnesses without making custom tools or provider adapters unusably hard to build?</li>
+<li>Which extension-surface metrics would best predict when a harness should stay hook-oriented rather than graduating to a full plugin or runtime-extension model?</li>
+<li>How should deployment gates review or sign off extension changes that alter tools, provider transport, or request payload serialization in enterprise coding harnesses?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Zechner (2025) Pi coding agent blog post</a> - creator rationale for a minimal, customizable coding harness</li>
+<li>[x] <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md">Zechner (2026) Pi extensions documentation</a> - primary extension surface, lifecycle events, <code>/reload</code>, tool overrides, and state model</li>
+<li>[x] <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/development.md">Zechner (2026) Pi development documentation</a> - local development loop and runtime setup</li>
+<li>[x] <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/custom-provider.md">Zechner (2026) Pi custom provider documentation</a> - provider abstraction, proxying, Open Authorization (OAuth), and custom transport hooks</li>
+<li>[x] <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/compaction.md">Zechner (2026) Pi compaction documentation</a> - custom compaction and branch summarization hooks</li>
+<li>[x] <a href="https://code.visualstudio.com/api">Microsoft Visual Studio Code (VS Code) Extension API overview</a> - platform-level extension scope, guides, and samples</li>
+<li>[x] <a href="https://code.visualstudio.com/api/references/activation-events">Microsoft VS Code activation events reference</a> - lazy loading model and event-driven activation</li>
+<li>[x] <a href="https://code.visualstudio.com/api/advanced-topics/extension-host">Microsoft VS Code extension host guide</a> - runtime separation, performance goals, and host placement</li>
+<li>[x] <a href="https://code.visualstudio.com/api/references/contribution-points">Microsoft VS Code contribution points reference</a> - declarative extension points, commands, settings, and chat surfaces</li>
+<li>[x] <a href="https://code.visualstudio.com/api/extension-guides/web-extensions">Microsoft VS Code web extensions guide</a> - browser sandbox constraints and restricted runtime model</li>
+<li>[x] <a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension">Microsoft VS Code extension publishing guide</a> - marketplace publication flow and publisher identity</li>
+<li>[x] <a href="https://code.visualstudio.com/api/ux-guidelines/overview">Microsoft VS Code extension user experience guidelines</a> - discoverability and interface-integration guidance</li>
+<li>[x] <a href="https://github.com/microsoft/vscode-extension-samples">Microsoft VS Code extension samples repository</a> - breadth of example implementations and onboarding material</li>
+<li>[x] <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Anthropic Claude Code hooks reference</a> - lifecycle hook model, matcher rules, and allow or deny controls</li>
+<li>[x] <a href="https://docs.anthropic.com/en/docs/claude-code/plugins">Anthropic Claude Code plugins guide</a> - packaging, namespacing, reload flow, and distribution model</li>
+<li>[x] <a href="https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html">JetBrains plugin extension points guide</a> - interface and bean extension-point design</li>
+<li>[x] <a href="https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html">JetBrains dynamic plugins guide</a> - hot-reload restrictions, cleanup requirements, and unload failure modes</li>
+<li>[x] <a href="https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions?hl=en">Google Chrome declare permissions guide</a> - least-privilege permission declarations and warning model</li>
+<li>[x] <a href="https://martinfowler.com/articles/injection.html">Fowler (2004) Inversion of Control Containers and the Dependency Injection pattern</a> - foundational plugin and inversion-of-control framing</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-coding-agent-context-management-transparency.md">Mitchell (2026) What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a> - adjacent repo finding on explicit context and extension surfaces</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-sustainable-ai-software-development-synthesis.md">Mitchell (2026) What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence coding agents?</a> - adjacent repo synthesis on governance surfaces and maturity gaps</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md">Mitchell (2026) Access control amplification under agentic operations</a> - prior repo finding on least-privilege and permission amplification</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.md">Mitchell (2026) Dependency ordering of foundational conditions for safe agentic Artificial Intelligence deployment</a> - prior repo synthesis on governance prerequisites</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html">Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?</a> <span class="related-note">via agent-tooling, agentic-ai, agentic-coding, developer-tooling, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html">What does TerminalBench reveal about minimal toolsets and coding agent performance?</a> <span class="related-note">via agent-tooling, agentic-ai, agentic-coding, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-coding-agent-context-management-transparency.html">What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a> <span class="related-note">via agent-tooling, agentic-ai, agentic-coding, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-compound-error-accumulation-ai-codebases.html">How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?</a> <span class="related-note">via agentic-ai, agentic-coding, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-01-appropriate-task-selection-coding-agents.html">What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?</a> <span class="related-note">via agentic-ai, agentic-coding, llm</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-coding-agent-context-management-transparency.html">What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-sustainable-ai-software-development-synthesis.html">What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.html">Dependency ordering of foundational conditions for safe agentic Artificial Intelligence (AI) deployment: the prerequisite graph and the regulatory consequence of deploying at any layer before the layer below it is satisfied</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html">What does TerminalBench reveal about minimal toolsets and coding agent performance?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html">Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-02</td><td><a href="https://github.com/davidamitchell/Research/commit/8e8cbfc22d9251032ec69e20a9939ff1dfd97d04" target="_blank" rel="noopener">8e8cbfc</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-01-human-oversight-ai-software-development.html">AI-assisted software development?</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-01-compound-error-accumulation-ai-codebases.html">AI-agent-heavy codebases, and what review strategies can manage this risk?</a></div>
+  </div>
+</main>
+</body>
+</html>
