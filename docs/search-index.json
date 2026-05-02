@@ -829,8 +829,8 @@
       "governance-financial-services-citizen-development",
       "agentic-ai-uelgf-observability",
       "agentic-ai-uelgf-regulated-banking",
-      "nist-ai-ai-rmf-environment-separation",
-      "agentic-ai-ai-systems-nist-ai"
+      "nist-ai-ai-rmf-copilot-studio",
+      "agentic-ai-ai-systems-prompt-injection"
     ],
     "url": "/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html"
   },
@@ -1571,8 +1571,8 @@
     "thread_slugs": [
       "low-code-ai-governance-agentic-ai",
       "low-code-ai-governance-enterprise-governance",
-      "nist-ai-ai-rmf-environment-separation",
-      "nist-ai-ai-rmf-environment-separation"
+      "nist-ai-ai-rmf-copilot-studio",
+      "nist-ai-ai-rmf-iso-iec"
     ],
     "url": "/Research/research/2026-04-26-ai-lowcode-governance-maturity-model.html"
   },
@@ -2072,8 +2072,8 @@
     "thread_slugs": [
       "agentic-ai-governance-regulated-banking",
       "governance-financial-services-citizen-development",
-      "nist-ai-ai-rmf-environment-separation",
-      "nist-ai-ai-rmf-environment-separation"
+      "nist-ai-ai-rmf-copilot-studio",
+      "nist-ai-ai-rmf-iso-iec"
     ],
     "url": "/Research/research/2026-04-24-business-led-low-code-agent-governance.html"
   },
@@ -2115,7 +2115,7 @@
     "thread_slugs": [
       "financial-services-ai-strategy-risk-management",
       "nist-ai-ai-rmf-apra-cps",
-      "nist-ai-ai-rmf-environment-separation"
+      "nist-ai-ai-rmf-copilot-studio"
     ],
     "url": "/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
   },
@@ -2230,7 +2230,7 @@
       "agentic-ai-workflow-skills",
       "agentic-ai-skills-prompt-engineering",
       "agentic-ai-anthropic-memory",
-      "agents-md-github-copilot-claude-code",
+      "github-copilot-agents-md-claude-code",
       "claude-code-agent-tooling-skills"
     ],
     "url": "/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html"
@@ -2557,7 +2557,7 @@
     "thread_slugs": [
       "agentic-ai-workflow-skills",
       "copilot-coding-coding-agent-claude-code",
-      "copilot-coding-coding-agent-agents-md"
+      "copilot-coding-coding-agent-github-copilot"
     ],
     "url": "/Research/research/2026-03-28-agents-md-role-and-cross-agent-instructions.html"
   },
@@ -2646,7 +2646,7 @@
       "agentic-ai-workflow-skills",
       "mobile-ios-memory-system",
       "copilot-coding-coding-agent-claude-code",
-      "copilot-coding-coding-agent-agents-md"
+      "copilot-coding-coding-agent-github-copilot"
     ],
     "url": "/Research/research/2026-03-28-agent-instruction-loading-and-skills-access.html"
   },
@@ -2868,7 +2868,7 @@
       "agentic-ai-synthesis-productivity",
       "agentic-ai-organisational-design-productivity",
       "copilot-coding-coding-agent-claude-code",
-      "copilot-coding-coding-agent-agents-md"
+      "copilot-coding-coding-agent-github-copilot"
     ],
     "url": "/Research/research/2026-03-22-agents-as-finishers-and-synthesisers.html"
   },
@@ -3451,7 +3451,7 @@
       "agentic-ai-organisational-design-multi-agent",
       "ai-governance-security-agentic-ai",
       "llm-security-anthropic",
-      "agentic-ai-ai-systems-nist-ai"
+      "agentic-ai-ai-systems-prompt-injection"
     ],
     "url": "/Research/research/2026-03-15-prompt-injection-threat-landscape.html"
   },
@@ -3842,7 +3842,7 @@
     "thread_slugs": [
       "agentic-ai-llm-governance",
       "agentic-ai-llm-agentic-coding",
-      "agents-md-github-copilot-claude-code",
+      "github-copilot-agents-md-claude-code",
       "evaluation-research-loop-prompt-engineering"
     ],
     "url": "/Research/research/2026-03-10-research-loop-evaluation-rubric.html"
@@ -4294,7 +4294,7 @@
       "agentic-ai-anthropic-memory",
       "agentic-ai-rag-knowledge-graph",
       "agentic-ai-strategy-anthropic",
-      "copilot-coding-coding-agent-agents-md"
+      "copilot-coding-coding-agent-github-copilot"
     ],
     "url": "/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html"
   },
@@ -4600,7 +4600,7 @@
     "thread_slugs": [
       "mobile-interface-delivery",
       "interface-delivery-rag",
-      "agents-md-github-copilot-claude-code"
+      "github-copilot-agents-md-claude-code"
     ],
     "url": "/Research/research/2026-03-02-chat-conversational-interface.html"
   },
@@ -4984,7 +4984,7 @@
     "findings_excerpt": "Executive Summary Organisations deploying AI coding assistants at scale achieve real but task-scoped individual productivity gains of 40–55% on well-specified coding tasks; however, these gains do not automatically translate to team-level delivery improvement without process redesign, and Google's DORA 2024 data shows higher AI adoption is associated with worse delivery stability. Google reports t…",
     "full_text": "AI Strategy Examples: Software Engineering Focus Which organisations have published or disclosed coherent AI strategies specifically targeting software engineering, what outcomes have they measured, and what does the trajectory from AI-assisted coding (Type 2) to autonomous software agents (Type 3/4) look like in practice? ### Executive Summary\n\nOrganisations deploying AI coding assistants at scale achieve real but task-scoped individual productivity gains of 40–55% on well-specified coding tasks; however, these gains do not automatically translate to team-level delivery improvement without process redesign, and Google's DORA 2024 data shows higher AI adoption is associated with worse delivery stability. Google reports that over 25% of its new production code is now AI-generated, reviewed by engineers — the largest disclosed deployment. The current enterprise state is Type 2 (agentic builder, human-reviewed artefact before deployment), not Type 3 (autonomous deployment); all major financial services and technology firms maintain mandatory human review gates as a non-negotiable governance control. Autonomous coding agents have advanced rapidly on benchmarks (from 14% in March 2024 to ~80% on curated tasks by early 2026), but headline scores overstate generalised capability, and no enterprise is running Type 3 SWE autonomy at scale.\n\n### Key Findings\n\n1. **The Microsoft/GitHub/MIT RCT (2023) found that developers using GitHub Copilot completed a specified JavaScript task 55.8% faster** (1h11m vs 2h41m; 95% CI: 21–89%; P=0.0017), with the strongest benefit for less experienced and older developers — but the result applies to a single bounded task and does not generalize to complex multi-file enterprise work.\n\n2. **Google's CEO disclosed in 2024 earnings calls that over 25% of Google's new code is AI-generated,** reviewed by human engineers before submission to production systems across Search, Cloud, and YouTube — the largest publicly disclosed AI code generation deployment.\n\n3. **ANZ Bank deployed GitHub Copilot to 3,000 engineers following an internal controlled trial of 1,000 engineers** that showed 40–55% faster code development and improvements in code quality; ANZ is the most relevant documented case for the NZ financial services sector.\n\n4. **Google's DORA 2024 report (tens of thousands of respondents) found that higher AI adoption associates with a 7.2% decline in delivery stability and a 1.5% decline in throughput** at the organisational level, even while individual developer productivity improves — confirming that individual speed gains require workflow redesign to convert into team-level delivery improvement.\n\n5. **Autonomous coding agents went from 14% on SWE-bench (Devin, March 2024) to ~80% on a curated 500-issue subset and ~46% on harder multi-file enterprise tasks by early 2026,** representing roughly two years of rapid progress — but a discriminative subset analysis found performance drops from 73% headline to ~11% on problems that no agent had previously solved, indicating headline leaderboard scores significantly overstate generalised capability.\n\n6. **GitHub Copilot Coding Agent (GA September 2025) and comparable agentic tools operate as Type 2 (agentic builder, human-gated):** the agent creates a draft pull request; mandatory human review and branch protection rules apply before any merge to production, and this model is consistent across all major enterprise deployments reviewed.\n\n7. **No major enterprise is documented as running Type 3 (autonomous deployment with delegated authority) for production software at scale;** all financial services firms (JPMorgan, Goldman Sachs, Morgan Stanley, ANZ) and major platform providers (GitHub/Microsoft) maintain mandatory human review as the non-negotiable control point for AI-generated code before deployment.\n\n8. **AI-generated code without meaningful human authorship is uncopyrightable in most jurisdictions,** including the US and UK, requiring organisations to document human contributions during AI-assisted development; code provenance tracking tools have emerged specifically to flag AI-generated outputs that match open-source code with restrictive licences.\n\n9. **JPMorgan Chase (200,000+ employees, OmniAI and LLM Suite) reports 10–20% developer productivity gains from AI-assisted coding,** lower than the GitHub Copilot RCT figure, consistent with the DORA finding that broader enterprise deployment yields more modest aggregate gains than controlled task experiments.\n\n10. **No NZ technology companies (Xero, Trade Me, Datacom) have published SWE AI outcome data;** the closest regional case is ANZ (Australian parent), whose deployment is directly relevant to ANZ NZ engineering teams and provides a useful benchmark for NZ financial services organisations considering similar programmes.\n\n### Evidence Map\n\n| Claim | Source | Confidence | Notes |\n|---|---|---|---|\n| 55.8% faster task completion with GitHub Copilot | arXiv 2302.06590 / Microsoft Research | high | RCT, ~95 developers, single task; 95% CI 21-89% |\n| >25% of Google's new code is AI-generated | Alphabet earnings call Q3 2024, Sundar Pichai | medium | CEO statement, not independently audited |\n| ANZ Bank: 40-55% faster code with Copilot, 3,000 engineers | Finextra 43689, iTnews 601195, The Register 2024-02-10 | high | Internal controlled trial, multiple corroborating sources |\n| Higher AI adoption: –7.2% delivery stability, –1.5% throughput | Google Cloud DORA 2024 report | high | 10+ years research, tens of thousands of respondents |\n| Devin 13.86% on SWE-bench (March 2024) | Cognition AI SWE-bench technical report | high | Publicly released methodology and results |\n| ~80% on SWE-bench Verified (early 2026) | live-swe-agent.github.io, llm-stats.com/benchmarks | high | Multiple leaderboards consistent |\n| ~46% on SWE-bench Pro (multi-file, harder tasks) | scaleapi.github.io/SWE-bench_Pro-os | medium | Newer benchmark; fewer independent validations |\n| 73% → 11% on discriminative subsets | jatinganhotra.dev/blog/swe-agents/2025/06/05 | medium | Single analysis; methodology described; important caveat |\n| Copilot Coding Agent: 10,000+ orgs, mandatory human review gate | GitHub newsroom, Azure DevOps blog | high | Official product documentation |\n| AI code without human authorship is uncopyrightable | MBHB law firm, Norton Rose Fulbright, US Copyright Office | high | Consistent across multiple legal jurisdictions |\n| JPMorgan: 10–20% developer productivity gains | Harvard Business School case study, 5dvision.com | medium | Vendor-adjacent sourcing; plausible range |\n| No NZ company SWE AI disclosures found | Search results: no matching results | medium | Absence of evidence; not evidence of absence of programmes |\n\n### Assumptions\n\n- **Assumption:** Sundar Pichai's >25% figure is directionally accurate for Google's production code. **Justification:** Statement made in an investor earnings call context, where material misstatement has legal consequences; independent audit not available.\n- **Assumption:** Absence of NZ company SWE AI disclosures reflects NZ organisational culture around case study publication, not absence of AI coding programmes. **Justification:** AI Forum NZ survey data shows broad AI adoption in NZ; the gap is in public outcome disclosure, consistent with NZ organisations' typical preference for private implementation.\n- **Assumption:** ANZ Australian engineering results are applicable to ANZ NZ teams. **Justification:** ANZ operates as a single trans-Tasman engineering organisation; the Copilot deployment was described as bank-wide.\n\n### Analysis\n\nIndividual productivity gains from AI coding tools are real and consistent across the strongest evidence (RCT, ANZ internal trial). The consistency across diverse methods (controlled experiment, internal trial, self-reported survey) increases confidence. The DORA counterevidence (delivery stability decline) is critical: it confirms that the right question is not \"does AI make developers faster?\" (yes, on bounded tasks) but \"does AI improve software delivery?\" (not automatically, and possibly negatively without process redesign).\n\nThe Type 2 / Type 3 distinction is doing real analytical work here. All documented enterprises are operating Type 2. The agentic frontier (SWE-bench, Copilot Coding Agent) is clearly advancing toward Type 2 GA and probing Type 3 at the margins. The speed of benchmark improvement (14% → 80% in two years on curated tasks) is genuine but the discriminative subset finding is an important corrective: agents are getting better at problems that have been seen before, and the genuinely hard novel problems remain unsolved.\n\nThe IP governance finding is underweighted in most corporate AI strategy discussions. An organisation that cannot assert copyright over its AI-generated code has a weaker IP position than one that carefully documents human authorship contributions. This is a non-obvious strategic implication that deserves prominence in any NZ technology governance framework.\n\n### Risks, Gaps, and Uncertainties\n\n- The ANZ 40–55% figure is from a controlled internal trial on structured tasks; its applicability to complex enterprise software work (e.g., architectural changes, multi-system integration) is unverified.\n- No independent audit of Google's >25% AI code claim. The figure may be subject to definitional variation (AI-suggested code that is accepted vs. AI-drafted code with minimal human modification).\n- NZ-specific outcome data is entirely absent from the public record. Any NZ strategy built on global evidence is extrapolating from different scale, team composition, and codebase maturity contexts.\n- The SWE-bench discriminative subset finding raises questions about whether benchmark improvement trajectories overstate progress on genuinely novel software engineering problems. If true, the path from Type 2 to Type 3 may be longer than headline numbers suggest.\n- Governance frameworks for AI-generated code are evolving faster than case law. The IP positions documented here reflect current rulings and may change.\n\n### Open Questions\n\n- What is the actual productivity impact of AI coding tools on complex multi-system software work (architectural decisions, integration design) as opposed to task-completion speed on bounded coding exercises?\n- At what agent capability threshold (SWE-bench score, real-world deployment rate) will enterprises begin relaxing human review gates for lower-risk production changes?\n- How are NZ technology organisations (Xero, Trade Me, Datacom) actually deploying AI coding tools, and what governance frameworks are they using? A structured interview programme would be needed to answer this question.\n- Does AI code review (not just code generation) address the DORA delivery stability problem — i.e., can AI-assisted review compensate for AI-accelerated code volume?\n\n--- ai coding delivery stability human review github copilot productivity gains ai adoption financial services mandatory human ai code ai-generated code higher ai developer productivity discriminative subset copilot coding coding agent human authorship nz technology swe ai coding tools internal trial",
     "thread_slugs": [
-      "copilot-coding-coding-agent-agents-md"
+      "copilot-coding-coding-agent-github-copilot"
     ],
     "url": "/Research/research/2026-02-28-ai-strategy-swe-focus.html"
   },
@@ -5004,7 +5004,7 @@
     "thread_slugs": [
       "financial-services-ai-strategy-risk-management",
       "ai-governance-security-agentic-ai",
-      "agentic-ai-ai-systems-nist-ai"
+      "agentic-ai-ai-systems-prompt-injection"
     ],
     "url": "/Research/research/2026-02-28-ai-strategy-security-focus.html"
   },
@@ -5445,7 +5445,7 @@
     "thread_slugs": [
       "agentic-ai-llm-agentic-coding",
       "agentic-ai-software-engineering-llm",
-      "agents-md-github-copilot-claude-code"
+      "github-copilot-agents-md-claude-code"
     ],
     "url": "/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html"
   },
@@ -5492,7 +5492,7 @@
       "agentic-ai-architecture-financial-services",
       "ai-strategy-financial-services-agentic-ai",
       "agentic-ai-ai-strategy-financial-services",
-      "nist-ai-ai-rmf-environment-separation"
+      "nist-ai-ai-rmf-iso-iec"
     ],
     "url": "/Research/research/2026-02-28-ai-strategy.html"
   },
