@@ -15,7 +15,7 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions: [{version: "1.0", sha: "8e8cbfc22d9251032ec69e20a9939ff1dfd97d04", changed: 2026-05-02, progress: "progress/2026-05-02-extension-systems-ai-coding-agents.md", summary: "Initial completion"}]
 ---
 
 # What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?
