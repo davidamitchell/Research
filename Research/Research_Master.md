@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-05-03 04:45 UTC
+Generated on: 2026-05-03 05:12 UTC
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ Generated on: 2026-05-03 04:45 UTC
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
 * [What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?](#2026-05-02-research-item-versioning-amendment-norms-md)
 * [Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](#2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md)
+* [What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?](#2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm-md)
 * [What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?](#2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls-md)
 * [How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?](#2026-05-02-hitl-review-volume-bottleneck-rubber-stamp-md)
 * [What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?](#2026-05-02-cross-item-synthesis-knowledge-map-architecture-md)
@@ -629,6 +630,88 @@ What is the complete set of architectural capabilities required to run Artificia
 - How much of Microsoft 365 agents governance will become generally available outside Frontier, and how quickly will its MCP governance become standard rather than preview-limited?
 - Will GitHub Models move from preview governance features to a durable enterprise control surface with tighter audit and runtime-policy integration?
 - How quickly will AWS add first-party benefit-tracking and budget-governance patterns that connect runtime spend to business outcomes rather than only to infrastructure telemetry?
+
+---
+
+---
+
+<a id="2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm-md"></a>
+
+## What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?
+
+**Tags:** [workflow, research-tooling, organisational-learning, knowledge-graph]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm.md
+
+## Research Question
+
+What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) systems (linked-note methods such as Zettelkasten, Obsidian, Roam Research, Logseq) and academic research management tools, how do they handle unresolved questions that recur across multiple notes or papers, and which design, specifically for a YAML frontmatter field in a file-based Markdown corpus with a Python aggregation script, provides the best balance between structured data quality, minimal agent overhead, and reliable automatic promotion of persistently unresolved gaps into new research backlog items?
+
+## Findings
+
+### Executive Summary
+
+The best-fit design is a lightweight structured `gaps:` field whose entries store a required natural-language `question` and an optional coarse `area`, aggregated by normalized exact matching first and bounded fuzzy matching second, with W-0040's three-mention rule treated as a provisional starting threshold. [inference; source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/searching; https://github.com/maxbachmann/RapidFuzz; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md]
+
+PKM systems and academic review methods converge on the same architectural lesson: recurring unknowns should be captured explicitly in a structured, queryable surface and then surfaced through dynamic aggregation, rather than inferred later from arbitrary prose. [inference; source: https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15]
+
+Exact matching alone is too brittle for agent-authored question phrasing, while embedding-based semantic deduplication introduces model, clustering, and threshold complexity that is disproportionate to the repository's current lightweight file-based design target. [inference; source: https://github.com/maxbachmann/RapidFuzz; https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md]
+
+The result should behave more like a saved search or structure note than like a full semantic platform: capture only enough structure to keep recurring gaps legible, deduplicated, and promotable. [inference; source: https://www.zotero.org/support/searching; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/]
+
+### Key Findings
+
+1. **The cited PKM approaches, especially Zettelkasten guidance and Obsidian Dataview, surface recurring open questions through explicit metadata, links, tasks, or structure notes rather than by depending on later semantic inference over free-form narrative prose.** ([inference]; medium confidence; source: https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/)
+2. **Academic review frameworks separate structured evidence summaries from narrative interpretation, which means recurring uncertainty is made aggregatable by design before it becomes a research-priority conclusion.** ([inference]; high confidence; source: https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html)
+3. **A pure free-text `gaps:` list is too weak for reliable automatic promotion because it gives the aggregator no boundary signal and forces all deduplication decisions onto unstable question phrasing alone.** ([inference]; medium confidence; source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://github.com/maxbachmann/RapidFuzz)
+4. **A lightweight schema is a safer first design than a full controlled taxonomy, because the sources support small queryable structures but do not justify adding a richer classification burden to the repository's closing workflow.** ([inference]; medium confidence; source: https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/)
+5. **The best current frontmatter design is a lightweight object with `question` required and `area` optional but recommended, because that is the smallest schema that materially improves grouping without turning gap capture into ontology work.** ([inference]; medium confidence; source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/searching; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/)
+6. **Normalized exact matching followed by bounded fuzzy comparison inside the same `area` bucket is a reasonable first deduplication layer, because it addresses paraphrase brittleness without introducing the heavier operational stack documented for embedding-based semantic deduplication.** ([inference]; low confidence; source: https://github.com/maxbachmann/RapidFuzz; https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md)
+7. **Embedding-based semantic deduplication is a sensible later-stage option rather than the best first implementation for this repository, because the documented workflow requires embedding generation, clustering, threshold tuning, and model-choice governance while the current design target is a lightweight frontmatter-and-registry layer.** ([inference]; medium confidence; source: https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md)
+8. **Promotion at three distinct completed-item mentions is the current implementation target in W-0040, but it should be treated as a provisional starting threshold rather than as an empirically validated optimum until structured historical gap data exists.** ([inference]; low confidence; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://training.cochrane.org/handbook/current/chapter-15)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] The cited PKM approaches favor explicit capture plus later query, not latent inference from prose. | https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/ | medium | PKM convergence |
+| [inference] Academic review methods make uncertainty aggregatable through structured evidence summaries and explicit implications for research. | https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html | high | Review-method convergence |
+| [inference] Free-text-only gaps are too weak for reliable automatic promotion. | https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://github.com/maxbachmann/RapidFuzz | medium | Missing boundary signal |
+| [inference] A lightweight schema is a safer first design than a full controlled taxonomy for this repository. | https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/ | medium | Avoids unnecessary classification burden |
+| [inference] `question` plus optional `area` is the minimum useful structured schema. | https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/searching; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/ | medium | Smallest useful schema |
+| [inference] Normalized exact plus bounded fuzzy matching inside `area` is a reasonable first dedupe layer. | https://github.com/maxbachmann/RapidFuzz; https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md | low | Heuristic-first starting point |
+| [inference] Embedding-based semantic deduplication is a sensible later-stage option rather than the best first implementation for this repository. | https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md | medium | Heavier infrastructure layer |
+| [inference] Three distinct mentions is the current provisional promotion threshold in W-0040. | https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://training.cochrane.org/handbook/current/chapter-15 | low | Specified target, not validated optimum |
+
+### Assumptions
+
+- [assumption] The optional `area` field can reuse existing canonical tags or a short hand-maintained area list without materially increasing capture burden. [source: https://github.com/davidamitchell/Research/blob/main/docs/tag-vocabulary.md; https://blacksmithgu.github.io/obsidian-dataview/]
+- [assumption] Leaving uncertain fuzzy matches unmerged is preferable to aggressive auto-merging, because backlog promotion errors are costlier than a small number of false negatives in the first implementation. [source: https://github.com/maxbachmann/RapidFuzz; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md]
+
+### Analysis
+
+The evidence points toward a hybrid of PKM minimalism and systematic-review structure. [inference; source: https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://training.cochrane.org/handbook/current/chapter-14]
+
+PKM tools show that recurring questions become useful when they are queryable and connected to entry points, while academic review methods show that uncertainty only becomes decision-useful when it is expressed in a structured summary layer rather than buried in narrative discussion. [inference; source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/searching; https://training.cochrane.org/handbook/current/chapter-15]
+
+That combination rules out both extremes: free-text-only capture leaves too much ambiguity for reliable grouping, and a rich multi-field taxonomy would add classification overhead that the current evidence does not show this repository needs. [inference; source: https://www.zotero.org/support/collections_and_tags; https://blacksmithgu.github.io/obsidian-dataview/]
+
+The matching trade-off is similar. Exact equality alone undercounts paraphrases, but embedding-based dedupe belongs to a heavier operational class with model, clustering, and threshold choices, and prior repository architecture work has already treated similar vector-style infrastructure as a later layer rather than as a baseline requirement. [inference; source: https://github.com/maxbachmann/RapidFuzz; https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md]
+
+The clean first implementation is therefore deterministic normalization plus bounded fuzzy comparison within `area`, variant preservation in the registry, and use of W-0040's three-mention promotion rule as a starting threshold that should be revisited once structured historical data exists. [inference; source: https://github.com/maxbachmann/RapidFuzz; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md]
+
+### Risks, Gaps, and Uncertainties
+
+- The recommendation relies more heavily on Cochrane, GRADE, and Zotero than on deep vendor-specific Rayyan and Covidence help documentation, so fine-grained product-behavior claims should be treated as medium-confidence extrapolations rather than as product-spec facts. [inference; source: https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html; https://www.zotero.org/support/searching; https://www.covidence.org/]
+- The exact fuzzy-threshold value still needs calibration against real repository examples because W-0040 has not yet produced a historical `gaps:` dataset for threshold testing. [assumption; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/maxbachmann/RapidFuzz]
+- The recommendation assumes most gap strings will be short, well-formed questions rather than long paragraph fragments, because bounded fuzzy matching is safer on concise prompts than on long descriptive text. [assumption; source: https://github.com/maxbachmann/RapidFuzz; https://blacksmithgu.github.io/obsidian-dataview/]
+- False-positive and false-negative rates cannot yet be quantified empirically because the repository does not currently store structured historical gap entries. [fact; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md]
+
+### Open Questions
+
+- Should `area` reuse canonical tags directly, or should W-0040 define a smaller area vocabulary dedicated to gap clustering?
+- Should the registry store a manual `canonical_question` override so reviewers can merge or split clusters without editing historical item frontmatter?
+- Should promoted gaps create backlog items automatically, or first mark `promote: true` and let the loop create the backlog item only after checking for an existing equivalent slug?
 
 ---
 
