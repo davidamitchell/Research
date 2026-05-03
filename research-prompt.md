@@ -92,13 +92,36 @@ go. **This output is retained verbatim in the completed item.**
 **§0 Initialise:** Restate the research question. Confirm scope, constraints,
 and output format. Write into `### §0 Initialise`.
 
-**§0.5 — Memory Graph Query (when memory MCP is available)**
+**§0.5a — Memory Graph Query (when memory MCP is available)**
 
 Before beginning investigation, query the `@modelcontextprotocol/server-memory` knowledge graph for entities related to the research question:
 - Use `search_nodes` with the key concepts from the research question
 - Read any entities and relations returned — these represent knowledge from prior sessions
 - Note which concepts are already established vs which require fresh investigation
-- If memory MCP is unavailable, skip this step and proceed to §1
+- If memory MCP is unavailable, skip this step and proceed to §0.5b
+
+**§0.5b — Perspective Discovery (Required)**
+
+Before §1 Question Decomposition, generate exactly four non-overlapping research perspectives for the question. Based on STORM's perspective-seeding approach (Shao et al., NAACL 2024), this step seeds broader sub-questions by forcing coverage of distinct lenses before decomposition begins.
+
+Use these four slots:
+1. **Basic facts lens** — what a broad factual writer must cover first.
+2. **Mechanism or implementation lens** — how the thing works, is built, or fails operationally.
+3. **Stakeholder or decision-impact lens** — who is affected, who decides, and what trade-offs matter.
+4. **Failure-mode or critic lens** — what could be missing, misleading, risky, or overstated.
+
+For each perspective, output:
+- Perspective: `<short role label>`
+- Distinct coverage added: `<one sentence on what this lens sees that the others may miss>`
+- Seed question: `<one concrete research question this lens would ask first>`
+- Evidence to seek: `<the kind of source most likely to answer that question>`
+
+Constraints:
+- Prefer non-overlap over stylistic variety — if two perspectives collapse into the same question class, rewrite one.
+- Keep every seed question specific enough that §1 can decompose it into atomic sub-questions.
+- Do not answer the questions yet.
+
+Write the four perspectives into `### §0.5 Perspective Discovery` in the Research Skill Output.
 
 **§1 Question Decomposition:** Recursively break the Approach sub-questions into
 atomic questions -- each answerable with a single evidence-based claim. Write
@@ -174,12 +197,19 @@ leaps. Resolve or explicitly flag unresolvable contradictions. Write into
 
 **§4.4 — Memory Graph Write (when memory MCP is available)**
 
-After drafting key findings, write 3–5 key concepts discovered in this item into the knowledge graph:
-- Use `create_entities` for each concept (entity type: "concept")
-- Use `create_relations` for relationships between concepts (e.g., "enables", "contradicts", "requires")
-- Use `add_observations` to record the item slug as a provenance observation on each entity
-- This converts the corpus from passive file storage into a queryable cross-session knowledge base
-- If memory MCP is unavailable, skip this step
+After drafting key findings, write 3–5 key concepts discovered in this item into the knowledge graph using the repository schema established in `Research/completed/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.md`:
+
+**Entity types:** `research_item`, `concept`, `claim`, `method`
+**Relation types (use only these):** `addresses`, `states`, `about`, `uses_method`, `supports`, `contradicts`, `extends`
+**Write pattern (search-first to avoid duplicates):**
+1. `search_nodes` for each concept before creating — reuse existing nodes where the name matches.
+2. `create_entities` — one `research_item` node (name: item slug), then 3–5 `concept` nodes for key topics.
+3. `create_relations` — link the item to each concept with `addresses`; link concepts to each other with the appropriate relation type.
+4. `add_observations` — add provenance tokens to every node: `provenance:item=<slug>`, `tag:<canonical-tag>` for each item tag. Optionally add `alias:<variant-name>` for common alternative spellings.
+
+Tags should remain observations on nodes (e.g. `tag:knowledge-graph`), **not** first-class nodes — the server uses lexical substring search so observation tokens are the retrieval index.
+
+If memory MCP is unavailable, skip this step.
 
 **§4.5 — Adversarial Challenge (Required)**
 
