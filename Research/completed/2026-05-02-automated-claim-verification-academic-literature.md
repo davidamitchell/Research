@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5afb29edb6b14985c12ef9557a82d8ad9bcf2253
+    changed: 2026-05-03
+    progress: progress/2026-05-03-automated-claim-verification-academic-literature.md
+    summary: Initial completion
 ---
 
 # What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?
