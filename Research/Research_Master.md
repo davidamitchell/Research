@@ -1,16 +1,19 @@
 # Research Master Document
 
-Generated on: 2026-05-02 11:02 UTC
+Generated on: 2026-05-03 04:45 UTC
 
 ## Table of Contents
 
+* [What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?](#2026-05-02-vendor-lock-in-portability-multi-platform-ai-md)
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
 * [What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?](#2026-05-02-research-item-versioning-amendment-norms-md)
 * [Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](#2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md)
 * [What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?](#2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls-md)
 * [How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?](#2026-05-02-hitl-review-volume-bottleneck-rubber-stamp-md)
 * [What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?](#2026-05-02-cross-item-synthesis-knowledge-map-architecture-md)
+* [What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?](#2026-05-02-automated-claim-verification-academic-literature-md)
 * [What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?](#2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain-md)
+* [What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?](#2026-05-02-adversarial-review-methods-ai-research-quality-md)
 * [What does TerminalBench reveal about minimal toolsets and coding agent performance?](#2026-05-01-terminal-bench-minimal-coding-agent-benchmarks-md)
 * [What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?](#2026-05-01-sustainable-ai-software-development-synthesis-md)
 * [Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?](#2026-05-01-srinivasan-ai-automation-augmentation-role-replacement-md)
@@ -250,6 +253,94 @@ Generated on: 2026-05-02 11:02 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-05-02-vendor-lock-in-portability-multi-platform-ai-md"></a>
+
+## What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?
+
+**Tags:** [vendor-governance, enterprise, ai-platform, multi-platform, microsoft, aws, control-plane, agentic-ai, ai-governance, regulated-enterprise, finops, identity]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-vendor-lock-in-portability-multi-platform-ai.md
+
+## Research Question
+
+What architectural capabilities and contractual conditions are required for an enterprise to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk from: Microsoft ecosystem concentration (Microsoft 365, Azure AI Foundry, GitHub Copilot, Copilot Studio), Amazon Web Services (AWS) Bedrock dependency, contractual constraints (model usage terms, data residency clauses, exit provisions), and data gravity (accumulated embeddings, fine-tuned weights, and proprietary index formats that are costly to migrate), and how should these be incorporated into an enterprise AI capability model?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+For enterprise AI workloads where acceptable substitute models exist, portability depends more on keeping state, policy, and evidence outside vendor-exclusive surfaces than on merely abstracting model calls. [inference; source: https://modelcontextprotocol.io/introduction; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html]
+
+Amazon Bedrock reduces direct dependence on any one model vendor, but it does not remove dependence on AWS-native identity, networking, routing, and contractual surfaces. [fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html]
+
+Microsoft ecosystem concentration becomes most material when Microsoft 365 grounding, GitHub Copilot policy, and Azure Foundry state management become the system of record for how agents operate. [inference; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html]
+
+For regulated financial-services firms, the controlling legal test is credible exit readiness and concentration-risk management for critical services, so the right target is tiered portability with tested exit runbooks, not universal dual-vendor operation for every use case. [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+### Key Findings
+
+1. **The decisive portability boundary is ownership of state and operating evidence, because model calls are comparatively easy to reroute while retrieval indexes, conversation history, policy bindings, and audit records are expensive to reconstruct after a platform move.** ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)
+2. **Amazon Bedrock materially reduces dependence on a single model provider, but it does not make an enterprise platform-agnostic because model access, security controls, private connectivity, inference routing, and geography rules remain AWS-specific.** ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html)
+3. **Microsoft ecosystem lock-in is strongest when Microsoft 365, GitHub Copilot, and Azure Foundry become the enterprise system of record for governance and runtime evidence, because leaving the vendor then means rebuilding the control plane rather than only replacing a model endpoint.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html)
+4. **Open standards and abstraction frameworks, including MCP, LangChain, LlamaIndex, DSPy, and LiteLLM, lower interface-switching cost, but an enterprise still has to normalize identity, residency, audit, approval, and retention semantics with an additional control layer above those abstractions.** ([inference]; medium confidence; source: https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)
+5. **Public vendor documents are strong on content ownership, isolation, and deletion rights, but they are weak on migration assistance and export guarantees, so contracts must explicitly require transition support, exportable artefacts, change notice, and deletion evidence.** ([inference]; medium confidence; source: https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf)
+6. **For regulated financial-services workloads, the primary documented requirement is a realistically executable exit strategy for critical services and concentrated vendors, and the cited regulatory texts do not prescribe universal multi-vendor deployment for every Artificial Intelligence (AI) workload.** ([inference]; medium confidence; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf)
+7. **For workloads where acceptable substitute models exist, the cheapest robust portability pattern is to keep raw corpora, ingestion logic, evaluation datasets, approval evidence, and telemetry in customer-controlled systems while treating provider-managed threads and vector stores as replaceable execution conveniences.** ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
+8. **Portability premium is economically justified when the workload is customer-impacting, regulated, high-spend, or tied to concentrated vendor dependency, and is usually not justified for low-criticality internal use cases that can tolerate a planned single-vendor exit path.** ([inference]; medium confidence; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html)
+9. **The enterprise Artificial Intelligence (AI) capability model should add explicit portability capabilities for standards-based interfaces, customer-owned state, cross-provider telemetry export, contractual exit governance, and periodic portability drills for critical workloads.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] State ownership matters more than endpoint portability because policy bindings, telemetry, and derived stores become migration friction. | https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs | medium | state and evidence layer |
+| [inference] Bedrock is multi-model inside AWS, not multi-platform outside AWS. | https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html | medium | model breadth, AWS-specific control |
+| [inference] Microsoft concentration risk is strongest when governance and runtime evidence become Microsoft-owned system-of-record assets. | https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html | medium | control-plane concentration |
+| [inference] Open standards and abstraction frameworks lower interface-switching cost, but governance semantics still need a separate enterprise control layer. | https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs | medium | interface layer plus control layer |
+| [inference] Public documents must be supplemented by negotiated migration, export, and deletion commitments. | https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf | medium | contract package needed |
+| [inference] Financial-services rules prioritize tested exit readiness and concentration governance rather than prescribing universal multi-vendor deployment. | https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf | medium | regulatory floor |
+| [inference] Customer-owned raw corpora and evidence stores are the cheapest durable anti-lock-in move when acceptable model substitutes exist. | https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html | medium | regenerate derived state |
+| [inference] Portability premium should be applied selectively to critical, regulated, or concentrated workloads. | https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html | medium | tiered economics |
+| [inference] Capability models need an explicit portability domain, not just generic governance or architecture controls. | https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | medium | model integration |
+
+### Assumptions
+
+- The enterprise can keep authoritative raw corpora outside provider-managed retrieval features, which is what makes derived embeddings and indexes regenerable rather than authoritative state. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy]
+- Acceptable substitute models exist across more than one provider for the workload being protected, because interface portability only has operational value when the enterprise can tolerate functional substitution at migration time. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.langchain.com/oss/python/langchain/overview]
+
+### Analysis
+
+The evidence weighs most strongly toward a layered answer because vendor documents consistently separate model access from surrounding policy, storage, and monitoring services. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies]
+
+That makes the main design decision architectural rather than purely procurement-led: preserve independent ownership of identity, policy, evidence, and raw data, then treat model providers as replaceable execution dependencies where practical. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://docs.litellm.ai/docs/proxy/quick_start]
+
+Adding staff to maintain separate bespoke integrations for each vendor can reduce immediate migration pressure, but it does not satisfy the regulatory requirement for explicit exit strategies, access rights, and concentration-risk management on critical outsourced services. [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+Relying on stronger model-quality gates alone is also insufficient, because quality gating does not export audit history, recreate policy lineage, or remove concentration exposure if the governed service still depends on one vendor-admin surface. [inference; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html]
+
+Vendor-unique model capability can still be the primary lock-in vector when acceptable substitutes do not exist, which means portability efforts should focus first on workloads whose quality bar can be met by more than one provider. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.langchain.com/oss/python/langchain/overview]
+
+The strongest practical pattern is therefore selective portability: build the portable rail for critical services, use single-vendor convenience for low-criticality internal uses, and keep both categories under a common control-plane and evidence architecture so the enterprise can escalate a workload into the portable tier when its risk profile changes. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience]
+
+The contract package follows the same logic: public ownership and deletion language is necessary, but it does not prove exit readiness unless it is paired with artefact export, transition assistance, notice of model-term changes, and evidence that the vendor will support a controlled migration window. [inference; source: https://aws.amazon.com/service-terms/; https://aws.amazon.com/legal/bedrock/third-party-models/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+### Risks, Gaps, and Uncertainties
+
+- Public documents do not provide a comprehensive, vendor-neutral export guarantee for provider-managed fine-tuned weights, policy configuration, or evaluation artefacts, so some migration obligations remain contract-dependent rather than documentation-backed. [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/service-terms/; https://aws.amazon.com/legal/bedrock/third-party-models/]
+- GitHub's public enterprise documents expose policy, audit, and short retention windows, but they do not provide complete public documentation for exporting local prompt-session data or long-term prompt history, so enterprises should assume they must own that evidence path themselves if it matters. [inference; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/metrics-data]
+
+### Open Questions
+
+- Which artefacts in modern enterprise AI stacks are hardest to export in practice: prompt lineage, evaluation data, workflow definitions, or provider-managed vector stores?
+- What minimum drill frequency would make an Artificial Intelligence (AI) portability runbook credible to regulators without imposing disproportionate cost on low-criticality workloads?
+- Which provider-specific capabilities are differentiated enough that an enterprise should consciously accept lock-in rather than pay the portability premium?
+
+---
 
 ---
 
@@ -787,6 +878,72 @@ This also keeps the system legible to reviewers, because every synthesized concl
 
 ---
 
+<a id="2026-05-02-automated-claim-verification-academic-literature-md"></a>
+
+## What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?
+
+**Tags:** [agentic-ai, llm, evaluation, workflow, agent-tooling, hallucinations]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md
+
+## Research Question
+
+What automated claim verification approaches against scientific literature, specifically arXiv preprints, are used in research synthesis systems, what search strategies maximise recall and precision for claim-to-paper matching given a natural-language claim, and what is the minimum-viable verification workflow that an Artificial Intelligence (AI) research agent using the `arxiv_mcp_server` Model Context Protocol (MCP) tool can execute to verify that a support-critical claim, one a Key Finding directly depends on, is supported by a specific primary paper, and what should happen when verification fails (downgrading claim label from `[fact]` to `[inference]` with explanation)?
+
+## Findings
+
+### Executive Summary
+
+A minimum-viable arXiv verification workflow should separate paper retrieval from support judgment and should leave a support-critical claim marked as `[fact]` only after one identified paper explicitly supports the same proposition. [inference; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Scientific claim-verification systems consistently decompose the task into retrieval, evidence selection, and support or refute judgment, which implies that paper discovery and evidence interpretation are distinct failure surfaces in a research-agent workflow. [fact; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Because open-domain studies find that lexical retrieval tends to maximize precision while semantic retrieval improves recall, the current `arxiv_mcp_server` is best used as a lexical-first verifier surface with bounded candidate inspection rather than as a complete literature-search solution. [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server] Large Language Models remain too hallucination-prone and too brittle to invent papers or act as sole verifiers, so the safest role for the model is structured support or refute assessment over already retrieved candidate papers, with downgrade to `[inference]` whenever the paper match or support threshold fails. [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882]
+
+### Key Findings
+
+1. **Scientific claim-verification systems from FEVER through SciFact, VerT5erini, and MultiVerS consistently decompose verification into retrieval, evidence selection, and support or refute judgment, even when later models integrate some stages more tightly.** ([fact]; high confidence; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640)
+2. **Open-domain verification results show that retrieval quality materially changes final verification quality, with lexical methods favoring precision, semantic methods favoring recall, and hybrid retrieval giving the strongest overall pattern when the system can support it.** ([fact]; high confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://aclanthology.org/2024.findings-acl.551/; https://github.com/Jasonlingg/scifact-retrieval/blob/main/README.md)
+3. **`arxiv_mcp_server` exposes global paper search, per-paper download, and paper reading, while its semantic search only works over locally downloaded papers and therefore cannot replace the initial global search step.** ([fact]; medium confidence; source: https://github.com/blazickjp/arxiv-mcp-server)
+4. **Large Language Models are best treated as unsuitable primary literature finders or single-shot verdict generators, because fabricated references, perturbation brittleness, and multiple-choice position bias all remain well-documented failure modes in academic and fact-verification settings.** ([inference]; medium confidence; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882)
+5. **A support-critical claim should remain `[fact]` only when one identified arXiv paper states the same or materially equivalent proposition, because topic-level similarity or partial support is not strong enough to preserve verified status in later synthesis.** ([inference]; medium confidence; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
+6. **A bounded workflow that verifies only a small number of support-critical claims per item and inspects only a small top-ranked candidate set is the right minimum-viable compromise for this repository.** ([inference]; medium confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
+7. **When no plausible paper match appears, when the best candidate is only topically related, or when support is partial or contradictory, the workflow should downgrade the claim to `[inference]` and record the query, candidate, and failure reason instead of preserving false certainty.** ([inference]; medium confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Scientific verification systems share a retrieval plus evidence plus judgment structure. | https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640 | high | Stable pattern across general and scientific benchmarks. |
+| [fact] Retrieval quality is a first-order determinant of final verification quality. | https://aclanthology.org/2024.eacl-long.128/; https://aclanthology.org/2024.findings-acl.551/; https://github.com/Jasonlingg/scifact-retrieval/blob/main/README.md | high | Precision versus recall trade-off is explicit in the evidence. |
+| [fact] `arxiv_mcp_server` supports search, download, and reading, while semantic search is local-only. | https://github.com/blazickjp/arxiv-mcp-server | medium | Capability claim comes directly from current project documentation. |
+| [inference] Large Language Models are best treated as unsafe as sole literature verifiers. | https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882 | medium | Independent studies document failure modes; the workflow recommendation is a conservative interpretation. |
+| [inference] Exact-support threshold should gate retention of `[fact]`. | https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md | medium | Conservative design extrapolated from support or refute tasks and repository provenance rules. |
+| [inference] A bounded small-set workflow is the best minimum-viable compromise. | https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md | medium | Practical bound combines literature with tool and session constraints. |
+| [inference] Failed matches should become labeled inferences with an audit note. | https://aclanthology.org/2024.eacl-long.128/; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/ | medium | Prevents paper-confabulation from entering later synthesis as fact. |
+
+### Assumptions
+
+- A top-ten lexical arXiv search is usually wide enough to surface a plausible candidate paper for a well-phrased support-critical claim. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2004.14974]
+- Abstracts are sufficient for rejection and triage decisions, while positive retention of `[fact]` may require full-text reading when qualifiers matter. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2112.01640]
+- The repository can tolerate the search and read cost for at most five support-critical claims per item without distorting session time budgets. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128]
+
+### Analysis
+
+A hybrid retrieval stack would be stronger than a lexical-only stack, but the available tool surface does not provide global semantic retrieval, so the practical recommendation optimizes precision and inspectability instead of claiming best-possible recall. [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://aclanthology.org/2024.findings-acl.551/; https://github.com/blazickjp/arxiv-mcp-server] The verification literature and the repository's prior synthesis work point in the same direction: retrieval alone is not enough, because later synthesis can still collapse near-miss papers into one overconfident claim unless support is checked at the paper and proposition level. [inference; source: https://arxiv.org/abs/2004.14974; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] The downgrade rule is intentionally conservative because a missed fact can survive as a labeled inference, while a mislabeled fact contaminates later reasoning as if it were verified ground truth. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/]
+
+### Risks, Gaps, and Uncertainties
+
+- The empirical retrieval evidence is strongest in biomedical or health-adjacent corpora, so generalization from PubMed-oriented benchmarks to every arXiv domain is plausible but not directly demonstrated here. [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://arxiv.org/abs/2408.14317]
+- No primary study directly measured author or title lookup against claim-keyword search on arXiv, so any claim that title or author lookup is best should be treated as a workflow heuristic rather than as benchmarked fact. [assumption; source: https://aclanthology.org/2024.eacl-long.128/; https://arxiv.org/abs/2408.14317]
+- Abstract-only verification can miss qualifiers or boundary conditions that appear later in the paper, which means some retained `[fact]` judgments will remain weaker than full-text-confirmed support. [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2112.01640]
+
+### Open Questions
+
+- Would downloading a larger candidate pool and then running local semantic search improve recall enough to justify the added time and complexity? [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128/]
+- Should a later version of the workflow use citation-graph expansion when the top lexical hits are close but none makes the claim explicitly? [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.findings-acl.551/]
+- What lightweight audit step best distinguishes a genuine verification failure from a poor query formulation before a support-critical claim is downgraded? [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/]
+
+---
+
+---
+
 <a id="2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain-md"></a>
 
 ## What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?
@@ -862,6 +1019,116 @@ Relative to the "API access + audit" baseline, the decisive additions are not mo
 2. Which runtime precursor signals are most predictive of exfiltration attempts before any data leaves the boundary?
 3. How should enterprises quantify acceptable stale-permission windows for copied retrieval corpora?
 4. Which evaluation suite best tests combined prompt, retrieval, and tool-path abuse in the same agent workflow?
+
+---
+
+---
+
+<a id="2026-05-02-adversarial-review-methods-ai-research-quality-md"></a>
+
+## What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?
+
+**Tags:** [agentic-ai, llm, evaluation, workflow, agent-tooling]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-adversarial-review-methods-ai-research-quality.md
+
+## Research Question
+
+What adversarial review and red-teaming methods, drawn from Artificial Intelligence (AI) safety research, debate-based evaluation, formal argumentation theory, and scientific peer review practice, are most effective at detecting shallow reasoning, unsupported generalisations, and unjustified certainty in AI-generated research findings before they are committed to a repository, and what is the minimum-viable prompt design that instructs a single-agent automated research system, using the `sequential_thinking` Model Context Protocol (MCP) server, to generate and apply at least two substantive objections to its own draft findings before finalisation?
+
+## Findings
+
+### Executive Summary
+
+- A structured objection-and-verification gate is a plausible prompt-only method for catching shallow reasoning in AI-generated research findings before commit, but the evidence for this repository's exact use case remains indirect rather than directly benchmarked. [inference; source: https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2406.01297; https://openreview.net/forum?id=7K1kXowjK1]
+- Same-model critique appears most useful when it creates explicit intermediate artifacts and independent checks, but generic self-critique is too weak because current Large Language Models often fail to detect their own internally generated errors. [inference; source: https://arxiv.org/abs/2212.08073; https://arxiv.org/abs/2303.17651; https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2406.01297]
+- Multi-perspective questioning and adversarial collaboration evidence indicate that objections become more valuable when they are role-specific, target named claims, and stay unresolved until the source check is complete. [inference; source: https://arxiv.org/abs/2402.14207; https://pmc.ncbi.nlm.nih.gov/articles/PMC12748294/]
+- The minimum-viable repository design is a fixed challenge block that ranks risky claims, generates two substantive objections, branches each objection through `sequential_thinking`, and blocks finalisation when any key objection survives verification or forces a confidence downgrade. [inference; source: https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking; https://aclanthology.org/2024.findings-acl.212/; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook]
+
+### Key Findings
+
+1. **Structured self-critique methods appear to improve output quality most consistently when they force the model to externalise critique artifacts before revision, rather than asking for vague reflection after the draft is already written.** ([inference]; medium confidence; source: https://arxiv.org/abs/2212.08073; https://arxiv.org/abs/2303.17651; https://aclanthology.org/2024.findings-acl.212/)
+2. **Prompt-only adversarial review should borrow Chain-of-Verification's separation between objection planning and objection checking, because independent verification steps reduce the chance that the draft and the critique share the same unsupported assumption.** ([inference]; medium confidence; source: https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2406.01297; https://openreview.net/forum?id=7K1kXowjK1)
+3. **Multi-perspective questioning offers a plausible way to widen coverage in long-form research synthesis, because STORM shows gains from perspective diversity while adversarial collaboration studies show that targeted disagreement can deepen the evidence base.** ([inference]; medium confidence; source: https://arxiv.org/abs/2402.14207; https://pmc.ncbi.nlm.nih.gov/articles/PMC12748294/)
+4. **Open-ended self-correction is not a dependable safety net for research findings, because current evidence shows large language models frequently fail to notice their own internal errors and can trade stronger critique for weaker answer stability.** ([fact]; high confidence; source: https://arxiv.org/abs/2406.01297; https://openreview.net/forum?id=7K1kXowjK1; https://aclanthology.org/2025.acl-long.203/)
+5. **A substantive objection in this workflow should target a named claim, identify missing evidence or a credible rival interpretation, specify what source or test would change the conclusion, and remain unresolved until that check is completed.** ([inference]; medium confidence; source: https://aclanthology.org/2024.findings-acl.212/; https://pmc.ncbi.nlm.nih.gov/articles/PMC12748294/)
+6. **The adversarial review step should act as a named governance gate with explicit pass-or-block output, because checklist evidence and prior repository oversight work both show that unstructured review easily becomes performative and hard to audit.** ([inference]; medium confidence; source: https://arxiv.org/abs/2306.09562; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md)
+7. **The minimum-viable prompt design for this repository is a four-part challenge loop that ranks risky claims, generates two adjacent-expert objections, branches each objection through `sequential_thinking`, and requires confidence downgrades or blocking when objections survive source checks.** ([inference]; low confidence; source: https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking; https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2402.14207; https://arxiv.org/abs/2406.01297)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Structured self-critique appears most reliable when critique is externalised before revision. | https://arxiv.org/abs/2212.08073; https://arxiv.org/abs/2303.17651; https://aclanthology.org/2024.findings-acl.212/ | medium | Cross-paper synthesis |
+| [inference] Independent objection checking is the most important portable element for this workflow. | https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2406.01297; https://openreview.net/forum?id=7K1kXowjK1 | medium | Design synthesis |
+| [inference] Perspective-specific questioning plausibly widens coverage in long-form synthesis. | https://arxiv.org/abs/2402.14207; https://pmc.ncbi.nlm.nih.gov/articles/PMC12748294/ | medium | Adjacent evidence |
+| [fact] Unstructured self-correction is unreliable for internally generated errors. | https://arxiv.org/abs/2406.01297; https://openreview.net/forum?id=7K1kXowjK1; https://aclanthology.org/2025.acl-long.203/ | high | Strong direct evidence |
+| [inference] A substantive objection must identify a target claim, a rival interpretation, and a resolution test. | https://aclanthology.org/2024.findings-acl.212/; https://pmc.ncbi.nlm.nih.gov/articles/PMC12748294/ | medium | Resolution criteria only |
+| [inference] The adversarial step should be a named gate with explicit pass-or-block output. | https://arxiv.org/abs/2306.09562; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md | medium | Governance synthesis |
+| [inference] A four-part challenge loop is the minimum viable prompt block for this repository. | https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking; https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2402.14207; https://arxiv.org/abs/2406.01297 | low | Design synthesis |
+
+### Assumptions
+
+- [assumption; source: https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking] The host will continue to call `sequential_thinking` when the prompt explicitly asks for branching and revision during the objection pass.
+- [assumption; source: https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md] A pass-or-block output is operationally acceptable in this repository because named control points and explicit review outcomes already exist in the surrounding workflow.
+
+### Analysis
+
+- Evidence favors staged critique over generic skepticism because the positive results come from methods that separate drafting from checking, while the strongest negative evidence targets unconstrained prompted self-correction. [inference; source: https://arxiv.org/abs/2303.17651; https://aclanthology.org/2024.findings-acl.212/; https://arxiv.org/abs/2406.01297]
+- Debate and STORM do not prove that a single-agent prompt will match multi-agent performance, but they do show that perspective diversity and adversarial contrast are the productive ingredients worth preserving when the implementation must stay single-agent. [inference; source: https://arxiv.org/abs/1805.00899; https://arxiv.org/abs/2402.14207]
+- Rival remedies remain plausible, including stronger model selection, more human review, or richer retrieval, but the evidence in this item supports adding a prompt-level challenge gate because it is the smallest change that directly targets shallow reasoning before commit without changing infrastructure. [inference; source: https://arxiv.org/abs/2406.01297; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-ai-coding-harness-quality-benchmarks.md]
+
+### Minimum-Viable Prompt Block
+
+```text
+Adversarial challenge pass
+
+You are now acting as a skeptical adjacent-domain expert reviewing the draft Findings.
+Your goal is not to improve tone or wording. Your goal is to find reasoning that could fail under scrutiny.
+
+Inputs:
+- Draft Findings
+- Evidence Map
+- Sources
+
+Rules:
+1. Identify the three claims most likely to be wrong, overstated, weakly sourced, or too certain.
+2. Generate at least two substantive objections.
+3. A substantive objection must:
+   - target a specific claim or causal link
+   - identify missing evidence, contradictory evidence, or a credible rival interpretation
+   - name the source or test that would resolve the objection
+   - remain open until the check is completed
+4. Reject any objection that only restates the claim, argues about wording, or resolves itself immediately.
+5. Use sequential_thinking to branch each surviving objection through:
+   - target claim
+   - why the current support may fail
+   - what evidence would disconfirm or narrow the claim
+   - what confidence change follows if the objection stands
+6. After checking sources, return one of two decisions:
+   - BLOCK if any objection remains unresolved or materially weakens a key finding
+   - PASS if all objections were checked and the draft was revised or explicitly defended
+
+Output format:
+1. Highest-risk claims
+2. Objection 1
+3. Objection 2
+4. Source checks
+5. Decision: PASS or BLOCK
+6. Required revisions or confidence downgrades
+```
+
+### Risks, Gaps, and Uncertainties
+
+- There is no strong direct trial in this evidence set showing that a prompt-only single-agent adversarial pass improves research-writing quality in the exact way this repository needs, so the recommended block remains a synthesis rather than a directly benchmarked recipe. [fact; source: https://arxiv.org/abs/2406.01297]
+- The formal argumentation source was only partially accessible in this session, so the prompt uses an argument-structure heuristic without relying on direct quotations from the book. [fact; source: https://www.cambridge.org/core/books/uses-of-argument/26CF801BC12004587B66778297D5567C]
+- Any checklist or challenge step can be gamed if it becomes a ritual, so downstream review should inspect whether objections actually change confidence, sources, or scope. [inference; source: https://arxiv.org/abs/2306.09562; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md]
+
+### Open Questions
+
+- Would a repository-specific benchmark of shallow-reasoning errors in completed research items show measurable gains from the proposed prompt block?
+- How often should a surviving objection trigger mandatory source expansion versus immediate draft blocking?
+- Does an adjacent-domain expert persona outperform a pure skeptic persona on this repository's research items?
 
 ---
 
