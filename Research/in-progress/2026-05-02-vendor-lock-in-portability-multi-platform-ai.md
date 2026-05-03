@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?"
 added: 2026-05-02T06:00:57+00:00
 status: reviewing
