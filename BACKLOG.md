@@ -1109,3 +1109,38 @@ A `systematic-review` skill is added to `davidamitchell/Skills` for questions wh
 Research item `2026-05-02-meta-analysis-standards-and-ai-skill-evaluation` found that the current workflow lacks auditable search strings, source-coverage declarations, exclusion reasons, duplicate screening, and GRADE-equivalent certainty grading. The gap between the repository's narrative-synthesis standard and professional systematic-review conduct (Cochrane/Campbell) is significant and intentional — but requires a dedicated heavier skill to close when the question demands it. The current research workflow stays in place for exploratory and strategic knowledge notes. The systematic-review skill is additive, not a replacement.
 
 ---
+
+---
+
+## W-0059
+
+status: done
+created: 2026-05-03
+updated: 2026-05-03
+
+### Outcome
+
+A process evaluation harness is implemented that samples completed research items and runs them through a specified process step for comparison:
+
+- `scripts/eval_harness.py` — core harness script:
+  - `sample_items(completed_dir, n, seed)` — random sample with optional seed for reproducibility
+  - `extract_question()`, `extract_approach()`, `extract_key_findings()` — section text extraction from completed item Markdown
+  - Three named process steps with full prompt templates: `perspective-discovery` (§0.5b), `question-decomposition` (§1), `adversarial-challenge` (§4.5)
+  - `build_process_prompt(process_name, context)` — fills prompt template from item context
+  - `score_structural_completeness()` — checks required output patterns (0.0–1.0)
+  - `score_coverage_overlap()` — word-level Jaccard similarity between generated and original content (0.0–1.0)
+  - `score_perspective_slots()` — checks all four STORM lens labels present (perspective-discovery only)
+  - `generate_eval_report()` + `format_markdown_report()` — JSON + Markdown report to `state/eval_reports/`
+  - CLI: `--process`, `--n`, `--seed`, `--completed-dir`, `--responses-dir`, `--output-dir`, `--list-processes`
+- `tests/test_eval_harness.py` — 57 unit tests covering extraction, sampling, prompt building, scoring, report generation, and CLI
+- `.github/workflows/eval-harness.yml` — manual workflow dispatch with `process`, `n`, `seed` inputs; commits report to `state/eval_reports/`
+
+**Workflow:**
+1. Run harness to generate prompt bundle: `python scripts/eval_harness.py --process perspective-discovery --n 5 --seed 42`
+2. Paste each prompt into an LLM; save responses as `<slug>.txt` in a directory
+3. Re-run with `--responses-dir` to score responses against original items
+4. Report compares structural completeness, coverage overlap (Jaccard), and process-specific metrics
+
+### Context
+
+When new or modified process steps (such as §0.5b Perspective Discovery) are proposed, evaluating them against a random sample of past research questions gives evidence about whether they would improve investigation coverage and quality. Without the harness, evaluation is purely subjective. The harness produces reproducible, seeded prompt bundles and deterministic comparison scores, enabling A/B comparison of process variants.
