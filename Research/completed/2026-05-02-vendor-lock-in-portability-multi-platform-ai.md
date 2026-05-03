@@ -25,7 +25,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: "da05a16da3537f7d19f6cafdc36f9d617347a603"
+    changed: 2026-05-03
+    progress: "progress/2026-05-03-vendor-lock-in-portability-multi-platform-ai.md"
+    summary: "Initial completion"
 ---
 
 # What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?
