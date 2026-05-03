@@ -595,16 +595,16 @@
     "url": "/Research/threads/agentic-ai-llm-agentic-coding.html"
   },
   {
-    "slug": "agentic-ai-llm-workflow",
-    "title": "agentic-ai / llm / workflow",
+    "slug": "agentic-ai-llm-evaluation",
+    "title": "agentic-ai / llm / evaluation",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "llm",
-      "workflow"
+      "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 52,
+    "item_count": 53,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -865,9 +865,14 @@
         "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
         "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
+        "added": "2026-05-03"
       }
     ],
-    "url": "/Research/threads/agentic-ai-llm-workflow.html"
+    "url": "/Research/threads/agentic-ai-llm-evaluation.html"
   },
   {
     "slug": "agentic-ai-llm-agentic-coding",
@@ -879,7 +884,7 @@
       "agentic-coding"
     ],
     "concept_cluster": [],
-    "item_count": 49,
+    "item_count": 50,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -1125,6 +1130,11 @@
         "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
         "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
+        "added": "2026-05-03"
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-agentic-coding.html"
@@ -2850,6 +2860,151 @@
     "url": "/Research/threads/agentic-ai-regulated-banking-rag.html"
   },
   {
+    "slug": "agentic-ai-llm-hallucinations",
+    "title": "agentic-ai / llm / hallucinations",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "llm",
+      "hallucinations"
+    ],
+    "concept_cluster": [],
+    "item_count": 26,
+    "items": [
+      {
+        "slug": "2026-03-05-llm-hallucination-mechanisms",
+        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-in-llms",
+        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-over-compliance",
+        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-swat-technique-loop-fresh-context",
+        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-automated-claim-verification-academic-literature",
+        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
+        "added": "2026-05-03"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-llm-hallucinations.html"
+  },
+  {
     "slug": "ai-governance-agentic-ai-low-code",
     "title": "ai-governance / agentic-ai / low-code",
     "kind": "implicit",
@@ -2988,146 +3143,6 @@
       }
     ],
     "url": "/Research/threads/ai-governance-agentic-ai-low-code.html"
-  },
-  {
-    "slug": "agentic-ai-llm-hallucinations",
-    "title": "agentic-ai / llm / hallucinations",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "llm",
-      "hallucinations"
-    ],
-    "concept_cluster": [],
-    "item_count": 25,
-    "items": [
-      {
-        "slug": "2026-03-05-llm-hallucination-mechanisms",
-        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-in-llms",
-        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-synthesis",
-        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-over-compliance",
-        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-pretraining-origins",
-        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-11"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-12-swat-technique-loop-fresh-context",
-        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
-        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
-        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-automated-claim-verification-academic-literature",
-        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
-        "added": "2026-05-02"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-llm-hallucinations.html"
   },
   {
     "slug": "agentic-ai-workflow-llm",
@@ -4210,6 +4225,86 @@
     "url": "/Research/threads/agentic-ai-pbac-prompt-injection.html"
   },
   {
+    "slug": "llm-alignment-hallucinations",
+    "title": "llm / alignment / hallucinations",
+    "kind": "implicit",
+    "tag_cluster": [
+      "llm",
+      "alignment",
+      "hallucinations"
+    ],
+    "concept_cluster": [],
+    "item_count": 13,
+    "items": [
+      {
+        "slug": "2026-03-05-llm-hallucination-mechanisms",
+        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-in-llms",
+        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-over-compliance",
+        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-31-llm-offensive-security-0days",
+        "title": "Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race",
+        "added": "2026-03-31"
+      },
+      {
+        "slug": "2026-04-02-claude-code-npm-source-map-leak",
+        "title": "Claude Code npm Source Map Leak",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
+        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-claude-mythos",
+        "title": "Claude mythos: character, soul documents, and narrative identity in large language models",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
+        "added": "2026-05-03"
+      }
+    ],
+    "url": "/Research/threads/llm-alignment-hallucinations.html"
+  },
+  {
     "slug": "agentic-ai-regulated-banking-pbac",
     "title": "agentic-ai / regulated-banking / pbac",
     "kind": "implicit",
@@ -4283,81 +4378,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-regulated-banking-pbac.html"
-  },
-  {
-    "slug": "llm-alignment-mechanistic-interpretability",
-    "title": "llm / alignment / mechanistic-interpretability",
-    "kind": "implicit",
-    "tag_cluster": [
-      "llm",
-      "alignment",
-      "mechanistic-interpretability"
-    ],
-    "concept_cluster": [],
-    "item_count": 12,
-    "items": [
-      {
-        "slug": "2026-03-05-llm-hallucination-mechanisms",
-        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-in-llms",
-        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-synthesis",
-        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-over-compliance",
-        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-pretraining-origins",
-        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-31-llm-offensive-security-0days",
-        "title": "Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race",
-        "added": "2026-03-31"
-      },
-      {
-        "slug": "2026-04-02-claude-code-npm-source-map-leak",
-        "title": "Claude Code npm Source Map Leak",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
-        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-02-claude-mythos",
-        "title": "Claude mythos: character, soul documents, and narrative identity in large language models",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
-        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/llm-alignment-mechanistic-interpretability.html"
   },
   {
     "slug": "agentic-ai-architecture-observability",
@@ -5940,14 +5960,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot coding",
       "coding agent",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -5977,7 +5997,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6050,14 +6070,14 @@
     "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-environment-separation",
-    "title": "ai rmf / nist ai / environment separation",
+    "slug": "ai-rmf-nist-ai-rmf-core",
+    "title": "ai rmf / nist ai / rmf core",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai rmf",
       "nist ai",
-      "environment separation"
+      "rmf core"
     ],
     "item_count": 4,
     "items": [
@@ -6082,16 +6102,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-rmf-core.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -6117,7 +6137,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "claude-code-agent-tooling-skills",

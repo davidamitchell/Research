@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-05-03T05:25:27Z",
+  "extracted_at": "2026-05-03T05:37:15Z",
   "items": {
+    "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability": {
+      "named_concepts": [
+        "et al",
+        "user phrasing",
+        "human challenge",
+        "public hbr",
+        "misinformation compliance",
+        "seven leading",
+        "leading models",
+        "leaned toward",
+        "option order",
+        "wang et",
+        "current tracing",
+        "tracing still",
+        "still captures",
+        "hbr article",
+        "barnum effect",
+        "opposite-case prompting",
+        "accountable human",
+        "strategic advice",
+        "decision authority",
+        "order user"
+      ],
+      "source_urls": [
+        "https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return",
+        "https://arxiv.org/abs/2508.02087",
+        "https://www.nature.com/articles/s41746-025-02008-z",
+        "https://www.massgeneralbrigham.org/en/about/newsroom/press-releases/large-language-models-prioritize-helpfulness-over-accuracy-in-medical-contexts",
+        "https://www.anthropic.com/research/tracing-thoughts-language-model",
+        "https://transformer-circuits.pub/2025/attribution-graphs/biology.html",
+        "https://arxiv.org/abs/2310.13548",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://doi.org/10.1037/h0059240"
+      ],
+      "key_claims": [
+        {
+          "text": "Romasanta, Thomas, and Levina report that seven leading models, ChatGPT, Claude, DeepSeek, GPT-5, Gemini, Grok, and Mistral, leaned toward one side of most classic strategy tensions instead of clustering near neutral trade-off positions in the public HBR study results",
+          "sources": [
+            "https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return"
+          ]
+        },
+        {
+          "text": "The HBR article's own mitigation tests support the inference that prompt engineering was weak as a cure, because option-order reversal changed biased-answer likelihood by 19%, richer context shifted baseline bias by only 11% on average, and some tensions moved by less than 2% regardless of prompt manipulation",
+          "sources": [
+            "https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return"
+          ]
+        },
+        {
+          "text": "Wang et al. show that first-person opinion prompts can create a late-layer preference shift and deeper representational divergence that override learned knowledge, which supports treating user phrasing as a meaningful control surface in prompt-sensitive tasks even though broader strategic-advice generalization remains uncertain",
+          "sources": [
+            "https://arxiv.org/abs/2508.02087"
+          ]
+        },
+        {
+          "text": "Chen et al. show that frontier medical models can comply with obviously illogical requests even when they know the underlying drug-name equivalence facts, with baseline misinformation compliance ranging from 42% to 100% before targeted prompting and fine-tuning sharply improved rejection behavior",
+          "sources": [
+            "https://www.nature.com/articles/s41746-025-02008-z",
+            "https://www.massgeneralbrigham.org/en/about/newsroom/press-releases/large-language-models-prioritize-helpfulness-over-accuracy-in-medical-contexts"
+          ]
+        },
+        {
+          "text": "Anthropic's official tracing publications show that chain-of-thought can be faithful on easier tasks but can also be motivated or fabricated on harder tasks, while current tracing still captures only a fraction of total computation, which supports treating polished rationale as unreliable evidence of actual internal reasoning",
+          "sources": [
+            "https://www.anthropic.com/research/tracing-thoughts-language-model",
+            "https://transformer-circuits.pub/2025/attribution-graphs/biology.html"
+          ]
+        },
+        {
+          "text": "The Barnum effect provides a plausible human-acceptance analogue for trendslop, because generic and socially desirable advice can feel personally tailored, which helps explain why fashionable but weakly grounded strategy recommendations may still be experienced as bespoke insight",
+          "sources": [
+            "https://doi.org/10.1037/h0059240",
+            "https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return",
+            "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html"
+          ]
+        },
+        {
+          "text": "This item extends the prior corpus result on RLHF sycophancy by showing that strategic trendslop, medical misinformation compliance, and explanation-interface failures are best understood as overlapping framing, agreeableness, and training-prior mechanisms rather than as a single isolated chatbot personality flaw",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html",
+            "https://arxiv.org/abs/2310.13548",
+            "https://arxiv.org/abs/2508.02087",
+            "https://www.nature.com/articles/s41746-025-02008-z",
+            "https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return"
+          ]
+        },
+        {
+          "text": "The best-supported practitioner posture is to use LLMs to expand options and adversarially test decisions rather than to make or ratify them, while treating context enrichment, opposite-case prompting, and hybrid warnings as useful diagnostics but not as substitutes for accountable human judgment",
+          "sources": [
+            "https://hbr.org/2026/03/researchers-asked-llms-for-strategic-advice-they-got-trendslop-in-return",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://www.anthropic.com/research/tracing-thoughts-language-model",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        }
+      ]
+    },
     "2026-05-02-vendor-lock-in-portability-multi-platform-ai": {
       "named_concepts": [
         "acceptable substitute",
