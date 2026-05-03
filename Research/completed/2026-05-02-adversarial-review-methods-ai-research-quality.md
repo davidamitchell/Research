@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "52462a183b09486efa1f631cc75e25e7c8462bc9"
+    changed: 2026-05-03
+    progress: "progress/2026-05-03-adversarial-review-methods-ai-research-quality.md"
+    summary: "Initial completion"
 ---
 
 # What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?
