@@ -2,12 +2,12 @@
 review_count: 2
 title: "Meta-analysis standards and Artificial Intelligence (AI) skill evaluation: what do professional systematic-review frameworks require, and how do existing repository research workflows measure up?"
 added: 2026-05-02T06:05:57+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [evaluation, research-methodology, workflow, agent-tooling, agentic-ai]
 started: 2026-05-03T07:13:02+00:00
-completed: ~
+completed: 2026-05-03T07:31:22+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-05-02-systematic-review-methodology-ai-synthesis, 2026-05-02-adversarial-review-methods-ai-research-quality]          # slugs of items this item directly depends on or quotes
 related: [2026-03-03-cross-item-synthesis-meta-insights, 2026-05-02-automated-claim-verification-academic-literature, 2026-05-01-coding-agent-context-management-transparency]
