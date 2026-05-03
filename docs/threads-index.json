@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 56,
+    "item_count": 57,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -290,6 +290,11 @@
         "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
         "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-governance.html"
@@ -304,7 +309,7 @@
       "agentic-coding"
     ],
     "concept_cluster": [],
-    "item_count": 53,
+    "item_count": 54,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -570,6 +575,11 @@
         "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
         "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-agentic-coding.html"
@@ -584,7 +594,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 49,
+    "item_count": 50,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -830,6 +840,11 @@
         "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
         "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-evaluation.html"
@@ -844,7 +859,7 @@
       "agentic-coding"
     ],
     "concept_cluster": [],
-    "item_count": 47,
+    "item_count": 48,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -1079,6 +1094,11 @@
       {
         "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
         "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
         "added": "2026-05-02"
       }
     ],
@@ -2195,6 +2215,156 @@
     "url": "/Research/threads/agentic-ai-software-engineering-llm.html"
   },
   {
+    "slug": "agentic-ai-workflow-ai-governance",
+    "title": "agentic-ai / workflow / ai-governance",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "workflow",
+      "ai-governance"
+    ],
+    "concept_cluster": [],
+    "item_count": 27,
+    "items": [
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-capability-model",
+        "title": "Enterprise AI capability model for use-case maturity decisions",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
+        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
+        "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
+        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-coding-agent-context-management-transparency",
+        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
+        "title": "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-workflow-ai-governance.html"
+  },
+  {
     "slug": "agentic-ai-ai-governance-enterprise",
     "title": "agentic-ai / ai-governance / enterprise",
     "kind": "implicit",
@@ -2495,161 +2665,16 @@
     "url": "/Research/threads/agentic-ai-regulated-banking-rag.html"
   },
   {
-    "slug": "agentic-ai-workflow-ai-governance",
-    "title": "agentic-ai / workflow / ai-governance",
+    "slug": "agentic-ai-workflow-llm",
+    "title": "agentic-ai / workflow / llm",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "workflow",
-      "ai-governance"
+      "llm"
     ],
     "concept_cluster": [],
-    "item_count": 26,
-    "items": [
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      },
-      {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-capability-model",
-        "title": "Enterprise AI capability model for use-case maturity decisions",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
-        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
-        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
-        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
-        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
-        "added": "2026-04-29"
-      },
-      {
-        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
-        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
-        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-coding-agent-context-management-transparency",
-        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
-        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
-        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
-        "title": "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
-        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
-        "added": "2026-05-02"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-workflow-ai-governance.html"
-  },
-  {
-    "slug": "agentic-ai-workflow-skills",
-    "title": "agentic-ai / workflow / skills",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "workflow",
-      "skills"
-    ],
-    "concept_cluster": [],
-    "item_count": 26,
+    "item_count": 27,
     "items": [
       {
         "slug": "2026-02-27-simple-process-for-adding-research-item",
@@ -2780,9 +2805,14 @@
         "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
         "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
       }
     ],
-    "url": "/Research/threads/agentic-ai-workflow-skills.html"
+    "url": "/Research/threads/agentic-ai-workflow-llm.html"
   },
   {
     "slug": "ai-governance-agentic-ai-low-code",
@@ -3060,16 +3090,16 @@
     "url": "/Research/threads/agentic-ai-llm-hallucinations.html"
   },
   {
-    "slug": "agentic-ai-workflow-memory-system",
-    "title": "agentic-ai / workflow / memory-system",
+    "slug": "agentic-ai-workflow-llm",
+    "title": "agentic-ai / workflow / llm",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "workflow",
-      "memory-system"
+      "llm"
     ],
     "concept_cluster": [],
-    "item_count": 22,
+    "item_count": 23,
     "items": [
       {
         "slug": "2026-03-08-claude-ios-mcp-remote-integration",
@@ -3180,9 +3210,14 @@
         "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
         "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
         "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
       }
     ],
-    "url": "/Research/threads/agentic-ai-workflow-memory-system.html"
+    "url": "/Research/threads/agentic-ai-workflow-llm.html"
   },
   {
     "slug": "agentic-ai-skills-prompt-engineering",
@@ -5775,13 +5810,13 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-claude-code",
-    "title": "copilot coding / coding agent / claude code",
+    "slug": "coding-agent-copilot-coding-claude-code",
+    "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "claude code"
     ],
     "item_count": 5,
@@ -5812,7 +5847,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
     "slug": "cost-allocation-financial-services-tbm-council",
@@ -5855,13 +5890,13 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "github copilot"
     ],
     "item_count": 5,
@@ -5892,7 +5927,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -5930,13 +5965,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -5962,16 +5997,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "copilot studio"
     ],
     "item_count": 4,
@@ -5997,7 +6032,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
@@ -6215,14 +6250,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -6242,17 +6277,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-iso-iec",
-    "title": "ai rmf / nist ai / iso iec",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "iso iec"
+      "ai rmf",
+      "environment separation"
     ],
     "item_count": 3,
     "items": [
@@ -6272,6 +6307,6 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-iso-iec.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   }
 ]
