@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "8048dda138467afcff725f61515cd9931c3d6c2a"
+    changed: 2026-05-03
+    progress: progress/2026-05-03-research-to-publication-authoring-workflow.md
+    summary: "Initial completion"
 ---
 
 # What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?
