@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-03T05:05:51Z",
+  "extracted_at": "2026-05-03T05:13:06Z",
   "items": {
     "2026-05-02-vendor-lock-in-portability-multi-platform-ai": {
       "named_concepts": [
@@ -496,6 +496,117 @@
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
             "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm": {
+      "named_concepts": [
+        "bounded fuzzy",
+        "academic review",
+        "embedding-based semantic",
+        "semantic deduplication",
+        "first implementation",
+        "normalized exact",
+        "exact matching",
+        "fuzzy matching",
+        "starting threshold",
+        "structured historical",
+        "provisional starting",
+        "question phrasing",
+        "model clustering",
+        "design target",
+        "cited pkm",
+        "pkm approaches",
+        "open questions",
+        "reliable automatic",
+        "automatic promotion",
+        "boundary signal"
+      ],
+      "source_urls": [
+        "https://www.soenkeahrens.de/en/takesmartnotes",
+        "https://zettelkasten.de/posts/universal-questions-for-note-taking-system/",
+        "https://zettelkasten.de/posts/three-layers-structure-zettelkasten/",
+        "https://blacksmithgu.github.io/obsidian-dataview/",
+        "https://blacksmithgu.github.io/obsidian-dataview/queries/data-commands/",
+        "https://blacksmithgu.github.io/obsidian-dataview/queries/query-types/#task",
+        "https://docs.logseq.com/#/page/Advanced%20Queries",
+        "https://docs.logseq.com/#/page/datalog",
+        "https://www.covidence.org/",
+        "https://training.cochrane.org/handbook/current/chapter-14",
+        "https://training.cochrane.org/handbook/current/chapter-15",
+        "https://gdt.gradepro.org/app/handbook/handbook.html",
+        "https://help.rayyan.ai/hc/en-us/articles/16759720118929-How-to-Add-or-Remove-Labels-and-Exclusion-Reasons-in-Rayyan",
+        "https://help.rayyan.ai/hc/en-us/articles/35305653554705-Understanding-Blinding-Labels-Reasons-and-Ratings-in-Collaborative-Reviews",
+        "https://www.zotero.org/support/collections_and_tags",
+        "https://www.zotero.org/support/searching",
+        "https://github.com/maxbachmann/RapidFuzz",
+        "https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html",
+        "https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The cited PKM approaches, especially Zettelkasten guidance and Obsidian Dataview, surface recurring open questions through explicit metadata, links, tasks, or structure notes rather than by depending on later semantic inference over free-form narrative prose",
+          "sources": [
+            "https://zettelkasten.de/posts/universal-questions-for-note-taking-system/",
+            "https://zettelkasten.de/posts/three-layers-structure-zettelkasten/",
+            "https://blacksmithgu.github.io/obsidian-dataview/"
+          ]
+        },
+        {
+          "text": "Academic review frameworks separate structured evidence summaries from narrative interpretation, which means recurring uncertainty is made aggregatable by design before it becomes a research-priority conclusion",
+          "sources": [
+            "https://training.cochrane.org/handbook/current/chapter-14",
+            "https://training.cochrane.org/handbook/current/chapter-15",
+            "https://gdt.gradepro.org/app/handbook/handbook.html"
+          ]
+        },
+        {
+          "text": "A pure free-text `gaps:` list is too weak for reliable automatic promotion because it gives the aggregator no boundary signal and forces all deduplication decisions onto unstable question phrasing alone",
+          "sources": [
+            "https://blacksmithgu.github.io/obsidian-dataview/",
+            "https://www.zotero.org/support/collections_and_tags",
+            "https://github.com/maxbachmann/RapidFuzz"
+          ]
+        },
+        {
+          "text": "A lightweight schema is a safer first design than a full controlled taxonomy, because the sources support small queryable structures but do not justify adding a richer classification burden to the repository's closing workflow",
+          "sources": [
+            "https://www.zotero.org/support/collections_and_tags",
+            "https://training.cochrane.org/handbook/current/chapter-15",
+            "https://blacksmithgu.github.io/obsidian-dataview/"
+          ]
+        },
+        {
+          "text": "The best current frontmatter design is a lightweight object with `question` required and `area` optional but recommended, because that is the smallest schema that materially improves grouping without turning gap capture into ontology work",
+          "sources": [
+            "https://blacksmithgu.github.io/obsidian-dataview/",
+            "https://www.zotero.org/support/searching",
+            "https://zettelkasten.de/posts/three-layers-structure-zettelkasten/"
+          ]
+        },
+        {
+          "text": "Normalized exact matching followed by bounded fuzzy comparison inside the same `area` bucket is a reasonable first deduplication layer, because it addresses paraphrase brittleness without introducing the heavier operational stack documented for embedding-based semantic deduplication",
+          "sources": [
+            "https://github.com/maxbachmann/RapidFuzz",
+            "https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html",
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md"
+          ]
+        },
+        {
+          "text": "Embedding-based semantic deduplication is a sensible later-stage option rather than the best first implementation for this repository, because the documented workflow requires embedding generation, clustering, threshold tuning, and model-choice governance while the current design target is a lightweight frontmatter-and-registry layer",
+          "sources": [
+            "https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html",
+            "https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html",
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-cross-item-synthesis-knowledge-map-architecture.md"
+          ]
+        },
+        {
+          "text": "Promotion at three distinct completed-item mentions is the current implementation target in W-0040, but it should be treated as a provisional starting threshold rather than as an empirically validated optimum until structured historical gap data exists",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md",
+            "https://training.cochrane.org/handbook/current/chapter-15"
           ]
         }
       ]
