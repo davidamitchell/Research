@@ -1,0 +1,256 @@
+name: Process Evaluation Loop
+
+# Evaluation counterpart to research-loop.yml.
+#
+# Each run samples N completed research items, builds a process-specific prompt
+# for each one, feeds the prompt to the GitHub Copilot Command Line Interface
+# (CLI), saves the Copilot response, and scores it against the original item
+# using deterministic metrics from scripts/eval_harness.py.
+#
+# This lets you compare two versions of a research process step (e.g., before
+# and after changing the §0.5b Perspective Discovery template) using the same
+# random sample — just re-run with the same seed on each variant.
+#
+# Report is committed to state/eval_reports/.
+#
+# Required repository secrets:
+#   COPILOT_GITHUB_TOKEN — Personal Access Token (PAT) with Copilot access.
+#     Settings → Secrets → New repository secret.
+#
+# Safety controls (mirrors research-loop.yml):
+#   - Job-level timeout: 60 minutes hard ceiling.
+#   - Per-run cap: max_items limits the number of Copilot sessions.
+#   - HARD_MAX_ITERATIONS (10): absolute iteration ceiling.
+#   - FAILURE_THRESHOLD (2): consecutive Copilot failures abort the run.
+#   - Inter-session sleep: 10 s between Copilot invocations.
+#
+# Trigger options:
+#   1. Manual: Actions tab → "Process Evaluation Loop" → Run workflow
+#   2. Use the same seed on two different process variants to compare results.
+
+on:
+  workflow_dispatch:
+    inputs:
+      process:
+        description: "Process step to evaluate"
+        required: true
+        type: choice
+        options:
+          - perspective-discovery
+          - question-decomposition
+          - adversarial-challenge
+        default: perspective-discovery
+      max_items:
+        description: "Number of items to run through Copilot (1–7)"
+        required: true
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+          - "5"
+          - "7"
+        default: "3"
+      seed:
+        description: "Random seed for reproducibility — use the same seed to compare two process variants"
+        required: false
+        default: "42"
+
+# Only one eval loop runs at a time. Don't cancel in-progress runs.
+concurrency:
+  group: eval-loop
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    name: Evaluate process step
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          # Check out the branch the workflow_dispatch was triggered from so
+          # the latest version of eval_harness.py and process prompts are used
+          # even if the branch is not yet merged to main.
+          ref: ${{ github.ref }}
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install project dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install GitHub Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run evaluation loop
+        env:
+          GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # ------------------------------------------------------------------ #
+          # Safety constants                                                     #
+          # ------------------------------------------------------------------ #
+          HARD_MAX_ITERATIONS=10
+          FAILURE_THRESHOLD=2
+          INTER_SESSION_SLEEP=10
+
+          MAX_ITEMS="${{ inputs.max_items }}"
+          PROCESS="${{ inputs.process }}"
+          SEED="${{ inputs.seed }}"
+
+          echo "Configuration: PROCESS=$PROCESS, MAX_ITEMS=$MAX_ITEMS, SEED=$SEED"
+          echo "Safety: HARD_MAX_ITERATIONS=$HARD_MAX_ITERATIONS, FAILURE_THRESHOLD=$FAILURE_THRESHOLD"
+
+          # ------------------------------------------------------------------ #
+          # Step 1: Generate prompt bundle                                       #
+          #   - Samples MAX_ITEMS items using the given seed                    #
+          #   - Writes one <slug>.txt per item to /tmp/eval_prompts             #
+          #   - Writes initial (unscored) report to state/eval_reports/         #
+          # ------------------------------------------------------------------ #
+          PROMPTS_DIR=$(mktemp -d)
+          RESPONSES_DIR=$(mktemp -d)
+
+          trap 'rm -rf "$PROMPTS_DIR" "$RESPONSES_DIR"' EXIT
+
+          SEED_ARG=""
+          if [ -n "$SEED" ]; then
+            SEED_ARG="--seed $SEED"
+          fi
+
+          python scripts/eval_harness.py \
+            --process "$PROCESS" \
+            --n "$MAX_ITEMS" \
+            $SEED_ARG \
+            --dump-prompts-dir "$PROMPTS_DIR"
+
+          # Collect prompt files (sorted for reproducibility).
+          PROMPT_FILES=($(ls -1 "$PROMPTS_DIR"/*.txt 2>/dev/null | sort || true))
+          TOTAL_PROMPTS=${#PROMPT_FILES[@]}
+
+          if [ "$TOTAL_PROMPTS" -eq 0 ]; then
+            echo "No prompt files generated. Exiting."
+            exit 0
+          fi
+
+          echo "Generated $TOTAL_PROMPTS prompt(s) for process: $PROCESS"
+
+          # ------------------------------------------------------------------ #
+          # Step 2: Run Copilot for each prompt                                 #
+          # ------------------------------------------------------------------ #
+          ITERATION=0
+          CONSECUTIVE_FAILURES=0
+          COPILOT_OUT=$(mktemp)
+
+          trap 'rm -rf "$PROMPTS_DIR" "$RESPONSES_DIR" "$COPILOT_OUT"' EXIT
+
+          for PROMPT_FILE in "${PROMPT_FILES[@]}"; do
+            # Hard ceiling guard
+            if [ "$ITERATION" -ge "$HARD_MAX_ITERATIONS" ]; then
+              echo "::warning::Hard iteration ceiling ($HARD_MAX_ITERATIONS) reached. Stopping."
+              break
+            fi
+
+            # Max-items guard (in case prompt count exceeds MAX_ITEMS)
+            if [ "$ITERATION" -ge "$MAX_ITEMS" ]; then
+              echo "Reached max_items=$MAX_ITEMS. Stopping."
+              break
+            fi
+
+            SLUG=$(basename "$PROMPT_FILE" .txt)
+            RESPONSE_FILE="$RESPONSES_DIR/$SLUG.txt"
+
+            echo ""
+            echo "========================================"
+            echo "  Eval iteration $((ITERATION + 1)) of $MAX_ITEMS"
+            echo "  Item: $SLUG"
+            echo "  Process: $PROCESS"
+            echo "========================================"
+            echo ""
+
+            # Run Copilot, tee output for rate-limit detection.
+            # shellcheck disable=SC2094
+            if copilot -p "$(cat "$PROMPT_FILE")" \
+                --autopilot \
+                --allow-all 2>&1 | tee "$COPILOT_OUT"; then
+              # Capture the response — Copilot prints to stdout.
+              # The tee already wrote to COPILOT_OUT; copy it to the responses dir.
+              cp "$COPILOT_OUT" "$RESPONSE_FILE"
+              CONSECUTIVE_FAILURES=0
+              echo "Saved response for $SLUG → $RESPONSE_FILE"
+            else
+              # Rate-limit detection (same logic as research-loop.yml).
+              if grep -qi "rate limit" "$COPILOT_OUT"; then
+                echo "::warning::Copilot rate limit hit. Stopping eval loop — re-trigger when quota resets."
+                # Score whatever responses we have so far.
+                break
+              fi
+
+              # Genuine session failure.
+              CONSECUTIVE_FAILURES=$((CONSECUTIVE_FAILURES + 1))
+              echo "::warning::Copilot session failed for $SLUG (consecutive failures: $CONSECUTIVE_FAILURES/$FAILURE_THRESHOLD)"
+
+              if [ "$CONSECUTIVE_FAILURES" -ge "$FAILURE_THRESHOLD" ]; then
+                echo "::error::Consecutive failure threshold reached. Aborting to prevent runaway behaviour."
+                exit 1
+              fi
+            fi
+
+            ITERATION=$((ITERATION + 1))
+
+            if [ "$ITERATION" -lt "$MAX_ITEMS" ] && [ "$ITERATION" -lt "${#PROMPT_FILES[@]}" ]; then
+              echo "Sleeping ${INTER_SESSION_SLEEP}s before next Copilot session..."
+              sleep "$INTER_SESSION_SLEEP"
+            fi
+          done
+
+          echo ""
+          echo "Evaluation loop finished. Ran $ITERATION Copilot session(s)."
+
+          # ------------------------------------------------------------------ #
+          # Step 3: Score responses                                              #
+          #   Re-runs the harness with the same seed so the same items are      #
+          #   selected and scores are computed against the collected responses.  #
+          # ------------------------------------------------------------------ #
+          RESPONSE_COUNT=$(ls -1 "$RESPONSES_DIR"/*.txt 2>/dev/null | wc -l || true)
+          if [ "$RESPONSE_COUNT" -gt 0 ]; then
+            echo "Scoring $RESPONSE_COUNT response(s)..."
+            python scripts/eval_harness.py \
+              --process "$PROCESS" \
+              --n "$MAX_ITEMS" \
+              $SEED_ARG \
+              --responses-dir "$RESPONSES_DIR"
+          else
+            echo "::warning::No responses collected — skipping scoring step."
+          fi
+
+      - name: Commit report
+        run: |
+          git add state/eval_reports/
+          if git diff --staged --quiet; then
+            echo "No new report to commit."
+          else
+            git commit -m "eval-loop: ${{ inputs.process }} n=${{ inputs.max_items }} seed=${{ inputs.seed || 'rnd' }}"
+            git push
+          fi

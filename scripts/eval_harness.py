@@ -684,6 +684,15 @@ def main() -> None:  # noqa: C901
         help="Path to Research/completed/ directory",
     )
     parser.add_argument(
+        "--dump-prompts-dir",
+        type=Path,
+        default=None,
+        help=(
+            "Write each item's process prompt as <slug>.txt to this directory. "
+            "Used by eval-loop.yml to feed individual prompts to Copilot one at a time."
+        ),
+    )
+    parser.add_argument(
         "--responses-dir",
         type=Path,
         default=None,
@@ -748,6 +757,16 @@ def main() -> None:  # noqa: C901
                 )
         result = evaluate_item(item_path, args.process, response_text)
         results.append(result)
+
+    # Dump individual prompt files if requested (used by eval-loop.yml).
+    if args.dump_prompts_dir is not None:
+        dump_dir: Path = args.dump_prompts_dir.resolve()
+        dump_dir.mkdir(parents=True, exist_ok=True)
+        for result in results:
+            prompt_file = dump_dir / f"{result['slug']}.txt"
+            prompt_file.write_text(result["prompt"], encoding="utf-8")
+            logger.info("Wrote prompt: %s", prompt_file)
+        logger.info("Dumped %d prompt(s) to %s", len(results), dump_dir)
 
     report = generate_eval_report(results, args.process, args.n, args.seed)
 

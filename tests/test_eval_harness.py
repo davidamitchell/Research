@@ -668,3 +668,101 @@ def test_main_report_stem_contains_process_and_n(tmp_path: Path) -> None:
     assert "adversarial-challenge" in json_files[0].stem
     assert "n2" in json_files[0].stem
     assert "seed7" in json_files[0].stem
+
+
+def test_main_dump_prompts_dir_writes_files(tmp_path: Path) -> None:
+    """--dump-prompts-dir writes one <slug>.txt file per sampled item."""
+    completed = tmp_path / "Research" / "completed"
+    completed.mkdir(parents=True)
+    for i in range(3):
+        _make_item(completed, f"dump-item-{i}", _SAMPLE_ITEM)
+
+    prompts_dir = tmp_path / "prompts"
+    output_dir = tmp_path / "state" / "eval_reports"
+
+    sys.argv = [
+        "eval_harness.py",
+        "--process",
+        "perspective-discovery",
+        "--n",
+        "2",
+        "--seed",
+        "5",
+        "--completed-dir",
+        str(completed),
+        "--dump-prompts-dir",
+        str(prompts_dir),
+        "--output-dir",
+        str(output_dir),
+    ]
+    main()
+
+    prompt_files = sorted(prompts_dir.glob("*.txt"))
+    assert len(prompt_files) == 2
+    for pf in prompt_files:
+        content = pf.read_text()
+        assert "Perspective:" in content
+        assert "Seed question:" in content
+
+
+def test_main_dump_prompts_dir_creates_directory(tmp_path: Path) -> None:
+    """--dump-prompts-dir creates the target directory if it does not exist."""
+    completed = tmp_path / "Research" / "completed"
+    completed.mkdir(parents=True)
+    _make_item(completed, "create-dir-item", _SAMPLE_ITEM)
+
+    prompts_dir = tmp_path / "does" / "not" / "exist"
+    output_dir = tmp_path / "state" / "eval_reports"
+
+    sys.argv = [
+        "eval_harness.py",
+        "--process",
+        "perspective-discovery",
+        "--n",
+        "1",
+        "--completed-dir",
+        str(completed),
+        "--dump-prompts-dir",
+        str(prompts_dir),
+        "--output-dir",
+        str(output_dir),
+    ]
+    main()
+
+    assert prompts_dir.exists()
+    assert len(list(prompts_dir.glob("*.txt"))) == 1
+
+
+def test_main_dump_prompts_dir_slug_matches_report(tmp_path: Path) -> None:
+    """Each <slug>.txt in the dump dir matches a slug in the JSON report."""
+    completed = tmp_path / "Research" / "completed"
+    completed.mkdir(parents=True)
+    for i in range(4):
+        _make_item(completed, f"slug-item-{i}", _SAMPLE_ITEM)
+
+    prompts_dir = tmp_path / "prompts"
+    output_dir = tmp_path / "state" / "eval_reports"
+
+    sys.argv = [
+        "eval_harness.py",
+        "--process",
+        "question-decomposition",
+        "--n",
+        "3",
+        "--seed",
+        "11",
+        "--completed-dir",
+        str(completed),
+        "--dump-prompts-dir",
+        str(prompts_dir),
+        "--output-dir",
+        str(output_dir),
+    ]
+    main()
+
+    json_files = list(output_dir.glob("*.json"))
+    data = json.loads(json_files[0].read_text())
+    report_slugs = {r["slug"] for r in data["results"]}
+
+    dump_slugs = {pf.stem for pf in prompts_dir.glob("*.txt")}
+    assert dump_slugs == report_slugs
