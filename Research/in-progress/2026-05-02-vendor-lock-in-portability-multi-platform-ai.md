@@ -1,0 +1,391 @@
+---
+title: "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?"
+added: 2026-05-02T06:00:57+00:00
+status: reviewing
+priority: high  # low | medium | high
+blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+tags: [vendor-governance, enterprise, ai-platform, multi-platform, microsoft, aws, control-plane, agentic-ai, ai-governance, regulated-enterprise, finops, identity]
+started: 2026-05-03T03:31:33+00:00
+completed: ~
+output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+cites:
+  - 2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model
+  - 2026-04-26-vendor-platform-governance-constraints-compensating-controls
+  - 2026-04-26-multi-ai-provider-control-planes
+  - 2026-04-22-enterprise-ai-capability-model
+  - 2026-04-22-enterprise-ai-platform-operating-models
+  - 2026-04-26-ai-agent-control-plane-architecture-enterprise
+  - 2026-04-26-ai-agent-identity-access-management-enterprise
+related:
+  - 2026-04-28-alternative-pipeline-platforms-copilot-studio-agents
+  - 2026-04-26-vendor-platform-governance-constraints-compensating-controls
+  - 2026-04-26-multi-ai-provider-control-planes
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+---
+
+# What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?
+
+## Research Question
+
+What architectural capabilities and contractual conditions are required for an enterprise to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk from: Microsoft ecosystem concentration (Microsoft 365, Azure AI Foundry, GitHub Copilot, Copilot Studio), Amazon Web Services (AWS) Bedrock dependency, contractual constraints (model usage terms, data residency clauses, exit provisions), and data gravity (accumulated embeddings, fine-tuned weights, and proprietary index formats that are costly to migrate), and how should these be incorporated into an enterprise AI capability model?
+
+## Scope
+
+**In scope:**
+- Taxonomy of AI vendor lock-in vectors: Microsoft ecosystem, AWS Bedrock, contractual, and data gravity, with specific mechanisms for each
+- Architectural patterns that preserve portability: abstraction layers, vendor-agnostic orchestration frameworks, Model Context Protocol (MCP) and OpenAI-compatible Application Programming Interface (API) interoperability, and multi-provider routing
+- Data portability: embedding format migration, fine-tuned weight ownership and export, and index format lock-in (proprietary vs open)
+- Contractual risk: model usage restrictions, data residency and sovereignty constraints, exit clauses and data deletion commitments, and intellectual property (IP) ownership of fine-tuned artefacts
+- Regulatory requirements in financial services that mandate data portability, multi-vendor resilience, or exit planning
+- Tooling and vendor-agnostic control planes already surveyed in prior research, evaluated specifically for their lock-in mitigation value
+- Total cost of portability: what it costs to build and maintain a portable architecture vs the switching cost avoided
+
+**Out of scope:**
+- On-premises or air-gapped deployment patterns not associated with cloud AI vendor products
+- Non-AI Software-as-a-Service (SaaS) vendor lock-in (general ERP, Customer Relationship Management (CRM), etc.) except where directly analogous to AI-specific risks
+- Detailed commercial or legal contract negotiation tactics
+- Google Vertex AI or other platforms not named in the issue
+
+**Constraints:**
+- Expand all acronyms on first use
+- Distinguish between lock-in risks that are currently severe vs those that are theoretically possible but rarely materialise in practice
+- Reference prior corpus research on multi-provider control planes and vendor platform governance as baseline; this item must address portability specifically, not repeat the capability map
+- Flag claims about future vendor roadmaps (data portability commitments, API compatibility pledges) as inferences, not facts
+
+## Context
+
+[fact; source: https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html] Prior completed work already mapped the Microsoft and AWS capability surfaces and the governance gaps of vendor-native platforms, but it did not isolate portability as a separate design problem with its own architectural and contractual controls.
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html] For this item, portability means preserving the option to move models, tools, data, and operating controls across vendor boundaries by keeping the central policy, routing, identity, and observability layer, or control plane, from collapsing into one vendor's proprietary surface.
+
+[inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs] The hardest part of portability is usually not the model endpoint itself, but the accumulated state around the model: retrieval indexes, conversation stores, audit history, approval records, identity bindings, and tenant-specific governance settings that become expensive to reconstruct elsewhere.
+
+## Approach
+
+1. **Lock-in taxonomy**: Define the four named lock-in vectors, Microsoft ecosystem, AWS Bedrock, contractual, and data gravity, with specific mechanisms, severity, and reversibility for each.
+2. **Architectural portability patterns**: Survey vendor-agnostic orchestration frameworks, routing layers, and abstraction approaches; assess each for effectiveness and adoption evidence.
+3. **Data portability analysis**: Assess embedding migration complexity, fine-tuned weight ownership and export provisions, and proprietary index-format risks for each major vendor.
+4. **Contractual risk survey**: Review published terms, data handling documents, and exit-related obligations for Microsoft Azure OpenAI or Foundry, AWS Bedrock, GitHub Copilot, and third-party model terms where applicable.
+5. **Regulatory requirements**: Identify financial-services requirements that mandate exit planning, operational resilience, or concentration-risk management for technology vendors.
+6. **Portability cost model**: Assess the ongoing engineering cost of maintaining a portable architecture and compare it to the switching cost and concentration risk avoided.
+7. **Capability model integration**: Produce a structured set of portability capability requirements to be added to the enterprise AI capability model, with controls mapped to each lock-in vector.
+
+## Sources
+
+- [x] [Mitchell (2026) Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html) - baseline vendor capability map used to distinguish portability controls from general platform capability.
+- [x] [Mitchell (2026) Multi-provider AI control planes: capabilities, vendors, and coverage gaps](https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html) - prior repository synthesis on cross-provider control surfaces and gateway patterns.
+- [x] [Mitchell (2026) What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?](https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html) - prior repository synthesis on platform-native governance limits.
+- [x] [Mitchell (2026) What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html) - prior repository synthesis on central policy, identity, and observability layers.
+- [x] [Mitchell (2026) What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - prior repository synthesis on machine identity, delegation, and attribution.
+- [x] [Mitchell (2026) Enterprise Artificial Intelligence (AI) capability model for use-case maturity decisions](https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html) - prior repository capability taxonomy that this item extends with portability-specific controls.
+- [x] [Mitchell (2026) Enterprise Artificial Intelligence (AI) platform operating models: organisational structure and ownership](https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html) - prior repository operating-model guidance for shared enterprise platform layers.
+- [x] [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) - open protocol reference for portable tool and context interoperability.
+- [x] [LangChain Overview](https://docs.langchain.com/oss/python/langchain/overview) - framework evidence for multi-provider model integrations.
+- [x] [LlamaIndex Large Language Model (LLM) modules](https://docs.llamaindex.ai/en/stable/module_guides/models/llms/) - framework evidence for a unified Large Language Model (LLM) interface across providers.
+- [x] [DSPy Documentation](https://dspy.ai/) - framework evidence for portability across models, inference strategies, and learning algorithms.
+- [x] [LiteLLM Proxy Quick Start](https://docs.litellm.ai/docs/proxy/quick_start) - gateway evidence for OpenAI-compatible routing, budgets, and multi-provider support.
+- [x] [AWS Documentation Amazon Bedrock overview](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) - Bedrock service scope and model-provider breadth.
+- [x] [AWS Documentation Data protection in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html) - Bedrock data handling, provider isolation, and security responsibilities.
+- [x] [AWS Documentation Amazon Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) - retrieval architecture and supported vector-store choices.
+- [x] [AWS Documentation Geographic cross-Region inference in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html) - data residency and destination-region requirements.
+- [x] [AWS Organizations AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) - service-improvement opt-out and deletion behavior for stored improvement copies.
+- [x] [AWS Service Terms](https://aws.amazon.com/service-terms/) - contractual baseline for Customer Data, Data Processing Addendum (DPA), and post-closure deletion.
+- [x] [AWS Legal Serverless Third-Party Models on Amazon Bedrock](https://aws.amazon.com/legal/bedrock/third-party-models/) - additional seller terms for third-party models on Bedrock.
+- [x] [Microsoft Learn Data, privacy, and security for Azure Direct Models in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy) - Azure Direct Model data handling, stateful features, deletion, and geography behavior.
+- [x] [Microsoft Learn Foundry provisioned throughput](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/provisioned-throughput) - deployment-type flexibility, regional capacity constraints, and redirection behavior.
+- [x] [GitHub Docs GitHub Copilot policies](https://docs.github.com/en/copilot/concepts/policies) - enterprise and organization policy controls over Copilot features and models.
+- [x] [GitHub Docs Metrics data properties for GitHub Copilot](https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/metrics-data) - retention window for Copilot activity and authentication data.
+- [x] [GitHub Docs Copilot audit logs](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs) - enterprise audit scope, exclusions, and retention window.
+- [x] [GitHub Docs Manage GitHub Models at scale](https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale) - model allowlists, bring-your-own-key support, and preview exceptions.
+- [x] [OpenAI API guide: Your data](https://developers.openai.com/api/docs/guides/your-data) - data retention controls and stateful-endpoint behavior used as a comparator for OpenAI-compatible interfaces.
+- [x] [Financial Conduct Authority (FCA) PS21/3 Building operational resilience](https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience) - operational resilience, mapping, and third-party obligations for regulated firms.
+- [x] [European Banking Authority (EBA) Guidelines on outsourcing arrangements](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements) - official outsourcing governance page and downloadable final guideline set.
+- [x] [EBA revised Guidelines on outsourcing arrangements PDF](https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf) - primary text for exit strategies, termination rights, access rights, and concentration-risk clauses.
+- [x] [EUR-Lex Regulation (EU) 2024/1689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689) - official European Union (EU) Artificial Intelligence Act text checked for applicability to portability and data-governance claims.
+
+## Related
+
+- [Mitchell (2026) Multi-provider AI control planes: capabilities, vendors, and coverage gaps](https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html)
+- [Mitchell (2026) What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?](https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html)
+- [Mitchell (2026) What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html)
+- [Mitchell (2026) What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill, retained verbatim in the completed item. Sections 0 to 5 are the investigation, and section 6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- Question: What architectural capabilities and contractual conditions let an enterprise preserve multi-platform portability across Microsoft ecosystem tools, AWS Bedrock, and related AI control surfaces while reducing vendor concentration, contractual dependency, and data gravity.
+- Scope: Microsoft ecosystem concentration, AWS Bedrock dependence, contractual portability, data gravity, financial-services exit obligations, portability cost trade-offs, and capability-model integration.
+- Constraints: Expand all acronyms on first use, distinguish material current lock-in from merely theoretical lock-in, cite prior completed items only with URL-backed links, and treat roadmap or future portability promises as inferences rather than facts.
+- Output: knowledge.
+- Prior completed items checked: `2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model`, `2026-04-26-multi-ai-provider-control-planes`, `2026-04-26-vendor-platform-governance-constraints-compensating-controls`, `2026-04-26-ai-agent-control-plane-architecture-enterprise`, `2026-04-26-ai-agent-identity-access-management-enterprise`, `2026-04-22-enterprise-ai-capability-model`, and `2026-04-22-enterprise-ai-platform-operating-models`.
+
+### §1 Question Decomposition
+
+- **Root question:** What must an enterprise keep outside vendor-exclusive surfaces so that models, tools, data, and operating controls remain movable?
+- **A. Lock-in taxonomy**
+  - A1. Which risks sit at the model layer, the control-plane layer, the data layer, and the contractual layer?
+  - A2. Which named risks are currently material for Microsoft ecosystem concentration and AWS Bedrock dependence?
+- **B. Architectural portability patterns**
+  - B1. Which abstractions reduce model and tool switching cost?
+  - B2. Which controls remain vendor-specific even when the model interface is abstracted?
+- **C. Data portability**
+  - C1. Which data assets are inherently portable if the enterprise keeps raw corpora?
+  - C2. Which stateful features create practical migration friction even when data ownership is preserved?
+- **D. Contractual conditions**
+  - D1. Which public terms speak to content ownership, deletion, seller-specific model terms, and retention?
+  - D2. Which exit protections are required but not guaranteed by public product documents?
+- **E. Regulatory requirements**
+  - E1. What do financial-services rules require for third-party resilience, concentration risk, and exit strategy?
+  - E2. Do those rules require universal multi-vendor deployment or only credible exit readiness?
+- **F. Cost model**
+  - F1. What recurring engineering cost does portability add?
+  - F2. Under which workload conditions is the premium justified?
+- **G. Capability model integration**
+  - G1. Which portability capabilities belong in the enterprise AI capability model?
+  - G2. Which controls map to which lock-in vector?
+
+### §2 Investigation
+
+#### Source audit and applicability notes
+
+- [fact; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The seeded regulatory sources were checked, and the downstream regulatory claims in this item rely mainly on the Financial Conduct Authority (FCA) and European Banking Authority (EBA) texts because those documents address outsourcing, concentration risk, termination rights, access rights, and exit strategies directly.
+- [inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The official European Union (EU) Artificial Intelligence Act text is relevant as a general legal baseline, but it is less direct than the financial-services outsourcing sources for claims about tested exit planning and vendor concentration.
+- [fact; source: https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start] The portability-pattern evidence set combines an open protocol, open-source framework documentation, and gateway documentation so that interface portability and runtime portability can be distinguished rather than treated as one capability.
+
+#### A. Lock-in taxonomy: where concentration really sits
+
+- [fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html] Amazon Bedrock offers access to many model providers, but the service remains anchored to AWS-specific identity, networking, routing, quota, and geography controls.
+- [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/provisioned-throughput; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs] Microsoft ecosystem usage can centralize prompts, policy, telemetry, and administration in Azure Foundry, GitHub Copilot, and Microsoft 365 surfaces even when the underlying model access is partly abstracted.
+- [fact; source: https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/metrics-data; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs] GitHub Copilot retains activity and authentication data for 90 days, retains audit events for 180 days, and does not include local prompt session data in enterprise audit logs.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy] The material lock-in vectors separate into four layers: model access, vendor-native control plane, state and data gravity, and contractual dependency, and the control-plane and state layers are usually harder to move than the raw model endpoint.
+
+#### B. Architectural portability patterns: what abstractions solve and what they do not
+
+- [fact; source: https://modelcontextprotocol.io/introduction] Model Context Protocol (MCP) is an open-source standard for connecting AI applications to external systems and is positioned as a standardized connection layer across clients and servers.
+- [fact; source: https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/] LangChain, LlamaIndex, and DSPy each document provider-spanning interfaces, and DSPy explicitly frames portability across models and strategies as a design goal.
+- [fact; source: https://docs.litellm.ai/docs/proxy/quick_start] LiteLLM documents an OpenAI-compatible gateway that supports 100 or more models, multi-provider routing, spend tracking, budgets, and load balancing.
+- [fact; source: https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale] GitHub Models offers model allowlists, publisher controls, and bring-your-own-key support, but its public preview documentation also lists exceptions where organization model settings do not apply.
+- [inference; source: https://modelcontextprotocol.io/introduction; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.langchain.com/oss/python/langchain/overview; https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html] Interface abstractions reduce model-switching cost, but they do not normalize identity, residency, audit, approval, or retention semantics, so portable runtime access still needs an enterprise-owned control plane above the abstraction layer.
+
+#### C. Data portability: customer-owned raw data matters more than vendor-owned state
+
+- [fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html] Amazon Bedrock Knowledge Bases can connect to a supported vector store that the customer sets up, which means the retrieval index does not have to be a Bedrock-exclusive asset.
+- [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy] Azure OpenAI on your data keeps data in the connected data source and says Azure OpenAI does not create a duplicate data store for that feature.
+- [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data] Azure Direct Models and the OpenAI Application Programming Interface (API) both document optional stateful features, such as threads, stored completions, responses, files, and vector stores, that persist data until deleted or according to feature-specific retention rules.
+- [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy] Raw corpora and chunking pipelines can remain enterprise-owned even when vendor-managed retrieval features are used. **Justification:** both Bedrock and Azure document patterns where the customer controls the connected data source or vector store rather than surrendering the source corpus to an opaque vendor-only store.
+- [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs] Data gravity is most severe when conversation state, evaluation traces, approval evidence, and tenant-specific governance settings live only inside vendor-managed stores, because embeddings and derived indexes can usually be regenerated if the enterprise still owns the raw corpus and the ingestion pipeline.
+
+#### D. Contractual conditions: public docs cover ownership and deletion better than migration help
+
+- [fact; source: https://aws.amazon.com/service-terms/; https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html] AWS Service Terms incorporate the AWS Data Processing Addendum (DPA), say AWS deletes Your Content according to service documentation after account closure, and the AI services opt-out policy deletes stored historical content that was kept only for service improvement.
+- [fact; source: https://aws.amazon.com/legal/bedrock/third-party-models/; https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html] Serverless third-party models on Bedrock can carry seller-specific end-user license agreements, which means model portability risk can persist even when the runtime stays inside AWS.
+- [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy] Microsoft says prompts, completions, embeddings, and training data for Azure Direct Models are not available to model providers, are not used to train foundation models without permission, and can be deleted by the customer for stored features.
+- [fact; source: https://aws.amazon.com/legal/bedrock/third-party-models/] Anthropic's Bedrock commercial terms say the customer retains rights to inputs, owns outputs, and that Anthropic may not train models on customer content from the service.
+- [inference; source: https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] Public product and privacy documents give strong evidence for content ownership, training exclusion, and deletion rights, but they provide weaker evidence for transition assistance, export format guarantees, migration support, and notice of downstream model-term changes, so those controls should be negotiated explicitly in contracts.
+
+#### E. Regulatory requirements: the legal standard is tested exit readiness, not universal dual running
+
+- [fact; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience] Financial Conduct Authority (FCA) PS21/3 says firms must identify important business services, set impact tolerances, and by 31 March 2025 complete mapping and testing so they can remain within those tolerances.
+- [fact; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience] The same policy statement says firms remain responsible for accurately mapping outsourced third-party relationships and should review and change arrangements where they cannot obtain sufficient information from the third party.
+- [fact; source: https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The EBA guidelines make exit strategies, termination rights, access and audit rights, and concentration-risk assessment explicit elements of outsourcing governance for critical or important functions.
+- [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] Financial-services regulation does not require every AI workload to run on multiple vendors at all times, but it does require firms to prove that critical third-party dependence can be understood, governed, and exited in a realistically executable way.
+
+#### F. Portability economics and capability-model implications
+
+- [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.langchain.com/oss/python/langchain/overview] Equivalent or acceptable substitute models will exist across more than one provider for many workloads, but not necessarily for every high-differentiation use case. **Justification:** Bedrock, gateway tools, and framework integrations all document multi-provider support, but none guarantee one-for-one functional equivalence across every workload.
+- [inference; source: https://docs.litellm.ai/docs/proxy/quick_start; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The recurring cost of portability comes from running a gateway or control plane, exporting and retaining telemetry outside the vendor, maintaining external state stores, testing more than one provider path, and exercising exit runbooks often enough for regulators to believe them.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The breakeven condition is not abstract dislike of lock-in; it is the combination of service criticality, regulatory concentration exposure, switching cost, and the expected life of the workload relative to the cost of building portable rails.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] The enterprise AI capability model should therefore add a portability domain covering standards-based interfaces, customer-owned state, cross-provider identity and telemetry export, contractual exit governance, and periodic portability drills for critical workloads.
+
+### §3 Reasoning
+
+- [inference; source: https://modelcontextprotocol.io/introduction; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy] The evidence supports a distinction between interface portability and operational portability: open protocols and multi-provider gateways can preserve the first, but the second depends on who owns state, policy, identity, and evidence.
+- [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html] Bedrock's multi-model catalog reduces direct dependence on any one model vendor, but its identity, networking, routing, and geography controls remain AWS-native, so Bedrock is a concentration mitigator inside AWS rather than a complete multi-platform solution.
+- [inference; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html] Microsoft concentration risk rises when enterprise policy, grounding, and usage evidence live primarily inside Microsoft 365, Azure, and GitHub admin surfaces, because leaving those surfaces can then mean leaving the operating system around the models.
+- [inference; source: https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] Public product documents are strong enough to justify ownership and deletion claims, but not strong enough to assume migration support, so contract design has to fill that gap rather than hoping it is already covered.
+
+### §4 Consistency Check
+
+- [fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html] No contradiction remained in the Bedrock evidence set after separating model-provider breadth from AWS-platform dependence.
+- [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/metrics-data] No contradiction remained in the Microsoft evidence set after separating content isolation from telemetry retention limits and from vendor-admin concentration.
+- [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The regulatory evidence consistently supports tested exit readiness and concentration governance, and it does not support any stronger claim that every regulated workload must be active-active across multiple vendors.
+
+### §5 Depth and Breadth Expansion
+
+- [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] **Regulatory lens:** portability should be tiered by the business service and not by technology enthusiasm, because regulators care about impact tolerance, concentration, and exit realism for the critical service rather than about architectural purity.
+- [inference; source: https://docs.litellm.ai/docs/proxy/quick_start; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html] **Economic lens:** the cost of portability is mostly a permanent platform tax on telemetry export, parallel provider testing, and state externalization rather than a one-time migration project.
+- [inference; source: https://docs.github.com/en/enterprise-cloud@latest/github-models/github-models-at-scale/manage-models-at-scale; https://docs.github.com/en/copilot/concepts/policies; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html] **Behavioral lens:** sanctioned abstraction layers can still fail as portability controls if preview exceptions, direct-publish paths, or local-only activity leave a shadow path outside the governed rail.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] **Architectural lens:** portability only becomes durable when identity, policy, and evidence are modeled as enterprise assets rather than as optional metadata attached to vendor-native runtimes.
+
+### §6 Synthesis
+
+**Executive summary:**
+
+Portability in enterprise AI depends more on keeping state, policy, and evidence outside vendor-exclusive surfaces than on merely abstracting model calls. [inference; source: https://modelcontextprotocol.io/introduction; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy]
+
+Amazon Bedrock reduces direct dependence on any one model vendor, but it does not remove dependence on AWS-native identity, networking, routing, and contractual surfaces. [fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html]
+
+Microsoft ecosystem concentration becomes most material when Microsoft 365 grounding, GitHub Copilot policy, and Azure Foundry state management become the system of record for how agents operate. [inference; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html]
+
+For regulated firms, the controlling legal test is credible exit readiness and concentration-risk management for critical services, so the right target is tiered portability with tested exit runbooks, not universal dual-vendor operation for every use case. [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+**Key findings:**
+
+1. **The decisive portability boundary is ownership of state and operating evidence, because model calls are comparatively easy to reroute while retrieval indexes, conversation history, policy bindings, and audit records are expensive to reconstruct after a platform move.** ([inference]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)
+2. **Amazon Bedrock materially reduces dependence on a single model provider, but it does not make an enterprise platform-agnostic because model access, security controls, private connectivity, inference routing, and geography rules remain AWS-specific.** ([fact]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html)
+3. **Microsoft ecosystem lock-in is strongest when Microsoft 365, GitHub Copilot, and Azure Foundry become the enterprise system of record for governance and runtime evidence, because leaving the vendor then means rebuilding the control plane rather than only replacing a model endpoint.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html)
+4. **Open standards and abstraction frameworks, including MCP, LangChain, LlamaIndex, DSPy, and LiteLLM, lower interface-switching cost, but they do not normalize identity, residency, audit, approval, or retention semantics across vendors.** ([fact]; high confidence; source: https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start)
+5. **Public vendor documents are strong on content ownership, isolation, and deletion rights, but they are weak on migration assistance and export guarantees, so contracts must explicitly require transition support, exportable artefacts, change notice, and deletion evidence.** ([inference]; medium confidence; source: https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf)
+6. **For regulated financial-services workloads, the governing requirement is a realistically executable exit strategy for critical services and concentrated vendors, not universal multi-vendor deployment for every Artificial Intelligence (AI) workload.** ([fact]; high confidence; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf)
+7. **The cheapest robust portability pattern is to keep raw corpora, ingestion logic, evaluation datasets, approval evidence, and telemetry in customer-controlled systems while treating provider-managed threads and vector stores as replaceable execution conveniences.** ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)
+8. **Portability premium is economically justified when the workload is customer-impacting, regulated, high-spend, or tied to concentrated vendor dependency, and is usually not justified for low-criticality internal use cases that can tolerate a planned single-vendor exit path.** ([inference]; medium confidence; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html)
+9. **The enterprise Artificial Intelligence (AI) capability model should add explicit portability capabilities for standards-based interfaces, customer-owned state, cross-provider telemetry export, contractual exit governance, and periodic portability drills for critical workloads.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] State ownership matters more than endpoint portability because policy bindings, telemetry, and derived stores become migration friction. | https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs | high | state and evidence layer |
+| [fact] Bedrock is multi-model inside AWS, not multi-platform outside AWS. | https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html | high | model breadth, AWS-specific control |
+| [inference] Microsoft concentration risk is strongest when governance and runtime evidence become Microsoft-owned system-of-record assets. | https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html | medium | control-plane concentration |
+| [fact] Open standards and abstraction frameworks lower interface-switching cost but do not standardize governance semantics. | https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start | high | interface layer only |
+| [inference] Public documents must be supplemented by negotiated migration, export, and deletion commitments. | https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf | medium | contract package needed |
+| [fact] Financial-services rules require exit strategies, concentration-risk assessment, access rights, and tested resilience for critical services. | https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf | high | regulatory floor |
+| [inference] Customer-owned raw corpora and evidence stores are the cheapest durable anti-lock-in move. | https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data | medium | regenerate derived state |
+| [inference] Portability premium should be applied selectively to critical, regulated, or concentrated workloads. | https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html | medium | tiered economics |
+| [inference] Capability models need an explicit portability domain, not just generic governance or architecture controls. | https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | medium | model integration |
+
+**Assumptions:**
+
+- [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy] The enterprise can keep authoritative raw corpora outside provider-managed retrieval features. **Justification:** the lowest-friction portability pattern only works if the source corpus and ingestion logic remain customer-controlled.
+- [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.langchain.com/oss/python/langchain/overview] Acceptable substitute models exist across more than one provider for the workload being protected. **Justification:** interface portability has limited value when one provider has a unique capability that the enterprise cannot practically substitute.
+
+**Analysis:**
+
+The evidence weighs most strongly toward a layered answer because vendor documents consistently separate model access from surrounding policy, storage, and monitoring services. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies]
+
+That makes the main design decision architectural rather than purely procurement-led: preserve independent ownership of identity, policy, evidence, and raw data, then treat model providers as replaceable execution dependencies where practical. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://docs.litellm.ai/docs/proxy/quick_start]
+
+Adding staff to maintain separate bespoke integrations for each vendor can reduce immediate migration pressure, but it does not satisfy the regulatory requirement for explicit exit strategies, access rights, and concentration-risk management on critical outsourced services. [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+Relying on stronger model-quality gates alone is also insufficient, because quality gating does not export audit history, recreate policy lineage, or remove concentration exposure if the governed service still depends on one vendor-admin surface. [inference; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html]
+
+The strongest practical pattern is therefore selective portability: build the portable rail for critical services, use single-vendor convenience for low-criticality internal uses, and keep both categories under a common control-plane and evidence architecture so the enterprise can escalate a workload into the portable tier when its risk profile changes. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience]
+
+The contract package follows the same logic: public ownership and deletion language is necessary, but it does not prove exit readiness unless it is paired with artefact export, transition assistance, notice of model-term changes, and evidence that the vendor will support a controlled migration window. [inference; source: https://aws.amazon.com/service-terms/; https://aws.amazon.com/legal/bedrock/third-party-models/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+**Risks, gaps, uncertainties:**
+
+- Public documents do not provide a comprehensive, vendor-neutral export guarantee for provider-managed fine-tuned weights, policy configuration, or evaluation artefacts, so some migration obligations remain contract-dependent rather than documentation-backed. [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/service-terms/; https://aws.amazon.com/legal/bedrock/third-party-models/]
+- GitHub's public enterprise documents expose policy, audit, and short retention windows, but they do not provide complete public documentation for exporting local prompt-session data or long-term prompt history, so enterprises should assume they must own that evidence path themselves if it matters. [inference; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/metrics-data]
+- This item does not establish a numeric total-cost-of-ownership threshold for when portability becomes cheaper than migration because public benchmark data for enterprise AI switching projects is still thin. [fact; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+**Open questions:**
+
+- Which artefacts in modern enterprise AI stacks are hardest to export in practice: prompt lineage, evaluation data, workflow definitions, or provider-managed vector stores?
+- What minimum drill frequency would make an Artificial Intelligence (AI) portability runbook credible to regulators without imposing disproportionate cost on low-criticality workloads?
+- Which provider-specific capabilities are differentiated enough that an enterprise should consciously accept lock-in rather than pay the portability premium?
+
+### §7 Recursive Review
+
+- Acronym audit: pass.
+- Domain-term clarity audit: pass.
+- Claim labels in `## Research Skill Output`: pass.
+- Inline labels and sources in `## Findings`: pass.
+- Synthesis and Findings parity: pass.
+- Evidence Map coverage: pass.
+- Confidence setting: medium.
+- Remaining uncertainty: public migration-support detail still thinner than privacy and deletion detail.
+
+---
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Portability in enterprise AI depends more on keeping state, policy, and evidence outside vendor-exclusive surfaces than on merely abstracting model calls. [inference; source: https://modelcontextprotocol.io/introduction; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy]
+
+Amazon Bedrock reduces direct dependence on any one model vendor, but it does not remove dependence on AWS-native identity, networking, routing, and contractual surfaces. [fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html]
+
+Microsoft ecosystem concentration becomes most material when Microsoft 365 grounding, GitHub Copilot policy, and Azure Foundry state management become the system of record for how agents operate. [inference; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html]
+
+For regulated firms, the controlling legal test is credible exit readiness and concentration-risk management for critical services, so the right target is tiered portability with tested exit runbooks, not universal dual-vendor operation for every use case. [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+### Key Findings
+
+1. **The decisive portability boundary is ownership of state and operating evidence, because model calls are comparatively easy to reroute while retrieval indexes, conversation history, policy bindings, and audit records are expensive to reconstruct after a platform move.** ([inference]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)
+2. **Amazon Bedrock materially reduces dependence on a single model provider, but it does not make an enterprise platform-agnostic because model access, security controls, private connectivity, inference routing, and geography rules remain AWS-specific.** ([fact]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html)
+3. **Microsoft ecosystem lock-in is strongest when Microsoft 365, GitHub Copilot, and Azure Foundry become the enterprise system of record for governance and runtime evidence, because leaving the vendor then means rebuilding the control plane rather than only replacing a model endpoint.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html)
+4. **Open standards and abstraction frameworks, including MCP, LangChain, LlamaIndex, DSPy, and LiteLLM, lower interface-switching cost, but they do not normalize identity, residency, audit, approval, or retention semantics across vendors.** ([fact]; high confidence; source: https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start)
+5. **Public vendor documents are strong on content ownership, isolation, and deletion rights, but they are weak on migration assistance and export guarantees, so contracts must explicitly require transition support, exportable artefacts, change notice, and deletion evidence.** ([inference]; medium confidence; source: https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf)
+6. **For regulated financial-services workloads, the governing requirement is a realistically executable exit strategy for critical services and concentrated vendors, not universal multi-vendor deployment for every Artificial Intelligence (AI) workload.** ([fact]; high confidence; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf)
+7. **The cheapest robust portability pattern is to keep raw corpora, ingestion logic, evaluation datasets, approval evidence, and telemetry in customer-controlled systems while treating provider-managed threads and vector stores as replaceable execution conveniences.** ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)
+8. **Portability premium is economically justified when the workload is customer-impacting, regulated, high-spend, or tied to concentrated vendor dependency, and is usually not justified for low-criticality internal use cases that can tolerate a planned single-vendor exit path.** ([inference]; medium confidence; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html)
+9. **The enterprise Artificial Intelligence (AI) capability model should add explicit portability capabilities for standards-based interfaces, customer-owned state, cross-provider telemetry export, contractual exit governance, and periodic portability drills for critical workloads.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] State ownership matters more than endpoint portability because policy bindings, telemetry, and derived stores become migration friction. | https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs | high | state and evidence layer |
+| [fact] Bedrock is multi-model inside AWS, not multi-platform outside AWS. | https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html; https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html | high | model breadth, AWS-specific control |
+| [inference] Microsoft concentration risk is strongest when governance and runtime evidence become Microsoft-owned system-of-record assets. | https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies; https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html | medium | control-plane concentration |
+| [fact] Open standards and abstraction frameworks lower interface-switching cost but do not standardize governance semantics. | https://modelcontextprotocol.io/introduction; https://docs.langchain.com/oss/python/langchain/overview; https://docs.llamaindex.ai/en/stable/module_guides/models/llms/; https://dspy.ai/; https://docs.litellm.ai/docs/proxy/quick_start | high | interface layer only |
+| [inference] Public documents must be supplemented by negotiated migration, export, and deletion commitments. | https://aws.amazon.com/service-terms/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/legal/bedrock/third-party-models/; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf | medium | contract package needed |
+| [fact] Financial-services rules require exit strategies, concentration-risk assessment, access rights, and tested resilience for critical services. | https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf | high | regulatory floor |
+| [inference] Customer-owned raw corpora and evidence stores are the cheapest durable anti-lock-in move. | https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://developers.openai.com/api/docs/guides/your-data | medium | regenerate derived state |
+| [inference] Portability premium should be applied selectively to critical, regulated, or concentrated workloads. | https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html | medium | tiered economics |
+| [inference] Capability models need an explicit portability domain, not just generic governance or architecture controls. | https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | medium | model integration |
+
+### Assumptions
+
+- The enterprise can keep authoritative raw corpora outside provider-managed retrieval features, which is what makes derived embeddings and indexes regenerable rather than authoritative state. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy]
+- Acceptable substitute models exist across more than one provider for the workload being protected, because interface portability only has operational value when the enterprise can tolerate functional substitution at migration time. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://docs.litellm.ai/docs/proxy/quick_start; https://docs.langchain.com/oss/python/langchain/overview]
+
+### Analysis
+
+The evidence weighs most strongly toward a layered answer because vendor documents consistently separate model access from surrounding policy, storage, and monitoring services. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://docs.github.com/en/copilot/concepts/policies]
+
+That makes the main design decision architectural rather than purely procurement-led: preserve independent ownership of identity, policy, evidence, and raw data, then treat model providers as replaceable execution dependencies where practical. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://docs.litellm.ai/docs/proxy/quick_start]
+
+Adding staff to maintain separate bespoke integrations for each vendor can reduce immediate migration pressure, but it does not satisfy the regulatory requirement for explicit exit strategies, access rights, and concentration-risk management on critical outsourced services. [inference; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+Relying on stronger model-quality gates alone is also insufficient, because quality gating does not export audit history, recreate policy lineage, or remove concentration exposure if the governed service still depends on one vendor-admin surface. [inference; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html]
+
+The strongest practical pattern is therefore selective portability: build the portable rail for critical services, use single-vendor convenience for low-criticality internal uses, and keep both categories under a common control-plane and evidence architecture so the enterprise can escalate a workload into the portable tier when its risk profile changes. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience]
+
+The contract package follows the same logic: public ownership and deletion language is necessary, but it does not prove exit readiness unless it is paired with artefact export, transition assistance, notice of model-term changes, and evidence that the vendor will support a controlled migration window. [inference; source: https://aws.amazon.com/service-terms/; https://aws.amazon.com/legal/bedrock/third-party-models/; https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+### Risks, Gaps, and Uncertainties
+
+- Public documents do not provide a comprehensive, vendor-neutral export guarantee for provider-managed fine-tuned weights, policy configuration, or evaluation artefacts, so some migration obligations remain contract-dependent rather than documentation-backed. [fact; source: https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy; https://aws.amazon.com/service-terms/; https://aws.amazon.com/legal/bedrock/third-party-models/]
+- GitHub's public enterprise documents expose policy, audit, and short retention windows, but they do not provide complete public documentation for exporting local prompt-session data or long-term prompt history, so enterprises should assume they must own that evidence path themselves if it matters. [inference; source: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs; https://docs.github.com/en/enterprise-cloud@latest/copilot/reference/metrics-data]
+- This item does not establish a numeric total-cost-of-ownership threshold for when portability becomes cheaper than migration because public benchmark data for enterprise AI switching projects is still thin. [fact; source: https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+
+### Open Questions
+
+- Which artefacts in modern enterprise AI stacks are hardest to export in practice: prompt lineage, evaluation data, workflow definitions, or provider-managed vector stores?
+- What minimum drill frequency would make an Artificial Intelligence (AI) portability runbook credible to regulators without imposing disproportionate cost on low-criticality workloads?
+- Which provider-specific capabilities are differentiated enough that an enterprise should consciously accept lock-in rather than pay the portability premium?
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: This item defines the architectural and contractual controls required to preserve portability across enterprise AI vendors, centered on customer-owned state, enterprise-owned control-plane evidence, negotiated exit rights, and tiered portability by workload criticality. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html; https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience; https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+- Links:
+  - https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf
+  - https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience
+  - https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy
