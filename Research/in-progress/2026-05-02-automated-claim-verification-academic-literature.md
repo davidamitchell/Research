@@ -22,13 +22,13 @@ versions: []
 
 ## Research Question
 
-What automated claim verification approaches against scientific literature, specifically arXiv preprints, are used in research synthesis systems, what search strategies maximise recall and precision for claim-to-paper matching given a natural-language claim, and what is the minimum-viable verification workflow that an Artificial Intelligence (AI) research agent using the `arxiv_mcp_server` Model Context Protocol (MCP) tool can execute to verify that an "anchor claim" (a claim that a Key Finding directly depends on) is supported by a specific primary paper, and what should happen when verification fails (downgrading claim label from `[fact]` to `[inference]` with explanation)?
+What automated claim verification approaches against scientific literature, specifically arXiv preprints, are used in research synthesis systems, what search strategies maximise recall and precision for claim-to-paper matching given a natural-language claim, and what is the minimum-viable verification workflow that an Artificial Intelligence (AI) research agent using the `arxiv_mcp_server` Model Context Protocol (MCP) tool can execute to verify that a support-critical claim, one a Key Finding directly depends on, is supported by a specific primary paper, and what should happen when verification fails (downgrading claim label from `[fact]` to `[inference]` with explanation)?
 
 ## Scope
 
 **In scope:**
-- Automated fact verification systems: Fact Extraction and VERification (FEVER), SciFact, VerT5erini, and MultiVerS, how they retrieve candidate evidence papers and assess claim entailment
-- arXiv search strategies: keyword search, semantic search, author/title search, citation graph traversal, and which strategies maximise recall for anchor claim verification
+- Automated fact verification systems: Fact Extraction and VERification (FEVER), Fact or Fiction (SciFact), VerT5erini, a pretrained sequence-to-sequence scientific-claim verifier, and MultiVerS, a multitask verifier with full-document context, and how they retrieve candidate evidence papers and assess claim entailment
+- arXiv search strategies: keyword search, semantic search, author/title search, citation graph traversal, and which strategies maximise recall for support-critical claim verification
 - Claim-to-paper matching: how to identify the specific paper that makes a given claim, title and abstract matching versus full-text search, and the false-positive risk for near-miss papers
 - Large Language Model (LLM)-as-verifier patterns: using an LLM to check whether a retrieved paper supports, refutes, or is neutral to a claim, including reliability evidence and known failure modes
 - `arxiv_mcp_server` tool capabilities: what search queries, paper ID lookups, abstract retrieval, full-text retrieval, and local-semantic-search features it supports
@@ -39,17 +39,17 @@ What automated claim verification approaches against scientific literature, spec
 - Real-time fact checking against live web sources (arXiv-only scope)
 - Verification of non-scientific claims (policy, business, qualitative social science)
 - Full automated scientific review systems
-- Verification of all claims (anchor claims only, those Key Findings directly depend on)
+- Verification of all claims (only support-critical claims, those Key Findings directly depend on)
 
 **Constraints:**
 - Expand all acronyms on first use
 - Must use the `arxiv_mcp_server` MCP tool as the search and retrieval mechanism
 - Must fit within the existing §2 Investigation step of the research skill (not a new step)
-- Verification overhead per item must be bounded to at most 5 anchor claims
+- Verification overhead per item must be bounded to at most 5 support-critical claims
 
 ## Context
 
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.mcp.json] W-0042 proposes adding an anchor-claim verification step to `research-prompt.md` section 2, and `.mcp.json` already configures `arxiv_mcp_server` as the intended arXiv access surface.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://github.com/davidamitchell/Research/blob/main/.mcp.json] W-0042 proposes adding a support-critical-claim verification step to `research-prompt.md` section 2, and `.mcp.json` already configures `arxiv_mcp_server` as the intended arXiv access surface.
 - [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-llm-hallucination-mechanisms.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md] Prior repository work already argues that claim extraction before synthesis, grounded retrieval, and explicit verifier boundaries reduce hallucination risk, so this item can focus on the arXiv-specific workflow rather than re-establishing those broader principles from scratch.
 
 ## Approach
@@ -58,8 +58,8 @@ What automated claim verification approaches against scientific literature, spec
 2. **arXiv search strategy evaluation**: Compare keyword search, semantic query, and author/title lookup for claim-to-paper matching on arXiv; assess recall and precision for each; identify when semantic query outperforms keyword search.
 3. **LLM-as-verifier reliability assessment**: Review studies of LLM self-assessment and external claim verification; document known failure modes (hallucinated supporting papers, confirmation bias, abstract-level over-generalisation, and multiple-choice position bias).
 4. **arxiv_mcp_server capabilities review**: Read tool documentation and examples; document what search queries, abstract retrieval, and full-text access it provides; assess suitability for verification use case.
-5. **Anchor claim identification heuristic**: Define what makes a claim "anchor" (Key Finding directly depends on it) vs supporting (context or background); propose a practical identification heuristic for use in the research prompt.
-6. **Verification workflow design**: Produce a concrete verification sub-workflow for §2 Investigation: (1) identify anchor claims, (2) formulate arXiv search query, (3) retrieve top-3 candidate papers, (4) check each for claim support, (5) record arXiv ID or downgrade to `[inference]` with note.
+5. **Support-critical claim identification heuristic**: Define what makes a claim support-critical (a Key Finding directly depends on it) versus supporting background; propose a practical identification heuristic for use in the research prompt.
+6. **Verification workflow design**: Produce a concrete verification sub-workflow for §2 Investigation: (1) identify support-critical claims, (2) formulate an arXiv search query, (3) retrieve top-3 candidate papers, (4) check each for claim support, (5) record the arXiv identifier or downgrade to `[inference]` with note.
 
 ## Sources
 
@@ -91,9 +91,9 @@ What automated claim verification approaches against scientific literature, spec
 
 ### §0 Initialise
 
-- Question: determine which scientific-claim-verification patterns transfer to arXiv-based anchor-claim checking for this repository's research agent.
-- Scope: retrieval strategy, claim-to-paper matching, Large Language Model verifier reliability, `arxiv_mcp_server` capabilities, anchor-claim heuristics, downgrade logic, and bounded workflow design.
-- Constraints: arXiv-only verification surface, at most five anchor claims per item, all acronyms expanded on first use, and output must fit the existing investigation step rather than adding a new workflow phase.
+- Question: determine which scientific-claim-verification patterns transfer to arXiv-based support-critical-claim checking for this repository's research agent.
+- Scope: retrieval strategy, claim-to-paper matching, Large Language Model verifier reliability, `arxiv_mcp_server` capabilities, support-critical-claim heuristics, downgrade logic, and bounded workflow design.
+- Constraints: arXiv-only verification surface, at most five support-critical claims per item, all acronyms expanded on first use, and output must fit the existing investigation step rather than adding a new workflow phase.
 - Output: one knowledge item that defines a minimum-viable verification workflow plus explicit downgrade rules.
 - Prior completed items reviewed: [LLM Hallucinations - Types, Causes, and Current Mitigation Approaches](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-llm-hallucination-mechanisms.md), [What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md), and [What systematic review methodologies and Artificial Intelligence-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md).
 
@@ -117,7 +117,7 @@ What automated claim verification approaches against scientific literature, spec
   - D2. Which capabilities require downloaded local papers first?
   - D3. What operational constraints shape the workflow?
 - **E. Workflow design**
-  - E1. Which claims should count as anchors?
+  - E1. Which claims should count as support-critical?
   - E2. What support threshold justifies keeping `[fact]`?
   - E3. When should the workflow stop and downgrade to `[inference]`?
 
@@ -162,11 +162,11 @@ What automated claim verification approaches against scientific literature, spec
 - [fact; source: https://github.com/blazickjp/arxiv-mcp-server] `download_paper` retrieves a paper by arXiv identifier, prefers HyperText Markup Language (HTML) when available, and falls back to Portable Document Format (PDF) parsing for older papers.
 - [fact; source: https://github.com/blazickjp/arxiv-mcp-server] `semantic_search` is experimental and only operates over papers already downloaded into local storage, so it cannot replace the initial global search step.
 - [fact; source: https://github.com/blazickjp/arxiv-mcp-server] The server also exposes experimental `citation_graph` support and warns that paper content is untrusted input that can carry prompt-injection risk.
-- [inference; source: https://github.com/blazickjp/arxiv-mcp-server] These capabilities make the tool adequate for bounded anchor-claim verification, but not for exhaustive literature review, because the workflow must spend search budget carefully and treat paper text as data rather than as instructions.
+- [inference; source: https://github.com/blazickjp/arxiv-mcp-server] These capabilities make the tool adequate for bounded support-critical-claim verification, but not for exhaustive literature review, because the workflow must spend search budget carefully and treat paper text as data rather than as instructions.
 
 #### E. Anchor-claim heuristic, support threshold, and downgrade logic
 
-- [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] An anchor claim is the smallest proposition whose truth is necessary for a Key Finding to remain materially valid, typically a causal, comparative, quantified, or capability claim rather than background context.
+- [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] A support-critical claim is the smallest proposition whose truth is necessary for a Key Finding to remain materially valid, typically a causal, comparative, quantified, or capability claim rather than background context.
 - [inference; source: https://arxiv.org/abs/2408.14317; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/] Anchor claims should be capped at five per item, because verification cost rises with each additional search and read, while the marginal quality gain after the highest-dependency claims drops quickly.
 - [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] A claim should remain `[fact]` only when a specific arXiv paper is identified and the abstract or full text explicitly supports the same or a materially equivalent proposition.
 - [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/] A claim should be downgraded to `[inference]` when no plausible candidate appears in the search results, when the best candidate is only topically related, when support is only partial or abstract-level, when multiple candidates conflict, or when the agent cannot confidently match the claim to one paper.
@@ -201,7 +201,7 @@ What automated claim verification approaches against scientific literature, spec
 - [inference; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] A minimum-viable arXiv verification workflow should mirror scientific claim-verification systems by separating paper retrieval from support judgment, because the literature consistently treats those as different error surfaces.
 - [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server] For `arxiv_mcp_server`, that means lexical claim-to-paper retrieval first, then inspection of a small candidate set by title, abstract, and if necessary full-text fit, rather than relying on global semantic search that the tool does not provide.
 - [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882] Large Language Models are too hallucination-prone and too brittle to act as sole literature verifiers, so their role should be limited to structured support or refute assessment over already retrieved papers.
-- [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] When no specific paper explicitly supports the anchor claim, or support is only partial, the claim should be downgraded from `[fact]` to `[inference]` with a query-and-failure note rather than preserved as verified.
+- [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] When no specific paper explicitly supports the support-critical claim, or support is only partial, the claim should be downgraded from `[fact]` to `[inference]` with a query-and-failure note rather than preserved as verified.
 
 **Key findings:**
 
@@ -209,8 +209,8 @@ What automated claim verification approaches against scientific literature, spec
 - [fact; source: https://aclanthology.org/2024.eacl-long.128/; https://aclanthology.org/2024.findings-acl.551/; https://github.com/Jasonlingg/scifact-retrieval/blob/main/README.md] Retrieval quality is a first-order determinant of final verification quality, with lexical methods favoring precision, dense methods favoring recall, and hybrid retrieval giving the strongest overall pattern where available.
 - [fact; source: https://github.com/blazickjp/arxiv-mcp-server] `arxiv_mcp_server` exposes global paper search, per-paper download, and paper reading, while its semantic search only works over locally downloaded papers.
 - [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882] Large Language Models should not be trusted as primary literature finders or single-shot verdict generators because fabricated references, perturbation brittleness, and multiple-choice position bias all remain live failure modes.
-- [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] An anchor claim should remain `[fact]` only when one identified arXiv paper states the same or materially equivalent proposition, and the workflow should otherwise preserve the claim only as `[inference]`.
-- [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] The minimum-viable workflow is to verify at most five anchor claims per item, retrieve up to ten arXiv candidates per claim, inspect the best three candidates, and stop once explicit support or justified failure is recorded.
+- [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] A support-critical claim should remain `[fact]` only when one identified arXiv paper states the same or materially equivalent proposition, and the workflow should otherwise preserve the claim only as `[inference]`.
+- [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] A bounded workflow that verifies only a small number of support-critical claims per item and inspects only a small top-ranked candidate set is the right minimum-viable compromise for this repository.
 
 **Evidence map:**
 
@@ -219,13 +219,13 @@ What automated claim verification approaches against scientific literature, spec
 - [fact; source: https://github.com/blazickjp/arxiv-mcp-server] Tool supports search-download-read and only local semantic search, high confidence, derived from current README and tool examples.
 - [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882] Large Language Models are best treated as unsafe as sole literature verifiers, medium confidence, multiple independent failure-mode studies support the conservative interpretation.
 - [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Exact-support threshold should gate `[fact]`, medium confidence, conservative design extrapolated from support or refute task structure.
-- [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] Five-anchor bounded workflow is the best minimum-viable compromise, medium confidence, combines evidence with repository time-budget constraints.
+- [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md] A bounded small-set workflow is the best minimum-viable compromise, medium confidence, combines evidence with repository time-budget constraints.
 
 **Assumptions:**
 
-- [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2004.14974] A top-ten lexical arXiv search is usually wide enough to surface a plausible candidate paper for a well-phrased anchor claim, because the tool exposes relevance-ranked search and scientific-claim benchmarks already operate on limited candidate sets.
+- [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2004.14974] A top-ten lexical arXiv search is usually wide enough to surface a plausible candidate paper for a well-phrased support-critical claim, because the tool exposes relevance-ranked search and scientific-claim benchmarks already operate on limited candidate sets.
 - [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2112.01640] Abstracts are sufficient for rejection and triage decisions, while positive retention of `[fact]` may require reading beyond the abstract when qualifiers or caveats matter.
-- [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128/] The repository can tolerate the search and read cost for at most five anchor claims per item without distorting session time budgets.
+- [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128/] The repository can tolerate the search and read cost for at most five support-critical claims per item without distorting session time budgets.
 
 **Analysis:**
 
@@ -243,7 +243,7 @@ What automated claim verification approaches against scientific literature, spec
 
 - [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128/] Would a later repository enhancement that downloads a larger candidate pool and then runs local semantic search improve recall enough to justify the added time and complexity?
 - [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.findings-acl.551/] Should the workflow eventually exploit `citation_graph` or another citation-expansion surface when the top lexical hits are close but none makes the claim explicitly?
-- [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/] What lightweight audit step best distinguishes a genuine verification failure from a prompt or query formulation failure before an anchor claim is downgraded?
+- [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/] What lightweight audit step best distinguishes a genuine verification failure from a prompt or query formulation failure before a support-critical claim is downgraded?
 
 ### §7 Recursive Review
 
@@ -258,16 +258,16 @@ What automated claim verification approaches against scientific literature, spec
 
 ### Executive Summary
 
-A minimum-viable arXiv verification workflow should separate paper retrieval from support judgment and should leave an anchor claim marked as `[fact]` only after one identified paper explicitly supports the same proposition. [inference; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Scientific claim-verification systems consistently decompose the task into retrieval, evidence selection, and support or refute judgment, which implies that paper discovery and evidence interpretation are distinct failure surfaces in a research-agent workflow. [fact; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Because open-domain studies find that lexical retrieval tends to maximize precision while semantic retrieval improves recall, the current `arxiv_mcp_server` is best used as a lexical-first verifier surface with bounded candidate inspection rather than as a complete literature-search solution. [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server] Large Language Models remain too hallucination-prone and too brittle to invent papers or act as sole verifiers, so the safest role for the model is structured support or refute assessment over already retrieved candidate papers, with downgrade to `[inference]` whenever the paper match or support threshold fails. [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882]
+A minimum-viable arXiv verification workflow should separate paper retrieval from support judgment and should leave a support-critical claim marked as `[fact]` only after one identified paper explicitly supports the same proposition. [inference; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Scientific claim-verification systems consistently decompose the task into retrieval, evidence selection, and support or refute judgment, which implies that paper discovery and evidence interpretation are distinct failure surfaces in a research-agent workflow. [fact; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640] Because open-domain studies find that lexical retrieval tends to maximize precision while semantic retrieval improves recall, the current `arxiv_mcp_server` is best used as a lexical-first verifier surface with bounded candidate inspection rather than as a complete literature-search solution. [inference; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server] Large Language Models remain too hallucination-prone and too brittle to invent papers or act as sole verifiers, so the safest role for the model is structured support or refute assessment over already retrieved candidate papers, with downgrade to `[inference]` whenever the paper match or support threshold fails. [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882]
 
 ### Key Findings
 
 1. **Scientific claim-verification systems from FEVER through SciFact, VerT5erini, and MultiVerS consistently decompose verification into retrieval, evidence selection, and support or refute judgment, even when later models integrate some stages more tightly.** ([fact]; high confidence; source: https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640)
 2. **Open-domain verification results show that retrieval quality materially changes final verification quality, with lexical methods favoring precision, semantic methods favoring recall, and hybrid retrieval giving the strongest overall pattern when the system can support it.** ([fact]; high confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://aclanthology.org/2024.findings-acl.551/; https://github.com/Jasonlingg/scifact-retrieval/blob/main/README.md)
-3. **`arxiv_mcp_server` exposes global paper search, per-paper download, and paper reading, while its semantic search only works over locally downloaded papers and therefore cannot replace the initial global search step.** ([fact]; high confidence; source: https://github.com/blazickjp/arxiv-mcp-server)
+3. **`arxiv_mcp_server` exposes global paper search, per-paper download, and paper reading, while its semantic search only works over locally downloaded papers and therefore cannot replace the initial global search step.** ([fact]; medium confidence; source: https://github.com/blazickjp/arxiv-mcp-server)
 4. **Large Language Models are best treated as unsuitable primary literature finders or single-shot verdict generators, because fabricated references, perturbation brittleness, and multiple-choice position bias all remain well-documented failure modes in academic and fact-verification settings.** ([inference]; medium confidence; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882)
-5. **An anchor claim should remain `[fact]` only when one identified arXiv paper states the same or materially equivalent proposition, because topic-level similarity or partial support is not strong enough to preserve verified status in later synthesis.** ([inference]; medium confidence; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
-6. **The minimum-viable workflow is to verify at most five anchor claims per item, retrieve up to ten arXiv candidates per claim, inspect the best three candidates, and stop once explicit support or justified failure is recorded.** ([inference]; medium confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
+5. **A support-critical claim should remain `[fact]` only when one identified arXiv paper states the same or materially equivalent proposition, because topic-level similarity or partial support is not strong enough to preserve verified status in later synthesis.** ([inference]; medium confidence; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
+6. **A bounded workflow that verifies only a small number of support-critical claims per item and inspects only a small top-ranked candidate set is the right minimum-viable compromise for this repository.** ([inference]; medium confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
 7. **When no plausible paper match appears, when the best candidate is only topically related, or when support is partial or contradictory, the workflow should downgrade the claim to `[inference]` and record the query, candidate, and failure reason instead of preserving false certainty.** ([inference]; medium confidence; source: https://aclanthology.org/2024.eacl-long.128/; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/)
 
 ### Evidence Map
@@ -276,17 +276,17 @@ A minimum-viable arXiv verification workflow should separate paper retrieval fro
 |---|---|---|---|
 | [fact] Scientific verification systems share a retrieval plus evidence plus judgment structure. | https://arxiv.org/abs/1803.05355; https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640 | high | Stable pattern across general and scientific benchmarks. |
 | [fact] Retrieval quality is a first-order determinant of final verification quality. | https://aclanthology.org/2024.eacl-long.128/; https://aclanthology.org/2024.findings-acl.551/; https://github.com/Jasonlingg/scifact-retrieval/blob/main/README.md | high | Precision versus recall trade-off is explicit in the evidence. |
-| [fact] `arxiv_mcp_server` supports search, download, and reading, while semantic search is local-only. | https://github.com/blazickjp/arxiv-mcp-server | high | Capability claim comes directly from current project documentation. |
+| [fact] `arxiv_mcp_server` supports search, download, and reading, while semantic search is local-only. | https://github.com/blazickjp/arxiv-mcp-server | medium | Capability claim comes directly from current project documentation. |
 | [inference] Large Language Models are best treated as unsafe as sole literature verifiers. | https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2025.naacl-long.534/; https://aclanthology.org/2024.findings-eacl.62/; https://arxiv.org/abs/2309.03882 | medium | Independent studies document failure modes; the workflow recommendation is a conservative interpretation. |
 | [inference] Exact-support threshold should gate retention of `[fact]`. | https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md | medium | Conservative design extrapolated from support or refute tasks and repository provenance rules. |
-| [inference] Five-anchor, top-ten, top-three inspection is the best minimum-viable bound. | https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md | medium | Workflow bound combines literature with tool and session constraints. |
+| [inference] A bounded small-set workflow is the best minimum-viable compromise. | https://aclanthology.org/2024.eacl-long.128/; https://github.com/blazickjp/arxiv-mcp-server; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md | medium | Practical bound combines literature with tool and session constraints. |
 | [inference] Failed matches should become labeled inferences with an audit note. | https://aclanthology.org/2024.eacl-long.128/; https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/ | medium | Prevents paper-confabulation from entering later synthesis as fact. |
 
 ### Assumptions
 
-- A top-ten lexical arXiv search is usually wide enough to surface a plausible candidate paper for a well-phrased anchor claim. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2004.14974]
+- A top-ten lexical arXiv search is usually wide enough to surface a plausible candidate paper for a well-phrased support-critical claim. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2004.14974]
 - Abstracts are sufficient for rejection and triage decisions, while positive retention of `[fact]` may require full-text reading when qualifiers matter. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://arxiv.org/abs/2112.01640]
-- The repository can tolerate the search and read cost for at most five anchor claims per item without distorting session time budgets. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128]
+- The repository can tolerate the search and read cost for at most five support-critical claims per item without distorting session time budgets. [assumption; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128]
 
 ### Analysis
 
@@ -302,14 +302,14 @@ A hybrid retrieval stack would be stronger than a lexical-only stack, but the av
 
 - Would downloading a larger candidate pool and then running local semantic search improve recall enough to justify the added time and complexity? [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.eacl-long.128/]
 - Should a later version of the workflow use citation-graph expansion when the top lexical hits are close but none makes the claim explicitly? [inference; source: https://github.com/blazickjp/arxiv-mcp-server; https://aclanthology.org/2024.findings-acl.551/]
-- What lightweight audit step best distinguishes a genuine verification failure from a poor query formulation before an anchor claim is downgraded? [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/]
+- What lightweight audit step best distinguishes a genuine verification failure from a poor query formulation before a support-critical claim is downgraded? [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/]
 
 ---
 
 ## Output
 
 - Type: knowledge
-- Description: This item defines a minimum-viable arXiv-based anchor-claim verification workflow for research-loop items and a downgrade rule for claims that cannot be matched to explicit primary-paper support. [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/blazickjp/arxiv-mcp-server]
+- Description: This item defines a minimum-viable arXiv-based support-critical-claim verification workflow for research-loop items and a downgrade rule for claims that cannot be matched to explicit primary-paper support. [inference; source: https://arxiv.org/abs/2004.14974; https://aclanthology.org/2021.louhi-1.11/; https://arxiv.org/abs/2112.01640; https://github.com/blazickjp/arxiv-mcp-server]
 - Links:
   - https://arxiv.org/abs/2004.14974
   - https://aclanthology.org/2024.eacl-long.128/
