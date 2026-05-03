@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?"
 added: 2026-05-03T03:48:21+00:00
 status: reviewing
