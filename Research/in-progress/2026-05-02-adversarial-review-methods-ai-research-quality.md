@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
