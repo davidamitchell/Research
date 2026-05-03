@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-03T08:01:39Z",
+  "extracted_at": "2026-05-03T08:15:55Z",
   "items": {
     "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability": {
       "named_concepts": [
@@ -338,6 +338,97 @@
             "https://link.springer.com/article/10.1186/s12874-018-0600-0",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation": {
+      "named_concepts": [
+        "perspective discovery",
+        "related wikipedia",
+        "six thinking",
+        "thinking hats",
+        "outline-driven retrieval-augmented",
+        "retrieval-augmented generation",
+        "strong minimum-viable",
+        "minimum-viable candidate",
+        "four-slot prompt",
+        "full storm",
+        "end-to-end storm",
+        "storm versus",
+        "generation baseline",
+        "discovery alone",
+        "entity-level outline",
+        "one seed",
+        "seed question",
+        "question per",
+        "workflow change",
+        "leaving room"
+      ],
+      "source_urls": [
+        "https://aclanthology.org/2024.naacl-long.347/",
+        "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/README.md",
+        "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py",
+        "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/knowledge_curation.py",
+        "https://arxiv.org/abs/2203.11171",
+        "https://www.debono.com/six-thinking-hats-summary",
+        "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts",
+        "https://www.anthropic.com/engineering/building-effective-agents"
+      ],
+      "key_claims": [
+        {
+          "text": "STORM discovers perspectives by surveying related Wikipedia pages, extracting their titles and tables of contents, and then prompting the model to invent editor personas that each represent a different perspective, role, or affiliation before any question decomposition begins",
+          "sources": [
+            "https://aclanthology.org/2024.naacl-long.347/",
+            "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py"
+          ]
+        },
+        {
+          "text": "The released implementation always prepends a `Basic fact writer` persona, which means STORM explicitly combines one broad factual lens with a small set of topic-specific lenses instead of relying only on specialist roles",
+          "sources": [
+            "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py"
+          ]
+        },
+        {
+          "text": "STORM does not publish an explicit diversity rubric over disciplinary, cultural, temporal, or stakeholder categories, so its diversity mechanism is implicit and retrieval-primed rather than a formal coverage algorithm with declared quotas",
+          "sources": [
+            "https://aclanthology.org/2024.naacl-long.347/",
+            "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py"
+          ]
+        },
+        {
+          "text": "The paper's +10% `broad in coverage` result should not be attributed to perspective discovery alone, because that number compares full STORM against an outline-driven retrieval-augmented generation baseline and the ablations isolate a smaller persona-specific effect",
+          "sources": [
+            "https://aclanthology.org/2024.naacl-long.347/"
+          ]
+        },
+        {
+          "text": "The ablation results show that removing perspective conditioning roughly halves the number of unique references collected and lowers entity-level outline recall, while removing simulated conversation hurts performance even more, so the evidence supports the inference that conversation contributes more than persona seeding to overall question quality",
+          "sources": [
+            "https://aclanthology.org/2024.naacl-long.347/"
+          ]
+        },
+        {
+          "text": "Self-consistency and Six Thinking Hats are useful comparison points, but neither is a close substitute for STORM's perspective discovery because self-consistency collapses multiple attempts into one answer and Six Thinking Hats organises modes of thought rather than parallel role-conditioned lenses",
+          "sources": [
+            "https://arxiv.org/abs/2203.11171",
+            "https://www.debono.com/six-thinking-hats-summary",
+            "https://aclanthology.org/2024.naacl-long.347/"
+          ]
+        },
+        {
+          "text": "A strong minimum-viable candidate for this repository is a four-slot prompt, `basic facts`, `mechanism or implementation`, `stakeholder or decision impact`, and `failure mode or critic`, with one seed question per perspective, because that preserves STORM's broad-facts-plus-specialist-lenses pattern while keeping the prompt simple and leaving room for later topic-sensitive refinements",
+          "sources": [
+            "https://www.anthropic.com/engineering/building-effective-agents",
+            "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md"
+          ]
+        },
+        {
+          "text": "The safest repository recommendation is to keep §0.5 additive by making it emit seed questions for §1 instead of redesigning later stages, because the backlog goal is broader question coverage and Anthropic guidance favors the smallest workflow change that preserves task structure",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/BACKLOG.md",
+            "https://www.anthropic.com/engineering/building-effective-agents]"
           ]
         }
       ]

@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 60,
+    "item_count": 61,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -287,6 +287,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-research-to-publication-authoring-workflow",
         "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
         "added": "2026-05-02"
@@ -324,7 +329,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 57,
+    "item_count": 58,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -587,6 +592,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-research-to-publication-authoring-workflow",
         "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
         "added": "2026-05-02"
@@ -624,7 +634,7 @@
       "workflow"
     ],
     "concept_cluster": [],
-    "item_count": 55,
+    "item_count": 56,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -862,6 +872,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-research-to-publication-authoring-workflow",
         "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
         "added": "2026-05-02"
@@ -914,7 +929,7 @@
       "agentic-coding"
     ],
     "concept_cluster": [],
-    "item_count": 52,
+    "item_count": 53,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -1144,6 +1159,11 @@
       {
         "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
         "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
         "added": "2026-05-02"
       },
       {
@@ -1824,7 +1844,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 30,
+    "item_count": 31,
     "items": [
       {
         "slug": "2026-03-15-prompt-injection-threat-landscape",
@@ -1952,6 +1972,11 @@
         "added": "2026-05-02"
       },
       {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
+        "added": "2026-05-02"
+      },
+      {
         "slug": "2026-05-02-research-to-publication-authoring-workflow",
         "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
         "added": "2026-05-02"
@@ -1989,7 +2014,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 30,
+    "item_count": 31,
     "items": [
       {
         "slug": "2026-02-27-simple-process-for-adding-research-item",
@@ -2114,6 +2139,11 @@
       {
         "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
         "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
         "added": "2026-05-02"
       },
       {
@@ -2925,6 +2955,156 @@
     "url": "/Research/threads/agentic-ai-regulated-banking-rag.html"
   },
   {
+    "slug": "agentic-ai-workflow-llm",
+    "title": "agentic-ai / workflow / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "workflow",
+      "llm"
+    ],
+    "concept_cluster": [],
+    "item_count": 27,
+    "items": [
+      {
+        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
+        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-ios-shortcuts-github-api-memory-capture",
+        "title": "iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
+        "title": "Slack as a mobile memory capture and retrieval channel",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-volume-vs-correctness-ai-era",
+        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
+        "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
+        "added": "2026-03-23"
+      },
+      {
+        "slug": "2026-03-23-agent-orchestration-anvil-max",
+        "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
+        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
+        "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
+        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-coding-agent-context-management-transparency",
+        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-research-to-publication-authoring-workflow",
+        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-automated-claim-verification-academic-literature",
+        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-workflow-llm.html"
+  },
+  {
     "slug": "agentic-ai-llm-hallucinations",
     "title": "agentic-ai / llm / hallucinations",
     "kind": "implicit",
@@ -3073,151 +3253,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-hallucinations.html"
-  },
-  {
-    "slug": "agentic-ai-workflow-llm",
-    "title": "agentic-ai / workflow / llm",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "workflow",
-      "llm"
-    ],
-    "concept_cluster": [],
-    "item_count": 26,
-    "items": [
-      {
-        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
-        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-ios-shortcuts-github-api-memory-capture",
-        "title": "iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
-        "title": "Slack as a mobile memory capture and retrieval channel",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
-        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-12-volume-vs-correctness-ai-era",
-        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
-        "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
-        "added": "2026-03-23"
-      },
-      {
-        "slug": "2026-03-23-agent-orchestration-anvil-max",
-        "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
-        "added": "2026-03-24"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      },
-      {
-        "slug": "2026-04-02-org-shape-software-cost-zero",
-        "title": "The shape of organisations when software is no longer the constraint",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
-        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
-        "added": "2026-04-29"
-      },
-      {
-        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
-        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-coding-agent-context-management-transparency",
-        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
-        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-research-to-publication-authoring-workflow",
-        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-automated-claim-verification-academic-literature",
-        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
-        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
-        "added": "2026-05-02"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-workflow-llm.html"
   },
   {
     "slug": "ai-governance-agentic-ai-low-code",
@@ -6045,14 +6080,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -6082,7 +6117,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6120,13 +6155,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -6152,17 +6187,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-environment-separation",
-    "title": "ai rmf / nist ai / environment separation",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "environment separation"
+      "ai rmf",
+      "copilot studio"
     ],
     "item_count": 4,
     "items": [
@@ -6187,16 +6222,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -6222,7 +6257,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "claude-code-agent-tooling-skills",
@@ -6435,13 +6470,13 @@
     "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-environment-separation",
-    "title": "ai rmf / nist ai / environment separation",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "environment separation"
     ],
     "item_count": 3,
@@ -6462,6 +6497,6 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   }
 ]
