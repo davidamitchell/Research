@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
