@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: "4ddb774b08141b649e909d3aa4c64c92faed2b85"
+    changed: 2026-05-03
+    progress: "progress/2026-05-03-meta-analysis-standards-and-ai-skill-evaluation.md"
+    summary: "Initial completion"
 ---
 
 # Meta-analysis standards and Artificial Intelligence (AI) skill evaluation: what do professional systematic-review frameworks require, and how do existing repository research workflows measure up?
