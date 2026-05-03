@@ -2,12 +2,12 @@
 review_count: 2
 title: "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?"
 added: 2026-05-02T06:11:10+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, llm, workflow, evaluation, hallucinations]
 started: 2026-05-03T07:33:40+00:00
-completed: ~
+completed: 2026-05-03T07:50:25+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-05-02-systematic-review-methodology-ai-synthesis, 2026-05-02-automated-claim-verification-academic-literature, 2026-04-29-knowledge-scaffolding-context-engineering, 2026-03-10-dikw-transformation-functions, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp]
 related: [2026-04-27-uelgf-synthesis-complete-framework, 2026-05-02-cross-item-synthesis-knowledge-map-architecture, 2026-05-02-adversarial-review-methods-ai-research-quality]
