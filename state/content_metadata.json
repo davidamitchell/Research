@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-03T05:46:12Z",
+  "extracted_at": "2026-05-03T07:12:33Z",
   "items": {
     "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability": {
       "named_concepts": [
@@ -594,6 +594,111 @@
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
             "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-knowledge-graph-schema-cross-session-research-mcp": {
+      "named_concepts": [
+        "failure modes",
+        "schema drift",
+        "model context",
+        "context protocol",
+        "lexical search",
+        "duplicate entities",
+        "first-class nodes",
+        "current model",
+        "exact-name retrieval",
+        "atomic observations",
+        "curated archival",
+        "archival memory",
+        "reusable concepts",
+        "drift provenance",
+        "provenance loss",
+        "lexical recall",
+        "relation vocabulary",
+        "protocol server-memory",
+        "lexical substring",
+        "substring search"
+      ],
+      "source_urls": [
+        "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md",
+        "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts",
+        "https://arxiv.org/abs/2310.08560",
+        "https://www.letta.com/blog/agent-memory",
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2308.11730",
+        "https://arxiv.org/html/2411.09601v1",
+        "https://aclanthology.org/2025.findings-acl.1080/",
+        "https://openreview.net/forum?id=qfCQ54ZTX1",
+        "https://www.soenkeahrens.de/en/takesmartnotes",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The current Model Context Protocol server-memory contract strongly favors a small canonical schema because it offers only lexical substring search over names, entity types, and observations, plus exact-name opening of nodes and adjacent relations",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md",
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts"
+          ]
+        },
+        {
+          "text": "The best default entity set for this repository is `research_item`, `concept`, `claim`, and `method`, because that set preserves provenance, reusable topics, proposition-level support or contradiction, and recurring techniques without forcing the graph to model every frontmatter field as a separate node type",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md",
+            "https://arxiv.org/abs/2308.11730",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html"
+          ]
+        },
+        {
+          "text": "Tags should remain provenance-rich observations such as `tag:knowledge-graph` instead of becoming first-class nodes, because the server cannot query by ontology or graph pattern and low-value tag nodes would increase duplication faster than they improve retrieval",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html"
+          ]
+        },
+        {
+          "text": "A minimum useful relation vocabulary is `addresses`, `states`, `about`, `uses_method`, `supports`, `contradicts`, and `extends`, because these edges capture provenance and epistemic reuse while avoiding the graph spam created by weak relations such as `mentions` or `related_to`",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html",
+            "https://www.soenkeahrens.de/en/takesmartnotes"
+          ]
+        },
+        {
+          "text": "The write path should always be search-first, then create a single item node, then create only 3-5 concept nodes plus a small number of claim and method nodes, because name reuse and node caps are the simplest effective defenses against duplicate entities, orphaned nodes, and schema drift",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts",
+            "https://aclanthology.org/2025.findings-acl.1080/",
+            "https://openreview.net/forum?id=qfCQ54ZTX1",
+            "https://arxiv.org/html/2411.09601v1"
+          ]
+        },
+        {
+          "text": "Provenance and recall both improve when every reusable node carries atomic observation tokens such as `provenance:item=<slug>`, `section:key-finding-2`, `tag:<canonical-tag>`, and `alias:<variant>`, because those short strings become the server's practical retrieval index",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md",
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts"
+          ]
+        },
+        {
+          "text": "MemGPT and Letta support treating this graph as curated archival memory for reusable concepts and claims rather than as exhaustive storage, because long-term agent memory is useful only when later sessions can pull the right structured context back into the active window at the right time",
+          "sources": [
+            "https://arxiv.org/abs/2310.08560",
+            "https://www.letta.com/blog/agent-memory",
+            "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html"
+          ]
+        },
+        {
+          "text": "The major failure modes for an LLM-managed graph in this repository are duplicate entity alignment, schema drift, provenance loss, and lexical recall gaps, and each one is better mitigated by fixed vocabulary and naming rules than by adding more schema complexity",
+          "sources": [
+            "https://aclanthology.org/2025.findings-acl.1080/",
+            "https://openreview.net/forum?id=qfCQ54ZTX1",
+            "https://arxiv.org/html/2411.09601v1",
+            "https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts"
           ]
         }
       ]
