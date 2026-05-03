@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 63d29b60f31f89dcc7d2b5f52fd81f6f5267d452
+    changed: 2026-05-03
+    progress: progress/2026-05-03-knowledge-gap-tracking-promotion-patterns-pkm.md
+    summary: "Initial completion"
 ---
 
 # What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?
