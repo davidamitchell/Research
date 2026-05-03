@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-03T04:32:03Z",
+  "extracted_at": "2026-05-03T04:45:34Z",
   "items": {
     "2026-05-02-vendor-lock-in-portability-multi-platform-ai": {
       "named_concepts": [
@@ -820,6 +820,104 @@
           "sources": [
             "https://docs.letta.com/guides/ade/archival-memory",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-automated-claim-verification-academic-literature": {
+      "named_concepts": [
+        "support-critical claim",
+        "language models",
+        "semantic search",
+        "later synthesis",
+        "one identified",
+        "scientific claim-verification",
+        "claim-verification systems",
+        "consistently decompose",
+        "refute judgment",
+        "semantic retrieval",
+        "paper match",
+        "retrieval quality",
+        "final verification",
+        "verification quality",
+        "hybrid retrieval",
+        "best treated",
+        "failure modes",
+        "support-critical claims",
+        "claims per",
+        "minimum-viable compromise"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/1803.05355",
+        "https://arxiv.org/abs/2004.14974",
+        "https://aclanthology.org/2021.louhi-1.11/",
+        "https://arxiv.org/abs/2112.01640",
+        "https://aclanthology.org/2024.eacl-long.128/",
+        "https://aclanthology.org/2024.findings-acl.551/",
+        "https://arxiv.org/abs/2408.14317",
+        "https://www.jmir.org/2024/1/e53164",
+        "https://aclanthology.org/2024.findings-eacl.62/",
+        "https://arxiv.org/abs/2309.03882",
+        "https://aclanthology.org/2025.naacl-long.534/",
+        "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1341697/full",
+        "https://github.com/blazickjp/arxiv-mcp-server"
+      ],
+      "key_claims": [
+        {
+          "text": "Scientific claim-verification systems from FEVER through SciFact, VerT5erini, and MultiVerS consistently decompose verification into retrieval, evidence selection, and support or refute judgment, even when later models integrate some stages more tightly",
+          "sources": [
+            "https://arxiv.org/abs/1803.05355",
+            "https://arxiv.org/abs/2004.14974",
+            "https://aclanthology.org/2021.louhi-1.11/",
+            "https://arxiv.org/abs/2112.01640"
+          ]
+        },
+        {
+          "text": "Open-domain verification results show that retrieval quality materially changes final verification quality, with lexical methods favoring precision, semantic methods favoring recall, and hybrid retrieval giving the strongest overall pattern when the system can support it",
+          "sources": [
+            "https://aclanthology.org/2024.eacl-long.128/",
+            "https://aclanthology.org/2024.findings-acl.551/",
+            "https://github.com/Jasonlingg/scifact-retrieval/blob/main/README.md"
+          ]
+        },
+        {
+          "text": "`arxiv_mcp_server` exposes global paper search, per-paper download, and paper reading, while its semantic search only works over locally downloaded papers and therefore cannot replace the initial global search step",
+          "sources": [
+            "https://github.com/blazickjp/arxiv-mcp-server"
+          ]
+        },
+        {
+          "text": "Large Language Models are best treated as unsuitable primary literature finders or single-shot verdict generators, because fabricated references, perturbation brittleness, and multiple-choice position bias all remain well-documented failure modes in academic and fact-verification settings",
+          "sources": [
+            "https://www.jmir.org/2024/1/e53164",
+            "https://aclanthology.org/2025.naacl-long.534/",
+            "https://aclanthology.org/2024.findings-eacl.62/",
+            "https://arxiv.org/abs/2309.03882"
+          ]
+        },
+        {
+          "text": "A support-critical claim should remain `` only when one identified arXiv paper states the same or materially equivalent proposition, because topic-level similarity or partial support is not strong enough to preserve verified status in later synthesis",
+          "sources": [
+            "https://arxiv.org/abs/2004.14974",
+            "https://aclanthology.org/2021.louhi-1.11/",
+            "https://arxiv.org/abs/2112.01640",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md"
+          ]
+        },
+        {
+          "text": "A bounded workflow that verifies only a small number of support-critical claims per item and inspects only a small top-ranked candidate set is the right minimum-viable compromise for this repository",
+          "sources": [
+            "https://aclanthology.org/2024.eacl-long.128/",
+            "https://github.com/blazickjp/arxiv-mcp-server",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md"
+          ]
+        },
+        {
+          "text": "When no plausible paper match appears, when the best candidate is only topically related, or when support is partial or contradictory, the workflow should downgrade the claim to `` and record the query, candidate, and failure reason instead of preserving false certainty",
+          "sources": [
+            "https://aclanthology.org/2024.eacl-long.128/",
+            "https://www.jmir.org/2024/1/e53164",
+            "https://aclanthology.org/2024.findings-eacl.62/"
           ]
         }
       ]
