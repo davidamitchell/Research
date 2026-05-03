@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 6c9364e8eb9ab6fbc646205d89c6aca476954295
+    changed: 2026-05-03
+    progress: progress/2026-05-03-storm-perspective-discovery-multi-perspective-question-generation.md
+    summary: "Initial completion"
 ---
 
 # How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?
