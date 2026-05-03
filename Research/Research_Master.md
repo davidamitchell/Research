@@ -1,12 +1,14 @@
 # Research Master Document
 
-Generated on: 2026-05-03 07:33 UTC
+Generated on: 2026-05-03 08:15 UTC
 
 ## Table of Contents
 
 * [What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?](#2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability-md)
 * [What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?](#2026-05-02-vendor-lock-in-portability-multi-platform-ai-md)
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
+* [How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?](#2026-05-02-storm-perspective-discovery-multi-perspective-question-generation-md)
+* [What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?](#2026-05-02-research-to-publication-authoring-workflow-md)
 * [What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?](#2026-05-02-research-item-versioning-amendment-norms-md)
 * [Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](#2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md)
 * [What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?](#2026-05-02-knowledge-graph-schema-cross-session-research-mcp-md)
@@ -535,6 +537,187 @@ That architectural recommendation also aligns with prior repository research on 
   - https://training.cochrane.org/handbook/current/chapter-09
   - https://arxiv.org/abs/2402.14207
   - https://github.com/davidamitchell/Research/blob/main/BACKLOG.md
+
+---
+
+---
+
+<a id="2026-05-02-storm-perspective-discovery-multi-perspective-question-generation-md"></a>
+
+## How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?
+
+**Tags:** [agentic-ai, llm, workflow, agent-tooling, evaluation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.md
+
+## Research Question
+
+How does the STORM (Synthesis of Topic Outlines through Retrieval and Multi-perspective question generation) system's perspective discovery step generate diverse expert viewpoints before decomposing a research question into sub-questions, specifically what algorithm, prompt structure, and diversity criteria it uses, and what is the minimum-viable prompt template that replicates the coverage breadth improvement reported in the 2024 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL 2024) paper (+10% against baseline Retrieval-Augmented Generation (RAG)) within a single-agent automated research workflow that cannot conduct real conversations with simulated experts?
+
+## Findings
+
+### Executive Summary
+
+STORM's perspective discovery is a lightweight persona-generation step seeded from related Wikipedia article outlines, not a formal diversity algorithm, and the safest single-agent replication is a fixed perspective-seeding prompt rather than a claim that the full STORM coverage gain will transfer unchanged. [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py]
+
+The paper's +10% `broad in coverage` result belongs to end-to-end STORM versus an outline-driven retrieval-augmented generation baseline, while the ablation evidence supports the inference that perspective discovery alone has a smaller but still real effect, especially on source diversity and entity-level outline coverage. [inference; source: https://aclanthology.org/2024.naacl-long.347/]
+
+One strong minimum-viable §0.5 candidate for this repository is an additive four-perspective prompt that emits one seed question per non-overlapping lens and minimizes downstream workflow change, while leaving room for later testing of topic-sensitive slot changes or a light `related topics` retrieval step. [inference; source: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://www.anthropic.com/engineering/building-effective-agents]
+
+### Key Findings
+
+1. **STORM discovers perspectives by surveying related Wikipedia pages, extracting their titles and tables of contents, and then prompting the model to invent editor personas that each represent a different perspective, role, or affiliation before any question decomposition begins.** ([fact]; medium confidence; source: https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py)
+2. **The released implementation always prepends a `Basic fact writer` persona, which means STORM explicitly combines one broad factual lens with a small set of topic-specific lenses instead of relying only on specialist roles.** ([fact]; medium confidence; source: https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py)
+3. **STORM does not publish an explicit diversity rubric over disciplinary, cultural, temporal, or stakeholder categories, so its diversity mechanism is implicit and retrieval-primed rather than a formal coverage algorithm with declared quotas.** ([fact]; medium confidence; source: https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py)
+4. **The paper's +10% `broad in coverage` result should not be attributed to perspective discovery alone, because that number compares full STORM against an outline-driven retrieval-augmented generation baseline and the ablations isolate a smaller persona-specific effect.** ([fact]; medium confidence; source: https://aclanthology.org/2024.naacl-long.347/)
+5. **The ablation results show that removing perspective conditioning roughly halves the number of unique references collected and lowers entity-level outline recall, while removing simulated conversation hurts performance even more, so the evidence supports the inference that conversation contributes more than persona seeding to overall question quality.** ([inference]; medium confidence; source: https://aclanthology.org/2024.naacl-long.347/)
+6. **Self-consistency and Six Thinking Hats are useful comparison points, but neither is a close substitute for STORM's perspective discovery because self-consistency collapses multiple attempts into one answer and Six Thinking Hats organises modes of thought rather than parallel role-conditioned lenses.** ([inference]; medium confidence; source: https://arxiv.org/abs/2203.11171; https://www.debono.com/six-thinking-hats-summary; https://aclanthology.org/2024.naacl-long.347/)
+7. **A strong minimum-viable candidate for this repository is a four-slot prompt, `basic facts`, `mechanism or implementation`, `stakeholder or decision impact`, and `failure mode or critic`, with one seed question per perspective, because that preserves STORM's broad-facts-plus-specialist-lenses pattern while keeping the prompt simple and leaving room for later topic-sensitive refinements.** ([inference]; low confidence; source: https://www.anthropic.com/engineering/building-effective-agents; https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md)
+8. **The safest repository recommendation is to keep §0.5 additive by making it emit seed questions for §1 instead of redesigning later stages, because the backlog goal is broader question coverage and Anthropic guidance favors the smallest workflow change that preserves task structure.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://www.anthropic.com/engineering/building-effective-agents])
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] STORM surveys related Wikipedia pages, extracts tables of contents, and generates personas before asking questions. | https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py | medium | Paper plus code |
+| [fact] STORM prepends a `Basic fact writer` persona to topic-specific personas. | https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py | medium | Code-backed |
+| [fact] Diversity criteria are implicit `perspective, role, or affiliation`, not a fixed rubric. | https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py | medium | Prompt-backed |
+| [fact] The +10% breadth claim belongs to end-to-end STORM versus outline-driven retrieval-augmented generation, not to the persona step alone. | https://aclanthology.org/2024.naacl-long.347/ | medium | Human-eval claim |
+| [inference] Ablations show perspective discovery matters, but conversation appears to matter more, especially for unique references and entity recall. | https://aclanthology.org/2024.naacl-long.347/ | medium | Table 3 plus Table 5 |
+| [inference] A four-slot prompt is a strong minimum-viable candidate because it preserves STORM's broad-facts-plus-specialist-lenses pattern while allowing later topic-sensitive refinements. | https://www.anthropic.com/engineering/building-effective-agents; https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md | low | Design synthesis |
+| [inference] The safest integration recommendation is to keep §0.5 additive and scoped to seed-question emission rather than to redesign later stages. | https://github.com/davidamitchell/Research/blob/main/BACKLOG.md; https://www.anthropic.com/engineering/building-effective-agents | medium | Integration recommendation |
+
+### Assumptions
+
+- [assumption] The minimum-viable version should optimise for preserving perspective seeding, not for reproducing STORM's full multi-turn conversation behavior, because the repository workflow does not run simulated expert dialogues. Justification: the workflow constraint removes the paper's strongest ablated component. Source: https://aclanthology.org/2024.naacl-long.347/; https://www.anthropic.com/engineering/building-effective-agents
+- [assumption] The topic statement and seeded sources usually contain enough signal for four useful lenses without first scraping related Wikipedia outlines, because the design goal is low-overhead prompt insertion rather than exact parity with STORM's internet-research phase. Justification: Anthropic guidance favors simpler composable workflows when they are adequate. Source: https://www.anthropic.com/engineering/building-effective-agents; https://aclanthology.org/2024.naacl-long.347/
+
+### Analysis
+
+STORM's released code and paper align on a narrow interpretation of `perspective discovery`: it is a prompt-driven persona seeding stage that happens before question asking, not a formal optimisation pass over declared diversity dimensions. [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py]
+
+That distinction matters because W-0038 cites the paper's +10% breadth gain as if it were the direct output of §0.5 alone, while the ablations show the single largest drop comes from removing simulated conversation rather than from removing perspective conditioning. [inference; source: https://aclanthology.org/2024.naacl-long.347/]
+
+The safest design move is therefore to preserve the part that the repository can realistically inherit, persona-conditioned initial question selection, and to state plainly that the repository is not inheriting STORM's conversation-driven follow-up behavior. [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://www.anthropic.com/engineering/building-effective-agents]
+
+Self-consistency is valuable once competing answer paths already exist, but it does not tell the model which topical lenses to open in the first place. [inference; source: https://arxiv.org/abs/2203.11171; https://aclanthology.org/2024.naacl-long.347/]
+
+Six Thinking Hats provides useful coverage reminders, especially factual, critical, creative, and process modes, but its official method is parallel thinking rather than role multiplexing, so it works better as a post-generation audit than as the primary scaffold. [inference; source: https://www.debono.com/six-thinking-hats-summary]
+
+Anthropic's guidance points toward a short fixed-structure prompt with explicit output slots, which fits the repository's existing deterministic workflow better than a verbose freeform persona-generation instruction. [inference; source: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://www.anthropic.com/engineering/building-effective-agents]
+
+Recommended §0.5 prompt block: [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://www.anthropic.com/engineering/building-effective-agents; https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md]
+
+```text
+### §0.5 Perspective Discovery
+
+Before §1 Question Decomposition, generate exactly four non-overlapping research perspectives for the question below.
+You are still one researcher. Do not simulate a panel, dialogue, or debate. Your job is to seed better questions.
+
+Use these four slots:
+1. Basic facts lens, what a broad factual writer must cover first.
+2. Mechanism or implementation lens, how the thing works, is built, or fails operationally.
+3. Stakeholder or decision-impact lens, who is affected, who decides, and what trade-offs matter.
+4. Failure-mode or critic lens, what could be missing, misleading, risky, or overstated.
+
+For each perspective, output:
+- Perspective: <short role label>
+- Distinct coverage added: <one sentence on what this lens sees that the others may miss>
+- Seed question: <one concrete research question this lens would ask first>
+- Evidence to seek: <the kind of source most likely to answer that question>
+
+Constraints:
+- Prefer non-overlap over stylistic variety.
+- If two perspectives collapse into the same question class, rewrite one.
+- Keep every seed question specific enough that §1 can decompose it into atomic sub-questions.
+- Do not answer the questions yet.
+```
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] The paper does not publish a direct experiment showing that a single-agent prompt block can reproduce the reported +10% breadth gain, so any claim of numeric equivalence would be unsupported. Source: https://aclanthology.org/2024.naacl-long.347/
+- [fact] STORM's released implementation depends on simulated multi-turn retrieval-grounded conversation, which this repository's minimum-viable prompt does not reproduce. Source: https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/knowledge_curation.py
+- [inference] The four-slot template may underfit topics whose most important diversity axis is historical or regulatory rather than stakeholder or failure mode, so the slot labels may need light topic-sensitive adjustment during implementation. Source: https://www.anthropic.com/engineering/building-effective-agents; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md
+
+### Open Questions
+
+- Can the repository evaluate §0.5 locally by measuring question diversity or downstream evidence-map coverage before and after insertion? [inference; source: https://aclanthology.org/2024.naacl-long.347/]
+- Would a light `related topics` retrieval step before §0.5 materially outperform the fixed four-slot prompt enough to justify the added complexity? [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://www.anthropic.com/engineering/building-effective-agents]
+- Should Six Thinking Hats be used as a post-§0.5 audit checklist to catch missing question classes without replacing role-conditioned lenses? [inference; source: https://www.debono.com/six-thinking-hats-summary]
+
+---
+
+---
+
+<a id="2026-05-02-research-to-publication-authoring-workflow-md"></a>
+
+## What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?
+
+**Tags:** [agentic-ai, llm, workflow, evaluation, hallucinations]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-research-to-publication-authoring-workflow.md
+
+## Research Question
+
+What structured approaches, from academic writing pedagogy, Artificial Intelligence (AI)-assisted writing tools, and agent workflow design, exist for converting synthesised research findings into polished papers and practical decision frameworks, what Data-Information-Knowledge-Wisdom (DIKW) chain steps are typically skipped or corrupted in AI-assisted research-to-publication pipelines, and what `authoring-prompt.md` design and `authoring-loop.yml` workflow structure best support producing a finished paper or framework artifact from specified synthesis and primary research items while avoiding the most critical failure modes?
+
+## Findings
+
+### Executive Summary
+
+An effective research-to-publication workflow should be staged, source-bound, and output-routed rather than single-pass, because the dangerous jump is from synthesized information directly to polished recommendations without an explicit knowledge layer. [inference; source: https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md; https://www.anthropic.com/research/building-effective-agents]
+The best design for this repository is a manual `workflow_dispatch` authoring loop that first extracts claim-level evidence from specified items, then routes that evidence into the right template, drafts in stages, and runs verification before commit. [inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_dispatch; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md; https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents]
+The most important failure modes are fabricated references, provenance loss, nuance flattening, and certainty drift during final prose generation, so bibliography and support-critical-claim checks must be first-class review gates rather than optional cleanup. [inference; source: https://www.jmir.org/2024/1/e53164; https://aclanthology.org/2024.findings-eacl.62/; https://link.springer.com/article/10.1007/s11023-020-09548-1]
+Papers and frameworks should not share one generic prompt, because IMRaD, policy briefs, decision frameworks, and maturity models impose different evidence and audience contracts. [inference; source: https://scwrl.ubc.ca/stem-writing-resources/features-of-academic-stem-research-writing/imrad/; https://icpolicyadvocacy.org/sites/default/files/2024-04/icpa-policy-briefs-essential-guide.pdf; https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20]
+
+### Key Findings
+
+1. **The strongest authoring pattern is a staged workflow that separates evidence loading, outline construction, drafting, critique, and verification, because each stage reduces a different publication risk that a single-pass draft cannot control.** ([inference]; medium confidence; source: https://www.anthropic.com/research/building-effective-agents; https://support.elicit.com/en/articles/7927169; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md)
+2. **Output type should be selected by the audience's decision need and the evidence shape, with IMRaD fitting method-centered papers, policy briefs fitting action-oriented readers, decision frameworks fitting option choice, and maturity models fitting staged capability improvement.** ([inference]; medium confidence; source: https://scwrl.ubc.ca/stem-writing-resources/features-of-academic-stem-research-writing/imrad/; https://icpolicyadvocacy.org/sites/default/files/2024-04/icpa-policy-briefs-essential-guide.pdf; https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20)
+3. **The reviewed AI research-writing tools cover different stages of the pipeline, with Elicit centered on evidence workflow, Semantic Scholar on discovery, and Paperpal on drafting and submission polish.** ([fact]; medium confidence; source: https://support.elicit.com/en/articles/7927169; https://www.semanticscholar.org/; https://paperpal.com/)
+4. **The control that prevents a DIKW shortcut is an explicit knowledge artifact, such as a claim table or evidence-bound outline, because that artifact keeps the transition from retrieved information to recommendation auditable before rhetoric is added.** ([inference]; medium confidence; source: https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-dikw-transformation-functions.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md)
+5. **Generated bibliographies must be treated as untrusted until checked, because GPT-4 and Bard both showed poor reference precision and substantial hallucination rates in systematic-review retrieval experiments.** ([fact]; medium confidence; source: https://www.jmir.org/2024/1/e53164)
+6. **Post-generation citation checks are worthwhile because language models often expose hallucinated references through internal inconsistency when asked follow-up questions about the cited work.** ([fact]; medium confidence; source: https://aclanthology.org/2024.findings-eacl.62/)
+7. **A manual `workflow_dispatch` loop is preferable to scheduled authoring automation because authored outputs require explicit selection of title, audience, source items, and output form, and those choices materially shape what a valid artifact looks like.** ([inference]; medium confidence; source: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_dispatch; https://www.anthropic.com/research/building-effective-agents)
+8. **Framework outputs need stricter structural checks than papers, because a maturity model or decision framework without explicit dimensions, stage definitions, and progression criteria becomes persuasive narrative instead of an operational tool.** ([inference]; medium confidence; source: https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-synthesis-complete-framework.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Staged authoring beats single-pass drafting for reliability and inspectability. | https://www.anthropic.com/research/building-effective-agents; https://support.elicit.com/en/articles/7927169; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md | medium | Stage decomposition aligns with prompt chaining and structured review practice. |
+| [inference] Output structure should be routed by evidence shape and audience need. | https://scwrl.ubc.ca/stem-writing-resources/features-of-academic-stem-research-writing/imrad/; https://icpolicyadvocacy.org/sites/default/files/2024-04/icpa-policy-briefs-essential-guide.pdf; https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20 | medium | Each format implies a different contract for evidence display and actionability. |
+| [fact] The reviewed tools cover different workflow stages, with Elicit focused on evidence workflow, Semantic Scholar on discovery, and Paperpal on drafting and submission polish. | https://support.elicit.com/en/articles/7927169; https://www.semanticscholar.org/; https://paperpal.com/ | medium | Tool docs are product descriptions, not comparative benchmarks. |
+| [inference] An explicit knowledge artifact is required between synthesis and publication. | https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-dikw-transformation-functions.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md | medium | This is the central DIKW control point for authoring. |
+| [fact] Generated references are unreliable enough to require mandatory checking. | https://www.jmir.org/2024/1/e53164 | medium | JMIR gives the empirical error rates underlying this claim. |
+| [fact] Consistency checks can reveal hallucinated references after generation. | https://aclanthology.org/2024.findings-eacl.62/ | medium | Helpful as a gate, not a substitute for evidence retrieval. |
+| [inference] Manual dispatch is the correct trigger model for authoring. | https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_dispatch; https://www.anthropic.com/research/building-effective-agents | medium | Manual input quality matters more than automation frequency. |
+| [inference] Framework outputs require stronger structural validation than papers. | https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-synthesis-complete-framework.md | medium | Stage and dimension definitions are what make a framework operational. |
+
+### Assumptions
+
+- [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md; https://github.com/davidamitchell/Research/blob/main/BACKLOG.md] Synthesis items supplied to the authoring loop already meet the repository's provenance and evidence standards closely enough to be treated as controlled inputs.
+- [assumption; source: https://www.anthropic.com/research/building-effective-agents; https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_dispatch] The owner will provide output type, title, intended audience, and source-item slugs at workflow start rather than expect the workflow to infer them safely.
+- [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md] Selective human review focused on support-critical claims is feasible, while full line-by-line review of every authored output is not.
+
+### Analysis
+
+The evidence points away from a single magical writing assistant and toward a pipeline in which each stage has a different reliability profile. [inference; source: https://support.elicit.com/en/articles/7927169; https://www.semanticscholar.org/; https://paperpal.com/]
+Search and screening tools reduce discovery cost, but they do not solve the later problem of turning evidence into defensible argument structure. [inference; source: https://support.elicit.com/en/articles/7927169; https://link.springer.com/article/10.1186/s12874-025-02528-y]
+Drafting and editing tools improve fluency and submission readiness, but the literature on hallucinated references shows that fluency is exactly where trust can become dangerous. [inference; source: https://paperpal.com/; https://www.jmir.org/2024/1/e53164; https://link.springer.com/article/10.1007/s11023-020-09548-1]
+That is why the best workflow inserts an explicit knowledge layer, routes into the right output template, and treats verification as a publication-stage control rather than an optional polish step. [inference; source: https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md]
+Alternative remedies, such as relying on better base models or more human reviewers, do not eliminate the need for staged structure, because better fluent generation does not remove provenance risk and more review capacity still scales poorly without claim prioritization. [inference; source: https://www.jmir.org/2024/1/e53164; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.md; https://www.anthropic.com/research/building-effective-agents]
+
+### Risks, Gaps, and Uncertainties
+
+- Direct comparative evaluations across Elicit, Semantic Scholar, Paperpal, and other authoring tools are limited, so tool-stage conclusions rely partly on product documentation rather than head-to-head empirical benchmarks. [fact; source: https://link.springer.com/article/10.1186/s12874-025-02528-y; https://www.semanticscholar.org/; https://paperpal.com/]
+- The DIKW hierarchy is a conceptual framework rather than a validated engineering law, so the proposed knowledge-layer control is best treated as a design heuristic that is strongly supported by adjacent workflow evidence rather than as a mathematically complete theory of publication quality. [inference; source: https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-dikw-transformation-functions.md]
+
+### Open Questions
+
+- Should the future `authoring-loop.yml` support audience-specific variants inside one output type, for example board memo versus technical white paper?
+- Should framework outputs receive a stronger schema validator than papers, for example required dimensions, levels, and transition criteria before commit?
+- Should the repository generate both a short policy brief and a full paper from the same evidence bundle, or force one primary output per run?
 
 ---
 
