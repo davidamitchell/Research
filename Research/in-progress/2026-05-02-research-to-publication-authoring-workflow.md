@@ -252,10 +252,10 @@ Alternative remedies, such as relying on better base models or more human review
 
 ### §7 Recursive Review
 
-- Metadata: acronym sweep completed for AI, DIKW, IMRaD, GPT-4, and workflow-specific terms used in the document.
-- Metadata: all visible claims in `## Findings` carry inline suffix labels and URL-backed sources.
-- Metadata: `§6 Synthesis` and `## Findings` are aligned on wording, labels, confidence, and citations.
-- Metadata: no em dashes remain in the document text.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-research-to-publication-authoring-workflow.md] Acronym sweep completed for AI, DIKW, IMRaD, GPT-4, and workflow-specific terms used in the document.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-research-to-publication-authoring-workflow.md] All visible claims in `## Findings` carry inline suffix labels and URL-backed sources.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-research-to-publication-authoring-workflow.md] `§6 Synthesis` and `## Findings` are aligned on wording, labels, confidence, and citations.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-02-research-to-publication-authoring-workflow.md] No em dashes remain in the document text.
 
 ---
 
