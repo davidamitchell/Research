@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
