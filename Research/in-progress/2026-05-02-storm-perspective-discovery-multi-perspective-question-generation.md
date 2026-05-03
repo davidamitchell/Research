@@ -208,7 +208,7 @@ This item therefore focuses on the design gap between STORM's multi-perspective 
 
 STORM's perspective discovery is a lightweight persona-generation step seeded from related Wikipedia article outlines, not a formal diversity algorithm, and the safest single-agent replication is a fixed perspective-seeding prompt rather than a claim that the full STORM coverage gain will transfer unchanged. [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py]
 
-The paper's +10% `broad in coverage` result belongs to end-to-end STORM versus an outline-driven retrieval-augmented generation baseline, while the ablation evidence shows that perspective discovery alone has a smaller but still real effect, especially on source diversity and entity-level outline coverage. [fact; source: https://aclanthology.org/2024.naacl-long.347/]
+The paper's +10% `broad in coverage` result belongs to end-to-end STORM versus an outline-driven retrieval-augmented generation baseline, while the ablation evidence supports the inference that perspective discovery alone has a smaller but still real effect, especially on source diversity and entity-level outline coverage. [inference; source: https://aclanthology.org/2024.naacl-long.347/]
 
 The best minimum-viable §0.5 design for this repository is therefore an additive four-perspective prompt that emits one seed question per non-overlapping lens and minimizes downstream workflow change. [inference; source: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://www.anthropic.com/engineering/building-effective-agents]
 
@@ -309,7 +309,7 @@ Constraints:
 
 STORM's perspective discovery is a lightweight persona-generation step seeded from related Wikipedia article outlines, not a formal diversity algorithm, and the safest single-agent replication is a fixed perspective-seeding prompt rather than a claim that the full STORM coverage gain will transfer unchanged. [inference; source: https://aclanthology.org/2024.naacl-long.347/; https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/storm_wiki/modules/persona_generator.py]
 
-The paper's +10% `broad in coverage` result belongs to end-to-end STORM versus an outline-driven retrieval-augmented generation baseline, while the ablation evidence shows that perspective discovery alone has a smaller but still real effect, especially on source diversity and entity-level outline coverage. [fact; source: https://aclanthology.org/2024.naacl-long.347/]
+The paper's +10% `broad in coverage` result belongs to end-to-end STORM versus an outline-driven retrieval-augmented generation baseline, while the ablation evidence supports the inference that perspective discovery alone has a smaller but still real effect, especially on source diversity and entity-level outline coverage. [inference; source: https://aclanthology.org/2024.naacl-long.347/]
 
 The best minimum-viable §0.5 design for this repository is therefore an additive four-perspective prompt that emits one seed question per non-overlapping lens and minimizes downstream workflow change. [inference; source: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts; https://www.anthropic.com/engineering/building-effective-agents]
 
