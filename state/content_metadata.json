@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-03T07:40:44Z",
+  "extracted_at": "2026-05-03T07:51:05Z",
   "items": {
     "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability": {
       "named_concepts": [
@@ -338,6 +338,107 @@
             "https://link.springer.com/article/10.1186/s12874-018-0600-0",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md",
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md"
+          ]
+        }
+      ]
+    },
+    "2026-05-02-research-to-publication-authoring-workflow": {
+      "named_concepts": [
+        "explicit knowledge",
+        "output type",
+        "semantic scholar",
+        "hallucinated references",
+        "framework outputs",
+        "knowledge layer",
+        "authoring loop",
+        "policy briefs",
+        "decision frameworks",
+        "maturity models",
+        "tools cover",
+        "workflow semantic",
+        "submission polish",
+        "knowledge artifact",
+        "executive summary",
+        "effective research-to-publication",
+        "research-to-publication workflow",
+        "staged source-bound",
+        "dangerous jump",
+        "synthesized information"
+      ],
+      "source_urls": [
+        "https://scwrl.ubc.ca/stem-writing-resources/features-of-academic-stem-research-writing/imrad/",
+        "https://icpolicyadvocacy.org/sites/default/files/2024-04/icpa-policy-briefs-essential-guide.pdf",
+        "https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20",
+        "https://support.elicit.com/en/articles/7927169",
+        "https://link.springer.com/article/10.1186/s12874-025-02528-y",
+        "https://www.semanticscholar.org/",
+        "https://paperpal.com/",
+        "https://link.springer.com/article/10.1007/s11023-020-09548-1",
+        "https://arxiv.org/abs/2302.04023",
+        "https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331",
+        "https://www.jmir.org/2024/1/e53164",
+        "https://aclanthology.org/2024.findings-eacl.62/",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_dispatch"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest authoring pattern is a staged workflow that separates evidence loading, outline construction, drafting, critique, and verification, because each stage reduces a different publication risk that a single-pass draft cannot control",
+          "sources": [
+            "https://www.anthropic.com/research/building-effective-agents",
+            "https://support.elicit.com/en/articles/7927169",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-systematic-review-methodology-ai-synthesis.md"
+          ]
+        },
+        {
+          "text": "Output type should be selected by the audience's decision need and the evidence shape, with IMRaD fitting method-centered papers, policy briefs fitting action-oriented readers, decision frameworks fitting option choice, and maturity models fitting staged capability improvement",
+          "sources": [
+            "https://scwrl.ubc.ca/stem-writing-resources/features-of-academic-stem-research-writing/imrad/",
+            "https://icpolicyadvocacy.org/sites/default/files/2024-04/icpa-policy-briefs-essential-guide.pdf",
+            "https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20"
+          ]
+        },
+        {
+          "text": "The reviewed AI research-writing tools cover different stages of the pipeline, with Elicit centered on evidence workflow, Semantic Scholar on discovery, and Paperpal on drafting and submission polish",
+          "sources": [
+            "https://support.elicit.com/en/articles/7927169",
+            "https://www.semanticscholar.org/",
+            "https://paperpal.com/"
+          ]
+        },
+        {
+          "text": "The control that prevents a DIKW shortcut is an explicit knowledge artifact, such as a claim table or evidence-bound outline, because that artifact keeps the transition from retrieved information to recommendation auditable before rhetoric is added",
+          "sources": [
+            "https://link.springer.com/rwe/10.1007/978-3-319-32010-6_331",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-dikw-transformation-functions.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-29-knowledge-scaffolding-context-engineering.md"
+          ]
+        },
+        {
+          "text": "Generated bibliographies must be treated as untrusted until checked, because GPT-4 and Bard both showed poor reference precision and substantial hallucination rates in systematic-review retrieval experiments",
+          "sources": [
+            "https://www.jmir.org/2024/1/e53164"
+          ]
+        },
+        {
+          "text": "Post-generation citation checks are worthwhile because language models often expose hallucinated references through internal inconsistency when asked follow-up questions about the cited work",
+          "sources": [
+            "https://aclanthology.org/2024.findings-eacl.62/"
+          ]
+        },
+        {
+          "text": "A manual `workflow_dispatch` loop is preferable to scheduled authoring automation because authored outputs require explicit selection of title, audience, source items, and output form, and those choices materially shape what a valid artifact looks like",
+          "sources": [
+            "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onworkflow_dispatch",
+            "https://www.anthropic.com/research/building-effective-agents"
+          ]
+        },
+        {
+          "text": "Framework outputs need stricter structural checks than papers, because a maturity model or decision framework without explicit dimensions, stage definitions, and progression criteria becomes persuasive narrative instead of an operational tool",
+          "sources": [
+            "https://link.springer.com/chapter/10.1007/978-3-031-07816-3_20",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-synthesis-complete-framework.md"
           ]
         }
       ]
