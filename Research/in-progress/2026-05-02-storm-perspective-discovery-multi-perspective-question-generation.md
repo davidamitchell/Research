@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
