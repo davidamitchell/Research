@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
