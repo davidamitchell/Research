@@ -73,6 +73,18 @@ SECTION_PATTERNS = SECTIONS_ORDERED + ["Question / Hypothesis"]
 # only when immediately followed by a quote character or >.
 _STRAY_CLOSE_TAGS_RE = re.compile(r"</(?:p|li|td|div)>(?=[\"'>])")
 
+# Patterns for normalize_source_display_name()
+# ── "Surname, Initials. et al. (YYYY). Title"
+_NORM_ET_AL_RE = re.compile(
+    r"([A-Z][A-Za-zÀ-ÿ\-]+),\s+[A-Z][A-Za-z.]*\.?\s+et\s+al\.?\s*\((\d{4})\)\.?\s*(.*)"
+)
+# ── "Surname, Initials. (YYYY). Title"
+_NORM_SINGLE_AUTHOR_RE = re.compile(
+    r"([A-Z][A-Za-zÀ-ÿ\-]+),\s+[A-Z][A-Za-z.]*\.?\s*\((\d{4})\)\.?\s*(.*)"
+)
+# ── "Org: Description (YYYY)"
+_NORM_ORG_COLON_RE = re.compile(r"([^:]+?):\s+(.+?)\s+\((\d{4})\)\s*$")
+
 # ---------------------------------------------------------------------------
 # CSS / Design system
 # ---------------------------------------------------------------------------
@@ -2078,6 +2090,48 @@ def _render_claim(text: str) -> str:
         last = m.end()
     parts.append(escape(text[last:]))
     return "".join(parts)
+
+
+def normalize_source_display_name(display_name: str) -> str:
+    """Normalize legacy source display name formats to canonical inline-citation form.
+
+    Canonical form: ``Author (YYYY) Title`` or ``Org (YYYY) Description``
+
+    Transformations applied (in order):
+    - ``"Surname, A.K. (YYYY). Title..."``  → ``"Surname (YYYY) Title..."``
+    - ``"Surname, A.K. et al. (YYYY). Title"`` → ``"Surname et al. (YYYY) Title"``
+    - ``"Org: Description (YYYY)"``         → ``"Org (YYYY) Description"``
+
+    Returns *display_name* unchanged when no pattern matches or when the input
+    looks like a bare URL (starts with ``http``).
+    """
+    name = display_name.strip()
+
+    # Never transform bare URLs.
+    if name.startswith("http"):
+        return display_name
+
+    # ── 1. "Surname, Initials. et al. (YYYY). Title" → "Surname et al. (YYYY) Title"
+    m = _NORM_ET_AL_RE.match(name)
+    if m:
+        surname, year, rest = m.group(1), m.group(2), m.group(3).strip()
+        label = f"{surname} et al. ({year})"
+        return f"{label} {rest}".strip() if rest else label
+
+    # ── 2. "Surname, Initials. (YYYY). Title" → "Surname (YYYY) Title"
+    m = _NORM_SINGLE_AUTHOR_RE.match(name)
+    if m:
+        surname, year, rest = m.group(1), m.group(2), m.group(3).strip()
+        label = f"{surname} ({year})"
+        return f"{label} {rest}".strip() if rest else label
+
+    # ── 3. "Org: Description (YYYY)" → "Org (YYYY) Description"
+    m = _NORM_ORG_COLON_RE.match(name)
+    if m:
+        org, desc, year = m.group(1).strip(), m.group(2).strip(), m.group(3)
+        return f"{org} ({year}) {desc}"
+
+    return display_name
 
 
 def _extract_citation_label(display_name: str, url: str) -> str:

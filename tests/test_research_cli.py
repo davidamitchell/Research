@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import subprocess
 from datetime import date
@@ -17,6 +18,7 @@ from src.research.cli import (
     cmd_complete,
     cmd_draft,
     cmd_list,
+    cmd_pick,
     cmd_start,
 )
 
@@ -394,3 +396,107 @@ def test_cmd_complete_leaves_no_unstaged_changes(git_research_dir: Path) -> None
     assert dirty == "", (
         f"Working tree must be clean after cmd_complete, but git diff --stat shows:\n{dirty}"
     )
+
+
+# ---------------------------------------------------------------------------
+# cmd_pick — depends_on filtering
+# ---------------------------------------------------------------------------
+
+_BACKLOG_FRONTMATTER = """\
+---
+title: "{title}"
+added: 2026-04-27
+status: backlog
+priority: medium
+depends_on: {depends_on}
+blocks: []
+tags: []
+started: ~
+completed: ~
+output: []
+---
+
+# {title}
+"""
+
+_COMPLETED_FRONTMATTER = """\
+---
+title: "Completed Item"
+added: 2026-01-01
+status: completed
+priority: medium
+depends_on: []
+blocks: []
+tags: []
+started: 2026-01-02
+completed: 2026-01-03
+output: []
+---
+
+# Completed Item
+"""
+
+
+def test_pick_empty_depends_on_is_eligible(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """An item with depends_on: [] is always eligible for picking."""
+    content = _BACKLOG_FRONTMATTER.format(title="No Deps", depends_on="[]")
+    (research_dir / "backlog" / "2026-04-27-no-deps.md").write_text(content, encoding="utf-8")
+
+    cmd_pick(research_root=research_dir)
+
+    out = capsys.readouterr().out
+    result = json.loads(out)
+    assert result.get("filename") == "2026-04-27-no-deps.md"
+
+
+def test_pick_satisfied_depends_on_is_eligible(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """An item whose depends_on slug exists in completed/ is eligible."""
+    (research_dir / "completed" / "2026-01-01-prereq.md").write_text(
+        _COMPLETED_FRONTMATTER, encoding="utf-8"
+    )
+    content = _BACKLOG_FRONTMATTER.format(
+        title="Has Satisfied Dep", depends_on="[2026-01-01-prereq]"
+    )
+    (research_dir / "backlog" / "2026-04-27-dependent.md").write_text(content, encoding="utf-8")
+
+    cmd_pick(research_root=research_dir)
+
+    out = capsys.readouterr().out
+    result = json.loads(out)
+    assert result.get("filename") == "2026-04-27-dependent.md"
+
+
+def test_pick_unsatisfied_depends_on_is_excluded(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """An item whose depends_on slug is NOT in completed/ is excluded from picking."""
+    content = _BACKLOG_FRONTMATTER.format(
+        title="Blocked Item", depends_on="[2026-01-01-missing-prereq]"
+    )
+    (research_dir / "backlog" / "2026-04-27-blocked.md").write_text(content, encoding="utf-8")
+
+    cmd_pick(research_root=research_dir)
+
+    out = capsys.readouterr().out
+    result = json.loads(out)
+    assert result == {}, f"Expected empty dict (no eligible items), got {result}"
+
+
+def test_pick_excludes_unsatisfied_but_picks_eligible_sibling(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """When one item is gated, the next eligible item is picked instead."""
+    blocked = _BACKLOG_FRONTMATTER.format(title="Blocked", depends_on="[2026-01-01-missing]")
+    (research_dir / "backlog" / "2026-04-01-blocked.md").write_text(blocked, encoding="utf-8")
+    eligible = _BACKLOG_FRONTMATTER.format(title="Eligible", depends_on="[]")
+    (research_dir / "backlog" / "2026-04-02-eligible.md").write_text(eligible, encoding="utf-8")
+
+    cmd_pick(research_root=research_dir)
+
+    out = capsys.readouterr().out
+    result = json.loads(out)
+    assert result.get("filename") == "2026-04-02-eligible.md"

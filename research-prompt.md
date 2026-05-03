@@ -18,6 +18,22 @@ re-run earlier steps unless the Action explicitly says to.
 
 ---
 
+## At Session Start — Check Gap Registry
+
+Read `state/gap_registry.json` (if it exists). For any gap with
+`"promote": true`:
+
+1. Search `Research/backlog/` filenames and `BACKLOG.md` for an existing item
+   addressing that gap (look for key words from the gap string).
+2. If none exists, create a new backlog research item in `Research/backlog/`
+   using the gap string as the research question basis. Use the filename format
+   `YYYY-MM-DD-<slug>.md` and follow the standard template.
+3. Log each new backlog item created in the session progress log
+   (`progress/YYYY-MM-DD-{slug}.md`) under a `## Gap-Promoted Backlog Items`
+   heading.
+
+---
+
 ## Steps
 
 ### 1. Read the item
@@ -76,6 +92,14 @@ go. **This output is retained verbatim in the completed item.**
 **§0 Initialise:** Restate the research question. Confirm scope, constraints,
 and output format. Write into `### §0 Initialise`.
 
+**§0.5 — Memory Graph Query (when memory MCP is available)**
+
+Before beginning investigation, query the `@modelcontextprotocol/server-memory` knowledge graph for entities related to the research question:
+- Use `search_nodes` with the key concepts from the research question
+- Read any entities and relations returned — these represent knowledge from prior sessions
+- Note which concepts are already established vs which require fresh investigation
+- If memory MCP is unavailable, skip this step and proceed to §1
+
 **§1 Question Decomposition:** Recursively break the Approach sub-questions into
 atomic questions -- each answerable with a single evidence-based claim. Write
 the decomposition tree into `### §1 Question Decomposition`.
@@ -88,6 +112,17 @@ contradictions, update the evidence map. Use available web tools (`WebSearch`,
 follow leads they produce. Apply source-marking discipline as defined in
 `.github/skills/research/SKILL.md §2 Source Marking`. Write into
 `### §2 Investigation`.
+
+**§2 Anchor Claim Verification (when arxiv MCP is available)**
+
+For any claim that a Key Finding will directly depend on (an "anchor claim"):
+1. Use `arxiv_mcp_server` to search for the primary paper that makes the claim
+2. Retrieve and verify the paper says what the claim asserts — do not rely on secondary summaries
+3. Record the arXiv ID in the source list alongside the URL
+4. If the paper cannot be found or does not support the claim as stated, downgrade the claim from `[fact]` to `[inference]` with a note: "Primary source not verified via arXiv"
+
+Apply this only to anchor claims (claims that Key Findings directly depend on) to keep session time bounded.
+If arxiv MCP is unavailable, apply multi-source frequency agreement as the fallback verification method.
 
 **Evidence discipline:**
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
@@ -137,12 +172,50 @@ into `### §3 Reasoning`.
 leaps. Resolve or explicitly flag unresolvable contradictions. Write into
 `### §4 Consistency Check`.
 
+**§4.4 — Memory Graph Write (when memory MCP is available)**
+
+After drafting key findings, write 3–5 key concepts discovered in this item into the knowledge graph:
+- Use `create_entities` for each concept (entity type: "concept")
+- Use `create_relations` for relationships between concepts (e.g., "enables", "contradicts", "requires")
+- Use `add_observations` to record the item slug as a provenance observation on each entity
+- This converts the corpus from passive file storage into a queryable cross-session knowledge base
+- If memory MCP is unavailable, skip this step
+
+**§4.5 — Adversarial Challenge (Required)**
+
+Before proceeding to §5, use `sequential_thinking` to adopt the position of a sceptic or an adjacent-domain expert:
+
+1. Generate at least two objections to the draft findings — what would a domain expert challenge or dispute?
+2. For each objection, determine whether the evidence gathered resolves it. If it does, note the resolution inline.
+3. Any unresolved objection must be recorded verbatim in `## Risks, Gaps` in the findings with the label `[unresolved objection]`.
+
+Call `sequential_thinking` with the prompt: "I have drafted these key findings: [paste findings]. What objections would a domain expert or informed sceptic raise? What evidence would they demand?"
+
+This step is not optional — items that skip it will fail `research-reviewer` checks.
+
 **§5 Depth and Breadth Expansion:** Re-evaluate findings through relevant lenses
 (technical, regulatory, economic, historical, behavioural). Add any new
 insights. Write into `### §5 Depth and Breadth Expansion`.
 
 **§6 Synthesis:** Produce the structured synthesis output and write it into
 `### §6 Synthesis` in the Research Skill Output section.
+
+**§6.5 — Extract Gaps (Required)**
+
+After completing the §6 Synthesis, extract 1–5 open questions that this
+research could not answer. Write them into the `gaps:` frontmatter field of the
+item file as a YAML list of short strings (one open question per string, max
+100 characters each).
+
+Example (quotes are optional in YAML lists — both forms are valid):
+```yaml
+gaps:
+  - "What adoption rate is required for regulatory arbitrage to collapse?"
+  - Which jurisdictions have implemented comparable frameworks?
+```
+
+These gaps feed the gap registry (`state/gap_registry.json`) and may be
+promoted to backlog items automatically.
 
 **§7 Recursive Review:** Validate that every section is justified, all threads
 synthesised, every claim sourced or labelled, all uncertainties explicit.

@@ -659,9 +659,9 @@ STORM (NAACL 2024) demonstrated a +10% improvement in coverage breadth against b
 
 ## W-0039
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-03
 
 ### Outcome
 
@@ -675,9 +675,9 @@ The research loop runs a monologue, not a dialogue. STORM's simulated expert con
 
 ## W-0040
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-03
 
 ### Outcome
 
@@ -699,9 +699,9 @@ Tests cover: template field presence, script output schema, promotion threshold 
 
 ## W-0041
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-03
 
 ### Outcome
 
@@ -717,9 +717,9 @@ The `@modelcontextprotocol/server-memory` MCP server is already configured in `.
 
 ## W-0042
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-03
 
 ### Outcome
 
@@ -995,9 +995,9 @@ W-0043 defines the canonical tag vocabulary as the goal; W-0053 provides the evi
 
 ## W-0054
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-03
 
 ### Outcome
 
@@ -1063,9 +1063,9 @@ As of 2026-04-29, the `_extract_citation_label` function in `build_site.py` achi
 
 ## W-0057
 
-status: open
+status: done
 created: 2026-04-29
-updated: 2026-04-29
+updated: 2026-05-03
 
 ### Outcome
 

@@ -18,6 +18,7 @@ class ResearchItem:
     priority: str  # low | medium | high
     tags: list[str] = field(default_factory=list)
     blocks: list[str] = field(default_factory=list)
+    depends_on: list[str] = field(default_factory=list)
     output: list[str] = field(default_factory=list)
     cites: list[str] = field(default_factory=list)
     related: list[str] = field(default_factory=list)
@@ -66,6 +67,7 @@ class ResearchItem:
             priority=meta.get("priority", "medium"),
             tags=meta.get("tags") or [],
             blocks=meta.get("blocks") or [],
+            depends_on=meta.get("depends_on") or [],
             output=meta.get("output") or [],
             cites=meta.get("cites") or [],
             related=meta.get("related") or [],

@@ -290,15 +290,27 @@ def cmd_pick(research_root: Path | None = None) -> None:
         print(_json.dumps({}))
         return
 
+    # Build set of completed slugs for dependency gating.
+    completed_slugs: set[str] = {
+        p.stem for p in (root / "completed").glob("*.md") if p.name != "README.md"
+    }
+
+    eligible = [item for item in backlog if all(dep in completed_slugs for dep in item.depends_on)]
+
+    if not eligible:
+        logger.warning("All backlog items have unsatisfied depends_on dependencies.")
+        print(_json.dumps({}))
+        return
+
     _prio = {"high": 0, "medium": 1, "low": 2}
-    backlog.sort(
+    eligible.sort(
         key=lambda i: (
             _prio.get(i.priority, 1),
             0 if i.blocks else 1,  # non-empty blocks list comes first
             i.path.name,  # oldest filename (YYYY-MM-DD prefix) first
         )
     )
-    item = backlog[0]
+    item = eligible[0]
     print(_json.dumps(_pick_context(item, item.path, root)))
 
 
