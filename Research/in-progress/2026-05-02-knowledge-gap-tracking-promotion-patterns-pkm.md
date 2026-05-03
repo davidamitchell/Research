@@ -26,12 +26,12 @@ versions: []
 
 ## Research Question
 
-What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) systems (Zettelkasten, Obsidian, Roam Research, Logseq) and academic research management tools, how do they handle unresolved questions that recur across multiple notes or papers, and which design, specifically for a YAML frontmatter field in a file-based Markdown corpus with a Python aggregation script, provides the best balance between structured data quality, minimal agent overhead, and reliable automatic promotion of persistently unresolved gaps into new research backlog items?
+What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) systems (linked-note methods such as Zettelkasten, Obsidian, Roam Research, Logseq) and academic research management tools, how do they handle unresolved questions that recur across multiple notes or papers, and which design, specifically for a YAML frontmatter field in a file-based Markdown corpus with a Python aggregation script, provides the best balance between structured data quality, minimal agent overhead, and reliable automatic promotion of persistently unresolved gaps into new research backlog items?
 
 ## Scope
 
 **In scope:**
-- PKM systems: Zettelkasten, Obsidian, Roam Research, and Logseq, specifically how each handles open questions, unanswered notes, and recurring gaps
+- PKM systems: linked-note methods such as Zettelkasten, plus Obsidian, Roam Research, and Logseq, specifically how each handles open questions, unanswered notes, and recurring gaps
 - Academic research management: how systematic review tools and evidence-synthesis frameworks record evidence gaps, uncertainty, and future research implications
 - Knowledge gap aggregation design patterns: deduplication strategies, occurrence counting, and promotion thresholds
 - YAML field design: what fields best capture a gap, and how to balance expressiveness with aggregation reliability
@@ -205,8 +205,8 @@ This item therefore asks a narrower implementation question: what is the lightes
 
 ### §4 Consistency Check
 
-- [fact] The PKM evidence and the academic-review evidence both favor explicit structure plus later aggregation rather than fully unstructured narrative capture. [source: https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://training.cochrane.org/handbook/current/chapter-14]
-- [fact] The deduplication sources do not conflict on the operational trade-off: fuzzy methods are cheaper than embedding pipelines, and embedding pipelines require additional model, clustering, and threshold choices. [source: https://github.com/maxbachmann/RapidFuzz; https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html]
+- [inference] The PKM evidence and the academic-review evidence both favor explicit structure plus later aggregation rather than fully unstructured narrative capture. [source: https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://training.cochrane.org/handbook/current/chapter-14]
+- [inference] The deduplication sources support a lighter first layer based on normalization and fuzzy comparison, while embedding pipelines add model, clustering, and threshold choices that make them operationally heavier. [source: https://github.com/maxbachmann/RapidFuzz; https://docs.nvidia.com/nemo-framework/user-guide/25.07/datacuration/semdedup.html; https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html]
 - [inference] The only material uncertainty is not whether structured gap capture is needed, but how much structure is the minimum that still reduces false merges. That is why the recommendation stops at `question` plus optional `area`, not a larger schema. [source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags]
 
 ### §5 Depth and Breadth Expansion
@@ -230,7 +230,7 @@ The result should behave more like a saved search or structure note than like a 
 
 **Key Findings**
 
-1. **Mature PKM systems surface recurring open questions through explicit metadata, links, tasks, or structure notes, and not by depending on later semantic inference over free-form narrative prose.** ([inference]; high confidence; source: https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/)
+1. **The cited PKM approaches, especially Zettelkasten guidance and Obsidian Dataview, surface recurring open questions through explicit metadata, links, tasks, or structure notes rather than by depending on later semantic inference over free-form narrative prose.** ([inference]; medium confidence; source: https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/)
 2. **Academic review frameworks separate structured evidence summaries from narrative interpretation, which means recurring uncertainty is made aggregatable by design before it becomes a research-priority conclusion.** ([inference]; high confidence; source: https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html)
 3. **A pure free-text `gaps:` list is too weak for reliable automatic promotion because it gives the aggregator no boundary signal and forces all deduplication decisions onto unstable question phrasing alone.** ([inference]; medium confidence; source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://github.com/maxbachmann/RapidFuzz)
 4. **A lightweight schema is a safer first design than a full controlled taxonomy, because the sources support small queryable structures but do not justify adding a richer classification burden to the repository's closing workflow.** ([inference]; medium confidence; source: https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/)
@@ -243,7 +243,7 @@ The result should behave more like a saved search or structure note than like a 
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] PKM systems favor explicit capture plus later query, not latent inference from prose. | https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/ | high | Zettelkasten plus Dataview convergence |
+| [inference] The cited PKM approaches favor explicit capture plus later query, not latent inference from prose. | https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/ | medium | Zettelkasten plus Dataview convergence |
 | [inference] Academic review methods make uncertainty aggregatable through structured evidence summaries and explicit implications for research. | https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html | high | Structured review outputs |
 | [inference] Free-text-only gaps are too weak for reliable automatic promotion. | https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://github.com/maxbachmann/RapidFuzz | medium | No boundary field for safe grouping |
 | [inference] A lightweight schema is a safer first design than a full controlled taxonomy for this repository. | https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/ | medium | Review burden versus capture simplicity |
@@ -307,7 +307,7 @@ The result should behave more like a saved search or structure note than like a 
 
 ### Key Findings
 
-1. **Mature PKM systems surface recurring open questions through explicit metadata, links, tasks, or structure notes, and not by depending on later semantic inference over free-form narrative prose.** ([inference]; high confidence; source: https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/)
+1. **The cited PKM approaches, especially Zettelkasten guidance and Obsidian Dataview, surface recurring open questions through explicit metadata, links, tasks, or structure notes rather than by depending on later semantic inference over free-form narrative prose.** ([inference]; medium confidence; source: https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/)
 2. **Academic review frameworks separate structured evidence summaries from narrative interpretation, which means recurring uncertainty is made aggregatable by design before it becomes a research-priority conclusion.** ([inference]; high confidence; source: https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html)
 3. **A pure free-text `gaps:` list is too weak for reliable automatic promotion because it gives the aggregator no boundary signal and forces all deduplication decisions onto unstable question phrasing alone.** ([inference]; medium confidence; source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://github.com/maxbachmann/RapidFuzz)
 4. **A lightweight schema is a safer first design than a full controlled taxonomy, because the sources support small queryable structures but do not justify adding a richer classification burden to the repository's closing workflow.** ([inference]; medium confidence; source: https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/)
@@ -320,7 +320,7 @@ The result should behave more like a saved search or structure note than like a 
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] PKM systems favor explicit capture plus later query, not latent inference from prose. | https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/ | high | PKM convergence |
+| [inference] The cited PKM approaches favor explicit capture plus later query, not latent inference from prose. | https://zettelkasten.de/posts/universal-questions-for-note-taking-system/; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/; https://blacksmithgu.github.io/obsidian-dataview/ | medium | PKM convergence |
 | [inference] Academic review methods make uncertainty aggregatable through structured evidence summaries and explicit implications for research. | https://training.cochrane.org/handbook/current/chapter-14; https://training.cochrane.org/handbook/current/chapter-15; https://gdt.gradepro.org/app/handbook/handbook.html | high | Review-method convergence |
 | [inference] Free-text-only gaps are too weak for reliable automatic promotion. | https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://github.com/maxbachmann/RapidFuzz | medium | Missing boundary signal |
 | [inference] A lightweight schema is a safer first design than a full controlled taxonomy for this repository. | https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/ | medium | Avoids unnecessary classification burden |
