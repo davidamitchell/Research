@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?"
 added: 2026-05-02T06:11:10+00:00
 status: reviewing
