@@ -6015,13 +6015,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -6047,17 +6047,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-copilot-studio",
-    "title": "nist ai / ai rmf / copilot studio",
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
-      "copilot studio"
+      "nist ai",
+      "environment separation"
     ],
     "item_count": 4,
     "items": [
@@ -6082,7 +6082,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
@@ -6300,13 +6300,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "direct publish"
     ],
     "item_count": 3,
@@ -6327,17 +6327,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-iso-iec",
-    "title": "nist ai / ai rmf / iso iec",
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
-      "iso iec"
+      "nist ai",
+      "environment separation"
     ],
     "item_count": 3,
     "items": [
@@ -6357,6 +6357,6 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-iso-iec.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
   }
 ]
