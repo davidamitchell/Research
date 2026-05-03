@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-05-03 05:37 UTC
+Generated on: 2026-05-03 07:33 UTC
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@ Generated on: 2026-05-03 05:37 UTC
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
 * [What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?](#2026-05-02-research-item-versioning-amendment-norms-md)
 * [Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem](#2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model-md)
+* [What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?](#2026-05-02-knowledge-graph-schema-cross-session-research-mcp-md)
 * [What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?](#2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm-md)
 * [What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?](#2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls-md)
 * [How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?](#2026-05-02-hitl-review-volume-bottleneck-rubber-stamp-md)
@@ -724,6 +725,84 @@ What is the complete set of architectural capabilities required to run Artificia
 - How much of Microsoft 365 agents governance will become generally available outside Frontier, and how quickly will its MCP governance become standard rather than preview-limited?
 - Will GitHub Models move from preview governance features to a durable enterprise control surface with tighter audit and runtime-policy integration?
 - How quickly will AWS add first-party benefit-tracking and budget-governance patterns that connect runtime spend to business outcomes rather than only to infrastructure telemetry?
+
+---
+
+---
+
+<a id="2026-05-02-knowledge-graph-schema-cross-session-research-mcp-md"></a>
+
+## What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?
+
+**Tags:** [knowledge-graph, memory-system, agentic-ai, llm, agent-tooling, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.md
+
+## Research Question
+
+What entity-relation schema and write-query prompt patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) research agent using the `@modelcontextprotocol/server-memory` Model Context Protocol (MCP) memory server, specifically: what entity types and relation types should represent research concepts, item provenance, and cross-item connections; what `create_entities`, `create_relations`, and `add_observations` call patterns enable reliable retrieval in later sessions; and what failure modes of Large Language Model (LLM)-managed knowledge graphs should the schema design protect against?
+
+## Findings
+
+### Executive Summary
+
+A four-entity schema built around `research_item`, `concept`, `claim`, and `method`, with tags stored as observations rather than as first-class nodes, is the best fit for the current Model Context Protocol (MCP) server-memory because this knowledge graph, meaning a structured knowledge model that stores entities and typed relations, supports only lexical search, exact-name retrieval, atomic observations, and shallow relation expansion. [inference; source: https://arxiv.org/abs/2306.08302; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts]
+
+The key design choice is to treat the graph as curated archival memory for reusable concepts and propositions, not as a full extraction of every research sentence, because the main failure modes are duplicate entities, schema drift, provenance loss, and lexical recall failure rather than lack of storage capacity. [inference; source: https://www.letta.com/blog/agent-memory; https://arxiv.org/html/2411.09601v1; https://aclanthology.org/2025.findings-acl.1080/]
+
+Reliable reuse depends on three disciplines: canonical prefixed names, a fixed small relation vocabulary, and provenance-rich atomic observations that expose tags and aliases to lexical search. [inference; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html]
+
+The write and query patterns can fit within the prompt budget if they encode only those disciplines and cap each completed item to a handful of reusable nodes rather than attempting comprehensive graph capture. [inference; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://www.letta.com/blog/agent-memory]
+
+### Key Findings
+
+1. **The current Model Context Protocol server-memory contract strongly favors a small canonical schema because it offers only lexical substring search over names, entity types, and observations, plus exact-name opening of nodes and adjacent relations.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts)
+2. **The best default entity set for this repository is `research_item`, `concept`, `claim`, and `method`, because that set preserves provenance, reusable topics, proposition-level support or contradiction, and recurring techniques without forcing the graph to model every frontmatter field as a separate node type.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://arxiv.org/abs/2308.11730; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html)
+3. **Tags should remain provenance-rich observations such as `tag:knowledge-graph` instead of becoming first-class nodes, because the server cannot query by ontology or graph pattern and low-value tag nodes would increase duplication faster than they improve retrieval.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html)
+4. **A minimum useful relation vocabulary is `addresses`, `states`, `about`, `uses_method`, `supports`, `contradicts`, and `extends`, because these edges capture provenance and epistemic reuse while avoiding the graph spam created by weak relations such as `mentions` or `related_to`.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html; https://www.soenkeahrens.de/en/takesmartnotes)
+5. **The write path should always be search-first, then create a single item node, then create only 3-5 concept nodes plus a small number of claim and method nodes, because name reuse and node caps are the simplest effective defenses against duplicate entities, orphaned nodes, and schema drift.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://aclanthology.org/2025.findings-acl.1080/; https://openreview.net/forum?id=qfCQ54ZTX1; https://arxiv.org/html/2411.09601v1)
+6. **Provenance and recall both improve when every reusable node carries atomic observation tokens such as `provenance:item=<slug>`, `section:key-finding-2`, `tag:<canonical-tag>`, and `alias:<variant>`, because those short strings become the server's practical retrieval index.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts)
+7. **MemGPT and Letta support treating this graph as curated archival memory for reusable concepts and claims rather than as exhaustive storage, because long-term agent memory is useful only when later sessions can pull the right structured context back into the active window at the right time.** ([inference]; medium confidence; source: https://arxiv.org/abs/2310.08560; https://www.letta.com/blog/agent-memory; https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html)
+8. **The major failure modes for an LLM-managed graph in this repository are duplicate entity alignment, schema drift, provenance loss, and lexical recall gaps, and each one is better mitigated by fixed vocabulary and naming rules than by adding more schema complexity.** ([inference]; medium confidence; source: https://aclanthology.org/2025.findings-acl.1080/; https://openreview.net/forum?id=qfCQ54ZTX1; https://arxiv.org/html/2411.09601v1; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] The server's lexical search and exact-name retrieval constrain the schema more than any external graph-theory preference. | https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts | medium | Primary tool contract |
+| [inference] Four entity types capture the reusable structure of this corpus without overfitting the graph to frontmatter details. | https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://arxiv.org/abs/2308.11730; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html | medium | Schema judgment |
+| [inference] Tag observations are a better first-stage choice than tag entities because search is lexical and graph queries are shallow. | https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html | medium | Retrieval-cost trade-off |
+| [inference] A seven-relation vocabulary is enough to capture provenance and epistemic reuse while avoiding weak-edge sprawl. | https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://www.soenkeahrens.de/en/takesmartnotes; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html | medium | Vocabulary judgment |
+| [inference] Search-first writes with node caps are the practical guardrail against duplicate entities and schema drift. | https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://aclanthology.org/2025.findings-acl.1080/; https://openreview.net/forum?id=qfCQ54ZTX1; https://arxiv.org/html/2411.09601v1 | medium | Failure-mode mitigation |
+| [inference] Provenance and alias observations function as the server's real retrieval index. | https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts | medium | Observation design |
+| [inference] Memory-system prior art supports a curated archival-memory role instead of exhaustive storage. | https://arxiv.org/abs/2310.08560; https://www.letta.com/blog/agent-memory; https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html | medium | Cross-source convergence |
+| [inference] Fixed vocabulary and naming discipline mitigate the major failure modes better than additional schema complexity. | https://aclanthology.org/2025.findings-acl.1080/; https://openreview.net/forum?id=qfCQ54ZTX1; https://arxiv.org/html/2411.09601v1; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts | medium | Control-surface recommendation |
+
+### Assumptions
+
+- None beyond the stated scope and the documented server contract.
+
+### Analysis
+
+The decisive constraint in this item is not abstract knowledge-graph theory but the actual retrieval behavior of the Model Context Protocol server-memory, because lexical substring search means that stable names and observation tokens carry most of the retrieval burden. [inference; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/README.md]
+
+That is why a richer ontology, first-class tag nodes, or broad weak relations were rejected as the default design: those alternatives increase maintenance cost without giving this server a better query surface, while the external knowledge-graph literature repeatedly shows that alignment and schema-management effort scale badly. [inference; source: https://arxiv.org/html/2411.09601v1; https://aclanthology.org/2025.findings-acl.1080/; https://openreview.net/forum?id=qfCQ54ZTX1]
+
+The strongest rival design would be a concept-plus-tag graph with no separate claim nodes, because it is cheaper to write. That rival was rejected because support and contradiction are proposition-level relationships, and collapsing them into concept nodes would blur the difference between a topic and a conclusion. [inference; source: https://arxiv.org/abs/2308.11730; https://davidamitchell.github.io/Research/research/2026-03-03-cross-item-synthesis-meta-insights.html]
+
+The other plausible rival would be comprehensive extraction of every key finding sentence. MemGPT, Letta, and the repository's prior memory work all point the other way: useful long-term memory is curated context that can be reactivated later, not maximal archival volume. [inference; source: https://arxiv.org/abs/2310.08560; https://www.letta.com/blog/agent-memory; https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html]
+
+### Risks, Gaps, and Uncertainties
+
+- The recommended schema is optimized for the current repository scale and the current server implementation, so it may need revision if the corpus grows enough that tags, source nodes, or temporal validity become retrieval-critical. [inference; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts; https://arxiv.org/html/2411.09601v1]
+- The evidence base supports the failure modes strongly, but the exact node cap of 3-5 concepts per item remains a practical design judgment rather than an experimentally benchmarked threshold. [inference; source: https://www.soenkeahrens.de/en/takesmartnotes; https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html]
+- The server has no native multi-hop traversal, temporal reasoning, or confidence-aware ranking, so some later retrieval failures may remain even with good schema hygiene. [fact; source: https://raw.githubusercontent.com/modelcontextprotocol/servers/4503e2d12b799448cd05f789dd40f9643a8d1a6c/src/memory/index.ts]
+
+### Open Questions
+
+- At what corpus size does `tag:<canonical-tag>` stop being a sufficient observation-level recall surface and become worth modeling as a first-class node?
+- Would a later version of the repository benefit from adding `source` nodes for external papers and URLs, or would that only recreate bibliographic metadata already stored elsewhere?
+- How much retrieval quality would improve if the server gained hybrid lexical plus vector search while keeping the same graph schema?
 
 ---
 
