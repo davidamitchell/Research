@@ -2,12 +2,12 @@
 review_count: 2
 title: "What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?"
 added: 2026-05-02T06:11:10+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [workflow, research-tooling, organisational-learning, knowledge-graph]
 started: 2026-05-03T04:45:58+00:00
-completed: ~
+completed: 2026-05-03T05:11:59+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
 cites:
   - 2026-03-03-cross-item-synthesis-meta-insights
@@ -146,7 +146,7 @@ This item therefore asks a narrower implementation question: what is the lightes
 
 #### 2.2 Academic evidence-gap and review-system patterns
 
-- [fact] Covidence presents itself as a collaborative systematic review platform optimized for faster reviews and distributed review-team workflow, but its public marketing surface emphasizes workflow management rather than a public, fine-grained gap-schema model. [source: https://www.covidence.org/]
+- [inference] Covidence presents itself as a collaborative systematic review platform optimized for faster reviews and distributed review-team workflow, and its public marketing surface emphasizes workflow management rather than exposing a fine-grained public gap schema. [source: https://www.covidence.org/]
 - [fact] Cochrane Chapter 14 states that Summary of Findings tables present the main findings of a review in a transparent, structured, and simple tabular format, including important outcomes and certainty of evidence. [source: https://training.cochrane.org/handbook/current/chapter-14]
 - [fact] Cochrane Chapter 15 states that reviews inform future research and that author conclusions are explicitly divided into implications for practice and implications for research. [source: https://training.cochrane.org/handbook/current/chapter-15]
 - [fact] The GRADE handbook describes GRADE outputs as evidence summaries plus graded recommendations built on a transparent, structured assessment of certainty. [source: https://gdt.gradepro.org/app/handbook/handbook.html]
@@ -166,7 +166,7 @@ This item therefore asks a narrower implementation question: what is the lightes
 
 #### 2.4 Field-design comparison
 
-- [fact] Dataview and Zotero both reward fields and tags that are easy to write and easy to query later, while Zettelkasten guidance warns that broad tags alone lose explanatory power as scale increases. [source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://zettelkasten.de/posts/universal-questions-for-note-taking-system/]
+- [inference] Dataview and Zotero both favor fields and tags that remain easy to write and easy to query later, while Zettelkasten guidance warns that broad tags alone lose explanatory power as scale increases. [source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/collections_and_tags; https://zettelkasten.de/posts/universal-questions-for-note-taking-system/]
 - [inference] A pure free-text list is easiest for agents but leaves the aggregator with no boundary signal, so near-duplicate questions about different domains can collapse incorrectly. [source: https://blacksmithgu.github.io/obsidian-dataview/; https://github.com/maxbachmann/RapidFuzz]
 - [inference] A lightweight schema is a safer first design than a full controlled taxonomy, because the sources support queryable structure but do not justify adding a richer classification burden to the closing workflow. [source: https://www.zotero.org/support/collections_and_tags; https://training.cochrane.org/handbook/current/chapter-15; https://blacksmithgu.github.io/obsidian-dataview/]
 - [inference] The best balance is a lightweight structured object with one required natural-language field and one optional coarse classifier drawn from existing canonical tags or a short area list. [source: https://blacksmithgu.github.io/obsidian-dataview/; https://www.zotero.org/support/searching; https://zettelkasten.de/posts/three-layers-structure-zettelkasten/]
