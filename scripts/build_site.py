@@ -2,18 +2,20 @@
 """Build a static GitHub Pages site from Research/completed/*.md files.
 
 Generates:
-  docs/index.html            — landing page with stats, threads, tags, search preview
-  docs/browse.html           — filterable research card grid
-  docs/all-items.html        — complete list of all completed items (newest first)
-  docs/backlog.html          — outstanding research questions from Research/backlog/
-  docs/research/<slug>.html  — individual item pages with related items
-  docs/tags/<tag>.html       — one page per unique tag
-  docs/threads.html          — threads listing
-  docs/threads/<slug>.html   — individual thread pages
-  docs/search.html           — standalone search page
-  docs/research-master.html  — rendered Research_Master.md with valid HTML anchors
-  docs/search-index.json     — search index for client-side JS
-  docs/threads-index.json    — thread data for JS
+  docs/index.html             — landing page with stats, threads, tags, search preview
+  docs/browse.html            — filterable research card grid
+  docs/all-items.html         — complete list of all completed items (newest first)
+  docs/backlog.html           — outstanding research questions from Research/backlog/
+  docs/research/<slug>.html   — individual research item pages with related items
+  docs/knowledge/<slug>.html  — individual synthesis item pages from Knowledge/
+  docs/knowledge/index.html   — synthesis items index
+  docs/tags/<tag>.html        — one page per unique tag
+  docs/threads.html           — threads listing
+  docs/threads/<slug>.html    — individual thread pages
+  docs/search.html            — standalone search page
+  docs/research-master.html   — rendered Research_Master.md with valid HTML anchors
+  docs/search-index.json      — search index for client-side JS
+  docs/threads-index.json     — thread data for JS
 
 Usage:
   python scripts/build_site.py
@@ -41,13 +43,16 @@ from markdown_it import MarkdownIt
 REPO_ROOT = Path(__file__).parent.parent
 COMPLETED_DIR = REPO_ROOT / "Research" / "completed"
 BACKLOG_DIR = REPO_ROOT / "Research" / "backlog"
+KNOWLEDGE_DIR = REPO_ROOT / "Knowledge"
 RESEARCH_MASTER_MD = REPO_ROOT / "Research" / "Research_Master.md"
 DOCS_DIR = REPO_ROOT / "docs"
 RESEARCH_DIR = DOCS_DIR / "research"
+KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
 
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
+GITHUB_KNOWLEDGE_BASE = "https://github.com/davidamitchell/Research/blob/main/Knowledge/"
 RESEARCH_MASTER_GITHUB_URL = (
     "https://github.com/davidamitchell/Research/blob/main/Research/Research_Master.md"
 )
@@ -55,7 +60,13 @@ RESEARCH_MASTER_GITHUB_URL = (
 # Section names to extract, in display order
 SECTIONS_ORDERED = [
     "Research Question",
+    "Synthesis Question",
     "Findings",
+    "Cross-Item Findings",
+    "Contradictions and Tensions",
+    "Perspectives Considered",
+    "Confidence Map",
+    "Open Questions",
     "Methodology",
     "Technical Architecture",
     "Implementation Logic",
@@ -813,6 +824,7 @@ def html_nav(active: str = "") -> str:
         '    <div class="nav-links">\n'
         f'      <a href="/Research/all-items.html"{_cls("all-items")}>{ICON_NOTE}All Items</a>\n'
         f'      <a href="/Research/backlog.html"{_cls("backlog")}>{ICON_NOTE}Backlog</a>\n'
+        f'      <a href="/Research/knowledge/"{_cls("knowledge")}>{ICON_NOTE}Synthesis</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
@@ -1179,8 +1191,14 @@ def strip_evidence_labels(text: str) -> str:
 
 
 def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
-    """Return a short plain-text excerpt from the Findings section."""
-    findings = item["sections"].get("Findings", "")
+    """Return a short plain-text excerpt from the Findings section.
+
+    Falls back to Cross-Item Findings for synthesis items.
+    An empty or missing Findings section triggers the fallback so that synthesis
+    items with no Findings but a populated Cross-Item Findings section still
+    produce a readable excerpt.
+    """
+    findings = item["sections"].get("Findings") or item["sections"].get("Cross-Item Findings", "")
     if not findings:
         return ""
     findings = strip_evidence_map_table(findings)
@@ -1270,6 +1288,8 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "item_type": str(meta.get("item_type") or "primary"),
                 "confidence": str(meta.get("confidence") or "medium"),
                 "versions": list(meta.get("versions") or []),
+                "_kind": "research",
+                "page_url": f"/Research/research/{slug}.html",
             }
         )
     # Sort newest-first by full datetime; within the same second the filename
@@ -1284,6 +1304,87 @@ def load_metadata() -> dict:
     if not path.exists():
         return {}
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_knowledge_items() -> list[dict]:
+    """Load all synthesis items from Knowledge/*.md.
+
+    Returns items in the same dict shape as load_items() so they can be
+    rendered alongside research items.  Each item carries:
+      _kind      = "knowledge"
+      item_type  = "synthesis" (always)
+      page_url   = "/Research/knowledge/<slug>.html"
+      question   = the Synthesis Question section (used as excerpt)
+    """
+    items: list[dict] = []
+    if not KNOWLEDGE_DIR.exists():
+        return items
+    for path in sorted(KNOWLEDGE_DIR.glob("*.md"), reverse=True):
+        name = path.name
+        if name.startswith("_") or name.lower() == "readme.md":
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+            meta, body = parse_frontmatter(text)
+        except Exception as exc:
+            print(f"WARNING: failed to parse {path}: {exc}")
+            continue
+        # Use synthesised date if present, else fall back to added
+        date_raw = meta.get("synthesised") or meta.get("added")
+        if not date_raw:
+            continue
+        try:
+            if isinstance(date_raw, datetime):
+                added_dt = date_raw if date_raw.tzinfo else date_raw.replace(tzinfo=UTC)
+            elif isinstance(date_raw, date):
+                added_dt = datetime(date_raw.year, date_raw.month, date_raw.day, tzinfo=UTC)
+            elif isinstance(date_raw, str):
+                parsed = datetime.fromisoformat(date_raw)
+                added_dt = parsed if parsed.tzinfo else parsed.replace(tzinfo=UTC)
+            else:
+                continue
+        except (ValueError, AttributeError):
+            continue
+        title = str(meta.get("title", path.stem))
+        tags = normalise_tags(meta.get("tags", []))
+        slug = slugify(path.stem)
+        sections = extract_sections(body)
+        sources_text = extract_section(body, "Source Items")
+        # Use Synthesis Question as the question/excerpt field
+        question = sections.get("Synthesis Question", "")
+        items.append(
+            {
+                "slug": slug,
+                "filename": name,
+                "title": title,
+                "display_title": make_display_title(title),
+                "added": added_dt,
+                "added_str": added_dt.date().isoformat(),
+                "tags": tags,
+                "sections": sections,
+                "_sources_text": sources_text,
+                "question": question,
+                "question_excerpt": question[:200].strip(),
+                "github_url": GITHUB_KNOWLEDGE_BASE + name,
+                "thread": "",
+                "cites": list(meta.get("cites") or meta.get("source_items") or []),
+                "related_slugs": list(meta.get("related") or []),
+                "superseded_by": None,
+                "supersedes": None,
+                "item_type": "synthesis",
+                "confidence": str(meta.get("confidence") or "medium"),
+                "versions": list(meta.get("versions") or []),
+                "_kind": "knowledge",
+                "page_url": f"/Research/knowledge/{slug}.html",
+            }
+        )
+    items.sort(key=lambda x: (x["added"], x["filename"]), reverse=True)
+    return items
+
+
+def _item_url(item: dict) -> str:
+    """Return the canonical page URL for an item (research or knowledge)."""
+    return item.get("page_url", f"/Research/research/{item['slug']}.html")
 
 
 def load_backlog_items() -> list[dict]:
@@ -1563,7 +1664,13 @@ def detect_shared_sources(items: list[dict]) -> dict[str, list[dict]]:
 # ---------------------------------------------------------------------------
 
 
-def render_card(item: dict, link_prefix: str = "/Research/research/") -> str:
+def render_card(item: dict) -> str:
+    """Render a research or synthesis item card.
+
+    The item's ``page_url`` field (set by load_items / load_knowledge_items) is
+    used for the href.  Research items link to ``/Research/research/`` and
+    knowledge items link to ``/Research/knowledge/``.
+    """
     tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item["tags"])
     excerpt = item["question_excerpt"]
     if len(item["question"]) > 200:
@@ -1574,8 +1681,9 @@ def render_card(item: dict, link_prefix: str = "/Research/research/") -> str:
     )
     superseded_by = item.get("superseded_by")
     superseded_attr = ' data-superseded="true"' if superseded_by else ""
+    href = _item_url(item)
     return (
-        f'<a class="card" href="{link_prefix}{item["slug"]}.html"'
+        f'<a class="card" href="{href}"'
         f' data-title="{escape(item["display_title"].lower())}"'
         f' data-question="{escape(item["question_excerpt"].lower())}"'
         f' data-tags="{escape(",".join(item["tags"]))}"'
@@ -1716,7 +1824,7 @@ SEARCH_JS = """
     var tags = item.tags.map(function(t) {
       return '<span class="tag">' + escapeHtml(t) + '</span>';
     }).join('');
-    return '<a class="card" href="/Research/research/' + item.slug + '.html">'
+    return '<a class="card" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
       + '<div class="card-title">' + escapeHtml(item.title) + '</div>'
       + '<div class="card-meta">' + escapeHtml(item.added) + '</div>'
       + '<div class="card-tags">' + tags + '</div>'
@@ -1784,7 +1892,7 @@ LANDING_SEARCH_JS = """
     }).slice(0, 6);
     if (!results.length) { resultsEl.style.display = 'none'; return; }
     resultsEl.innerHTML = results.map(function(item) {
-      return '<a class="search-preview-item" href="/Research/research/' + item.slug + '.html">'
+      return '<a class="search-preview-item" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
         + '<span>' + escapeHtml(item.title) + '</span>'
         + '<span class="search-preview-date">' + escapeHtml(item.added) + '</span>'
         + '</a>';
@@ -1977,6 +2085,40 @@ def build_backlog_page(items: list[dict]) -> str:
     <h1>{ICON_NOTE_H1}Backlog</h1>
     <p class="page-subtitle">{count} outstanding research question{"s" if count != 1 else ""}</p>
   </div>
+  <div class="card-grid">
+    {cards_html}
+  </div>
+</main>
+"""
+        + html_foot()
+    )
+
+
+def build_knowledge_index_page(items: list[dict]) -> str:
+    """Generate docs/knowledge/index.html — synthesis items index."""
+    cards_html = "".join(render_card(item) for item in items)
+    count = len(items)
+    empty_html = (
+        '<p style="color:var(--text-muted);font-size:var(--text-sm)">'
+        "No synthesis items yet. Run the Synthesis Loop workflow to create one."
+        "</p>"
+        if count == 0
+        else ""
+    )
+    return (
+        html_head("Synthesis — Research")
+        + html_nav("knowledge")
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>{ICON_NOTE_H1}Synthesis</h1>
+    <p class="page-subtitle">{count} cross-item synthesis item{"s" if count != 1 else ""}</p>
+    <p class="page-subtitle" style="font-size:var(--text-sm);color:var(--text-muted)">
+      Synthesis items integrate findings across multiple completed research items.
+      Use the Synthesis Loop workflow to produce new ones.
+    </p>
+  </div>
+  {empty_html}
   <div class="card-grid">
     {cards_html}
   </div>
@@ -2276,7 +2418,7 @@ def _render_related(related: list[dict]) -> str:
         shared = ", ".join(entry["shared_tags"])
         entries_html += (
             f'<div class="related-entry">'
-            f'<a href="/Research/research/{other["slug"]}.html">{escape(other["title"])}</a>'
+            f'<a href="{_item_url(other)}">{escape(other["title"])}</a>'
             f' <span class="related-note">via {escape(shared)}</span>'
             f"</div>\n"
         )
@@ -2304,7 +2446,7 @@ def _render_cites_related(
                 entries_html += (
                     f'<div class="cites-entry">'
                     f'<span class="rel-pill">cites</span> '
-                    f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                    f'<a href="{_item_url(other)}">'
                     f"{escape(other['title'])}</a>"
                     f"</div>\n"
                 )
@@ -2331,7 +2473,7 @@ def _render_cites_related(
                 entries_html += (
                     f'<div class="cites-entry">'
                     f'<span class="rel-pill">related</span> '
-                    f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                    f'<a href="{_item_url(other)}">'
                     f"{escape(other['title'])}</a>"
                     f"</div>\n"
                 )
@@ -2356,7 +2498,7 @@ def _render_cites_related(
             entry = (
                 f'<div class="cites-entry">'
                 f'<span class="rel-pill">supersedes</span> '
-                f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                f'<a href="{_item_url(other)}">'
                 f"{escape(other['title'])}</a>"
                 f"</div>\n"
             )
@@ -2483,7 +2625,7 @@ def build_item_page(
         if other:
             superseded_html = (
                 f'<div class="superseded-banner">⚠ This item has been superseded by '
-                f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                f'<a href="{_item_url(other)}">'
                 f"{escape(other['title'])}</a>. Findings may be out of date.</div>\n"
             )
         else:
@@ -2504,7 +2646,7 @@ def build_item_page(
         prev_html = (
             f'<div class="item-nav-prev">'
             f'<span class="item-nav-label">← newer</span>'
-            f'<a href="/Research/research/{prev_item["slug"]}.html">'
+            f'<a href="{_item_url(prev_item)}">'
             f"{escape(prev_item['display_title'])}</a>"
             f"</div>"
         )
@@ -2512,7 +2654,7 @@ def build_item_page(
         next_html = (
             f'<div class="item-nav-next">'
             f'<span class="item-nav-label">older →</span>'
-            f'<a href="/Research/research/{next_item["slug"]}.html">'
+            f'<a href="{_item_url(next_item)}">'
             f"{escape(next_item['display_title'])}</a>"
             f"</div>"
         )
@@ -2770,7 +2912,7 @@ def build_search_index(
                 "findings_excerpt": get_findings_excerpt(item, 400),
                 "full_text": full_text,
                 "thread_slugs": slug_to_threads.get(slug, []),
-                "url": f"/Research/research/{slug}.html",
+                "url": item.get("page_url", f"/Research/research/{slug}.html"),
             }
         )
     return json.dumps(index, ensure_ascii=False, indent=2)
@@ -2808,7 +2950,11 @@ def main() -> None:
     print(f"  {len(items)} items loaded")
     print(f"  {excl_stats['meta_infra']} items excluded (meta/infra)")
 
-    # Singleton tag filtering
+    print("Loading synthesis (Knowledge/) items…")
+    knowledge_items = load_knowledge_items()
+    print(f"  {len(knowledge_items)} synthesis items loaded")
+
+    # Singleton tag filtering — applied to research items only
     tags_to_drop, n_dropped, n_retained = filter_singleton_tags(items)
     for item in items:
         item["tags"] = [t for t in item["tags"] if t not in tags_to_drop]
@@ -2840,28 +2986,36 @@ def main() -> None:
         for item in thread["items"]:
             slug_to_threads.setdefault(item["slug"], []).append(thread["slug"])
 
+    # slug_to_item covers both research and knowledge items so cites/related
+    # links resolve correctly across the two collections.
+    slug_to_item: dict[str, dict] = {item["slug"]: item for item in items}
+    slug_to_item.update({item["slug"]: item for item in knowledge_items})
+
+    # Merged list used for tag pages and all-items (research + knowledge)
+    all_items = items + knowledge_items
+
     # Ensure owned output directories are clean (removes stale pages)
     DOCS_DIR.mkdir(exist_ok=True)
-    for owned_dir in (RESEARCH_DIR, TAGS_DIR, THREADS_DIR):
+    for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THREADS_DIR):
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
 
     pages_written = 0
 
-    # 1. index.html (landing)
+    # 1. index.html (landing) — research items only (synthesis shown separately)
     print("Building index.html…")
     (DOCS_DIR / "index.html").write_text(build_landing(items, threads), encoding="utf-8")
     pages_written += 1
 
-    # 2. browse.html (filterable grid)
+    # 2. browse.html (filterable grid) — research items only
     print("Building browse.html…")
     (DOCS_DIR / "browse.html").write_text(build_browse(items), encoding="utf-8")
     pages_written += 1
 
-    # 3. all-items.html (complete list, newest first)
+    # 3. all-items.html (complete list, newest first) — research + knowledge
     print("Building all-items.html…")
-    (DOCS_DIR / "all-items.html").write_text(build_all_items_page(items), encoding="utf-8")
+    (DOCS_DIR / "all-items.html").write_text(build_all_items_page(all_items), encoding="utf-8")
     pages_written += 1
 
     # 4. backlog.html
@@ -2875,9 +3029,8 @@ def main() -> None:
     (DOCS_DIR / "research-master.html").write_text(build_research_master_page(), encoding="utf-8")
     pages_written += 1
 
-    # 6. Individual item pages
-    print(f"Building {len(items)} item pages…")
-    slug_to_item: dict[str, dict] = {item["slug"]: item for item in items}
+    # 6. Individual research item pages
+    print(f"Building {len(items)} research item pages…")
     for i, item in enumerate(items):
         prev_item = items[i - 1] if i > 0 else None
         next_item = items[i + 1] if i < len(items) - 1 else None
@@ -2887,9 +3040,22 @@ def main() -> None:
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 7. Tag pages
+    # 7. Knowledge (synthesis) item pages + index
+    print(f"Building knowledge index + {len(knowledge_items)} synthesis item pages…")
+    (KNOWLEDGE_DOCS_DIR / "index.html").write_text(
+        build_knowledge_index_page(knowledge_items), encoding="utf-8"
+    )
+    pages_written += 1
+    for i, item in enumerate(knowledge_items):
+        prev_item = knowledge_items[i - 1] if i > 0 else None
+        next_item = knowledge_items[i + 1] if i < len(knowledge_items) - 1 else None
+        html = build_item_page(item, prev_item, next_item, None, None, slug_to_item)
+        (KNOWLEDGE_DOCS_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
+        pages_written += 1
+
+    # 8. Tag pages — include both research and knowledge items
     tags_map: dict[str, list[dict]] = {}
-    for item in items:
+    for item in all_items:
         for tag in item["tags"]:
             tags_map.setdefault(tag, []).append(item)
     print(f"Building tags index + {len(tags_map)} tag pages…")
@@ -2900,7 +3066,7 @@ def main() -> None:
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 8. Thread pages
+    # 9. Thread pages
     print(f"Building threads.html + {len(threads)} thread pages…")
     (DOCS_DIR / "threads.html").write_text(build_threads_listing(threads), encoding="utf-8")
     pages_written += 1
@@ -2909,33 +3075,34 @@ def main() -> None:
         (THREADS_DIR / f"{thread['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 9. search.html
+    # 10. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
     pages_written += 1
 
-    # 10. search-index.json
+    # 11. search-index.json — includes both research and knowledge items
     print("Building search-index.json…")
     (DOCS_DIR / "search-index.json").write_text(
-        build_search_index(items, metadata, slug_to_threads), encoding="utf-8"
+        build_search_index(all_items, metadata, slug_to_threads), encoding="utf-8"
     )
 
-    # 11. threads-index.json
+    # 12. threads-index.json
     print("Building threads-index.json…")
     (DOCS_DIR / "threads-index.json").write_text(
         build_threads_index_json(threads), encoding="utf-8"
     )
 
-    # 12. .nojekyll
+    # 13. .nojekyll
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
-    unique_tags = len({t for item in items for t in item["tags"]})
+    unique_tags = len({t for item in all_items for t in item["tags"]})
     n_with_claims = sum(
         1 for item in items if metadata.get("items", {}).get(item["slug"], {}).get("key_claims")
     )
 
     print("\nBuild complete.")
-    print(f"  {len(items)} items processed")
+    print(f"  {len(items)} research items processed")
+    print(f"  {len(knowledge_items)} synthesis items processed")
     print(f"  {excl_stats['meta_infra']} items excluded (meta/infra)")
     print(f"  {pages_written} pages written")
     print(f"  {unique_tags} unique tags (after singleton filtering)")

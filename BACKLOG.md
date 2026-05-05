@@ -926,9 +926,9 @@ updated: 2026-04-27
 Epic 2 — Static site. Makes the outstanding research question backlog visible on the published site without requiring access to the GitHub repository. Companion page to `all-items.html`.
 ## W-0051
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-05
 
 ### Outcome
 
@@ -966,7 +966,7 @@ An authoring workflow is implemented for producing finished papers and framework
 - `.github/workflows/authoring-loop.yml` — manual-trigger-only workflow accepting `output_type` (paper | framework), `title`, and `source_items` inputs
 - Site updated to render `Outputs/` items alongside research and knowledge items
 
-Blocked on W-0051 (synthesis workflow must exist before authoring draws on synthesis items). ADR required.
+Blocked on W-0051 (synthesis workflow must exist before authoring draws on synthesis items — W-0051 is now done). ADR required.
 
 ### Context
 

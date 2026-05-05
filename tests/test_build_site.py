@@ -12,10 +12,14 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from build_site import (
     _cluster_overlap,
+    _item_url,
     build_all_items_page,
+    build_knowledge_index_page,
     build_research_master_page,
     detect_concept_threads,
     detect_threads,
+    load_knowledge_items,
+    render_card,
     strip_evidence_labels,
 )
 
@@ -657,3 +661,210 @@ def test_render_source_links_deduplicates() -> None:
     url = "https://example.com/"
     html = _render_source_links([url, url], {url: "Example (2024)"})
     assert html.count("Example (2024)") == 1
+
+
+# ---------------------------------------------------------------------------
+# _item_url
+# ---------------------------------------------------------------------------
+
+
+def test_item_url_research_item() -> None:
+    """Research items use /Research/research/ URL prefix."""
+    item = {
+        "slug": "my-item",
+        "_kind": "research",
+        "page_url": "/Research/research/my-item.html",
+    }
+    assert _item_url(item) == "/Research/research/my-item.html"
+
+
+def test_item_url_knowledge_item() -> None:
+    """Knowledge items use /Research/knowledge/ URL prefix."""
+    item = {
+        "slug": "my-synthesis",
+        "_kind": "knowledge",
+        "page_url": "/Research/knowledge/my-synthesis.html",
+    }
+    assert _item_url(item) == "/Research/knowledge/my-synthesis.html"
+
+
+def test_item_url_fallback_without_page_url() -> None:
+    """Items without page_url fall back to the research prefix."""
+    item = {"slug": "legacy-item"}
+    assert _item_url(item) == "/Research/research/legacy-item.html"
+
+
+# ---------------------------------------------------------------------------
+# render_card uses page_url
+# ---------------------------------------------------------------------------
+
+
+def _make_full_item(slug: str, kind: str = "research") -> dict:
+    """Make an item dict with all fields required by render_card."""
+    prefix = "knowledge" if kind == "knowledge" else "research"
+    return {
+        "slug": slug,
+        "tags": ["ai"],
+        "question": "A question",
+        "question_excerpt": "A question",
+        "display_title": slug,
+        "added_str": "2026-01-01",
+        "item_type": "synthesis" if kind == "knowledge" else "primary",
+        "superseded_by": None,
+        "_kind": kind,
+        "page_url": f"/Research/{prefix}/{slug}.html",
+    }
+
+
+def test_render_card_research_uses_research_url() -> None:
+    """render_card produces a link to /Research/research/ for research items."""
+    item = _make_full_item("some-research", "research")
+    html = render_card(item)
+    assert 'href="/Research/research/some-research.html"' in html
+
+
+def test_render_card_knowledge_uses_knowledge_url() -> None:
+    """render_card produces a link to /Research/knowledge/ for knowledge items."""
+    item = _make_full_item("some-synthesis", "knowledge")
+    html = render_card(item)
+    assert 'href="/Research/knowledge/some-synthesis.html"' in html
+
+
+def test_render_card_knowledge_has_synthesis_badge() -> None:
+    """Knowledge items show the synthesis badge in the card."""
+    item = _make_full_item("some-synthesis", "knowledge")
+    html = render_card(item)
+    assert "synthesis" in html
+
+
+# ---------------------------------------------------------------------------
+# load_knowledge_items
+# ---------------------------------------------------------------------------
+
+
+_SYNTHESIS_MD = """\
+---
+title: "Test Synthesis Title"
+synthesised: 2026-04-01
+status: draft
+theme: test-theme
+source_items:
+  - 2026-01-01-source-item
+tags:
+  - ai
+  - governance
+cites:
+  - 2026-01-01-source-item
+confidence: medium
+versions: []
+---
+
+# Test Synthesis Title
+
+## Synthesis Question
+
+What does test synthesis find?
+
+## Cross-Item Findings
+
+1. Finding one. [inference; source: 2026-01-01-source-item]
+"""
+
+
+def test_load_knowledge_items_parses_valid_file(tmp_path: Path) -> None:
+    """load_knowledge_items returns one item for a valid synthesis file."""
+    import build_site  # noqa: PLC0415
+
+    knowledge_dir = tmp_path / "Knowledge"
+    knowledge_dir.mkdir()
+    (knowledge_dir / "2026-04-01-test-theme.md").write_text(_SYNTHESIS_MD, encoding="utf-8")
+
+    original = build_site.KNOWLEDGE_DIR
+    build_site.KNOWLEDGE_DIR = knowledge_dir
+    try:
+        items = load_knowledge_items()
+    finally:
+        build_site.KNOWLEDGE_DIR = original
+
+    assert len(items) == 1
+    item = items[0]
+    assert item["title"] == "Test Synthesis Title"
+    assert item["_kind"] == "knowledge"
+    assert item["item_type"] == "synthesis"
+    assert item["page_url"] == "/Research/knowledge/2026-04-01-test-theme.html"
+    assert item["tags"] == ["ai", "governance"]
+    assert "2026-01-01-source-item" in item["cites"]
+
+
+def test_load_knowledge_items_skips_template(tmp_path: Path) -> None:
+    """load_knowledge_items skips _template.md."""
+    import build_site  # noqa: PLC0415
+
+    knowledge_dir = tmp_path / "Knowledge"
+    knowledge_dir.mkdir()
+    (knowledge_dir / "_template.md").write_text(_SYNTHESIS_MD, encoding="utf-8")
+
+    original = build_site.KNOWLEDGE_DIR
+    build_site.KNOWLEDGE_DIR = knowledge_dir
+    try:
+        items = load_knowledge_items()
+    finally:
+        build_site.KNOWLEDGE_DIR = original
+
+    assert items == []
+
+
+def test_load_knowledge_items_empty_dir(tmp_path: Path) -> None:
+    """load_knowledge_items returns empty list when Knowledge/ is empty."""
+    import build_site  # noqa: PLC0415
+
+    knowledge_dir = tmp_path / "Knowledge"
+    knowledge_dir.mkdir()
+
+    original = build_site.KNOWLEDGE_DIR
+    build_site.KNOWLEDGE_DIR = knowledge_dir
+    try:
+        items = load_knowledge_items()
+    finally:
+        build_site.KNOWLEDGE_DIR = original
+
+    assert items == []
+
+
+def test_load_knowledge_items_missing_dir() -> None:
+    """load_knowledge_items returns empty list when Knowledge/ does not exist."""
+    import build_site  # noqa: PLC0415
+
+    original = build_site.KNOWLEDGE_DIR
+    build_site.KNOWLEDGE_DIR = Path("/nonexistent/Knowledge")
+    try:
+        items = load_knowledge_items()
+    finally:
+        build_site.KNOWLEDGE_DIR = original
+
+    assert items == []
+
+
+# ---------------------------------------------------------------------------
+# build_knowledge_index_page
+# ---------------------------------------------------------------------------
+
+
+def test_build_knowledge_index_page_empty() -> None:
+    """Index page with no items shows the empty-state message."""
+    html = build_knowledge_index_page([])
+    assert "Synthesis Loop" in html
+    assert "No synthesis items yet" in html
+
+
+def test_build_knowledge_index_page_with_items() -> None:
+    """Index page renders cards for provided synthesis items."""
+    item = _make_full_item("my-synthesis", "knowledge")
+    item["added"] = datetime(2026, 4, 1, tzinfo=UTC)
+    item["added_str"] = "2026-04-01"
+    item["question"] = "What does this synthesise?"
+    item["question_excerpt"] = "What does this synthesise?"
+    html = build_knowledge_index_page([item])
+    assert "my-synthesis" in html
+    assert "/Research/knowledge/my-synthesis.html" in html
+    assert "No synthesis items yet" not in html

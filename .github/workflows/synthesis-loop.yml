@@ -1,0 +1,146 @@
+name: Synthesis Loop
+
+# Manual synthesis workflow — produces a cross-item synthesis item in Knowledge/.
+#
+# This workflow accepts a synthesis question and an optional comma-separated list
+# of source item slugs, then runs the Copilot CLI against synthesis-prompt.md to
+# produce a completed synthesis file in Knowledge/.
+#
+# Commits go directly to main -- no pull requests.
+#
+# Required repository secrets:
+#   COPILOT_GITHUB_TOKEN -- PAT with Copilot access; mapped to GITHUB_TOKEN so
+#     the Copilot CLI can authenticate.
+#   TAVILY_API_KEY -- Tavily web search API key; used by the tavily-mcp MCP server.
+#
+# There is no schedule trigger -- synthesis is always on-demand.
+# To run: Actions tab -> "Synthesis Loop" -> Run workflow -> fill in inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      synthesis_question:
+        description: >
+          The integrative question to answer (e.g. "Across items A, B, and C,
+          what convergent pattern emerges about AI governance?"). Required.
+        required: true
+        type: string
+      source_items:
+        description: >
+          Comma-separated slugs of Research/completed/ items to synthesise
+          (e.g. "2026-04-26-ai-governance-culture-incentives-behaviour,
+          2026-04-26-ai-governance-cost-performance-delivery-impact").
+          Optional — if omitted the agent discovers relevant items from the
+          synthesis_question using the completed corpus.
+        required: false
+        default: ""
+        type: string
+
+# Never run two synthesis sessions in parallel.
+concurrency:
+  group: synthesis-loop
+  cancel-in-progress: false
+
+jobs:
+  synthesise:
+    name: Run synthesis session
+    runs-on: ubuntu-latest
+
+    # Hard ceiling: synthesis sessions can be lengthy with large clusters.
+    timeout-minutes: 90
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install project dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install GitHub Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build synthesis context block
+        id: context
+        run: |
+          QUESTION="${{ inputs.synthesis_question }}"
+          SOURCE_ITEMS="${{ inputs.source_items }}"
+
+          # Build a context block analogous to the research loop's ITEM_CONTEXT.
+          # This is injected into synthesis-prompt.md before the Copilot session.
+          if [ -n "$SOURCE_ITEMS" ]; then
+            CONTEXT_BLOCK="Synthesis question: ${QUESTION}
+
+          Source items (comma-separated slugs): ${SOURCE_ITEMS}
+
+          Action: Begin at Step 1. Read each source item listed above before
+          proceeding."
+          else
+            CONTEXT_BLOCK="Synthesis question: ${QUESTION}
+
+          Source items: none pre-selected — discover the most relevant completed
+          items in Research/completed/ that address the synthesis question.
+          Aim for 3–7 source items.
+
+          Action: Begin at Step 1. Search Research/completed/ for items relevant
+          to the synthesis question before proceeding."
+          fi
+
+          # Write to a temp file; the next step reads it.
+          echo "$CONTEXT_BLOCK" > /tmp/synthesis_context.txt
+          echo "context_written=true" >> "$GITHUB_OUTPUT"
+
+      - name: Inject context into synthesis prompt
+        run: |
+          python3 - <<'EOF'
+          import sys
+          prompt = open("synthesis-prompt.md").read()
+          context = open("/tmp/synthesis_context.txt").read()
+          injected = prompt.replace("{{SYNTHESIS_CONTEXT}}", context)
+          open("/tmp/synthesis_prompt_injected.md", "w").write(injected)
+          print("Synthesis prompt injected.")
+          EOF
+
+      - name: Run Copilot synthesis session
+        env:
+          GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: |
+          set -euo pipefail
+
+          echo "========================================"
+          echo "  Synthesis session"
+          echo "  Question: ${{ inputs.synthesis_question }}"
+          echo "  Source items: ${{ inputs.source_items }}"
+          echo "========================================"
+
+          copilot -p "$(cat /tmp/synthesis_prompt_injected.md)" \
+              --autopilot \
+              --allow-all
+
+      - name: Push synthesis output
+        run: |
+          # Push any commits the agent made (synthesis file + progress log).
+          git push origin main || true
