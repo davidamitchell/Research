@@ -43,7 +43,8 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
 - **`.github/skills/` is a read-only submodule.** Never edit files inside `.github/skills/`. It is overwritten on every sync. All skill changes go to `davidamitchell/Skills` (open a PR there). Then advance the submodule pointer in this repo after the Skills PR merges.
 - **New backlog items must be created in `Research/backlog/`**, never in `Research/in-progress/` or the repo root. Use the filename format `YYYY-MM-DD-<slug>.md`.
-- **`Research/backlog/`, `Research/in-progress/`, and `Research/completed/` each contain a `.gitkeep` file. Never delete it.** Git drops empty directories; the `.gitkeep` keeps each directory tracked so workflow `find` commands do not fail.
+- **`Research/backlog/`, `Research/in-progress/`, `Research/completed/`, and `Knowledge/` each contain a `.gitkeep` file. Never delete it.** Git drops empty directories; the `.gitkeep` keeps each directory tracked so workflow `find` commands do not fail.
+- **Synthesis items belong in `Knowledge/`, not in `Research/`.** The autonomous research loop only processes items in `Research/backlog/`. Placing a synthesis item in `Research/backlog/` would cause the research loop to pick it up incorrectly. Synthesis items are always produced by the `synthesis-loop.yml` workflow and stored in `Knowledge/`.
 
 ---
 
@@ -122,6 +123,9 @@ Research/
 ├── completed/          # Finished research with findings (always contains .gitkeep)
 └── transcripts/        # Plain-text transcripts committed by fetch-transcript workflow
 
+Knowledge/              # Cross-item synthesis items (always contains .gitkeep)
+└── _template.md        # Template for a new synthesis item
+
 src/
 ├── main.py             # CLI entry point
 ├── fetchers/
@@ -142,7 +146,7 @@ config/
 
 docs/                   # ⚠️  AUTO-GENERATED — do not edit directly
                         # Built by build_site.yml on every push to main that
-                        # touches Research/completed/ or scripts/.
+                        # touches Research/completed/, Knowledge/, or scripts/.
                         # Edit scripts/build_site.py to change site output.
 
 docs-adr/               # Architecture Decision Records
@@ -156,6 +160,7 @@ docs-adr/               # Architecture Decision Records
 └── workflows/
     ├── ci.yml
     ├── build_site.yml       # Builds docs/ and commits output back to main
+    ├── synthesis-loop.yml   # Manual synthesis workflow (workflow_dispatch)
     └── sync-skills.yml
 
 state/

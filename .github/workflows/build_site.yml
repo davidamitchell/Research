@@ -6,7 +6,8 @@ name: Build and Deploy Research Site
 # branch → main / docs/).
 #
 # Triggers:
-#   - Push to main that touches any file in Research/completed/ or scripts/
+#   - Push to main that touches any file in Research/completed/, Knowledge/,
+#     Research/backlog/, or scripts/
 #   - Manual dispatch from the Actions tab
 #
 # ── IMPORTANT FOR AGENTS ────────────────────────────────────────────────────
@@ -25,6 +26,7 @@ on:
     paths:
       - "Research/completed/**"
       - "Research/backlog/**"
+      - "Knowledge/**"
       - "scripts/*.py"
 
 jobs:
