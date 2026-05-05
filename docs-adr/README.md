@@ -24,7 +24,6 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0011](0011-git-index-staging-in-cli-file-moves.md) | Git-index staging in CLI file-move commands | Accepted | 2026-03-29 |
 | [0012](0012-research-loop-safety-control-value-uplift.md) | Research loop safety control value uplift | Accepted | 2026-04-27 |
 | [0013](0013-research-item-frontmatter-schema-extension.md) | Research item frontmatter schema extension (W-0044 to W-0049) | Accepted | 2026-04-28 |
-| [0014](0014-research-item-depends-on-picker-gating.md) | Research item `depends_on` field and picker gating | Accepted | 2026-05-03 |
 
 ---
 

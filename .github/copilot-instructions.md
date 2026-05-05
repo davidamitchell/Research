@@ -12,7 +12,7 @@ For AI coding agents working on this repository.
 > 7. **MUST run `make check` (ruff lint + format over the full repo) and `python -m pytest tests/ -q` and confirm both pass before claiming any coding task is finished.** `make check` runs `ruff check .` and `ruff format --check .` — the same scope as CI. Do not push or declare done without a clean CI run. If tests fail with `ModuleNotFoundError`, run `pip install -e ".[dev]"` first.
 > 8. **Never commit `docs/` changes on a feature branch.** Run `python scripts/build_site.py` locally to verify the build, but do not stage or commit `docs/`. The workflow regenerates the full site on merge to `main`. Committing `docs/` in a PR creates 300+ file diffs that cannot be reviewed.
 > 9. **Every source in a research item's `## Sources` section must include a URL** — `[Display Name](https://url)` or bare `https://url`. Sources without URLs cannot be verified or linked on the published site. A completed item with URL-free sources is not done.
-> 10. **For any non-trivial development work, follow the mandatory development loop: `swe` (design) → `tdd` (implement) → `code-review` (verify).** All three skills must be applied in sequence. To work `BACKLOG.md` items: use `backlog-manager` to refine to `ready`, then `backlog-worker` to execute to `done`. Trivial = a single-line config change or typo fix with no logic. When in doubt, use the loop.
+> 10. **For any non-trivial development work, follow the mandatory development loop: `swe` (design) → `tdd` (implement) → `code-review` (verify).** All three skills must be applied in sequence. Trivial = a single-line config change or typo fix with no logic. When in doubt, use the loop.
 > 11. **When assigned to a new research request issue: apply the `research-question` skill, add a backlog item, open a PR — stop. Do NOT conduct the research. That is the research-loop workflow's job.**
 
 ---
@@ -206,8 +206,7 @@ Populate from the `research-question` skill output:
 | `added` | Today's date |
 | `status` | `backlog` |
 | `priority` | Infer from issue content (`high` / `medium` / `low`) |
-| `blocks` | List slugs of backlog items that cannot start until this item is complete — e.g. `[2026-01-01-other-item]`; otherwise `[]`. This is a priority hint: items with non-empty `blocks` are sorted higher by `cmd_pick`. |
-| `depends_on` | List slugs (filename stems without `.md`) of **completed** items that must exist in `Research/completed/` before this item can be picked by `cmd_pick`. If any listed slug is absent from `completed/`, the item is invisible to the picker. Use this for synthesis items that require primary sources to be finished first. Leave as `[]` if the item has no prerequisites. |
+| `blocks` | List slugs of backlog items this must precede; otherwise `[]` |
 | `tags` | Extract from topic area |
 | `output` | Leave as `[]` — populated when the item completes |
 | `## Research Question` | Validated question verbatim |
@@ -392,21 +391,6 @@ If your change touches any "when to write" trigger above, the slice is not done 
 
 ---
 
-## Skill Chains
-
-Every significant task maps to a skill chain. Apply in sequence rather than working from general reasoning alone.
-
-| Task type | Skill chain |
-|---|---|
-| Research a topic before acting | `research` → findings → decide |
-| Turn research into a plan | `research` → `strategy-author` → `backlog-manager` |
-| Work the backlog | `backlog-manager` (refine to `ready`) → `backlog-worker` (execute to `done`) |
-| Implement a feature or fix a bug | `swe` (design) → `tdd` (test-first) → `code-review` (verify) |
-| Write or improve documentation | `technical-writer` → `feedback` → `remove-ai-slop` |
-| Review a research item | `research-reviewer` (citation + speculation + peer review) |
-
----
-
 ## Agent Skills
 
 `.github/skills/` is a git submodule tracking [`davidamitchell/Skills`](https://github.com/davidamitchell/Skills).
@@ -419,24 +403,16 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 |---|---|---|
 | `adr` | Creating or updating Architecture Decision Records | read `SKILL.md` and apply manually |
 | `backlog-manager` | Adding, prioritising, or reviewing backlog items | read `SKILL.md` and apply manually |
-| `backlog-worker` | Executing ready backlog items autonomously — selects item, decomposes, applies sub-skills, reviews, marks done. Use when asked to "work the backlog". | **mandatory** when executing W-XXXX items; read `SKILL.md` and apply |
 | `citation-discipline` | Ensuring claims are sourced and referenced | read `SKILL.md` and apply manually |
 | `code-review` | Reviewing code after implementation — correctness, security, performance, maintainability, style | **mandatory** after every non-trivial implementation; read `SKILL.md` and apply |
-| `feedback` | Structured critique of written work, arguments, decisions, or plans | read `SKILL.md` and apply manually |
-| `inline-citation` | APA-inspired linked citation format for web content — `[Author (YYYY) Title](url)` | read `SKILL.md` and apply in research items |
-| `peer-reviewer` | Audit-only peer review for completed research items — logical coherence, competing hypotheses, cross-item integration | apply via `research-reviewer` chain |
-| `plain-language` | Rewriting complex or technical text for non-expert audiences | read `SKILL.md` and apply manually |
 | `remove-ai-slop` | Reviewing output for hollow filler language | read `SKILL.md` and apply manually |
 | `research` | Conducting structured research on a topic | read `SKILL.md` and apply manually |
 | `research-question` | Formulating and scoping a new research question before adding it to the backlog | read `SKILL.md` and apply manually |
-| `research-reviewer` | Audit-only review: citation discipline, speculation control, writing quality, and peer review | read `SKILL.md` and apply during research review |
-| `skill-author` | Authoring new SKILL.md files — pre-draft related-skill scan, required structure, quality checklist | read `SKILL.md` and apply when creating new skills |
 | `speculation-control` | Flagging uncertain claims vs established facts | read `SKILL.md` and apply manually |
 | `strategic-persuasion` | Building audience-targeted persuasive content | read `SKILL.md` and apply manually |
 | `strategy-author` | Producing or reviewing strategy documents | read `SKILL.md` and apply manually |
 | `swe` | Designing or implementing software — applies SOLID principles, design patterns, REST constraints | **mandatory** before writing any non-trivial implementation; read `SKILL.md` and apply |
 | `tdd` | Implementing any feature, bug fix, or behaviour change using Red-Green-Refactor | **mandatory** for all non-trivial code changes; read `SKILL.md` and apply |
-| `technical-writer` | Writing READMEs, API references, guides, runbooks, and architecture documents | read `SKILL.md` and apply when updating documentation |
 
 ### Invoking skills
 

@@ -18,22 +18,6 @@ re-run earlier steps unless the Action explicitly says to.
 
 ---
 
-## At Session Start — Check Gap Registry
-
-Read `state/gap_registry.json` (if it exists). For any gap with
-`"promote": true`:
-
-1. Search `Research/backlog/` filenames and `BACKLOG.md` for an existing item
-   addressing that gap (look for key words from the gap string).
-2. If none exists, create a new backlog research item in `Research/backlog/`
-   using the gap string as the research question basis. Use the filename format
-   `YYYY-MM-DD-<slug>.md` and follow the standard template.
-3. Log each new backlog item created in the session progress log
-   (`progress/YYYY-MM-DD-{slug}.md`) under a `## Gap-Promoted Backlog Items`
-   heading.
-
----
-
 ## Steps
 
 ### 1. Read the item
@@ -92,37 +76,6 @@ go. **This output is retained verbatim in the completed item.**
 **§0 Initialise:** Restate the research question. Confirm scope, constraints,
 and output format. Write into `### §0 Initialise`.
 
-**§0.5a — Memory Graph Query (when memory MCP is available)**
-
-Before beginning investigation, query the `@modelcontextprotocol/server-memory` knowledge graph for entities related to the research question:
-- Use `search_nodes` with the key concepts from the research question
-- Read any entities and relations returned — these represent knowledge from prior sessions
-- Note which concepts are already established vs which require fresh investigation
-- If memory MCP is unavailable, skip this step and proceed to §0.5b
-
-**§0.5b — Perspective Discovery (Required)**
-
-Before §1 Question Decomposition, generate exactly four non-overlapping research perspectives for the question. Based on STORM's perspective-seeding approach (Shao et al., NAACL 2024), this step seeds broader sub-questions by forcing coverage of distinct lenses before decomposition begins.
-
-Use these four slots:
-1. **Basic facts lens** — what a broad factual writer must cover first.
-2. **Mechanism or implementation lens** — how the thing works, is built, or fails operationally.
-3. **Stakeholder or decision-impact lens** — who is affected, who decides, and what trade-offs matter.
-4. **Failure-mode or critic lens** — what could be missing, misleading, risky, or overstated.
-
-For each perspective, output:
-- Perspective: `<short role label>`
-- Distinct coverage added: `<one sentence on what this lens sees that the others may miss>`
-- Seed question: `<one concrete research question this lens would ask first>`
-- Evidence to seek: `<the kind of source most likely to answer that question>`
-
-Constraints:
-- Prefer non-overlap over stylistic variety — if two perspectives collapse into the same question class, rewrite one.
-- Keep every seed question specific enough that §1 can decompose it into atomic sub-questions.
-- Do not answer the questions yet.
-
-Write the four perspectives into `### §0.5 Perspective Discovery` in the Research Skill Output.
-
 **§1 Question Decomposition:** Recursively break the Approach sub-questions into
 atomic questions -- each answerable with a single evidence-based claim. Write
 the decomposition tree into `### §1 Question Decomposition`.
@@ -135,17 +88,6 @@ contradictions, update the evidence map. Use available web tools (`WebSearch`,
 follow leads they produce. Apply source-marking discipline as defined in
 `.github/skills/research/SKILL.md §2 Source Marking`. Write into
 `### §2 Investigation`.
-
-**§2 Anchor Claim Verification (when arxiv MCP is available)**
-
-For any claim that a Key Finding will directly depend on (an "anchor claim"):
-1. Use `arxiv_mcp_server` to search for the primary paper that makes the claim
-2. Retrieve and verify the paper says what the claim asserts — do not rely on secondary summaries
-3. Record the arXiv ID in the source list alongside the URL
-4. If the paper cannot be found or does not support the claim as stated, downgrade the claim from `[fact]` to `[inference]` with a note: "Primary source not verified via arXiv"
-
-Apply this only to anchor claims (claims that Key Findings directly depend on) to keep session time bounded.
-If arxiv MCP is unavailable, apply multi-source frequency agreement as the fallback verification method.
 
 **Evidence discipline:**
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
@@ -195,57 +137,12 @@ into `### §3 Reasoning`.
 leaps. Resolve or explicitly flag unresolvable contradictions. Write into
 `### §4 Consistency Check`.
 
-**§4.4 — Memory Graph Write (when memory MCP is available)**
-
-After drafting key findings, write 3–5 key concepts discovered in this item into the knowledge graph using the repository schema established in `Research/completed/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.md`:
-
-**Entity types:** `research_item`, `concept`, `claim`, `method`
-**Relation types (use only these):** `addresses`, `states`, `about`, `uses_method`, `supports`, `contradicts`, `extends`
-**Write pattern (search-first to avoid duplicates):**
-1. `search_nodes` for each concept before creating — reuse existing nodes where the name matches.
-2. `create_entities` — one `research_item` node (name: item slug), then 3–5 `concept` nodes for key topics.
-3. `create_relations` — link the item to each concept with `addresses`; link concepts to each other with the appropriate relation type.
-4. `add_observations` — add provenance tokens to every node: `provenance:item=<slug>`, `tag:<canonical-tag>` for each item tag. Optionally add `alias:<variant-name>` for common alternative spellings.
-
-Tags should remain observations on nodes (e.g. `tag:knowledge-graph`), **not** first-class nodes — the server uses lexical substring search so observation tokens are the retrieval index.
-
-If memory MCP is unavailable, skip this step.
-
-**§4.5 — Adversarial Challenge (Required)**
-
-Before proceeding to §5, use `sequential_thinking` to adopt the position of a sceptic or an adjacent-domain expert:
-
-1. Generate at least two objections to the draft findings — what would a domain expert challenge or dispute?
-2. For each objection, determine whether the evidence gathered resolves it. If it does, note the resolution inline.
-3. Any unresolved objection must be recorded verbatim in `## Risks, Gaps` in the findings with the label `[unresolved objection]`.
-
-Call `sequential_thinking` with the prompt: "I have drafted these key findings: [paste findings]. What objections would a domain expert or informed sceptic raise? What evidence would they demand?"
-
-This step is not optional — items that skip it will fail `research-reviewer` checks.
-
 **§5 Depth and Breadth Expansion:** Re-evaluate findings through relevant lenses
 (technical, regulatory, economic, historical, behavioural). Add any new
 insights. Write into `### §5 Depth and Breadth Expansion`.
 
 **§6 Synthesis:** Produce the structured synthesis output and write it into
 `### §6 Synthesis` in the Research Skill Output section.
-
-**§6.5 — Extract Gaps (Required)**
-
-After completing the §6 Synthesis, extract 1–5 open questions that this
-research could not answer. Write them into the `gaps:` frontmatter field of the
-item file as a YAML list of short strings (one open question per string, max
-100 characters each).
-
-Example (quotes are optional in YAML lists — both forms are valid):
-```yaml
-gaps:
-  - "What adoption rate is required for regulatory arbitrage to collapse?"
-  - Which jurisdictions have implemented comparable frameworks?
-```
-
-These gaps feed the gap registry (`state/gap_registry.json`) and may be
-promoted to backlog items automatically.
 
 **§7 Recursive Review:** Validate that every section is justified, all threads
 synthesised, every claim sourced or labelled, all uncertainties explicit.

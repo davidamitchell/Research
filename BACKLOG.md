@@ -643,25 +643,25 @@ Before writing `.devcontainer/devcontainer.json` and `copilot-setup-steps.yml`, 
 
 ## W-0038
 
-status: done
+status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
-`research-prompt.md` contains §0.5b Perspective Discovery — a four-slot prompt template (basic facts, mechanism/implementation, stakeholder/decision-impact, failure-mode/critic) that generates seed questions before §1 decomposition. Based on STORM's perspective-seeding approach (Shao et al., NAACL 2024), adapted for single-agent use without multi-agent conversation infrastructure. The `davidamitchell/Skills` `research/SKILL.md` update is the recommended next step for the Skills PR.
+`davidamitchell/Skills` `research/SKILL.md` contains a new §0.5 step: before §1 Question Decomposition, the agent asks "what disciplines, roles, or stakeholders would approach this question differently?" and generates one sub-question per perspective. The step is labelled **§0.5 Perspective Discovery**. `research-prompt.md` in this repo is updated to invoke §0.5 before §1. Existing §0–§7 numbering is preserved; §0.5 is inserted between them.
 
 ### Context
 
-STORM (NAACL 2024) demonstrated a +10% improvement in coverage breadth against baseline RAG by surveying related viewpoints before decomposing a question into sub-questions. The current research skill starts directly at §1 Question Decomposition from a single perspective. Adding a perspective-discovery pass increases the breadth of sub-questions generated without changing downstream steps. Research item `2026-05-02-storm-perspective-discovery-multi-perspective-question-generation` found that the +10% gain belongs to end-to-end STORM (including conversation), so the prompt implements the persona-seeding component only and sets appropriate expectations. The `davidamitchell/Skills` update remains recommended but is not blocking — the prompt is live here.
+STORM (NAACL 2024) demonstrated a +10% improvement in coverage breadth against baseline RAG by surveying related viewpoints before decomposing a question into sub-questions. The current research skill starts directly at §1 Question Decomposition from a single perspective. Adding a perspective-discovery pass increases the breadth of sub-questions generated without changing downstream steps. Requires a PR to `davidamitchell/Skills` then a submodule pointer update here via `sync-skills.yml`.
 
 ---
 
 ## W-0039
 
-status: done
+status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
@@ -675,9 +675,9 @@ The research loop runs a monologue, not a dialogue. STORM's simulated expert con
 
 ## W-0040
 
-status: done
+status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
@@ -699,9 +699,9 @@ Tests cover: template field presence, script output schema, promotion threshold 
 
 ## W-0041
 
-status: done
+status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
@@ -717,9 +717,9 @@ The `@modelcontextprotocol/server-memory` MCP server is already configured in `.
 
 ## W-0042
 
-status: done
+status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
@@ -928,7 +928,7 @@ Epic 2 — Static site. Makes the outstanding research question backlog visible 
 
 status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
@@ -936,7 +936,7 @@ A synthesis workflow is implemented end-to-end:
 
 - `Knowledge/` directory created at repo root for cross-item synthesis artifacts (distinct from `Research/completed/` primary research items)
 - `Knowledge/_template.md` — synthesis item template with sections: Cluster (list of source item slugs), Synthesis Question, Perspectives Considered, Cross-Item Findings, Contradictions and Tensions, Confidence Map, Open Questions
-- `synthesis-prompt.md` — synthesis agent prompt analogous to `research-prompt.md`; instructs the agent to read all source items via `filesystem` MCP, apply multi-perspective synthesis (not concatenation), identify contradictions across items, and populate `cites:` with source slugs. Must add: protocol block, search ledger, screening log, and source-appraisal matrix (per `2026-05-02-meta-analysis-standards-and-ai-skill-evaluation` findings on Cochrane/Campbell conduct standards)
+- `synthesis-prompt.md` — synthesis agent prompt analogous to `research-prompt.md`; instructs the agent to read all source items via `filesystem` MCP, apply multi-perspective synthesis (not concatenation), identify contradictions across items, and populate `cites:` with source slugs
 - `.github/workflows/synthesis-loop.yml` — manual-trigger-only workflow (`workflow_dispatch`) accepting `source_items` (comma-separated slugs) and `synthesis_question` inputs; feeds `synthesis-prompt.md` to the Copilot CLI; never runs on schedule
 - Site (`build_site.py`) updated to render `Knowledge/` items alongside `Research/completed/` items
 - `item_type: synthesis` items in `Research/` are excluded from the autonomous research loop (enforced by W-0046 type field logic)
@@ -945,7 +945,7 @@ Blocked on W-0046 (item_type field) and W-0044 (cites field). ADR required.
 
 ### Context
 
-The current system produces primary research items (single-question answers) but has no mechanism for producing knowledge artifacts that integrate findings across multiple items. This is the systematic review equivalent — a distinct output type with its own methodology. Without it, the gap between accumulated research and usable knowledge cannot be closed. The synthesis workflow is the prerequisite for the authoring workflow (W-0052). Research item `2026-05-02-meta-analysis-standards-and-ai-skill-evaluation` confirmed that the current workflow is optimised for narrative synthesis and a separate heavier synthesis skill (with protocol, search, screening, and appraisal artifacts) is the right architectural choice.
+The current system produces primary research items (single-question answers) but has no mechanism for producing knowledge artifacts that integrate findings across multiple items. This is the systematic review equivalent — a distinct output type with its own methodology. Without it, the gap between accumulated research and usable knowledge cannot be closed. The synthesis workflow is the prerequisite for the authoring workflow (W-0052).
 
 ---
 
@@ -953,24 +953,24 @@ The current system produces primary research items (single-question answers) but
 
 status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
-An authoring workflow is implemented for producing finished papers and framework documents, using staged design from `2026-05-02-research-to-publication-authoring-workflow`:
+An authoring workflow is implemented for producing finished papers and framework documents:
 
 - `Outputs/papers/` and `Outputs/frameworks/` directories created at repo root
-- `Outputs/_paper-template.md` — paper template using IMRaD structure (Introduction, Methods, Results, Discussion): Abstract, Introduction, Background (with cites to synthesis and primary items), Argument, Evidence, Implications, Conclusion, References
-- `Outputs/_framework-template.md` — framework template: Purpose, Scope, Conditions for Use, Decision Criteria or Maturity Levels (required — not optional), Worked Examples, Limitations, References. Framework outputs require explicit dimension and level definitions — without these the output is persuasive narrative, not an operational tool.
-- `authoring-prompt.md` — staged authoring agent prompt with five explicit stages: (1) evidence loading, (2) knowledge artifact / claim table construction, (3) outline generation routed by output type, (4) drafting with source-bound references, (5) post-generation citation verification. References generated by the agent must be treated as untrusted until verified — generated bibliographies have known hallucination risk (JMIR 2024). Apply `strategy-author` and `strategic-persuasion` skills.
-- `.github/workflows/authoring-loop.yml` — manual-trigger-only workflow (`workflow_dispatch`) accepting `output_type` (paper | policy-brief | decision-framework | maturity-model), `title`, `audience`, and `source_items` inputs. Manual dispatch is required — output type, audience, and source items materially shape what a valid artifact looks like.
+- `Outputs/_paper-template.md` — paper template: Abstract, Introduction, Background (with cites to synthesis and primary items), Argument, Evidence, Implications, Conclusion, References
+- `Outputs/_framework-template.md` — framework template: Purpose, Scope, Conditions for Use, Decision Criteria or Maturity Levels, Worked Examples, Limitations, References
+- `authoring-prompt.md` — authoring agent prompt; instructs the agent to draw on specified synthesis and primary items, apply the `strategy-author` and `strategic-persuasion` skills, produce a finished draft, and populate the references section from `cites:` fields
+- `.github/workflows/authoring-loop.yml` — manual-trigger-only workflow accepting `output_type` (paper | framework), `title`, and `source_items` inputs
 - Site updated to render `Outputs/` items alongside research and knowledge items
 
 Blocked on W-0051 (synthesis workflow must exist before authoring draws on synthesis items). ADR required.
 
 ### Context
 
-The research corpus and synthesis layer produce material that has direct value as publishable articles and practical frameworks. Currently no workflow exists to take that material and produce a finished artifact. The authoring workflow closes the last gap in the DIKW chain: data → information (primary research) → knowledge (synthesis) → wisdom (authored output). Papers and frameworks are the deliverable form that makes the research useful to audiences beyond the researcher. Research item `2026-05-02-research-to-publication-authoring-workflow` identified that a staged design with an explicit knowledge layer before drafting is required to prevent DIKW shortcuts, that generated references are unreliable and need mandatory post-generation checking, and that framework outputs need stricter structural validation than papers.
+The research corpus and synthesis layer produce material that has direct value as publishable articles and practical frameworks. Currently no workflow exists to take that material and produce a finished artifact. The authoring workflow closes the last gap in the DIKW chain: data → information (primary research) → knowledge (synthesis) → wisdom (authored output). Papers and frameworks are the deliverable form that makes the research useful to audiences beyond the researcher.
 
 ---
 
@@ -995,9 +995,9 @@ W-0043 defines the canonical tag vocabulary as the goal; W-0053 provides the evi
 
 ## W-0054
 
-status: done
+status: open
 created: 2026-04-27
-updated: 2026-05-03
+updated: 2026-04-27
 
 ### Outcome
 
@@ -1063,9 +1063,9 @@ As of 2026-04-29, the `_extract_citation_label` function in `build_site.py` achi
 
 ## W-0057
 
-status: done
+status: open
 created: 2026-04-29
-updated: 2026-05-03
+updated: 2026-04-29
 
 ### Outcome
 
@@ -1082,41 +1082,11 @@ A `scripts/migrate_source_display_names.py` script applies this to all `Research
 W-0056 tracks the manual migration. W-0057 tracks the automated approach. The automated approach is worthwhile because 2142 entries would take significant manual time and introduce inconsistencies. A script that converts the most common patterns (80%+ of entries) and leaves complex cases for manual review is a better lever.
 
 
----
-
-## W-0058
-
-status: open
-created: 2026-05-03
-updated: 2026-05-03
-
-### Outcome
-
-A `systematic-review` skill is added to `davidamitchell/Skills` for questions where exhaustive source capture, formal appraisal, and reproducible search strings are required (distinct from the current narrative-synthesis research workflow):
-
-- `davidamitchell/Skills` `systematic-review/SKILL.md` — new skill with sections:
-  - **Protocol block** — pre-specified inclusion/exclusion criteria, PICO-style (Population, Intervention, Comparator, Outcome) question framing, declared search scope
-  - **Search ledger** — explicit search queries run, databases/sites searched, date range, and hit counts per query
-  - **Screening log** — title/abstract screened, full-text reviewed, included, excluded (with reason per exclusion)
-  - **Source appraisal matrix** — per-included-source quality assessment using a repository-adapted rubric (borrowing principles from GRADE, AMSTAR 2, and JBI without clinical terminology)
-  - **Synthesis matrix** — cross-source claim table mapping each claim to its sources and appraisal scores
-  - **Certainty rubric** — structured domain-by-domain certainty judgment (bias, inconsistency, indirectness, imprecision) replacing the single `confidence:` field for systematic-review mode
-- `research-prompt.md` updated to note when to invoke the systematic-review skill instead of the standard research skill (criteria: exhaustive capture needed, reproducibility claim, or formal appraisal required)
-- Submodule pointer advanced after Skills PR merges
-
-### Context
-
-Research item `2026-05-02-meta-analysis-standards-and-ai-skill-evaluation` found that the current workflow lacks auditable search strings, source-coverage declarations, exclusion reasons, duplicate screening, and GRADE-equivalent certainty grading. The gap between the repository's narrative-synthesis standard and professional systematic-review conduct (Cochrane/Campbell) is significant and intentional — but requires a dedicated heavier skill to close when the question demands it. The current research workflow stays in place for exploratory and strategic knowledge notes. The systematic-review skill is additive, not a replacement.
-
----
-
----
-
 ## W-0059
 
 status: done
 created: 2026-05-03
-updated: 2026-05-03
+updated: 2026-05-05
 
 ### Outcome
 
@@ -1131,9 +1101,10 @@ A process evaluation harness is implemented that samples completed research item
   - `score_coverage_overlap()` — word-level Jaccard similarity between generated and original content (0.0–1.0)
   - `score_perspective_slots()` — checks all four STORM lens labels present (perspective-discovery only)
   - `generate_eval_report()` + `format_markdown_report()` — JSON + Markdown report to `state/eval_reports/`
-  - CLI: `--process`, `--n`, `--seed`, `--completed-dir`, `--responses-dir`, `--output-dir`, `--list-processes`
-- `tests/test_eval_harness.py` — 57 unit tests covering extraction, sampling, prompt building, scoring, report generation, and CLI
-- `.github/workflows/eval-harness.yml` — manual workflow dispatch with `process`, `n`, `seed` inputs; commits report to `state/eval_reports/`
+  - CLI: `--process`, `--n`, `--seed`, `--completed-dir`, `--responses-dir`, `--output-dir`, `--list-processes`, `--dump-prompts-dir`
+- `tests/test_eval_harness.py` — 60 unit tests covering extraction, sampling, prompt building, scoring, report generation, CLI, and prompt dump
+- `.github/workflows/eval-harness.yml` — manual workflow dispatch with `process`, `n`, `seed` inputs; commits report to `state/eval_reports/`; uses `ref: ${{ github.ref }}` so it can be triggered from any branch
+- `.github/workflows/eval-loop.yml` — Copilot-powered evaluation loop mirroring `research-loop.yml` safety controls (HARD_MAX_ITERATIONS=10, FAILURE_THRESHOLD=2, 60-min job timeout)
 
 **Workflow:**
 1. Run harness to generate prompt bundle: `python scripts/eval_harness.py --process perspective-discovery --n 5 --seed 42`

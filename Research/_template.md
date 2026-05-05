@@ -4,7 +4,6 @@ added: YYYY-MM-DDTHH:MM:SS+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-depends_on: []  # slugs of completed items that must exist before this item can be picked
 tags: []  # Use canonical forms from docs/tag-vocabulary.md — e.g. [agentic-ai, llm, governance]
 started: ~
 completed: ~
@@ -15,7 +14,6 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-gaps: []           # open questions this item could not answer (1–5 short strings, max 100 chars each)
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
