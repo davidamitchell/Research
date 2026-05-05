@@ -15,7 +15,12 @@ cites:
   - 2026-04-22-enterprise-ai-capability-model
   - 2026-04-24-business-led-low-code-agent-governance
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "18b4cbe4044693b98e9b98360c66d55e7376c921"
+    changed: 2026-05-05
+    progress: "progress/2026-05-05-ai-use-case-classification.md"
+    summary: "Initial draft synthesis created."
 ---
 
 # Enterprise AI use-case classification schema
