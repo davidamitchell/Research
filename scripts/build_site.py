@@ -1194,6 +1194,9 @@ def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
     """Return a short plain-text excerpt from the Findings section.
 
     Falls back to Cross-Item Findings for synthesis items.
+    An empty or missing Findings section triggers the fallback so that synthesis
+    items with no Findings but a populated Cross-Item Findings section still
+    produce a readable excerpt.
     """
     findings = item["sections"].get("Findings") or item["sections"].get("Cross-Item Findings", "")
     if not findings:
@@ -1661,11 +1664,12 @@ def detect_shared_sources(items: list[dict]) -> dict[str, list[dict]]:
 # ---------------------------------------------------------------------------
 
 
-def render_card(item: dict, link_prefix: str = "") -> str:
+def render_card(item: dict) -> str:
     """Render a research or synthesis item card.
 
-    ``link_prefix`` is kept for backwards compatibility but is ignored if the
-    item carries a ``page_url`` field (set by load_items / load_knowledge_items).
+    The item's ``page_url`` field (set by load_items / load_knowledge_items) is
+    used for the href.  Research items link to ``/Research/research/`` and
+    knowledge items link to ``/Research/knowledge/``.
     """
     tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item["tags"])
     excerpt = item["question_excerpt"]
@@ -1677,7 +1681,7 @@ def render_card(item: dict, link_prefix: str = "") -> str:
     )
     superseded_by = item.get("superseded_by")
     superseded_attr = ' data-superseded="true"' if superseded_by else ""
-    href = _item_url(item) if not link_prefix else f"{link_prefix}{item['slug']}.html"
+    href = _item_url(item)
     return (
         f'<a class="card" href="{href}"'
         f' data-title="{escape(item["display_title"].lower())}"'
