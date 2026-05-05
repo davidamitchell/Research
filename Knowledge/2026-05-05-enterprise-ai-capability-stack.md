@@ -21,7 +21,12 @@ cites:
   - 2026-05-01-coding-agent-context-management-transparency
   - 2026-05-01-sustainable-ai-software-development-synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: eb1f7e76a92e1d7c20f76f7c0f4c9288bc6e3759
+    changed: 2026-05-05
+    progress: progress/2026-05-05-enterprise-ai-capability-stack.md
+    summary: "Initial synthesis draft"
 ---
 
 # Enterprise capability stack for sustainable multi-provider Artificial Intelligence
