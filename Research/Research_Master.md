@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-05-06 20:39 UTC
+Generated on: 2026-05-06 21:09 UTC
 
 ## Table of Contents
 
@@ -15,6 +15,7 @@ Generated on: 2026-05-06 20:39 UTC
 * [How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?](#2026-05-06-aibom-runtime-generation-divergence-theory-md)
 * [What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?](#2026-05-06-aibom-platform-observability-control-comparison-md)
 * [How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?](#2026-05-06-aibom-identity-delegation-trust-theory-md)
+* [What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?](#2026-05-06-aibom-effectiveness-risk-mitigation-limits-md)
 * [How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph](#2026-05-06-aibom-declared-construction-practice-md)
 * [What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?](#2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability-md)
 * [What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?](#2026-05-02-vendor-lock-in-portability-multi-platform-ai-md)
@@ -1196,6 +1197,86 @@ The preferred model is therefore not a new identity standard, but a schema-level
 - What is the smallest interoperable serialization for nested delegation chains that preserves audit history without causing token or manifest bloat?
 - How should an AIBOM identify model instances when the same logical model is accessed through multiple hosted endpoints with different trust and logging behavior?
 - Which runtime trace fields are the minimum necessary companion to the design-time AIBOM so that a post-incident reviewer can bind intent, delegation, and action together without ambiguity?
+
+---
+
+---
+
+<a id="2026-05-06-aibom-effectiveness-risk-mitigation-limits-md"></a>
+
+## What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?
+
+**Tags:** [agentic-ai, security, governance, supply-chain, llm, ai-governance, observability]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-effectiveness-risk-mitigation-limits.md
+
+## Research Question
+
+What categories of security and governance risk can an Artificial Intelligence Bill of Materials (AIBOM), an artifact intended to make artificial intelligence systems transparent, auditable, and secure, in both declared design-time and runtime-observed variants, realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, what metrics can quantify that mitigation, and where does an apparently complete AIBOM create dangerous false assurance by leaving behavioral, inferential, and emergent risks invisible? [fact; source: https://owaspaibom.org/]
+
+## Findings
+
+### Executive Summary
+
+An Artificial Intelligence Bill of Materials (AIBOM) materially reduces risk only for structural surfaces that can be declared or observed, such as versions, dependencies, retrieval stores, tool manifests, delegation edges, guardrails, and runtime divergence. [inference; source: https://www.ntia.gov/page/software-bill-materials; https://www.nist.gov/itl/ai-risk-management-framework; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+
+An AIBOM creates false assurance when its completeness is mistaken for semantic safety, because adversarial instructions in prompts, poisoned retrieved context, poisoned stored memory, and harmful use of legitimately declared tools can all succeed through correctly declared channels. [inference; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2211.09527; https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/]
+
+Current evidence does not show that AIBOM can close the visibility gap created by model inscrutability and the still-limited ability to assess whether visible reasoning matches the process that produced the answer, so it cannot currently supply complete explainability or guarantee safe behavior. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.anthropic.com/claude-opus-4-6-system-card]
+
+AIBOM success should be judged by whether AIBOM-informed controls improve structural coverage, shorten drift detection, reduce reachable blast radius, and support better incident reconstruction. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html]
+
+### Key Findings
+
+1. **AIBOM is strongest where risk is anchored in declared or runtime-observed structure, because inventory-style evidence can represent components, versions, permissions, and policy surfaces in ways that support gating, comparison, and audit.** ([inference]; medium confidence; source: https://www.ntia.gov/page/software-bill-materials; https://www.nist.gov/itl/ai-risk-management-framework; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html)
+2. **AIBOM materially mitigates undeclared dependency introduction, version drift, authority-scope expansion, disabled guardrails, and incomplete post-incident scoping when organizations use it as an enforcement and comparison object rather than passive documentation.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html)
+3. **Prompt injection remains outside AIBOM's direct control boundary, because the attack works by changing the meaning of legitimate content rather than by introducing an undeclared component that inventory controls can block.** ([inference]; high confidence; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2211.09527; https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+4. **Retrieval poisoning and memory poisoning create especially strong false-assurance risk, because the retrieval store or memory subsystem can be fully declared while its runtime contents are semantically malicious and still treated as trusted context.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/; https://arxiv.org/abs/2302.12173; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html)
+5. **Legitimately declared tools and permissions do not prove safe behavior, because the same accurately inventoried agency surface can still be misused through weak authorization boundaries, excessive autonomy, or compromised decision flow.** ([inference]; medium confidence; source: https://owasp.org/www-project-top-10-for-large-language-model-applications/; https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html)
+6. **Under current governance and interpretability practice, inference opacity remains a material limit on AIBOM effectiveness because documentation of inputs, outputs, and conditions of use does not yet fully expose or validate internal reasoning.** ([inference]; medium confidence; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.anthropic.com/claude-opus-4-6-system-card)
+7. **The most decision-useful effectiveness metrics are runtime dependency capture rate, drift detection latency, blast-radius reduction, and coverage-completeness score, because each can be computed from operational evidence and linked to control outcomes.** ([inference]; medium confidence; source: https://www.nist.gov/itl/ai-risk-management-framework; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html)
+8. **The correct governance posture is to treat AIBOM as one layer in a control stack that also includes runtime policy enforcement, semantic-content defenses, monitoring, and adversarial testing, because the dominant agentic failure modes cross structural and behavioral boundaries.** ([inference]; high confidence; source: https://www.nist.gov/itl/ai-risk-management-framework; https://owasp.org/www-project-top-10-for-large-language-model-applications/; https://arxiv.org/abs/2302.12173; https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] AIBOM is strongest on structural surfaces that can be declared or observed. | https://www.ntia.gov/page/software-bill-materials ; https://www.nist.gov/itl/ai-risk-management-framework ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html | medium | inventory-transfer claim |
+| [inference] AIBOM mitigates undeclared dependency, drift, authority, guardrail, and scoping failures when used for enforcement and comparison. | https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html | medium | enforcement-dependent |
+| [inference] Prompt injection sits outside direct AIBOM control because it changes content meaning rather than inventory membership. | https://arxiv.org/abs/2302.12173 ; https://arxiv.org/abs/2211.09527 ; https://owasp.org/www-project-top-10-for-large-language-model-applications/ | high | semantic-channel attack |
+| [inference] Retrieval poisoning and memory poisoning create false assurance even with complete structure. | https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/ ; https://arxiv.org/abs/2302.12173 ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html ; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html | medium | runtime-content compromise |
+| [inference] Declared tools and permissions do not prove safe behavior. | https://owasp.org/www-project-top-10-for-large-language-model-applications/ ; https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/ ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html | medium | agency-surface limit |
+| [inference] Current interpretability limits leave a material AIBOM boundary around internal reasoning. | https://www.nist.gov/itl/ai-risk-management-framework ; https://www.anthropic.com/claude-opus-4-6-system-card | medium | reasoning remains partly opaque |
+| [inference] Runtime dependency capture, drift latency, blast-radius reduction, and coverage-completeness are the key effectiveness metrics. | https://www.nist.gov/itl/ai-risk-management-framework ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html | medium | operational metric set |
+| [inference] AIBOM must be one layer in a broader control stack. | https://www.nist.gov/itl/ai-risk-management-framework ; https://owasp.org/www-project-top-10-for-large-language-model-applications/ ; https://arxiv.org/abs/2302.12173 ; https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/ | high | layered-governance conclusion |
+
+### Assumptions
+
+- **Assumption:** The proposed runtime metrics assume the organization can collect traces or logs with enough fidelity to compare declared and observed AIBOM state. **Justification:** That assumption follows from the completed runtime and platform-observability items, which both treat runtime evidence fidelity as a prerequisite for measuring divergence. [assumption; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html]
+
+### Analysis
+
+The evidence was weighed by first asking which SBOM-style benefits plausibly transfer to artificial intelligence systems in documented inventory-oriented cases and then testing whether the relevant object was an inventoryable structure, a runtime event, or a semantic behavior. [inference; source: https://www.ntia.gov/page/software-bill-materials; https://www.nist.gov/itl/ai-risk-management-framework]
+
+Prompt injection, retrieval poisoning, and memory poisoning were treated as the decisive false-assurance cases because they show compromise traveling through authorized channels that an accurate inventory can record but cannot certify as safe. [inference; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2211.09527; https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/]
+
+Rival remedies such as stronger models, more manual review, or richer model cards do not remove the core limit identified here, because they may lower some failure rates without making internal reasoning fully inspectable or removing semantic-channel attacks. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.anthropic.com/claude-opus-4-6-system-card; https://arxiv.org/abs/2302.12173]
+
+The completed AIBOM series sharpened the conclusion by showing that declared structure, runtime evidence, and delegation history are all necessary for governance, but none of them alone is sufficient for behavioral assurance. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html]
+
+### Risks, Gaps, and Uncertainties
+
+Robust and verifiable risk-measurement methods remain an open challenge, so the metric formulas proposed here should be treated as operational starting points rather than settled industry standards. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework]
+
+The empirical case for AIBOM-specific return on investment remains thin because current public evidence is stronger on inventory and observability primitives than on mature, scaled AIBOM deployments with published outcome data. [inference; source: https://www.ntia.gov/page/software-bill-materials; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html]
+
+Conclusions about inferential opacity may change at the margin as interpretability improves, but the current source set still supports only partial, not complete, reasoning visibility. [inference; source: https://www.anthropic.com/claude-opus-4-6-system-card; https://www.nist.gov/itl/ai-risk-management-framework]
+
+### Open Questions
+
+- Which metric thresholds would justify blocking a release when AIBOM coverage is incomplete but other compensating controls are strong?
+- How should organizations classify and sample semantically risky retrieval content so the false-assurance gap rate becomes measurable across incidents?
+- What evidence standard should distinguish acceptable runtime divergence from policy-violating divergence in multi-agent systems?
 
 ---
 
