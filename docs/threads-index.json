@@ -665,16 +665,16 @@
     "url": "/Research/threads/agentic-ai-llm-evaluation.html"
   },
   {
-    "slug": "agentic-ai-llm-workflow",
-    "title": "agentic-ai / llm / workflow",
+    "slug": "agentic-ai-llm-evaluation",
+    "title": "agentic-ai / llm / evaluation",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "llm",
-      "workflow"
+      "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 59,
+    "item_count": 60,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -970,9 +970,14 @@
         "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
         "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
         "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+        "title": "What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?",
+        "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/agentic-ai-llm-workflow.html"
+    "url": "/Research/threads/agentic-ai-llm-evaluation.html"
   },
   {
     "slug": "agentic-ai-governance-llm",
@@ -6250,13 +6255,13 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-claude-code",
-    "title": "copilot coding / coding agent / claude code",
+    "slug": "coding-agent-copilot-coding-claude-code",
+    "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "claude code"
     ],
     "item_count": 5,
@@ -6287,17 +6292,17 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -6327,17 +6332,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
-      "agents md"
+      "copilot coding",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -6367,7 +6372,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6440,13 +6445,13 @@
     "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "copilot studio"
     ],
     "item_count": 4,
@@ -6472,16 +6477,16 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -6507,7 +6512,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "claude-code-agent-tooling-skills",
@@ -6600,36 +6605,6 @@
     "url": "/Research/threads/saas-banking-build-vs-buy.html"
   },
   {
-    "slug": "evaluation-research-loop-prompt-engineering",
-    "title": "evaluation / research-loop / prompt-engineering",
-    "kind": "implicit",
-    "tag_cluster": [
-      "evaluation",
-      "research-loop",
-      "prompt-engineering"
-    ],
-    "concept_cluster": [],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-03-03-research-loop-quality-prompt-engineering",
-        "title": "Evaluating and improving autonomous research loop quality: prompt engineering and output assessment",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-03-05-general-agent-optimization-framework",
-        "title": "General Agent Optimization Framework",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-10-research-loop-evaluation-rubric",
-        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-14"
-      }
-    ],
-    "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
-  },
-  {
     "slug": "llm-context-window-mcp",
     "title": "llm / context-window / mcp",
     "kind": "implicit",
@@ -6660,14 +6635,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "native governance"
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -6687,17 +6662,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-iso-iec",
-    "title": "ai rmf / nist ai / iso iec",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "iso iec"
+      "ai rmf",
+      "environment separation"
     ],
     "item_count": 3,
     "items": [
@@ -6717,6 +6692,6 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-iso-iec.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   }
 ]

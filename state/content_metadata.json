@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T11:44:13Z",
+  "extracted_at": "2026-05-06T11:59:46Z",
   "items": {
     "2026-05-06-it-system-legibility-measurement-frameworks": {
       "named_concepts": [
@@ -108,6 +108,115 @@
           "sources": [
             "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
             "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-barnum-statements-ai-responses-theory-practice": {
+      "named_concepts": [
+        "barnum language",
+        "barnum statements",
+        "reviewed ai",
+        "ai literature",
+        "plausible recurrent",
+        "recurrent proxy",
+        "proxy problem",
+        "concrete anchor",
+        "barnum detection",
+        "user-pleasing behaviors",
+        "sycophancy studies",
+        "treating barnum",
+        "warrants explicit",
+        "explicit review",
+        "bad-versus-good examples",
+        "plausible barnum",
+        "barnum taxonomy",
+        "universal-complexity filler",
+        "filler empty",
+        "empty significance"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1037/h0059240",
+        "https://doi.org/10.1037/h0045152",
+        "https://doi.org/10.1002/1097-4679(198803",
+        "https://dictionary.apa.org/barnum-effect",
+        "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models",
+        "https://aclanthology.org/2025.findings-emnlp.121/",
+        "https://proceedings.iclr.cc/paper_files/paper/2025/hash/a52b0d191b619477cc798d544f4f0e4b-Abstract-Conference.html",
+        "https://arxiv.org/abs/2307.01928",
+        "https://doi.org/10.1609/aaai.v29i1.9517",
+        "https://aclanthology.org/N19-1349/",
+        "https://aclanthology.org/P17-1139/",
+        "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "https://claude.com/blog/best-practices-for-prompt-engineering",
+        "https://www.promptfoo.dev/docs/guides/llm-as-a-judge/",
+        "https://arxiv.org/abs/2306.05685",
+        "https://github.com/davidamitchell/Skills/blob/main/remove-ai-slop/SKILL.md"
+      ],
+      "key_claims": [
+        {
+          "text": "Barnum statements are best defined in AI research prose as vague, high-base-rate sentences that create an impression of analysis or prudence without naming a concrete actor, mechanism, metric, disagreement, or decision consequence",
+          "sources": [
+            "https://doi.org/10.1037/h0059240",
+            "https://doi.org/10.1037/h0045152",
+            "https://dictionary.apa.org/barnum-effect"
+          ]
+        },
+        {
+          "text": "A plausible Barnum taxonomy for AI outputs includes universal-complexity filler, empty significance claims, flattering validation, safe dualities, and ritualized future-work language, all of which preserve agreeableness while avoiding specific falsifiable content",
+          "sources": [
+            "https://doi.org/10.1037/h0059240",
+            "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models",
+            "https://aclanthology.org/N19-1349/"
+          ]
+        },
+        {
+          "text": "Reviewed AI literature does not yet provide a direct Barnum-frequency benchmark for research prose, but the combined evidence from sycophancy studies and generic-response research supports treating Barnum language as a plausible recurrent proxy problem that warrants explicit review in unconstrained LLM writing",
+          "sources": [
+            "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models",
+            "https://aclanthology.org/2025.findings-emnlp.121/",
+            "https://aclanthology.org/N19-1349/",
+            "https://doi.org/10.1609/aaai.v29i1.9517"
+          ]
+        },
+        {
+          "text": "Rule-based phrase lists and sentence-specificity or vagueness scores provide a defensible low-cost first-line detector stack, because they target the low-information surface directly without requiring a full semantic judge on every sentence",
+          "sources": [
+            "https://doi.org/10.1609/aaai.v29i1.9517",
+            "https://aclanthology.org/P17-1139/",
+            "https://aclanthology.org/N19-1349/"
+          ]
+        },
+        {
+          "text": "LLM-as-judge can add value for borderline Barnum cases, especially when a sentence is semantically weak rather than lexically repetitive, but it should be treated as an escalation layer rather than as a stand-alone gate because judge bias and prompt sensitivity remain live risks",
+          "sources": [
+            "https://www.promptfoo.dev/docs/guides/llm-as-a-judge/",
+            "https://arxiv.org/abs/2306.05685",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.md"
+          ]
+        },
+        {
+          "text": "The strongest prompt-side mitigation is a positive output contract that requires each analytical sentence to carry a concrete anchor plus one or more bad-versus-good examples, because official guidance favors explicit specificity and examples over vague prohibitions",
+          "sources": [
+            "https://claude.com/blog/best-practices-for-prompt-engineering",
+            "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+            "https://github.com/davidamitchell/Skills/blob/main/remove-ai-slop/SKILL.md"
+          ]
+        },
+        {
+          "text": "Automatic rewriting is riskier than automatic flagging, because replacing a Barnum sentence with superficially specific text can invent unsupported detail, while overloaded human reviewers are prone to accept fluent rewrites without deep verification",
+          "sources": [
+            "https://www.promptfoo.dev/docs/guides/llm-as-a-judge/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.md"
+          ]
+        },
+        {
+          "text": "The minimal repository change is a review criterion that fails any sentence sounding analytical but lacking a concrete anchor, which turns Barnum detection into a first-class semantic-quality check rather than leaving it implicit inside generic anti-slop guidance",
+          "sources": [
+            "https://doi.org/10.1037/h0059240",
+            "https://doi.org/10.1037/h0045152",
+            "https://github.com/davidamitchell/Skills/blob/main/remove-ai-slop/SKILL.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md"
           ]
         }
       ]
