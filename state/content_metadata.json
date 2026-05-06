@@ -1,6 +1,117 @@
 {
-  "extracted_at": "2026-05-06T09:41:24Z",
+  "extracted_at": "2026-05-06T09:50:52Z",
   "items": {
+    "2026-05-06-it-system-legibility-measurement-frameworks": {
+      "named_concepts": [
+        "cmdb health",
+        "catalog coverage",
+        "system legibility",
+        "dependency visibility",
+        "health model",
+        "completeness compliance",
+        "runtime topology",
+        "catalog discoverability",
+        "configuration-data quality",
+        "sap leanix",
+        "leanix dynatrace",
+        "explicit operational",
+        "dynatrace smartscape",
+        "thoughtworks architectural",
+        "architectural fitness",
+        "fitness functions",
+        "practical implementation",
+        "impact analysis",
+        "universal cross-vendor",
+        "cross-vendor numeric"
+      ],
+      "source_urls": [
+        "https://www.oreilly.com/library/view/building-evolutionary-architectures/9781491986356/",
+        "https://www.thoughtworks.com/insights/books/building-evolutionary-architectures",
+        "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
+        "https://www.opengroup.org/togaf",
+        "https://www.opengroup.org/archimate-forum/archimate-overview",
+        "https://bian.org/service-landscape/",
+        "https://www.tmforum.org/open-digital-architecture/",
+        "https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492",
+        "https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446",
+        "https://www.servicenow.com/community/developer-blog/aligning-servicenow-architecture-blueprint-with-togaf-standard/ba-p/3464009",
+        "https://backstage.io/docs/features/software-catalog/",
+        "https://engineering.atspotify.com/2024/04/supercharged-developer-portals",
+        "https://www.leanix.net/en/products/application-portfolio-management",
+        "https://www.leanix.net/en/wiki/ea/application-portfolio-management",
+        "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape",
+        "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph",
+        "https://www.dynatrace.com/platform/application-topology-discovery/smartscape/",
+        "https://www.castsoftware.com/imaging",
+        "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt",
+        "https://dora.dev/",
+        "https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-21-technology-capability-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html"
+      ],
+      "key_claims": [
+        {
+          "text": "No accessible primary source in this review defines a universal, cross-vendor numeric benchmark for \"IT system legibility\"; the best-supported conclusion is that practitioners quantify legibility through a bundle of adjacent measures rather than one standard score",
+          "sources": [
+            "https://www.opengroup.org/togaf",
+            "https://www.opengroup.org/archimate-forum/archimate-overview",
+            "https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492",
+            "https://backstage.io/docs/features/software-catalog/",
+            "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape",
+            "https://www.castsoftware.com/imaging"
+          ]
+        },
+        {
+          "text": "TOGAF, ArchiMate, and BIAN define how to model business, application, technology, and service relationships, but they do not publish a dominant universal scoring rubric for whole-estate understanding",
+          "sources": [
+            "https://www.opengroup.org/togaf",
+            "https://www.opengroup.org/archimate-forum/archimate-overview",
+            "https://bian.org/service-landscape/"
+          ]
+        },
+        {
+          "text": "ServiceNow's CMDB Health model quantifies completeness, compliance, and correctness and further decomposes correctness into duplicate, orphan, and stale configuration records, making configuration-data quality explicitly measurable",
+          "sources": [
+            "https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492"
+          ]
+        },
+        {
+          "text": "Backstage and Spotify's internal developer portal practice treat discoverability, ownership, and catalog coverage as measurable legibility proxies, showing that a component is not truly legible to an organisation if nobody can find it, identify its owner, or keep its metadata current",
+          "sources": [
+            "https://backstage.io/docs/features/software-catalog/",
+            "https://engineering.atspotify.com/2024/04/supercharged-developer-portals"
+          ]
+        },
+        {
+          "text": "SAP LeanIX operationalises estate legibility at portfolio level by combining trustworthy inventory, dependency visibility, ownership, business-context mapping, and standardised application-assessment criteria for application assessment and rationalisation",
+          "sources": [
+            "https://www.leanix.net/en/products/application-portfolio-management",
+            "https://www.leanix.net/en/wiki/ea/application-portfolio-management"
+          ]
+        },
+        {
+          "text": "Dynatrace Smartscape operationalises legibility at runtime by continuously mapping service and infrastructure relationships, upstream and downstream dependency chains, ownership, and blast radius",
+          "sources": [
+            "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape",
+            "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph",
+            "https://www.dynatrace.com/platform/application-topology-discovery/smartscape/"
+          ]
+        },
+        {
+          "text": "CAST Imaging operationalises legibility at structural-code level by recovering architecture across multiple abstraction layers, exposing change impact, and tracking design adherence and drift",
+          "sources": [
+            "https://www.castsoftware.com/imaging"
+          ]
+        },
+        {
+          "text": "Thoughtworks' architectural fitness functions and codebase cognitive debt framing show that legibility is partly a human-governance property, because an estate can be instrumented and documented yet still become hard to reason about if teams lose shared understanding or stop enforcing architectural constraints",
+          "sources": [
+            "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
+            "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt"
+          ]
+        }
+      ]
+    },
     "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability": {
       "named_concepts": [
         "et al",

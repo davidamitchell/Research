@@ -1,0 +1,790 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>What measurement systems and frameworks exist for quantifying Information… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>What measurement systems and frameworks exist for quantifying Information…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>What measurement systems and frameworks exist for quantifying Information…</h1>
+  <p class="full-title-subtitle">What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/observability.html">observability</a> <a class="tag" href="/Research/tags/enterprise-architecture.html">enterprise-architecture</a> <a class="tag" href="/Research/tags/dependency-mapping.html">dependency-mapping</a> <a class="tag" href="/Research/tags/it-architecture.html">it-architecture</a> <a class="tag" href="/Research/tags/measurement.html">measurement</a> <a class="tag" href="/Research/tags/governance.html">governance</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-it-system-legibility-measurement-frameworks.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-it-system-legibility-measurement-frameworks" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>No accessible primary source in this review defines a universal, cross-vendor numeric benchmark for &quot;IT system legibility&quot;; the best-supported conclusion is that practitioners quantify legibility through a bundle of adjacent measures rather than one standard score<span class="claim-sources"><a class="claim-source-link" href="https://www.opengroup.org/togaf" target="_blank" rel="noopener" title="https://www.opengroup.org/togaf">Opengroup (n.d.)</a><a class="claim-source-link" href="https://www.opengroup.org/archimate-forum/archimate-overview" target="_blank" rel="noopener" title="https://www.opengroup.org/archimate-forum/archimate-overview">Opengroup (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492" target="_blank" rel="noopener" title="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492">ServiceNow (n.d.)</a><a class="claim-source-link" href="https://backstage.io/docs/features/software-catalog/" target="_blank" rel="noopener" title="https://backstage.io/docs/features/software-catalog/">Backstage (n.d.)</a><a class="claim-source-link" href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape" target="_blank" rel="noopener" title="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape">Dynatrace (n.d.)</a><a class="claim-source-link" href="https://www.castsoftware.com/imaging" target="_blank" rel="noopener" title="https://www.castsoftware.com/imaging">CAST (n.d.)</a></span></li>
+<li>TOGAF, ArchiMate, and BIAN define how to model business, application, technology, and service relationships, but they do not publish a dominant universal scoring rubric for whole-estate understanding<span class="claim-sources"><a class="claim-source-link" href="https://www.opengroup.org/togaf" target="_blank" rel="noopener" title="https://www.opengroup.org/togaf">Opengroup (n.d.)</a><a class="claim-source-link" href="https://www.opengroup.org/archimate-forum/archimate-overview" target="_blank" rel="noopener" title="https://www.opengroup.org/archimate-forum/archimate-overview">Opengroup (n.d.)</a><a class="claim-source-link" href="https://bian.org/service-landscape/" target="_blank" rel="noopener" title="https://bian.org/service-landscape/">BIAN (n.d.)</a></span></li>
+<li>ServiceNow&#39;s CMDB Health model quantifies completeness, compliance, and correctness and further decomposes correctness into duplicate, orphan, and stale configuration records, making configuration-data quality explicitly measurable<span class="claim-sources"><a class="claim-source-link" href="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492" target="_blank" rel="noopener" title="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492">ServiceNow (n.d.)</a></span></li>
+<li>Backstage and Spotify&#39;s internal developer portal practice treat discoverability, ownership, and catalog coverage as measurable legibility proxies, showing that a component is not truly legible to an organisation if nobody can find it, identify its owner, or keep its metadata current<span class="claim-sources"><a class="claim-source-link" href="https://backstage.io/docs/features/software-catalog/" target="_blank" rel="noopener" title="https://backstage.io/docs/features/software-catalog/">Backstage (n.d.)</a><a class="claim-source-link" href="https://engineering.atspotify.com/2024/04/supercharged-developer-portals" target="_blank" rel="noopener" title="https://engineering.atspotify.com/2024/04/supercharged-developer-portals">Engineering (2024)</a></span></li>
+<li>SAP LeanIX operationalises estate legibility at portfolio level by combining trustworthy inventory, dependency visibility, ownership, business-context mapping, and standardised application-assessment criteria for application assessment and rationalisation<span class="claim-sources"><a class="claim-source-link" href="https://www.leanix.net/en/products/application-portfolio-management" target="_blank" rel="noopener" title="https://www.leanix.net/en/products/application-portfolio-management">SAP (n.d.)</a><a class="claim-source-link" href="https://www.leanix.net/en/wiki/ea/application-portfolio-management" target="_blank" rel="noopener" title="https://www.leanix.net/en/wiki/ea/application-portfolio-management">LeanIX (n.d.)</a></span></li>
+<li>Dynatrace Smartscape operationalises legibility at runtime by continuously mapping service and infrastructure relationships, upstream and downstream dependency chains, ownership, and blast radius<span class="claim-sources"><a class="claim-source-link" href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape" target="_blank" rel="noopener" title="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape">Dynatrace (n.d.)</a><a class="claim-source-link" href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph" target="_blank" rel="noopener" title="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph">Dynatrace (n.d.)</a><a class="claim-source-link" href="https://www.dynatrace.com/platform/application-topology-discovery/smartscape/" target="_blank" rel="noopener" title="https://www.dynatrace.com/platform/application-topology-discovery/smartscape/">Dynatrace (n.d.)</a></span></li>
+<li>CAST Imaging operationalises legibility at structural-code level by recovering architecture across multiple abstraction layers, exposing change impact, and tracking design adherence and drift<span class="claim-sources"><a class="claim-source-link" href="https://www.castsoftware.com/imaging" target="_blank" rel="noopener" title="https://www.castsoftware.com/imaging">CAST (n.d.)</a></span></li>
+<li>Thoughtworks&#39; architectural fitness functions and codebase cognitive debt framing show that legibility is partly a human-governance property, because an estate can be instrumented and documented yet still become hard to reason about if teams lose shared understanding or stop enforcing architectural constraints<span class="claim-sources"><a class="claim-source-link" href="https://www.thoughtworks.com/radar/techniques/architectural-fitness-function" target="_blank" rel="noopener" title="https://www.thoughtworks.com/radar/techniques/architectural-fitness-function">Thoughtworks (n.d.)</a><a class="claim-source-link" href="https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt" target="_blank" rel="noopener" title="https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt">Thoughtworks (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What measurement systems and frameworks exist for quantifying Information Technology (IT) system legibility, defined here as the ability to reason about, understand, and comprehensively characterise the entirety of interconnected applications, services, and systems that constitute an organisation's runtime ecosystem, who in academic research, standards bodies, and industry practice is actively defining and applying these frameworks, and what does practical implementation look like?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>There is no single cross-industry framework that directly measures &quot;IT system legibility&quot; as one settled property; the field measures it through a composite of adjacent systems for architecture-model completeness, catalog discoverability, configuration-data quality, dependency visibility, drift detection, and shared team understanding.</p>
+<p>The accessible evidence shows active contributions from The Open Group, BIAN, ServiceNow, Spotify's Backstage ecosystem, SAP LeanIX, Dynatrace, CAST, and Thoughtworks, but those actors define different slices of the problem rather than one shared benchmark.</p>
+<p>An explicit operational scorecard in this review is ServiceNow's CMDB Health model of completeness, compliance, and correctness, and complementary runtime and structural models come from <a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape">Dynatrace Smartscape</a>, Backstage software catalog coverage, LeanIX inventory and dependency visibility, CAST architecture recovery, and Thoughtworks architectural fitness functions.</p>
+<p>Practical implementation therefore looks like a layered control system: intended-state architecture blueprints and models, ownership-bearing catalogs and CMDBs, live runtime topology, structural impact analysis, and governance routines that reconcile drift and stale data.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>No accessible primary source in this review defines a universal, cross-vendor numeric benchmark for &quot;IT system legibility&quot;; the best-supported conclusion is that practitioners quantify legibility through a bundle of adjacent measures rather than one standard score.</strong></li>
+<li><strong>TOGAF, ArchiMate, and BIAN define how to model business, application, technology, and service relationships, but they do not publish a dominant universal scoring rubric for whole-estate understanding.</strong></li>
+<li><strong>ServiceNow's CMDB Health model quantifies completeness, compliance, and correctness and further decomposes correctness into duplicate, orphan, and stale configuration records, making configuration-data quality explicitly measurable.</strong></li>
+<li><strong>Backstage and Spotify's internal developer portal practice treat discoverability, ownership, and catalog coverage as measurable legibility proxies, showing that a component is not truly legible to an organisation if nobody can find it, identify its owner, or keep its metadata current.</strong></li>
+<li><strong>SAP LeanIX operationalises estate legibility at portfolio level by combining trustworthy inventory, dependency visibility, ownership, business-context mapping, and standardised application-assessment criteria for application assessment and rationalisation.</strong></li>
+<li><strong>Dynatrace Smartscape operationalises legibility at runtime by continuously mapping service and infrastructure relationships, upstream and downstream dependency chains, ownership, and blast radius.</strong></li>
+<li><strong><a href="https://www.castsoftware.com/imaging">CAST Imaging</a> operationalises legibility at structural-code level by recovering architecture across multiple abstraction layers, exposing change impact, and tracking design adherence and drift.</strong></li>
+<li><strong>Thoughtworks' architectural fitness functions and codebase cognitive debt framing show that legibility is partly a human-governance property, because an estate can be instrumented and documented yet still become hard to reason about if teams lose shared understanding or stop enforcing architectural constraints.</strong></li>
+<li><strong>A well-supported practical implementation pattern is a layered composite in which architecture standards define intended structure, catalogs and CMDBs assign coverage and ownership, runtime topology validates live relationships, and software-intelligence tools test for structural drift and change impact.</strong></li>
+<li><strong>Published implementation evidence suggests that better legibility improves onboarding, decision speed, incident routing, audit readiness, and change-impact analysis, but confidence in comparative tool superiority remains limited because most accessible outcome claims are vendor- or practitioner-reported rather than cross-vendor benchmark studies.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> This item uses &quot;IT system legibility&quot; as a synthesis label for overlapping source concepts such as architecture visibility, catalog discoverability, CMDB health, dependency completeness, and shared system understanding. <strong>Justification:</strong> the exact phrase is not the dominant source label even though the operational problem is clearly shared.</li>
+<li><strong>Assumption:</strong> Public vendor and practitioner outcome numbers are directionally informative but not neutral comparative benchmarks. <strong>Justification:</strong> the accessible evidence does not provide one independent cross-vendor evaluation protocol.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence was weighted most heavily toward sources that clearly separate structure from measurement, because that distinction answers the research question more directly than generic platform positioning does.</p>
+<p>That weighting makes ServiceNow's CMDB Health model unusually important, because it is the only source in the review that exposes a concrete, named scorecard for estate-data quality rather than only describing architecture artifacts or discovery features.</p>
+<p>The main competing interpretation was that runtime topology tools already solve legibility by themselves, but that interpretation weakened once catalog, CMDB, architecture, and structural-analysis sources were compared, because each addresses blind spots that live telemetry alone cannot close.</p>
+<p>The best-supported conclusion is therefore plural rather than singular: legibility is an emergent property produced by several measurable control surfaces, and the practical design problem is how to compose those surfaces into a governance loop that detects drift faster than the estate changes.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Independent cross-vendor benchmarking of legibility frameworks appears thin in the accessible public evidence, so comparative product judgments should remain conservative.</li>
+<li>The most explicit operational metrics come from vendor or platform ecosystems, which creates a risk that the reviewed measures reflect product boundaries more than a universally agreed ontology of whole-estate understanding.</li>
+<li>BIAN strengthens the standards picture for financial services, but its sector specificity limits direct generalisation to non-banking estates.</li>
+<li>The DORA and Thoughtworks sources strengthen the human-understanding argument, but they do not themselves provide estate-wide relationship-coverage scorecards.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard?</li>
+<li>How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index?</li>
+<li>Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.oreilly.com/library/view/building-evolutionary-architectures/9781491986356/">Ford et al. (2017) Building Evolutionary Architectures</a> - seed source; public page exposed metadata only</li>
+<li>[x] <a href="https://www.thoughtworks.com/insights/books/building-evolutionary-architectures">Thoughtworks Building Evolutionary Architectures</a> - accessible public companion page for the architectural-fitness-function lineage</li>
+<li>[x] <a href="https://www.thoughtworks.com/radar/techniques/architectural-fitness-function">Thoughtworks Architectural Fitness Function</a> - public definition of architectural fitness functions as objective integrity assessments</li>
+<li>[x] <a href="https://www.opengroup.org/togaf">The Open Group TOGAF Standard</a> - enterprise architecture method and framework</li>
+<li>[x] <a href="https://www.opengroup.org/archimate-forum/archimate-overview">The Open Group ArchiMate Overview</a> - modelling language for describing, analysing, and visualising relationships across business and technology domains</li>
+<li>[x] <a href="https://bian.org/service-landscape/">BIAN Service Landscape</a> - sector-specific capability and service-domain reference model</li>
+<li>[x] <a href="https://www.tmforum.org/open-digital-architecture/">TM Forum Open Digital Architecture</a> - checked; official page returned 403 in this environment and is not used as core evidence</li>
+<li>[x] <a href="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492">ServiceNow CMDB Health Dashboard, Completeness, Compliance &amp; Correctness</a> - explicit operational scorecard for configuration-data quality</li>
+<li>[x] <a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446">ServiceNow Strengthening Common Service Data Model (CSDM) Data Foundations</a> - governance and implementation guidance for Common Service Data Model (CSDM) foundations</li>
+<li>[x] <a href="https://www.servicenow.com/community/developer-blog/aligning-servicenow-architecture-blueprint-with-togaf-standard/ba-p/3464009">ServiceNow Aligning Architecture Blueprint with TOGAF Standard</a> - blueprinting approach for current-state and planned-state platform legibility</li>
+<li>[x] <a href="https://backstage.io/docs/features/software-catalog/">Backstage Software Catalog</a> - ownership and discoverability model for large software estates</li>
+<li>[x] <a href="https://engineering.atspotify.com/2024/04/supercharged-developer-portals">Spotify Engineering (2024) Supercharged Developer Portals</a> - practitioner account of Backstage as a legibility and productivity layer</li>
+<li>[x] <a href="https://www.leanix.net/en/products/application-portfolio-management">SAP LeanIX Application Portfolio Management</a> - inventory, dependency, ownership, and rationalisation metrics for estate visibility</li>
+<li>[x] <a href="https://www.leanix.net/en/wiki/ea/application-portfolio-management">LeanIX Application Portfolio Management Guide</a> - practitioner guidance on inventory transparency and application visibility</li>
+<li>[x] <a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape">Dynatrace Smartscape</a> - real-time topology and relationship model</li>
+<li>[x] <a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph">Dynatrace Service Dependency Graph</a> - live upstream and downstream dependency mapping</li>
+<li>[x] <a href="https://www.dynatrace.com/platform/application-topology-discovery/smartscape/">Dynatrace Smartscape Platform Overview</a> - always-accurate topology and blast-radius positioning</li>
+<li>[x] <a href="https://www.castsoftware.com/imaging">CAST Imaging</a> - architecture recovery, impact analysis, design-drift tracking, and structural visibility</li>
+<li>[x] <a href="https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt">Thoughtworks Codebase Cognitive Debt</a> - human-understanding dimension of legibility</li>
+<li>[x] <a href="https://dora.dev/">DevOps Research and Assessment (DORA)</a> - research program on capabilities that drive software delivery and operations performance</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Mitchell (2026) Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model</a> - prior completed repository item on layered dependency evidence</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-21-technology-capability-models.html">Mitchell (2026) Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</a> - prior completed repository item on capability-model structure and maturity overlays</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html">Mitchell (2026) Enterprise Data Stack Value-Distribution Frameworks</a> - prior completed repository item on governance as a cross-layer function</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a> <span class="related-note">via enterprise-architecture, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-governance-moat-prior-research-implications.html">Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?</a> <span class="related-note">via enterprise-architecture, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html">Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?</a> <span class="related-note">via enterprise-architecture, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</a> <span class="related-note">via enterprise-architecture, it-architecture</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a> <span class="related-note">via dependency-mapping, observability</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html">Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-15-tracking-work-across-systems.html">Tracking How Work Travels Across Organisational Systems</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-06</td><td><a href="https://github.com/davidamitchell/Research/commit/b800ee8fcb5e82d4c65f62fff0455ea7f9dedfa3" target="_blank" rel="noopener">b800ee8</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability.html">What does the 2026 Harvard Business Review trendslop study and related…</a></div>
+  </div>
+</main>
+</body>
+</html>
