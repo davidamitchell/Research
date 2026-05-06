@@ -14,7 +14,7 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hair>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # How do you construct a declared design-time AI Bill of Materials (AIBOM) for a real agentic workload — a worked example using AWS Bedrock Agents and LangGraph?
