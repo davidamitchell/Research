@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 232fb7e4ea46a6cdb63b9b7c92b097c449912af4
+    changed: 2026-05-06
+    progress: progress/2026-05-06-aibom-platform-observability-control-comparison.md
+    summary: "Initial completion"
 ---
 
 # What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?
