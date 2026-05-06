@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T20:28:01Z",
+  "extracted_at": "2026-05-06T20:40:11Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -1186,6 +1186,117 @@
             "https://spiffe.io/docs/latest/spiffe-specs/spiffe/",
             "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-declared-construction-practice": {
+      "named_concepts": [
+        "hypothesis bedrock",
+        "hypothesis langgraph",
+        "declared aibom",
+        "declared fields",
+        "langgraph exposes",
+        "exposes richer",
+        "live memory",
+        "per-run rationale",
+        "runtime companion",
+        "declared extraction",
+        "aibom construction",
+        "inventory automatically",
+        "memory guardrails",
+        "richer orchestration",
+        "orchestration topology",
+        "repository analysis",
+        "code objects",
+        "tool definitions",
+        "retrieved documents",
+        "documents live"
+      ],
+      "source_urls": [
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgentActionGroups.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgentKnowledgeBases.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html",
+        "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-kb-add.html",
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/persistence",
+        "https://docs.langchain.com/oss/python/concepts/memory",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langgraph/quickstart",
+        "https://cyclonedx.org/capabilities/mlbom/",
+        "https://owaspaibom.org/",
+        "https://github.com/GenAI-Security-Project/aibom-generator",
+        "https://arxiv.org/abs/2510.07070",
+        "https://doi.org/10.48550/arXiv.2601.05703",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Hypothesis: Bedrock exposes enough documented control-plane and IaC fields to build a declared AIBOM automatically, but the extractor must join `GetAgent`, action-group, knowledge-base, and deployment-version resources rather than relying on a single export endpoint",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html",
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgentActionGroups.html",
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgentKnowledgeBases.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html"
+          ]
+        },
+        {
+          "text": "Hypothesis: Bedrock gives first-class declared fields for model selection, system instruction, prompt overrides, memory configuration, guardrail versioning, action schemas, and knowledge-base identifiers, which makes it a low-friction substrate for pipeline-generated declared inventories",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html",
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html",
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html",
+            "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html"
+          ]
+        },
+        {
+          "text": "Hypothesis: LangGraph also supports declared AIBOM construction, but its authoritative design-time artifacts are source code objects such as state schemas, nodes, edges, tool bindings, prompt literals, and checkpointer configuration instead of a managed platform manifest",
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/quickstart",
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://docs.langchain.com/oss/python/langchain/tools"
+          ]
+        },
+        {
+          "text": "Hypothesis: LangGraph exposes richer orchestration topology than Bedrock does, because graph structure, reducers, thread-scoped persistence, and tool runtime channels are explicit in code, but that richness is harder to inventory automatically without repository conventions or static-analysis tooling",
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://docs.langchain.com/oss/python/langchain/tools"
+          ]
+        },
+        {
+          "text": "Hypothesis: Current CycloneDX and SPDX-aligned AIBOM representations can absorb much of the model, data, service, and configuration metadata from both platforms, but they still need custom properties or extensions for prompts, routing logic, memory semantics, and execution bindings",
+          "sources": [
+            "https://cyclonedx.org/capabilities/mlbom/",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html"
+          ]
+        },
+        {
+          "text": "Hypothesis: Declared AIBOMs for both platforms remain incomplete without a runtime companion artifact, because retrieved documents, live memory contents, query-time overrides, and per-run rationale materially affect behavior but are not fully captured in design-time configuration alone",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+            "https://docs.langchain.com/oss/python/concepts/memory",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html"
+          ]
+        },
+        {
+          "text": "Hypothesis: The practical automation trade-off is asymmetric: Bedrock is easier to inventory from deployment infrastructure, while LangGraph is easier to inventory from source control, so the better declared AIBOM substrate depends on whether governance centers on platform APIs or repository analysis",
+          "sources": [
+            "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html"
           ]
         }
       ]
