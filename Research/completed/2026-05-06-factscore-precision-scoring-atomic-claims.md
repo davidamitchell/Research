@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: 48f3fc2f63dc173487708e6c9287b14e8458306c
+    changed: 2026-05-06
+    progress: progress/2026-05-06-factscore-precision-scoring-atomic-claims.md
+    summary: "Initial completion"
 ---
 
 # How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?
