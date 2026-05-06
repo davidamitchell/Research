@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-06 09:50 UTC
+Generated on: 2026-05-06 10:13 UTC
 
 ## Table of Contents
 
 * [What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?](#2026-05-06-it-system-legibility-measurement-frameworks-md)
+* [How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?](#2026-05-06-aibom-identity-delegation-trust-theory-md)
 * [What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?](#2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability-md)
 * [What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?](#2026-05-02-vendor-lock-in-portability-multi-platform-ai-md)
 * [What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?](#2026-05-02-systematic-review-methodology-ai-synthesis-md)
@@ -341,6 +342,84 @@ The best-supported conclusion is therefore plural rather than singular: legibili
 - Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard? [inference; source: https://backstage.io/docs/features/software-catalog/; https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
 - How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index? [inference; source: https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt; https://engineering.atspotify.com/2024/04/supercharged-developer-portals]
 - Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific? [inference; source: https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://backstage.io/docs/features/software-catalog/; https://www.leanix.net/en/products/application-portfolio-management; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
+
+---
+
+---
+
+<a id="2026-05-06-aibom-identity-delegation-trust-theory-md"></a>
+
+## How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?
+
+**Tags:** [agentic-ai, identity, security, governance, access-control, delegation, attribution, zero-trust]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-identity-delegation-trust-theory.md
+
+## Research Question
+
+How should identity, delegation, and permission scopes be formally represented in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution, "who authorized what", across multi-agent compositions involving human users, orchestrator agents, sub-agents, tools, and model instances, and where do current identity standards, OAuth 2.0, OpenID Connect (OIDC), Secure Production Identity Framework for Everyone (SPIFFE), and zero-trust guidance, succeed or fail when applied to agentic delegation chains?
+
+## Findings
+
+### Executive Summary
+
+An AIBOM that can support end-to-end attribution in multi-agent systems should model identity as a typed graph of distinct principals and workload actors linked by explicit delegation edges and bounded permission-scope manifests, not as a flat list of components. [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://www.rfc-editor.org/rfc/rfc8693; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html]
+
+RFC 8693 provides explicit formal semantics for subject, actor, delegation, and impersonation, but it does not itself preserve the whole audit-relevant chain for authorization decisions, so AIBOM must persist full delegation history as a separate design-time artifact. [inference; source: https://www.rfc-editor.org/rfc/rfc8693]
+
+OpenID Connect and Microsoft Entra On-Behalf-Of remain useful for authenticated human delegation, while SPIFFE remains useful for workload identity and trust-domain verification, but neither layer alone captures effective permissions, trust-boundary policy, and cross-hop provenance. [inference; source: https://openid.net/specs/openid-connect-core-1_0.html; https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/]
+
+The practical AIBOM answer is therefore a six-part schema, identity inventory, delegation chain, permission manifests, trust-boundary crossings, credential policy, and attribution requirements, because current standards solve adjacent slices rather than the whole agentic attribution problem. [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/docs/latest/spiffe-specs/spiffe/; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/]
+
+### Key Findings
+
+1. **An AIBOM should model human principals, agent workloads, tool or service workloads, model instances, runtime contexts, and trust domains as distinct identity classes, because current standards distribute those concepts across end-user identity, workload identity, and zero-trust subject composition rather than collapsing them into one actor type.** ([inference]; high confidence; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://openid.net/specs/openid-connect-core-1_0.html; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+2. **RFC 8693 provides explicit concepts that AIBOM can reuse for delegation edges, including subject, actor, authorized actor, delegation, and impersonation, but AIBOM must still persist full prior-hop history separately because nested prior actors are informational only for authorization decisions.** ([inference]; medium confidence; source: https://www.rfc-editor.org/rfc/rfc8693)
+3. **OpenID Connect and Microsoft Entra On-Behalf-Of are appropriate for authenticated user-delegated flows, but they do not solve app-only or autonomous multi-hop delegation, so an AIBOM must separate human-identity assertions from workload-identity assertions instead of treating them as one credential class.** ([inference]; high confidence; source: https://openid.net/specs/openid-connect-core-1_0.html; https://openid.net/developers/how-connect-works/; https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow)
+4. **SPIFFE succeeds at issuing short-lived cryptographic workload identities and trust bundles across trust domains, but it does not define end-user delegation or permission scopes, so AIBOM must layer scope manifests and delegation semantics above workload identity rather than expecting SPIFFE alone to supply authorization meaning.** ([inference]; medium confidence; source: https://spiffe.io/docs/latest/spiffe-about/overview/; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://spiffe.io/docs/latest/spiffe-specs/spiffe/)
+5. **Permission scopes in an AIBOM should be represented as edge-bound manifests containing target resource or audience, allowed operations, delegation mode, credential class, maximum lifetime, approval requirement, and revocation path, because least privilege is enforced at the hop rather than by the identity label alone.** ([inference]; medium confidence; source: https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+6. **A zero-trust-compatible AIBOM must declare trust domains, authentication method, attestation or identity-issuance mechanism, enforcement point, and credential-rotation policy for every boundary crossing, because identity inventories without verification-path metadata do not show how trust is actually established at runtime.** ([inference]; high confidence; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/)
+7. **Attribution fails most predictably when systems rely on shared service identities, ambient runtime credentials, tool substitution that changes downstream audience, or cross-domain retrieval that cannot bind the original human subject to the current workload actor, so those conditions should be named explicitly in the AIBOM failure-mode register.** ([inference]; medium confidence; source: https://www.rfc-editor.org/rfc/rfc8693; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/)
+8. **The minimal formal AIBOM schema for this problem is therefore six linked objects, `identities`, `delegations`, `permission_manifests`, `trust_boundary_crossings`, `credential_policies`, and `attribution_requirements`, because no reviewed standard independently covers all six layers needed for auditable multi-agent operation.** ([inference]; medium confidence; source: https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/docs/latest/spiffe-specs/spiffe/; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] AIBOM needs six distinct identity classes rather than one flat actor type. | https://csrc.nist.gov/pubs/sp/800/207/final; https://openid.net/specs/openid-connect-core-1_0.html; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | high | Standards divide identity across human, workload, and composite subject layers. |
+| [inference] RFC 8693 provides reusable delegation concepts for AIBOM, but prior actors remain informational for authorization and therefore need separate audit persistence. | https://www.rfc-editor.org/rfc/rfc8693 | medium | Direct standard language supports the semantics; the AIBOM reuse step is the inference. |
+| [inference] Human-delegated and autonomous flows require separate identity layers in AIBOM. | https://openid.net/specs/openid-connect-core-1_0.html; https://openid.net/developers/how-connect-works/; https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow | high | OIDC and OBO remain human-centered. |
+| [inference] SPIFFE solves workload identity and trust verification, not end-user delegation or scope semantics. | https://spiffe.io/docs/latest/spiffe-about/overview/; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://spiffe.io/docs/latest/spiffe-specs/spiffe/ | medium | Strong evidence for identity scope, weaker because the absence of authorization semantics is inferred from spec boundaries. |
+| [inference] Permission scopes should be edge-bound manifests with target, operation, lifetime, approval, and revocation metadata. | https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | medium | Proposed field grouping built from primary standards plus prior repository synthesis. |
+| [inference] Zero-trust-compatible AIBOMs must record verification-path metadata at each trust-boundary crossing. | https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ | high | All three sources require explicit verification rather than ambient trust. |
+| [inference] Shared credentials, ambient runtime identity, and cross-domain retrieval are first-order attribution failure modes. | https://www.rfc-editor.org/rfc/rfc8693; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ | medium | Combines standard semantics with adjacent completed-item evidence. |
+| [inference] The minimal AIBOM schema requires six linked object groups. | https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/docs/latest/spiffe-specs/spiffe/; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html | medium | Schema shape is synthetic rather than directly standardized. |
+
+### Assumptions
+
+- None.
+
+### Analysis
+
+The evidence was weighted toward primary standards where they named formal objects directly, which is why RFC 8693 carries more weight for delegation edges than platform guidance, and why SPIFFE carries more weight for workload identity than OpenID Connect. [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://spiffe.io/docs/latest/spiffe-specs/spiffe/; https://openid.net/specs/openid-connect-core-1_0.html]
+
+Two rival simplifications were considered and rejected. A runtime-only alternative, storing trace logs without design-time identity manifests, was rejected because RFC 8693 makes prior actors informational only for authorization and the adjacent repository items show that missing permission representation leaves downstream evidence semantically incomplete. [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html]
+
+The second rival, relying on stronger model quality gates or more frequent human review instead of explicit delegation and scope manifests, was rejected because those controls may reduce misuse probability but they do not create machine-verifiable actor separation or trust-boundary semantics. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html]
+
+The preferred model is therefore not a new identity standard, but a schema-level composition of existing standards into one auditable graph, human identity from OpenID Connect, delegation edges from RFC 8693 style semantics, workload identity from SPIFFE or equivalent, and hop-level enforcement constraints from Zero Trust Architecture and transport-layer authorization. [inference; source: https://openid.net/specs/openid-connect-core-1_0.html; https://www.rfc-editor.org/rfc/rfc8693; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://csrc.nist.gov/pubs/sp/800/207/final; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/]
+
+### Risks, Gaps, and Uncertainties
+
+- No reviewed standard defines an AIBOM schema directly, so the recommended field grouping is a synthesis rather than a standards-backed canonical format. [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/docs/latest/spiffe-specs/spiffe/]
+- SPIFFE documentation is explicit about identity issuance and verification but not about application-layer authorization semantics, so claims about what must be added on top of SPIFFE remain partly inferential. [inference; source: https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://spiffe.io/docs/latest/spiffe-specs/spiffe/]
+- Platform-specific audit coverage can still vary even when the AIBOM graph is complete, which means schema completeness does not guarantee uniform downstream telemetry quality. [inference; source: https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/]
+
+### Open Questions
+
+- What is the smallest interoperable serialization for nested delegation chains that preserves audit history without causing token or manifest bloat?
+- How should an AIBOM identify model instances when the same logical model is accessed through multiple hosted endpoints with different trust and logging behavior?
+- Which runtime trace fields are the minimum necessary companion to the design-time AIBOM so that a post-incident reviewer can bind intent, delegation, and action together without ambiguity?
 
 ---
 
