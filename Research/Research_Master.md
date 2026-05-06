@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-06 10:13 UTC
+Generated on: 2026-05-06 10:34 UTC
 
 ## Table of Contents
 
 * [What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?](#2026-05-06-it-system-legibility-measurement-frameworks-md)
+* [How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?](#2026-05-06-aibom-runtime-generation-divergence-theory-md)
 * [How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?](#2026-05-06-aibom-identity-delegation-trust-theory-md)
 * [What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?](#2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability-md)
 * [What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?](#2026-05-02-vendor-lock-in-portability-multi-platform-ai-md)
@@ -342,6 +343,78 @@ The best-supported conclusion is therefore plural rather than singular: legibili
 - Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard? [inference; source: https://backstage.io/docs/features/software-catalog/; https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
 - How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index? [inference; source: https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt; https://engineering.atspotify.com/2024/04/supercharged-developer-portals]
 - Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific? [inference; source: https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://backstage.io/docs/features/software-catalog/; https://www.leanix.net/en/products/application-portfolio-management; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
+
+---
+
+---
+
+<a id="2026-05-06-aibom-runtime-generation-divergence-theory-md"></a>
+
+## How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?
+
+**Tags:** [agentic-ai, governance, llm, observability, runtime-monitoring, security]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-runtime-generation-divergence-theory.md
+
+## Research Question
+
+How can a dynamic, runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, capturing execution traces, transient Retrieval-Augmented Generation (RAG) retrievals, tool call outputs, and memory state at decision points, and what formal models describe the divergence between a declared design-time AIBOM and what actually executes at inference time?
+
+## Findings
+
+### Executive Summary
+
+A runtime-observed AIBOM is best generated as an event-sourced provenance graph plus decision-point state snapshots, and divergence should be expected whenever runtime retrieval, delegated authority, mutable external state, or dynamic orchestration choices shape the run. [inference; source: https://www.w3.org/TR/prov-overview/; https://martinfowler.com/eaaDev/EventSourcing.html; https://opentelemetry.io/docs/concepts/signals/traces/; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/]
+The strongest single-run ground truth is the causality graph of entities, activities, and agents linked by trace correlation and backed by immutable runtime events, while snapshots preserve transient context such as retrieved chunks, prompt windows, memory state, and delegated authority. [inference; source: https://www.w3.org/TR/prov-overview/; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/]
+Declared-to-observed divergence should be modelled explicitly across coverage, configuration, retrieval, memory, authority, topology, external-state, and control-policy surfaces rather than treated as a generic drift label. [inference; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html]
+Replayability is partial: evidence-preserving reconstruction is often achievable, but behaviour-reproducing re-execution is inherently limited by stochastic generation, mutable external systems, and evolving retrieval corpora. [inference; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://martinfowler.com/eaaDev/EventSourcing.html]
+
+### Key Findings
+
+1. **A usable runtime AIBOM needs a layered representation that records trace topology, content-bearing runtime events, and decision-point state snapshots, because none of those layers alone is sufficient to reconstruct one agent run faithfully.** ([inference]; high confidence; source: https://opentelemetry.io/docs/concepts/signals/traces/; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html)
+2. **The best formal ground truth for a single non-deterministic run is a full causality graph backed by immutable events, while snapshots and statistical summaries are derived projections for transient-state preservation and cross-run governance analysis respectively.** ([inference]; high confidence; source: https://www.w3.org/TR/prov-overview/; https://martinfowler.com/eaaDev/EventSourcing.html; https://opentelemetry.io/docs/concepts/signals/traces/)
+3. **Declared-versus-observed divergence is structurally multi-dimensional, because observed runs can differ in component coverage, model configuration, retrieval set, memory state, caller authority, orchestration path, external world state, and active logging or guardrail policy.** ([inference]; high confidence; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html)
+4. **Runtime AIBOM generation should treat OpenTelemetry and W3C Trace Context as the correlation substrate, W3C PROV as the provenance vocabulary, and event sourcing as the persistence pattern for the immutable run record.** ([inference]; high confidence; source: https://opentelemetry.io/docs/concepts/signals/traces/; https://www.w3.org/TR/trace-context/; https://www.w3.org/TR/prov-overview/; https://martinfowler.com/eaaDev/EventSourcing.html)
+5. **Deterministic replay is realistic for captured prompts, tool arguments, recorded tool outputs, and policy decisions, but live re-execution of model output or external API results remains only partially reproducible even when seeds and parameters are logged.** ([inference]; medium confidence; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://martinfowler.com/eaaDev/EventSourcing.html)
+6. **Authority information must be part of the runtime AIBOM itself rather than inferred later, because delegated identity chains and effective permissions are not fully preserved by runtime token formats or trace correlation alone.** ([inference]; high confidence; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html)
+7. **For governance purposes, the most consequential runtime AIBOM divergences are not generic variance but the ones that change what information, authority, or control setting shaped the decision, because those are the divergences that alter risk exposure and auditability.** ([inference]; medium confidence; source: https://www.nist.gov/itl/ai-risk-management-framework; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Runtime AIBOMs need topology, content, and decision-state layers. | https://opentelemetry.io/docs/concepts/signals/traces/ ; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/ ; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html | high | Correlation plus content plus state capture |
+| [inference] Single-run ground truth is the causality graph backed by immutable events. | https://www.w3.org/TR/prov-overview/ ; https://martinfowler.com/eaaDev/EventSourcing.html ; https://opentelemetry.io/docs/concepts/signals/traces/ | high | Snapshots remain derived aids |
+| [inference] Divergence is multi-dimensional rather than a single drift scalar. | https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/ ; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html | high | Coverage, config, retrieval, memory, authority, topology, external state, policy |
+| [inference] OpenTelemetry, W3C PROV, and event sourcing fill different layers of the formal model. | https://opentelemetry.io/docs/concepts/signals/traces/ ; https://www.w3.org/TR/trace-context/ ; https://www.w3.org/TR/prov-overview/ ; https://martinfowler.com/eaaDev/EventSourcing.html | high | Correlation, vocabulary, persistence pattern |
+| [inference] Replayability is partial even when prompts, parameters, and seeds are logged. | https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/ ; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html ; https://martinfowler.com/eaaDev/EventSourcing.html | medium | Reconstruct evidence more reliably than behaviour |
+| [inference] Delegation and authority must be recorded inside the runtime AIBOM. | https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html ; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html | high | Caller chain and effective scope are decision inputs |
+| [inference] Governance should prioritize divergences that alter information, authority, or active controls. | https://www.nist.gov/itl/ai-risk-management-framework ; https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html | medium | Risk significance is governance-weighted |
+
+### Assumptions
+
+- **Assumption:** The unmatched seeded provenance-paper titles do not overturn the core model here. **Justification:** the conceptual conclusions rely mainly on accessible standards that already define provenance, trace correlation, and replay-oriented event history. [assumption; source: https://www.w3.org/TR/prov-overview/; https://opentelemetry.io/docs/specs/semconv/gen-ai/]
+- **Assumption:** Memory state can be treated as a snapshot surface rather than as a continuously logged stream. **Justification:** the governance question is what state informed a decision point rather than every intermediate token-level mutation. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/]
+
+### Analysis
+
+The evidence supports modelling the runtime AIBOM as an immutable run-history object rather than as a mutable inventory record, because the strongest sources all describe provenance, tracing, and event history in terms of ordered activities and correlated state changes. [inference; source: https://www.w3.org/TR/prov-overview/; https://martinfowler.com/eaaDev/EventSourcing.html; https://opentelemetry.io/docs/concepts/signals/traces/]
+OpenTelemetry contributes the practical correlation and field vocabulary, but its Generative AI semantic conventions are still in development, so it is a useful substrate rather than a complete stable specification for the whole runtime AIBOM. [inference; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/]
+AWS Bedrock is useful because it demonstrates that production agent traces already include the run objects this theory needs, including caller chain, prompt text, orchestration step types, rationale, observations, and failure traces, and it supports the inference that runtime evidence remains fragmented across multiple log modes. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html]
+The declared design-time AIBOM and the runtime AIBOM should therefore be treated as linked but non-identical artifacts: the first declares allowed capability and expected structure, while the second records an actual realized path through that design space. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html]
+A practical governance program should explicitly reject the rival idea that one can preserve per-run truth using only summary metrics or only a final-state snapshot, because both approaches lose causal structure and make later incident reconstruction materially weaker. [inference; source: https://martinfowler.com/eaaDev/EventSourcing.html; https://www.w3.org/TR/prov-overview/]
+
+### Risks, Gaps, and Uncertainties
+
+The OpenTelemetry Generative AI conventions are still marked development status, so a runtime AIBOM built directly on those field names may need later schema adaptation. [fact; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/]
+The unmatched seeded provenance-paper titles leave the academic framing thinner than ideal, even though the standards and platform sources are sufficient to support the core conceptual model presented here. [assumption; source: https://www.w3.org/TR/prov-overview/; https://www.nist.gov/itl/ai-risk-management-framework]
+The boundary between "memory state snapshot" and "continuous memory provenance" remains implementation-sensitive, so some systems may need deeper state capture than this conceptual baseline assumes. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/]
+
+### Open Questions
+
+- What minimum snapshot schema is sufficient to preserve agent memory state at a decision point without storing every intermediate memory mutation?
+- How should a declared AIBOM express acceptable Retrieval-Augmented Generation (RAG) variance so that normal retrieval behaviour is not misclassified as harmful divergence?
+- Which divergence classes should trigger immediate policy intervention versus post-run audit only?
 
 ---
 
