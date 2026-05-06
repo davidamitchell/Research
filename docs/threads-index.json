@@ -6095,14 +6095,14 @@
     "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-rmf-core",
-    "title": "ai rmf / nist ai / rmf core",
+    "slug": "ai-rmf-nist-ai-copilot-studio",
+    "title": "ai rmf / nist ai / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai rmf",
       "nist ai",
-      "rmf core"
+      "copilot studio"
     ],
     "item_count": 4,
     "items": [
@@ -6127,7 +6127,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-rmf-core.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
