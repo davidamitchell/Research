@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 73,
+    "item_count": 74,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -322,6 +322,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -389,7 +394,7 @@
       "security"
     ],
     "concept_cluster": [],
-    "item_count": 68,
+    "item_count": 69,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -697,6 +702,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -744,7 +754,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 52,
+    "item_count": 53,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -977,6 +987,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -1019,7 +1034,7 @@
       "regulated-banking"
     ],
     "concept_cluster": [],
-    "item_count": 48,
+    "item_count": 49,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1232,6 +1247,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -1274,7 +1294,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 45,
+    "item_count": 46,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -1472,6 +1492,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -1514,7 +1539,7 @@
       "security"
     ],
     "concept_cluster": [],
-    "item_count": 41,
+    "item_count": 42,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1697,6 +1722,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-platform-observability-control-comparison",
         "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
         "added": "2026-05-06"
@@ -1723,216 +1753,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-governance-security.html"
-  },
-  {
-    "slug": "agentic-ai-governance-llm",
-    "title": "agentic-ai / governance / llm",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "governance",
-      "llm"
-    ],
-    "concept_cluster": [],
-    "item_count": 39,
-    "items": [
-      {
-        "slug": "2026-03-02-agent-memory-management-context-injection",
-        "title": "Agent Memory Management and Context Injection",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-csdm-data-modelling",
-        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-08-servicenow-process-mapping",
-        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
-        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
-        "title": "Enterprise AI platform operating models: organisational structure and ownership",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
-        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
-        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
-        "title": "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
-        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
-        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
-        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
-        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-01-sustainable-ai-software-development-synthesis",
-        "title": "What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-human-oversight-ai-software-development",
-        "title": "What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-compound-error-accumulation-ai-codebases",
-        "title": "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-appropriate-task-selection-coding-agents",
-        "title": "What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
-        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-06-it-system-legibility-measurement-frameworks",
-        "title": "What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-schema-design-standards-alignment",
-        "title": "What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
-        "title": "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
-        "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
-        "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
-        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-identity-delegation-trust-theory",
-        "title": "How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-identity-attribution-multiagent-practice",
-        "title": "How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
-        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-declared-construction-practice",
-        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
-        "added": "2026-05-06"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-governance-llm.html"
   },
   {
     "slug": "agentic-ai-llm-workflow",
@@ -2145,16 +1965,16 @@
     "url": "/Research/threads/agentic-ai-llm-workflow.html"
   },
   {
-    "slug": "agentic-ai-llm-software-engineering",
-    "title": "agentic-ai / llm / software-engineering",
+    "slug": "agentic-ai-llm-security",
+    "title": "agentic-ai / llm / security",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "llm",
-      "software-engineering"
+      "security"
     ],
     "concept_cluster": [],
-    "item_count": 38,
+    "item_count": 39,
     "items": [
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
@@ -2317,6 +2137,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -2347,19 +2172,19 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/agentic-ai-llm-software-engineering.html"
+    "url": "/Research/threads/agentic-ai-llm-security.html"
   },
   {
-    "slug": "agentic-ai-ai-governance-security",
-    "title": "agentic-ai / ai-governance / security",
+    "slug": "agentic-ai-security-ai-governance",
+    "title": "agentic-ai / security / ai-governance",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
-      "ai-governance",
-      "security"
+      "security",
+      "ai-governance"
     ],
     "concept_cluster": [],
-    "item_count": 36,
+    "item_count": 37,
     "items": [
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
@@ -2512,6 +2337,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
         "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
         "added": "2026-05-06"
@@ -2542,7 +2372,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/agentic-ai-ai-governance-security.html"
+    "url": "/Research/threads/agentic-ai-security-ai-governance.html"
   },
   {
     "slug": "agentic-ai-llm-agentic-coding",
@@ -2554,7 +2384,7 @@
       "agentic-coding"
     ],
     "concept_cluster": [],
-    "item_count": 34,
+    "item_count": 35,
     "items": [
       {
         "slug": "2026-03-02-transaction-costs",
@@ -2704,6 +2534,11 @@
       {
         "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
         "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
         "added": "2026-05-06"
       },
       {
@@ -2905,6 +2740,176 @@
     "url": "/Research/threads/agentic-ai-workflow-llm.html"
   },
   {
+    "slug": "agentic-ai-llm-hallucinations",
+    "title": "agentic-ai / llm / hallucinations",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "llm",
+      "hallucinations"
+    ],
+    "concept_cluster": [],
+    "item_count": 31,
+    "items": [
+      {
+        "slug": "2026-03-05-llm-hallucination-mechanisms",
+        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-in-llms",
+        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-over-compliance",
+        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-swat-technique-loop-fresh-context",
+        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-research-to-publication-authoring-workflow",
+        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-automated-claim-verification-academic-literature",
+        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
+        "added": "2026-05-03"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
+        "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
+        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
+        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
+        "added": "2026-05-06"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-llm-hallucinations.html"
+  },
+  {
     "slug": "agentic-ai-regulated-banking-rag",
     "title": "agentic-ai / regulated-banking / rag",
     "kind": "implicit",
@@ -3070,171 +3075,6 @@
     "url": "/Research/threads/agentic-ai-regulated-banking-rag.html"
   },
   {
-    "slug": "agentic-ai-llm-hallucinations",
-    "title": "agentic-ai / llm / hallucinations",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "llm",
-      "hallucinations"
-    ],
-    "concept_cluster": [],
-    "item_count": 30,
-    "items": [
-      {
-        "slug": "2026-03-05-llm-hallucination-mechanisms",
-        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-in-llms",
-        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-synthesis",
-        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-over-compliance",
-        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-pretraining-origins",
-        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-11"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-12-swat-technique-loop-fresh-context",
-        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
-        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
-        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-research-to-publication-authoring-workflow",
-        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-automated-claim-verification-academic-literature",
-        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
-        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
-        "added": "2026-05-03"
-      },
-      {
-        "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
-        "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
-        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
-        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
-        "added": "2026-05-06"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-llm-hallucinations.html"
-  },
-  {
     "slug": "ai-governance-agentic-ai-low-code",
     "title": "ai-governance / agentic-ai / low-code",
     "kind": "implicit",
@@ -3395,16 +3235,16 @@
     "url": "/Research/threads/ai-governance-agentic-ai-low-code.html"
   },
   {
-    "slug": "agentic-ai-uelgf-observability",
-    "title": "agentic-ai / uelgf / observability",
+    "slug": "agentic-ai-observability-uelgf",
+    "title": "agentic-ai / observability / uelgf",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
-      "uelgf",
-      "observability"
+      "observability",
+      "uelgf"
     ],
     "concept_cluster": [],
-    "item_count": 24,
+    "item_count": 25,
     "items": [
       {
         "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
@@ -3517,6 +3357,11 @@
         "added": "2026-05-06"
       },
       {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
         "slug": "2026-05-06-aibom-platform-observability-control-comparison",
         "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
         "added": "2026-05-06"
@@ -3527,7 +3372,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/agentic-ai-uelgf-observability.html"
+    "url": "/Research/threads/agentic-ai-observability-uelgf.html"
   },
   {
     "slug": "agentic-ai-software-engineering-agentic-coding",
@@ -3999,7 +3844,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 16,
+    "item_count": 17,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -4069,6 +3914,11 @@
       {
         "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
         "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
         "added": "2026-05-06"
       },
       {
@@ -4430,6 +4280,91 @@
     "url": "/Research/threads/agentic-ai-anthropic-memory.html"
   },
   {
+    "slug": "agentic-ai-ai-platform-security",
+    "title": "agentic-ai / ai-platform / security",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "ai-platform",
+      "security"
+    ],
+    "concept_cluster": [],
+    "item_count": 14,
+    "items": [
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-16-gitagent-declarative-agent-definition",
+        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-29-multi-agent-repo-setup",
+        "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
+        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-declared-construction-practice",
+        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
+        "added": "2026-05-06"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-ai-platform-security.html"
+  },
+  {
     "slug": "governance-financial-services-agentic-ai",
     "title": "governance / financial-services / agentic-ai",
     "kind": "implicit",
@@ -4590,86 +4525,6 @@
     "url": "/Research/threads/agentic-ai-pbac-prompt-injection.html"
   },
   {
-    "slug": "agentic-ai-copilot-ai-platform",
-    "title": "agentic-ai / copilot / ai-platform",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "copilot",
-      "ai-platform"
-    ],
-    "concept_cluster": [],
-    "item_count": 13,
-    "items": [
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-29-multi-agent-repo-setup",
-        "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
-        "added": "2026-03-29"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      },
-      {
-        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
-        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
-        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
-        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
-        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-declared-construction-practice",
-        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
-        "added": "2026-05-06"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-copilot-ai-platform.html"
-  },
-  {
     "slug": "agentic-ai-regulated-banking-pbac",
     "title": "agentic-ai / regulated-banking / pbac",
     "kind": "implicit",
@@ -4743,6 +4598,76 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-regulated-banking-pbac.html"
+  },
+  {
+    "slug": "governance-agentic-ai-ai-platform",
+    "title": "governance / agentic-ai / ai-platform",
+    "kind": "implicit",
+    "tag_cluster": [
+      "governance",
+      "agentic-ai",
+      "ai-platform"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
+        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
+        "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
+        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-declared-construction-practice",
+        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
+        "added": "2026-05-06"
+      }
+    ],
+    "url": "/Research/threads/governance-agentic-ai-ai-platform.html"
   },
   {
     "slug": "agentic-ai-architecture-financial-services",
@@ -5235,41 +5160,26 @@
     "url": "/Research/threads/agentic-ai-transaction-costs-knowledge-management.html"
   },
   {
-    "slug": "governance-financial-services-agentic-ai",
-    "title": "governance / financial-services / agentic-ai",
+    "slug": "governance-agentic-ai-observability",
+    "title": "governance / agentic-ai / observability",
     "kind": "implicit",
     "tag_cluster": [
       "governance",
-      "financial-services",
-      "agentic-ai"
+      "agentic-ai",
+      "observability"
     ],
     "concept_cluster": [],
     "item_count": 10,
     "items": [
       {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
       },
       {
-        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
-        "title": "Enterprise AI platform operating models: organisational structure and ownership",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
-        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-business-led-low-code-agent-governance",
-        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
+        "slug": "2026-03-21-technology-capability-models",
+        "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
@@ -5277,14 +5187,29 @@
         "added": "2026-04-27"
       },
       {
-        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
-        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
-        "added": "2026-04-30"
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
       },
       {
-        "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
-        "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
-        "added": "2026-04-30"
+        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-05-06-it-system-legibility-measurement-frameworks",
+        "title": "What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
+        "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
       },
       {
         "slug": "2026-05-06-aibom-platform-observability-control-comparison",
@@ -5292,12 +5217,12 @@
         "added": "2026-05-06"
       },
       {
-        "slug": "2026-05-06-aibom-declared-construction-practice",
-        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
+        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
+        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/governance-financial-services-agentic-ai.html"
+    "url": "/Research/threads/governance-agentic-ai-observability.html"
   },
   {
     "slug": "agentic-ai-organisational-design-transaction-costs",
@@ -5430,6 +5355,71 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
+    "slug": "servicenow-enterprise-architecture-agentic-ai",
+    "title": "servicenow / enterprise-architecture / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "servicenow",
+      "enterprise-architecture",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 10,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-process-mapping",
+        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-21-technology-capability-models",
+        "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/servicenow-enterprise-architecture-agentic-ai.html"
+  },
+  {
     "slug": "financial-services-ai-strategy-risk-management",
     "title": "financial-services / ai-strategy / risk-management",
     "kind": "implicit",
@@ -5560,13 +5550,13 @@
     "url": "/Research/threads/agentic-ai-ai-strategy-financial-services.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -5622,7 +5612,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "synthesis-agentic-ai-incentives",
@@ -6410,14 +6400,14 @@
     "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -6447,17 +6437,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -6487,7 +6477,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6525,13 +6515,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -6557,7 +6547,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T22:25:50Z",
+  "extracted_at": "2026-05-06T22:36:23Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -950,6 +950,128 @@
             "https://www.nist.gov/itl/ai-risk-management-framework",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-runtime-capture-opentelemetry-practice": {
+      "named_concepts": [
+        "runtime aibom",
+        "aibom capture",
+        "aws bedrock",
+        "declared aibom",
+        "generative artificial",
+        "artificial intelligence",
+        "custom span",
+        "semantic conventions",
+        "single native",
+        "native export",
+        "trace events",
+        "knowledge-base activity",
+        "caller chains",
+        "opentelemetry spans",
+        "runtime trace",
+        "trace surface",
+        "session identifiers",
+        "tool-call order",
+        "order retrieved",
+        "retrieved context"
+      ],
+      "source_urls": [
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/aws-bedrock/",
+        "https://opentelemetry.io/docs/instrumentation/python/getting-started/",
+        "https://opentelemetry.io/docs/collector/",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-telemetry.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-view.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+        "https://docs.langchain.com/langsmith/trace-with-opentelemetry",
+        "https://docs.langchain.com/langsmith/observability-concepts",
+        "https://www.traceloop.com/docs/openllmetry/introduction",
+        "https://pypi.org/project/opentelemetry-instrumentation-langchain/",
+        "https://arize.com/docs/phoenix/tracing/how-to-tracing/setup-tracing/instrument",
+        "https://grafana.com/oss/tempo/",
+        "https://grafana.com/docs/tempo/latest/traceql/",
+        "https://docs.opensearch.org/latest/observing-your-data/trace/index/",
+        "https://www.jaegertracing.io/docs/2.11/storage/",
+        "https://www.jaegertracing.io/docs/2.11/architecture/",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html"
+      ],
+      "key_claims": [
+        {
+          "text": "AWS Bedrock can populate runtime AIBOM fields for session identity, trace hierarchy, prompt text, inference configuration, tool or knowledge-base activity, and caller chains, which makes its native telemetry unusually close to the topology and content layers required by the runtime AIBOM model",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-telemetry.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html"
+          ]
+        },
+        {
+          "text": "LangGraph can also yield a usable runtime AIBOM when the operator composes LangSmith traces with OpenTelemetry spans and optional framework instrumentation, because default run trees do not automatically capture every governance-relevant state surface such as memory snapshots or delegated authority context",
+          "sources": [
+            "https://docs.langchain.com/langsmith/trace-with-opentelemetry",
+            "https://docs.langchain.com/langsmith/observability-concepts",
+            "https://opentelemetry.io/docs/instrumentation/python/getting-started/",
+            "https://www.traceloop.com/docs/openllmetry/introduction"
+          ]
+        },
+        {
+          "text": "OpenTelemetry's Generative Artificial Intelligence events and agent spans already offer a workable field vocabulary for runtime AIBOMs, including models, messages, tools, tokens, agent identifiers, and versions, but decision-state fields such as checkpointed memory or effective permissions still require application-specific attributes or linked artifacts",
+          "sources": [
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/",
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/aws-bedrock/"
+          ]
+        },
+        {
+          "text": "The runtime trace surface necessarily diverges from the declared AIBOM because one observed execution reveals actual session identifiers, tool-call order, retrieved context, token usage, and failure paths that a design-time inventory cannot fully specify in advance",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html"
+          ]
+        },
+        {
+          "text": "A single run can legitimately omit declared components such as unused tools, untaken graph branches, or unqueried knowledge bases, so absent-component divergence must be distinguished from real configuration drift before a runtime AIBOM is used as a compliance or incident-review artifact",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-service-provided.html",
+            "https://docs.langchain.com/langsmith/observability-concepts"
+          ]
+        },
+        {
+          "text": "Missing-observability divergence is a first-class governance risk because runtime AIBOM completeness depends on enabling transaction search, content capture, and custom span emission, which means an apparently well-instrumented system can still hide decisive execution detail if the telemetry path is only partially configured",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html",
+            "https://pypi.org/project/opentelemetry-instrumentation-langchain/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        },
+        {
+          "text": "The OpenTelemetry Collector is a practical ingress point for runtime AIBOM pipelines because it can batch, retry, redact, and fan out traces before they reach storage backends, allowing one instrumented workload to support both developer tooling and long-retention governance stores",
+          "sources": [
+            "https://opentelemetry.io/docs/collector/",
+            "https://www.jaegertracing.io/docs/2.11/architecture/",
+            "https://docs.langchain.com/langsmith/trace-with-opentelemetry"
+          ]
+        },
+        {
+          "text": "Backend choice determines how searchable and durable a runtime AIBOM becomes, with LangSmith optimizing for developer runs, Tempo optimizing for low-cost high-volume trace retention, and Jaeger or OpenSearch providing more explicit general-purpose trace-query and archive patterns for operational investigations",
+          "sources": [
+            "https://docs.langchain.com/langsmith/observability-concepts",
+            "https://grafana.com/oss/tempo/",
+            "https://grafana.com/docs/tempo/latest/traceql/",
+            "https://www.jaegertracing.io/docs/2.11/storage/",
+            "https://docs.opensearch.org/latest/observing-your-data/trace/index/"
           ]
         }
       ]

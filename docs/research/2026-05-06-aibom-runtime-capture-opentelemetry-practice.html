@@ -1,0 +1,794 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AIBOM in practice using OpenTelemetry tracing and platform-native observability… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AIBOM in practice using OpenTelemetry tracing and platform-native observability…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AIBOM in practice using OpenTelemetry tracing and platform-native observability…</h1>
+  <p class="full-title-subtitle">How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/observability.html">observability</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/runtime-monitoring.html">runtime-monitoring</a> <a class="tag" href="/Research/tags/ai-platform.html">ai-platform</a> <a class="tag" href="/Research/tags/governance.html">governance</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-runtime-capture-opentelemetry-practice.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-aibom-runtime-capture-opentelemetry-practice" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>AWS Bedrock can populate runtime AIBOM fields for session identity, trace hierarchy, prompt text, inference configuration, tool or knowledge-base activity, and caller chains, which makes its native telemetry unusually close to the topology and content layers required by the runtime AIBOM model<span class="claim-sources"><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-telemetry.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-telemetry.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Amazon (n.d.)</a></span></li>
+<li>LangGraph can also yield a usable runtime AIBOM when the operator composes LangSmith traces with OpenTelemetry spans and optional framework instrumentation, because default run trees do not automatically capture every governance-relevant state surface such as memory snapshots or delegated authority context<span class="claim-sources"><a class="claim-source-link" href="https://docs.langchain.com/langsmith/trace-with-opentelemetry" target="_blank" rel="noopener" title="https://docs.langchain.com/langsmith/trace-with-opentelemetry">LangSmith (n.d.)</a><a class="claim-source-link" href="https://docs.langchain.com/langsmith/observability-concepts" target="_blank" rel="noopener" title="https://docs.langchain.com/langsmith/observability-concepts">LangSmith (n.d.)</a><a class="claim-source-link" href="https://opentelemetry.io/docs/instrumentation/python/getting-started/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/instrumentation/python/getting-started/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://www.traceloop.com/docs/openllmetry/introduction" target="_blank" rel="noopener" title="https://www.traceloop.com/docs/openllmetry/introduction">Traceloop (n.d.)</a></span></li>
+<li>OpenTelemetry&#39;s Generative Artificial Intelligence events and agent spans already offer a workable field vocabulary for runtime AIBOMs, including models, messages, tools, tokens, agent identifiers, and versions, but decision-state fields such as checkpointed memory or effective permissions still require application-specific attributes or linked artifacts<span class="claim-sources"><a class="claim-source-link" href="https://opentelemetry.io/docs/specs/semconv/gen-ai/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/specs/semconv/gen-ai/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://opentelemetry.io/docs/specs/semconv/gen-ai/aws-bedrock/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/specs/semconv/gen-ai/aws-bedrock/">OpenTelemetry (n.d.)</a></span></li>
+<li>The runtime trace surface necessarily diverges from the declared AIBOM because one observed execution reveals actual session identifiers, tool-call order, retrieved context, token usage, and failure paths that a design-time inventory cannot fully specify in advance<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Amazon (n.d.)</a></span></li>
+<li>A single run can legitimately omit declared components such as unused tools, untaken graph branches, or unqueried knowledge bases, so absent-component divergence must be distinguished from real configuration drift before a runtime AIBOM is used as a compliance or incident-review artifact<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-service-provided.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-service-provided.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://docs.langchain.com/langsmith/observability-concepts" target="_blank" rel="noopener" title="https://docs.langchain.com/langsmith/observability-concepts">LangSmith (n.d.)</a></span></li>
+<li>Missing-observability divergence is a first-class governance risk because runtime AIBOM completeness depends on enabling transaction search, content capture, and custom span emission, which means an apparently well-instrumented system can still hide decisive execution detail if the telemetry path is only partially configured<span class="claim-sources"><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://pypi.org/project/opentelemetry-instrumentation-langchain/" target="_blank" rel="noopener" title="https://pypi.org/project/opentelemetry-instrumentation-langchain/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">Mitchell (2026)</a></span></li>
+<li>The OpenTelemetry Collector is a practical ingress point for runtime AIBOM pipelines because it can batch, retry, redact, and fan out traces before they reach storage backends, allowing one instrumented workload to support both developer tooling and long-retention governance stores<span class="claim-sources"><a class="claim-source-link" href="https://opentelemetry.io/docs/collector/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/collector/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://www.jaegertracing.io/docs/2.11/architecture/" target="_blank" rel="noopener" title="https://www.jaegertracing.io/docs/2.11/architecture/">Jaeger (n.d.)</a><a class="claim-source-link" href="https://docs.langchain.com/langsmith/trace-with-opentelemetry" target="_blank" rel="noopener" title="https://docs.langchain.com/langsmith/trace-with-opentelemetry">LangSmith (n.d.)</a></span></li>
+<li>Backend choice determines how searchable and durable a runtime AIBOM becomes, with LangSmith optimizing for developer runs, Tempo optimizing for low-cost high-volume trace retention, and Jaeger or OpenSearch providing more explicit general-purpose trace-query and archive patterns for operational investigations<span class="claim-sources"><a class="claim-source-link" href="https://docs.langchain.com/langsmith/observability-concepts" target="_blank" rel="noopener" title="https://docs.langchain.com/langsmith/observability-concepts">LangSmith (n.d.)</a><a class="claim-source-link" href="https://grafana.com/oss/tempo/" target="_blank" rel="noopener" title="https://grafana.com/oss/tempo/">Grafana (n.d.)</a><a class="claim-source-link" href="https://grafana.com/docs/tempo/latest/traceql/" target="_blank" rel="noopener" title="https://grafana.com/docs/tempo/latest/traceql/">Grafana (n.d.)</a><a class="claim-source-link" href="https://www.jaegertracing.io/docs/2.11/storage/" target="_blank" rel="noopener" title="https://www.jaegertracing.io/docs/2.11/storage/">Jaeger (n.d.)</a><a class="claim-source-link" href="https://docs.opensearch.org/latest/observing-your-data/trace/index/" target="_blank" rel="noopener" title="https://docs.opensearch.org/latest/observing-your-data/trace/index/">OpenSearch (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How do you instrument a real agentic Artificial Intelligence workload, meaning a tool-using workload that plans or acts across multiple steps, to capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM), specifically using OpenTelemetry (OTel) semantic conventions for Generative Artificial Intelligence and platform-native observability tools, Amazon Web Services (AWS) Bedrock AgentCore Observability and LangSmith, and what does the captured trace data reveal about divergence from the declared AIBOM constructed in <code>2026-05-06-aibom-declared-construction-practice</code>?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Runtime-observed AIBOM capture is operationally feasible today for both AWS Bedrock and LangGraph, but only as a layered telemetry assembly rather than as a single native export.</p>
+<p>Bedrock provides the stronger native substrate because AgentCore and Bedrock trace events already expose session and trace structure, prompts, inference settings, tool or knowledge-base activity, and caller chains, while LangGraph usually reaches the same runtime AIBOM fidelity only when LangSmith is combined with custom OpenTelemetry spans or framework auto-instrumentation.</p>
+<p>The runtime trace surface consistently diverges from the declared AIBOM by adding execution-specific state such as session identifiers, actual tool-call order, retrieved context, token usage, and failure paths, while some declared but dormant components remain unseen in any single run.</p>
+<p>A practical storage design therefore needs a collector-mediated pipeline plus backend-specific retention and query strategy, because the runtime AIBOM is only as useful as the ability to preserve, search, and correlate the traces that instantiate it.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>AWS Bedrock can populate runtime AIBOM fields for session identity, trace hierarchy, prompt text, inference configuration, tool or knowledge-base activity, and caller chains, which makes its native telemetry unusually close to the topology and content layers required by the runtime AIBOM model.</strong></li>
+<li><strong>LangGraph can also yield a usable runtime AIBOM when the operator composes LangSmith traces with OpenTelemetry spans and optional framework instrumentation, because default run trees do not automatically capture every governance-relevant state surface such as memory snapshots or delegated authority context.</strong></li>
+<li><strong>OpenTelemetry's Generative Artificial Intelligence events and agent spans already offer a workable field vocabulary for runtime AIBOMs, including models, messages, tools, tokens, agent identifiers, and versions, but decision-state fields such as checkpointed memory or effective permissions still require application-specific attributes or linked artifacts.</strong></li>
+<li><strong>The runtime trace surface necessarily diverges from the declared AIBOM because one observed execution reveals actual session identifiers, tool-call order, retrieved context, token usage, and failure paths that a design-time inventory cannot fully specify in advance.</strong></li>
+<li><strong>A single run can legitimately omit declared components such as unused tools, untaken graph branches, or unqueried knowledge bases, so absent-component divergence must be distinguished from real configuration drift before a runtime AIBOM is used as a compliance or incident-review artifact.</strong></li>
+<li><strong>Missing-observability divergence is a first-class governance risk because runtime AIBOM completeness depends on enabling transaction search, content capture, and custom span emission, which means an apparently well-instrumented system can still hide decisive execution detail if the telemetry path is only partially configured.</strong></li>
+<li><strong>The <a href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector</a> is a practical ingress point for runtime AIBOM pipelines because it can batch, retry, redact, and fan out traces before they reach storage backends, allowing one instrumented workload to support both developer tooling and long-retention governance stores.</strong></li>
+<li><strong>Backend choice determines how searchable and durable a runtime AIBOM becomes, with LangSmith optimizing for developer runs, Tempo optimizing for low-cost high-volume trace retention, and Jaeger or OpenSearch providing more explicit general-purpose trace-query and archive patterns for operational investigations.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The representative runtime AIBOM document uses placeholders because the task scope is documented practice rather than a live tenant walkthrough. <strong>Justification:</strong> The official Bedrock and LangSmith setup guides are sufficient to specify capture mechanics, but they do not provide one shared public trace payload for this exact comparison.</li>
+<li><strong>Assumption:</strong> Current OpenTelemetry field names are suitable as the baseline runtime vocabulary even though the Generative Artificial Intelligence semantic conventions are not yet stable. <strong>Justification:</strong> The conventions are already detailed enough to model prompts, tools, usage, and agent fields, which is the practical requirement for this item.</li>
+<li><strong>Assumption:</strong> LangGraph teams that need governance-grade runtime AIBOM capture will accept custom span emission or metadata attachment rather than relying on default framework traces alone. <strong>Justification:</strong> The official LangSmith, Phoenix, and OpenTelemetry materials all present manual or semi-automatic instrumentation as the mechanism for richer trace semantics.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence supports treating runtime AIBOM capture as an observability-architecture problem instead of only a schema problem, because the decisive question is not whether fields can be named, but whether they are emitted, retained, and queryable in one correlated trace path.</p>
+<p>Bedrock currently offers the lower-friction implementation path for native runtime evidence, because the platform already couples agent execution with trace events and CloudWatch views, whereas LangGraph gives a more open but more operator-dependent stack that must be assembled deliberately.</p>
+<p>The declared-versus-observed comparison becomes most useful when treated as a divergence classifier rather than a pass-fail diff, because some gaps are expected properties of single-run evidence while others indicate observability design failure or genuine runtime drift.</p>
+<p>The storage evidence favors a two-plane design in practice, with one plane optimized for engineering investigation and another optimized for durable governance queries or archives, because trace backends differ materially in retention posture, query language, and operational cost.</p>
+<p>The main unresolved weakness is decision-state capture, because prompt, tool, and model activity are now well-covered by current tooling while effective authority, exact memory state, and some policy outcomes still depend on application-specific instrumentation design.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>This item is grounded in official documentation rather than a live tenant execution, so it demonstrates what can be captured and how to wire it, not an empirically observed production trace from one named agent.</li>
+<li>OpenTelemetry's Generative Artificial Intelligence semantic conventions are still in development status, so field names and maturity assumptions may change after this item's completion.</li>
+<li>Bedrock service-provided observability for runtime-hosted agents emphasizes default metrics, which means organizations can still end up with incomplete runtime AIBOM traces if they do not add custom agent spans or enable the required CloudWatch trace path.</li>
+<li>LangSmith's retention and developer-oriented run model are useful for debugging and evaluation, but long-term governance archives may still require a separate backend under operator-controlled retention policy.</li>
+<li>Content-bearing traces can improve runtime AIBOM completeness while simultaneously increasing the sensitivity of the stored trace corpus, so trace-capture scope must be aligned with data-governance policy rather than enabled indiscriminately.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What minimum custom span schema is sufficient to make memory snapshots and effective authority portable across Bedrock, LangGraph, and other agent runtimes?</li>
+<li>When a runtime AIBOM is used for incident response, which fields should be stored directly in traces and which should be linked to colder content stores or checkpoint artifacts?</li>
+<li>Can a standards-aligned runtime AIBOM profile be defined on top of current OpenTelemetry semantic conventions without fragmenting as the conventions evolve?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">OpenTelemetry Semantic Conventions for Generative AI</a> - canonical status page for the Generative Artificial Intelligence semantic conventions and their maturity level.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/">OpenTelemetry Generative AI Events</a> - event-level fields for prompts, outputs, tools, system instructions, tokens, and seeds.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/">OpenTelemetry Generative AI Agent Spans</a> - agent and tool span model for agent identifiers, versions, providers, and tool execution.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/aws-bedrock/">OpenTelemetry AWS Bedrock Semantic Conventions</a> - AWS Bedrock-specific fields such as guardrail and knowledge-base identifiers.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/instrumentation/python/getting-started/">OpenTelemetry Python Getting Started</a> - official Python instrumentation guidance for <code>opentelemetry-instrument</code>, automatic instrumentation, and manual child spans.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector</a> - official guidance on collector roles, batching, retries, filtering, and backend fan-out.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html">Amazon Bedrock AgentCore Observability</a> - official overview of AgentCore observability and its OpenTelemetry-compatible telemetry.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html">Amazon Bedrock AgentCore Observability Get Started</a> - official setup steps for runtime-hosted and non-runtime-hosted agents, including AWS Distro for OpenTelemetry (ADOT).</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-telemetry.html">Amazon Bedrock AgentCore Telemetry Concepts</a> - official definitions of sessions, traces, spans, and their hierarchy for agent monitoring.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-view.html">Amazon Bedrock AgentCore Observability Views</a> - official CloudWatch log-group, trace, span, and metrics viewing guidance.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Amazon Bedrock Agent Trace Events</a> - official Bedrock per-step trace fields for prompts, rationale, action invocations, observations, and caller chains.</li>
+<li>[x] <a href="https://docs.langchain.com/langsmith/trace-with-opentelemetry">LangSmith Trace with OpenTelemetry</a> - official LangSmith OpenTelemetry tracing guide and attribute mapping.</li>
+<li>[x] <a href="https://docs.langchain.com/langsmith/observability-concepts">LangSmith Observability Concepts</a> - official definitions of projects, traces, runs, threads, and retention behavior.</li>
+<li>[x] <a href="https://www.traceloop.com/docs/openllmetry/introduction">Traceloop OpenLLMetry Introduction</a> - official overview of OpenLLMetry as OpenTelemetry-based observability for model applications.</li>
+<li>[x] <a href="https://pypi.org/project/opentelemetry-instrumentation-langchain/">OpenTelemetry Instrumentation for LangChain</a> - official package page for LangChain auto-instrumentation behavior and privacy defaults.</li>
+<li>[x] <a href="https://arize.com/docs/phoenix/tracing/how-to-tracing/setup-tracing/instrument">Arize Phoenix Tracing Instrumentation</a> - official Phoenix tracing patterns for manual spans and OpenInference attribute helpers.</li>
+<li>[x] <a href="https://grafana.com/oss/tempo/">Grafana Tempo</a> - official overview of Tempo as a high-scale tracing backend using object storage.</li>
+<li>[x] <a href="https://grafana.com/docs/tempo/latest/traceql/">Grafana Tempo TraceQL</a> - official query model for selecting traces and deriving metrics from traces.</li>
+<li>[x] <a href="https://docs.opensearch.org/latest/observing-your-data/trace/index/">OpenSearch Trace Analytics</a> - official OpenSearch trace analytics overview for OpenTelemetry ingestion and visualization.</li>
+<li>[x] <a href="https://www.jaegertracing.io/docs/2.11/storage/">Jaeger Storage</a> - official Jaeger storage backend guidance, including OpenSearch and archive storage.</li>
+<li>[x] <a href="https://www.jaegertracing.io/docs/2.11/architecture/">Jaeger Architecture</a> - official Jaeger role and pipeline guidance, including placing the <a href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector</a> in front of Jaeger.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">David Mitchell (2026) Runtime AIBOM generation divergence theory</a> - prior repository item defining the runtime AIBOM model used here.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html">David Mitchell (2026) Declared AIBOM construction practice</a> - prior repository item defining the declared AIBOM surfaces compared here.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">David Mitchell (2026) AI low-code observability telemetry governance</a> - prior repository item on multi-stream governance evidence and telemetry correlation.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">David Mitchell (2026) AIBOM platform observability control comparison</a> - prior repository comparison of Bedrock and other platform control surfaces.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">David Mitchell (2026) AIBOM identity attribution multiagent practice</a> - adjacent practice item on runtime identity and delegation fields.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a> <span class="related-note">via agentic-ai, governance, llm, observability, runtime-monitoring, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a> <span class="related-note">via agentic-ai, ai-platform, governance, llm, observability, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?</a> <span class="related-note">via agentic-ai, governance, llm, observability, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-declared-construction-practice.html">How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph</a> <span class="related-note">via agentic-ai, ai-platform, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-declared-construction-practice.html">How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">AIBOM be generated for an agentic AI system, and how much does it diverge from…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html">EU AI systems?</a></div>
+  </div>
+</main>
+</body>
+</html>
