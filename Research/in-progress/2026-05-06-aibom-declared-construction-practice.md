@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
