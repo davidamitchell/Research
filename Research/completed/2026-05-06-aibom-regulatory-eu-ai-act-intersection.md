@@ -2,12 +2,12 @@
 review_count: 2
 title: "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?"
 added: 2026-05-06T08:52:41+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, governance, regulatory-compliance, ai-governance, security]
 started: 2026-05-06T21:56:29+00:00
-completed: ~
+completed: 2026-05-06T22:15:22+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-05-06-aibom-schema-design-standards-alignment, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-sbom-conceptual-gaps-theory, 2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment, 2026-04-24-ai-agent-regulation-global-financial-services]
 related: [2026-05-06-aibom-effectiveness-risk-mitigation-limits, 2026-05-06-aibom-identity-delegation-trust-theory, 2026-05-06-aibom-platform-observability-control-comparison]
