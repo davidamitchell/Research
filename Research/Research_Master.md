@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-06 10:34 UTC
+Generated on: 2026-05-06 11:00 UTC
 
 ## Table of Contents
 
 * [What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?](#2026-05-06-it-system-legibility-measurement-frameworks-md)
+* [Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?](#2026-05-06-aibom-sbom-conceptual-gaps-theory-md)
 * [How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?](#2026-05-06-aibom-runtime-generation-divergence-theory-md)
 * [How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?](#2026-05-06-aibom-identity-delegation-trust-theory-md)
 * [What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?](#2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability-md)
@@ -343,6 +344,81 @@ The best-supported conclusion is therefore plural rather than singular: legibili
 - Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard? [inference; source: https://backstage.io/docs/features/software-catalog/; https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
 - How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index? [inference; source: https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt; https://engineering.atspotify.com/2024/04/supercharged-developer-portals]
 - Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific? [inference; source: https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://backstage.io/docs/features/software-catalog/; https://www.leanix.net/en/products/application-portfolio-management; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
+
+---
+
+---
+
+<a id="2026-05-06-aibom-sbom-conceptual-gaps-theory-md"></a>
+
+## Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?
+
+**Tags:** [agentic-ai, governance, llm, security, supply-chain, knowledge-graph, ai-governance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-sbom-conceptual-gaps-theory.md
+
+## Research Question
+
+Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately describe the dependency, provenance, and runtime composition of agentic Artificial Intelligence (AI) systems, and what fundamentally new abstractions, graph structures, mutable dependency types, and non-deterministic component representations, are required in an Artificial Intelligence Bill of Materials (AIBOM) to close those gaps?
+
+## Findings
+
+### Executive Summary
+
+Traditional Software Bill of Materials (SBOM) is not a complete inventory model for agentic Artificial Intelligence (AI) because it is optimized for declared software artifacts and component relationships, while agentic execution depends materially on mutable context, delegated authority, and stochastic model behavior that appear only during runtime. [inference; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2108.07258]
+
+Current AI-oriented extensions such as CycloneDX AI and machine-learning bill-of-materials, SPDX `AIPackage` and `DatasetPackage`, and the OWASP AIBOM Generator widen coverage to models, datasets, hyperparameters, and training metadata, but they still inherit package-style inventory semantics rather than full execution-provenance semantics. [inference; source: https://cyclonedx.org/capabilities/mlbom/; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://github.com/GenAI-Security-Project/aibom-generator]
+
+A complete AIBOM therefore needs a typed graph model that links software artifacts, models, datasets, prompts, retrieval corpora, tools, memory state, and identity or permission objects through explicit derivation, invocation, delegation, and retrieval edges, then pairs that declared graph with runtime-observed provenance. [inference; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html]
+
+The decisive conceptual shift is from a bill of packaged parts to a bill of governed capability plus realized execution path, because only that combined abstraction can explain what the system was allowed to do, what context it actually used, and why a given output or action occurred. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.w3.org/TR/prov-overview/; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+
+### Key Findings
+
+1. **NTIA SBOM and the reviewed SPDX AI extensions remain package-centered inventory models, because even the AI-specific classes are defined as metadata added to software-package objects rather than as first-class runtime activities or provenance graphs.** ([inference]; high confidence; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/)
+2. **CycloneDX AI and machine-learning bill-of-materials, SPDX AI classes, and the OWASP AIBOM Generator materially extend software transparency to models, datasets, hyperparameters, preprocessing, and training metadata, but they still do not by themselves represent prompts, decisions, retrieval results, or executed authority paths as the core inventory object.** ([inference]; high confidence; source: https://cyclonedx.org/capabilities/mlbom/; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://github.com/GenAI-Security-Project/aibom-generator)
+3. **Agentic AI introduces semantically active and mutable dependencies, including prompts, system instructions, retrieved context, tool outputs, memory state, and delegated permission scope, that are governance-relevant even when they are not versioned artifacts in the traditional software sense.** ([inference]; medium confidence; source: https://arxiv.org/abs/2508.02866; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html)
+4. **Foundation-model inheritance, lifecycle trustworthiness requirements, and context-dependent execution mean that a static package inventory cannot fully explain AI system behavior, because risk also depends on model lineage, data provenance, evaluation context, and downstream runtime conditions.** ([inference]; medium confidence; source: https://arxiv.org/abs/2504.16743; https://arxiv.org/abs/2108.07258; https://www.nist.gov/itl/ai-risk-management-framework)
+5. **A provenance-oriented graph is the best-supported core abstraction currently available for complete agentic AIBOMs, because the central audit questions concern entities, activities, actors, derivations, and causal processing steps rather than package membership alone.** ([inference]; medium confidence; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866)
+6. **A conceptually complete AIBOM needs new node types, relationship types, and property classes, specifically runtime events, prompt artifacts, memory objects, authority objects, retrieval edges, delegation edges, mutability labels, determinism labels, trust domains, and variability envelopes, because package version identifiers cannot represent those semantics.** ([inference]; medium confidence; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html)
+7. **The best-supported architecture in this evidence set is a layered model in which classical SBOM remains one sublayer for software artifacts, the declared AIBOM captures approved graph structure and semantics, and runtime-observed AIBOM instances capture what actually executed in a specific run.** ([inference]; medium confidence; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://arxiv.org/abs/2504.16743; https://www.w3.org/TR/prov-overview/; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] NTIA SBOM and SPDX AI classes remain package-centered inventory models. | https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom ; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ | high | AI classes still inherit software-package structure |
+| [inference] Current AI-BOM extensions widen metadata scope but do not yet make runtime execution the core inventory object. | https://cyclonedx.org/capabilities/mlbom/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ ; https://github.com/GenAI-Security-Project/aibom-generator | high | Richer metadata, still repository or package oriented |
+| [inference] Agentic AI adds mutable and semantically active dependencies that ordinary artifact inventory does not capture well. | https://arxiv.org/abs/2508.02866 ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html | medium | Prompts, retrieval, tools, memory, and authority are runtime-shaping objects |
+| [inference] Static package inventory cannot fully explain AI behavior because lifecycle, lineage, and context also matter. | https://arxiv.org/abs/2504.16743 ; https://arxiv.org/abs/2108.07258 ; https://www.nist.gov/itl/ai-risk-management-framework | medium | AI risk exceeds software dependency inventory |
+| [inference] Provenance-oriented graphs are the best-supported abstraction currently available for complete agentic AIBOMs. | https://www.w3.org/TR/prov-overview/ ; https://arxiv.org/abs/2508.02866 | medium | Graphs answer causal, temporal, and attribution questions |
+| [inference] Complete AIBOMs require new node, edge, and property classes for runtime semantics. | https://www.w3.org/TR/prov-overview/ ; https://arxiv.org/abs/2508.02866 ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html | medium | Schema shape is synthetic rather than standardized |
+| [inference] The best-supported architecture in this evidence set is a layered model of SBOM sublayer, declared AIBOM, and runtime-observed AIBOM instances. | https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom ; https://arxiv.org/abs/2504.16743 ; https://www.w3.org/TR/prov-overview/ ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html | medium | Preserves software inventory while adding execution truth |
+
+### Assumptions
+
+- **Assumption:** Prompts, system instructions, memory state, and delegated permission objects should be treated as inventory-relevant components even when current BOM standards do not yet define canonical classes for all of them. **Justification:** they materially affect agent behaviour, provenance, and auditability in agentic workflows. [assumption; source: https://arxiv.org/abs/2508.02866; https://owaspaibom.org/; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html]
+- **Assumption:** Declared AIBOM identifiers can be linked to runtime provenance strongly enough to support approved-versus-executed comparison in practice. **Justification:** that linkage is required for governance, but no reviewed universal identifier scheme covers every agentic surface. [assumption; source: https://www.w3.org/TR/prov-overview/; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+
+### Analysis
+
+The strongest rival interpretation is that AIBOM only needs more fields inside existing SPDX and CycloneDX objects. The evidence rejects that narrow view, because the reviewed AI classes and current OWASP generator still model the core unit as a package or repository artifact, while the provenance sources show that agentic audit questions are about events, decisions, and actors. [inference; source: https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://github.com/GenAI-Security-Project/aibom-generator; https://arxiv.org/abs/2508.02866]
+
+The second rival interpretation is that static AIBOM plus generic logs is sufficient. That view was rejected because W3C PROV and PROV-AGENT both center explicit causal relationships among entities, activities, and actors, and the adjacent runtime-divergence item shows that retrieval, memory, authority, and topology diverge across runs in ways that simple logging does not normalize into one auditable object. [inference; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+
+The correct synthesis is therefore additive rather than replacement-oriented. Classical SBOM remains useful for software libraries, frameworks, and conventional dependencies inside an AI system, but it becomes only one layer inside a broader AIBOM whose central object is governed capability plus realized execution path. [inference; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://arxiv.org/abs/2504.16743; https://www.w3.org/TR/prov-overview/]
+
+### Risks, Gaps, and Uncertainties
+
+- A reviewed standard or toolset still does not provide a canonical agentic AIBOM schema covering prompts, tools, memory, delegated authority, and runtime state in one stable specification. [inference; source: https://github.com/GenAI-Security-Project/aibom-generator; https://owaspaibom.org/; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/]
+- Dedicated academic literature on agentic provenance is still thin relative to the maturity of software-provenance standards, so the graph recommendation relies on one recent agentic paper plus broader provenance standards. [inference; source: https://arxiv.org/abs/2508.02866; https://www.w3.org/TR/prov-overview/]
+- The conceptual treatment of non-determinism is still incomplete, especially around how to version prompt semantics, preserve enough runtime context for audit, and express acceptable variance across repeated runs. [inference; source: https://arxiv.org/abs/2108.07258; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+
+### Open Questions
+
+- How should prompts and system instructions be versioned so that semantic changes, not only text edits, become auditable?
+- What minimum runtime snapshot is sufficient for retrieval results, memory state, and tool outputs without over-collecting sensitive data?
+- Should stochastic behavior in AIBOM be represented as a variability envelope, a replay record, or a policy-bound set of acceptable outcomes?
 
 ---
 
