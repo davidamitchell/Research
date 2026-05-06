@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T10:22:40Z",
+  "extracted_at": "2026-05-06T10:34:50Z",
   "items": {
     "2026-05-06-it-system-legibility-measurement-frameworks": {
       "named_concepts": [
@@ -108,6 +108,104 @@
           "sources": [
             "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
             "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-runtime-generation-divergence-theory": {
+      "named_concepts": [
+        "runtime aibom",
+        "memory state",
+        "ground truth",
+        "causality graph",
+        "trace correlation",
+        "decision-point state",
+        "state snapshots",
+        "delegated authority",
+        "mutable external",
+        "external state",
+        "single-run ground",
+        "runtime events",
+        "configuration retrieval",
+        "retrieval memory",
+        "memory authority",
+        "authority topology",
+        "graph backed",
+        "immutable events",
+        "w3c prov",
+        "event sourcing"
+      ],
+      "source_urls": [
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-agent-spans/",
+        "https://opentelemetry.io/",
+        "https://www.w3.org/TR/trace-context/",
+        "https://www.w3.org/TR/prov-overview/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://martinfowler.com/eaaDev/EventSourcing.html",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A usable runtime AIBOM needs a layered representation that records trace topology, content-bearing runtime events, and decision-point state snapshots, because none of those layers alone is sufficient to reconstruct one agent run faithfully",
+          "sources": [
+            "https://opentelemetry.io/docs/concepts/signals/traces/",
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html"
+          ]
+        },
+        {
+          "text": "The best formal ground truth for a single non-deterministic run is a full causality graph backed by immutable events, while snapshots and statistical summaries are derived projections for transient-state preservation and cross-run governance analysis respectively",
+          "sources": [
+            "https://www.w3.org/TR/prov-overview/",
+            "https://martinfowler.com/eaaDev/EventSourcing.html",
+            "https://opentelemetry.io/docs/concepts/signals/traces/"
+          ]
+        },
+        {
+          "text": "Declared-versus-observed divergence is structurally multi-dimensional, because observed runs can differ in component coverage, model configuration, retrieval set, memory state, caller authority, orchestration path, external world state, and active logging or guardrail policy",
+          "sources": [
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html"
+          ]
+        },
+        {
+          "text": "Runtime AIBOM generation should treat OpenTelemetry and W3C Trace Context as the correlation substrate, W3C PROV as the provenance vocabulary, and event sourcing as the persistence pattern for the immutable run record",
+          "sources": [
+            "https://opentelemetry.io/docs/concepts/signals/traces/",
+            "https://www.w3.org/TR/trace-context/",
+            "https://www.w3.org/TR/prov-overview/",
+            "https://martinfowler.com/eaaDev/EventSourcing.html"
+          ]
+        },
+        {
+          "text": "Deterministic replay is realistic for captured prompts, tool arguments, recorded tool outputs, and policy decisions, but live re-execution of model output or external API results remains only partially reproducible even when seeds and parameters are logged",
+          "sources": [
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+            "https://martinfowler.com/eaaDev/EventSourcing.html"
+          ]
+        },
+        {
+          "text": "Authority information must be part of the runtime AIBOM itself rather than inferred later, because delegated identity chains and effective permissions are not fully preserved by runtime token formats or trace correlation alone",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html"
+          ]
+        },
+        {
+          "text": "For governance purposes, the most consequential runtime AIBOM divergences are not generic variance but the ones that change what information, authority, or control setting shaped the decision, because those are the divergences that alter risk exposure and auditability",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
           ]
         }
       ]
