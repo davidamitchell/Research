@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?"
 added: 2026-05-06T09:49:53+00:00
 status: reviewing
