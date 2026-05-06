@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
