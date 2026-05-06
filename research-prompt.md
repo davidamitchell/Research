@@ -446,6 +446,15 @@ easily-detectable issues.
     or score tables as if they automatically prove the evaluative judgment you
     derive from them.
 
+2ga. **Workflow-fit and production-readiness judgments** -- if a sentence says
+    a tool is suitable or unsuitable for GitHub Actions, Continuous
+    Integration and Continuous Delivery (CI/CD), inline gating, production
+    deployment, or low-friction repository use, default that sentence to
+    `[inference]` unless a cited source directly reports operational use in
+    that exact environment. Architecture facts, dependency lists, or secret
+    requirements can support the judgment, but they do not by themselves turn
+    the judgment into a `[fact]`.
+
 2h. **Executive-summary clause coverage** -- if one Executive Summary sentence
     combines a conceptual or philosophical thesis claim with a present-day
     empirical, interpretability, or deployment claim, ensure the citation set

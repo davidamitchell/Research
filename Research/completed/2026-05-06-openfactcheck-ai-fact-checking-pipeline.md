@@ -2,12 +2,12 @@
 review_count: 2
 title: "What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?"
 added: 2026-05-06T09:49:53+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-fact-checking-tools-research-quality-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [llm, hallucinations, fact-checking, evaluation, workflow, agent-tooling]
 started: 2026-05-06T19:21:36+00:00
-completed: ~
+completed: 2026-05-06T19:40:57+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-05-02-automated-claim-verification-academic-literature, 2026-05-06-factscore-precision-scoring-atomic-claims, 2026-05-06-loki-fact-checking-journalists-moderation]          # slugs of items this item directly depends on or quotes
 related: [2026-03-05-llm-hallucination-mechanisms, 2026-04-28-llm-as-judge-pipeline-validation-checkpoints, 2026-05-06-barnum-statements-ai-responses-theory-practice]  # slugs of completed items that are thematically related but not directly cited
