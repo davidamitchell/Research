@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T20:49:58Z",
+  "extracted_at": "2026-05-06T21:09:27Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -1186,6 +1186,114 @@
             "https://spiffe.io/docs/latest/spiffe-specs/spiffe/",
             "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-effectiveness-risk-mitigation-limits": {
+      "named_concepts": [
+        "declared tools",
+        "safe behavior",
+        "prompt injection",
+        "retrieval poisoning",
+        "memory poisoning",
+        "internal reasoning",
+        "artificial intelligence",
+        "aibom materially",
+        "structural surfaces",
+        "runtime divergence",
+        "false assurance",
+        "legitimately declared",
+        "drift detection",
+        "mitigates undeclared",
+        "undeclared dependency",
+        "poisoning create",
+        "prove safe",
+        "effectiveness metrics",
+        "runtime dependency",
+        "dependency capture"
+      ],
+      "source_urls": [
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://owaspaibom.org/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://arxiv.org/abs/2302.12173",
+        "https://arxiv.org/abs/2211.09527",
+        "https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/",
+        "https://www.anthropic.com/claude-opus-4-6-system-card",
+        "https://www.ntia.gov/page/software-bill-materials",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html"
+      ],
+      "key_claims": [
+        {
+          "text": "AIBOM is strongest where risk is anchored in declared or runtime-observed structure, because inventory-style evidence can represent components, versions, permissions, and policy surfaces in ways that support gating, comparison, and audit",
+          "sources": [
+            "https://www.ntia.gov/page/software-bill-materials",
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html"
+          ]
+        },
+        {
+          "text": "AIBOM materially mitigates undeclared dependency introduction, version drift, authority-scope expansion, disabled guardrails, and incomplete post-incident scoping when organizations use it as an enforcement and comparison object rather than passive documentation",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html"
+          ]
+        },
+        {
+          "text": "Prompt injection remains outside AIBOM's direct control boundary, because the attack works by changing the meaning of legitimate content rather than by introducing an undeclared component that inventory controls can block",
+          "sources": [
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2211.09527",
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+          ]
+        },
+        {
+          "text": "Retrieval poisoning and memory poisoning create especially strong false-assurance risk, because the retrieval store or memory subsystem can be fully declared while its runtime contents are semantically malicious and still treated as trusted context",
+          "sources": [
+            "https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/",
+            "https://arxiv.org/abs/2302.12173",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html"
+          ]
+        },
+        {
+          "text": "Legitimately declared tools and permissions do not prove safe behavior, because the same accurately inventoried agency surface can still be misused through weak authorization boundaries, excessive autonomy, or compromised decision flow",
+          "sources": [
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+            "https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html"
+          ]
+        },
+        {
+          "text": "Under current governance and interpretability practice, inference opacity remains a material limit on AIBOM effectiveness because documentation of inputs, outputs, and conditions of use does not yet fully expose or validate internal reasoning",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://www.anthropic.com/claude-opus-4-6-system-card"
+          ]
+        },
+        {
+          "text": "The most decision-useful effectiveness metrics are runtime dependency capture rate, drift detection latency, blast-radius reduction, and coverage-completeness score, because each can be computed from operational evidence and linked to control outcomes",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html"
+          ]
+        },
+        {
+          "text": "The correct governance posture is to treat AIBOM as one layer in a control stack that also includes runtime policy enforcement, semantic-content defenses, monitoring, and adversarial testing, because the dominant agentic failure modes cross structural and behavioral boundaries",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+            "https://arxiv.org/abs/2302.12173",
+            "https://www.microsoft.com/en-us/security/blog/2025/04/24/new-whitepaper-outlines-the-taxonomy-of-failure-modes-in-ai-agents/"
           ]
         }
       ]
