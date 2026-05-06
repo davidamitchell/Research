@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?"
 added: 2026-05-06T09:49:53+00:00
 status: reviewing
