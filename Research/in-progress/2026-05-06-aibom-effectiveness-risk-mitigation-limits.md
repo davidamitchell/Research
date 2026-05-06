@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What security and governance risks can an Artificial Intelligence Bill of Materials (AIBOM) realistically mitigate for agentic, tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
