@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T22:47:02Z",
+  "extracted_at": "2026-05-06T22:59:00Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -535,6 +535,103 @@
             "https://github.com/yuxiaw/openfactcheck",
             "https://arxiv.org/abs/2410.01794",
             "https://github.com/Libr-AI/OpenFactVerification"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-fact-checking-tools-research-quality-improvement": {
+      "named_concepts": [
+        "deterministic lint",
+        "support-critical claim",
+        "positive specificity",
+        "specificity contract",
+        "rewrite first",
+        "openfactcheck factscore",
+        "factscore loki",
+        "concrete-anchor absence",
+        "sampled claim",
+        "tooling change",
+        "claim inventory",
+        "claim verification",
+        "draft backlog",
+        "executive summary",
+        "first insert",
+        "lint step",
+        "second strengthen",
+        "contract third",
+        "treat openfactcheck",
+        "safeguard-style policy"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2405.05583",
+        "https://arxiv.org/abs/2305.14251",
+        "https://arxiv.org/abs/2312.06674",
+        "https://arxiv.org/abs/2310.13548",
+        "https://arxiv.org/abs/2310.05189"
+      ],
+      "key_claims": [
+        {
+          "text": "`research-review-prompt.md` currently enforces citation, speculation, prose-quality, and coherence checks, but it does not explicitly fail drafts for bundled multi-proposition claims, low-specificity generic-sounding sentences, or stale evidence on time-sensitive topics",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md"
+          ]
+        },
+        {
+          "text": "The strongest prompt-only upgrade is to extend `research-review-prompt.md` Step 1 with an atomic-claim completeness check, Step 3 with an explicit check for Barnum statements, low-specificity sentences that sound analytical without adding decision-useful detail, and Step 4 with a recency check for live or fast-changing claims",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md",
+            "https://arxiv.org/abs/2310.05189"
+          ]
+        },
+        {
+          "text": "The highest-impact low-infrastructure tooling change is a deterministic pre-review linter that checks exact source-link parity, checked-source coverage, acronym expansion, filler-phrase bans, concrete-anchor heuristics, and simple date-based recency rules before the semantic review pass runs",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.md"
+          ]
+        },
+        {
+          "text": "`research-prompt.md` should prevent defects upstream by requiring each analytical sentence to name a concrete actor, mechanism, metric, disagreement, or decision consequence and by adding a short support-critical claim inventory before final Findings are drafted",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/research-prompt.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md"
+          ]
+        },
+        {
+          "text": "OpenFactCheck and FActScore both support a future support-critical claim-audit path, but the repository's own prior syntheses judge each tool family better as an offline diagnostic or sampled escalation path than as a mandatory per-item inline gate",
+          "sources": [
+            "https://arxiv.org/abs/2405.05583",
+            "https://arxiv.org/abs/2305.14251",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md"
+          ]
+        },
+        {
+          "text": "Loki adds useful human-facing evidence discovery and gpt-oss-safeguard adds policy-conditioned reasoning, but both are better treated as later-stage or sampled integrations because Loki depends on live evidence retrieval and safeguard models do not fit the default GitHub-hosted review runner",
+          "sources": [
+            "https://arxiv.org/abs/2410.01794",
+            "https://arxiv.org/abs/2312.06674",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md",
+            "https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml"
+          ]
+        },
+        {
+          "text": "The current evidence supports a pragmatic priority order of review-prompt rewrite first, deterministic lint second, research-prompt rewrite third, sampled support-critical claim verification fourth, and policy-classification or live-web evidence escalation after those foundations exist",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md",
+            "https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml",
+            "https://github.com/davidamitchell/Research/blob/main/research-prompt.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md]"
           ]
         }
       ]

@@ -1,0 +1,788 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and…</h1>
+  <p class="full-title-subtitle">How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement research be synthesised into concrete improvements to the automated review process in this research repository?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/research-methodology.html">research-methodology</a> <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/fact-checking.html">fact-checking</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-synthesis">synthesis</span> <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-fact-checking-tools-research-quality-improvement.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-fact-checking-tools-research-quality-improvement" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>`research-review-prompt.md` currently enforces citation, speculation, prose-quality, and coherence checks, but it does not explicitly fail drafts for bundled multi-proposition claims, low-specificity generic-sounding sentences, or stale evidence on time-sensitive topics<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md">Research (n.d.)</a></span></li>
+<li>The strongest prompt-only upgrade is to extend `research-review-prompt.md` Step 1 with an atomic-claim completeness check, Step 3 with an explicit check for Barnum statements, low-specificity sentences that sound analytical without adding decision-useful detail, and Step 4 with a recency check for live or fast-changing claims<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md">Research (n.d.)</a><a class="claim-source-link" href="https://arxiv.org/abs/2310.05189" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.05189">Augenstein et al. (2024)</a></span></li>
+<li>The highest-impact low-infrastructure tooling change is a deterministic pre-review linter that checks exact source-link parity, checked-source coverage, acronym expansion, filler-phrase bans, concrete-anchor heuristics, and simple date-based recency rules before the semantic review pass runs<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.md">Research (n.d.)</a></span></li>
+<li>`research-prompt.md` should prevent defects upstream by requiring each analytical sentence to name a concrete actor, mechanism, metric, disagreement, or decision consequence and by adding a short support-critical claim inventory before final Findings are drafted<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/research-prompt.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/research-prompt.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md">Research (n.d.)</a></span></li>
+<li>OpenFactCheck and FActScore both support a future support-critical claim-audit path, but the repository&#39;s own prior syntheses judge each tool family better as an offline diagnostic or sampled escalation path than as a mandatory per-item inline gate<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2405.05583" target="_blank" rel="noopener" title="https://arxiv.org/abs/2405.05583">Wang et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2305.14251" target="_blank" rel="noopener" title="https://arxiv.org/abs/2305.14251">Min et al. (2023)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md">Research (n.d.)</a></span></li>
+<li>Loki adds useful human-facing evidence discovery and gpt-oss-safeguard adds policy-conditioned reasoning, but both are better treated as later-stage or sampled integrations because Loki depends on live evidence retrieval and safeguard models do not fit the default GitHub-hosted review runner<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2410.01794" target="_blank" rel="noopener" title="https://arxiv.org/abs/2410.01794">Arxiv (n.d.)</a><a class="claim-source-link" href="https://arxiv.org/abs/2312.06674" target="_blank" rel="noopener" title="https://arxiv.org/abs/2312.06674">Inan et al. (2023)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml">Research (n.d.)</a></span></li>
+<li>The current evidence supports a pragmatic priority order of review-prompt rewrite first, deterministic lint second, research-prompt rewrite third, sampled support-critical claim verification fourth, and policy-classification or live-web evidence escalation after those foundations exist<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/research-prompt.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/research-prompt.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md">Research (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md]" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md]">Github (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How can the findings from research into OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement identification techniques be synthesised into concrete, actionable improvements to the automated review process (<code>research-review-prompt.md</code>) in this repository, specifically targeting factual precision, policy compliance, and output quality?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>A pragmatic sequence is therefore: rewrite <code>research-review-prompt.md</code> first, insert a deterministic lint step into <code>research-review.yml</code> second, strengthen <code>research-prompt.md</code> with a positive specificity contract third, and treat OpenFactCheck, FActScore, Loki, and safeguard-style policy classifiers as sampled or optional future backlog items rather than the immediate default gate.</p>
+<p><code>research-review-prompt.md</code> already checks citation binding, speculation control, prose quality, and logical coherence, but it does not make atomic-claim coverage, concrete-anchor absence, or source recency first-class review failures.</p>
+<p>The five prerequisite items converge on a layered architecture: prompt-side specificity contracts to prevent hollow prose, deterministic linting to catch repeatable defects cheaply, and sampled claim- or policy-level model assistance only where a bounded escalation path is justified.</p>
+<p>The highest-value sequence is therefore: rewrite <code>research-review-prompt.md</code> first, insert a deterministic lint step into <code>research-review.yml</code> second, strengthen <code>research-prompt.md</code> with a positive specificity contract third, and treat OpenFactCheck, FActScore, Loki, and safeguard-style policy classifiers as sampled or optional future backlog items rather than the immediate default gate.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong><code>research-review-prompt.md</code> currently enforces citation, speculation, prose-quality, and coherence checks, but it does not explicitly fail drafts for bundled multi-proposition claims, low-specificity generic-sounding sentences, or stale evidence on time-sensitive topics.</strong></li>
+<li><strong>The strongest prompt-only upgrade is to extend <code>research-review-prompt.md</code> Step 1 with an atomic-claim completeness check, Step 3 with an explicit check for Barnum statements, low-specificity sentences that sound analytical without adding decision-useful detail, and Step 4 with a recency check for live or fast-changing claims.</strong></li>
+<li><strong>The highest-impact low-infrastructure tooling change is a deterministic pre-review linter that checks exact source-link parity, checked-source coverage, acronym expansion, filler-phrase bans, concrete-anchor heuristics, and simple date-based recency rules before the semantic review pass runs.</strong></li>
+<li><strong><code>research-prompt.md</code> should prevent defects upstream by requiring each analytical sentence to name a concrete actor, mechanism, metric, disagreement, or decision consequence and by adding a short support-critical claim inventory before final Findings are drafted.</strong></li>
+<li><strong>OpenFactCheck and FActScore both support a future support-critical claim-audit path, but the repository's own prior syntheses judge each tool family better as an offline diagnostic or sampled escalation path than as a mandatory per-item inline gate.</strong></li>
+<li><strong>Loki adds useful human-facing evidence discovery and gpt-oss-safeguard adds policy-conditioned reasoning, but both are better treated as later-stage or sampled integrations because Loki depends on live evidence retrieval and safeguard models do not fit the default GitHub-hosted review runner.</strong></li>
+<li><strong>The current evidence supports a pragmatic priority order of review-prompt rewrite first, deterministic lint second, research-prompt rewrite third, sampled support-critical claim verification fourth, and policy-classification or live-web evidence escalation after those foundations exist.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The repository will continue producing mixed-domain synthesis items rather than switching to one bounded verification corpus. <strong>Justification:</strong> the current prompts and completed corpus are oriented around multi-source synthesis rather than one canonical knowledge base.</li>
+<li><strong>Assumption:</strong> Barnum-candidate heuristics should begin as flags or warnings rather than hard failures until a repository-specific labeled sample exists. <strong>Justification:</strong> the Barnum synthesis found no direct benchmark for research-prose prevalence, so low-cost detection is justified before blocking enforcement is calibrated.</li>
+<li><strong>Assumption:</strong> Time-sensitive claims can be identified with a simple author-supplied note or date heuristic before a more advanced retrieval layer exists. <strong>Justification:</strong> the current prompt already requires source enumeration, so adding a lightweight recency signal is operationally plausible without new infrastructure.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The main trade-off is between coverage breadth and workflow friction, and the reviewed evidence favors staged controls rather than a single universal verifier.</p>
+<p>For <code>research-review-prompt.md</code>, the exact low-cost change is to add one citation-discipline bullet for atomic-claim completeness, one remove-ai-slop bullet for Barnum statements and concrete-anchor absence, and one peer-reviewer bullet for stale or weakly dated evidence on time-sensitive claims.</p>
+<p>Inside <code>.github/workflows/research-review.yml</code>, the exact tooling change is to run a deterministic lint script before the Copilot invocation so that missing checked sources, source-link mismatches, acronym misses, filler phrases, simple Barnum candidates, and date or recency omissions fail fast without consuming a full semantic review pass.</p>
+<p>Upstream in <code>research-prompt.md</code>, the exact change is to add a positive specificity contract near the Findings instructions and a short support-critical claim inventory near the end of investigation, because that combination prevents both low-specificity prose and over-bundled facts before review begins.</p>
+<p>The strongest rival remedy is to move directly to OpenFactCheck, FActScore, Loki, or safeguard-model integration, but that route is weaker as a first step because every reviewed tool family assumes a narrower corpus, heavier infrastructure, or a later-stage escalation workflow than the repository currently operates.</p>
+<p>That is why the priority matrix is asymmetric: review-prompt rewrite is low effort and high uplift, deterministic lint is low-to-medium effort and high uplift, research-prompt prevention is medium effort and high uplift, sampled claim verification is medium-to-high effort and medium uplift, and full policy or live-web semantic escalation is high effort with more conditional uplift.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Direct benchmark evidence for Barnum detection in research prose is still missing, so any first deterministic concrete-anchor rule should begin as a warning or low-severity failure until the repository calibrates it on labeled examples.</li>
+<li>A simple source-recency rule can catch obviously stale citations, but it cannot by itself prove factual invalidity, so recency should qualify confidence and trigger review rather than serve as a stand-alone truth test.</li>
+<li>Sampled support-critical claim auditing can improve factual precision, but it will still miss omission-heavy or non-sampled errors unless the repository later adds a bounded selection policy and calibration data.</li>
+<li>Policy-model integration remains infrastructure-bound until the repository has an external inference surface or a clearly scoped sampled workflow, so policy compliance is best kept rubric-first in the short term.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Draft backlog item: <strong>Build deterministic research review linter</strong> - add a Python pre-review parser and checker that fails fast on source-link mismatches, unchecked seeded sources, acronym misses, filler phrases, simple Barnum candidates, and date or recency omissions before the Copilot review step.</li>
+<li>Draft backlog item: <strong>Add support-critical claim audit harness</strong> - decompose Executive Summary and Key Findings into atomic claims and run sampled offline support checks inspired by FActScore and OpenFactCheck rather than a full-document inline gate.</li>
+<li>Draft backlog item: <strong>Calibrate Barnum detection on the completed corpus</strong> - label a repository sample for concrete-anchor absence and compare deterministic heuristics with Large Language Model as judge scoring before making Barnum checks blocking.</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/research-review-prompt.md">Research repository research-review prompt</a> - primary target document for review-rubric changes</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/research-prompt.md">Research repository research prompt</a> - upstream generation prompt for prompt-only prevention changes</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-review.yml">Research repository research-review workflow</a> - current automated review execution path and insertion point for deterministic tooling</li>
+<li>[x] <a href="https://arxiv.org/abs/2405.05583">Wang et al. (2024) OpenFactCheck: A Unified Framework for Factuality Evaluation of Large Language Models (LLMs)</a> - primary OpenFactCheck paper</li>
+<li>[x] <a href="https://arxiv.org/abs/2305.14251">Min et al. (2023) FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation</a> - primary FActScore paper</li>
+<li>[x] <a href="https://arxiv.org/abs/2312.06674">Inan et al. (2023) Llama Guard: Large Language Model (LLM)-based Input-Output Safeguard for Human-AI Conversations</a> - primary open-weight safeguard comparator</li>
+<li>[x] <a href="https://arxiv.org/abs/2310.13548">Sharma et al. (2023) Towards Understanding Sycophancy in Language Models</a> - primary sycophancy evidence used to qualify Barnum detection</li>
+<li>[x] <a href="https://arxiv.org/abs/2310.05189">Augenstein et al. (2024) Factuality Challenges in the Era of Large Language Models and Opportunities for Fact-Checking</a> - cross-cutting survey on LLM factuality and fact-checking limits</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-openfactcheck-ai-fact-checking-pipeline.md">Research repository OpenFactCheck AI fact-checking pipeline</a> - prerequisite synthesis on OpenFactCheck workflow fit</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-loki-fact-checking-journalists-moderation.md">Research repository Loki fact-checking journalists moderation</a> - prerequisite synthesis on Loki workflow fit</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md">Research repository FActScore precision scoring atomic claims</a> - prerequisite synthesis on FActScore scope and limits</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md">Research repository gpt-oss-safeguard policy enforcement open weight</a> - prerequisite synthesis on policy-classification fit</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-barnum-statements-ai-responses-theory-practice.md">Research repository Barnum statements AI responses theory practice</a> - prerequisite synthesis on low-specificity output failures</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md">Research repository automated claim verification academic literature</a> - adjacent synthesis on support-critical claim verification</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.md">Research repository human review volume bottleneck rubber stamp</a> - adjacent synthesis on review-load limits</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md">Research repository research loop quality prompt engineering</a> - adjacent synthesis on prompt-level quality controls</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.md">Research repository Large Language Model (LLM) as judge pipeline validation checkpoints</a> - adjacent synthesis on layered evaluation and judge limits</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-openfactcheck-ai-fact-checking-pipeline.html">What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?</a> <span class="related-note">via evaluation, fact-checking, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-loki-fact-checking-journalists-moderation.html">What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?</a> <span class="related-note">via evaluation, fact-checking, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-factscore-precision-scoring-atomic-claims.html">How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?</a> <span class="related-note">via evaluation, fact-checking, llm, research-methodology</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?</a> <span class="related-note">via evaluation, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-barnum-statements-ai-responses-theory-practice.html">What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?</a> <span class="related-note">via evaluation, llm, research-methodology</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-openfactcheck-ai-fact-checking-pipeline.html">What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-loki-fact-checking-journalists-moderation.html">What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-factscore-precision-scoring-atomic-claims.html">How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-barnum-statements-ai-responses-theory-practice.html">What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-automated-claim-verification-academic-literature.html">What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html">How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html">Large Language Model (LLM)-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <span>2026-05-02-meta-analysis-standards-and-ai-skill-evaluation</span></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-02-research-quality-assurance-methodology.html">Research Quality Assurance and Knowledge Integration Methodology</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-06-factscore-precision-scoring-atomic-claims.html">How does Factual precision Scoring (FActScore) operationalise atomic-level…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-06-barnum-statements-ai-responses-theory-practice.html">What are Barnum statements (Forer Effect statements), how do they manifest in…</a></div>
+  </div>
+</main>
+</body>
+</html>
