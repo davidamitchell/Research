@@ -2,12 +2,12 @@
 review_count: 2
 title: "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?"
 added: 2026-05-06T08:52:41+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, observability, ai-platform, governance, security, enterprise, llm, now-assist]
 started: 2026-05-06T19:43:22+00:00
-completed: ~
+completed: 2026-05-06T20:18:01+00:00
 output: [knowledge]
 cites:
   - 2026-04-26-vendor-platform-governance-constraints-compensating-controls
