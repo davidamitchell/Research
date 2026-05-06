@@ -2,12 +2,12 @@
 review_count: 2
 title: "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?"
 added: 2026-05-06T08:52:41+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, security, governance, supply-chain, llm, ai-governance, observability]
 started: 2026-05-06T20:40:30+00:00
-completed: ~
+completed: 2026-05-06T21:07:31+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-05-06-aibom-sbom-conceptual-gaps-theory, 2026-05-06-aibom-schema-design-standards-alignment, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-identity-delegation-trust-theory, 2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain]
 related: [2026-05-06-aibom-declared-construction-practice, 2026-05-06-aibom-platform-observability-control-comparison, 2026-04-26-permission-safe-rag-enterprise-information-architecture]
