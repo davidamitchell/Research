@@ -163,7 +163,7 @@ How do you extract and construct a declared design-time Artificial Intelligence 
 
 #### C. Representative declared AIBOM artifacts
 
-- [inference; source: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html; https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html; https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html; https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html] The following Bedrock artifact is a representative declared AIBOM excerpt built only from documented Bedrock fields and the schema classes defined in the prior schema-alignment item.
+- [inference; source: https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html; https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html; https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html; https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html] The following Bedrock artifact is a representative declared AIBOM template built only from documented Bedrock fields and the schema classes defined in the prior schema-alignment item; angle-bracket values indicate extraction targets rather than observed instance values.
 
 ```json
 {
@@ -172,8 +172,8 @@ How do you extract and construct a declared design-time Artificial Intelligence 
   "metadata": {
     "component": {
       "type": "application",
-      "name": "bedrock-agent",
-      "version": "1",
+      "name": "bedrock-agent::<GetAgent.agentId>",
+      "version": "<GetAgent.agentVersion or alias target version>",
       "properties": [
         { "name": "aibom.platform", "value": "aws-bedrock-agent" },
         { "name": "aibom.extraction.mode", "value": "declared-control-plane" },
@@ -185,14 +185,14 @@ How do you extract and construct a declared design-time Artificial Intelligence 
     {
       "type": "machine-learning-model",
       "name": "foundation-model",
-      "version": "anthropic.claude-sonnet-4-5",
+      "version": "<GetAgent.foundationModel>",
       "properties": [
         { "name": "aibom.source", "value": "GetAgent.foundationModel" }
       ]
     },
     {
       "type": "data",
-      "name": "knowledge-base-kb12345678",
+      "name": "knowledge-base::<ListAgentKnowledgeBases.knowledgeBaseId>",
       "properties": [
         { "name": "aibom.embedding_model_arn", "value": "GetKnowledgeBase.knowledgeBaseConfiguration.vectorKnowledgeBaseConfiguration.embeddingModelArn" },
         { "name": "aibom.vector_store", "value": "GetKnowledgeBase.storageConfiguration.type" }
@@ -200,7 +200,7 @@ How do you extract and construct a declared design-time Artificial Intelligence 
     },
     {
       "type": "service",
-      "name": "action-group-BookHotel",
+      "name": "action-group::<GetAgentActionGroup.actionGroupName>",
       "properties": [
         { "name": "aibom.schema.kind", "value": "functionSchema" },
         { "name": "aibom.source", "value": "GetAgentActionGroup.functionSchema" }
@@ -211,9 +211,9 @@ How do you extract and construct a declared design-time Artificial Intelligence 
     {
       "name": "bedrock-agent-alias",
       "properties": [
-        { "name": "aibom.agent_alias", "value": "prod" },
-        { "name": "aibom.agent_version", "value": "1" },
-        { "name": "aibom.guardrail_version", "value": "3" }
+        { "name": "aibom.agent_alias", "value": "<GetAgentAlias.agentAliasId or deployment alias>" },
+        { "name": "aibom.agent_version", "value": "<alias target version>" },
+        { "name": "aibom.guardrail_version", "value": "<GetAgent.guardrailConfiguration.guardrailVersion>" }
       ]
     }
   ],
@@ -225,7 +225,7 @@ How do you extract and construct a declared design-time Artificial Intelligence 
 }
 ```
 
-- [inference; source: https://docs.langchain.com/oss/python/langgraph/quickstart; https://docs.langchain.com/oss/python/langgraph/graph-api; https://docs.langchain.com/oss/python/langgraph/persistence; https://docs.langchain.com/oss/python/langchain/tools] The following LangGraph artifact is a representative declared AIBOM excerpt built from the documented quickstart and graph API surfaces rather than from a managed platform export.
+- [inference; source: https://docs.langchain.com/oss/python/langgraph/quickstart; https://docs.langchain.com/oss/python/langgraph/graph-api; https://docs.langchain.com/oss/python/langgraph/persistence; https://docs.langchain.com/oss/python/langchain/tools] The following LangGraph artifact is a representative declared AIBOM template built from the documented quickstart and graph API surfaces rather than from a managed platform export; angle-bracket values indicate extraction targets rather than observed instance values.
 
 ```json
 {
@@ -235,7 +235,7 @@ How do you extract and construct a declared design-time Artificial Intelligence 
     "component": {
       "type": "application",
       "name": "langgraph-agent",
-      "version": "source-revision-required",
+      "version": "<git commit, release tag, or repository revision>",
       "properties": [
         { "name": "aibom.platform", "value": "langgraph" },
         { "name": "aibom.extraction.mode", "value": "declared-source-code" }
@@ -245,26 +245,26 @@ How do you extract and construct a declared design-time Artificial Intelligence 
   "components": [
     {
       "type": "machine-learning-model",
-      "name": "claude-sonnet-4-6",
+      "name": "<init_chat_model model identifier>",
       "properties": [
-        { "name": "aibom.source", "value": "init_chat_model(...)" },
-        { "name": "aibom.temperature", "value": "0" }
+        { "name": "aibom.source", "value": "<init_chat_model(...) call site>" },
+        { "name": "aibom.temperature", "value": "<init_chat_model temperature>" }
       ]
     },
     {
       "type": "service",
       "name": "tool-registry",
       "properties": [
-        { "name": "aibom.tools", "value": "add,multiply,divide" },
-        { "name": "aibom.source", "value": "model.bind_tools(tools)" }
+        { "name": "aibom.tools", "value": "<tool function names discovered in source>" },
+        { "name": "aibom.source", "value": "<model.bind_tools(tools) call site>" }
       ]
     },
     {
       "type": "data",
       "name": "messages-state",
       "properties": [
-        { "name": "aibom.state_schema", "value": "MessagesState" },
-        { "name": "aibom.reducer", "value": "operator.add" }
+        { "name": "aibom.state_schema", "value": "<StateGraph state schema name>" },
+        { "name": "aibom.reducer", "value": "<state reducer declaration>" }
       ]
     }
   ],
@@ -272,15 +272,15 @@ How do you extract and construct a declared design-time Artificial Intelligence 
     {
       "name": "compiled-graph",
       "properties": [
-        { "name": "aibom.graph_nodes", "value": "llm_call,tool_node" },
-        { "name": "aibom.graph_edges", "value": "START->llm_call,llm_call->tool_node|END,tool_node->llm_call" },
-        { "name": "aibom.checkpointer", "value": "required-if-persistence-enabled" }
+        { "name": "aibom.graph_nodes", "value": "<builder.add_node names>" },
+        { "name": "aibom.graph_edges", "value": "<builder.add_edge and add_conditional_edges wiring>" },
+        { "name": "aibom.checkpointer", "value": "<compile checkpointer argument if configured>" }
       ]
     }
   ],
   "properties": [
-    { "name": "aibom.system_prompt", "value": "SystemMessage content literal or prompt module path" },
-    { "name": "aibom.thread_id_required", "value": "true when persistence is enabled" }
+    { "name": "aibom.system_prompt", "value": "<SystemMessage literal or prompt module path>" },
+    { "name": "aibom.thread_binding", "value": "<thread_id configured at invocation when persistence is enabled>" }
   ]
 }
 ```
