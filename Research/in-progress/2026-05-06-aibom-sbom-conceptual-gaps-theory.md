@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
