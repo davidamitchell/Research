@@ -1,0 +1,804 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>What introspection, export, and control surfaces actually exist across… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>What introspection, export, and control surfaces actually exist across…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>What introspection, export, and control surfaces actually exist across…</h1>
+  <p class="full-title-subtitle">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/observability.html">observability</a> <a class="tag" href="/Research/tags/ai-platform.html">ai-platform</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/now-assist.html">now-assist</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-platform-observability-control-comparison.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-aibom-platform-observability-control-comparison" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>AWS Bedrock Agents are the strongest documented Artificial Intelligence Bill of Materials (AIBOM) substrate in this comparison because AWS exposes agent configuration through the GetAgent API, immutable alias-based versions, and step-level runtime traces that include prompts, rationale, action invocations, observations, and version identifiers<span class="claim-sources"><a class="claim-source-link" href="https://owaspaibom.org/" target="_blank" rel="noopener" title="https://owaspaibom.org/">OWASP (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html">AWS (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">AWS (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html]" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html]">Amazon (n.d.)</a></span></li>
+<li>AWS Bedrock still appears not to provide a native AIBOM export, and its observability remains incomplete when traffic bypasses the documented `bedrock-runtime` logging path or when the enterprise needs provider-side model internals rather than customer-visible orchestration evidence<span class="claim-sources"><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html">AWS (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">AWS (n.d.)</a></span></li>
+<li>Microsoft 365 Copilot exposes strong tenant-governance evidence through Purview audit, the Microsoft 365 agent registry, and tool-approval workflows, but the standard audit schema explicitly omits model name and model version for Microsoft 365 Copilot scenarios and does not function as a full runtime trace<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/audit-copilot" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide">Microsoft (n.d.)</a></span></li>
+<li>Microsoft Copilot Studio adds real-time data-loss-prevention controls, agent export and import through solutions, and detailed authoring and usage audit events, which strengthens Microsoft’s AIBOM readiness even though its export surface remains partial because some components and properties do not transfer cleanly<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-import-export" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-import-export">Microsoft (n.d.)</a></span></li>
+<li>Salesforce Agentforce publicly documents mission-control observability, session-level tracing, and near-real-time security telemetry, including Event Monitoring and transaction-security controls around agent activity, which makes the reviewed public material look richer on runtime observability than the standard Microsoft 365 Copilot audit surface even though some of that gap may reflect how the vendors publish their capabilities<span class="claim-sources"><a class="claim-source-link" href="https://www.salesforce.com/agentforce/observability/" target="_blank" rel="noopener" title="https://www.salesforce.com/agentforce/observability/">Salesforce (n.d.)</a><a class="claim-source-link" href="https://www.salesforce.com/blog/secure-agentforce-with-trusted-services/" target="_blank" rel="noopener" title="https://www.salesforce.com/blog/secure-agentforce-with-trusted-services/">Salesforce (n.d.)</a><a class="claim-source-link" href="https://www.salesforce.com/blog/best-practices-for-secure-agentforce-implementation/" target="_blank" rel="noopener" title="https://www.salesforce.com/blog/best-practices-for-secure-agentforce-implementation/">Salesforce (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/audit-copilot" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft (n.d.)</a></span></li>
+<li>Salesforce Agentforce also appears to support session-trace export and agent version management using OpenTelemetry, the vendor-neutral observability framework, which would make automated AIBOM generation more feasible than on Microsoft 365 Copilot, but the public evidence leaves the exact export schema and version workflow under-specified and therefore reduces confidence<span class="claim-sources"><a class="claim-source-link" href="https://opentelemetry.io/docs/" target="_blank" rel="noopener" title="https://opentelemetry.io/docs/">OpenTelemetry (n.d.)</a><a class="claim-source-link" href="https://developer.salesforce.com/docs/ai/agentforce/guide/otel-api.html" target="_blank" rel="noopener" title="https://developer.salesforce.com/docs/ai/agentforce/guide/otel-api.html">Salesforce (n.d.)</a><a class="claim-source-link" href="https://help.salesforce.com/s/articleView?id=ai.agent_versions.htm&language=en_US&type=5" target="_blank" rel="noopener" title="https://help.salesforce.com/s/articleView?id=ai.agent_versions.htm&amp;language=en_US&amp;type=5">Salesforce (n.d.)</a><a class="claim-source-link" href="https://help.salesforce.com/s/articleView?id=005237036&language=en_US&type=1" target="_blank" rel="noopener" title="https://help.salesforce.com/s/articleView?id=005237036&amp;language=en_US&amp;type=1">Salesforce (n.d.)</a></span></li>
+<li>ServiceNow Now Assist and AI Control Tower publicly emphasize centralized inventory, lifecycle governance, compliance mapping, drift detection, and workflow-triggered remediation, but the accessible public evidence is too high-level to show a concrete per-session trace-export or configuration-export surface comparable to AWS or Salesforce<span class="claim-sources"><a class="claim-source-link" href="https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185" target="_blank" rel="noopener" title="https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185">ServiceNow (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104" target="_blank" rel="noopener" title="https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104">ServiceNow (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/product-launch-forum/using-the-ai-control-tower-in-servicenow-for-enterprise-wide-ai/m-p/3421753" target="_blank" rel="noopener" title="https://www.servicenow.com/community/product-launch-forum/using-the-ai-control-tower-in-servicenow-for-enterprise-wide-ai/m-p/3421753">ServiceNow (n.d.)</a></span></li>
+<li>Across all four platforms, the main opaque zones are the vendor-owned parts of orchestration, specifically hidden prompt augmentation, internal routing or planning logic, model-side reasoning internals, and platform-private policy engines that customers can observe only indirectly through summarized metadata or outcomes<span class="claim-sources"><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">AWS (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/audit-copilot" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft (n.d.)</a><a class="claim-source-link" href="https://www.salesforce.com/agentforce/observability/" target="_blank" rel="noopener" title="https://www.salesforce.com/agentforce/observability/">Salesforce (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185" target="_blank" rel="noopener" title="https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185">ServiceNow (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]">Github (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What logs, traces, audit Application Programming Interfaces (APIs), Artificial Intelligence Bill of Materials (AIBOM) export capabilities, version-pinning mechanisms, allowlists, and policy hooks actually exist in production agentic AI platforms, specifically Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist, and where does each platform remain opaque even with full observability enabled?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>AWS Bedrock Agents provide the strongest documented substrate for automated Artificial Intelligence Bill of Materials (AIBOM) generation among the four reviewed platforms because AWS exposes both a machine-readable configuration API and detailed step-level runtime traces with immutable version snapshots.
+Microsoft 365 Copilot provides a strong tenant-governance surface through audit, inventory, and tool-approval controls, but its main audit stream omits critical runtime detail such as model name and model version for Microsoft 365 Copilot and does not provide full transcript content in the standard audit record.
+Salesforce Agentforce documents extensive managed-platform runtime observability through session-level tracing and observability tooling, but the reviewed public evidence leaves export semantics and versioning detail under-specified, so confidence is lower than for AWS.
+ServiceNow Now Assist and AI Control Tower emphasize centralized governance, inventory, and oversight, but the accessible public evidence reviewed here is more strategic than technical, which makes detailed AIBOM automation claims the weakest of the four.
+The reviewed public documentation for none of the four platforms describes a native AIBOM or equivalent Bill of Materials export, so an enterprise that wants portable inventory assurance still needs an external normalization and evidence-binding layer.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>AWS Bedrock Agents are the strongest documented Artificial Intelligence Bill of Materials (AIBOM) substrate in this comparison because AWS exposes agent configuration through the GetAgent API, immutable alias-based versions, and step-level runtime traces that include prompts, rationale, action invocations, observations, and version identifiers.</strong></li>
+<li><strong>AWS Bedrock still appears not to provide a native AIBOM export, and its observability remains incomplete when traffic bypasses the documented <code>bedrock-runtime</code> logging path or when the enterprise needs provider-side model internals rather than customer-visible orchestration evidence.</strong></li>
+<li><strong>Microsoft 365 Copilot exposes strong tenant-governance evidence through Purview audit, the <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide">Microsoft 365 agent registry</a>, and tool-approval workflows, but the standard audit schema explicitly omits model name and model version for Microsoft 365 Copilot scenarios and does not function as a full runtime trace.</strong></li>
+<li><strong>Microsoft Copilot Studio adds real-time data-loss-prevention controls, agent export and import through solutions, and detailed authoring and usage audit events, which strengthens Microsoft’s AIBOM readiness even though its export surface remains partial because some components and properties do not transfer cleanly.</strong></li>
+<li><strong>Salesforce Agentforce publicly documents mission-control observability, session-level tracing, and near-real-time security telemetry, including Event Monitoring and transaction-security controls around agent activity, which makes the reviewed public material look richer on runtime observability than the standard Microsoft 365 Copilot audit surface even though some of that gap may reflect how the vendors publish their capabilities.</strong></li>
+<li><strong>Salesforce Agentforce also appears to support session-trace export and agent version management using OpenTelemetry, the vendor-neutral observability framework, which would make automated AIBOM generation more feasible than on Microsoft 365 Copilot, but the public evidence leaves the exact export schema and version workflow under-specified and therefore reduces confidence.</strong></li>
+<li><strong>ServiceNow Now Assist and AI Control Tower publicly emphasize centralized inventory, lifecycle governance, compliance mapping, drift detection, and workflow-triggered remediation, but the accessible public evidence is too high-level to show a concrete per-session trace-export or configuration-export surface comparable to AWS or Salesforce.</strong></li>
+<li><strong>Across all four platforms, the main opaque zones are the vendor-owned parts of orchestration, specifically hidden prompt augmentation, internal routing or planning logic, model-side reasoning internals, and platform-private policy engines that customers can observe only indirectly through summarized metadata or outcomes.</strong></li>
+<li><strong>An enterprise that wants reliable AIBOM automation across these platforms still needs an external control plane that normalizes tenant inventory, exported traces, approval records, and identity or tool-governance evidence into one portable schema rather than trusting any one platform’s native view to be complete.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The official Salesforce URLs surfaced by search reflect current product capability even though the accessible public material leaves some schema and workflow detail unspecified. <strong>Justification:</strong> the URLs are on official Salesforce domains and were corroborated by accessible Salesforce product and blog material.</li>
+<li><strong>Assumption:</strong> The accessible ServiceNow community articles are materially representative of the platform’s public governance surfaces even though the public material does not expose deeper technical export detail. <strong>Justification:</strong> the articles are on official ServiceNow domains and describe the same AI Control Tower feature set consistently.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence separates into two clusters. AWS Bedrock exposes both declarative and runtime state through customer-addressable APIs and logs, which makes it the most suitable platform for building a machine-generated AIBOM from native evidence.
+Microsoft, Salesforce, and ServiceNow are more managed, so the relevant question is not whether they provide observability at all, but whether their observability is operationally deep enough for portable inventory reconstruction rather than only for tenant governance.
+Microsoft is strongest when the enterprise needs registry, approval, and policy control over agents and tools, but weaker when it needs transcript-complete and model-complete runtime evidence for the core Microsoft 365 Copilot experience.
+Salesforce appears to move furthest toward runtime introspection in the reviewed public materials because it explicitly frames session tracing and observability as operational products, yet the evidence still does not show a native AIBOM export or enough publicly accessible schema detail to treat it as equivalent to AWS API-level introspection.
+Part of the apparent Salesforce-versus-Microsoft runtime gap may reflect differences in what each vendor exposes in public documentation and product marketing, rather than a fully measured difference in underlying platform capability.
+ServiceNow’s public story is governance-first rather than trace-first, which is useful for enterprise oversight but insufficient by itself for proving that a portable, field-level AIBOM can be generated from native product surfaces.
+The main trade-off is therefore between runtime depth and platform abstraction: the more the platform centralizes orchestration on the vendor side, the more governance becomes curated metadata rather than complete customer-visible evidence.
+Alternative remedies such as adding more human reviewers, tightening model-quality gates, or relying only on richer tenant governance interfaces can improve oversight, but they do not by themselves create the missing portable configuration and trace exports needed for repeatable AIBOM generation.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Public Salesforce material reviewed here confirms observability and security surfaces, but it does not expose enough detailed schema documentation to verify the exact customer-visible mechanics of session-trace export and agent version management with high confidence.</li>
+<li>Public ServiceNow material reviewed here confirms governance, inventory, and remediation framing, but it does not expose enough technical detail to verify a customer-visible AI Control Tower export interface or per-session trace schema with high confidence.</li>
+<li>The reviewed public docs do not prove whether hidden vendor-side prompt augmentation or internal routing is never logged anywhere; they only show which surfaces are customer-visible through documented interfaces.</li>
+<li>Microsoft 365 Copilot’s deeper transcript access can depend on additional Purview or security products, so the standard audit stream should be treated as the default documented evidence path rather than the only possible path.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What exact field schema does Salesforce’s OpenTelemetry session-trace export expose, and is it complete enough to populate a runtime AIBOM without auxiliary APIs?</li>
+<li>Does ServiceNow expose a programmatic AI Control Tower export or trace API in licensed documentation that is not visible from public community material?</li>
+<li>Can Microsoft 365 Copilot’s newer agent-registry and tools-governance surfaces be joined reliably with Purview audit and Data Security Posture Management for AI to create a tenant-wide partial AIBOM?</li>
+<li>What normalization schema best reconciles Bedrock trace events, Microsoft Purview audit records, Salesforce OpenTelemetry exports, and ServiceNow AI inventory records into one portable evidence model?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">AWS Bedrock trace events</a> - step-level trace structure for AWS Bedrock Agents, including prompts, rationale, observations, caller chain, and agent version.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html">AWS Bedrock model invocation logging</a> - request, response, metadata, export destinations, and logging limitations.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">AWS Bedrock Guardrails</a> - configurable safety and policy filters, guardrail versioning, and selective prompt evaluation.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html">AWS Bedrock GetAgent API</a> - agent configuration fields exposed through the API, including foundation model, instruction, prompt overrides, memory, and guardrail configuration.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html">AWS Bedrock deploy-agent guide</a> - immutable version snapshots, aliases, and pause or resume control.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-version-view.html">AWS Bedrock agent versions view</a> - official version-management surface for deployed agents.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Purview audit logs for Copilot and AI applications</a> - audit schema for Microsoft 365 Copilot, including accessed resources, agent identifiers, plugin details, and model-transparency fields.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/graph/api/reportroot-getmicrosoft365copilotusageuserdetail?view=graph-rest-beta">Microsoft Graph getMicrosoft365CopilotUsageUserDetail</a> - tenant usage export and reporting surface for Microsoft 365 Copilot.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Microsoft Copilot Studio security and governance</a> - governance controls, audit surfaces, data protection, and admin controls for Copilot Studio.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Microsoft Copilot Studio data loss prevention</a> - connector grouping, blocking, endpoint filtering, authentication controls, channel controls, and event-trigger controls.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio">Microsoft Copilot Studio audit logging</a> - Purview logging for agent authoring and usage, transcript handling, and audit-field schema.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-import-export">Microsoft Copilot Studio export and import using solutions</a> - agent packaging, included and excluded components, and import or export constraints.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview">Microsoft Copilot Studio solutions overview</a> - solution explorer and pipeline-oriented application lifecycle management surface.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide">Microsoft 365 agent registry</a> - tenant-wide inventory, comma-separated values export, ownership, platform, version, instructions, and agent-package upload surfaces.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide">Microsoft 365 tools page for agents</a> - Model Context Protocol (MCP) server approval, blocking, and status control in the Microsoft 365 admin center.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-agent-365/bring-your-own-mcp">Microsoft Agent 365 Bring Your Own MCP server</a> - governance flow for registering, approving, and monitoring remote Model Context Protocol (MCP) servers.</li>
+<li>[x] <a href="https://www.salesforce.com/agentforce/observability/">Salesforce Agentforce Observability</a> - official observability product page covering mission control, session tracing, health monitoring, analytics, and consumption tracking.</li>
+<li>[x] <a href="https://www.salesforce.com/blog/secure-agentforce-with-trusted-services/">Salesforce secure Agentforce with trusted services</a> - official Salesforce description of Shield Event Monitoring, transaction security, Security Center, and related control surfaces for Agentforce.</li>
+<li>[x] <a href="https://www.salesforce.com/blog/best-practices-for-secure-agentforce-implementation/">Salesforce secure Agentforce implementation</a> - official Salesforce security framing for roles, data, actions, guardrails, Trust Layer, and deployment channels.</li>
+<li>[x] <a href="https://developer.salesforce.com/docs/ai/agentforce/guide/otel-api.html">Salesforce Agentforce session tracing export</a> - official developer URL for OpenTelemetry session-trace export surfaced by search in this session; the detailed page was not directly retrievable here.</li>
+<li>[x] <a href="https://help.salesforce.com/s/articleView?id=ai.agent_versions.htm&amp;language=en_US&amp;type=5">Salesforce Agentforce versioning</a> - official help URL for agent version management surfaced by search in this session; the detailed page was not directly readable here.</li>
+<li>[x] <a href="https://help.salesforce.com/s/articleView?id=005237036&amp;language=en_US&amp;type=1">Salesforce Agentforce observability setup and access</a> - official help URL for observability setup surfaced by search in this session; the detailed page was not directly readable here.</li>
+<li>[x] <a href="https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185">ServiceNow AI Control Tower introduction</a> - official ServiceNow community article describing inventory, drift monitoring, compliance mapping, and workflow integration.</li>
+<li>[x] <a href="https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104">ServiceNow AI Control Tower executive view</a> - official ServiceNow community article on inventory, lifecycle coverage, governance, and value tracking.</li>
+<li>[x] <a href="https://www.servicenow.com/community/product-launch-forum/using-the-ai-control-tower-in-servicenow-for-enterprise-wide-ai/m-p/3421753">ServiceNow AI Control Tower in ServiceNow for enterprise-wide AI governance</a> - official ServiceNow community article describing centralized monitoring, governance automation, audit trails, and KPI dashboards.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html">Mitchell (2026) Vendor governance constraints and compensating controls</a> - prior repository item on managed-platform governance limits.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">Mitchell (2026) Observability and telemetry governance model</a> - prior repository item on multi-stream audit evidence requirements.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html">Mitchell (2026) Microsoft Copilot and AWS capability model</a> - prior repository comparison of Microsoft and AWS enterprise AI control surfaces.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-vendor-lock-in-portability-multi-platform-ai.html">Mitchell (2026) Vendor lock-in and portability in multi-platform AI</a> - prior repository item on the value of externalized control planes and portable evidence layers.</li>
+<li>[x] <a href="https://owaspaibom.org/">OWASP AI Bill of Materials project</a> - industry definition and framing of an Artificial Intelligence Bill of Materials (AIBOM).</li>
+<li>[x] <a href="https://opentelemetry.io/docs/">OpenTelemetry documentation</a> - official definition of OpenTelemetry as a vendor-neutral observability framework.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a> <span class="related-note">via agentic-ai, governance, llm, observability, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison</a> <span class="related-note">via agentic-ai, enterprise, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?</a> <span class="related-note">via agentic-ai, enterprise, llm, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html">What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html">Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-vendor-lock-in-portability-multi-platform-ai.html">What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">AIBOM be generated for an agentic AI system, and how much does it diverge from…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally…</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T20:01:35Z",
+  "extracted_at": "2026-05-06T20:19:12Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -950,6 +950,133 @@
             "https://www.nist.gov/itl/ai-risk-management-framework",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-platform-observability-control-comparison": {
+      "named_concepts": [
+        "microsoft copilot",
+        "reviewed public",
+        "aws bedrock",
+        "ai control",
+        "control tower",
+        "native aibom",
+        "public material",
+        "salesforce agentforce",
+        "aibom export",
+        "session-trace export",
+        "strongest documented",
+        "aibom generation",
+        "step-level runtime",
+        "runtime traces",
+        "model name",
+        "model version",
+        "standard audit",
+        "runtime observability",
+        "session-level tracing",
+        "governance inventory"
+      ],
+      "source_urls": [
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-version-view.html",
+        "https://learn.microsoft.com/en-us/purview/audit-copilot",
+        "https://learn.microsoft.com/en-us/graph/api/reportroot-getmicrosoft365copilotusageuserdetail?view=graph-rest-beta",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-import-export",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview",
+        "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide",
+        "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide",
+        "https://learn.microsoft.com/en-us/microsoft-agent-365/bring-your-own-mcp",
+        "https://www.salesforce.com/agentforce/observability/",
+        "https://www.salesforce.com/blog/secure-agentforce-with-trusted-services/",
+        "https://www.salesforce.com/blog/best-practices-for-secure-agentforce-implementation/",
+        "https://developer.salesforce.com/docs/ai/agentforce/guide/otel-api.html",
+        "https://help.salesforce.com/s/articleView?id=ai.agent_versions.htm&language=en_US&type=5",
+        "https://help.salesforce.com/s/articleView?id=005237036&language=en_US&type=1",
+        "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+        "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104",
+        "https://www.servicenow.com/community/product-launch-forum/using-the-ai-control-tower-in-servicenow-for-enterprise-wide-ai/m-p/3421753",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-vendor-lock-in-portability-multi-platform-ai.html",
+        "https://owaspaibom.org/",
+        "https://opentelemetry.io/docs/"
+      ],
+      "key_claims": [
+        {
+          "text": "AWS Bedrock Agents are the strongest documented Artificial Intelligence Bill of Materials (AIBOM) substrate in this comparison because AWS exposes agent configuration through the GetAgent API, immutable alias-based versions, and step-level runtime traces that include prompts, rationale, action invocations, observations, and version identifiers",
+          "sources": [
+            "https://owaspaibom.org/",
+            "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/deploy-agent.html]"
+          ]
+        },
+        {
+          "text": "AWS Bedrock still appears not to provide a native AIBOM export, and its observability remains incomplete when traffic bypasses the documented `bedrock-runtime` logging path or when the enterprise needs provider-side model internals rather than customer-visible orchestration evidence",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html"
+          ]
+        },
+        {
+          "text": "Microsoft 365 Copilot exposes strong tenant-governance evidence through Purview audit, the Microsoft 365 agent registry, and tool-approval workflows, but the standard audit schema explicitly omits model name and model version for Microsoft 365 Copilot scenarios and does not function as a full runtime trace",
+          "sources": [
+            "https://learn.microsoft.com/en-us/purview/audit-copilot",
+            "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide",
+            "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent?view=o365-worldwide"
+          ]
+        },
+        {
+          "text": "Microsoft Copilot Studio adds real-time data-loss-prevention controls, agent export and import through solutions, and detailed authoring and usage audit events, which strengthens Microsoft’s AIBOM readiness even though its export surface remains partial because some components and properties do not transfer cleanly",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-import-export"
+          ]
+        },
+        {
+          "text": "Salesforce Agentforce publicly documents mission-control observability, session-level tracing, and near-real-time security telemetry, including Event Monitoring and transaction-security controls around agent activity, which makes the reviewed public material look richer on runtime observability than the standard Microsoft 365 Copilot audit surface even though some of that gap may reflect how the vendors publish their capabilities",
+          "sources": [
+            "https://www.salesforce.com/agentforce/observability/",
+            "https://www.salesforce.com/blog/secure-agentforce-with-trusted-services/",
+            "https://www.salesforce.com/blog/best-practices-for-secure-agentforce-implementation/",
+            "https://learn.microsoft.com/en-us/purview/audit-copilot"
+          ]
+        },
+        {
+          "text": "Salesforce Agentforce also appears to support session-trace export and agent version management using OpenTelemetry, the vendor-neutral observability framework, which would make automated AIBOM generation more feasible than on Microsoft 365 Copilot, but the public evidence leaves the exact export schema and version workflow under-specified and therefore reduces confidence",
+          "sources": [
+            "https://opentelemetry.io/docs/",
+            "https://developer.salesforce.com/docs/ai/agentforce/guide/otel-api.html",
+            "https://help.salesforce.com/s/articleView?id=ai.agent_versions.htm&language=en_US&type=5",
+            "https://help.salesforce.com/s/articleView?id=005237036&language=en_US&type=1"
+          ]
+        },
+        {
+          "text": "ServiceNow Now Assist and AI Control Tower publicly emphasize centralized inventory, lifecycle governance, compliance mapping, drift detection, and workflow-triggered remediation, but the accessible public evidence is too high-level to show a concrete per-session trace-export or configuration-export surface comparable to AWS or Salesforce",
+          "sources": [
+            "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+            "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104",
+            "https://www.servicenow.com/community/product-launch-forum/using-the-ai-control-tower-in-servicenow-for-enterprise-wide-ai/m-p/3421753"
+          ]
+        },
+        {
+          "text": "Across all four platforms, the main opaque zones are the vendor-owned parts of orchestration, specifically hidden prompt augmentation, internal routing or planning logic, model-side reasoning internals, and platform-private policy engines that customers can observe only indirectly through summarized metadata or outcomes",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+            "https://learn.microsoft.com/en-us/purview/audit-copilot",
+            "https://www.salesforce.com/agentforce/observability/",
+            "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]"
           ]
         }
       ]
