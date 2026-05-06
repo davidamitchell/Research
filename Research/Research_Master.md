@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-06 12:25 UTC
+Generated on: 2026-05-06 12:56 UTC
 
 ## Table of Contents
 
 * [What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?](#2026-05-06-it-system-legibility-measurement-frameworks-md)
+* [How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?](#2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight-md)
 * [How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?](#2026-05-06-factscore-precision-scoring-atomic-claims-md)
 * [What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?](#2026-05-06-barnum-statements-ai-responses-theory-practice-md)
 * [What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?](#2026-05-06-aibom-schema-design-standards-alignment-md)
@@ -347,6 +348,87 @@ The best-supported conclusion is therefore plural rather than singular: legibili
 - Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard? [inference; source: https://backstage.io/docs/features/software-catalog/; https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
 - How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index? [inference; source: https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt; https://engineering.atspotify.com/2024/04/supercharged-developer-portals]
 - Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific? [inference; source: https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://backstage.io/docs/features/software-catalog/; https://www.leanix.net/en/products/application-portfolio-management; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
+
+---
+
+---
+
+<a id="2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight-md"></a>
+
+## How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?
+
+**Tags:** [llm, evaluation, workflow, agentic-ai]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md
+
+## Research Question
+
+How do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against strict, customizable policies, and what are their capabilities, deployment models, and trade-offs compared to rule-based classifiers and closed Application Programming Interface (API) guardrail approaches for enforcing quality and content standards on Artificial Intelligence (AI)-generated research text?
+
+## Findings
+
+### Executive Summary
+
+gpt-oss-safeguard is best understood as an open-weight, policy-conditioned safety classifier that trades raw latency and narrow-task specialization for self-hosting, explicit policy control, and inspectable reasoning. [inference; source: https://github.com/openai/gpt-oss-safeguard/blob/main/README.md; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://developers.openai.com/api/docs/guides/moderation]
+
+The model family is not a practical drop-in for standard GitHub-hosted Actions runners, because the documented 20B and 120B hardware requirements exceed the default runner's no-GPU profile. [fact; source: https://huggingface.co/openai/gpt-oss-safeguard-20b/raw/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-120b/raw/main/README.md; https://docs.github.com/en/actions/reference/runners/github-hosted-runners]
+
+For this repository's research-review pipeline, the strongest fit is a hybrid control pattern, deterministic linting first, policy-conditioned reasoning second, and sampled or exception-based human review third. [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html]
+
+Accessible official evidence supports the model's design and deployment trade-offs, but it does not publish enough numeric depth to justify strong claims about broad false-positive or false-negative performance across many policy families. [inference; source: https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/golden_dataset.csv; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
+
+### Key Findings
+
+1. **OpenAI officially publishes gpt-oss-safeguard as two released-weight safety reasoning models, 20B and 120B, built on gpt-oss and intended specifically for developer-supplied policy classification rather than general assistant use.** ([fact]; high confidence; source: https://github.com/openai/gpt-oss-safeguard/blob/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-20b/raw/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-120b/raw/main/README.md)
+2. **The official policy interface accepts developer-written policies with instructions, definitions, criteria, examples, output schemas, and reasoning-effort controls rather than a fixed built-in moderation taxonomy.** ([fact]; high confidence; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/policy.txt)
+3. **The accessible public evaluation evidence is narrow rather than comprehensive, with an official spam example reporting 0.9 accuracy, 1.0 precision, 0.8 recall, and 0.8888888889 F1 score, while broader public benchmark tables are not exposed in the accessible official materials used here.** ([fact]; medium confidence; source: https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/golden_dataset.csv; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide)
+4. **Rule-based and traditional classifiers remain superior for deterministic or narrowly trained checks because OpenAI itself describes them as cheaper and faster, so gpt-oss-safeguard is better treated as a second-stage policy reasoner than as a universal first-stage filter.** ([inference]; medium confidence; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html)
+5. **Compared with closed-API guardrails, gpt-oss-safeguard exposes a distinct control surface centered on self-hosting and developer-written policy text, while OpenAI Moderation exposes fixed managed categories and Anthropic Constitutional AI exposes provider-owned constitutional training and governance rather than a self-hosted classifier surface.** ([inference]; medium confidence; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://developers.openai.com/api/docs/guides/moderation; https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback; https://www.anthropic.com/constitution)
+6. **Compared with other open approaches, gpt-oss-safeguard is closest to Llama Guard in policy-conditioned classification, but it occupies a middle position between Llama Guard style classifiers and NeMo Guardrails style runtime rails.** ([inference]; medium confidence; source: https://arxiv.org/abs/2312.06674; https://arxiv.org/abs/2310.10501; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide)
+7. **The model family is not a realistic direct dependency for this repository's default GitHub Actions pipeline, because standard runners have no GPU and only 8 to 16 GB RAM, while the documented model deployments assume at least 16 GB VRAM for 20B and H100 class hardware or about 60 GB VRAM for 120B.** ([fact]; high confidence; source: https://huggingface.co/openai/gpt-oss-safeguard-20b/raw/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-120b/raw/main/README.md; https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
+8. **The repository's review rubric can partly be enforced by a safeguard model, especially context-sensitive policy checks on prose, but the most decision-critical synthesis and judgment checks still require a higher-cost review layer rather than pure automated classification.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] OpenAI officially publishes two gpt-oss-safeguard models for policy classification. | https://github.com/openai/gpt-oss-safeguard/blob/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-20b/raw/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-120b/raw/main/README.md | high | official repo and model cards |
+| [fact] The official policy interface accepts developer-written policies with explicit instructions, definitions, criteria, examples, and output schemas. | https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/policy.txt | high | official prompt guide and sample policy |
+| [fact] Accessible public numeric evaluation is narrow and example-policy based. | https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/golden_dataset.csv; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide | medium | one public metric file, no broad table |
+| [inference] Traditional classifiers should remain first-stage filters, with safeguard as a second-stage policy reasoner. | https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html | medium | direct guidance plus repo control logic |
+| [inference] Compared with closed-API guardrails, gpt-oss-safeguard exposes a distinct control surface centered on self-hosting and developer-written policy text. | https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://developers.openai.com/api/docs/guides/moderation; https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback; https://www.anthropic.com/constitution | medium | cross-platform control-surface comparison across official docs |
+| [inference] gpt-oss-safeguard occupies a middle position between Llama Guard and NeMo Guardrails. | https://arxiv.org/abs/2312.06674; https://arxiv.org/abs/2310.10501; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide | medium | cross-source product-positioning inference |
+| [fact] Standard GitHub-hosted runners cannot realistically host the model directly. | https://huggingface.co/openai/gpt-oss-safeguard-20b/raw/main/README.md; https://huggingface.co/openai/gpt-oss-safeguard-120b/raw/main/README.md; https://docs.github.com/en/actions/reference/runners/github-hosted-runners | high | documented hardware mismatch |
+| [inference] The research-review rubric is only partly suitable for safeguard-based automation. | https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide | medium | workflow-fit synthesis |
+
+### Assumptions
+
+- **Assumption:** The public spam example is representative of how OpenAI expects custom-policy evaluation to be staged, even though it is not a broad external benchmark suite. **Justification:** It is the only accessible official numeric evaluation artifact in the released repository and is paired with the official policy-writing guide. [assumption; source: https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/golden_dataset.csv; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
+- **Assumption:** The comparison surface that matters most for this repository is organization-specific policy control rather than generic harmful-content detection alone. **Justification:** The repository's review process is driven by explicit rubric rules rather than by generic consumer-safety categories. [assumption; source: https://developers.openai.com/api/docs/guides/moderation; https://www.anthropic.com/constitution; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
+
+### Analysis
+
+The most important trade-off is not "open versus closed" in the abstract, but fixed managed categories versus developer-owned policy text plus self-hosting responsibility. [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://developers.openai.com/api/docs/guides/moderation]
+
+gpt-oss-safeguard is strongest where a rule cannot be reduced to a simple pattern match, yet can still be written down clearly enough for a model to reason against it. [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/policy.txt]
+
+Keeping full per-item human review is the main rival remedy for judgment-heavy research checks, but prior repository evidence on review overload and the runner hardware mismatch together imply that a purely human path is capacity-bound while a purely on-runner safeguard path is infrastructure-bound. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html; https://docs.github.com/en/actions/reference/runners/github-hosted-runners]
+
+Stronger deterministic linting is another rival remedy, but it only covers the machine-checkable subset of the rubric and therefore cannot replace contextual classification of prose against policy text. [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html]
+
+Stronger closed-provider guardrails are a third rival remedy, but they solve a different problem, managed generic safety, and do not provide the same degree of organization-specific policy control or local auditability. [inference; source: https://www.anthropic.com/constitution; https://developers.openai.com/api/docs/guides/moderation; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
+
+### Risks, Gaps, and Uncertainties
+
+- Accessible official public materials do not expose a full benchmark table by policy type, so confidence on broad accuracy claims should remain below high. [fact; source: https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/golden_dataset.csv; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
+- OpenAI explicitly notes that multiple simultaneous policies degrade accuracy, which matters for any attempt to encode the repository's entire review rubric into one large policy. [fact; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
+- Even if the policy design proves strong, infrastructure cost remains a real blocker unless the review workflow gains GPU access or an internal inference endpoint. [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://docs.github.com/en/actions/reference/runners/github-hosted-runners]
+
+### Open Questions
+
+- How much accuracy is lost when the repository's review rubric is split into several short policies versus one long composite policy? [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://github.com/openai/gpt-oss-safeguard/blob/main/example_policies/spam/golden_dataset.csv]
+- What escalation thresholds and sampling design would prevent reviewers from over-trusting the model's rationale output? [inference; source: https://cookbook.openai.com/articles/gpt-oss-safeguard-guide; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html]
+- For this repository's needs, is a hybrid stack of closed moderation for obvious harms plus open-weight policy reasoning for rubric compliance better than an all-open or all-closed design? [inference; source: https://developers.openai.com/api/docs/guides/moderation; https://cookbook.openai.com/articles/gpt-oss-safeguard-guide]
 
 ---
 
