@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-05-06 21:09 UTC
+Generated on: 2026-05-06 21:35 UTC
 
 ## Table of Contents
 
@@ -15,6 +15,7 @@ Generated on: 2026-05-06 21:09 UTC
 * [How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?](#2026-05-06-aibom-runtime-generation-divergence-theory-md)
 * [What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?](#2026-05-06-aibom-platform-observability-control-comparison-md)
 * [How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?](#2026-05-06-aibom-identity-delegation-trust-theory-md)
+* [How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?](#2026-05-06-aibom-identity-attribution-multiagent-practice-md)
 * [What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?](#2026-05-06-aibom-effectiveness-risk-mitigation-limits-md)
 * [How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph](#2026-05-06-aibom-declared-construction-practice-md)
 * [What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?](#2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability-md)
@@ -1197,6 +1198,84 @@ The preferred model is therefore not a new identity standard, but a schema-level
 - What is the smallest interoperable serialization for nested delegation chains that preserves audit history without causing token or manifest bloat?
 - How should an AIBOM identify model instances when the same logical model is accessed through multiple hosted endpoints with different trust and logging behavior?
 - Which runtime trace fields are the minimum necessary companion to the design-time AIBOM so that a post-incident reviewer can bind intent, delegation, and action together without ambiguity?
+
+---
+
+---
+
+<a id="2026-05-06-aibom-identity-attribution-multiagent-practice-md"></a>
+
+## How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?
+
+**Tags:** [agentic-ai, identity, security, access-control, delegation, attribution, llm, governance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-identity-attribution-multiagent-practice.md
+
+## Research Question
+
+How do OAuth 2.0 (Open Authorisation), OpenID Connect (OIDC), and SPIFFE (Secure Production Identity Framework for Everyone) token propagation mechanisms work in real multi-agent Artificial Intelligence (AI) pipelines, and where does end-to-end attribution break in practice, specifically across agent-to-agent delegation, agent-to-tool handoffs, and cross-system boundary crossings?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+OAuth 2.0 and OpenID Connect (OIDC) preserve enough identity and authorization context for human-initiated Application Programming Interface (API) delegation, but they do not by themselves preserve a portable, end-to-end attribution chain across autonomous multi-agent systems. [inference; source: https://openid.net/specs/openid-connect-core-1_0.html; https://www.rfc-editor.org/rfc/rfc8693; https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow]
+Secure Production Identity Framework for Everyone (SPIFFE) and cloud workload-federation patterns close the machine-identity problem with short-lived workload credentials, yet they do not encode who originally authorized the work or what user-level scope intent should survive later hops. [inference; source: https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md]
+In the examined frameworks and platforms, attribution breaks when a sub-agent or tool call changes credential type, crosses a trust boundary, or falls back to shared runtime credentials, because native traces expose the current caller more clearly than the original authorizer. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://docs.crewai.com/en/concepts/tools.md; https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html]
+The strongest current pattern is hybrid: delegated user tokens for human-initiated hops, workload identity for autonomous hops, explicit edge-bound permission manifests, and a separate audit receipt that persists subject, current actor, target, and scope outside the runtime token. [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html]
+
+### Key Findings
+
+1. **OpenID Connect (OIDC) and delegated OAuth 2.0 flows preserve human identity and delegated authority only for the active subject and current actor, which makes them useful for user-initiated API chains but insufficient as a full historical attribution record for long multi-agent pipelines.** ([inference]; high confidence; source: https://openid.net/specs/openid-connect-core-1_0.html; https://www.rfc-editor.org/rfc/rfc8693)
+2. **Microsoft's on-behalf-of (OBO) implementation illustrates one practical boundary of delegated user-token propagation, because it supports delegated user scopes for middle-tier APIs but explicitly excludes app-only service-principal tokens, which must switch to a machine-oriented credential pattern.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
+3. **SPIFFE provides strong short-lived workload identity and trust-domain verification, but because each SPIFFE Verifiable Identity Document (SVID) represents a single presenting workload and not a delegated human chain, SPIFFE alone cannot express who originally authorized a downstream action.** ([inference]; medium confidence; source: https://spiffe.io/docs/latest/spiffe-about/overview/; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/)
+4. **Model Context Protocol (MCP) standardizes how clients authorize to tool servers through Authorization Code or Client Credentials and bearer tokens on every HTTP request, yet it leaves subject-and-actor provenance receipts to implementations rather than defining them as protocol-native artifacts.** ([inference]; medium confidence; source: https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization; https://modelcontextprotocol.io/specification/2025-03-26/basic/transports)
+5. **Amazon Bedrock multi-agent traces preserve valuable agent-routing metadata such as collaborator names, session identifiers, agent versions, and caller chains, but the documented trace schema does not natively bind those records to an end-user principal or delegated scope set.** ([fact]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html)
+6. **Open-source orchestration frameworks such as CrewAI, AutoGen, and LangGraph treat identity propagation mainly as runtime configuration or application state, so downstream tools are commonly invoked under shared deployment credentials or assistant runtime identity unless developers add explicit per-user or per-hop controls.** ([inference]; medium confidence; source: https://docs.crewai.com/en/concepts/tools.md; https://docs.crewai.com/en/concepts/llms.md; https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html; https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs)
+7. **CrewAI's enterprise features indicate that important parts of the attribution gap are fixable today, because the platform already supports OAuth-scoped integrations, optional `user_bearer_token` user scoping, authenticated agent-to-agent communication, and per-execution workload identity federation.** ([inference]; medium confidence; source: https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md; https://docs.crewai.com/en/enterprise/features/a2a.md; https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md)
+8. **The remaining gap is a portable delegation-chain receipt that survives across frameworks, tools, and trust domains, because current standards secure individual hops well but do not standardize one verifiable artifact containing original subject, current actor, prior actors, scopes, target resource, and approval context.** ([inference]; medium confidence; source: https://www.rfc-editor.org/rfc/rfc8693; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] OIDC provides end-user identity assertions, while RFC 8693 defines delegated actor semantics and nested `act` history that is not enforcement-relevant beyond the current actor. | https://openid.net/specs/openid-connect-core-1_0.html ; https://www.rfc-editor.org/rfc/rfc8693 | high | User identity plus delegated actor, not full historical enforcement chain |
+| [fact] Microsoft's OBO flow supports delegated user scopes for middle-tier APIs and excludes app-only service-principal tokens. | https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow | medium | Human delegation only |
+| [inference] SPIFFE issues short-lived workload identity through a single SPIFFE ID per SVID and trust-domain verification, which does not itself encode a delegated human authorization chain. | https://spiffe.io/docs/latest/spiffe-about/overview/ ; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/ | medium | Workload authentication, not end-user delegation |
+| [inference] MCP standardizes Authorization Code, Client Credentials, bearer-token usage on every HTTP request, but the current specification leaves subject-and-actor provenance receipts to implementations. | https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization ; https://modelcontextprotocol.io/specification/2025-03-26/basic/transports | medium | Transport authorization layer |
+| [fact] Bedrock trace events document collaborator names, caller chains, session IDs, versions, prompts, rationale, and action inputs, but no documented end-user principal field. | https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html ; https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html | medium | Strong agent-hop trace, partial human provenance |
+| [inference] CrewAI, AutoGen, and LangGraph leave cross-hop identity propagation largely to runtime configuration or application state. | https://docs.crewai.com/en/concepts/tools.md ; https://docs.crewai.com/en/concepts/llms.md ; https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html ; https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs | medium | Framework flexibility exceeds built-in identity semantics |
+| [fact] The CrewAI platform already exposes OAuth-scoped integrations, optional user scoping, multiple authenticated agent-to-agent schemes, and per-execution workload identity federation. | https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md ; https://docs.crewai.com/en/enterprise/features/a2a.md ; https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md | medium | Practical remediation features exist |
+| [inference] A portable delegation-chain receipt remains unsolved across frameworks and protocols. | https://www.rfc-editor.org/rfc/rfc8693 ; https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html | medium | Standards gap, not only implementation gap |
+
+### Assumptions
+
+- **Assumption:** Native traces or message events can be enriched with custom application metadata when teams need stronger attribution than the framework provides. **Justification:** The examined platforms expose enough hooks to attach metadata, but this item did not validate the durability or consistency of those custom extensions. [assumption; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://docs.crewai.com/en/concepts/tools.md; https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html]
+
+### Analysis
+
+The evidence weighs most strongly in favor of a split model rather than a single universal credential. [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow]
+Delegated user tokens fit hops where a human is actively authorizing access to downstream APIs, because they preserve user identity, audience, and scope semantics that workload identity does not. [inference; source: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow; https://openid.net/specs/openid-connect-core-1_0.html]
+Workload identity fits hops where a task is autonomous, app-only, or long-running, because those hops need a machine identity that can rotate independently of a human session and survive beyond an interactive consent event. [inference; source: https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md]
+The main trade-off is that user delegation provides better human accountability while workload identity provides better runtime durability and least-secret handling, so practical systems need both and must record where the handoff from one model to the other occurred. [inference; source: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://www.rfc-editor.org/rfc/rfc8693]
+Bedrock's native trace depth improves incident reconstruction for agent routing, but open-source frameworks offer more flexibility and therefore require more application-layer identity discipline. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://docs.crewai.com/en/concepts/collaboration.md; https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/concurrent-agents.html; https://docs.langchain.com/oss/python/langchain/multi-agent]
+Plausible rival remedies exist, including stronger model-quality gates, more human review, or preserving per-item manual approval for sensitive tools, but those rivals mostly reduce misuse probability rather than solving the provenance problem that appears once a tool call has already crossed a boundary. [inference; source: https://owasp.org/www-project-top-10-for-large-language-model-applications/; https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html]
+The strongest conclusion is therefore architectural: attribution gaps are partly fixable today with better credential separation, scope narrowing, and audit receipts, while portable cross-framework delegation proof still requires new standardization work. [inference; source: https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization; https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html]
+
+### Risks, Gaps, and Uncertainties
+
+- Public documentation may understate platform-specific hooks or internal telemetry fields that enterprise customers can configure but that are not described openly. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html; https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md]
+- CrewAI's stronger identity controls are concentrated in the platform's enterprise features, so open-source-only deployments may still face a larger attribution gap by default. [inference; source: https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md; https://docs.crewai.com/en/enterprise/features/a2a.md]
+- Bedrock's native trace documentation is rich for agent orchestration, but it does not rule out stronger customer-managed user attribution added outside the documented schema. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html]
+- MCP authorization is still evolving, so richer portable provenance fields could emerge without a wholly new protocol if the ecosystem standardizes them. [inference; source: https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization]
+
+### Open Questions
+
+- Should the repository create a follow-on item for a portable delegation-receipt schema that can be embedded in an Artificial Intelligence Bill of Materials (AIBOM) edge record and emitted by Model Context Protocol (MCP), agent-to-agent, and tool-call frameworks?
+- Which existing signing or attestation formats could carry subject, current actor, prior actors, target resource, approval state, and scope intent without exposing unnecessary personal data?
+- What is the minimum trace field set that Amazon Bedrock, CrewAI, AutoGen, and LangGraph would each need to expose natively for end-user attribution to become reviewable without custom middleware?
 
 ---
 
