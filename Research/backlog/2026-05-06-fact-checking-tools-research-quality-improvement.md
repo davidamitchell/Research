@@ -12,7 +12,7 @@ cites: [2026-05-06-openfactcheck-ai-fact-checking-pipeline, 2026-05-06-loki-fact
 related: [2026-05-06-openfactcheck-ai-fact-checking-pipeline, 2026-05-06-loki-fact-checking-journalists-moderation, 2026-05-06-factscore-precision-scoring-atomic-claims, 2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight, 2026-05-06-barnum-statements-ai-responses-theory-practice]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
-item_type: primary # primary | synthesis
+item_type: synthesis # primary | synthesis
 confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
