@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
