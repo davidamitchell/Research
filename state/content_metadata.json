@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T22:06:27Z",
+  "extracted_at": "2026-05-06T22:16:56Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -950,6 +950,109 @@
             "https://www.nist.gov/itl/ai-risk-management-framework",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-regulatory-eu-ai-act-intersection": {
+      "named_concepts": [
+        "ai act",
+        "eu ai",
+        "declared aibom",
+        "iso iec",
+        "nist ai",
+        "ai rmf",
+        "provider disclosures",
+        "aibom schema",
+        "act nist",
+        "apra cps",
+        "basel guidance",
+        "gpai obligations",
+        "training evaluation",
+        "evaluation copyright",
+        "copyright compliance",
+        "gpai provider",
+        "obligations create",
+        "upstream documentation",
+        "documentation chain",
+        "strong non-eu"
+      ],
+      "source_urls": [
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-53",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-55",
+        "https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers",
+        "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.apra.gov.au/sites/default/files/2023-07/Prudential%20Standard%20CPS%20230%20Operational%20Risk%20Management.pdf",
+        "https://www.eba.europa.eu/regulation-and-policy/internal-governance",
+        "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-internal-governance-under-crd",
+        "https://www.eba.europa.eu/publications-and-media/publications/special-topic-artificial-intelligence",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The EU AI Act's Article 11 and Annex IV already make component traceability and architecture disclosure material compliance concerns, because they require providers to document system purpose, versions, software and hardware interactions, deployment form, third-party tools, and system architecture in a way that maps directly onto a declared AIBOM surface",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html"
+          ]
+        },
+        {
+          "text": "AIBOM only partially satisfies the EU AI Act because Article 13 and Annex IV also require empirical performance, foreseeable-misuse, human-oversight, test-log, and maintenance information that an inventory artifact cannot generate on its own",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4"
+          ]
+        },
+        {
+          "text": "GPAI provider obligations create an upstream documentation chain that system-level AIBOMs should reference explicitly, because downstream integrators depend on provider disclosures about training, evaluation, copyright compliance, and systemic-risk handling to satisfy their own obligations",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-53",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-55",
+            "https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers"
+          ]
+        },
+        {
+          "text": "NIST AI RMF explicitly requires AI-system inventories and documented component and third-party risk mapping, which makes it a strong non-EU source of support for AIBOM-style documentation",
+          "sources": [
+            "https://doi.org/10.6028/NIST.AI.100-1"
+          ]
+        },
+        {
+          "text": "APRA CPS 230 and Basel guidance make AIBOM valuable as an operational-resilience and third-party dependency artifact, because those frameworks require registers, mapping, governance documentation, and dependency awareness for critical operations rather than model-card narratives alone",
+          "sources": [
+            "https://www.apra.gov.au/sites/default/files/2023-07/Prudential%20Standard%20CPS%20230%20Operational%20Risk%20Management.pdf",
+            "https://www.bis.org/bcbs/publ/d516.htm",
+            "https://www.bis.org/bcbs/publ/d515.htm"
+          ]
+        },
+        {
+          "text": "European Banking Authority (EBA) internal-governance expectations and ISO/IEC 42001 strengthen the case for traceable AI inventories and controlled documentation, but they do so indirectly through governance, risk-management, and transparency outcomes rather than an explicit AI-bill-of-materials requirement",
+          "sources": [
+            "https://www.eba.europa.eu/regulation-and-policy/internal-governance",
+            "https://www.eba.europa.eu/publications-and-media/publications/special-topic-artificial-intelligence",
+            "https://www.iso.org/standard/81230.html"
+          ]
+        },
+        {
+          "text": "Current AIBOM schema work is close to the minimum inventory needed for compliance support, but it still needs explicit linkage to upstream GPAI packets, runtime supplements for observed behavior, and companion artifacts for testing, risk management, and post-market monitoring",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4"
           ]
         }
       ]

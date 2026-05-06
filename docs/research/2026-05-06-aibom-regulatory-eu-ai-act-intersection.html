@@ -1,0 +1,797 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>EU AI systems? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>EU AI systems?</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>EU AI systems?</h1>
+  <p class="full-title-subtitle">How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/regulatory-compliance.html">regulatory-compliance</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/security.html">security</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-regulatory-eu-ai-act-intersection.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-aibom-regulatory-eu-ai-act-intersection" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The EU AI Act&#39;s Article 11 and Annex IV already make component traceability and architecture disclosure material compliance concerns, because they require providers to document system purpose, versions, software and hardware interactions, deployment form, third-party tools, and system architecture in a way that maps directly onto a declared AIBOM surface<span class="claim-sources"><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11">European (n.d.)</a><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4">European (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">Mitchell (2026)</a></span></li>
+<li>AIBOM only partially satisfies the EU AI Act because Article 13 and Annex IV also require empirical performance, foreseeable-misuse, human-oversight, test-log, and maintenance information that an inventory artifact cannot generate on its own<span class="claim-sources"><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13">European (n.d.)</a><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4">European (n.d.)</a></span></li>
+<li>GPAI provider obligations create an upstream documentation chain that system-level AIBOMs should reference explicitly, because downstream integrators depend on provider disclosures about training, evaluation, copyright compliance, and systemic-risk handling to satisfy their own obligations<span class="claim-sources"><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-53" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-53">European (n.d.)</a><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-55" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-55">European (n.d.)</a><a class="claim-source-link" href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers" target="_blank" rel="noopener" title="https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers">European (n.d.)</a></span></li>
+<li>NIST AI RMF explicitly requires AI-system inventories and documented component and third-party risk mapping, which makes it a strong non-EU source of support for AIBOM-style documentation<span class="claim-sources"><a class="claim-source-link" href="https://doi.org/10.6028/NIST.AI.100-1" target="_blank" rel="noopener" title="https://doi.org/10.6028/NIST.AI.100-1">NIST (2023)</a></span></li>
+<li>APRA CPS 230 and Basel guidance make AIBOM valuable as an operational-resilience and third-party dependency artifact, because those frameworks require registers, mapping, governance documentation, and dependency awareness for critical operations rather than model-card narratives alone<span class="claim-sources"><a class="claim-source-link" href="https://www.apra.gov.au/sites/default/files/2023-07/Prudential%20Standard%20CPS%20230%20Operational%20Risk%20Management.pdf" target="_blank" rel="noopener" title="https://www.apra.gov.au/sites/default/files/2023-07/Prudential%20Standard%20CPS%20230%20Operational%20Risk%20Management.pdf">APRA (2023)</a><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d516.htm" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d516.htm">Committee (2021)</a><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d515.htm" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d515.htm">Committee (2021)</a></span></li>
+<li>European Banking Authority (EBA) internal-governance expectations and ISO/IEC 42001 strengthen the case for traceable AI inventories and controlled documentation, but they do so indirectly through governance, risk-management, and transparency outcomes rather than an explicit AI-bill-of-materials requirement<span class="claim-sources"><a class="claim-source-link" href="https://www.eba.europa.eu/regulation-and-policy/internal-governance" target="_blank" rel="noopener" title="https://www.eba.europa.eu/regulation-and-policy/internal-governance">EBA (n.d.)</a><a class="claim-source-link" href="https://www.eba.europa.eu/publications-and-media/publications/special-topic-artificial-intelligence" target="_blank" rel="noopener" title="https://www.eba.europa.eu/publications-and-media/publications/special-topic-artificial-intelligence">EBA (n.d.)</a><a class="claim-source-link" href="https://www.iso.org/standard/81230.html" target="_blank" rel="noopener" title="https://www.iso.org/standard/81230.html">Iso (n.d.)</a></span></li>
+<li>Current AIBOM schema work is close to the minimum inventory needed for compliance support, but it still needs explicit linkage to upstream GPAI packets, runtime supplements for observed behavior, and companion artifacts for testing, risk management, and post-market monitoring<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026)</a><a class="claim-source-link" href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4" target="_blank" rel="noopener" title="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4">European (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<ul>
+<li>Artificial Intelligence Bill of Materials (AIBOM) is used here in the Open Worldwide Application Security Project (OWASP) sense of an artifact intended to make AI systems transparent, auditable, and secure.</li>
+<li>How does the European Union (EU) AI Act, and related international AI governance frameworks including the National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF), International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001, and sector-specific financial services regulations, create explicit or implicit obligations for AIBOM documentation, technical documentation, and component traceability for high-risk and general-purpose AI (GPAI) multi-step tool-using systems, and what gaps exist between those obligations and current AIBOM schema and tooling capabilities?</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Current regulation already creates a meaningful but partial compliance case for AIBOM, because the EU AI Act, NIST AI RMF, APRA CPS 230, and Basel guidance all require documented visibility into AI systems, integrated components, or critical dependencies.</p>
+<p>Under the EU AI Act, a declared AIBOM can satisfy much of the architecture, integration, versioning, and component-traceability burden in Article 11 and Annex IV, but it cannot replace the training-data, testing, risk-management, and deployer-instruction evidence also required by Annex IV and Article 13.</p>
+<p>GPAI obligations make upstream-to-downstream documentation linkage an immediate design requirement, because deployers integrating third-party models need provider disclosures about training, evaluation, copyright compliance, and systemic-risk controls to assemble their own compliance packets.</p>
+<p>The strongest business case for AIBOM is regulatory support for inventory, interdependency, and third-party traceability, which multiple frameworks already expect institutions to maintain.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The EU AI Act's Article 11 and Annex IV already make component traceability and architecture disclosure material compliance concerns, because they require providers to document system purpose, versions, software and hardware interactions, deployment form, third-party tools, and system architecture in a way that maps directly onto a declared AIBOM surface.</strong></li>
+<li><strong>AIBOM only partially satisfies the EU AI Act because Article 13 and Annex IV also require empirical performance, foreseeable-misuse, human-oversight, test-log, and maintenance information that an inventory artifact cannot generate on its own.</strong></li>
+<li><strong>GPAI provider obligations create an upstream documentation chain that system-level AIBOMs should reference explicitly, because downstream integrators depend on provider disclosures about training, evaluation, copyright compliance, and systemic-risk handling to satisfy their own obligations.</strong></li>
+<li><strong>NIST AI RMF explicitly requires AI-system inventories and documented component and third-party risk mapping, which makes it a strong non-EU source of support for AIBOM-style documentation.</strong></li>
+<li><strong>APRA CPS 230 and Basel guidance make AIBOM valuable as an operational-resilience and third-party dependency artifact, because those frameworks require registers, mapping, governance documentation, and dependency awareness for critical operations rather than model-card narratives alone.</strong></li>
+<li><strong>European Banking Authority (EBA) internal-governance expectations and ISO/IEC 42001 strengthen the case for traceable AI inventories and controlled documentation, but they do so indirectly through governance, risk-management, and transparency outcomes rather than an explicit AI-bill-of-materials requirement.</strong></li>
+<li><strong>Current AIBOM schema work is close to the minimum inventory needed for compliance support, but it still needs explicit linkage to upstream GPAI packets, runtime supplements for observed behavior, and companion artifacts for testing, risk management, and post-market monitoring.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The public ISO/IEC 42001 summary is a sufficient basis to infer that documented traceability and transparency are management-system priorities, even though the full clause text is not publicly visible in this session. <strong>Justification:</strong> The public summary explicitly frames the standard around traceability, transparency, reliability, and risk management.</li>
+<li><strong>Assumption:</strong> Downstream deployers will actually receive usable provider documentation for integrated GPAI models. <strong>Justification:</strong> Article 53 requires providers to make such documentation available, and the Commission's GPAI Code of Practice is designed to operationalize that obligation.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence supports a two-layer compliance model: use AIBOM for declared structure and dependency traceability, then pair it with validation, risk, and instruction artifacts for the parts of compliance that require empirical or narrative evidence.</p>
+<p>The strongest cross-framework pattern is that regulators want institutions to know what is in the AI-enabled service, how components and third parties connect, and where risk controls attach, which is exactly the part of the problem AIBOM can standardize well.</p>
+<p>One plausible rival interpretation is that ordinary governance documents are enough and that no dedicated AIBOM artifact is needed, but that approach leaves institutions relying on multiple separate governance documents rather than a reusable machine-readable control surface.</p>
+<p>Another rival approach is to treat upstream GPAI documentation and runtime telemetry as separate concerns, but compliance and audit value increases when the declared system AIBOM can point both upward to provider disclosures and outward to runtime evidence for observed divergence.</p>
+<p>The most practical design consequence is that AIBOM should stay narrow enough to be maintainable, centered on component identity, relationships, deployment mode, context binding, and external evidence links, rather than expanding into a full legal dossier.</p>
+<p>Regulatory gap mapping:</p>
+<ul>
+<li>EU AI Act Annex IV architecture and integration disclosure -&gt; partially covered by declared AIBOM fields for components, versions, deployment mode, and system edges -&gt; recommendation: keep those fields first-class in the AIBOM schema and make them exportable in machine-readable form.</li>
+<li>EU AI Act testing, data, and deployer-instruction duties -&gt; not covered by AIBOM alone -&gt; recommendation: link AIBOM entries to validation reports, risk files, data-governance records, and deployer operating instructions.</li>
+<li>GPAI provider transparency and systemic-risk documentation -&gt; upstream responsibility, not a downstream substitute problem -&gt; recommendation: add explicit upstream model-documentation references and provenance links to the system AIBOM.</li>
+<li>NIST and financial-services dependency-mapping duties -&gt; strongly aligned with AIBOM -&gt; recommendation: use AIBOM as the canonical machine-readable dependency and third-party map that feeds governance, resilience, and audit workflows.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The ISO/IEC 42001 portion of the mapping is less precise than the AI Act, NIST, APRA, and Basel mappings because the public summary does not expose the full requirements text.</li>
+<li>The EBA evidence establishes strong governance expectations and growing GPAI use, but it does not state a dedicated AIBOM requirement, so the mapping remains an indirect governance inference.</li>
+<li>The real-world value of downstream AIBOM linkage depends on whether GPAI providers deliver sufficiently detailed and usable documentation in practice, which is a compliance-execution question not yet fully testable from the legal text alone.</li>
+<li>A declared AIBOM alone can create false assurance if reviewers assume declared architecture equals observed runtime behavior, especially where retrieval, external tools, or dynamic policy surfaces change after approval.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should AIBOM standardization adopt a first-class schema for linking to Annex XI and Annex XII GPAI disclosure packets rather than relying on generic external references?</li>
+<li>What is the cleanest way to connect declared AIBOM entries to post-market monitoring and runtime divergence evidence without turning one artifact into an unmaintainable compliance warehouse?</li>
+<li>How should institutions map AIBOM dependency data into board-level operational-resilience and critical-operations reporting without duplicating the same information across incompatible governance tools?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">European Commission AI Act overview</a> - official Commission summary of risk classes, timelines, and high-risk and GPAI obligations</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11">European Commission AI Act Service Desk Article 11</a> - official Article 11 text on high-risk technical documentation</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13">European Commission AI Act Service Desk Article 13</a> - official Article 13 text on transparency and information to deployers</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-4">European Commission AI Act Service Desk Annex IV</a> - official Annex IV list of minimum technical-documentation contents</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-53">European Commission AI Act Service Desk Article 53</a> - official GPAI provider documentation and disclosure obligations</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-55">European Commission AI Act Service Desk Article 55</a> - official systemic-risk GPAI obligations</li>
+<li>[x] <a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers">European Commission GPAI provider guidelines</a> - official Commission guidance on GPAI scope, obligations, and enforcement timing</li>
+<li>[x] <a href="https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai">European Commission GPAI Code of Practice</a> - official voluntary compliance tool for Article 53 and Article 55 duties</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST Artificial Intelligence Risk Management Framework hub</a> - official NIST overview and entry point for AI RMF 1.0</li>
+<li>[x] <a href="https://doi.org/10.6028/NIST.AI.100-1">NIST (2023) Artificial Intelligence Risk Management Framework (AI RMF 1.0)</a> - authoritative AI RMF text used for inventory and component-mapping requirements</li>
+<li>[x] <a href="https://www.iso.org/standard/81230.html">ISO/IEC 42001:2023 Information technology, Artificial intelligence, Management system</a> - official ISO public summary of the AI management-system standard</li>
+<li>[x] <a href="https://www.apra.gov.au/sites/default/files/2023-07/Prudential%20Standard%20CPS%20230%20Operational%20Risk%20Management.pdf">APRA (2023) Prudential Standard CPS 230 Operational Risk Management</a> - official APRA operational-risk standard for critical operations, service providers, and scenario testing</li>
+<li>[x] <a href="https://www.eba.europa.eu/regulation-and-policy/internal-governance">EBA Internal governance page</a> - official EBA summary of robust governance, clear organisational structure, and effective risk-management expectations</li>
+<li>[x] <a href="https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-internal-governance-under-crd">EBA Guidelines on internal governance under Capital Requirements Directive (CRD)</a> - official access point for the current EBA internal-governance guidelines</li>
+<li>[x] <a href="https://www.eba.europa.eu/publications-and-media/publications/special-topic-artificial-intelligence">EBA Special topic, Artificial intelligence</a> - official EBA discussion of GPAI adoption, third-party deployment, and sector risks</li>
+<li>[x] <a href="https://www.bis.org/bcbs/publ/d516.htm">Basel Committee (2021) Principles for operational resilience</a> - official Basel principles covering critical operations, interdependency mapping, and third-party dependency management</li>
+<li>[x] <a href="https://www.bis.org/bcbs/publ/d515.htm">Basel Committee (2021) Revisions to the Principles for the sound management of operational risk</a> - official Basel operational-risk framework and documentation expectations</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">David Mitchell (2026) What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using Artificial Intelligence systems, and how should it align with CycloneDX and Software Package Data Exchange (SPDX)?</a> - prior repository item defining the AIBOM fields used in this mapping</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">David Mitchell (2026) How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence system, and how much does it diverge from the declared design-time AIBOM?</a> - prior repository item on runtime supplements and divergence</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">David Mitchell (2026) Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence workloads, and what new conceptual abstractions are required?</a> - prior repository item on why package-style inventory is insufficient by itself</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">David Mitchell (2026) Regulatory and standards preconditions for deployment of Artificial Intelligence systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?</a> - prior repository item on regulatory control-failure logic</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html">David Mitchell (2026) Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls</a> - prior repository item on AI obligations in regulated finance</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</a> <span class="related-note">via agentic-ai, ai-governance, governance, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, ai-governance, governance, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?</a> <span class="related-note">via agentic-ai, ai-governance, governance, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a> <span class="related-note">via agentic-ai, governance, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a> <span class="related-note">via agentic-ai, governance, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html">Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">AIBOM be generated for an agentic AI system, and how much does it diverge from…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across…</a></div>
+  </div>
+</main>
+</body>
+</html>
