@@ -47,7 +47,7 @@ Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately
 ## Context
 
 - [fact; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom] The National Telecommunications and Information Administration (NTIA) defines an SBOM as a formal record of component details and supply-chain relationships used in building software.
-- [fact; source: https://cyclonedx.org/capabilities/mlbom/; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/] CycloneDX and SPDX have already widened bill-of-materials coverage to models, datasets, hyperparameters, preprocessing, explainability, and compliance metadata, which means the active design question is no longer whether AI-specific fields are needed.
+- [inference; source: https://cyclonedx.org/capabilities/mlbom/; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/] CycloneDX and Software Package Data Exchange (SPDX) have already widened bill-of-materials coverage to models, datasets, hyperparameters, preprocessing, explainability, and compliance metadata, which suggests that the remaining design problem is broader than adding a few AI-specific fields.
 - [inference; source: https://arxiv.org/abs/2504.16743; https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866] The unresolved problem is whether a package-style inventory model can represent agentic systems whose effective dependencies, prompts, retrieved context, decisions, and authority paths are only fully known during execution.
 
 ## Approach
@@ -119,9 +119,8 @@ Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately
 
 #### Source substitutions and failed-search notes
 
-- Search note: query `"Toward a Framework for Agentic AI Provenance"` -> seeded URL `https://arxiv.org/abs/2407.01392` resolved to unrelated paper title `Diffusion Forcing`; no matching primary source found in this session.
-- Source substitution: seeded OWASP project URL returned `404`; replaced with `https://owaspaibom.org/` and the official generator repository at `https://github.com/GenAI-Security-Project/aibom-generator`.
-- Source substitution: seeded NIST PDF URL returned `404`; replaced with the official framework landing page at `https://www.nist.gov/itl/ai-risk-management-framework`.
+- [fact; source: https://arxiv.org/abs/2407.01392] The seeded provenance URL `https://arxiv.org/abs/2407.01392` resolves to the unrelated paper title `Diffusion Forcing`.
+- [assumption; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866] Query `"Toward a Framework for Agentic AI Provenance"` did not produce a matching primary source in this session, so this item's provenance analysis relies on the World Wide Web Consortium (W3C) PROV provenance model and PROV-AGENT as the best accessible framing found here.
 
 #### A. What SBOM and current AI-BOM standards formally model
 
@@ -141,8 +140,8 @@ Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately
 
 #### C. What agentic AI adds beyond current AI package metadata
 
-- [fact; source: https://owaspaibom.org/] OWASP describes AIBOM as visibility into datasets, methodologies, and training processes so that AI systems become auditable, traceable, and trustworthy.
-- [fact; source: https://github.com/GenAI-Security-Project/aibom-generator] The official OWASP AIBOM Generator currently extracts metadata from models hosted on Hugging Face and generates CycloneDX 1.6 JSON output compatible with the SPDX AI Profile.
+- [fact; source: https://owaspaibom.org/] The Open Worldwide Application Security Project (OWASP) describes AIBOM as visibility into datasets, methodologies, and training processes so that AI systems become auditable, traceable, and trustworthy.
+- [fact; source: https://github.com/GenAI-Security-Project/aibom-generator] The official OWASP AIBOM Generator currently extracts metadata from models hosted on Hugging Face and generates CycloneDX 1.6 JSON output compatible with the Software Package Data Exchange (SPDX) AI Profile.
 - [fact; source: https://arxiv.org/abs/2508.02866] Souza et al. introduce PROV-AGENT, Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows, and state that existing provenance methods fail to capture and relate prompts, responses, and decisions with the broader workflow context and downstream outcomes in agentic workflows.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html] The completed repository threat-model item found that retrieved documents and tool paths create structural prompt, retrieval, and execution risks because untrusted content can alter what the model does once it enters context.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html] The completed repository identity item found that delegated authority, trust-domain crossings, and edge-bound permission manifests have to be represented explicitly for end-to-end attribution.
@@ -150,8 +149,8 @@ Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately
 
 #### D. Why a provenance-oriented graph is the necessary abstraction
 
-- [fact; source: https://www.w3.org/TR/prov-overview/] World Wide Web Consortium (W3C) PROV defines provenance as information about entities, activities, and people involved in producing a thing, and it explicitly includes identifying objects, attributing them, representing processing steps, reproducibility, versioning, and derivation.
-- [fact; source: https://arxiv.org/abs/2508.02866] PROV-AGENT extends World Wide Web Consortium (W3C) PROV for agentic workflows and argues that prompts, responses, and decisions must be integrated into end-to-end workflow provenance to answer transparency and reliability questions.
+- [fact; source: https://www.w3.org/TR/prov-overview/] The World Wide Web Consortium (W3C) PROV provenance model defines provenance as information about entities, activities, and people involved in producing a thing, and it explicitly includes identifying objects, attributing them, representing processing steps, reproducibility, versioning, and derivation.
+- [fact; source: https://arxiv.org/abs/2508.02866] PROV-AGENT extends the World Wide Web Consortium (W3C) PROV provenance model for agentic workflows and argues that prompts, responses, and decisions must be integrated into end-to-end workflow provenance to answer transparency and reliability questions.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html] The completed runtime-divergence item concluded that a runtime AIBOM is best modelled as a causality graph plus state snapshots, because declared structure and realized execution diverge across retrieval, memory, authority, topology, and control-policy surfaces.
 - [inference; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html] Package metadata plus ordinary component relationships is insufficient for agentic AI because the main governance questions are causal and temporal, specifically which prompt, retrieval result, memory state, actor, and tool invocation jointly produced a decision or action.
 - [inference; source: https://www.w3.org/TR/prov-overview/; https://arxiv.org/abs/2508.02866; https://www.nist.gov/itl/ai-risk-management-framework] A complete AIBOM therefore needs graph semantics for entities, activities, and actors, plus linkage between declared design intent and runtime-observed provenance, rather than one static list of parts.
@@ -242,10 +241,11 @@ Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately
 
 ### §7 Recursive Review
 
-- Metadata: Prior-work sweep completed across adjacent completed items on prompt and retrieval security, runtime divergence, identity and delegation, observability, and permission-safe retrieval.
-- Metadata: Acronym audit completed for Software Bill of Materials (SBOM), Artificial Intelligence (AI), Artificial Intelligence Bill of Materials (AIBOM), Retrieval-Augmented Generation (RAG), National Telecommunications and Information Administration (NTIA), National Institute of Standards and Technology (NIST), and World Wide Web Consortium (W3C) PROV.
-- Metadata: Findings and Section 6 contain the same substantive claims, confidence levels, and source sets.
-- Metadata: Remaining uncertainty is concentrated in schema standardization, runtime identifier binding, and non-determinism representation rather than in the core conclusion that package-centered SBOM semantics are incomplete for agentic AI.
+- Outcome: revised after self-review and repository review pass.
+- Prior-work sweep: prompt and retrieval security, runtime divergence, identity and delegation, observability, and permission-safe retrieval.
+- Acronym audit: Software Bill of Materials (SBOM), Artificial Intelligence (AI), Artificial Intelligence Bill of Materials (AIBOM), Retrieval-Augmented Generation (RAG), National Telecommunications and Information Administration (NTIA), National Institute of Standards and Technology (NIST), Software Package Data Exchange (SPDX), Open Worldwide Application Security Project (OWASP), and World Wide Web Consortium (W3C) PROV.
+- Findings parity: Section 6 and `## Findings` carry the same substantive claims, confidence levels, and source sets.
+- Remaining uncertainty: schema standardization, runtime identifier binding, and non-determinism representation.
 
 ---
 
