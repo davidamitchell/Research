@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 6b0efe1aa27c613a4b4298ed9ec54d97710b6da6
+    changed: 2026-05-06
+    progress: progress/2026-05-06-aibom-runtime-capture-opentelemetry-practice.md
+    summary: "Initial completion"
 ---
 
 # How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?
