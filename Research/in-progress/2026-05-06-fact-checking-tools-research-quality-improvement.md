@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement research be synthesised into concrete improvements to the automated review process in this research repository?"
 added: 2026-05-06T09:49:53+00:00
 status: reviewing
