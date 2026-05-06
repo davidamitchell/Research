@@ -674,7 +674,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 60,
+    "item_count": 61,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -969,6 +969,11 @@
       {
         "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
         "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-factscore-precision-scoring-atomic-claims",
+        "title": "How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?",
         "added": "2026-05-06"
       },
       {
@@ -6335,14 +6340,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -6372,7 +6377,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6480,13 +6485,13 @@
     "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -6512,7 +6517,37 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+  },
+  {
+    "slug": "evaluation-benchmarking-copilot-studio",
+    "title": "evaluation / benchmarking / copilot-studio",
+    "kind": "implicit",
+    "tag_cluster": [
+      "evaluation",
+      "benchmarking",
+      "copilot-studio"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints",
+        "title": "Large Language Model (LLM)-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-05-06-factscore-precision-scoring-atomic-claims",
+        "title": "How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?",
+        "added": "2026-05-06"
+      }
+    ],
+    "url": "/Research/threads/evaluation-benchmarking-copilot-studio.html"
   },
   {
     "slug": "claude-code-agent-tooling-skills",
@@ -6635,14 +6670,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-native-governance",
-    "title": "power platform / copilot studio / native governance",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
-      "native governance"
+      "power platform",
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -6662,7 +6697,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   },
   {
     "slug": "nist-ai-ai-rmf-environment-separation",

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T12:10:54Z",
+  "extracted_at": "2026-05-06T12:24:56Z",
   "items": {
     "2026-05-06-it-system-legibility-measurement-frameworks": {
       "named_concepts": [
@@ -108,6 +108,104 @@
           "sources": [
             "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
             "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-factscore-precision-scoring-atomic-claims": {
+      "named_concepts": [
+        "atomic facts",
+        "english wikipedia",
+        "support-critical claims",
+        "chosen knowledge",
+        "wikipedia biographies",
+        "factscore measures",
+        "retrieval-backed automatic",
+        "medical technical",
+        "technical recent-event",
+        "response rate",
+        "repository factscore",
+        "offline diagnostic",
+        "structured outputs",
+        "release gate",
+        "one canonical",
+        "unless deployment",
+        "tighter corpus",
+        "corpus boundary",
+        "human revision",
+        "decomposition quality"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2305.14251",
+        "https://aclanthology.org/2023.emnlp-main.741/",
+        "https://github.com/shmsw25/FActScore",
+        "https://arxiv.org/html/2305.14251v2",
+        "https://github.com/shmsw25/FActScore/blob/main/factscore/atomic_facts.py",
+        "https://github.com/shmsw25/FActScore/blob/main/factscore/factscorer.py",
+        "https://pypi.org/project/factscore/",
+        "https://arxiv.org/abs/2405.05583",
+        "https://github.com/yuxiaw/openfactcheck",
+        "https://arxiv.org/abs/2410.01794",
+        "https://github.com/Libr-AI/OpenFactVerification",
+        "https://arxiv.org/abs/2310.05189",
+        "https://arxiv.org/abs/2309.05922"
+      ],
+      "key_claims": [
+        {
+          "text": "FActScore defines factual precision as the proportion of atomic facts in a model response that are supported by a chosen knowledge source, not as a holistic judgment of the whole response or a measure of information coverage",
+          "sources": [
+            "https://arxiv.org/abs/2305.14251",
+            "https://aclanthology.org/2023.emnlp-main.741/"
+          ]
+        },
+        {
+          "text": "The gold benchmark combines human revision of InstructGPT-produced atomic facts with human support labels, so the paper's reported scores depend on partially supervised decomposition rather than on raw end-to-end automatic claim extraction alone",
+          "sources": [
+            "https://arxiv.org/html/2305.14251v2",
+            "https://github.com/shmsw25/FActScore"
+          ]
+        },
+        {
+          "text": "The released implementation shows operational fragility in sentence splitting, duplicate claim cleanup, and entity-coverage checks, which means decomposition quality remains a real source of scoring error",
+          "sources": [
+            "https://github.com/shmsw25/FActScore/blob/main/factscore/atomic_facts.py",
+            "https://github.com/shmsw25/FActScore"
+          ]
+        },
+        {
+          "text": "FActScore's precision-only framing can overrate abstaining or low-information systems, and the authors explicitly recommend pairing the metric with response rate and fact-count statistics because otherwise omission looks artificially strong",
+          "sources": [
+            "https://arxiv.org/html/2305.14251v2",
+            "https://pypi.org/project/factscore/"
+          ]
+        },
+        {
+          "text": "On the paper's human-annotated English biography benchmark, InstructGPT, ChatGPT, and PerplexityAI scored 42.5, 58.3, and 71.5 respectively, while error rates rose for rarer entities and for facts stated later in the generated biography",
+          "sources": [
+            "https://arxiv.org/html/2305.14251v2"
+          ]
+        },
+        {
+          "text": "Retrieval is the main enabler of useful automatic estimation in FActScore, but the best estimator variant depends on the model being judged because retrieve-then-language-model methods can overestimate support while stricter ensembles can under-estimate search-augmented systems",
+          "sources": [
+            "https://arxiv.org/html/2305.14251v2",
+            "https://github.com/shmsw25/FActScore/blob/main/factscore/factscorer.py"
+          ]
+        },
+        {
+          "text": "The original work validates only English Wikipedia biographies and discusses broader corpus transfer as a design possibility, so cross-domain performance beyond that benchmark remains an inference rather than a validated result",
+          "sources": [
+            "https://arxiv.org/html/2305.14251v2",
+            "https://pypi.org/project/factscore/"
+          ]
+        },
+        {
+          "text": "OpenFactCheck and Loki should be read as broader operational successors that reuse atomic-claim thinking for customizable or human-centered verification workflows, not as direct replacements for FActScore's narrow scalar benchmark",
+          "sources": [
+            "https://arxiv.org/abs/2405.05583",
+            "https://github.com/yuxiaw/openfactcheck",
+            "https://arxiv.org/abs/2410.01794",
+            "https://github.com/Libr-AI/OpenFactVerification"
           ]
         }
       ]
