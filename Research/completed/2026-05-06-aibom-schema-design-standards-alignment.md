@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: e9687509a972f2a05e07cd8a7db7c4b2a9b511d6
+    changed: 2026-05-06
+    progress: progress/2026-05-06-aibom-schema-design-standards-alignment.md
+    summary: Initial completion
 ---
 
 # What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?
