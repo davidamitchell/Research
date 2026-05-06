@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?"
 added: 2026-05-06T09:49:53+00:00
 status: reviewing
