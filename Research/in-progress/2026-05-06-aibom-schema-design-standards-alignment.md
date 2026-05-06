@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is the minimal viable schema for an Artificial Intelligence Bill of Materials (AIBOM) for agentic workloads, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
