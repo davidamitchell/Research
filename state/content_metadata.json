@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T21:24:00Z",
+  "extracted_at": "2026-05-06T21:36:04Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -1186,6 +1186,119 @@
             "https://spiffe.io/docs/latest/spiffe-specs/spiffe/",
             "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-identity-attribution-multiagent-practice": {
+      "named_concepts": [
+        "workload identity",
+        "current actor",
+        "delegated user",
+        "short-lived workload",
+        "subject current",
+        "crewai autogen",
+        "openid connect",
+        "connect oidc",
+        "originally authorized",
+        "scope intent",
+        "tool call",
+        "native traces",
+        "user tokens",
+        "full historical",
+        "user scopes",
+        "middle-tier apis",
+        "excludes app-only",
+        "app-only service-principal",
+        "service-principal tokens",
+        "trust-domain verification"
+      ],
+      "source_urls": [
+        "https://www.rfc-editor.org/rfc/rfc8693",
+        "https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow",
+        "https://openid.net/specs/openid-connect-core-1_0.html",
+        "https://spiffe.io/docs/latest/spiffe-about/overview/",
+        "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/",
+        "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
+        "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+        "https://docs.crewai.com/en/concepts/collaboration.md",
+        "https://docs.crewai.com/en/concepts/tools.md",
+        "https://docs.crewai.com/en/concepts/llms.md",
+        "https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md",
+        "https://docs.crewai.com/en/enterprise/features/a2a.md",
+        "https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md",
+        "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html",
+        "https://microsoft.github.io/autogen/stable/_modules/autogen_agentchat/agents/_user_proxy_agent.html",
+        "https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/concurrent-agents.html",
+        "https://docs.langchain.com/oss/python/langchain/multi-agent",
+        "https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html"
+      ],
+      "key_claims": [
+        {
+          "text": "OpenID Connect (OIDC) and delegated OAuth 2.0 flows preserve human identity and delegated authority only for the active subject and current actor, which makes them useful for user-initiated API chains but insufficient as a full historical attribution record for long multi-agent pipelines",
+          "sources": [
+            "https://openid.net/specs/openid-connect-core-1_0.html",
+            "https://www.rfc-editor.org/rfc/rfc8693"
+          ]
+        },
+        {
+          "text": "Microsoft's on-behalf-of (OBO) implementation illustrates one practical boundary of delegated user-token propagation, because it supports delegated user scopes for middle-tier APIs but explicitly excludes app-only service-principal tokens, which must switch to a machine-oriented credential pattern",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow"
+          ]
+        },
+        {
+          "text": "SPIFFE provides strong short-lived workload identity and trust-domain verification, but because each SPIFFE Verifiable Identity Document (SVID) represents a single presenting workload and not a delegated human chain, SPIFFE alone cannot express who originally authorized a downstream action",
+          "sources": [
+            "https://spiffe.io/docs/latest/spiffe-about/overview/",
+            "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/"
+          ]
+        },
+        {
+          "text": "Model Context Protocol (MCP) standardizes how clients authorize to tool servers through Authorization Code or Client Credentials and bearer tokens on every HTTP request, yet it leaves subject-and-actor provenance receipts to implementations rather than defining them as protocol-native artifacts",
+          "sources": [
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports"
+          ]
+        },
+        {
+          "text": "Amazon Bedrock multi-agent traces preserve valuable agent-routing metadata such as collaborator names, session identifiers, agent versions, and caller chains, but the documented trace schema does not natively bind those records to an end-user principal or delegated scope set",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html"
+          ]
+        },
+        {
+          "text": "Open-source orchestration frameworks such as CrewAI, AutoGen, and LangGraph treat identity propagation mainly as runtime configuration or application state, so downstream tools are commonly invoked under shared deployment credentials or assistant runtime identity unless developers add explicit per-user or per-hop controls",
+          "sources": [
+            "https://docs.crewai.com/en/concepts/tools.md",
+            "https://docs.crewai.com/en/concepts/llms.md",
+            "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html",
+            "https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs"
+          ]
+        },
+        {
+          "text": "CrewAI's enterprise features indicate that important parts of the attribution gap are fixable today, because the platform already supports OAuth-scoped integrations, optional `user_bearer_token` user scoping, authenticated agent-to-agent communication, and per-execution workload identity federation",
+          "sources": [
+            "https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md",
+            "https://docs.crewai.com/en/enterprise/features/a2a.md",
+            "https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md"
+          ]
+        },
+        {
+          "text": "The remaining gap is a portable delegation-chain receipt that survives across frameworks, tools, and trust domains, because current standards secure individual hops well but do not standardize one verifiable artifact containing original subject, current actor, prior actors, scopes, target resource, and approval context",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc8693",
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html"
           ]
         }
       ]

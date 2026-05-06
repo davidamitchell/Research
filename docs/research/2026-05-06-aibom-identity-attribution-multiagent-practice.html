@@ -1,0 +1,798 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real…</h1>
+  <p class="full-title-subtitle">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/identity.html">identity</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/access-control.html">access-control</a> <a class="tag" href="/Research/tags/delegation.html">delegation</a> <a class="tag" href="/Research/tags/attribution.html">attribution</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/governance.html">governance</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-identity-attribution-multiagent-practice.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-aibom-identity-attribution-multiagent-practice" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>OpenID Connect (OIDC) and delegated OAuth 2.0 flows preserve human identity and delegated authority only for the active subject and current actor, which makes them useful for user-initiated API chains but insufficient as a full historical attribution record for long multi-agent pipelines<span class="claim-sources"><a class="claim-source-link" href="https://openid.net/specs/openid-connect-core-1_0.html" target="_blank" rel="noopener" title="https://openid.net/specs/openid-connect-core-1_0.html">Foundation (2023)</a><a class="claim-source-link" href="https://www.rfc-editor.org/rfc/rfc8693" target="_blank" rel="noopener" title="https://www.rfc-editor.org/rfc/rfc8693">Force (2020)</a></span></li>
+<li>Microsoft&#39;s on-behalf-of (OBO) implementation illustrates one practical boundary of delegated user-token propagation, because it supports delegated user scopes for middle-tier APIs but explicitly excludes app-only service-principal tokens, which must switch to a machine-oriented credential pattern<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow">Microsoft (2025)</a></span></li>
+<li>SPIFFE provides strong short-lived workload identity and trust-domain verification, but because each SPIFFE Verifiable Identity Document (SVID) represents a single presenting workload and not a delegated human chain, SPIFFE alone cannot express who originally authorized a downstream action<span class="claim-sources"><a class="claim-source-link" href="https://spiffe.io/docs/latest/spiffe-about/overview/" target="_blank" rel="noopener" title="https://spiffe.io/docs/latest/spiffe-about/overview/">SPIFFE (2025)</a><a class="claim-source-link" href="https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/" target="_blank" rel="noopener" title="https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/">SPIFFE (2025)</a></span></li>
+<li>Model Context Protocol (MCP) standardizes how clients authorize to tool servers through Authorization Code or Client Credentials and bearer tokens on every HTTP request, yet it leaves subject-and-actor provenance receipts to implementations rather than defining them as protocol-native artifacts<span class="claim-sources"><a class="claim-source-link" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization">Protocol (2025)</a><a class="claim-source-link" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/transports" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/specification/2025-03-26/basic/transports">Protocol (2025)</a></span></li>
+<li>Amazon Bedrock multi-agent traces preserve valuable agent-routing metadata such as collaborator names, session identifiers, agent versions, and caller chains, but the documented trace schema does not natively bind those records to an end-user principal or delegated scope set<span class="claim-sources"><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">Services (2025)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Services (2025)</a></span></li>
+<li>Open-source orchestration frameworks such as CrewAI, AutoGen, and LangGraph treat identity propagation mainly as runtime configuration or application state, so downstream tools are commonly invoked under shared deployment credentials or assistant runtime identity unless developers add explicit per-user or per-hop controls<span class="claim-sources"><a class="claim-source-link" href="https://docs.crewai.com/en/concepts/tools.md" target="_blank" rel="noopener" title="https://docs.crewai.com/en/concepts/tools.md">CrewAI (2025)</a><a class="claim-source-link" href="https://docs.crewai.com/en/concepts/llms.md" target="_blank" rel="noopener" title="https://docs.crewai.com/en/concepts/llms.md">CrewAI (2025)</a><a class="claim-source-link" href="https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html" target="_blank" rel="noopener" title="https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html">Microsoft (2025)</a><a class="claim-source-link" href="https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs" target="_blank" rel="noopener" title="https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs">LangChain (2025)</a></span></li>
+<li>CrewAI&#39;s enterprise features indicate that important parts of the attribution gap are fixable today, because the platform already supports OAuth-scoped integrations, optional `user_bearer_token` user scoping, authenticated agent-to-agent communication, and per-execution workload identity federation<span class="claim-sources"><a class="claim-source-link" href="https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md" target="_blank" rel="noopener" title="https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md">CrewAI (2025)</a><a class="claim-source-link" href="https://docs.crewai.com/en/enterprise/features/a2a.md" target="_blank" rel="noopener" title="https://docs.crewai.com/en/enterprise/features/a2a.md">CrewAI (2025)</a><a class="claim-source-link" href="https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md" target="_blank" rel="noopener" title="https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md">CrewAI (2025)</a></span></li>
+<li>The remaining gap is a portable delegation-chain receipt that survives across frameworks, tools, and trust domains, because current standards secure individual hops well but do not standardize one verifiable artifact containing original subject, current actor, prior actors, scopes, target resource, and approval context<span class="claim-sources"><a class="claim-source-link" href="https://www.rfc-editor.org/rfc/rfc8693" target="_blank" rel="noopener" title="https://www.rfc-editor.org/rfc/rfc8693">Force (2020)</a><a class="claim-source-link" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization">Protocol (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">Mitchell (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How do OAuth 2.0 (Open Authorisation), OpenID Connect (OIDC), and SPIFFE (Secure Production Identity Framework for Everyone) token propagation mechanisms work in real multi-agent Artificial Intelligence (AI) pipelines, and where does end-to-end attribution break in practice, specifically across agent-to-agent delegation, agent-to-tool handoffs, and cross-system boundary crossings?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>OAuth 2.0 and OpenID Connect (OIDC) preserve enough identity and authorization context for human-initiated Application Programming Interface (API) delegation, but they do not by themselves preserve a portable, end-to-end attribution chain across autonomous multi-agent systems.
+Secure Production Identity Framework for Everyone (SPIFFE) and cloud workload-federation patterns close the machine-identity problem with short-lived workload credentials, yet they do not encode who originally authorized the work or what user-level scope intent should survive later hops.
+In the examined frameworks and platforms, attribution breaks when a sub-agent or tool call changes credential type, crosses a trust boundary, or falls back to shared runtime credentials, because native traces expose the current caller more clearly than the original authorizer.
+The strongest current pattern is hybrid: delegated user tokens for human-initiated hops, workload identity for autonomous hops, explicit edge-bound permission manifests, and a separate audit receipt that persists subject, current actor, target, and scope outside the runtime token.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>OpenID Connect (OIDC) and delegated OAuth 2.0 flows preserve human identity and delegated authority only for the active subject and current actor, which makes them useful for user-initiated API chains but insufficient as a full historical attribution record for long multi-agent pipelines.</strong></li>
+<li><strong>Microsoft's on-behalf-of (OBO) implementation illustrates one practical boundary of delegated user-token propagation, because it supports delegated user scopes for middle-tier APIs but explicitly excludes app-only service-principal tokens, which must switch to a machine-oriented credential pattern.</strong></li>
+<li><strong>SPIFFE provides strong short-lived workload identity and trust-domain verification, but because each SPIFFE Verifiable Identity Document (SVID) represents a single presenting workload and not a delegated human chain, SPIFFE alone cannot express who originally authorized a downstream action.</strong></li>
+<li><strong>Model Context Protocol (MCP) standardizes how clients authorize to tool servers through Authorization Code or Client Credentials and bearer tokens on every HTTP request, yet it leaves subject-and-actor provenance receipts to implementations rather than defining them as protocol-native artifacts.</strong></li>
+<li><strong>Amazon Bedrock multi-agent traces preserve valuable agent-routing metadata such as collaborator names, session identifiers, agent versions, and caller chains, but the documented trace schema does not natively bind those records to an end-user principal or delegated scope set.</strong></li>
+<li><strong>Open-source orchestration frameworks such as CrewAI, AutoGen, and LangGraph treat identity propagation mainly as runtime configuration or application state, so downstream tools are commonly invoked under shared deployment credentials or assistant runtime identity unless developers add explicit per-user or per-hop controls.</strong></li>
+<li><strong>CrewAI's enterprise features indicate that important parts of the attribution gap are fixable today, because the platform already supports OAuth-scoped integrations, optional <code>user_bearer_token</code> user scoping, authenticated agent-to-agent communication, and per-execution workload identity federation.</strong></li>
+<li><strong>The remaining gap is a portable delegation-chain receipt that survives across frameworks, tools, and trust domains, because current standards secure individual hops well but do not standardize one verifiable artifact containing original subject, current actor, prior actors, scopes, target resource, and approval context.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Native traces or message events can be enriched with custom application metadata when teams need stronger attribution than the framework provides. <strong>Justification:</strong> The examined platforms expose enough hooks to attach metadata, but this item did not validate the durability or consistency of those custom extensions.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence weighs most strongly in favor of a split model rather than a single universal credential.
+Delegated user tokens fit hops where a human is actively authorizing access to downstream APIs, because they preserve user identity, audience, and scope semantics that workload identity does not.
+Workload identity fits hops where a task is autonomous, app-only, or long-running, because those hops need a machine identity that can rotate independently of a human session and survive beyond an interactive consent event.
+The main trade-off is that user delegation provides better human accountability while workload identity provides better runtime durability and least-secret handling, so practical systems need both and must record where the handoff from one model to the other occurred.
+Bedrock's native trace depth improves incident reconstruction for agent routing, but open-source frameworks offer more flexibility and therefore require more application-layer identity discipline.
+Plausible rival remedies exist, including stronger model-quality gates, more human review, or preserving per-item manual approval for sensitive tools, but those rivals mostly reduce misuse probability rather than solving the provenance problem that appears once a tool call has already crossed a boundary.
+The strongest conclusion is therefore architectural: attribution gaps are partly fixable today with better credential separation, scope narrowing, and audit receipts, while portable cross-framework delegation proof still requires new standardization work.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Public documentation may understate platform-specific hooks or internal telemetry fields that enterprise customers can configure but that are not described openly.</li>
+<li>CrewAI's stronger identity controls are concentrated in the platform's enterprise features, so open-source-only deployments may still face a larger attribution gap by default.</li>
+<li>Bedrock's native trace documentation is rich for agent orchestration, but it does not rule out stronger customer-managed user attribution added outside the documented schema.</li>
+<li>MCP authorization is still evolving, so richer portable provenance fields could emerge without a wholly new protocol if the ecosystem standardizes them.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the repository create a follow-on item for a portable delegation-receipt schema that can be embedded in an Artificial Intelligence Bill of Materials (AIBOM) edge record and emitted by Model Context Protocol (MCP), agent-to-agent, and tool-call frameworks?</li>
+<li>Which existing signing or attestation formats could carry subject, current actor, prior actors, target resource, approval state, and scope intent without exposing unnecessary personal data?</li>
+<li>What is the minimum trace field set that Amazon Bedrock, CrewAI, AutoGen, and LangGraph would each need to expose natively for end-user attribution to become reviewable without custom middleware?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.rfc-editor.org/rfc/rfc8693">Internet Engineering Task Force (2020) Request for Comments (RFC) 8693 OAuth 2.0 Token Exchange</a> - primary standard for delegation versus impersonation, <code>subject_token</code>, <code>actor_token</code>, <code>act</code>, <code>may_act</code>, and target-scope narrowing.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow">Microsoft (2025) Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow</a> - primary practical documentation for delegated user-token propagation in Microsoft ecosystems.</li>
+<li>[x] <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Foundation (2023) OpenID Connect Core 1.0</a> - primary standard for end-user identity assertions layered on OAuth 2.0.</li>
+<li>[x] <a href="https://spiffe.io/docs/latest/spiffe-about/overview/">SPIFFE (2025) SPIFFE Overview</a> - primary overview of workload identity, trust domains, and SPIFFE primitives.</li>
+<li>[x] <a href="https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/">SPIFFE (2025) SPIFFE Concepts</a> - primary details on SPIFFE IDs, SPIFFE Verifiable Identity Documents (SVIDs), trust bundles, and the Workload Application Programming Interface (API).</li>
+<li>[x] <a href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization">Model Context Protocol (2025) Authorization</a> - primary MCP authorization specification for Authorization Code, Client Credentials, token handling, and third-party token mapping.</li>
+<li>[x] <a href="https://modelcontextprotocol.io/specification/2025-03-26/basic/transports">Model Context Protocol (2025) Transports</a> - primary MCP transport specification for HTTP and standard input and standard output (STDIO) credential handling differences.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html">Amazon Web Services (2025) Use multi-agent collaboration with Amazon Bedrock Agents</a> - primary Bedrock documentation on supervisor and collaborator agent orchestration.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Amazon Web Services (2025) Amazon Bedrock agent trace events</a> - primary Bedrock documentation on <code>callerChain</code>, <code>collaboratorName</code>, <code>sessionId</code>, and trace payload structure.</li>
+<li>[x] <a href="https://docs.crewai.com/en/concepts/collaboration.md">CrewAI (2025) Collaboration</a> - primary CrewAI documentation on delegation tools and collaborator messaging.</li>
+<li>[x] <a href="https://docs.crewai.com/en/concepts/tools.md">CrewAI (2025) Tools</a> - primary CrewAI documentation showing tool execution patterns and shared environment-variable credentials.</li>
+<li>[x] <a href="https://docs.crewai.com/en/concepts/llms.md">CrewAI (2025) Large Language Models (LLMs)</a> - primary CrewAI documentation showing provider configuration via shared environment variables or runtime configuration.</li>
+<li>[x] <a href="https://docs.crewai.com/en/enterprise/features/tools-and-integrations.md">CrewAI (2025) Tools &amp; Integrations</a> - primary CrewAI platform documentation on OAuth-connected apps, enterprise tokens, and optional <code>user_bearer_token</code> scoping.</li>
+<li>[x] <a href="https://docs.crewai.com/en/enterprise/features/a2a.md">CrewAI (2025) Agent-to-Agent (A2A) on the CrewAI platform</a> - primary CrewAI platform documentation on agent-to-agent authentication schemes, including OpenID Connect (OIDC), OAuth 2.0, Mutual Transport Layer Security (mTLS), and distributed state.</li>
+<li>[x] <a href="https://docs.crewai.com/en/enterprise/guides/vertex-ai-workload-identity-setup.md">CrewAI (2025) Vertex AI with Workload Identity</a> - primary CrewAI platform documentation on per-execution OpenID Connect (OIDC) workload identity federation and short-lived credentials.</li>
+<li>[x] <a href="https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html">Microsoft (2025) AutoGen Agents</a> - primary AutoGen documentation on agent state, tool execution, and message events.</li>
+<li>[x] <a href="https://microsoft.github.io/autogen/stable/_modules/autogen_agentchat/agents/_user_proxy_agent.html">Microsoft (2025) AutoGen UserProxyAgent</a> - primary AutoGen source documentation on representing a human user and handoff messages.</li>
+<li>[x] <a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/concurrent-agents.html">Microsoft (2025) AutoGen Concurrent Agents</a> - primary AutoGen documentation on direct messaging and delegator-worker patterns.</li>
+<li>[x] <a href="https://docs.langchain.com/oss/python/langchain/multi-agent">LangChain (2025) Multi-agent systems</a> - primary LangChain documentation on multi-agent patterns and subagents.</li>
+<li>[x] <a href="https://docs.langchain.com/oss/javascript/langgraph/use-subgraphs">LangChain (2025) Use subgraphs</a> - primary LangGraph documentation showing explicit state mapping between parent and subgraph contexts.</li>
+<li>[x] <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">Open Worldwide Application Security Project (OWASP) GenAI Security Project (2025) Top 10 for Large Language Model Applications</a> - authoritative security taxonomy covering insecure plugin design and excessive agency.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026) AI agent identity and access management enterprise</a> - prior repository item on machine identity, delegation models, and attribution requirements.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Mitchell (2026) Access control amplification under agentic operations</a> - prior repository item on blast-radius amplification under delegated automation.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Mitchell (2026) Permission-safe Retrieval-Augmented Generation in enterprise information architectures</a> - prior repository item on cross-boundary retrieval and identity-sensitive access control.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">Mitchell (2026) How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a> - prior repository item defining the design target this practice item tests.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">Mitchell (2026) What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms?</a> - prior repository item on the runtime evidence substrate available from production platforms.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a> <span class="related-note">via access-control, agentic-ai, attribution, delegation, governance, identity, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-06</td><td><a href="https://github.com/davidamitchell/Research/commit/06cb94d6b37f5f7d99bc145e4925fbb442ffbaa0" target="_blank" rel="noopener">06cb94d</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed…</a></div>
+  </div>
+</main>
+</body>
+</html>
