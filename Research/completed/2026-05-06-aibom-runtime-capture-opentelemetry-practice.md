@@ -2,13 +2,13 @@
 review_count: 2
 title: "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?"
 added: 2026-05-06T08:52:41+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [agentic-ai, observability, security, llm, runtime-monitoring, ai-platform, governance]
 started: 2026-05-06T22:17:27+00:00
-completed: ~
-output: []
+completed: 2026-05-06T22:34:00+00:00
+output: [knowledge]
 cites: [2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-declared-construction-practice, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-05-06-aibom-platform-observability-control-comparison]
 related: [2026-05-06-aibom-effectiveness-risk-mitigation-limits, 2026-05-06-aibom-identity-attribution-multiagent-practice]
 superseded_by: ~
