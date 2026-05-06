@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?"
 added: 2026-05-06T09:49:53+00:00
 status: reviewing
