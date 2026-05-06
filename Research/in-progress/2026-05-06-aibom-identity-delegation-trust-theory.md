@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?"
 added: 2026-05-06T08:52:41+00:00
 status: in-progress
