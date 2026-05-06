@@ -1,6 +1,113 @@
 {
-  "extracted_at": "2026-05-06T19:30:30Z",
+  "extracted_at": "2026-05-06T19:42:48Z",
   "items": {
+    "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
+      "named_concepts": [
+        "false-claim detection",
+        "version one",
+        "github actions",
+        "abraham lincoln",
+        "language model",
+        "model llm",
+        "llm factuality",
+        "true claims",
+        "false ones",
+        "public package",
+        "lightweight github",
+        "actions integration",
+        "integration harder",
+        "lincoln sample",
+        "external audit",
+        "mandatory inline",
+        "inline gate",
+        "dependency weight",
+        "checker benchmarks",
+        "secret requirements"
+      ],
+      "source_urls": [
+        "https://openfactcheck.com/",
+        "https://arxiv.org/abs/2405.05583",
+        "https://arxiv.org/html/2405.05583v3",
+        "https://github.com/yuxiaw/OpenFactCheck",
+        "https://github.com/hasaniqbal777/openfactcheck",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/README.md",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/pyproject.toml",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/requirements.txt",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/docs/src/index.md",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/lib/config.py",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/base.py",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/evaluator/response/evaluate.py",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/evaluator/checker/evaluate.py",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/evaluator/llm/evaluate.py",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/templates/solver_configs/webservice.yaml",
+        "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/templates/solver_configs/factool.yaml",
+        "https://github.com/openfactcheck-research/openfactcheck/blob/main/README.md",
+        "https://github.com/openfactcheck-research/openfactcheck/blob/main/pyproject.toml",
+        "https://arxiv.org/abs/2305.14251",
+        "https://arxiv.org/abs/2410.01794"
+      ],
+      "key_claims": [
+        {
+          "text": "OpenFactCheck is a three-module framework, not just a claim checker, because it combines CustChecker for configurable claim verification, LLMEval for model benchmarking, and CheckerEval for benchmarking fact-checking systems under a shared evaluation surface",
+          "sources": [
+            "https://openfactcheck.com/",
+            "https://arxiv.org/html/2405.05583v3"
+          ]
+        },
+        {
+          "text": "The packaged implementation realizes that framework through dynamically loaded solvers, a configured processing chain, and persisted stage outputs, which means reviewers can inspect intermediate claim, evidence, and verdict states instead of relying on a single opaque passage-level score",
+          "sources": [
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/base.py",
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/solver.py",
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/evaluator/response/evaluate.py"
+          ]
+        },
+        {
+          "text": "OpenFactCheck's own benchmark evidence shows that automated fact-checkers inside its comparison harness are materially better at recognizing true claims than false ones, making false-claim detection the central reliability bottleneck for unattended use",
+          "sources": [
+            "https://arxiv.org/html/2405.05583v3"
+          ]
+        },
+        {
+          "text": "The strongest listed checker setting in the paper, Factcheck-GPT with GPT-4 and web retrieval, improves false-claim F1 on Factcheck-Bench to 0.63, but the paper also reports far higher latency and dollar cost than lighter settings such as FacTool",
+          "sources": [
+            "https://arxiv.org/html/2405.05583v3"
+          ]
+        },
+        {
+          "text": "The public version one package is self-hostable and Python-first, but it requires `OPENAI_API_KEY`, `SERPER_API_KEY`, and `SCRAPER_API_KEY` plus heavyweight dependencies such as `torch`, `transformers`, `spacy`, and `streamlit`, which makes lightweight GitHub Actions integration harder to operate cleanly",
+          "sources": [
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/lib/config.py",
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/requirements.txt",
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/pyproject.toml"
+          ]
+        },
+        {
+          "text": "Compared with FActScore and Loki, OpenFactCheck occupies the most modular and evaluation-centric niche, but it is less measurement-pure than FActScore and less immediately operator-friendly than Loki because it behaves more like a research platform than a single-purpose reviewer tool",
+          "sources": [
+            "https://arxiv.org/abs/2305.14251",
+            "https://arxiv.org/abs/2410.01794",
+            "https://arxiv.org/html/2405.05583v3"
+          ]
+        },
+        {
+          "text": "A concrete worked example based on the repository's Abraham Lincoln sample shows that OpenFactCheck is designed to decompose an explicit false statement, retrieve supporting evidence, and preserve each intermediate step, which is valuable for reviewer audits of atomic claim failures",
+          "sources": [
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/README.md",
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/templates/solver_configs/webservice.yaml",
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/evaluator/response/evaluate.py"
+          ]
+        },
+        {
+          "text": "For this repository, OpenFactCheck is a viable optional benchmarking tool or external audit service, but the current evidence does not justify making it a mandatory inline gate for every research item because accuracy, cost, dependency weight, and implementation stability remain only moderately favorable",
+          "sources": [
+            "https://github.com/hasaniqbal777/openfactcheck/blob/main/src/openfactcheck/lib/config.py",
+            "https://github.com/openfactcheck-research/openfactcheck/blob/main/README.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md"
+          ]
+        }
+      ]
+    },
     "2026-05-06-loki-fact-checking-journalists-moderation": {
       "named_concepts": [
         "fully offline",
