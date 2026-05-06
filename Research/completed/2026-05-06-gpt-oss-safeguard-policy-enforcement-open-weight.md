@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "e3a9e0c07a42644fffc76affe5a1d9c38a87b4a6"
+    changed: 2026-05-06
+    progress: "progress/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.md"
+    summary: "Initial completion"
 ---
 
 # How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?
