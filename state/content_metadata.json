@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T11:14:41Z",
+  "extracted_at": "2026-05-06T11:29:51Z",
   "items": {
     "2026-05-06-it-system-legibility-measurement-frameworks": {
       "named_concepts": [
@@ -108,6 +108,114 @@
           "sources": [
             "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
             "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-schema-design-standards-alignment": {
+      "named_concepts": [
+        "extension profile",
+        "retrieval snapshot",
+        "aibom extension",
+        "current ai",
+        "memory schema",
+        "memory state",
+        "minimal declared",
+        "minimal viable",
+        "viable aibom",
+        "agentic workloads",
+        "better immediate",
+        "immediate serialization",
+        "service dependency",
+        "minimal schema",
+        "dataset profiles",
+        "profiles remain",
+        "remain package-centric",
+        "prompt orchestration",
+        "memory-schema artefacts",
+        "context binding"
+      ],
+      "source_urls": [
+        "https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom",
+        "https://cyclonedx.org/capabilities/mlbom/",
+        "https://cyclonedx.org/specification/overview/",
+        "https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json",
+        "https://github.com/CycloneDX/specification/issues/702",
+        "https://github.com/CycloneDX/specification/issues/268",
+        "https://github.com/CycloneDX/specification/issues/282",
+        "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/",
+        "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/",
+        "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/",
+        "https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/",
+        "https://github.com/spdx/spdx-examples/blob/master/ai/README.md",
+        "https://github.com/spdx/spdx-examples/blob/master/ai/example02/README.md",
+        "https://github.com/GenAI-Security-Project/aibom-generator",
+        "https://owaspaibom.org/",
+        "https://arxiv.org/abs/2504.16743",
+        "https://arxiv.org/abs/2510.07070",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A minimal viable AIBOM for agentic workloads can stay CycloneDX-aligned today by reusing `component`, `service`, `dependency`, and `formulation` objects and by adding namespaced properties rather than requiring a new core component type immediately",
+          "sources": [
+            "https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json",
+            "https://cyclonedx.org/specification/overview/"
+          ]
+        },
+        {
+          "text": "SPDX 3.0.1 already provides strong package-level coverage for models and datasets, but a complete agentic AIBOM still needs an extension profile because prompt, orchestration, and memory-schema artefacts are not first-class classes in the current AI profile",
+          "sources": [
+            "https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/",
+            "https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/",
+            "https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/"
+          ]
+        },
+        {
+          "text": "CycloneDX's own open issues show unresolved AI service, model dependency, fixed hyperparameter, and future agent-card questions, which indicates that current agentic schema semantics are still incomplete rather than fully settled",
+          "sources": [
+            "https://github.com/CycloneDX/specification/issues/702",
+            "https://github.com/CycloneDX/specification/issues/268",
+            "https://github.com/CycloneDX/specification/issues/282"
+          ]
+        },
+        {
+          "text": "The minimal agentic extension should add only behaviour-shaping artefacts that can be stably identified at design time, model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config, because that preserves NTIA-style practicality while closing the most important conceptual gaps",
+          "sources": [
+            "https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html"
+          ]
+        },
+        {
+          "text": "Mutability and fingerprinting should reuse existing hash, version, external-reference, and signature fields wherever possible, while a new `snapshotStrategy` property records whether an artefact is pinned by content hash, Merkle-tree digest, schema version, or external snapshot identifier",
+          "sources": [
+            "https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html"
+          ]
+        },
+        {
+          "text": "Memory state and live retrieval results should not be part of the minimal declared AIBOM, because they are runtime-evidence surfaces, but the memory schema and retrieval snapshot policy must be declared so the runtime object can later be compared against approved design intent",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html"
+          ]
+        },
+        {
+          "text": "Execution binding is a first-class design concern, so a minimal AIBOM must declare whether each tool or context surface is identity-bound, policy-bound, or ambient, and it must reference the approval scope that constrains the declared tool path",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html"
+          ]
+        },
+        {
+          "text": "The most adoption-realistic path is a two-step standardization strategy, ship a CycloneDX 1.7 profile today with a lightweight AIBOM property taxonomy, then upstream the same semantics into an SPDX AIBOM extension profile as current AIBOM working-group efforts mature",
+          "sources": [
+            "https://github.com/GenAI-Security-Project/aibom-generator",
+            "https://arxiv.org/abs/2504.16743",
+            "https://arxiv.org/abs/2510.07070"
           ]
         }
       ]

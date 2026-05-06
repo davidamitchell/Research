@@ -1,0 +1,827 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>What is the minimal viable schema for an Artificial Intelligence bill of… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>What is the minimal viable schema for an Artificial Intelligence bill of…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>What is the minimal viable schema for an Artificial Intelligence bill of…</h1>
+  <p class="full-title-subtitle">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</p>
+  <div class="meta-bar">
+    <span>2026-05-06</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/supply-chain.html">supply-chain</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-schema-design-standards-alignment.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-06-aibom-schema-design-standards-alignment" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>A minimal viable AIBOM for agentic workloads can stay CycloneDX-aligned today by reusing `component`, `service`, `dependency`, and `formulation` objects and by adding namespaced properties rather than requiring a new core component type immediately<span class="claim-sources"><a class="claim-source-link" href="https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json" target="_blank" rel="noopener" title="https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json">CycloneDX (2025)</a><a class="claim-source-link" href="https://cyclonedx.org/specification/overview/" target="_blank" rel="noopener" title="https://cyclonedx.org/specification/overview/">CycloneDX (2026)</a></span></li>
+<li>SPDX 3.0.1 already provides strong package-level coverage for models and datasets, but a complete agentic AIBOM still needs an extension profile because prompt, orchestration, and memory-schema artefacts are not first-class classes in the current AI profile<span class="claim-sources"><a class="claim-source-link" href="https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/" target="_blank" rel="noopener" title="https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/">SPDX (2024)</a><a class="claim-source-link" href="https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/" target="_blank" rel="noopener" title="https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/">SPDX (2024)</a><a class="claim-source-link" href="https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/" target="_blank" rel="noopener" title="https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/">SPDX (2024)</a></span></li>
+<li>CycloneDX&#39;s own open issues show unresolved AI service, model dependency, fixed hyperparameter, and future agent-card questions, which indicates that current agentic schema semantics are still incomplete rather than fully settled<span class="claim-sources"><a class="claim-source-link" href="https://github.com/CycloneDX/specification/issues/702" target="_blank" rel="noopener" title="https://github.com/CycloneDX/specification/issues/702">Rutkows (2025)</a><a class="claim-source-link" href="https://github.com/CycloneDX/specification/issues/268" target="_blank" rel="noopener" title="https://github.com/CycloneDX/specification/issues/268">Rutkows (2023)</a><a class="claim-source-link" href="https://github.com/CycloneDX/specification/issues/282" target="_blank" rel="noopener" title="https://github.com/CycloneDX/specification/issues/282">Bardenstein (2023)</a></span></li>
+<li>The minimal agentic extension should add only behaviour-shaping artefacts that can be stably identified at design time, model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config, because that preserves NTIA-style practicality while closing the most important conceptual gaps<span class="claim-sources"><a class="claim-source-link" href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom" target="_blank" rel="noopener" title="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">Administration (2021)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Mitchell (2026)</a></span></li>
+<li>Mutability and fingerprinting should reuse existing hash, version, external-reference, and signature fields wherever possible, while a new `snapshotStrategy` property records whether an artefact is pinned by content hash, Merkle-tree digest, schema version, or external snapshot identifier<span class="claim-sources"><a class="claim-source-link" href="https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json" target="_blank" rel="noopener" title="https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json">CycloneDX (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026)</a></span></li>
+<li>Memory state and live retrieval results should not be part of the minimal declared AIBOM, because they are runtime-evidence surfaces, but the memory schema and retrieval snapshot policy must be declared so the runtime object can later be compared against approved design intent<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">Mitchell (2026)</a></span></li>
+<li>Execution binding is a first-class design concern, so a minimal AIBOM must declare whether each tool or context surface is identity-bound, policy-bound, or ambient, and it must reference the approval scope that constrains the declared tool path<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">Mitchell (2026)</a></span></li>
+<li>The most adoption-realistic path is a two-step standardization strategy, ship a CycloneDX 1.7 profile today with a lightweight AIBOM property taxonomy, then upstream the same semantics into an SPDX AIBOM extension profile as current AIBOM working-group efforts mature<span class="claim-sources"><a class="claim-source-link" href="https://github.com/GenAI-Security-Project/aibom-generator" target="_blank" rel="noopener" title="https://github.com/GenAI-Security-Project/aibom-generator">Project (2026)</a><a class="claim-source-link" href="https://arxiv.org/abs/2504.16743" target="_blank" rel="noopener" title="https://arxiv.org/abs/2504.16743">Suriyawongkul et al. (2025)</a><a class="claim-source-link" href="https://arxiv.org/abs/2510.07070" target="_blank" rel="noopener" title="https://arxiv.org/abs/2510.07070">Rajbahadur et al. (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What is the minimal viable set of schema properties required to describe Artificial Intelligence (AI) system dependencies for systems that use prompts, retrieval knowledge bases, memory, and tools in a useful, standards-aligned AI bill of materials, specifically, how should existing CycloneDX Machine Learning Bill of Materials (ML-BOM) and Software Package Data Exchange (SPDX) 3.0 AI profile schema be extended to represent deterministic versus non-deterministic components, mutable versus immutable dependencies, prompts, retrieval indexes, memory, and identity-bound versus ambient execution contexts?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>A minimal viable AIBOM for agentic workloads should reuse CycloneDX and SPDX for core inventory structure and add only a small extension layer for agentic artefacts and control semantics, rather than introducing a separate bill-of-materials standard.
+CycloneDX is the better immediate serialization target because its existing component, service, dependency, formulation, and property surfaces can already express the minimal schema without waiting for a new release.
+SPDX should be the long-term formalization target through an AIBOM extension profile, because current AI and Dataset profiles remain package-centric and do not yet make prompt, orchestration, or memory-schema artefacts first-class.
+The minimum new property set is six fields, semantic class, mutability, determinism, context binding, snapshot strategy, and approval-scope reference, because those six cover the design-time semantics that standard SBOM fields and current AI profiles still miss.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>A minimal viable AIBOM for agentic workloads can stay CycloneDX-aligned today by reusing <code>component</code>, <code>service</code>, <code>dependency</code>, and <code>formulation</code> objects and by adding namespaced properties rather than requiring a new core component type immediately.</strong></li>
+<li><strong>SPDX 3.0.1 already provides strong package-level coverage for models and datasets, but a complete agentic AIBOM still needs an extension profile because prompt, orchestration, and memory-schema artefacts are not first-class classes in the current AI profile.</strong></li>
+<li><strong>CycloneDX's own open issues show unresolved AI service, model dependency, fixed hyperparameter, and future agent-card questions, which indicates that current agentic schema semantics are still incomplete rather than fully settled.</strong></li>
+<li><strong>The minimal agentic extension should add only behaviour-shaping artefacts that can be stably identified at design time, model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config, because that preserves NTIA-style practicality while closing the most important conceptual gaps.</strong></li>
+<li><strong>Mutability and fingerprinting should reuse existing hash, version, external-reference, and signature fields wherever possible, while a new <code>snapshotStrategy</code> property records whether an artefact is pinned by content hash, Merkle-tree digest, schema version, or external snapshot identifier.</strong></li>
+<li><strong>Memory state and live retrieval results should not be part of the minimal declared AIBOM, because they are runtime-evidence surfaces, but the memory schema and retrieval snapshot policy must be declared so the runtime object can later be compared against approved design intent.</strong></li>
+<li><strong>Execution binding is a first-class design concern, so a minimal AIBOM must declare whether each tool or context surface is identity-bound, policy-bound, or ambient, and it must reference the approval scope that constrains the declared tool path.</strong></li>
+<li><strong>The most adoption-realistic path is a two-step standardization strategy, ship a CycloneDX 1.7 profile today with a lightweight AIBOM property taxonomy, then upstream the same semantics into an SPDX AIBOM extension profile as current AIBOM working-group efforts mature.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Producers can externalize prompt templates, tool manifests, and orchestration configurations into versioned artefacts rather than keeping them only as opaque application code. <strong>Justification:</strong> current AIBOM tooling and CycloneDX working-group discussions already assume extractable model and configuration metadata.</li>
+<li><strong>Assumption:</strong> Namespaced AIBOM properties are an acceptable interim serialization strategy before the semantics become part of a formal shared profile. <strong>Justification:</strong> both ecosystems expose explicit extension mechanisms for this style of incremental evolution.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence supports a minimum-viable design that preserves existing BOM identity and dependency semantics while adding only the smallest new agentic layer needed to classify semantically active artefacts and their control meaning.
+CycloneDX is operationally ahead for serialization flexibility, but SPDX is procedurally ahead for formal profile evolution, so the design should deliberately map one conceptual schema across both ecosystems rather than forcing one standard to behave like the other.
+A standalone AIBOM schema remains a plausible rival strategy, but current practice and current standards work both extend existing BOM ecosystems rather than replace them, so a standalone format would add adoption cost and duplicate validator and exporter effort without stronger near-term evidence.
+An SPDX-first strategy is also plausible because formal AIBOM work is already happening there, but CycloneDX is the better immediate serialization choice because its current reference schema already exposes services, formulation workflows, and flexible property arrays that can be emitted today.
+The core trade-off is between design-time stability and runtime completeness: the minimal declared schema must stop at artefacts that can be approved and versioned before execution, while leaving live context, memory state, and retrieval results to a linked runtime AIBOM rather than overloading one artefact with both purposes.
+The resulting design is minimal not because it is short, but because every retained field answers one of six concrete questions, what class of artefact is this, how stable is it, how deterministic is it, how is it pinned, how is it bound to authority, and which approved operations does it enable.</p>
+<pre><code class="language-yaml">bomFormat: CycloneDX
+specVersion: &quot;1.7&quot;
+components:
+  - bom-ref: model:gpt-4.1
+    type: machine-learning-model
+    name: gpt-4.1
+    properties:
+      - name: aibom:determinism
+        value: stochastic
+  - bom-ref: prompt:system
+    type: data
+    name: support-agent-system-prompt
+    hashes:
+      - alg: SHA-256
+        content: 2b3f...deadbeef
+    properties:
+      - name: aibom:componentClass
+        value: system-instruction
+      - name: aibom:mutability
+        value: versioned-mutable
+      - name: aibom:snapshotStrategy
+        value: content-hash
+services:
+  - bom-ref: service:crm
+    name: crm-api
+    properties:
+      - name: aibom:contextBinding
+        value: identity-bound
+      - name: aibom:approvalScopeRef
+        value: policy:crm-read-ticket-update
+formulation:
+  - workflows:
+      - name: support-triage
+        properties:
+          - name: aibom:componentClass
+            value: agent-configuration
+</code></pre>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>CycloneDX agent-card semantics are still open working-group territory, so any current <code>aibom:componentClass=agent-configuration</code> convention is an interim design rather than a ratified standard field.</li>
+<li>SPDX extension mechanics are clear at the namespace level, but this item does not yet specify a fully formal AIBOM extension ontology with machine-readable class definitions.</li>
+<li>Retrieval snapshot digest design remains partly unsettled because different vector stores and indexing pipelines expose different levels of reproducible corpus identity.</li>
+<li>Practical tool support is currently model-centred, so prompt, memory-schema, and tool-manifest extraction workflows may lag the schema until practice implementations catch up.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should future standards define a first-class <code>agent-configuration</code> object, or is a property-taxonomy approach sufficient if formulation workflows are already available?</li>
+<li>What is the most reproducible digest method for heterogeneous RAG indexes that mix raw source files, chunking parameters, embeddings, and ranking metadata?</li>
+<li>Should approval-scope references point to external policy objects only, or should BOM-native permission manifests become first-class cross-standard objects?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">National Telecommunications and Information Administration (2021) The Minimum Elements for a Software Bill of Materials (SBOM)</a> - foundational minimum-elements framing for a bill of materials</li>
+<li>[x] <a href="https://cyclonedx.org/capabilities/mlbom/">CycloneDX (2026) Introduction to AI/ML-BOM</a> - official CycloneDX statement of current AI and machine-learning bill-of-materials coverage</li>
+<li>[x] <a href="https://cyclonedx.org/specification/overview/">CycloneDX (2026) CycloneDX Object Model Overview</a> - official object-model guidance for components, services, dependencies, formulation, declarations, and extension points</li>
+<li>[x] <a href="https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json">CycloneDX (2025) CycloneDX 1.7 JSON Schema</a> - reference schema showing native component types, model-card support, component data, properties, services, and formulation</li>
+<li>[x] <a href="https://github.com/CycloneDX/specification/issues/702">Rutkows (2025) Proposed changes for Machine Learning Bill of Materials (MLBOM) schema for CycloneDX 2.0</a> - current CycloneDX ML-BOM working-group issue showing unresolved model and agent-card gaps</li>
+<li>[x] <a href="https://github.com/CycloneDX/specification/issues/268">Rutkows (2023) Add modelCard to Service definition</a> - evidence that AI service endpoints do not fit neatly into top-level component modelling alone</li>
+<li>[x] <a href="https://github.com/CycloneDX/specification/issues/282">Bardenstein (2023) Add a libraries or dependencies field to the machine-learning-model component</a> - evidence that even current machine-learning-model dependency expression remains incomplete</li>
+<li>[x] <a href="https://spdx.github.io/spdx-spec/v3.0.1/model/AI/AI/">SPDX (2024) SPDX Specification 3.0.1 AI Profile</a> - formal AI profile summary and profile-conformance rules</li>
+<li>[x] <a href="https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/">SPDX (2024) SPDX Specification 3.0.1 AIPackage</a> - official AI package class and properties</li>
+<li>[x] <a href="https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/">SPDX (2024) SPDX Specification 3.0.1 DatasetPackage</a> - official dataset package class and properties</li>
+<li>[x] <a href="https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/">SPDX (2024) SPDX Specification 3.0.1 Extension Profile</a> - official extension base class for SPDX profile extensions</li>
+<li>[x] <a href="https://github.com/spdx/spdx-examples/blob/master/ai/README.md">SPDX AI Working Group (2026) SPDX AI Profile Usage Examples</a> - current example index showing SPDX AI example scope</li>
+<li>[x] <a href="https://github.com/spdx/spdx-examples/blob/master/ai/example02/README.md">SPDX AI Working Group (2026) Example 02</a> - concrete SPDX AI example using <code>dependsOn</code>, <code>generates</code>, <code>hasDataFile</code>, <code>hasDocumentation</code>, <code>testedOn</code>, and <code>trainedOn</code></li>
+<li>[x] <a href="https://github.com/GenAI-Security-Project/aibom-generator">GenAI Security Project (2026) Open Worldwide Application Security Project (OWASP) AIBOM Generator</a> - practical AIBOM generator aligned to CycloneDX 1.6 and compatible with the SPDX AI profile</li>
+<li>[x] <a href="https://owaspaibom.org/">Open Worldwide Application Security Project (OWASP) AIBOM (2026) Making AI Systems Transparent, Auditable, and Secure</a> - community framing for AIBOM goals and transparency outcomes</li>
+<li>[x] <a href="https://arxiv.org/abs/2504.16743">Suriyawongkul et al. (2025) Implementing AI Bill of Materials (AI BOM) with SPDX 3.0</a> - formal guide arguing for AI-BOM expansion beyond software-only SBOM semantics</li>
+<li>[x] <a href="https://arxiv.org/abs/2510.07070">Rajbahadur et al. (2026) Building an Open AIBOM Standard in the Wild</a> - experience report on extending SPDX with 36 AI and Dataset fields</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">David Mitchell (2026) Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic AI workloads, and what new conceptual abstractions are required?</a> - prior completed corpus item defining the conceptual gaps that this schema must close</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">David Mitchell (2026) What security capabilities are required in an enterprise AI system to address prompt injection, RAG-based attacks, model supply chain compromise, and data exfiltration?</a> - prior completed corpus item establishing why prompts, retrieval, and tool manifests are security-relevant artefacts</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">David Mitchell (2026) How can a runtime-observed AIBOM be generated for an agentic AI system, and how much does it diverge from the declared design-time AIBOM?</a> - adjacent corpus item defining the declared-versus-observed boundary</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">David Mitchell (2026) How should identity, delegation chains, and permission scopes be formally modelled in an AIBOM schema?</a> - adjacent corpus item on identity and permission bindings</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, ai-governance, governance, llm, security, supply-chain</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?</a> <span class="related-note">via agentic-ai, ai-governance, llm, security, supply-chain</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison</a> <span class="related-note">via agentic-ai, governance, llm, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html">Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</a> <span class="related-note">via agentic-ai, ai-governance, llm, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <span>2026-05-06-aibom-declared-construction-practice</span></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <span>2026-05-06-aibom-effectiveness-risk-mitigation-limits</span></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-06</td><td><a href="https://github.com/davidamitchell/Research/commit/e9687509a972f2a05e07cd8a7db7c4b2a9b511d6" target="_blank" rel="noopener">e968750</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">SBOM fail as a complete inventory model for agentic AI workloads, and what new…</a></div>
+  </div>
+</main>
+</body>
+</html>
