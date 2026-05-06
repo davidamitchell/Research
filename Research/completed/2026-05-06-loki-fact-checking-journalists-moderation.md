@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: "7b8b99c9343a66c7d35e5441eecbf8788c36ff17"
+    changed: 2026-05-06
+    progress: "progress/2026-05-06-loki-fact-checking-journalists-moderation.md"
+    summary: "Initial completion"
 ---
 
 # What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?
