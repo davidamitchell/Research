@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-06T10:01:56Z",
+  "extracted_at": "2026-05-06T10:13:48Z",
   "items": {
     "2026-05-06-it-system-legibility-measurement-frameworks": {
       "named_concepts": [
@@ -108,6 +108,115 @@
           "sources": [
             "https://www.thoughtworks.com/radar/techniques/architectural-fitness-function",
             "https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-aibom-identity-delegation-trust-theory": {
+      "named_concepts": [
+        "workload identity",
+        "delegation edges",
+        "openid connect",
+        "trust domains",
+        "prior actors",
+        "permission scopes",
+        "aibom schema",
+        "explicit delegation",
+        "subject actor",
+        "actor delegation",
+        "authorization decisions",
+        "persist full",
+        "microsoft entra",
+        "entra on-behalf-of",
+        "current standards",
+        "model instances",
+        "distinct identity",
+        "identity classes",
+        "actor type",
+        "credential class"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.rfc-editor.org/rfc/rfc8693",
+        "https://openid.net/specs/openid-connect-core-1_0.html",
+        "https://openid.net/developers/how-connect-works/",
+        "https://spiffe.io/docs/latest/spiffe-about/overview/",
+        "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/",
+        "https://spiffe.io/docs/latest/spiffe-specs/spiffe/",
+        "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow",
+        "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html"
+      ],
+      "key_claims": [
+        {
+          "text": "An AIBOM should model human principals, agent workloads, tool or service workloads, model instances, runtime contexts, and trust domains as distinct identity classes, because current standards distribute those concepts across end-user identity, workload identity, and zero-trust subject composition rather than collapsing them into one actor type",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/207/final",
+            "https://openid.net/specs/openid-connect-core-1_0.html",
+            "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        },
+        {
+          "text": "RFC 8693 provides explicit concepts that AIBOM can reuse for delegation edges, including subject, actor, authorized actor, delegation, and impersonation, but AIBOM must still persist full prior-hop history separately because nested prior actors are informational only for authorization decisions",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc8693"
+          ]
+        },
+        {
+          "text": "OpenID Connect and Microsoft Entra On-Behalf-Of are appropriate for authenticated user-delegated flows, but they do not solve app-only or autonomous multi-hop delegation, so an AIBOM must separate human-identity assertions from workload-identity assertions instead of treating them as one credential class",
+          "sources": [
+            "https://openid.net/specs/openid-connect-core-1_0.html",
+            "https://openid.net/developers/how-connect-works/",
+            "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow"
+          ]
+        },
+        {
+          "text": "SPIFFE succeeds at issuing short-lived cryptographic workload identities and trust bundles across trust domains, but it does not define end-user delegation or permission scopes, so AIBOM must layer scope manifests and delegation semantics above workload identity rather than expecting SPIFFE alone to supply authorization meaning",
+          "sources": [
+            "https://spiffe.io/docs/latest/spiffe-about/overview/",
+            "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/",
+            "https://spiffe.io/docs/latest/spiffe-specs/spiffe/"
+          ]
+        },
+        {
+          "text": "Permission scopes in an AIBOM should be represented as edge-bound manifests containing target resource or audience, allowed operations, delegation mode, credential class, maximum lifetime, approval requirement, and revocation path, because least privilege is enforced at the hop rather than by the identity label alone",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc8693",
+            "https://csrc.nist.gov/pubs/sp/800/207/final",
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        },
+        {
+          "text": "A zero-trust-compatible AIBOM must declare trust domains, authentication method, attestation or identity-issuance mechanism, enforcement point, and credential-rotation policy for every boundary crossing, because identity inventories without verification-path metadata do not show how trust is actually established at runtime",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/207/final",
+            "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/",
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/"
+          ]
+        },
+        {
+          "text": "Attribution fails most predictably when systems rely on shared service identities, ambient runtime credentials, tool substitution that changes downstream audience, or cross-domain retrieval that cannot bind the original human subject to the current workload actor, so those conditions should be named explicitly in the AIBOM failure-mode register",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc8693",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/"
+          ]
+        },
+        {
+          "text": "The minimal formal AIBOM schema for this problem is therefore six linked objects, `identities`, `delegations`, `permission_manifests`, `trust_boundary_crossings`, `credential_policies`, and `attribution_requirements`, because no reviewed standard independently covers all six layers needed for auditable multi-agent operation",
+          "sources": [
+            "https://www.rfc-editor.org/rfc/rfc8693",
+            "https://csrc.nist.gov/pubs/sp/800/207/final",
+            "https://spiffe.io/docs/latest/spiffe-specs/spiffe/",
+            "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
           ]
         }
       ]
