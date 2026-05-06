@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
