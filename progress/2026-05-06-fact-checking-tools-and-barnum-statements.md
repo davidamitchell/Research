@@ -1,22 +1,23 @@
 # 2026-05-06 -- Add backlog items (fact-checking-tools-and-barnum-statements)
 
 **Completed:**
-- `Research/backlog/2026-05-06-openfactcheck-automated-fact-verification.md` — added from issue; asks what OpenFactCheck provides for automated fact verification and how applicable it is to this repository's AI-generated research review process.
-- `Research/backlog/2026-05-06-loki-fact-checking-journalists-ai-content.md` — added from issue; asks what the Loki fact-checking tool does for journalists and content moderators and what relevance it has for verifying claims in AI-generated research items.
-- `Research/backlog/2026-05-06-factscore-atomic-claim-precision-scoring.md` — added from issue; asks how FActScore (Factuality Assessment at Claim Granularity) computes precision scores for atomic factual claims and what the implications are for automated quality scoring of research items in this repository.
-- `Research/backlog/2026-05-06-open-weight-policy-enforcement-research-review.md` — added from issue; asks how open-weight policy enforcement models (such as gpt-oss-safeguard) classify text against customizable policies and whether they can implement this repository's research review rules as a machine-checkable policy.
-- `Research/backlog/2026-05-06-barnum-statements-ai-response-detection-removal.md` — added from issue; asks what Barnum statements (Forer effect) are, how LLMs produce them, and what systematic methods exist to detect and remove them from AI-generated research outputs.
+- `Research/backlog/2026-05-06-openfactcheck-automated-fact-verification.md` — RQ reorganised: leads with the citation-discipline weakness in `research-review-prompt.md`; asks which checks OpenFactCheck could automate or augment; Approach reordered to lead with gap analysis. Added `blocks: [2026-05-06-research-review-process-improvement]`.
+- `Research/backlog/2026-05-06-factscore-atomic-claim-precision-scoring.md` — RQ reorganised: leads with the binary PASS/FAIL limitation; asks whether FActScore's atomic precision score could replace it. Approach reordered to lead with rubric alignment. Added `blocks: [2026-05-06-research-review-process-improvement]`.
+- `Research/backlog/2026-05-06-loki-fact-checking-journalists-ai-content.md` — RQ reorganised: leads with the absence of live evidence retrieval and per-claim rationale in the LLM-judge approach; asks what Loki's explainability features offer that the current approach lacks. Approach reordered. Added `blocks: [2026-05-06-research-review-process-improvement]`.
+- `Research/backlog/2026-05-06-open-weight-policy-enforcement-research-review.md` — RQ reorganised: leads with the non-deterministic, non-versionable nature of the zero-shot prompt approach; asks whether the review rubric could be encoded as a policy for an open-weight model. Approach reordered to lead with policy mapping exercise. Added `blocks: [2026-05-06-research-review-process-improvement]`.
+- `Research/backlog/2026-05-06-barnum-statements-ai-response-detection-removal.md` — RQ reorganised: leads with the gap in the `remove-ai-slop` check; asks what specific additions would enable it to catch Barnum statements. Approach reordered to lead with repo application. Added `blocks: [2026-05-06-research-review-process-improvement]`.
+- `Research/backlog/2026-05-06-research-review-process-improvement.md` — new synthesis item; RQ asks for the minimum set of concrete changes to `research-review-prompt.md` that would deliver the highest-impact improvement; `item_type: synthesis`; `cites` all five preceding items; cannot start until all five are completed.
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. All five topics from the issue were well-defined enough to scope into specific, answerable research questions. The research-question skill was applied manually (submodule not initialised in sandbox). Each item's question passed all five quality tests: Specific, Answerable, Scoped, Motivated, Decomposable.
+1. **Did the process work?** Yes. The clarification from the owner made the scope clear: reorganise RQs to be anchored to `research-review-prompt.md` improvement, not tool-first. The five items were updated and the sixth created.
 
-2. **What slowed down or went wrong?** The Loki tool required a note in the item to confirm the correct GitHub repository URL during research — the exact repository location was not definitively known from the issue description alone. This is the correct handling: flag the uncertainty, do not guess.
+2. **What slowed down or went wrong?** Initial misread of the first comment as "conduct the research now" — the follow-up comment clarified the actual intent was to reorganise.
 
-3. **What single change would prevent this next time?** Nothing structural. The one uncertainty (Loki's exact repository) is inherent to the issue description and is correctly flagged in the item's Sources section with a note to confirm during research.
+3. **What single change would prevent this next time?** When a comment references a specific file (`research-review-prompt.md`) and asks for items to be scoped "regarding" it, read that as "anchor the RQs to that file", not "perform the research in relation to it."
 
-4. **Is this a pattern?** No — the uncertainty is specific to Loki's description in the issue. The broader pattern of the submodule not being initialised is already a known, documented constraint.
+4. **Is this a pattern?** First instance. If it recurs: comments referencing a specific artefact as context for backlog items mean "scope the items to that artefact", not "start executing them."
 
-5. **Does any documentation need updating?** No. Five new backlog items were created; no existing documentation references these topics. No user-facing behaviour changed.
+5. **Does any documentation need updating?** No.
 
-6. **Do the default instructions need updating?** No new convention emerged. The manual fallback for the `research-question` skill is already documented in `.github/copilot-instructions.md`.
+6. **Do the default instructions need updating?** No new convention emerged beyond what is already documented.

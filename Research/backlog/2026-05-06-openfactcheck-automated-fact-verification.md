@@ -1,9 +1,9 @@
 ---
-title: "What capabilities does OpenFactCheck provide for automated fact verification, how does it work technically, and how applicable is it to this repository's AI-generated research review process?"
+title: "Which citation-discipline and evidence-verification checks in `research-review-prompt.md` could OpenFactCheck automate or augment, and what would an integrated pipeline look like?"
 added: 2026-05-06T09:03:23+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: high  # low | medium | high
-blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+blocks: [2026-05-06-research-review-process-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [fact-checking, hallucinations, evaluation, research-quality, llm]
 started: ~
 completed: ~
@@ -17,20 +17,20 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# What capabilities does OpenFactCheck provide for automated fact verification, how does it work technically, and how applicable is it to this repository's AI-generated research review process?
+# Which citation-discipline and evidence-verification checks in `research-review-prompt.md` could OpenFactCheck automate or augment, and what would an integrated pipeline look like?
 
 ## Research Question
 
-What capabilities does OpenFactCheck provide for automated fact verification of Large Language Model (LLM) outputs, how does the tool work technically (architecture, claim decomposition, evidence retrieval, verdict aggregation), and to what extent is it applicable to improving the citation-discipline and hallucination-detection steps in this repository's AI-generated research review process?
+The citation-discipline step in `research-review-prompt.md` requires every claim to carry a `[fact]`, `[inference]`, or `[assumption]` label plus a supporting URL, and is currently enforced by a Large Language Model (LLM) judge operating zero-shot on the full document. What capabilities does OpenFactCheck provide — specifically its claim decomposition, evidence retrieval, and verdict labelling stages — that could automate or augment this check, and what would a practical GitHub Actions integration look like?
 
 ## Scope
 
 **In scope:**
+- Comparison of OpenFactCheck's capabilities against the citation-discipline check in `research-review-prompt.md`: where it matches, where it falls short
+- Practical integration pathways: API, CLI, self-hosted, GitHub Actions integration
 - OpenFactCheck's core architecture: pipeline stages, claim extraction, evidence retrieval, verdict labelling
 - Supported verification models and retrieval backends (web search, knowledge bases, retrieved documents)
 - Evaluation benchmarks and known accuracy/precision/recall figures
-- Comparison with manual citation-discipline review as currently practised in this repository's `research-review-prompt.md`
-- Practical integration pathways: API, CLI, self-hosted, GitHub Actions integration
 - Licensing, maintenance status, and community adoption
 
 **Out of scope:**
@@ -49,13 +49,13 @@ This repository's research review process (`research-review-prompt.md`) applies 
 
 ## Approach
 
-1. **Tool survey:** What does OpenFactCheck do — what pipeline stages does it implement, what claim types does it handle, and what evidence sources does it query?
+1. **Gap analysis against current review process:** Map OpenFactCheck's pipeline stages onto the citation-discipline and speculation-control checks in `research-review-prompt.md`. Where does it add value? Where does it fall short?
 
-2. **Technical architecture:** How is OpenFactCheck structured internally — is it modular, what are the extension points, and what does a complete verification run look like end-to-end?
+2. **Tool survey:** What does OpenFactCheck do — what pipeline stages does it implement, what claim types does it handle, and what evidence sources does it query?
 
-3. **Accuracy and benchmarks:** What published evaluation results exist for OpenFactCheck on standard fact-checking benchmarks? How does it perform on academic and technical claims (the primary claim type in this repo)?
+3. **Technical architecture:** How is OpenFactCheck structured internally — is it modular, what are the extension points, and what does a complete verification run look like end-to-end?
 
-4. **Gap analysis against current review process:** Map OpenFactCheck's capabilities onto the citation-discipline and speculation-control checks in `research-review-prompt.md`. Where does it add value? Where does it fall short?
+4. **Accuracy and benchmarks:** What published evaluation results exist for OpenFactCheck on standard fact-checking benchmarks? How does it perform on academic and technical claims (the primary claim type in this repo)?
 
 5. **Integration feasibility:** Can OpenFactCheck run in a GitHub Actions environment without external API credentials? What are the infrastructure requirements and cost implications?
 

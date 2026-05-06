@@ -1,9 +1,9 @@
 ---
-title: "What are Barnum statements, how are they produced by Large Language Models in generated content, and what systematic methods exist to identify and remove them from AI-generated research outputs?"
+title: "What specific updates to the `remove-ai-slop` check in `research-review-prompt.md` would enable it to systematically detect Barnum statements in AI-generated research items?"
 added: 2026-05-06T09:03:23+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: high  # low | medium | high
-blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+blocks: [2026-05-06-research-review-process-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [hallucinations, llm, research-quality, evaluation, agentic-ai]
 started: ~
 completed: ~
@@ -17,21 +17,21 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# What are Barnum statements, how are they produced by Large Language Models in generated content, and what systematic methods exist to identify and remove them from AI-generated research outputs?
+# What specific updates to the `remove-ai-slop` check in `research-review-prompt.md` would enable it to systematically detect Barnum statements in AI-generated research items?
 
 ## Research Question
 
-What are Barnum statements (also known as Forer effect statements) — the psychological phenomenon of accepting vague, universally applicable claims as personally or specifically accurate — how do Large Language Models (LLMs) produce them systematically in generated text, and what detection and removal methods exist that can be applied to AI-generated research items in this repository to strengthen specificity, falsifiability, and epistemic integrity?
+The `remove-ai-slop` check in `research-review-prompt.md` targets formulaic AI writing patterns (transitions, alignment artifacts, lexical monotony, em-dashes), but its current criteria do not explicitly address Barnum statements — vague, universally applicable claims that sound specific but carry no falsifiable content. LLMs (Large Language Models) produce them systematically via Reinforcement Learning from Human Feedback (RLHF) sycophancy dynamics. What are Barnum statements, how do LLMs produce them, what detection methods exist, and what specific additions to the `remove-ai-slop` check in `research-review-prompt.md` would enable it to catch them?
 
 ## Scope
 
 **In scope:**
+- Relevance to the `remove-ai-slop` review dimension in `research-review-prompt.md`: what specific criteria should be added
 - The Barnum/Forer effect: psychological theory, original experiment, and mechanism
-- How LLM training dynamics (next-token prediction, Reinforcement Learning from Human Feedback (RLHF) preference optimisation, sycophancy) produce Barnum-like outputs at scale
+- How LLM training dynamics (next-token prediction, RLHF preference optimisation, sycophancy) produce Barnum-like outputs at scale
 - Typology of Barnum statement patterns in AI-generated research: hedged tautologies, false specificity, universally applicable advice, vague reassurance
 - Existing detection approaches: linguistic pattern classifiers, specificity scoring, falsifiability heuristics, red-teaming prompts
 - Practical removal methods: prompt engineering constraints, post-hoc editing guidelines, automated detection in review pipelines
-- Relevance to the `remove-ai-slop` review dimension in `research-review-prompt.md`
 
 **Out of scope:**
 - The broader sycophancy literature in LLMs beyond its connection to Barnum statement generation
@@ -49,17 +49,17 @@ This repository's research review pipeline includes a `remove-ai-slop` check tha
 
 ## Approach
 
-1. **Psychological foundation:** What is the Barnum/Forer effect? What was the original Forer (1948) experiment, and what does it demonstrate about human acceptance of vague claims?
+1. **Repo application:** How should the `remove-ai-slop` dimension in `research-review-prompt.md` be updated to explicitly target Barnum statements? What would a Barnum-specific checklist look like?
 
-2. **LLM production mechanism:** How do LLMs produce Barnum-like statements? Which training dynamics (next-token prediction, RLHF reward hacking, sycophancy optimisation) most strongly predict Barnum output?
+2. **Psychological foundation:** What is the Barnum/Forer effect? What was the original Forer (1948) experiment, and what does it demonstrate about human acceptance of vague claims?
 
-3. **Typology in research text:** What patterns distinguish a Barnum statement in an AI-generated research item from a legitimate hedged claim? Develop a working typology with examples.
+3. **LLM production mechanism:** How do LLMs produce Barnum-like statements? Which training dynamics (next-token prediction, RLHF reward hacking, sycophancy optimisation) most strongly predict Barnum output?
 
-4. **Detection methods:** What automated or semi-automated methods exist to flag Barnum statements — specificity scoring, logical form analysis, falsifiability classifiers, adversarial prompting? What is the evidence for their effectiveness?
+4. **Typology in research text:** What patterns distinguish a Barnum statement in an AI-generated research item from a legitimate hedged claim? Develop a working typology with examples.
 
-5. **Removal and prevention:** What prompt engineering constraints, post-hoc editing guidelines, or automated rules can reduce Barnum statement production or catch them before research items are published?
+5. **Detection methods:** What automated or semi-automated methods exist to flag Barnum statements — specificity scoring, logical form analysis, falsifiability classifiers, adversarial prompting? What is the evidence for their effectiveness?
 
-6. **Repo application:** How should the `remove-ai-slop` dimension in `research-review-prompt.md` be updated to explicitly target Barnum statements? What would a Barnum-specific checklist look like?
+6. **Removal and prevention:** What prompt engineering constraints, post-hoc editing guidelines, or automated rules can reduce Barnum statement production or catch them before research items are published?
 
 ## Sources
 

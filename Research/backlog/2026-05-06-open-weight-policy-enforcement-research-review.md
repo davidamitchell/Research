@@ -1,9 +1,9 @@
 ---
-title: "What are open-weight reasoning models trained for policy enforcement (such as gpt-oss-safeguard), how do they classify text against customizable policies, and how applicable are they to implementing automated research review rules in this repository?"
+title: "Can the `research-review-prompt.md` review rubric be encoded as a versioned, self-hosted policy for an open-weight reasoning model, replacing the current zero-shot LLM-judge approach?"
 added: 2026-05-06T09:03:23+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: medium  # low | medium | high
-blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+blocks: [2026-05-06-research-review-process-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [governance, llm, evaluation, research-quality, fact-checking, agentic-ai]
 started: ~
 completed: ~
@@ -17,21 +17,21 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# What are open-weight reasoning models trained for policy enforcement (such as gpt-oss-safeguard), how do they classify text against customizable policies, and how applicable are they to implementing automated research review rules in this repository?
+# Can the `research-review-prompt.md` review rubric be encoded as a versioned, self-hosted policy for an open-weight reasoning model, replacing the current zero-shot LLM-judge approach?
 
 ## Research Question
 
-What are open-weight reasoning models trained for policy-based text classification (exemplified by gpt-oss-safeguard), how do they work technically — training approach, policy specification format, inference mechanism — and how applicable are they to encoding and enforcing the structured research review rules in this repository's `research-review-prompt.md` as a machine-checkable, customisable policy?
+The `research-review-prompt.md` review pipeline currently uses a general-purpose LLM (Large Language Model) instructed via a long structured prompt — an approach that is non-deterministic, expensive per run, and impossible to version as a formal auditable policy. Open-weight policy enforcement models such as gpt-oss-safeguard accept a natural-language policy alongside a piece of text and output a classification decision with a step-by-step reasoning chain. Could the six review dimensions in `research-review-prompt.md` (citation-discipline, speculation-control, remove-AI-slop, peer-reviewer, and sub-checks) be encoded as such a versioned policy, and would self-hosting the model in a GitHub Actions workflow be feasible?
 
 ## Scope
 
 **In scope:**
+- How a custom policy could encode the six review dimensions in `research-review-prompt.md` (citation-discipline, speculation-control, remove-AI-slop, acronym expansion, source URL completeness, evidence labelling)
+- Comparison with the current approach of passing `research-review-prompt.md` as a zero-shot prompt to a general-purpose LLM: cost, consistency, auditability
 - gpt-oss-safeguard's design: open-weight status, training methodology, policy specification format, and classification output schema
 - The broader class of open-weight policy enforcement models — what distinguishes them from general-purpose LLMs and from fine-tuned classifiers
 - Accuracy and policy adherence benchmarks for policy classification tasks
-- How a custom policy could encode the six review dimensions in `research-review-prompt.md` (citation-discipline, speculation-control, remove-AI-slop, acronym expansion, source URL completeness, evidence labelling)
 - Integration feasibility: model size, inference hardware requirements, open-weight licence, self-hosting on GitHub Actions runners
-- Comparison with the current approach of passing `research-review-prompt.md` as a zero-shot prompt to a general-purpose LLM
 
 **Out of scope:**
 - Safety and content moderation use cases unrelated to research review quality
@@ -49,13 +49,13 @@ This repository's research review pipeline (`research-review-prompt.md`) current
 
 ## Approach
 
-1. **Model identity and lineage:** What exactly is gpt-oss-safeguard? Is it a single model, a family, or a training methodology? Who produced it, what is its open-weight licence, and what is its current maintenance status?
+1. **Policy mapping exercise:** Map the six research review dimensions in `research-review-prompt.md` onto a hypothetical gpt-oss-safeguard policy. Which dimensions fit policy classification? Which require generative reasoning that a classifier cannot provide?
 
-2. **Policy specification format:** How are policies specified — natural language, structured schema, or a fine-tuning dataset format? How granular can a policy be?
+2. **Model identity and lineage:** What exactly is gpt-oss-safeguard? Is it a single model, a family, or a training methodology? Who produced it, what is its open-weight licence, and what is its current maintenance status?
 
-3. **Classification accuracy:** What published accuracy, precision, and recall figures exist for gpt-oss-safeguard on policy classification tasks? How does it compare to zero-shot prompting a general-purpose LLM?
+3. **Policy specification format:** How are policies specified — natural language, structured schema, or a fine-tuning dataset format? How granular can a policy be?
 
-4. **Policy mapping exercise:** Map the six research review dimensions in `research-review-prompt.md` onto a hypothetical gpt-oss-safeguard policy. Which dimensions are a good fit for policy classification? Which require generative reasoning that a classifier cannot provide?
+4. **Classification accuracy:** What published accuracy, precision, and recall figures exist for gpt-oss-safeguard on policy classification tasks? How does it compare to zero-shot prompting a general-purpose LLM?
 
 5. **Self-hosting feasibility:** Can gpt-oss-safeguard run within GitHub Actions resource limits? What inference library and hardware are required?
 

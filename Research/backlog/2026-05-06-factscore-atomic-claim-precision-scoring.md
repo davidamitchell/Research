@@ -1,9 +1,9 @@
 ---
-title: "What is FActScore, how does it compute precision scores for atomic factual claims in language model outputs, and what are the implications for automated quality scoring of research items in this repository?"
+title: "Could FActScore's atomic claim precision score replace the binary pass/fail citation-discipline verdict in `research-review-prompt.md` with a quantitative, calibrated measure?"
 added: 2026-05-06T09:03:23+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: high  # low | medium | high
-blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
+blocks: [2026-05-06-research-review-process-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [fact-checking, hallucinations, evaluation, research-quality, llm]
 started: ~
 completed: ~
@@ -17,19 +17,19 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# What is FActScore, how does it compute precision scores for atomic factual claims in language model outputs, and what are the implications for automated quality scoring of research items in this repository?
+# Could FActScore's atomic claim precision score replace the binary pass/fail citation-discipline verdict in `research-review-prompt.md` with a quantitative, calibrated measure?
 
 ## Research Question
 
-What is FActScore (Factuality Assessment at Claim Granularity), developed at the University of Washington, how does it decompose Large Language Model (LLM) outputs into atomic claims and compute a precision score against a knowledge source, and what are the practical implications for implementing a quantitative factual quality score for completed research items in this repository?
+The citation-discipline check in `research-review-prompt.md` currently produces a binary PASS/FAIL verdict on whether claims are labelled and sourced. FActScore (Factuality Assessment at Claim Granularity), developed at the University of Washington (UW), offers a complementary approach: decompose an LLM (Large Language Model) output into atomic claims and compute the percentage that are verifiable against a knowledge source. Could this replace the binary verdict with a quantitative precision score — and if so, what threshold, knowledge corpus, and integration path would be appropriate for this repository's research items?
 
 ## Scope
 
 **In scope:**
+- How FActScore's atomic claim precision aligns with or could replace the `[fact]` / `[inference]` / `[assumption]` labelling convention in this repository's research item template
 - FActScore's core methodology: atomic claim decomposition, knowledge source selection, precision calculation, and aggregation
-- Published accuracy and inter-annotator agreement results from the original University of Washington paper
+- Published accuracy and inter-annotator agreement results from the original UW paper
 - FActScore's retrieval-augmented verification approach and its dependency on a knowledge corpus
-- How FActScore's atomic claim precision aligns with the `[fact]` / `[inference]` / `[assumption]` labelling convention in this repository's research item template
 - Integration feasibility: Python package, API, compute requirements, and open-source licence
 - Limitations: entity bias, knowledge cutoff sensitivity, claim granularity calibration
 
@@ -49,13 +49,13 @@ This repository's research items require every factual claim to be labelled `[fa
 
 ## Approach
 
-1. **Core methodology:** How does FActScore decompose text into atomic claims? What counts as "atomic"? How is the knowledge source queried, and how is the verification verdict determined?
+1. **Alignment with the existing review rubric:** Map FActScore's atomic claim categories onto the `[fact]` / `[inference]` / `[assumption]` taxonomy and the binary PASS/FAIL verdict. What would be lost or gained by adopting precision scoring?
 
-2. **Precision score semantics:** What does a FActScore precision value of X% mean in practice? How does it relate to the number of unsupported claims in a document?
+2. **Core methodology:** How does FActScore decompose text into atomic claims? What counts as "atomic"? How is the knowledge source queried, and how is the verification verdict determined?
 
-3. **Knowledge source sensitivity:** How much does FActScore's score vary with the choice of knowledge corpus (Wikipedia, web retrieval, domain-specific corpora)? What corpus would be appropriate for this repository's research items?
+3. **Precision score semantics:** What does a FActScore precision value of X% mean in practice? How does it relate to the number of unsupported claims in a document?
 
-4. **Alignment with the existing review rubric:** Map FActScore's atomic claim categories onto the `[fact]` / `[inference]` / `[assumption]` taxonomy. Are they compatible? What would be lost or gained by adopting precision scoring?
+4. **Knowledge source sensitivity:** How much does FActScore's score vary with the choice of knowledge corpus (Wikipedia, web retrieval, domain-specific corpora)? What corpus would be appropriate for this repository's research items?
 
 5. **Integration feasibility:** Is FActScore available as a standalone Python package? What are the compute and API dependencies? Is it feasible to run in a GitHub Actions workflow?
 
