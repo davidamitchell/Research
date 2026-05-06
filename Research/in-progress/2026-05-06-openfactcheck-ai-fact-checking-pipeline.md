@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?"
 added: 2026-05-06T09:49:53+00:00
 status: reviewing
