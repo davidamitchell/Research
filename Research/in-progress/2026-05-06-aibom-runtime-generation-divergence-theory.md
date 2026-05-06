@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
