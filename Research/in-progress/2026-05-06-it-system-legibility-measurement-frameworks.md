@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?"
 added: 2026-05-06T07:32:54+00:00
 status: reviewing
