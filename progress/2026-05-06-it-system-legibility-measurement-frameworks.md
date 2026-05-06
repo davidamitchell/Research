@@ -12,3 +12,7 @@
 3. **What single change would prevent this next time?** Nothing to change — the manual fallback process is documented and worked correctly.
 
 4. **Is this a pattern?** Yes. The submodule not being initialised in the sandbox is a recurring constraint. It is already documented in the known recurring patterns table as an acknowledged limitation.
+
+5. **Does any documentation need updating?** No. This is a new backlog item; no existing documentation references the topic. No user-facing behaviour changed.
+
+6. **Do the default instructions need updating?** No new convention or constraint emerged from this session. The manual fallback for the `research-question` skill is already documented in `.github/copilot-instructions.md`.
