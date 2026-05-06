@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-06 12:00 UTC
+Generated on: 2026-05-06 12:25 UTC
 
 ## Table of Contents
 
 * [What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?](#2026-05-06-it-system-legibility-measurement-frameworks-md)
+* [How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?](#2026-05-06-factscore-precision-scoring-atomic-claims-md)
 * [What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?](#2026-05-06-barnum-statements-ai-responses-theory-practice-md)
 * [What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?](#2026-05-06-aibom-schema-design-standards-alignment-md)
 * [Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?](#2026-05-06-aibom-sbom-conceptual-gaps-theory-md)
@@ -346,6 +347,105 @@ The best-supported conclusion is therefore plural rather than singular: legibili
 - Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard? [inference; source: https://backstage.io/docs/features/software-catalog/; https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
 - How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index? [inference; source: https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt; https://engineering.atspotify.com/2024/04/supercharged-developer-portals]
 - Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific? [inference; source: https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://backstage.io/docs/features/software-catalog/; https://www.leanix.net/en/products/application-portfolio-management; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
+
+---
+
+---
+
+<a id="2026-05-06-factscore-precision-scoring-atomic-claims-md"></a>
+
+## How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?
+
+**Tags:** [llm, hallucinations, evaluation, research-methodology, benchmarking, fact-checking]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md
+
+## Research Question
+
+How does FActScore (Factual precision Scoring), developed at the University of Washington, operationalise the concept of atomic factual claim decomposition and precision scoring for Large Language Model (LLM) outputs, what are the precision and recall trade-offs in its scoring methodology, and how does its performance vary across content domains?
+
+## Findings
+
+### Executive Summary
+
+FActScore measures the proportion of atomic facts in a response that are supported by a chosen knowledge source, so it directly measures corpus-relative claim accuracy but not answer completeness. [fact; source: https://arxiv.org/abs/2305.14251; https://aclanthology.org/2023.emnlp-main.741/]
+
+Its strongest validated evidence comes from English Wikipedia biographies, where the paper pairs human-annotated atomic facts with retrieval-backed automatic scoring. [fact; source: https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/]
+
+That evidence base leaves medical, technical, recent-event, and non-English transfer uncertain rather than validated. [inference; source: https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/]
+
+The metric's main trade-off is explicit: it gives interpretable atomic-level precision while leaving recall, omission, and response usefulness mostly to companion statistics such as response rate and fact count. [fact; source: https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/]
+
+For this repository, FActScore is more credible as an offline diagnostic or batch audit on structured outputs than as an immediate release gate for heterogeneous research syntheses that do not share one canonical evidence corpus, unless deployment is first narrowed to support-critical claims or a tighter corpus boundary. [inference; source: https://github.com/shmsw25/FActScore; https://pypi.org/project/factscore/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md]
+
+### Key Findings
+
+1. **FActScore defines factual precision as the proportion of atomic facts in a model response that are supported by a chosen knowledge source, not as a holistic judgment of the whole response or a measure of information coverage.** ([fact]; medium confidence; source: https://arxiv.org/abs/2305.14251; https://aclanthology.org/2023.emnlp-main.741/)
+2. **The gold benchmark combines human revision of InstructGPT-produced atomic facts with human support labels, so the paper's reported scores depend on partially supervised decomposition rather than on raw end-to-end automatic claim extraction alone.** ([fact]; medium confidence; source: https://arxiv.org/html/2305.14251v2; https://github.com/shmsw25/FActScore)
+3. **The released implementation shows operational fragility in sentence splitting, duplicate claim cleanup, and entity-coverage checks, which means decomposition quality remains a real source of scoring error.** ([fact]; medium confidence; source: https://github.com/shmsw25/FActScore/blob/main/factscore/atomic_facts.py; https://github.com/shmsw25/FActScore)
+4. **FActScore's precision-only framing can overrate abstaining or low-information systems, and the authors explicitly recommend pairing the metric with response rate and fact-count statistics because otherwise omission looks artificially strong.** ([fact]; medium confidence; source: https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/)
+5. **On the paper's human-annotated English biography benchmark, InstructGPT, ChatGPT, and PerplexityAI scored 42.5, 58.3, and 71.5 respectively, while error rates rose for rarer entities and for facts stated later in the generated biography.** ([fact]; medium confidence; source: https://arxiv.org/html/2305.14251v2)
+6. **Retrieval is the main enabler of useful automatic estimation in FActScore, but the best estimator variant depends on the model being judged because retrieve-then-language-model methods can overestimate support while stricter ensembles can under-estimate search-augmented systems.** ([fact]; medium confidence; source: https://arxiv.org/html/2305.14251v2; https://github.com/shmsw25/FActScore/blob/main/factscore/factscorer.py)
+7. **The original work validates only English Wikipedia biographies and discusses broader corpus transfer as a design possibility, so cross-domain performance beyond that benchmark remains an inference rather than a validated result.** ([inference]; medium confidence; source: https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/)
+8. **OpenFactCheck and Loki should be read as broader operational successors that reuse atomic-claim thinking for customizable or human-centered verification workflows, not as direct replacements for FActScore's narrow scalar benchmark.** ([inference]; medium confidence; source: https://arxiv.org/abs/2405.05583; https://github.com/yuxiaw/openfactcheck; https://arxiv.org/abs/2410.01794; https://github.com/Libr-AI/OpenFactVerification)
+9. **For this repository, FActScore is viable as an offline diagnostic on structured outputs, but its current package assumptions make it an awkward direct gate for mixed-domain research synthesis unless corpus scope is narrowed or review is limited to support-critical claims.** ([inference]; medium confidence; source: https://github.com/shmsw25/FActScore; https://pypi.org/project/factscore/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] FActScore measures the proportion of supported atomic facts against a chosen knowledge source rather than full-response quality or recall. | https://arxiv.org/abs/2305.14251; https://aclanthology.org/2023.emnlp-main.741/ | medium | Definition + formula |
+| [fact] Gold scoring uses human revision of model-generated atomic facts before support labeling. | https://arxiv.org/html/2305.14251v2; https://github.com/shmsw25/FActScore | medium | Annotation pipeline |
+| [fact] Decomposition quality depends on sentence-splitting and entity heuristics in the released code. | https://github.com/shmsw25/FActScore/blob/main/factscore/atomic_facts.py; https://github.com/shmsw25/FActScore | medium | Code-level failure surface |
+| [fact] Precision-only scoring can reward abstention or omission unless paired with response-rate and fact-count statistics. | https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/ | medium | Recall trade-off |
+| [fact] Human benchmark scores were 42.5 for InstructGPT, 58.3 for ChatGPT, and 71.5 for PerplexityAI, with worse results for rare entities and later facts. | https://arxiv.org/html/2305.14251v2 | medium | Core reported results |
+| [fact] Retrieval-backed estimators outperform no-context judging, but variant choice changes over- and under-estimation patterns. | https://arxiv.org/html/2305.14251v2; https://github.com/shmsw25/FActScore/blob/main/factscore/factscorer.py | medium | Estimator trade-off |
+| [inference] Direct validated evidence for cross-domain performance is limited to English Wikipedia biographies, with only proof-of-concept discussion for other corpora. | https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/ | medium | Scope boundary |
+| [inference] OpenFactCheck and Loki extend atomic-claim ideas into broader verification workflows rather than replacing FActScore as a benchmark metric. | https://arxiv.org/abs/2405.05583; https://github.com/yuxiaw/openfactcheck; https://arxiv.org/abs/2410.01794; https://github.com/Libr-AI/OpenFactVerification | medium | Operational descendants |
+| [inference] FActScore is better suited to offline diagnostics than to a direct release gate for this repository's mixed-domain synthesis outputs unless deployment is narrowed to support-critical claims or a tighter corpus boundary. | https://github.com/shmsw25/FActScore; https://pypi.org/project/factscore/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md | medium | Integration fit |
+
+### Assumptions
+
+- **Assumption:** No official FActScore-branded successor such as `FActScore+` or `FActScore with LLM judge` currently anchors the follow-on landscape. **Justification:** targeted searches surfaced only the original paper and broader successor systems, so later extension evidence is interpreted through OpenFactCheck and Loki instead. [assumption; source: https://arxiv.org/abs/2305.14251; https://github.com/shmsw25/FActScore; https://arxiv.org/abs/2405.05583; https://arxiv.org/abs/2410.01794]
+- **Assumption:** This repository would only use FActScore as an offline audit or sampled diagnostic rather than as a mandatory gate on every research item. **Justification:** the repository's outputs are multi-source synthesis documents, not single-entity biographies against one canonical corpus. [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md; https://github.com/shmsw25/FActScore]
+
+### Analysis
+
+The evidence is strongest where the original authors measured directly: biography generation, English Wikipedia support checks, and retrieval-backed automatic estimation. [fact; source: https://arxiv.org/abs/2305.14251; https://aclanthology.org/2023.emnlp-main.741/]
+
+Within that boundary, FActScore solves a real evaluation problem that sentence-level or binary passage judgments miss, namely that one sentence can contain both supported and unsupported pieces of information. [fact; source: https://arxiv.org/html/2305.14251v2]
+
+The main trade-off is deliberate: by measuring only claim precision, FActScore becomes interpretable and cheap enough to scale, but it stops short of answering whether a response is complete, decision-useful, or appropriately selective. [inference; source: https://arxiv.org/html/2305.14251v2; https://pypi.org/project/factscore/]
+
+That trade-off is acceptable for benchmarking biographies, but it becomes harder to defend for research synthesis, where missing a critical fact can be as damaging as stating one false fact. [inference; source: https://arxiv.org/html/2305.14251v2; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md]
+
+The code and packaging details also matter operationally: the official toolchain assumes external model access, corpus preparation, topic-entity inputs, and substantial preprocessing, which pushes FActScore toward batch evaluation rather than lightweight inline review. [fact; source: https://github.com/shmsw25/FActScore; https://pypi.org/project/factscore/]
+
+OpenFactCheck and Loki show the practical direction of travel: once users want cross-domain verification or newsroom-style workflows, they add modular retrieval, evidence display, and human escalation rather than relying on a single scalar precision score. [inference; source: https://arxiv.org/abs/2405.05583; https://arxiv.org/abs/2410.01794]
+
+A narrower deployment remains plausible, especially if this repository restricts FActScore-style checks to support-critical claims or to outputs anchored to one curated corpus, but that would be a scoped adaptation rather than a direct reuse of the paper's default workflow. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md; https://github.com/shmsw25/FActScore; https://pypi.org/project/factscore/]
+
+### Risks, Gaps, and Uncertainties
+
+- The original paper does not provide direct benchmark evidence for medical, technical, recent-event, or non-English use cases, so any claim of robust cross-domain transfer remains uncertain. [fact; source: https://arxiv.org/html/2305.14251v2]
+- The released package documents custom-corpus support but does not publish validated accuracy numbers for those new corpora, so operational reuse still requires fresh calibration work. [fact; source: https://pypi.org/project/factscore/]
+- The automated estimator is close to human scoring on the biography benchmark, but the paper also states that the best estimator variant depends on the language model under evaluation, which complicates one-size-fits-all deployment. [fact; source: https://arxiv.org/html/2305.14251v2]
+- This item did not identify an official named FActScore successor by the original authors, so the follow-on landscape is partly inferred from adjacent systems rather than from a single canonical extension path. [assumption; source: https://arxiv.org/abs/2305.14251; https://github.com/shmsw25/FActScore; https://arxiv.org/abs/2405.05583; https://arxiv.org/abs/2410.01794]
+
+### Open Questions
+
+- What corpus design and calibration protocol would be needed to adapt FActScore from biography scoring to multi-source research synthesis?
+- Can a recall or omission-sensitive companion metric be added without making the pipeline too slow for routine review?
+- Would claim-level support auditing on only support-critical findings outperform running FActScore over entire research items?
+
+### Output
+
+- Type: knowledge
+- Description: Completed research item documenting FActScore's method, estimator trade-offs, and integration constraints for repository-grade factual review. [fact; source: https://arxiv.org/abs/2305.14251; https://github.com/shmsw25/FActScore]
+- Links:
+  - https://arxiv.org/abs/2305.14251
+  - https://github.com/shmsw25/FActScore
+  - https://arxiv.org/abs/2405.05583
 
 ---
 
