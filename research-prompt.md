@@ -385,6 +385,15 @@ easily-detectable issues.
     fragments, because review treats unlabeled table cells as unsupported
     claims.
 
+2bc. **Representative artifact placeholder audit** -- if the item embeds a
+    JavaScript Object Notation (JSON), YAML Ain't Markup Language (YAML), or
+    table-based AIBOM example, every value must be either (a) directly backed
+    by a cited observed source value, or (b) an explicit extraction placeholder
+    such as `<GetAgent.foundationModel>` or `<builder.add_node names>`. Do not
+    invent concrete identifiers, alias names, versions, knowledge-base labels,
+    or conditional markers like `required-if-persistence-enabled` and present
+    them as if they were observed instance values.
+
 2c. **No self-referential citations** -- do not cite "this file", "self-audit",
     "investigation record", or similar internal phrases as sources in `§0`,
     `§7`, or `## Findings`. Every cited claim must bind to a verifiable URL or

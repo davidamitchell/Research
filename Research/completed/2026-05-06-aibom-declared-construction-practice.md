@@ -2,12 +2,12 @@
 review_count: 1
 title: "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph"
 added: 2026-05-06T08:52:41+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, security, supply-chain, llm, ai-platform, governance]
 started: 2026-05-06T20:19:55+00:00
-completed: ~
+completed: 2026-05-06T20:37:53+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-05-06-aibom-sbom-conceptual-gaps-theory, 2026-05-06-aibom-schema-design-standards-alignment, 2026-05-06-aibom-runtime-generation-divergence-theory]
 related: [2026-05-06-aibom-identity-delegation-trust-theory, 2026-05-06-aibom-platform-observability-control-comparison]
