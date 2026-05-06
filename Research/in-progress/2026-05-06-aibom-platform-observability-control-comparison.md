@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?"
 added: 2026-05-06T08:52:41+00:00
 status: reviewing
