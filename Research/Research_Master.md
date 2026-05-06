@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-05-06 11:00 UTC
+Generated on: 2026-05-06 11:29 UTC
 
 ## Table of Contents
 
 * [What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?](#2026-05-06-it-system-legibility-measurement-frameworks-md)
+* [What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?](#2026-05-06-aibom-schema-design-standards-alignment-md)
 * [Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?](#2026-05-06-aibom-sbom-conceptual-gaps-theory-md)
 * [How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?](#2026-05-06-aibom-runtime-generation-divergence-theory-md)
 * [How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?](#2026-05-06-aibom-identity-delegation-trust-theory-md)
@@ -344,6 +345,121 @@ The best-supported conclusion is therefore plural rather than singular: legibili
 - Which minimal cross-tool metric set would let an organisation compare catalog coverage, CMDB quality, runtime dependency completeness, and structural-drift signals on one dashboard? [inference; source: https://backstage.io/docs/features/software-catalog/; https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
 - How should organisations weight human-comprehension metrics, for example team cognitive load or onboarding time, against machine-readable coverage metrics in a composite legibility index? [inference; source: https://www.thoughtworks.com/radar/techniques/codebase-cognitive-debt; https://engineering.atspotify.com/2024/04/supercharged-developer-portals]
 - Is there enough published evidence to define maturity levels for estate legibility that are portable across ServiceNow, Backstage, LeanIX, Dynatrace, and CAST rather than remaining vendor-specific? [inference; source: https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492; https://backstage.io/docs/features/software-catalog/; https://www.leanix.net/en/products/application-portfolio-management; https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape; https://www.castsoftware.com/imaging]
+
+---
+
+---
+
+<a id="2026-05-06-aibom-schema-design-standards-alignment-md"></a>
+
+## What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?
+
+**Tags:** [agentic-ai, security, supply-chain, governance, llm, ai-governance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-schema-design-standards-alignment.md
+
+## Research Question
+
+What is the minimal viable set of schema properties required to describe Artificial Intelligence (AI) system dependencies for systems that use prompts, retrieval knowledge bases, memory, and tools in a useful, standards-aligned AI bill of materials, specifically, how should existing CycloneDX Machine Learning Bill of Materials (ML-BOM) and Software Package Data Exchange (SPDX) 3.0 AI profile schema be extended to represent deterministic versus non-deterministic components, mutable versus immutable dependencies, prompts, retrieval indexes, memory, and identity-bound versus ambient execution contexts?
+
+## Findings
+
+### Executive Summary
+
+A minimal viable AIBOM for agentic workloads should reuse CycloneDX and SPDX for core inventory structure and add only a small extension layer for agentic artefacts and control semantics, rather than introducing a separate bill-of-materials standard. [inference; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://cyclonedx.org/specification/overview/; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/]
+CycloneDX is the better immediate serialization target because its existing component, service, dependency, formulation, and property surfaces can already express the minimal schema without waiting for a new release. [inference; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://github.com/CycloneDX/specification/issues/702; https://github.com/CycloneDX/specification/issues/268]
+SPDX should be the long-term formalization target through an AIBOM extension profile, because current AI and Dataset profiles remain package-centric and do not yet make prompt, orchestration, or memory-schema artefacts first-class. [inference; source: https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/]
+The minimum new property set is six fields, semantic class, mutability, determinism, context binding, snapshot strategy, and approval-scope reference, because those six cover the design-time semantics that standard SBOM fields and current AI profiles still miss. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json]
+
+### Key Findings
+
+1. **A minimal viable AIBOM for agentic workloads can stay CycloneDX-aligned today by reusing `component`, `service`, `dependency`, and `formulation` objects and by adding namespaced properties rather than requiring a new core component type immediately.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://cyclonedx.org/specification/overview/)
+2. **SPDX 3.0.1 already provides strong package-level coverage for models and datasets, but a complete agentic AIBOM still needs an extension profile because prompt, orchestration, and memory-schema artefacts are not first-class classes in the current AI profile.** ([fact]; medium confidence; source: https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/)
+3. **CycloneDX's own open issues show unresolved AI service, model dependency, fixed hyperparameter, and future agent-card questions, which indicates that current agentic schema semantics are still incomplete rather than fully settled.** ([inference]; medium confidence; source: https://github.com/CycloneDX/specification/issues/702; https://github.com/CycloneDX/specification/issues/268; https://github.com/CycloneDX/specification/issues/282)
+4. **The minimal agentic extension should add only behaviour-shaping artefacts that can be stably identified at design time, model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config, because that preserves NTIA-style practicality while closing the most important conceptual gaps.** ([inference]; medium confidence; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html)
+5. **Mutability and fingerprinting should reuse existing hash, version, external-reference, and signature fields wherever possible, while a new `snapshotStrategy` property records whether an artefact is pinned by content hash, Merkle-tree digest, schema version, or external snapshot identifier.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html)
+6. **Memory state and live retrieval results should not be part of the minimal declared AIBOM, because they are runtime-evidence surfaces, but the memory schema and retrieval snapshot policy must be declared so the runtime object can later be compared against approved design intent.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html)
+7. **Execution binding is a first-class design concern, so a minimal AIBOM must declare whether each tool or context surface is identity-bound, policy-bound, or ambient, and it must reference the approval scope that constrains the declared tool path.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html)
+8. **The most adoption-realistic path is a two-step standardization strategy, ship a CycloneDX 1.7 profile today with a lightweight AIBOM property taxonomy, then upstream the same semantics into an SPDX AIBOM extension profile as current AIBOM working-group efforts mature.** ([inference]; medium confidence; source: https://github.com/GenAI-Security-Project/aibom-generator; https://arxiv.org/abs/2504.16743; https://arxiv.org/abs/2510.07070)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] CycloneDX can serialize the minimal schema today through existing objects plus namespaced properties. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://cyclonedx.org/specification/overview/ | medium | Single standards body |
+| [fact] SPDX AI and Dataset profiles remain package-centric and need extension for prompt and orchestration artefacts. | https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/ | medium | Single standards body |
+| [inference] CycloneDX maintainers are still discussing AI service, dependency, hyperparameter, and agent-card gaps, which indicates incomplete current semantics. | https://github.com/CycloneDX/specification/issues/702 ; https://github.com/CycloneDX/specification/issues/268 ; https://github.com/CycloneDX/specification/issues/282 | medium | Issue tracker, not ratified standard |
+| [inference] The minimal extension surface should include model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config. | https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html | medium | Minimality judgement |
+| [inference] `snapshotStrategy` is necessary because existing hash fields alone do not explain how mutable artefacts are pinned. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html | medium | Derived from mutable-context gap |
+| [inference] Runtime memory state and live retrieval results belong in runtime AIBOM, not in the minimal declared schema. | https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html | medium | Declared-versus-observed boundary |
+| [inference] Context binding and approval-scope reference are required to make tool and retrieval surfaces governance-relevant at design time. | https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html | medium | Cross-item synthesis |
+| [inference] The best adoption path is CycloneDX property taxonomy now and SPDX extension profile next. | https://github.com/GenAI-Security-Project/aibom-generator ; https://arxiv.org/abs/2504.16743 ; https://arxiv.org/abs/2510.07070 | medium | Standards-process judgement |
+
+### Assumptions
+
+- **Assumption:** Producers can externalize prompt templates, tool manifests, and orchestration configurations into versioned artefacts rather than keeping them only as opaque application code. [assumption; source: https://github.com/GenAI-Security-Project/aibom-generator; https://github.com/CycloneDX/specification/issues/702] **Justification:** current AIBOM tooling and CycloneDX working-group discussions already assume extractable model and configuration metadata.
+- **Assumption:** Namespaced AIBOM properties are an acceptable interim serialization strategy before the semantics become part of a formal shared profile. [assumption; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/] **Justification:** both ecosystems expose explicit extension mechanisms for this style of incremental evolution.
+
+### Analysis
+
+The evidence supports a minimum-viable design that preserves existing BOM identity and dependency semantics while adding only the smallest new agentic layer needed to classify semantically active artefacts and their control meaning. [inference; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/]
+CycloneDX is operationally ahead for serialization flexibility, but SPDX is procedurally ahead for formal profile evolution, so the design should deliberately map one conceptual schema across both ecosystems rather than forcing one standard to behave like the other. [inference; source: https://github.com/CycloneDX/specification/issues/702; https://github.com/CycloneDX/specification/issues/268; https://github.com/CycloneDX/specification/issues/282; https://arxiv.org/abs/2510.07070]
+A standalone AIBOM schema remains a plausible rival strategy, but current practice and current standards work both extend existing BOM ecosystems rather than replace them, so a standalone format would add adoption cost and duplicate validator and exporter effort without stronger near-term evidence. [inference; source: https://arxiv.org/abs/2504.16743; https://arxiv.org/abs/2510.07070; https://github.com/GenAI-Security-Project/aibom-generator]
+An SPDX-first strategy is also plausible because formal AIBOM work is already happening there, but CycloneDX is the better immediate serialization choice because its current reference schema already exposes services, formulation workflows, and flexible property arrays that can be emitted today. [inference; source: https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json]
+The core trade-off is between design-time stability and runtime completeness: the minimal declared schema must stop at artefacts that can be approved and versioned before execution, while leaving live context, memory state, and retrieval results to a linked runtime AIBOM rather than overloading one artefact with both purposes. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html]
+The resulting design is minimal not because it is short, but because every retained field answers one of six concrete questions, what class of artefact is this, how stable is it, how deterministic is it, how is it pinned, how is it bound to authority, and which approved operations does it enable. [inference; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/]
+
+```yaml
+bomFormat: CycloneDX
+specVersion: "1.7"
+components:
+  - bom-ref: model:gpt-4.1
+    type: machine-learning-model
+    name: gpt-4.1
+    properties:
+      - name: aibom:determinism
+        value: stochastic
+  - bom-ref: prompt:system
+    type: data
+    name: support-agent-system-prompt
+    hashes:
+      - alg: SHA-256
+        content: 2b3f...deadbeef
+    properties:
+      - name: aibom:componentClass
+        value: system-instruction
+      - name: aibom:mutability
+        value: versioned-mutable
+      - name: aibom:snapshotStrategy
+        value: content-hash
+services:
+  - bom-ref: service:crm
+    name: crm-api
+    properties:
+      - name: aibom:contextBinding
+        value: identity-bound
+      - name: aibom:approvalScopeRef
+        value: policy:crm-read-ticket-update
+formulation:
+  - workflows:
+      - name: support-triage
+        properties:
+          - name: aibom:componentClass
+            value: agent-configuration
+```
+
+### Risks, Gaps, and Uncertainties
+
+- CycloneDX agent-card semantics are still open working-group territory, so any current `aibom:componentClass=agent-configuration` convention is an interim design rather than a ratified standard field. [fact; source: https://github.com/CycloneDX/specification/issues/702]
+- SPDX extension mechanics are clear at the namespace level, but this item does not yet specify a fully formal AIBOM extension ontology with machine-readable class definitions. [fact; source: https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/]
+- Retrieval snapshot digest design remains partly unsettled because different vector stores and indexing pipelines expose different levels of reproducible corpus identity. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+- Practical tool support is currently model-centred, so prompt, memory-schema, and tool-manifest extraction workflows may lag the schema until practice implementations catch up. [inference; source: https://github.com/GenAI-Security-Project/aibom-generator; https://owaspaibom.org/]
+
+### Open Questions
+
+- Should future standards define a first-class `agent-configuration` object, or is a property-taxonomy approach sufficient if formulation workflows are already available? [inference; source: https://github.com/CycloneDX/specification/issues/702; https://arxiv.org/abs/2510.07070]
+- What is the most reproducible digest method for heterogeneous RAG indexes that mix raw source files, chunking parameters, embeddings, and ranking metadata? [inference; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html]
+- Should approval-scope references point to external policy objects only, or should BOM-native permission manifests become first-class cross-standard objects? [inference; source: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html]
 
 ---
 
