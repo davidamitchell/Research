@@ -325,6 +325,13 @@ easily-detectable issues.
     "oversight-by-exception". On first use in the entire document, either
     define the term in plain language or bind it to an authoritative source.
     Do not assume that acronym expansion alone satisfies this requirement.
+    Run this check explicitly on first-use phrases that recur in this repo's
+    AIBOM work, especially "Artificial Intelligence Bill of Materials (AIBOM)",
+    "Retrieval-Augmented Generation (RAG)", and "agentic" or "agentic
+    workloads". If the first use appears in a title, Research Question, Scope,
+    or other early uncited prose, either attach an authoritative source at that
+    first use or rewrite the phrase into plain descriptive language before the
+    first review run.
 
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
