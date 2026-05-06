@@ -2,12 +2,12 @@
 review_count: 2
 title: "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?"
 added: 2026-05-06T08:52:41+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-05-06-aibom-runtime-capture-opentelemetry-practice]
 tags: [agentic-ai, governance, llm, observability, runtime-monitoring, security]
 started: 2026-05-06T10:14:22+00:00
-completed: ~
+completed: 2026-05-06T10:33:39+00:00
 output: [knowledge]
 cites: [2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-05-06-aibom-identity-delegation-trust-theory]
 related: [2026-04-27-cryptographic-intent-preservation-runtime-evaluation, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
@@ -113,14 +113,14 @@ How can a dynamic, runtime-observed Artificial Intelligence Bill of Materials (A
     - D2. Which surfaces can only be preserved as evidence, not reproduced behaviourally?
   - **E. Analogy mapping**
     - E1. How do OpenTelemetry traces map to runtime AIBOM structure?
-    - E2. How do W3C PROV and event sourcing map to provenance and reconstruction?
+    - E2. How do World Wide Web Consortium (W3C) PROV and event sourcing map to provenance and reconstruction?
 
 ### §2 Investigation
 
 #### Source substitution and failed-search notes
 
-- [assumption; source: https://www.w3.org/TR/prov-overview/; https://opentelemetry.io/docs/specs/semconv/gen-ai/] Search note: query `"Toward a Framework for Agentic AI Provenance"` did not identify a retrievable primary source matching the seeded title in this session, so the formal provenance baseline relies on accessible W3C PROV and OpenTelemetry sources instead.
-- [assumption; source: https://www.w3.org/TR/prov-overview/; https://www.nist.gov/itl/ai-risk-management-framework] Search note: query `"Provenance-Aware Machine Learning Systems"` did not identify a retrievable primary source matching the seeded title in this session, so the governance and provenance argument relies on accessible standards material rather than on the unmatched seeded title.
+- Search note: query `"Toward a Framework for Agentic AI Provenance"` -> no retrievable primary source matched the seeded title in this session.
+- Search note: query `"Provenance-Aware Machine Learning Systems"` -> no retrievable primary source matched the seeded title in this session.
 
 #### A. Runtime AIBOM capture model
 
