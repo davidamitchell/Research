@@ -95,11 +95,15 @@ What is the minimal viable set of schema properties required to describe agentic
 
 ### §0 Initialise
 
-- Question: What is the smallest standards-aligned AIBOM schema that can declare the semantically active design-time artefacts of an agentic AI system, and how should that schema map to CycloneDX and SPDX without forking either standard?
-- Scope: Standards coverage, extension-point design, mutable-artefact versioning, execution-context binding, and a worked minimal schema example.
-- Constraints: Use CycloneDX and SPDX as the base, keep design-time only, and prefer properties and classes that can be populated from accessible artefacts.
-- Output: knowledge.
-- Prior completed items reviewed: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html
+Question: smallest standards-aligned AIBOM schema for design-time agentic artefacts, mapped to CycloneDX and SPDX without forking either standard
+
+Scope: standards coverage, extension-point design, mutable-artefact versioning, execution-context binding, worked minimal schema example
+
+Constraints: CycloneDX and SPDX as base, design-time only, accessible artefacts only
+
+Output: knowledge
+
+Prior completed items reviewed: https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html
 
 ### §1 Question Decomposition
 
@@ -330,8 +334,8 @@ formulation:
 
 | claim | source | confidence | notes |
 |---|---|---|---|
-| [inference] CycloneDX can serialize the minimal schema today through existing objects plus namespaced properties. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://cyclonedx.org/specification/overview/ | high | Native extension surface exists |
-| [fact] SPDX AI and Dataset profiles remain package-centric and need extension for prompt and orchestration artefacts. | https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/ | high | Strong normative model evidence |
+| [inference] CycloneDX can serialize the minimal schema today through existing objects plus namespaced properties. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://cyclonedx.org/specification/overview/ | medium | Single standards body |
+| [fact] SPDX AI and Dataset profiles remain package-centric and need extension for prompt and orchestration artefacts. | https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/ | medium | Single standards body |
 | [fact] CycloneDX maintainers are still discussing AI service, dependency, hyperparameter, and agent-card gaps. | https://github.com/CycloneDX/specification/issues/702 ; https://github.com/CycloneDX/specification/issues/268 ; https://github.com/CycloneDX/specification/issues/282 | medium | Issue tracker, not ratified standard |
 | [inference] The minimal extension surface should include model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config. | https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html | medium | Minimality judgement |
 | [inference] `snapshotStrategy` is necessary because existing hash fields alone do not explain how mutable artefacts are pinned. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html | medium | Derived from mutable-context gap |
@@ -366,8 +370,9 @@ formulation:
 
 ### §7 Recursive Review
 
-- Audit status: prior-work scan completed, sources normalized to URL-backed display names, and broken seeded sources were replaced with accessible standards sources.
-- Audit status: all factual and inferential claims in `## Research Skill Output` are labelled, and the `## Findings` section mirrors the Section 6 synthesis.
+Audit status: prior-work scan completed; sources normalized to URL-backed display names; broken seeded sources replaced with accessible standards sources
+
+Audit status: factual and inferential claims in `## Research Skill Output` labelled; `## Findings` mirrors Section 6 synthesis
 - [inference; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/; https://github.com/CycloneDX/specification/issues/702] Overall confidence remains medium because the base standards and extension points are clear, but agent-specific field convergence is still incomplete in the live standards processes.
 
 ---
@@ -383,8 +388,8 @@ The minimum new property set is six fields, semantic class, mutability, determin
 
 ### Key Findings
 
-1. **A minimal viable AIBOM for agentic workloads can stay CycloneDX-aligned today by reusing `component`, `service`, `dependency`, and `formulation` objects and by adding namespaced properties rather than requiring a new core component type immediately.** ([inference]; high confidence; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://cyclonedx.org/specification/overview/)
-2. **SPDX 3.0.1 already provides strong package-level coverage for models and datasets, but a complete agentic AIBOM still needs an extension profile because prompt, orchestration, and memory-schema artefacts are not first-class classes in the current AI profile.** ([fact]; high confidence; source: https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/)
+1. **A minimal viable AIBOM for agentic workloads can stay CycloneDX-aligned today by reusing `component`, `service`, `dependency`, and `formulation` objects and by adding namespaced properties rather than requiring a new core component type immediately.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://cyclonedx.org/specification/overview/)
+2. **SPDX 3.0.1 already provides strong package-level coverage for models and datasets, but a complete agentic AIBOM still needs an extension profile because prompt, orchestration, and memory-schema artefacts are not first-class classes in the current AI profile.** ([fact]; medium confidence; source: https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/)
 3. **CycloneDX's own open issues show that AI service modelling, model dependency declaration, fixed hyperparameters, and future agent-card semantics remain unresolved, which is direct evidence that agentic schema design is still extension territory rather than settled standard practice.** ([fact]; medium confidence; source: https://github.com/CycloneDX/specification/issues/702; https://github.com/CycloneDX/specification/issues/268; https://github.com/CycloneDX/specification/issues/282)
 4. **The minimal agentic extension should add only behaviour-shaping artefacts that can be stably identified at design time, model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config, because that preserves NTIA-style practicality while closing the most important conceptual gaps.** ([inference]; medium confidence; source: https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html)
 5. **Mutability and fingerprinting should reuse existing hash, version, external-reference, and signature fields wherever possible, while a new `snapshotStrategy` property records whether an artefact is pinned by content hash, Merkle-tree digest, schema version, or external snapshot identifier.** ([inference]; medium confidence; source: https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html)
@@ -396,8 +401,8 @@ The minimum new property set is six fields, semantic class, mutability, determin
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] CycloneDX can serialize the minimal schema today through existing objects plus namespaced properties. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://cyclonedx.org/specification/overview/ | high | Native extension surface exists |
-| [fact] SPDX AI and Dataset profiles remain package-centric and need extension for prompt and orchestration artefacts. | https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/ | high | Strong normative model evidence |
+| [inference] CycloneDX can serialize the minimal schema today through existing objects plus namespaced properties. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://cyclonedx.org/specification/overview/ | medium | Single standards body |
+| [fact] SPDX AI and Dataset profiles remain package-centric and need extension for prompt and orchestration artefacts. | https://spdx.github.io/spdx-spec/v3.0.1/model/AI/Classes/AIPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Dataset/Classes/DatasetPackage/ ; https://spdx.github.io/spdx-spec/v3.0.1/model/Extension/Extension/ | medium | Single standards body |
 | [fact] CycloneDX maintainers are still discussing AI service, dependency, hyperparameter, and agent-card gaps. | https://github.com/CycloneDX/specification/issues/702 ; https://github.com/CycloneDX/specification/issues/268 ; https://github.com/CycloneDX/specification/issues/282 | medium | Issue tracker, not ratified standard |
 | [inference] The minimal extension surface should include model, prompt or instruction, retrieval snapshot, memory schema, tool manifest, and orchestration config. | https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html | medium | Minimality judgement |
 | [inference] `snapshotStrategy` is necessary because existing hash fields alone do not explain how mutable artefacts are pinned. | https://raw.githubusercontent.com/CycloneDX/specification/master/schema/bom-1.7.schema.json ; https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html | medium | Derived from mutable-context gap |
