@@ -2,12 +2,12 @@
 review_count: 2
 title: "How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?"
 added: 2026-05-06T09:49:53+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-05-06-fact-checking-tools-research-quality-improvement]
 tags: [llm, evaluation, workflow, agentic-ai]
 started: 2026-05-06T12:26:01+00:00
-completed: ~
+completed: 2026-05-06T12:54:39+00:00
 output: [knowledge]
 cites: [2026-04-26-policy-coherence-machine-checkable-prerequisite, 2026-04-26-deployment-pipeline-citizen-development-governed-gate, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp]
 related: [2026-03-02-research-quality-assurance-methodology, 2026-04-28-llm-as-judge-pipeline-validation-checkpoints, 2026-05-02-adversarial-review-methods-ai-research-quality, 2026-05-06-openfactcheck-ai-fact-checking-pipeline, 2026-05-06-loki-fact-checking-journalists-moderation, 2026-05-06-factscore-precision-scoring-atomic-claims, 2026-05-06-barnum-statements-ai-responses-theory-practice, 2026-05-06-fact-checking-tools-research-quality-improvement]
