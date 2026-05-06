@@ -1,6 +1,121 @@
 {
-  "extracted_at": "2026-05-06T13:11:41Z",
+  "extracted_at": "2026-05-06T13:30:30Z",
   "items": {
+    "2026-05-06-loki-fact-checking-journalists-moderation": {
+      "named_concepts": [
+        "fully offline",
+        "analyst review",
+        "project-controlled sources",
+        "fact-verification system",
+        "competitive benchmark",
+        "omission blindness",
+        "factscore loki",
+        "correct loki",
+        "knowledge graph",
+        "five-stage pipeline",
+        "human-assisted fact-checking",
+        "python library",
+        "offline reproducibility",
+        "true-claim precision",
+        "precision recall",
+        "f1 score",
+        "end-user checker",
+        "claim-local verification",
+        "general web",
+        "discovery assistant"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2410.01794",
+        "https://arxiv.org/html/2410.01794v1",
+        "https://github.com/Libr-AI/OpenFactVerification",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/README.md",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/LICENSE",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/docs/user_guide.md",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/__init__.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/__init__.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/requirements.txt",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/config/sample_prompt.yaml",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/ClaimVerify.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/QueryGenerator.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/CheckWorthy.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/Decompose.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/Retriever/serper_retriever.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/Retriever/base.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/utils/web_util.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/utils/api_config.py",
+        "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/utils/data_class.py",
+        "https://arxiv.org/abs/1803.05355",
+        "https://arxiv.org/abs/2108.11896",
+        "https://arxiv.org/abs/2310.05189",
+        "https://arxiv.org/abs/2405.05583",
+        "https://openfactcheck.com/",
+        "https://arxiv.org/abs/2305.12900"
+      ],
+      "key_claims": [
+        {
+          "text": "The correct Loki in scope is the 2024 LibrAI and MBZUAI fact-verification system, and the seeded 2023 `2305.12900` paper is a different scholarly knowledge graph project rather than the journalist-facing tool under review",
+          "sources": [
+            "https://arxiv.org/abs/2410.01794",
+            "https://github.com/Libr-AI/OpenFactVerification",
+            "https://arxiv.org/abs/2305.12900"
+          ]
+        },
+        {
+          "text": "Loki implements a five-stage pipeline, decomposition, claim-worthiness filtering, query generation, evidence retrieval, and claim verification, and the released code wires those stages into a parallelised pipeline that returns evidence objects, claim details, and an overall factuality summary",
+          "sources": [
+            "https://arxiv.org/html/2410.01794v1",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/__init__.py",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/__init__.py"
+          ]
+        },
+        {
+          "text": "Loki is designed for human-assisted fact-checking rather than silent automation, because its paper and documented interfaces foreground layered evidence presentation, inspectable snippets, and claim-level reasoning for journalists and content moderators",
+          "sources": [
+            "https://arxiv.org/html/2410.01794v1",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/docs/user_guide.md"
+          ]
+        },
+        {
+          "text": "Loki is practically deployable as a Python library, CLI tool, and web application, but its default workflow depends on external model and search keys, live-web crawling, and a relatively heavy dependency stack, which makes fully offline reproducibility an unsupported deployment assumption rather than a documented feature",
+          "sources": [
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/docs/user_guide.md",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/utils/api_config.py",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/requirements.txt",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/core/Retriever/serper_retriever.py"
+          ]
+        },
+        {
+          "text": "The published evaluation evidence shows that Loki is competitive rather than dominant, with Factcheck-Bench true-claim precision, recall, and F1 score of 0.84, 0.83, and 0.84, FacTool-QA true-claim precision, recall, and F1 score of 0.89, 0.80, and 0.85, and faster average per-sample latency than a matched OpenAI GPT-4o FacTool configuration",
+          "sources": [
+            "https://arxiv.org/html/2410.01794v1"
+          ]
+        },
+        {
+          "text": "Compared with FActScore, Loki trades omission-aware atomic-precision measurement for interactive live-web evidence gathering, which makes Loki more useful for fast analyst review but less suitable as a standalone metric for long-form research completeness",
+          "sources": [
+            "https://arxiv.org/html/2410.01794v1",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-factscore-precision-scoring-atomic-claims.md"
+          ]
+        },
+        {
+          "text": "Compared with OpenFactCheck, Loki is less modular and less evaluation-centric, but more packaged as an end-user checker with a user interface, transparency features, multilingual ambition, and a single integrated workflow",
+          "sources": [
+            "https://arxiv.org/html/2410.01794v1",
+            "https://arxiv.org/html/2405.05583v3",
+            "https://openfactcheck.com/"
+          ]
+        },
+        {
+          "text": "For AI-generated research content, Loki's sentence-level decomposition, checkworthiness filtering, and claim-local verification are useful first-pass controls, but they are weak against nested arguments, hedged language, omission-heavy summaries, and fresh claims whose best evidence lives in bounded scholarly corpora rather than general web search",
+          "sources": [
+            "https://arxiv.org/abs/2310.05189",
+            "https://github.com/Libr-AI/OpenFactVerification/blob/main/factcheck/config/sample_prompt.yaml",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-automated-claim-verification-academic-literature.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-llm-hallucination-mechanisms.md"
+          ]
+        }
+      ]
+    },
     "2026-05-06-it-system-legibility-measurement-frameworks": {
       "named_concepts": [
         "cmdb health",
