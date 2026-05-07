@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review"
 added: 2026-05-07T12:03:49+00:00
 status: reviewing
