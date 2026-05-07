@@ -1,13 +1,11 @@
-# 2026-05-07 -- Add backlog item (ai-regulatory-guidance-update-gap-check)
+# 2026-05-07 -- Complete research item (ai-regulatory-guidance-update-gap-check)
 
 **Completed:**
-- `Research/backlog/2026-05-07-ai-regulatory-guidance-update-gap-check.md` — added from issue request to re-check Artificial Intelligence (AI) regulatory advice/policy guidance and identify newly issued guidance plus any missed coverage since the previous global financial-services item
+- `Research/completed/2026-05-07-ai-regulatory-guidance-update-gap-check.md` -- completed the regulatory delta-and-gap check, showing that APRA's 30 April 2026 AI letter was the main net-new supervisory development while the prior baseline also missed important Canadian, UK, and US comparator sources.
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. The issue was best handled as a new follow-on backlog item rather than editing a completed research item directly.
-2. **What slowed down or went wrong?** The local environment initially lacked `ruff` and `pytest`, so checks could not run until `pip install -e ".[dev]"` was executed.
-3. **What single change would prevent this next time?** Start each session by checking whether the development dependencies are installed before running validation commands.
-4. **Is this a pattern?** Yes. Fresh sandbox clones frequently need dependency bootstrapping before lint and test commands are available.
-5. **Does any documentation need updating?** No. This change only adds a new backlog research item and session log; no user-facing behavior changed.
-6. **Do the default instructions need updating?** No new repository-wide convention emerged from this session.
+1. **Did the process work?** Yes, after iterating through the review loop until the log itself showed a clean pass rather than relying on workflow success alone.
+2. **What slowed down or went wrong?** Citation-discipline and speculation-control review failures surfaced several wording issues late, especially inference-versus-fact labels, acronym expansion, and duplicated phrasing across mirrored sections.
+3. **What single change would prevent this next time?** Run a stricter pre-review sweep that explicitly checks mirrored `§6 Synthesis` and `## Findings` for label parity, acronym first-use expansion, and comparative claims before the first draft push.
+4. **Is this a pattern?** Yes, this matches the repository's known recurring pattern that review logs, not workflow conclusion alone, are the reliable signal for research-quality compliance.

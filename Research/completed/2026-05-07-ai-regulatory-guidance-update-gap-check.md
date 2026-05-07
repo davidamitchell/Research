@@ -2,12 +2,12 @@
 review_count: 2
 title: "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review"
 added: 2026-05-07T12:03:49+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [regulation, financial-services, governance, apra, rbnz, fma, osfi]
 started: 2026-05-07T13:32:28+00:00
-completed: ~
+completed: 2026-05-07T14:17:50+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites:
   - 2026-04-24-ai-agent-regulation-global-financial-services
