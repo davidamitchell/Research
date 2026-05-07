@@ -61,6 +61,7 @@ This question informs operational and governance decisions about how to safely d
 https://www.pointguardai.com/ai-security-incident-tracker
 https://www.osohq.com/developers/ai-agents-gone-rogue
 https://github.com/webpro255/awesome-ai-agent-attacks
+https://www.gravitee.io/blog/88-of-companies-have-already-seen-ai-agent-security-failures
 
 ---
 
