@@ -1,6 +1,121 @@
 {
-  "extracted_at": "2026-05-07T13:44:40Z",
+  "extracted_at": "2026-05-07T14:18:53Z",
   "items": {
+    "2026-05-07-ai-regulatory-guidance-update-gap-check": {
+      "named_concepts": [
+        "post-24 april",
+        "multi-step actions",
+        "limited human",
+        "human intervention",
+        "ai-specific supervisory",
+        "federal reserve",
+        "ai systems",
+        "sources reviewed",
+        "model-risk guidance",
+        "generative ai",
+        "april letter",
+        "political agreement",
+        "high-risk ai",
+        "ai act",
+        "equally material",
+        "material post-24",
+        "official sources",
+        "guideline e-23",
+        "financial conduct",
+        "conduct authority"
+      ],
+      "source_urls": [
+        "https://www.rbnz.govt.nz/news/2025/05/rise-of-the-machines-how-could-artificial-intelligence-impact-financial-stability",
+        "https://www.fma.govt.nz/library/research/understanding-ai-in-financial-services/",
+        "https://www.fma.govt.nz/assets/Research/Understanding-Artificial-Intelligence-in-Financial-Services.pdf",
+        "https://www.apra.gov.au/news-and-publications/apra-calls-for-a-step-change-ai-related-risk-management-and-governance",
+        "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai",
+        "https://digital-strategy.ec.europa.eu/en/news/eu-agrees-simplify-ai-rules-boost-innovation-and-ban-nudification-apps-protect-citizens",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://www.eba.europa.eu/publications-and-media/press-releases",
+        "https://www.bankingsupervision.europa.eu/press/publications/html/index.en.html",
+        "https://www.fca.org.uk/publications/corporate-documents/artificial-intelligence-ai-update-further-governments-response-ai-white-paper",
+        "https://www.bankofengland.co.uk/prudential-regulation/letter/2024/artificial-intelligence-and-machine-learning-letter",
+        "https://www.federalreserve.gov/newsevents/speech/bowman20260501a.htm",
+        "https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf",
+        "https://www.consumerfinance.gov/compliance/supervisory-guidance/",
+        "https://www.occ.gov/news-events/index-news-events.html",
+        "https://www.osfi-bsif.gc.ca/en/about-osfi/reports-publications/osfis-annual-risk-outlook-fiscal-year-2026-2027",
+        "https://www.osfi-bsif.gc.ca/en/about-osfi/reports-publications/osfi-fcac-risk-report-ai-uses-risks-federally-regulated-financial-institutions",
+        "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027"
+      ],
+      "key_claims": [
+        {
+          "text": "Since 24 April 2026, APRA is the only in-scope regulator in this scan for which the official sources reviewed surfaced a clearly new, AI-specific supervisory letter directed at financial institutions rather than a generic cross-sector policy statement",
+          "sources": [
+            "https://www.apra.gov.au/news-and-publications/apra-calls-for-a-step-change-ai-related-risk-management-and-governance",
+            "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai",
+            "https://www.fma.govt.nz/library/research/understanding-ai-in-financial-services/",
+            "https://www.fca.org.uk/publications/corporate-documents/artificial-intelligence-ai-update-further-governments-response-ai-white-paper",
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library",
+            "https://www.eba.europa.eu/publications-and-media/press-releases",
+            "https://www.consumerfinance.gov/compliance/supervisory-guidance/",
+            "https://www.occ.gov/news-events/index-news-events.html"
+          ]
+        },
+        {
+          "text": "APRA's 30 April 2026 letter materially updates the Australian position because it names concrete expectations on board AI literacy, lifecycle governance, supplier transparency, concentration risk, continuous validation, and controls over AI-enabled workflows that can take multi-step actions with limited human intervention, while still stopping short of a new prudential standard",
+          "sources": [
+            "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai"
+          ]
+        },
+        {
+          "text": "The Commission's 7 May 2026 political agreement changes the practical EU compliance timeline for high-risk AI systems, so the earlier item's timeline assumptions are no longer current even though its account of substantive AI Act obligations still broadly stands",
+          "sources": [
+            "https://digital-strategy.ec.europa.eu/en/news/eu-agrees-simplify-ai-rules-boost-innovation-and-ban-nudification-apps-protect-citizens",
+            "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+          ]
+        },
+        {
+          "text": "The United States baseline now needs qualification because the Federal Reserve's public 1 May 2026 speech and its 17 April 2026 SR 26-2 clarification show that traditional model-risk guidance is not being treated as the complete governance answer for generative AI or for AI systems that can take multi-step actions with limited human intervention",
+          "sources": [
+            "https://www.federalreserve.gov/newsevents/speech/bowman20260501a.htm",
+            "https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf"
+          ]
+        },
+        {
+          "text": "No equally material post-24 April 2026 AI-specific financial-services guidance was identified in the official New Zealand, UK, or Canadian sources reviewed for this item, so those jurisdictions are better described as unchanged baselines in the narrow update window",
+          "sources": [
+            "https://www.fma.govt.nz/library/research/understanding-ai-in-financial-services/",
+            "https://www.fca.org.uk/publications/corporate-documents/artificial-intelligence-ai-update-further-governments-response-ai-white-paper",
+            "https://www.bankofengland.co.uk/prudential-regulation/letter/2024/artificial-intelligence-and-machine-learning-letter",
+            "https://www.osfi-bsif.gc.ca/en/about-osfi/reports-publications/osfis-annual-risk-outlook-fiscal-year-2026-2027",
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library"
+          ]
+        },
+        {
+          "text": "The earlier item likely understated Canada's operational specificity, because OSFI's 2024 AI risk report and 2025 Guideline E-23 already provided an operationally relevant AI and model-risk frame for federally regulated institutions before this update item was started",
+          "sources": [
+            "https://www.osfi-bsif.gc.ca/en/about-osfi/reports-publications/osfi-fcac-risk-report-ai-uses-risks-federally-regulated-financial-institutions",
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md"
+          ]
+        },
+        {
+          "text": "The earlier item also likely understated the UK's operational specificity, because the Financial Conduct Authority (FCA) and Bank of England/Prudential Regulation Authority (PRA) April 2024 AI strategy updates show a formal supervisory work programme rather than only legacy discussion papers and general principles",
+          "sources": [
+            "https://www.fca.org.uk/publications/corporate-documents/artificial-intelligence-ai-update-further-governments-response-ai-white-paper",
+            "https://www.bankofengland.co.uk/prudential-regulation/letter/2024/artificial-intelligence-and-machine-learning-letter",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md"
+          ]
+        },
+        {
+          "text": "Across the whole update, the main revision is not that regulators suddenly abandoned principle-based supervision, but that Australia became more explicit, the EU moved its implementation clock, and the prior synthesis likely understated how operationally explicit Canada and the UK already were",
+          "sources": [
+            "https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai",
+            "https://digital-strategy.ec.europa.eu/en/news/eu-agrees-simplify-ai-rules-boost-innovation-and-ban-nudification-apps-protect-citizens",
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/guideline-e-23-model-risk-management-2027",
+            "https://www.fca.org.uk/publications/corporate-documents/artificial-intelligence-ai-update-further-governments-response-ai-white-paper",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-ai-agent-regulation-global-financial-services.md"
+          ]
+        }
+      ]
+    },
     "2026-05-07-ai-production-incidents-deep-dive": {
       "named_concepts": [
         "fairness validation",

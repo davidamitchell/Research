@@ -3584,7 +3584,7 @@
       "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 17,
+    "item_count": 18,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -3670,6 +3670,11 @@
         "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
         "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
         "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-07-ai-regulatory-guidance-update-gap-check",
+        "title": "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review",
+        "added": "2026-05-07"
       }
     ],
     "url": "/Research/threads/governance-financial-services-citizen-development.html"
@@ -4040,6 +4045,91 @@
     "url": "/Research/threads/agentic-ai-organisational-design-strategy.html"
   },
   {
+    "slug": "governance-financial-services-agentic-ai",
+    "title": "governance / financial-services / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "governance",
+      "financial-services",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 14,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
+        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
+        "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
+        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
+        "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-07-ai-regulatory-guidance-update-gap-check",
+        "title": "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review",
+        "added": "2026-05-07"
+      }
+    ],
+    "url": "/Research/threads/governance-financial-services-agentic-ai.html"
+  },
+  {
     "slug": "agentic-ai-uelgf-regulated-banking",
     "title": "agentic-ai / uelgf / regulated-banking",
     "kind": "implicit",
@@ -4210,86 +4300,6 @@
     "url": "/Research/threads/agentic-ai-anthropic-memory.html"
   },
   {
-    "slug": "governance-financial-services-agentic-ai",
-    "title": "governance / financial-services / agentic-ai",
-    "kind": "implicit",
-    "tag_cluster": [
-      "governance",
-      "financial-services",
-      "agentic-ai"
-    ],
-    "concept_cluster": [],
-    "item_count": 13,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-control-testing-and-assurance",
-        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
-        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
-        "title": "AI Strategy Examples: Risk Reduction Focus",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
-        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
-        "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
-        "title": "Public sentiment on AI in banking and high-trust institutions",
-        "added": "2026-03-24"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
-        "title": "Enterprise AI platform operating models: organisational structure and ownership",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
-        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
-        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
-        "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
-        "added": "2026-04-30"
-      }
-    ],
-    "url": "/Research/threads/governance-financial-services-agentic-ai.html"
-  },
-  {
     "slug": "agentic-ai-pbac-prompt-injection",
     "title": "agentic-ai / pbac / prompt-injection",
     "kind": "implicit",
@@ -4368,6 +4378,86 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-pbac-prompt-injection.html"
+  },
+  {
+    "slug": "governance-agentic-ai-ai-platform",
+    "title": "governance / agentic-ai / ai-platform",
+    "kind": "implicit",
+    "tag_cluster": [
+      "governance",
+      "agentic-ai",
+      "ai-platform"
+    ],
+    "concept_cluster": [],
+    "item_count": 13,
+    "items": [
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
+        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
+        "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
+        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-declared-construction-practice",
+        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-07-ai-regulatory-guidance-update-gap-check",
+        "title": "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review",
+        "added": "2026-05-07"
+      },
+      {
+        "slug": "2026-05-07-ai-production-incidents-deep-dive",
+        "title": "Production incidents linked to Artificial Intelligence systems",
+        "added": "2026-05-07"
+      }
+    ],
+    "url": "/Research/threads/governance-agentic-ai-ai-platform.html"
   },
   {
     "slug": "agentic-ai-regulated-banking-pbac",
@@ -4454,7 +4544,7 @@
       "financial-services"
     ],
     "concept_cluster": [],
-    "item_count": 11,
+    "item_count": 12,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -4510,6 +4600,11 @@
         "slug": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
         "title": "Deterministic weighted scoring models for customer risk rating under MLR 2017: effectiveness, regulatory fit, and hybrid alternatives",
         "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-07-ai-regulatory-guidance-update-gap-check",
+        "title": "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review",
+        "added": "2026-05-07"
       }
     ],
     "url": "/Research/threads/agentic-ai-architecture-financial-services.html"
@@ -4935,6 +5030,76 @@
     "url": "/Research/threads/agentic-ai-transaction-costs-knowledge-management.html"
   },
   {
+    "slug": "agentic-ai-financial-services-ai-strategy",
+    "title": "agentic-ai / financial-services / ai-strategy",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "financial-services",
+      "ai-strategy"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-access-control-amplification-agentic-operations",
+        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
+        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-07-ai-regulatory-guidance-update-gap-check",
+        "title": "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review",
+        "added": "2026-05-07"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-financial-services-ai-strategy.html"
+  },
+  {
     "slug": "governance-agentic-ai-observability",
     "title": "governance / agentic-ai / observability",
     "kind": "implicit",
@@ -5258,71 +5423,6 @@
       }
     ],
     "url": "/Research/threads/financial-services-ai-strategy-risk-management.html"
-  },
-  {
-    "slug": "agentic-ai-ai-strategy-financial-services",
-    "title": "agentic-ai / ai-strategy / financial-services",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "ai-strategy",
-      "financial-services"
-    ],
-    "concept_cluster": [],
-    "item_count": 10,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
-        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
-        "title": "Public sentiment on AI in banking and high-trust institutions",
-        "added": "2026-03-24"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-access-control-amplification-agentic-operations",
-        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
-        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
-        "title": "Prof Suraj Srinivasan's automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?",
-        "added": "2026-05-01"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-ai-strategy-financial-services.html"
   },
   {
     "slug": "nist-ai-ai-rmf-ai-act",
@@ -6135,13 +6235,13 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -6172,17 +6272,17 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -6212,17 +6312,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "agents md"
+      "coding agent",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -6252,7 +6352,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6290,13 +6390,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -6322,7 +6422,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
