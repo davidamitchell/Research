@@ -2,12 +2,12 @@
 review_count: 2
 title: "Five Eyes stance on Artificial Intelligence risk and policy advice"
 added: 2026-05-07T12:01:37+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [ai-governance, security, policy]
 started: 2026-05-07T14:20:20+00:00
-completed: ~
+completed: 2026-05-07T18:41:55+00:00
 output: [knowledge]
 cites:
   - 2026-02-28-ai-strategy-security-focus
