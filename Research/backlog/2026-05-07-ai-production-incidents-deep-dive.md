@@ -57,7 +57,7 @@ This question informs operational and governance decisions about how to safely d
 
 - [AI Incident Database](https://incidentdatabase.ai/) — seed catalogue of publicly reported AI incidents
 - [Organisation for Economic Co-operation and Development (OECD) AI Incidents Monitor](https://oecd.ai/en/incidents) — supplementary incident repository
-- [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — mitigation and governance framing for categorising controls
+- [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — mitigation and governance framing for categorizing controls
 
 ---
 
