@@ -17,7 +17,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: d839515cf53d1ccc6c57d74d761e500fa8515b9b
+    changed: 2026-05-07
+    progress: progress/2026-05-07-five-eyes-ai-risks-and-advice.md
+    summary: "Initial completion"
 ---
 
 # Five Eyes stance on Artificial Intelligence risk and policy advice
