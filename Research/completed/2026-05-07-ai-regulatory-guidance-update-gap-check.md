@@ -19,7 +19,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: synthesis # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: "79f0d8f014ec0a2652f95a94bbcb2f95c2036187"
+    changed: 2026-05-07
+    progress: "progress/2026-05-07-ai-regulatory-guidance-update-gap-check.md"
+    summary: "Initial completion"
 ---
 
 # Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review
