@@ -1,5 +1,5 @@
 ---
-title: "Artificial Intelligence regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review"
+title: "Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review"
 added: 2026-05-07T12:03:49+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: high  # low | medium | high
@@ -22,7 +22,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# Artificial Intelligence regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review
+# Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review
 
 ## Research Question
 
