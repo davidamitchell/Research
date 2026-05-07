@@ -2,12 +2,12 @@
 review_count: 2
 title: "Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture"
 added: 2026-05-06T12:12:52+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, enterprise, capability-model, ai-governance, security, supply-chain, sbom, evaluation, reference-architecture, change-control]
 started: 2026-05-07T12:18:41+00:00
-completed: ~
+completed: 2026-05-07T12:54:53+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites:
   - 2026-04-22-enterprise-ai-capability-model
