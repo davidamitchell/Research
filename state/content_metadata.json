@@ -1,6 +1,107 @@
 {
-  "extracted_at": "2026-05-07T14:38:37Z",
+  "extracted_at": "2026-05-07T18:44:13Z",
   "items": {
+    "2026-05-07-five-eyes-ai-risks-and-advice": {
+      "named_concepts": [
+        "five eyes",
+        "formal five",
+        "prompt injection",
+        "externally developed",
+        "model weights",
+        "regulated organisations",
+        "threat models",
+        "united states",
+        "member guidance",
+        "supply chains",
+        "eyes consensus",
+        "agentic guidance",
+        "best read",
+        "artificial intelligence",
+        "strongest consensus",
+        "developed systems",
+        "concrete advice",
+        "catalogue trusted",
+        "sanitise inputs",
+        "incident response"
+      ],
+      "source_urls": [
+        "https://www.gov.uk/government/publications/five-country-ministerial-communique-2024/five-country-ministerial-communique-2024-accessible",
+        "https://www.ncsc.govt.nz/protect-your-organisation/deploying-ai-systems-securely/",
+        "https://www.ncsc.govt.nz/assets/guidance/Documents/csi-deploying-ai-systems-securely.pdf",
+        "https://www.ncsc.govt.nz/protect-your-organisation/engaging-with-artificial-intelligence/",
+        "https://www.ncsc.govt.nz/assets/guidance/Documents/engaging-with-artificial-intelligence.pdf",
+        "https://www.ncsc.govt.nz/protect-your-organisation/guidelines-for-secure-ai-system-development/",
+        "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development",
+        "https://www.cisa.gov/news-events/news/dhs-cisa-and-uk-ncsc-release-joint-guidelines-secure-ai-system-development",
+        "https://www.ncsc.govt.nz/protect-your-organisation/ai-data-security/",
+        "https://www.cisa.gov/resources-tools/resources/ai-cybersecurity-collaboration-playbook",
+        "https://www.cisa.gov/news-events/alerts/2025/01/14/cisa-releases-jcdc-ai-cybersecurity-collaboration-playbook-and-fact-sheet",
+        "https://owasp.org/www-community/attacks/PromptInjection",
+        "https://www.beehive.govt.nz/release/guidance-safe-use-ai-public-sector",
+        "https://docref.digital.govt.nz/nz/generative-ai-guidance-gcdo/public-service-ai-framework/2025/en/",
+        "https://docref.digital.govt.nz/nz/generative-ai-guidance-gcdo/governance-and-genai-in-the-public-service/2025/en/",
+        "https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai",
+        "https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services"
+      ],
+      "key_claims": [
+        {
+          "text": "The Five Country Ministerial's 2024 position is that Artificial Intelligence brings economic and cyber-defence benefits, but also creates novel vulnerabilities and accelerates malicious activity, so the alliance is committing to shared frameworks, standards work, and safe, secure, trustworthy deployment",
+          "sources": [
+            "https://www.gov.uk/government/publications/five-country-ministerial-communique-2024/five-country-ministerial-communique-2024-accessible"
+          ]
+        },
+        {
+          "text": "The joint 2023 cyber-agency guidance establishes a lifecycle-based secure-by-design baseline that requires providers to build security into design, development, deployment, and operation, and to take responsibility for downstream security outcomes across complex artificial-intelligence supply chains",
+          "sources": [
+            "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development",
+            "https://www.cisa.gov/news-events/news/dhs-cisa-and-uk-ncsc-release-joint-guidelines-secure-ai-system-development"
+          ]
+        },
+        {
+          "text": "For organisations deploying externally developed systems, the alliance's concrete advice is to appoint a named accountable cyber owner, document threats and security boundaries, demand threat models from developers, catalogue trusted data sources, evaluate supply chains, and secure model weights, keys, and infrastructure before production use",
+          "sources": [
+            "https://www.ncsc.govt.nz/protect-your-organisation/deploying-ai-systems-securely/",
+            "https://www.ncsc.govt.nz/assets/guidance/Documents/csi-deploying-ai-systems-securely.pdf"
+          ]
+        },
+        {
+          "text": "The joint secure-use guidance treats data poisoning, prompt injection, adversarial examples, hallucinations, privacy or intellectual-property leakage, and model stealing as routine planning assumptions for adopters of self-hosted and third-party hosted artificial-intelligence systems, not as edge cases for specialist builders alone",
+          "sources": [
+            "https://www.ncsc.govt.nz/protect-your-organisation/engaging-with-artificial-intelligence/",
+            "https://www.ncsc.govt.nz/assets/guidance/Documents/engaging-with-artificial-intelligence.pdf"
+          ]
+        },
+        {
+          "text": "The alliance's operational baseline after deployment is specific and testable: authenticate and authorise Application Programming Interfaces, sanitise inputs to reduce prompt-injection risk, separate user and administrator privileges, use multifactor authentication, collect logs on inputs, outputs, intermediate states, and errors, monitor anomalies, audit, penetration-test, patch, and keep rollback paths ready",
+          "sources": [
+            "https://www.ncsc.govt.nz/assets/guidance/Documents/csi-deploying-ai-systems-securely.pdf"
+          ]
+        },
+        {
+          "text": "Member guidance from New Zealand and the United States shows an aligned extension from model and infrastructure security toward data security and collaborative defence, with official advice to protect training, testing, and operating data and to share artificial-intelligence incident and vulnerability information voluntarily across government and critical-infrastructure partners",
+          "sources": [
+            "https://www.ncsc.govt.nz/protect-your-organisation/ai-data-security/",
+            "https://www.cisa.gov/resources-tools/resources/ai-cybersecurity-collaboration-playbook"
+          ]
+        },
+        {
+          "text": "New Zealand's 2025 public-service guidance applies the same security, accountability, transparency, and human-oversight themes that appear in Five Eyes cyber guidance to agency governance, public-facing policy disclosure, and registers of artificial-intelligence use",
+          "sources": [
+            "https://www.beehive.govt.nz/release/guidance-safe-use-ai-public-sector",
+            "https://docref.digital.govt.nz/nz/generative-ai-guidance-gcdo/public-service-ai-framework/2025/en/",
+            "https://docref.digital.govt.nz/nz/generative-ai-guidance-gcdo/governance-and-genai-in-the-public-service/2025/en/",
+            "https://www.ncsc.govt.nz/protect-your-organisation/deploying-ai-systems-securely/"
+          ]
+        },
+        {
+          "text": "The newest aligned guidance on agentic systems suggests the control baseline is tightening around least privilege, low-risk initial use cases, and explicit security-model updates for autonomous tool-using systems, but this should be read as an allied extension led by individual agencies rather than as settled formal Five Eyes consensus",
+          "sources": [
+            "https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai",
+            "https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services"
+          ]
+        }
+      ]
+    },
     "2026-05-07-ai-regulatory-guidance-update-gap-check": {
       "named_concepts": [
         "post-24 april",
