@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-07T12:38:33Z",
+  "extracted_at": "2026-05-07T12:56:52Z",
   "items": {
     "2026-05-06-openfactcheck-ai-fact-checking-pipeline": {
       "named_concepts": [
@@ -1840,6 +1840,121 @@
             "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html",
             "https://docs.langchain.com/oss/python/langgraph/graph-api",
             "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update": {
+      "named_concepts": [
+        "artificial intelligence",
+        "approved design",
+        "promotion checks",
+        "policy decisions",
+        "two cross-cutting",
+        "cross-cutting planes",
+        "shared services",
+        "provenance runtime",
+        "explicit enterprise",
+        "shared core",
+        "declared artificial",
+        "intelligence bill",
+        "materials aibom",
+        "runtime comparison",
+        "observed execution",
+        "semantic safeguards",
+        "orchestration constraints",
+        "records policy",
+        "provenance capture",
+        "delegated authority"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-meta-analysis-standards-and-ai-skill-evaluation.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://cloud.google.com/use-cases/retrieval-augmented-generation",
+        "https://cyclonedx.org/capabilities/mlbom/",
+        "https://owaspaibom.org/"
+      ],
+      "key_claims": [
+        {
+          "text": "The main architectural delta is the move from an implied shared core to explicit enterprise services for provenance capture, runtime evidence, and evaluation, while the five-layer backbone remains intact",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+            "https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-meta-analysis-standards-and-ai-skill-evaluation.html"
+          ]
+        },
+        {
+          "text": "Release governance is materially incomplete unless it records declared Artificial Intelligence Bill of Materials (AIBOM) data, artifact signing, registry lineage, delegated authority, and runtime divergence, because those records are what connect approved design to later execution",
+          "sources": [
+            "https://owaspaibom.org/",
+            "https://cyclonedx.org/capabilities/mlbom/",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html"
+          ]
+        },
+        {
+          "text": "The reviewed security evidence favors layer-specific enforcement, with retrieval authorization anchored in data systems, semantic safeguards near model execution, orchestration controls around tools, and promotion checks in delivery pipelines",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "Enterprise agent architectures need identity controls that describe multi-hop human, workload, and tool relationships, because delegation chains, permission manifests, and trust boundaries determine which actions are attributable and valid",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "Governance evidence has to survive past deployment, because provenance records, policy decisions, exceptions, explainability artifacts, and human approvals all remain relevant when incidents, audits, or regulatory questions arrive later",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-02-28-ai-control-testing-and-assurance.html"
+          ]
+        },
+        {
+          "text": "Evaluation belongs at promotion time and during live operation, because benchmarks, adversarial tests, thresholds, and drift signals are part of the same control loop rather than separate design-time and runtime disciplines",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-meta-analysis-standards-and-ai-skill-evaluation.html",
+            "https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html"
+          ]
+        },
+        {
+          "text": "The least disruptive architecture update is to keep the five vertical layers and add two cross-cutting planes, one for supply-chain provenance and one for policy, evaluation, and evidence",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html"
+          ]
+        },
+        {
+          "text": "Ownership should stay centralized for policy semantics, provenance schema, security baselines, evaluation standards, and retained evidence, while domain teams keep responsibility for local knowledge, workflow composition, and risk-tuned operating thresholds",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
           ]
         }
       ]
