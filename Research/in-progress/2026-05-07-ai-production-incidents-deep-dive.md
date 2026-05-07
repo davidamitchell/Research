@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Production incidents linked to Artificial Intelligence systems"
 added: 2026-05-07T12:05:05+00:00
 status: reviewing
