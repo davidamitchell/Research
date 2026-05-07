@@ -22,14 +22,14 @@ versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YY
 
 ## Research Question
 
-What is the current stance of the Five Eyes (FVEY) intelligence alliance (Australia, Canada, New Zealand, United Kingdom, United States) on Artificial Intelligence (AI) risks, and what concrete policy and operational advice does the alliance provide to governments and regulated organisations?
+What is the current stance of the Five Eyes intelligence alliance (FVEY; Australia, Canada, New Zealand, United Kingdom, United States) on Artificial Intelligence (AI) risks, and what concrete policy and operational advice does the alliance provide to governments and regulated organisations?
 
 ## Scope
 
 **In scope:**
 - Joint Five Eyes AI-risk publications, advisories, and security guidance
 - Statements and guidance from Five Country Ministerial (FCM) and member cyber agencies where positions are explicitly aligned
-- Common risk categories (for example model misuse, prompt injection, supply-chain risk, data protection, and critical infrastructure impact)
+- Common risk categories (e.g., model misuse, prompt injection, supply-chain risk, data protection, and critical infrastructure impact)
 - Actionable recommendations for policy, governance, and security operations
 
 **Out of scope:**

@@ -1,7 +1,7 @@
 # 2026-05-07 -- Add backlog item (five-eyes-ai-risks-and-advice)
 
 **Completed:**
-- `/home/runner/work/Research/Research/Research/backlog/2026-05-07-five-eyes-ai-risks-and-advice.md` — added from issue request; validated question asks what the Five Eyes alliance stance is on Artificial Intelligence (AI) risks and what actionable advice is jointly recommended.
+- `Research/backlog/2026-05-07-five-eyes-ai-risks-and-advice.md` — added from issue request; validated question asks what the Five Eyes alliance stance is on Artificial Intelligence (AI) risks and what actionable advice is jointly recommended.
 
 ## Mini-Retro
 
