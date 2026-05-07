@@ -30,7 +30,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: synthesis # primary | synthesis
 confidence: medium # high | medium | low
-versions: []
+versions:
+  - version: "1.0"
+    sha: 7d3932f6c5ced166feef234124ab388a1e091dc9
+    changed: 2026-05-07
+    progress: progress/2026-05-07-ai-capability-reference-architecture-security-supply-chain-update.md
+    summary: "Initial completion"
 ---
 
 # Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture
