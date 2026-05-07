@@ -22,13 +22,13 @@ versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YY
 
 ## Research Question
 
-What is the current stance of the Five Eyes intelligence alliance (FVEY; Australia, Canada, New Zealand, United Kingdom, United States) on Artificial Intelligence (AI) risks, and what concrete policy and operational advice does the alliance provide to governments and regulated organisations?
+What is the current stance of the Five Eyes intelligence alliance (Australia, Canada, New Zealand, United Kingdom, United States) on Artificial Intelligence (AI) risks, and what concrete policy and operational advice does the alliance provide to governments and regulated organisations?
 
 ## Scope
 
 **In scope:**
 - Joint Five Eyes AI-risk publications, advisories, and security guidance
-- Statements and guidance from Five Country Ministerial (FCM) and member cyber agencies where positions are explicitly aligned
+- Statements and guidance from Five Country Ministerial processes and member cyber agencies where positions are explicitly aligned
 - Common risk categories (e.g., model misuse, prompt injection, supply-chain risk, data protection, and critical infrastructure impact)
 - Actionable recommendations for policy, governance, and security operations
 
@@ -55,11 +55,11 @@ The issue asks for a clear answer on the Five Eyes position regarding AI risk an
 
 ## Sources
 
-- [CISA / ACSC / NCSC / CCCS / NCSC-NZ joint guidance: Deploying AI Systems Securely](https://www.cisa.gov/news-events/alerts/2024/04/15/five-eyes-agencies-release-guidance-secure-deployment-ai-systems) — core Five Eyes cyber-agency position on secure AI deployment
+- [Cybersecurity and Infrastructure Security Agency (CISA), Australian Cyber Security Centre (ACSC), National Cyber Security Centre (NCSC), Canadian Centre for Cyber Security (CCCS), and National Cyber Security Centre New Zealand (NCSC-NZ) joint guidance: Deploying AI Systems Securely](https://www.cisa.gov/news-events/alerts/2024/04/15/five-eyes-agencies-release-guidance-secure-deployment-ai-systems) — core Five Eyes cyber-agency position on secure AI deployment
 - [Five Country Ministerial 2024 Joint Communique](https://www.publicsafety.gc.ca/cnt/rsrcs/pblctns/2024-jnt-cmmnq-fve-ctr/index-en.aspx) — minister-level cross-country stance and priorities
-- [NCSC (UK): Guidelines for secure AI system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) — member guidance co-developed with allies
-- [CISA AI resources](https://www.cisa.gov/ai) — United States implementation guidance linked to allied publications
-- [NCSC New Zealand publications](https://www.ncsc.govt.nz/publications/) — New Zealand guidance and advisories relevant to alliance alignment
+- [United Kingdom National Cyber Security Centre (NCSC): Guidelines for secure AI system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) — member guidance co-developed with allies
+- [Cybersecurity and Infrastructure Security Agency (CISA) AI resources](https://www.cisa.gov/ai) — United States implementation guidance linked to allied publications
+- [National Cyber Security Centre New Zealand (NCSC-NZ) publications](https://www.ncsc.govt.nz/publications/) — New Zealand guidance and advisories relevant to alliance alignment
 
 ---
 
