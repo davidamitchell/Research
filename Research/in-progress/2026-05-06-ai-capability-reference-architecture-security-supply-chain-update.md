@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture"
 added: 2026-05-06T12:12:52+00:00
 status: reviewing
