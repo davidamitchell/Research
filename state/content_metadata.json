@@ -1,6 +1,112 @@
 {
-  "extracted_at": "2026-05-09T02:56:12Z",
+  "extracted_at": "2026-05-09T03:09:25Z",
   "items": {
+    "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification": {
+      "named_concepts": [
+        "capability debt",
+        "workaround prevalence",
+        "leading indicator",
+        "machine-speed action",
+        "sequencing rule",
+        "reduce capability",
+        "debt first",
+        "broader autonomy",
+        "safety nets",
+        "human judgment",
+        "organisational capabilities",
+        "capabilities required",
+        "safe ai",
+        "capabilities actually",
+        "actually present",
+        "reviewed sources",
+        "agentic ai",
+        "pre-existing capability",
+        "controls inventory",
+        "inventory oversight"
+      ],
+      "source_urls": [
+        "https://martinfowler.com/bliki/TechnicalDebtQuadrant.html",
+        "https://cmmiinstitute.com/learning/appraisals",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1765804/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+        "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+        "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+        "https://link.springer.com/article/10.1007/s10257-020-00472-6",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6",
+        "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8"
+      ],
+      "key_claims": [
+        {
+          "text": "Capability debt is not a settled literature term, but it can be rigorously operationalised as the accumulated gap between the organisational capabilities required for safe, reviewable, governable AI use and the capabilities actually present in day-to-day practice",
+          "sources": [
+            "http://c2.com/doc/oopsla92.html",
+            "https://martinfowler.com/bliki/TechnicalDebtQuadrant.html",
+            "https://cmmiinstitute.com/learning/appraisals",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "A defensible capability-debt scorecard should combine process appraisal, information-flow culture, governance and inventory coverage, platform and safety-net quality, workaround prevalence, deterministic-control coverage, and workforce skill freshness instead of collapsing risk into a single simplistic metric",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals",
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1765804/",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8"
+          ]
+        },
+        {
+          "text": "Shadow IT, shadow AI, and citizen-development evidence shows that workaround adoption is usually a demand signal produced by slow or poorly fitted sanctioned capability, which supports treating workaround prevalence as a leading indicator of unmet organisational need and rising governance risk",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s10257-020-00472-6",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6"
+          ]
+        },
+        {
+          "text": "DORA's evidence that AI amplifies existing workflow and platform quality supports treating capability debt as a forward-looking risk signal, because weak safety nets and weak feedback loops become more damaging as AI raises change volume and action frequency",
+          "sources": [
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report"
+          ]
+        },
+        {
+          "text": "Pre-existing capability debt becomes a stronger risk amplifier under agentic AI because machine-speed action removes the practical buffering effect of human pace while old management models, review queues, and escalation habits remain too slow to compensate",
+          "sources": [
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html"
+          ]
+        },
+        {
+          "text": "Skill decay should be treated as part of capability debt because AI assistance can weaken human judgment and hide deterioration, which reduces the organisation's ability to review, challenge, and safely contain faster automated output over time",
+          "sources": [
+            "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-ai-skill-decay-deskilling-measurement-interventions.html"
+          ]
+        },
+        {
+          "text": "The reviewed frameworks support a sequencing rule in which organisations reduce capability debt first on high-consequence workflows and grant broader autonomy only after explicit controls, inventory, oversight rules, and evaluation evidence are already in place",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/"
+          ]
+        },
+        {
+          "text": "Promoting individual AI tools without investing in shared review systems, platform quality, training, and governance creates hidden organisational debt because local productivity rises faster than the collective capacity needed to verify, escalate, and sustain safe use",
+          "sources": [
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+            "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html"
+          ]
+        }
+      ]
+    },
     "2026-05-08-ai-skill-decay-deskilling-measurement-interventions": {
       "named_concepts": [
         "unaided competence",
