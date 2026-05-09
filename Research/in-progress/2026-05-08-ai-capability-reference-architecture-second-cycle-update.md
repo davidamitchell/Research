@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items"
 added: 2026-05-08T09:16:11+00:00
 status: reviewing
