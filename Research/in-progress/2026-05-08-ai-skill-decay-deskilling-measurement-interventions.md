@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?"
 added: 2026-05-08T10:05:24+00:00
 status: reviewing
