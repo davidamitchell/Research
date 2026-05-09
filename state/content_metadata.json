@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-09T07:07:26Z",
+  "extracted_at": "2026-05-09T07:26:32Z",
   "items": {
     "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk": {
       "named_concepts": [
@@ -426,6 +426,127 @@
             "https://dora.dev/research/2025/measurement-frameworks/",
             "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
             "https://davidamitchell.github.io/Research/research/2026-05-01-human-oversight-ai-software-development.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk": {
+      "named_concepts": [
+        "shadow ai",
+        "upstream weaknesses",
+        "capability debt",
+        "skill decay",
+        "weak oversight",
+        "platform context",
+        "generative deployments",
+        "delegated action",
+        "lifecycle governance",
+        "skill retention",
+        "risk reduction",
+        "reduction first",
+        "broad autonomy",
+        "permissions failures",
+        "agentic deployment",
+        "unmanaged tools",
+        "agentic settings",
+        "dora ibm",
+        "reinforcing loop",
+        "shadow demand"
+      ],
+      "source_urls": [
+        "https://archive.org/details/mit_press_book_9780262298247",
+        "https://www.chelseagreen.com/product/thinking-in-systems/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://doi.org/10.6028/NIST.AI.600-1",
+        "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development",
+        "https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai",
+        "https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services",
+        "https://learn.microsoft.com/en-us/security/zero-trust/sfi/secure-agentic-systems",
+        "https://www.anthropic.com/research/trustworthy-agents",
+        "https://www.anthropic.com/research/teaching-claude-why",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+        "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+        "https://www.ibm.com/reports/data-breach",
+        "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+        "https://publicera.kb.se/ir/article/view/47143",
+        "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/"
+      ],
+      "key_claims": [
+        {
+          "text": "Once planning, tool use, memory, and delegated action are added, the upstream weaknesses already familiar from generative deployments become execution and permissions failures with a materially wider blast radius",
+          "sources": [
+            "https://www.cisa.gov/news-events/news/cisa-us-and-international-partners-release-guide-secure-adoption-agentic-ai",
+            "https://learn.microsoft.com/en-us/security/zero-trust/sfi/secure-agentic-systems",
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://doi.org/10.6028/NIST.AI.600-1"
+          ]
+        },
+        {
+          "text": "In practice, capability debt worsens shadow AI under agentic deployment because weak sanctioned rails push workers toward unmanaged tools just as those unmanaged tools gain access, state, and action authority",
+          "sources": [
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html"
+          ]
+        },
+        {
+          "text": "Human skill decay and weak oversight move from quality concerns to containment concerns in agentic settings, since the people asked to challenge plans and stop unsafe actions are the same people whose judgment erodes under repeated over-delegation",
+          "sources": [
+            "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+            "https://publicera.kb.se/ir/article/view/47143",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/"
+          ]
+        },
+        {
+          "text": "A layered STAMP-plus-systems-thinking-plus-NIST-plus-DORA-CISA stack is the most predictive option because it joins causal structure, feedback dynamics, lifecycle governance, and operational sequencing in one frame",
+          "sources": [
+            "https://archive.org/details/mit_press_book_9780262298247",
+            "https://www.chelseagreen.com/product/thinking-in-systems/",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services"
+          ]
+        },
+        {
+          "text": "Evidence from DORA, IBM, and Cyberhaven points to a reinforcing loop in which local speed gains raise shadow demand and change volume faster than platforms, policies, and review systems can absorb them",
+          "sources": [
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://www.ibm.com/reports/data-breach",
+            "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk"
+          ]
+        },
+        {
+          "text": "Measurable support for \"AI for risk reduction first\" is strongest where AI is used to improve security, monitoring, and platform context before broad autonomy, since those investments are the ones most consistently associated with lower incident cost and more stable delivery",
+          "sources": [
+            "https://www.ibm.com/reports/data-breach",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services"
+          ]
+        },
+        {
+          "text": "A credible enterprise experiment should compare rollout sequence, not only tool choice, by tracking shadow use, privileged-action volume, stability, incident rate, override behavior, queue depth, and skill-maintenance measures across autonomy-first and risk-reduction-first cohorts",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.ibm.com/reports/data-breach",
+            "https://cognitiveresearchjournal.springeropen.com/articles/10.1186/s41235-024-00572-8",
+            "https://publicera.kb.se/ir/article/view/47143"
+          ]
+        },
+        {
+          "text": "For scaled agentic deployment, the best-supported control pattern is bounded autonomy with least privilege, explicit action schemas, deterministic human review for irreversible actions, and strong logging or observability instead of universal per-step approval",
+          "sources": [
+            "https://learn.microsoft.com/en-us/security/zero-trust/sfi/secure-agentic-systems",
+            "https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services",
+            "https://www.anthropic.com/research/trustworthy-agents"
           ]
         }
       ]
