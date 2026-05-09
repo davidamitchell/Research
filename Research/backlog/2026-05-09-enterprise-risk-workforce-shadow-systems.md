@@ -61,7 +61,7 @@ Enterprises frequently treat spreadsheet-driven workforce tracking as a local pr
 
 - [ ] [Bank for International Settlements (BIS) Basel III reforms](https://www.bis.org/bcbs/publ/d424.htm) — primary Basel III package and supervisory framing
 - [ ] [Bank for International Settlements (BIS) Principles for Operational Resilience](https://www.bis.org/bcbs/publ/d516.htm) — operational resilience and process-dependency expectations
-- [ ] [Bank for International Settlements (BIS) Principles for Effective Risk Data Aggregation and Risk Reporting (BCBS 239)](https://www.bis.org/publ/bcbs239.htm) — governance and data quality expectations for risk data
+- [ ] [Bank for International Settlements (BIS) Principles for Effective Risk Data Aggregation and Risk Reporting (Basel Committee on Banking Supervision (BCBS) 239)](https://www.bis.org/publ/bcbs239.htm) — governance and data quality expectations for risk data
 - [ ] [International Organization for Standardization (ISO) ISO 31000 Risk management](https://www.iso.org/iso-31000-risk-management.html) — risk-principles and process framework
 - [ ] [National Institute of Standards and Technology (NIST) SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) — control catalog including information-integrity controls
 - [ ] [National Institute of Standards and Technology (NIST) Risk Management Framework Overview](https://www.nist.gov/itl/applied-cybersecurity/risk-management-framework-rmf-overview) — formal risk-management lifecycle context
