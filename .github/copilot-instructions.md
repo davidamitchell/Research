@@ -43,7 +43,7 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
 - **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
 - **`.github/skills/` is a read-only submodule.** Never edit files inside `.github/skills/`. It is overwritten on every sync. All skill changes go to `davidamitchell/Skills` (open a PR there). Then advance the submodule pointer in this repo after the Skills PR merges.
-- **New backlog items must be created in `Research/backlog/`**, never in `Research/in-progress/` or the repo root. Use the filename format `YYYY-MM-DD-<slug>.md`.
+- **New *research* backlog items must be created in `Research/backlog/`**, never in `Research/in-progress/` or the repo root. Use the filename format `YYYY-MM-DD-<slug>.md`. Repo improvement tasks (coding, tooling, process changes) belong in `BACKLOG.md` — not in `Research/backlog/`.
 - **`Research/backlog/`, `Research/in-progress/`, `Research/completed/`, and `Knowledge/` each contain a `.gitkeep` file. Never delete it.** Git drops empty directories; the `.gitkeep` keeps each directory tracked so workflow `find` commands do not fail.
 - **Synthesis items belong in `Knowledge/`, not in `Research/`.** The autonomous research loop only processes items in `Research/backlog/`. Placing a synthesis item in `Research/backlog/` would cause the research loop to pick it up incorrectly. Synthesis items are always produced by the `synthesis-loop.yml` workflow and stored in `Knowledge/`.
 
@@ -256,6 +256,17 @@ Then open a PR targeting `main` via the GitHub website or `gh pr create --base m
 ---
 
 ## Research Item Workflow
+
+### Which backlog?
+
+Before creating any backlog item, decide where it belongs:
+
+| Is the item… | Goes in… |
+|---|---|
+| A topic to investigate (external question, technology, concept) | `Research/backlog/YYYY-MM-DD-<slug>.md` |
+| A coding, tooling, or process improvement to this repo | `BACKLOG.md` (W-XXXX entry) |
+
+The autonomous research loop picks up **only** items in `Research/backlog/`. Placing a repo improvement task there causes the loop to treat it as a research topic. When in doubt: if the output type would be `tool`, `agent`, or improvements to the repo's own infrastructure, it belongs in `BACKLOG.md`.
 
 ### Adding a New Research Item
 
