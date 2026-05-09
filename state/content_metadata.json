@@ -1,6 +1,138 @@
 {
-  "extracted_at": "2026-05-09T23:35:46Z",
+  "extracted_at": "2026-05-09T23:47:05Z",
   "items": {
+    "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
+      "named_concepts": [
+        "reviewer authority",
+        "final governance",
+        "side effects",
+        "data-minimization access-control",
+        "policy-as-code engines",
+        "revision-aware decision",
+        "schema validation",
+        "human overrides",
+        "application code",
+        "governance decisions",
+        "human review",
+        "challenge rights",
+        "strongest final",
+        "governance checkpoint",
+        "externalize policy",
+        "evaluate structured",
+        "structured requests",
+        "requests deterministically",
+        "emit revision-aware",
+        "deterministic rules"
+      ],
+      "source_urls": [
+        "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+        "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+        "https://docs.cedarpolicy.com/",
+        "https://docs.cedarpolicy.com/auth/authorization.html",
+        "https://docs.cedarpolicy.com/policies/templates.html",
+        "https://kie.apache.org/docs/10.0.x/drools/drools/rule-engine/index.html",
+        "https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html",
+        "https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/yaml-schema/guardrails-configuration/index.html",
+        "https://www.guardrailsai.com/docs",
+        "https://json-schema.org/overview/what-is-jsonschema",
+        "https://docs.pydantic.dev/latest/concepts/models/",
+        "https://docs.pydantic.dev/latest/concepts/json_schema/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+        "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview",
+        "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+        "https://cppa.ca.gov/regulations/",
+        "https://cppa.ca.gov/regulations/ccpa_updates.html",
+        "https://cppa.ca.gov/announcements/2025/20250923.html",
+        "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+        "https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "https://www.law.cornell.edu/cfr/text/45/164.312",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Policy-as-Code engines such as OPA and Cedar are the strongest final governance checkpoint because they externalize policy from application code, evaluate structured requests deterministically, and emit revision-aware decision evidence that supports audit and traceability obligations",
+          "sources": [
+            "https://www.openpolicyagent.org/docs/latest/",
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://docs.cedarpolicy.com/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12"
+          ]
+        },
+        {
+          "text": "Deterministic rules engines are best used after schema normalization for eligibility, routing, and threshold logic, because they excel at explicit business conditions while Policy-as-Code engines add built-in policy distribution, default-deny authorization decisions, and revision-aware decision evidence for accountable enforcement",
+          "sources": [
+            "https://kie.apache.org/docs/10.0.x/drools/drools/rule-engine/index.html",
+            "https://json-schema.org/overview/what-is-jsonschema",
+            "https://docs.pydantic.dev/latest/concepts/models/",
+            "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://docs.cedarpolicy.com/auth/authorization.html"
+          ]
+        },
+        {
+          "text": "Guardrails should be distributed across input, retrieval, tool-execution, and output stages rather than concentrated at the prompt or response boundary, because the reviewed frameworks consistently separate those stages and support different interventions at each one",
+          "sources": [
+            "https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html",
+            "https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/yaml-schema/guardrails-configuration/index.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence"
+          ]
+        },
+        {
+          "text": "Strict schema validation using JSON Schema and typed models such as Pydantic is the necessary bridge between probabilistic generation and deterministic enforcement, because it turns free-form model output into machine-checkable records with explicit field constraints and rejectable failure states",
+          "sources": [
+            "https://json-schema.org/overview/what-is-jsonschema",
+            "https://docs.pydantic.dev/latest/concepts/models/",
+            "https://docs.pydantic.dev/latest/concepts/json_schema/"
+          ]
+        },
+        {
+          "text": "Correlated audit logging must capture model context, validation status, applied rules or policies, human overrides, and final side effects in one traceable chain, because EU AI Act logging, HIPAA audit controls, and prior repository observability work all require reconstructable evidence rather than isolated events",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://www.law.cornell.edu/cfr/text/45/164.312",
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        },
+        {
+          "text": "Human-review fallback should be mandatory for rights-significant, high-risk, or policy-conflicted decisions, because the reviewed European and California obligations require meaningful reviewer authority, contestability, and override rather than passive human observation",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf"
+          ]
+        },
+        {
+          "text": "Data-minimization, access-control, and integrity obligations are best implemented as deterministic preconditions on what data enters the governance workflow and what actions can execute, because those obligations depend on explicit allowable fields, authorized actors, and tamper-detectable state transitions",
+          "sources": [
+            "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+            "https://www.law.cornell.edu/cfr/text/45/164.312",
+            "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+          ]
+        },
+        {
+          "text": "Confidence scores should be treated only as one review signal inside a broader fallback policy, because the reviewed regulatory texts tie escalation duties to decision significance and reviewer authority while vendor guardrail systems expose thresholding as an adjustable control rather than a sufficient governance basis on its own",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf"
+          ]
+        }
+      ]
+    },
     "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk": {
       "named_concepts": [
         "bounded machine",
