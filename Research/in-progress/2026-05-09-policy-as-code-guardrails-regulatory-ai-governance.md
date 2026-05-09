@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation"
 added: 2026-05-09T22:44:23+00:00
 status: reviewing
