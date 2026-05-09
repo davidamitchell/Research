@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 47d7bc5cc1f9abd432ef369ecc99bab1450075b1
+    changed: 2026-05-09
+    progress: progress/2026-05-09-shadow-ai-behavioral-drivers-governance-effectiveness.md
+    summary: "Initial completion"
 ---
 
 # What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?
