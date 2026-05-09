@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement"
 added: 2026-05-09T22:44:23+00:00
 status: reviewing
