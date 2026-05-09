@@ -306,6 +306,7 @@ easily-detectable issues.
 
 1a. **Domain-term clarity** -- scan for non-self-evident shorthand such as
     "maturity ladder", "knowledge graph", "critic stack", "verifier stack",
+    "verification intensity",
     "human-in-the-loop", "graph database", "active recall", or "spaced
     repetition". On first use, either replace the shorthand with plain
     language or bind it to an authoritative definition source. Do not assume a

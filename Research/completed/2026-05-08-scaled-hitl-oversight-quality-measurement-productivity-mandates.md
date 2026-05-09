@@ -2,13 +2,13 @@
 review_count: 1
 title: "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?"
 added: 2026-05-08T10:05:24+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [human-in-the-loop, automation-bias, agentic-ai, ai-governance, enterprise, measurement, governance-behaviour, regulated-enterprise, workflow]
 started: 2026-05-09T03:33:35+00:00
-completed: ~
-output: []
+completed: 2026-05-09T03:50:39+00:00
+output: [knowledge]
 cites: [2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-04-26-ai-governance-culture-incentives-behaviour]
 related: [2026-05-01-human-oversight-ai-software-development, 2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-lowcode-decision-rights-accountability-liability]
 superseded_by: ~
