@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: d33805027330b46a79c5538d96e96a62d7bee0ef
+    changed: 2026-05-09
+    progress: progress/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.md
+    summary: "Initial completion"
 ---
 
 # Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation
