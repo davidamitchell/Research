@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 82,
+    "item_count": 83,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -420,6 +420,11 @@
         "slug": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
         "title": "Orthogonality thesis under modern Large Language Model (LLM) training and post-training: implications for enterprise tool-using workload risk",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-governance.html"
@@ -434,7 +439,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 76,
+    "item_count": 77,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -814,6 +819,11 @@
       {
         "slug": "2026-05-09-build-vs-improve-throughput-tradeoff",
         "title": "Build vs improve tradeoff: how should organisations allocate effort between feature delivery and throughput-improvement work, and what do theoretical models imply for velocity, quality, and Pareto-shaped outcomes?",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
         "added": "2026-05-09"
       }
     ],
@@ -1639,7 +1649,7 @@
       "enterprise"
     ],
     "concept_cluster": [],
-    "item_count": 41,
+    "item_count": 42,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
@@ -1845,6 +1855,11 @@
         "slug": "2026-05-09-build-vs-improve-throughput-tradeoff",
         "title": "Build vs improve tradeoff: how should organisations allocate effort between feature delivery and throughput-improvement work, and what do theoretical models imply for velocity, quality, and Pareto-shaped outcomes?",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
       }
     ],
     "url": "/Research/threads/agentic-ai-ai-governance-enterprise.html"
@@ -1859,7 +1874,7 @@
       "low-code"
     ],
     "concept_cluster": [],
-    "item_count": 37,
+    "item_count": 38,
     "items": [
       {
         "slug": "2026-03-08-servicenow-platform-strategy",
@@ -2045,6 +2060,11 @@
         "slug": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
         "title": "Orthogonality thesis under modern Large Language Model (LLM) training and post-training: implications for enterprise tool-using workload risk",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
       }
     ],
     "url": "/Research/threads/ai-governance-agentic-ai-low-code.html"
@@ -2059,7 +2079,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 33,
+    "item_count": 34,
     "items": [
       {
         "slug": "2026-02-27-simple-process-for-adding-research-item",
@@ -2225,6 +2245,11 @@
         "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
         "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
         "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
       }
     ],
     "url": "/Research/threads/agentic-ai-workflow-llm.html"
@@ -4720,6 +4745,76 @@
     "url": "/Research/threads/agentic-ai-organisational-design-productivity.html"
   },
   {
+    "slug": "enterprise-architecture-servicenow-agentic-ai",
+    "title": "enterprise-architecture / servicenow / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "enterprise-architecture",
+      "servicenow",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-process-mapping",
+        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-21-technology-capability-models",
+        "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
+      }
+    ],
+    "url": "/Research/threads/enterprise-architecture-servicenow-agentic-ai.html"
+  },
+  {
     "slug": "mobile-ios-memory-system",
     "title": "mobile / ios / memory-system",
     "kind": "implicit",
@@ -5060,78 +5155,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "servicenow-enterprise-architecture-agentic-ai",
-    "title": "servicenow / enterprise-architecture / agentic-ai",
-    "kind": "implicit",
-    "tag_cluster": [
-      "servicenow",
-      "enterprise-architecture",
-      "agentic-ai"
-    ],
-    "concept_cluster": [],
-    "item_count": 10,
-    "items": [
-      {
-        "slug": "2026-03-08-servicenow-csdm-data-modelling",
-        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-08-servicenow-process-mapping",
-        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-21-technology-capability-models",
-        "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
-        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
-        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/servicenow-enterprise-architecture-agentic-ai.html"
-  },
-  {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -5187,7 +5217,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -6230,13 +6260,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "direct publish"
     ],
     "item_count": 3,
@@ -6257,6 +6287,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-09T23:10:47Z",
+  "extracted_at": "2026-05-09T23:22:48Z",
   "items": {
     "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk": {
       "named_concepts": [
@@ -103,6 +103,115 @@
             "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance": {
+      "named_concepts": [
+        "deterministic layer",
+        "human override",
+        "safe-stop capability",
+        "policy engines",
+        "escalate decision",
+        "side effect",
+        "typed contract",
+        "control surfaces",
+        "model traces",
+        "schema-constrained proposal",
+        "proposal record",
+        "usually run",
+        "deterministic controls",
+        "second deterministic",
+        "deterministic gate",
+        "tool invocation",
+        "explicit human",
+        "override reverse",
+        "governance logic",
+        "application code"
+      ],
+      "source_urls": [
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-tagging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview",
+        "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
+        "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+        "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+        "https://arxiv.org/abs/2210.03629",
+        "https://lilianweng.github.io/posts/2023-06-23-agent/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://www.palantir.com/docs/foundry/aip/overview",
+        "https://www.palantir.com/docs/foundry/aip/ethics-governance",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A governed hybrid architecture should treat the LLM as an interpretation and proposal subsystem, while a deterministic layer makes the final allow, deny, or escalate decision before any side effect is executed",
+          "sources": [
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+            "https://www.openpolicyagent.org/docs/latest/"
+          ]
+        },
+        {
+          "text": "The interface between the probabilistic layer and the deterministic layer should be a schema-constrained proposal record with explicit action fields, because policy engines and tool-execution runtimes need normalized input instead of free-form narrative text",
+          "sources": [
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+            "https://www.openpolicyagent.org/docs/latest/",
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence"
+          ]
+        },
+        {
+          "text": "Enterprises should usually run deterministic controls both before model inference and after model generation, because current guardrail products can discard unsafe prompts early and still override or mask unsafe responses after inference",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
+          ]
+        },
+        {
+          "text": "Action-capable agents need a second deterministic gate that checks the planned tool invocation against user intent and policy, because an apparently valid model response can still propose the wrong operational action",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+          ]
+        },
+        {
+          "text": "For consequential or regulated use cases, the architecture should include explicit human override, reverse, and safe-stop capability at the final governance layer rather than relying on post hoc review of model output",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html"
+          ]
+        },
+        {
+          "text": "Auditability requires joining model-execution traces with deterministic decision logs and workflow approvals, because enterprises need evidence of both what the model proposed and which rule set or reviewer controlled the final outcome",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://www.palantir.com/docs/foundry/aip/ethics-governance"
+          ]
+        },
+        {
+          "text": "Governance logic should be versioned and distributed independently from application code or prompt templates, because policy changes, approval rules, and enforcement thresholds usually need a faster operational cadence than model or application releases",
+          "sources": [
+            "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+            "https://www.palantir.com/docs/foundry/aip/ethics-governance",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "Failure handling in the hybrid boundary should default to deny, retry with tighter constraints, or human escalation when structured output is invalid, intent is ambiguous, or policy evaluation is indeterminate, because those are the moments when stochastic output is least trustworthy as a control signal",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
+            "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
           ]
         }
       ]
