@@ -1,6 +1,124 @@
 {
-  "extracted_at": "2026-05-09T02:09:12Z",
+  "extracted_at": "2026-05-09T02:22:27Z",
   "items": {
+    "2026-05-08-ai-capability-reference-architecture-second-cycle-update": {
+      "named_concepts": [
+        "five eyes",
+        "approved design",
+        "open-weight safeguard",
+        "rollback authority",
+        "provenance plane",
+        "shared semantics",
+        "central ownership",
+        "declared aibom",
+        "policy semantics",
+        "evaluation standards",
+        "domain teams",
+        "legibility meaning",
+        "meaning catalog",
+        "catalog configuration",
+        "configuration topology",
+        "drift visibility",
+        "eyes updates",
+        "board literacy",
+        "provenance-and-legibility plane",
+        "governance evaluation"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-07-ai-production-incidents-deep-dive.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-it-system-legibility-measurement-frameworks.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://owaspaibom.org/",
+        "https://cyclonedx.org/capabilities/mlbom/",
+        "https://backstage.io/docs/features/software-catalog/",
+        "https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492",
+        "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape"
+      ],
+      "key_claims": [
+        {
+          "text": "The existing five-layer architecture remains usable, but the provenance plane now has to cover legibility, meaning catalog, configuration, topology, and drift visibility, and runtime evidence in addition to design-time lineage if it is to explain what the system actually became in operation",
+          "sources": [
+            "https://backstage.io/docs/features/software-catalog/",
+            "https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492",
+            "https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html"
+          ]
+        },
+        {
+          "text": "Delivery and platform engineering now need an explicit declared AIBOM capability, where AIBOM is an AI bill-of-materials artifact for models, data, configuration, prompts, tools, and related execution context, because both managed platforms and code-native orchestration frameworks require deliberate extraction paths before approved design can be compared with later runtime behavior",
+          "sources": [
+            "https://owaspaibom.org/",
+            "https://cyclonedx.org/capabilities/mlbom/",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html"
+          ]
+        },
+        {
+          "text": "Runtime-observed evidence has to become a first-class architecture service, because prompts, retrieved context, tool order, authority handoffs, and missing observability are governance-relevant facts that only appear after execution begins",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html"
+          ]
+        },
+        {
+          "text": "The orchestration layer now needs explicit delegation-aware identity and tool-action components, because portable attribution breaks when systems change credential type, cross trust boundaries, or execute under shared runtime identities without a surviving delegation receipt",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "Operating assurance now needs named architecture components for authoritative-source binding, fairness validation, rollback authority, and external challenge escalation, because public harm repeatedly surfaced where systems looked trustworthy but source governance, deployment constraints, or oversight loops were too weak",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-07-ai-production-incidents-deep-dive.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html"
+          ]
+        },
+        {
+          "text": "Regulatory and Five Eyes updates mean that board literacy, supplier and concentration-risk governance, secure-by-design logging, input control, and regulator-facing evidence assembly must now be named operating-model capabilities rather than assumed management practices outside the architecture",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html"
+          ]
+        },
+        {
+          "text": "Open-weight safeguard models fit best as shared governance and evaluation services that delivery gates or higher-risk runtime checkpoints can invoke, because they offer organization-specific policy judgment while remaining too infrastructure-heavy for standard hosted-runner paths and too narrow to replace deterministic or human review layers",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html",
+            "https://docs.github.com/en/actions/reference/runners/github-hosted-runners",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        },
+        {
+          "text": "Central ownership should stay with provenance schema, telemetry normalization, retained evidence, policy semantics, regulatory reporting, and evaluation standards, while domain teams keep responsibility for authoritative content, workflow composition, and risk-tuned thresholds tied to local business context",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html"
+          ]
+        }
+      ]
+    },
     "2026-05-07-five-eyes-ai-risks-and-advice": {
       "named_concepts": [
         "five eyes",

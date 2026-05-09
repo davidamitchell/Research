@@ -1,0 +1,821 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Updating the enterprise Artificial Intelligence ecosystem capability reference… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Updating the enterprise Artificial Intelligence ecosystem capability reference…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Updating the enterprise Artificial Intelligence ecosystem capability reference…</h1>
+  <p class="full-title-subtitle">Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items</p>
+  <div class="meta-bar">
+    <span>2026-05-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <a class="tag" href="/Research/tags/capability-model.html">capability-model</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/supply-chain.html">supply-chain</a> <a class="tag" href="/Research/tags/sbom.html">sbom</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/reference-architecture.html">reference-architecture</a> <a class="tag" href="/Research/tags/regulation.html">regulation</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-synthesis">synthesis</span> <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-ai-capability-reference-architecture-second-cycle-update.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-08-ai-capability-reference-architecture-second-cycle-update" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The existing five-layer architecture remains usable, but the provenance plane now has to cover legibility, meaning catalog, configuration, topology, and drift visibility, and runtime evidence in addition to design-time lineage if it is to explain what the system actually became in operation<span class="claim-sources"><a class="claim-source-link" href="https://backstage.io/docs/features/software-catalog/" target="_blank" rel="noopener" title="https://backstage.io/docs/features/software-catalog/">Backstage (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492" target="_blank" rel="noopener" title="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492">ServiceNow (n.d.)</a><a class="claim-source-link" href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape" target="_blank" rel="noopener" title="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape">Dynatrace (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html">Mitchell (2026)</a></span></li>
+<li>Delivery and platform engineering now need an explicit declared AIBOM capability, where AIBOM is an AI bill-of-materials artifact for models, data, configuration, prompts, tools, and related execution context, because both managed platforms and code-native orchestration frameworks require deliberate extraction paths before approved design can be compared with later runtime behavior<span class="claim-sources"><a class="claim-source-link" href="https://owaspaibom.org/" target="_blank" rel="noopener" title="https://owaspaibom.org/">Owaspaibom (n.d.)</a><a class="claim-source-link" href="https://cyclonedx.org/capabilities/mlbom/" target="_blank" rel="noopener" title="https://cyclonedx.org/capabilities/mlbom/">CycloneDX (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html">Mitchell (2026)</a></span></li>
+<li>Runtime-observed evidence has to become a first-class architecture service, because prompts, retrieved context, tool order, authority handoffs, and missing observability are governance-relevant facts that only appear after execution begins<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">Mitchell (2026)</a></span></li>
+<li>The orchestration layer now needs explicit delegation-aware identity and tool-action components, because portable attribution breaks when systems change credential type, cross trust boundaries, or execute under shared runtime identities without a surviving delegation receipt<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">Mitchell (2026)</a></span></li>
+<li>Operating assurance now needs named architecture components for authoritative-source binding, fairness validation, rollback authority, and external challenge escalation, because public harm repeatedly surfaced where systems looked trustworthy but source governance, deployment constraints, or oversight loops were too weak<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-07-ai-production-incidents-deep-dive.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-07-ai-production-incidents-deep-dive.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Mitchell (2026)</a></span></li>
+<li>Regulatory and Five Eyes updates mean that board literacy, supplier and concentration-risk governance, secure-by-design logging, input control, and regulator-facing evidence assembly must now be named operating-model capabilities rather than assumed management practices outside the architecture<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html">Mitchell (2026)</a></span></li>
+<li>Open-weight safeguard models fit best as shared governance and evaluation services that delivery gates or higher-risk runtime checkpoints can invoke, because they offer organization-specific policy judgment while remaining too infrastructure-heavy for standard hosted-runner paths and too narrow to replace deterministic or human review layers<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">Mitchell (2026)</a><a class="claim-source-link" href="https://docs.github.com/en/actions/reference/runners/github-hosted-runners" target="_blank" rel="noopener" title="https://docs.github.com/en/actions/reference/runners/github-hosted-runners">Github (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html">Github (n.d.)</a></span></li>
+<li>Central ownership should stay with provenance schema, telemetry normalization, retained evidence, policy semantics, regulatory reporting, and evaluation standards, while domain teams keep responsibility for authoritative content, workflow composition, and risk-tuned thresholds tied to local business context<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html">Mitchell (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How should the enterprise Artificial Intelligence (AI) ecosystem capability reference architecture (as expressed in <code>2026-04-22-enterprise-ai-capability-model</code>, <code>2026-05-05-enterprise-ai-capability-stack</code>, and <code>2026-05-06-ai-capability-reference-architecture-security-supply-chain-update</code>) be revised and extended to incorporate findings from the second-cycle 2026-05 completed items, covering AI Bill of Materials (AIBOM) declared construction practices, effectiveness and risk-mitigation limits, multi-agent identity attribution, platform observability controls, European Union (EU) AI Act regulatory intersection, and OpenTelemetry-based runtime capture; AI production incidents; regulatory guidance updates; Five Eyes AI risk posture; open-weight model safeguard policies; and Information Technology (IT) legibility and measurement frameworks, that were not incorporated in the first-cycle update?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>The enterprise AI reference architecture should remain a five-layer model, but the shared provenance and governance planes now need explicit second-cycle services for legibility, meaning catalog, configuration, topology, and drift visibility, runtime evidence, operational assurance, and regulator-facing governance.</p>
+<p>Second-cycle evidence shows that design-time inventory alone is insufficient, because the architecture also has to preserve runtime divergence, delegation receipts, incident-triggering conditions, and estate legibility across catalogs, topology, and structural-drift evidence.</p>
+<p>Regulatory and Five Eyes updates also move operating-model work into the architecture itself, because board literacy, supplier-risk management, secure logging, rollback authority, and evidence assembly are now observable control surfaces instead of background management assumptions.</p>
+<p>The practical revision is to widen the provenance plane into a provenance-and-legibility plane, widen the governance plane into a governance, evaluation, and operational-assurance plane, and keep shared semantics and retained evidence under explicit central ownership.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>The existing five-layer architecture remains usable, but the provenance plane now has to cover legibility, meaning catalog, configuration, topology, and drift visibility, and runtime evidence in addition to design-time lineage if it is to explain what the system actually became in operation.</strong></li>
+<li><strong>Delivery and platform engineering now need an explicit declared AIBOM capability, where AIBOM is an AI bill-of-materials artifact for models, data, configuration, prompts, tools, and related execution context, because both managed platforms and code-native orchestration frameworks require deliberate extraction paths before approved design can be compared with later runtime behavior.</strong></li>
+<li><strong>Runtime-observed evidence has to become a first-class architecture service, because prompts, retrieved context, tool order, authority handoffs, and missing observability are governance-relevant facts that only appear after execution begins.</strong></li>
+<li><strong>The orchestration layer now needs explicit delegation-aware identity and tool-action components, because portable attribution breaks when systems change credential type, cross trust boundaries, or execute under shared runtime identities without a surviving delegation receipt.</strong></li>
+<li><strong>Operating assurance now needs named architecture components for authoritative-source binding, fairness validation, rollback authority, and external challenge escalation, because public harm repeatedly surfaced where systems looked trustworthy but source governance, deployment constraints, or oversight loops were too weak.</strong></li>
+<li><strong>Regulatory and Five Eyes updates mean that board literacy, supplier and concentration-risk governance, secure-by-design logging, input control, and regulator-facing evidence assembly must now be named operating-model capabilities rather than assumed management practices outside the architecture.</strong></li>
+<li><strong>Open-weight safeguard models fit best as shared governance and evaluation services that delivery gates or higher-risk runtime checkpoints can invoke, because they offer organization-specific policy judgment while remaining too infrastructure-heavy for standard hosted-runner paths and too narrow to replace deterministic or human review layers.</strong></li>
+<li><strong>Central ownership should stay with provenance schema, telemetry normalization, retained evidence, policy semantics, regulatory reporting, and evaluation standards, while domain teams keep responsibility for authoritative content, workflow composition, and risk-tuned thresholds tied to local business context.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Enterprises can emit enough runtime telemetry to reconcile approved design and observed execution at least for high-risk workflows. <strong>Justification:</strong> the runtime-capture and platform-observability items treat telemetry enablement as difficult but operationally feasible.</li>
+<li><strong>Assumption:</strong> Financial-services and security-sensitive enterprises will continue to prefer centralized evidence retention and reporting even when execution remains federated. <strong>Justification:</strong> the regulatory-delta and Five Eyes items both point toward stronger centralized accountability rather than looser local proof models.</li>
+<li><strong>Assumption:</strong> Open-weight safeguard services will stay optional because their infrastructure cost and policy-design overhead will not be justified for every workflow. <strong>Justification:</strong> the safeguard item supports selective, second-stage use rather than universal inline placement.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The second-cycle evidence makes the architecture more operational, not more abstract, because the missing pieces are evidence-handling and control-surface capabilities that only appear when systems are released, observed, challenged, and regulated in practice.</p>
+<p>The main trade-off is between central coherence and layer-local enforcement. Centralizing everything would hide where trust decisions really occur, while leaving every team to invent its own evidence model would destroy comparability, auditability, and incident reconstruction.</p>
+<p>The best-supported resolution is to keep control semantics and retained evidence centralized while leaving enforcement near the layer that owns the relevant trust decision, retrieval permissions in data and knowledge, semantic safeguards near inference, tool and delegation controls in orchestration, and release-time signing, extraction, and evaluation in delivery and platform engineering.</p>
+<p>A major alternative would be to keep every second-cycle addition inside the existing layers without widening either cross-cutting plane, or to replace the baseline stack with a flatter capability mesh, but the evidence weighs against both moves because the new requirements cluster around shared evidence, legibility, and retained-governance services that cut across every layer rather than belonging cleanly to one local component family.</p>
+<p>Plausible alternative placements exist for open-weight safeguard capability, especially model-layer controls and pre-deployment review gates, but the evidence supports locating the canonical policy service in the governance and evaluation plane so that delivery gates and runtime checkpoints can invoke one shared policy logic rather than duplicate policy semantics in each layer.</p>
+<p>Revised component list:</p>
+<ol>
+<li>Data and knowledge layer: authoritative-source registry, permission-safe retrieval, retrieval-snapshot metadata, and upstream provider-disclosure links.</li>
+<li>Model and inference layer: approved model and provider registry, semantic safeguards, policy-conditioned classification hooks, and model-facing runtime signal capture.</li>
+<li>Orchestration and execution layer: tool allowlists, delegation-receipt capture, action checkpoints, recursion and stop authority, and per-run authority context.</li>
+<li>Delivery and platform-engineering layer: declared AIBOM builder, signed artifact lineage, promotion-time evaluation gates, telemetry collector pipeline, and approved-versus-observed divergence classifier.</li>
+<li>Operating-model layer: board and executive literacy, supplier and concentration-risk governance, fairness review, incident response, rollback authority, and regulator-facing evidence assembly.</li>
+<li>Provenance-and-legibility plane: declared and observed supply-chain records, ownership-bearing catalogs, architecture blueprints, runtime topology, and structural-drift evidence.</li>
+<li>Governance, evaluation, and operational-assurance plane: policy semantics, evaluation standards, exceptions, explainability artifacts, incident records, and optional second-stage safeguard review.</li>
+</ol>
+<p>Ownership recommendations:</p>
+<ol>
+<li>Central platform, security, and risk functions should own provenance schema, telemetry normalization, retained evidence, evaluation standards, and regulatory reporting because those assets lose value when fragmented by domain.</li>
+<li>Domain teams should own authoritative content, workflow composition, business-specific thresholds, and local exception context because those choices depend on business meaning and risk appetite that the central platform cannot infer.</li>
+<li>Shared services should expose signed interfaces and evidence contracts rather than monolithic approval queues, because second-cycle evidence favors strong shared semantics with layer-local enforcement and action-specific stop authority.</li>
+</ol>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Runtime-evidence quality remains sensitive to platform configuration and adapter quality, so an architecture can still overstate observability if collectors, spans, or export paths are only partially enabled.</li>
+<li>The architecture can reduce structural and operational blind spots without eliminating semantic failure modes, because AIBOM and telemetry remain weaker than adversarial content and authority misuse at proving behavior is safe.</li>
+<li>The strongest financial-services regulatory evidence in this cycle comes from APRA and cross-jurisdiction synthesis rather than from a uniform new standard across all reviewed regulators, so some operating-model recommendations remain medium-confidence generalizations.</li>
+<li>Legibility metrics are still composite rather than standardized, so estates may need local scorecards before cross-domain comparisons become reliably meaningful.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What minimum delegation-receipt schema would let orchestration runtimes preserve subject, actor, scope, target, and approval context across cross-platform tool calls?</li>
+<li>Which minimal composite legibility dashboard can compare catalog coverage, runtime topology coverage, divergence rates, and structural-drift findings without becoming another stale governance artifact?</li>
+<li>When does a policy-conditioned safeguard service justify its infrastructure cost compared with deterministic rules plus sampled human review?</li>
+<li>Which evidence thresholds should trigger automatic rollback versus manual escalation when approved design and observed runtime diverge in high-risk workflows?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html">Mitchell (2026) Enterprise AI capability model for use-case maturity decisions</a>: baseline five-layer reference architecture</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-05-enterprise-ai-capability-stack.md">Mitchell (2026) Enterprise capability stack for sustainable multi-provider Artificial Intelligence</a>: shared-control-core synthesis that the architecture extends</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html">Mitchell (2026) Integrating 2026-05 security and supply chain findings into the enterprise AI capability reference architecture</a>: first-cycle update; establishes the immediate baseline for this second-cycle revision</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-declared-construction-practice.html">Mitchell (2026) AIBOM declared construction practice</a>: operational practice for constructing declared AIBOM artifacts</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">Mitchell (2026) AIBOM effectiveness and risk-mitigation limits</a>: where AIBOM controls are and are not effective</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">Mitchell (2026) AIBOM identity attribution in multi-agent systems: practice</a>: multi-agent identity attribution practices and architectural implications</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">Mitchell (2026) AIBOM platform observability and control comparison</a>: comparative view of platform observability controls for AIBOM</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html">Mitchell (2026) AIBOM and EU AI Act regulatory intersection</a>: compliance obligations and intersection between AIBOM and the European Union (EU) AI Act</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html">Mitchell (2026) AIBOM runtime capture via OpenTelemetry: practice</a>: runtime AIBOM generation using OpenTelemetry instrumentation</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-07-ai-production-incidents-deep-dive.html">Mitchell (2026) Production incidents linked to AI systems</a>: documented AI production incident failure modes and mitigations</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html">Mitchell (2026) AI regulatory guidance delta check</a>: new regulatory guidance and coverage gaps since prior review</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html">Mitchell (2026) Five Eyes stance on AI risk and policy advice</a>: Five Eyes AI risk posture and architectural security implications</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">Mitchell (2026) Open-weight model safeguard policy enforcement</a>: safeguard and policy enforcement for open-weight models</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-it-system-legibility-measurement-frameworks.html">Mitchell (2026) IT system legibility and measurement frameworks</a>: legibility and measurement frameworks for IT systems; informs observability layer</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">Mitchell (2026) AI agent control-plane architecture in the enterprise</a>: prior control-surface architecture used to qualify placement decisions</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026) AI agent identity and access management in the enterprise</a>: prior identity and delegation architecture relevant to second-cycle identity findings</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Mitchell (2026) Permission-safe Retrieval-Augmented Generation enterprise information architecture</a>: prior retrieval and authorization architecture relevant to incident and observability conclusions</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html">Mitchell (2026) Knowledge curation governance for regulated Artificial Intelligence</a>: prior authoritative-source governance item that qualifies incident and evidence recommendations</li>
+<li>[x] <a href="https://owaspaibom.org/">Open Worldwide Application Security Project AIBOM</a>: authoritative public definition surface for the AI bill-of-materials concept</li>
+<li>[x] <a href="https://cyclonedx.org/capabilities/mlbom/">CycloneDX AI/ML-BOM</a>: standards-aligned definition and scope for AI and machine-learning bill-of-materials work</li>
+<li>[x] <a href="https://backstage.io/docs/features/software-catalog/">Backstage Software Catalog</a>: authoritative catalog-coverage and ownership surface used in the legibility definition</li>
+<li>[x] <a href="https://www.servicenow.com/community/cmdb-forum/cmdb-health-dashboard-completeness-compliance-amp-correctness/m-p/3488492">ServiceNow CMDB Health</a>: authoritative configuration-data quality surface used in the legibility definition</li>
+<li>[x] <a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape">Dynatrace Smartscape</a>: authoritative runtime-topology surface used in the legibility definition</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html">Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture</a> <span class="related-note">via agentic-ai, ai-governance, capability-model, enterprise, evaluation, reference-architecture, sbom, security, supply-chain</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?</a> <span class="related-note">via agentic-ai, ai-governance, enterprise, security, supply-chain</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html">Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem</a> <span class="related-note">via agentic-ai, ai-governance, capability-model, enterprise, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html">What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?</a> <span class="related-note">via agentic-ai, ai-governance, security, supply-chain</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, ai-governance, security, supply-chain</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-22-enterprise-ai-capability-model.html">Enterprise AI capability model for use-case maturity decisions</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html">Knowledge curation governance as an enterprise AI capability in regulated financial institutions</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html">Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-declared-construction-practice.html">How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html">What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html">How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html">How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-07-ai-production-incidents-deep-dive.html">Production incidents linked to Artificial Intelligence systems</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html">Artificial Intelligence (AI) regulatory guidance delta check: new advice, policy, and missed coverage since prior global financial-services review</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html">Five Eyes stance on Artificial Intelligence risk and policy advice</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html">How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-it-system-legibility-measurement-frameworks.html">What measurement systems and frameworks exist for quantifying Information Technology system legibility, the ability to reason about, understand, and comprehensively characterise a runtime ecosystem of interconnected applications, services, and systems, who is actively defining and applying them, and how?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/knowledge/2026-05-05-enterprise-ai-capability-stack.html">Enterprise capability stack for sustainable multi-provider Artificial Intelligence</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-07-ai-production-incidents-deep-dive.html">Production incidents linked to Artificial Intelligence systems</a></div>
+  </div>
+</main>
+</body>
+</html>
