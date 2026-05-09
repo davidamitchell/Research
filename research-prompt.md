@@ -332,6 +332,12 @@ easily-detectable issues.
     or other early uncited prose, either attach an authoritative source at that
     first use or rewrite the phrase into plain descriptive language before the
     first review run.
+    **Do not rely on another completed repository item as the only first-use
+    definition source for a central domain term.** If the term is carrying the
+    argument, for example AIBOM, legibility, or another synthesis label, bind
+    the first use to at least one authoritative external source that defines or
+    operationalises the concept, then add repository items as supporting
+    synthesis sources if needed.
 
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
