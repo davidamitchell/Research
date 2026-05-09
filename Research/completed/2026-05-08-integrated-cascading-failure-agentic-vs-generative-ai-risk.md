@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b53c8a6abceb93a8ce875058dfa79e63360183bd
+    changed: 2026-05-09
+    progress: progress/2026-05-09-integrated-cascading-failure-agentic-vs-generative-ai-risk.md
+    summary: "Initial completion"
 ---
 
 # How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?
