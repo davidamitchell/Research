@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?"
 added: 2026-05-08T10:05:24+00:00
 status: reviewing
