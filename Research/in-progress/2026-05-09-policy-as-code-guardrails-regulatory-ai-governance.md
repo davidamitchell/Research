@@ -29,7 +29,7 @@ versions: []
 
 ## Research Question
 
-What specific implementation patterns, including Policy-as-Code (PaC), rules engines, guardrails, output validation, and fallbacks, best satisfy regulatory requirements for accountability, auditability, and conformance in Artificial Intelligence (AI)-driven data governance?
+What specific implementation patterns, including externalized machine-executable policy rules (Policy-as-Code (PaC)), rules engines, input, tool-use, and output safety controls (guardrails), output validation, and fallbacks, best satisfy regulatory requirements for accountability, auditability, and conformance in Artificial Intelligence (AI)-driven data governance?
 
 ## Scope
 
@@ -108,7 +108,7 @@ What specific implementation patterns, including Policy-as-Code (PaC), rules eng
 
 ### §0 Initialise
 
-- Question: which implementation patterns, especially Policy-as-Code, deterministic rules, guardrails, schema validation, fallback logic, and audit logging, best satisfy accountability, auditability, and conformance duties for Artificial Intelligence (AI)-driven data-governance systems?
+- Question: which implementation patterns, especially externalized machine-executable policy rules (Policy-as-Code (PaC)), deterministic rules, input, tool-use, and output safety controls (guardrails), schema validation, fallback logic, and audit logging, best satisfy accountability, auditability, and conformance duties for Artificial Intelligence (AI)-driven data-governance systems?
 - Scope: implementation patterns that engineering teams can deploy now, with explicit mapping to GDPR, CCPA, HIPAA, the EU AI Act, and National Institute of Standards and Technology (NIST)-style control expectations.
 - Constraints: focus on control surfaces that can be independently audited, versioned, and operated in production rather than prompt-only conventions.
 - Output: knowledge, specifically a pattern catalogue that maps regulatory obligations to composable implementation patterns and tool choices.
@@ -265,10 +265,10 @@ What specific implementation patterns, including Policy-as-Code (PaC), rules eng
 
 ### §7 Recursive Review
 
-- Review status: completed.
-- [fact; source: https://www.openpolicyagent.org/docs/latest/; https://docs.cedarpolicy.com/; https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html; https://json-schema.org/overview/what-is-jsonschema; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf; https://www.law.cornell.edu/cfr/text/45/164.312] Sections 0 through 6 now bind every visible factual or inferential claim either to an external source or to a repository completed item cited by URL.
-- [fact; source: https://cppa.ca.gov/announcements/2025/20250923.html; https://cppa.ca.gov/regulations/ccpa_updates.html] The main timing ambiguity, namely when California ADMT duties take effect, was resolved by distinguishing the 2026 regulation effective date from the 2027 start date for significant-decision ADMT requirements.
-- [fact; source: https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14] The main regulatory-overlap ambiguity, namely how GDPR automated-decision rights differ from EU AI Act oversight duties, was resolved by treating them as overlapping but non-identical control drivers.
+- Status: revised after first external review pass.
+- Fix applied: defined Policy-as-Code and guardrails at the first audited occurrence.
+- Fix applied: converted section 7 from sourced self-audit claims to metadata-only notes.
+- Remaining contradictions noted: none.
 
 ---
 
