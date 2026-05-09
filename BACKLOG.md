@@ -1115,3 +1115,202 @@ A process evaluation harness is implemented that samples completed research item
 ### Context
 
 When new or modified process steps (such as §0.5b Perspective Discovery) are proposed, evaluating them against a random sample of past research questions gives evidence about whether they would improve investigation coverage and quality. Without the harness, evaluation is purely subjective. The harness produces reproducible, seeded prompt bundles and deterministic comparison scores, enabling A/B comparison of process variants.
+
+## W-0060
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+Each completed research item has a dedicated GH Pages page that renders its metadata fields — `confidence`, `item_type`, `cites`, `related`, `superseded_by` — as structured, human-readable content rather than raw YAML frontmatter:
+
+- `scripts/build_site.py` updated: individual item pages include a metadata sidebar or panel showing each field with a human label (e.g. "Confidence: High", "Type: Primary", "Cites: [linked list]", "Related: [linked list]", "Superseded by: [link]")
+- `cites` and `related` slugs are rendered as hyperlinks to the corresponding item pages; `superseded_by` renders as a link with a visual deprecation indicator
+- `item_type` and `confidence` use styled badges (e.g. colour-coded pills) consistent with the existing site design
+- Fields that are null or empty are omitted from the rendered output (not shown as blank)
+- Tests cover: metadata panel renders correct labels, slugs resolve to correct links, null fields are omitted, deprecated item shows deprecation indicator
+
+### Context
+
+Current individual item pages show only the Markdown body. Readers cannot see relationship metadata (cites, related, superseded_by) or quality signals (confidence, item_type) without reading the raw frontmatter. Making these fields visible on rendered pages enables readers to assess item quality, trace citation chains, and navigate the corpus without accessing GitHub directly. Companion to W-0061 (synthesis candidates page).
+
+---
+
+## W-0061
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+The GH Pages site includes a synthesis candidates page at `docs/synthesis-candidates.html` listing groups of completed items that share three or more tags:
+
+- `scripts/build_site.py` updated: a `generate_synthesis_candidates()` function computes tag co-occurrence clusters (groups of items sharing ≥3 canonical tags), ranks clusters by cluster size and average item confidence, and renders them as a browsable page
+- Each cluster card shows: shared tags, item count, list of item titles linked to their individual pages, and a "Synthesise this cluster" call-to-action linking to the `synthesis-loop.yml` dispatch instructions
+- The page is linked from the site nav alongside "All Items", "Backlog", and "Tags"
+- A "Synthesis Candidates" link is added to all site pages in the nav
+- The workflow trigger (`build_site.yml`) already covers `Research/completed/**`; no workflow changes needed
+- Tests cover: cluster computation returns correct groups, minimum-tag threshold is respected, ranking is deterministic, nav link is present in all page templates
+
+### Context
+
+The synthesis workflow (W-0051) exists but has no discovery mechanism — a reader must manually identify which items cluster well for synthesis. The synthesis candidates page surfaces this automatically, reducing the cognitive load of finding synthesis-ready clusters. It is the complement to the tag vocabulary work (W-0043, W-0053): once tags are canonical, tag co-occurrence becomes a reliable cluster signal. Dependent on W-0043 (canonical tags) and W-0053 (tag report) being complete.
+
+---
+
+## W-0062
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+All tags across `Research/completed/` and `Research/backlog/` conform to the canonical vocabulary defined in `docs/tag-vocabulary.md`. The tag report (`scripts/tag_report.py`) shows zero promotion candidates after the run:
+
+- `scripts/canonicalise_tags.py` is run against the full corpus; any tags not yet in the vocabulary map are either added to `docs/tag-vocabulary.md` as canonical entries or rewritten to an existing canonical form
+- After canonicalisation, `scripts/tag_report.py` is re-run; the output `state/tag_report.md` shows zero near-duplicate candidates and zero singleton-promotion candidates
+- The `tag-review.yml` workflow is triggered to confirm the clean state and close any open tag-review issues
+- A commit records the canonical state with message `tags: canonicalise full corpus — zero promotion candidates`
+- Tests confirm: no file in `Research/completed/` or `Research/backlog/` contains a tag that is an alias in `docs/tag-vocabulary.md`
+
+### Context
+
+W-0043 (canonical vocabulary) and W-0053 (tag report script) are done but the corpus has not been fully re-canonicalised since the vocabulary was defined. Tags accumulate with every new completed item. This slice closes the loop: running canonicalisation to completion so that the tag report is a green signal rather than an ongoing list of candidates. Blocked on W-0043 and W-0053 (both done).
+
+---
+
+## W-0063
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+All existing completed items in `Research/completed/` are reviewed for structural correctness and corrected in place where they fail:
+
+- A `scripts/item_audit.py` script checks every completed item for: all required frontmatter fields present and non-null, `status: completed`, at least one entry in `output:`, `## Findings` section present and non-empty, `## Sources` section present with at least one URL, no hollow filler phrases (using the `remove-ai-slop` skill vocabulary), citations in canonical `Author (Year)` suffix format
+- The script outputs a machine-readable audit report to `state/item_audit.json` and a human-readable summary to `state/item_audit.md`
+- Items that fail one or more checks are corrected: missing fields added, hollow prose removed or rewritten, malformed citations reformatted
+- Every corrected item receives a `versions:` frontmatter entry recording: `version`, `sha` (populated after commit), `changed` (today's date), `progress` path, and a one-line `summary` of what was corrected
+- Tests cover: audit script identifies known failures in fixture items, corrected items pass re-audit, versions entry format is validated
+
+### Context
+
+The corpus has grown to ~287 completed items, many produced before current quality standards were established. Structural inconsistencies (missing fields, hollow prose, malformed citations) degrade the published site and undermine the research-reviewer signal. A systematic audit and correction pass is needed before the quality bar can be considered enforced rather than aspirational. Blocked on W-0067 (citation-standards.md) for the citation-format check.
+
+---
+
+## W-0064
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+The site generator, item template, and research prompt are inspected for the root cause of repeated or near-identical content appearing across generated pages or completed items. The cause is documented and a targeted fix is applied:
+
+- A `scripts/similarity_report.py` script computes pairwise cosine similarity between completed items using TF-IDF on the `## Findings` section text; items with similarity > 0.85 are flagged as near-duplicates
+- The similarity report is written to `state/similarity_report.md` and committed
+- The three likely root causes are investigated: (a) `research-prompt.md` contains boilerplate that agents copy verbatim, (b) `Research/_template.md` placeholder text survives into completed items, (c) `build_site.py` duplicates content blocks across pages
+- Each identified root cause is documented in a progress note and fixed: prompt boilerplate replaced with instructions, template placeholders made unambiguous, site generator deduplication added
+- An ADR is written if the fix involves a structural change to the template or prompt
+
+### Context
+
+Repeated content across completed items or site pages reduces the signal-to-noise ratio of the corpus and makes the published site appear low-quality. It also inflates the synthesis candidates page with false clusters (items that share text rather than concepts). Identifying and fixing the root cause prevents new items from reproducing the pattern. This is a maintenance slice that enables reliable quality signals downstream.
+
+---
+
+## W-0065
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+The `research-question` skill (in `davidamitchell/Skills`) is evaluated against a sample of past backlog items and any structural weaknesses are corrected:
+
+- Using `scripts/eval_harness.py` (W-0059), a sample of 10 past backlog items is drawn; the skill's five-test quality check (Specific, Answerable, Scoped, Motivated, Decomposable) is applied to each item's research question
+- A structured evaluation report is written to `state/eval_reports/research-question-skill-eval.md` with per-item pass/fail verdicts and failure reasons
+- Structural weaknesses identified (e.g. the SASM-D tests are underspecified, the rewrite guidance is vague, scope constraints are not enforced) are documented as findings
+- A PR is opened in `davidamitchell/Skills` correcting the `research-question` skill's SKILL.md — updated tests, clearer rewrite criteria, explicit scope-constraint enforcement
+- After the Skills PR merges, the submodule pointer in this repo is advanced and the `copilot-instructions.md` updated if the skill invocation instructions change
+
+### Context
+
+The `research-question` skill gates every new backlog item's quality but has never been formally evaluated against real outputs. The eval harness (W-0059) now provides the mechanism. Without this evaluation, the skill may be producing questions that pass its own tests but are still too broad, unanswerable in a single session, or lack binding constraints — leading to low-quality research items that are expensive to produce and hard to synthesise. Blocked on W-0059 (eval harness — done).
+
+---
+
+## W-0066
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+The `research-reviewer` skill and the `research-review.yml` workflow together produce a reliable pass/fail signal. False passes and false failures are identified and corrected:
+
+- A sample of 10 completed items is drawn: 5 known-good items (high confidence, full citations, no hollow prose) and 5 known-weak items (missing fields, uncited claims, hollow phrases)
+- Each item is run through `research-review.yml` and the OVERALL/VIOLATION log lines are captured (per the established pattern: workflow success alone does not confirm item-level review pass)
+- False passes (known-weak item receives OVERALL: PASS) and false failures (known-good item receives OVERALL: FAIL) are recorded with the specific check that produced the wrong result
+- The `research-reviewer` skill's check rules are corrected: tightened where false passes occur, relaxed or clarified where false failures occur
+- A PR is opened in `davidamitchell/Skills` with the corrected skill; the submodule pointer in this repo is advanced after merge
+- The `research-review.yml` workflow is updated if any workflow-level changes (not just skill-level) are needed to surface item-level results reliably
+
+### Context
+
+The research-review workflow currently auto-passes some items without running meaningful checks (this is a known failure mode: workflow success hides item-level review failures). A systematic evaluation against known-good and known-weak items is the only way to calibrate the skill so its pass/fail signal is trustworthy enough to gate the `research-loop.yml` completion step.
+
+---
+
+## W-0067
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+A `docs/citation-standards.md` file exists, defines the required citation format with examples, and is referenced from both `research-prompt.md` and `Research/_template.md`. The CI review step fails any completed item that contains an uncited factual claim:
+
+- `docs/citation-standards.md` is created: defines the canonical citation format (`Author (Year) Title` suffix style), shows five worked examples (paper with named authors, org documentation, web page, dataset, preprint), and lists prohibited formats (bare URLs as the only citation, footnote-style, inline author-date without source URL)
+- `Research/_template.md` updated: a comment on the `## Sources` and `## Findings` sections links to `docs/citation-standards.md`
+- `research-prompt.md` updated: Step 6 companion checks reference `docs/citation-standards.md` explicitly; the uncited-claim check is strengthened from advisory to blocking
+- A `scripts/citation_check.py` script scans completed items and flags: factual claims (sentences containing numbers, percentages, named entities, or study references) that lack a trailing citation, and sources in `## Sources` that have no matching citation in `## Findings`
+- `ci.yml` updated: `citation_check.py` runs as a check on any PR that modifies `Research/completed/**`; the step fails if any item in the PR has uncited factual claims
+- Tests cover: citation check correctly identifies uncited claims in fixture items, canonical format is accepted, prohibited formats are rejected
+
+### Context
+
+Uncited factual claims are the most common quality failure in completed items. The `citation-discipline` skill exists but is advisory; the research-prompt citation check is advisory. Making citation enforcement automated and blocking in CI removes the human review burden and ensures the standard is actually enforced rather than aspirationally stated. Blocked on W-0063 (corpus audit) — citation-check results are only meaningful after the corpus has been corrected to a known baseline.
+
+---
+
+## W-0068
+
+status: open
+created: 2026-05-09
+updated: 2026-05-09
+
+### Outcome
+
+The synthesis and authoring workflows produce at least one completed synthesis item that could withstand peer review — claims sourced, speculation labelled, contradictions surfaced, argument coherent across items:
+
+- A topic cluster is selected from the synthesis candidates page (W-0061) or manually identified if W-0061 is not yet done: the cluster should have ≥5 completed items with overlapping tags
+- `synthesis-loop.yml` is triggered for the selected cluster; the resulting synthesis item in `Knowledge/` is reviewed against the following criteria: every key finding links to ≥1 source item via `cites:`, no claim appears without a confidence label, contradictions between source items are explicitly named in the "Contradictions and Tensions" section, the synthesis question is answered directly in the Executive Summary
+- If the first synthesis fails the review, the prompt or workflow is corrected and re-run until a passing synthesis is produced
+- The passing synthesis item is committed and its path recorded in this backlog item's Outcome
+- A progress note documents which criteria passed and which required iteration
+
+### Context
+
+W-0051 (synthesis workflow) and W-0052 (authoring workflow) exist but have never been validated against a quality bar. "The workflow exists" is not the same as "the workflow produces useful outputs." This slice provides the end-to-end proof that the synthesis pipeline can produce a knowledge artifact that meets the peer-review standard defined by the `citation-discipline`, `speculation-control`, and `remove-ai-slop` skills. Blocked on W-0051 (synthesis workflow — done) and preferably on W-0061 (synthesis candidates page) for cluster discovery.
