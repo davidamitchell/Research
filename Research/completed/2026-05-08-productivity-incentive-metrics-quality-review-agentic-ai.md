@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e559d9dac4ce7cb157445fe88fd34b83de85a5c4
+    changed: 2026-05-09
+    progress: progress/2026-05-09-productivity-incentive-metrics-quality-review-agentic-ai.md
+    summary: "Initial completion"
 ---
 
 # What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?
