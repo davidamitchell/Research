@@ -2,12 +2,12 @@
 review_count: 2
 title: "Build vs improve tradeoff: how should organisations allocate effort between feature delivery and throughput-improvement work, and what do theoretical models imply for velocity, quality, and Pareto-shaped outcomes?"
 added: 2026-05-09T02:05:08+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [workflow, organisational-theory, software-engineering, measurement, throughput, reliability, technical-debt, platform-engineering]
 started: 2026-05-09T07:27:16+00:00
-completed: ~
+completed: 2026-05-09T07:46:18+00:00
 output: [knowledge]
 cites: [2026-04-01-backpressure-theory-of-constraints, 2026-04-26-software-engineering-investment-case-llm, 2026-03-26-measuring-opportunity-cost]
 related: [2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai, 2026-04-01-backpressure-theory-of-constraints, 2026-03-26-measuring-opportunity-cost]
