@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?"
 added: 2026-05-08T10:05:24+00:00
 status: reviewing
