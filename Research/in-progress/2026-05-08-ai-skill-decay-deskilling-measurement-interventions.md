@@ -277,10 +277,10 @@ Another rival remedy is to rely on stronger models so that human capability matt
 
 ### §7 Recursive Review
 
-- [assumption] Review metadata: all visible claim-bearing prose in the Research Skill Output is labeled as [fact], [inference], or [assumption], and the remaining uncertainty is retained in assumptions and risks rather than promoted to stronger conclusions. Justification: this line records the audit state of the item rather than an externally evidenced domain claim.
-- [assumption] Acronym audit metadata: the abbreviations used in the document, including Artificial Intelligence (AI) and Journal of the American Medical Association (JAMA), were checked for first-use expansion or rewritten out where unnecessary. Justification: this line records an internal review action.
-- [assumption] Findings and §6 remain aligned: the Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks, and Open Questions below mirror the same substantive conclusions and confidence levels stated in §6. Justification: this line records synthesis parity rather than external evidence.
-- [assumption] Adjacent completed-item sweep metadata: the repository cross-reference was run before investigation and again before synthesis, and the cited or related completed items listed in frontmatter match the prior work materially used here. Justification: this line records an internal workflow check.
+- Claim-label audit: complete
+- Acronym-expansion audit: complete
+- Findings and §6 parity: aligned
+- Adjacent completed-item sweep: repeated before synthesis
 
 ---
 
