@@ -1,6 +1,112 @@
 {
-  "extracted_at": "2026-05-09T03:20:48Z",
+  "extracted_at": "2026-05-09T03:32:51Z",
   "items": {
+    "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai": {
+      "named_concepts": [
+        "acceptance rate",
+        "ai coding",
+        "organisational value",
+        "local gains",
+        "code complexity",
+        "public coding-specific",
+        "code quality",
+        "perceived usefulness",
+        "ai adoption",
+        "static warnings",
+        "greater code",
+        "delivery stability",
+        "guidance says",
+        "delivery outcomes",
+        "improve local",
+        "constrained tasks",
+        "hidden quality",
+        "quality costs",
+        "quality metrics",
+        "distort behaviour"
+      ],
+      "source_urls": [
+        "https://dora.dev/research/",
+        "https://dora.dev/research/2025/measurement-frameworks/",
+        "https://dora.dev/guides/dora-metrics/",
+        "https://itrevolution.com/product/accelerate/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://arxiv.org/abs/2205.06537",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://arxiv.org/abs/2406.07765",
+        "https://arxiv.org/html/2511.04427v2",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://sloanreview.mit.edu/article/the-hidden-costs-of-coding-with-generative-ai/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      ],
+      "key_claims": [
+        {
+          "text": "Suggestion acceptance rate and lines of code should not be treated as standalone net-value measures because acceptance mainly tracks perceived usefulness, while official measurement guidance says organisational value must be judged with a broader decision-aligned framework",
+          "sources": [
+            "https://arxiv.org/abs/2205.06537",
+            "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+            "https://dora.dev/research/2025/measurement-frameworks/"
+          ]
+        },
+        {
+          "text": "A defensible AI coding scorecard must combine local AI signals with organisation-level delivery outcomes, specifically DORA throughput and instability measures, review-effort signals, and developer trust or experience measures, because official guidance says no single framework captures the whole system",
+          "sources": [
+            "https://dora.dev/research/2025/measurement-frameworks/",
+            "https://dora.dev/guides/dora-metrics/",
+            "https://itrevolution.com/product/accelerate/"
+          ]
+        },
+        {
+          "text": "Bounded-task experiments show that AI coding tools can improve local speed and even local code quality, but those positive results should be treated as local evidence rather than proof of repository-scale gains because the studies use constrained tasks with clear success criteria and short time horizons",
+          "sources": [
+            "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+            "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+            "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+            "https://arxiv.org/html/2511.04427v2"
+          ]
+        },
+        {
+          "text": "Repository-level and service-level evidence indicates that AI adoption can create hidden quality costs, because higher adoption has been associated with lower delivery stability, more static warnings, and greater code complexity even when some local quality metrics improve",
+          "sources": [
+            "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+            "https://arxiv.org/html/2511.04427v2"
+          ]
+        },
+        {
+          "text": "The most decision-useful hidden-cost metrics are maintainability and recovery indicators, including static analysis warnings, code complexity, duplicated code, deployment rework, change fail rate, and failed deployment recovery time, because those metrics surface debt that speed metrics hide",
+          "sources": [
+            "https://arxiv.org/html/2511.04427v2",
+            "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+            "https://dora.dev/guides/dora-metrics/"
+          ]
+        },
+        {
+          "text": "Speed-focused performance mandates are likely to distort behaviour because DORA warns that turning metrics into goals invites gaming, and adjacent repository evidence shows that queue pressure and weak incentives convert formal review into rubber-stamping rather than meaningful scrutiny",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        },
+        {
+          "text": "A defensible governance intervention set is a team-level scorecard with paired speed and stability or maintainability targets, plus low-friction approved paths for bounded low-risk work, small batches, robust testing, and mandatory escalation for high-blast-radius changes",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "High-volume agentic AI workflows require direct oversight-quality metrics, such as review latency, disagreement or override rate, verification intensity, and post-merge defect or rollback signals, because human touchpoints alone do not prove that review remains real",
+          "sources": [
+            "https://dora.dev/research/2025/measurement-frameworks/",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-01-human-oversight-ai-software-development.html"
+          ]
+        }
+      ]
+    },
     "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification": {
       "named_concepts": [
         "capability debt",
