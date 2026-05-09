@@ -2,12 +2,12 @@
 review_count: 2
 title: "Orthogonality thesis under modern Large Language Model (LLM) training and post-training: implications for enterprise tool-using workload risk"
 added: 2026-05-09T01:45:34+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-ai, llm, alignment, enterprise, ai-governance, runtime-monitoring, mechanistic-interpretability]
 started: 2026-05-09T06:36:18+00:00
-completed: ~
+completed: 2026-05-09T06:55:51+00:00
 output: [knowledge]
 cites:
   - 2026-04-30-orthogonality-thesis-ai-alignment-interpretability

@@ -462,6 +462,21 @@ easily-detectable issues.
     or score tables as if they automatically prove the evaluative judgment you
     derive from them.
 
+2g1. **Cross-source synthesis status** -- if a sentence combines an empirical
+    result with a conceptual or theoretical source to conclude that models
+    retain proxy objectives, shifted goals, strategic compliance, or similar
+    higher-level behavioural patterns, default that sentence to `[inference]`
+    unless one cited source itself states the combined conclusion directly.
+    Mixed source sets often justify the synthesis, but they do not by
+    themselves turn it into a `[fact]`.
+
+2g2. **Evidence-scope wording check** -- if a sentence makes a claim about the
+    breadth of public evidence, cross-lab visibility, or what "current
+    evidence" does or does not establish, confirm that the cited sources
+    directly support that scope claim. If they do not, rewrite the sentence to
+    describe the evidence base used in the item, or mark it as `[assumption]`
+    or `[inference]` instead of `[fact]`.
+
 2gb. **Management-jargon synthesis check** -- if a sentence uses management or
     strategy labels such as "balanced scorecard", "fast lane", "operating
     model", "control tower", or similar packaging terms, either (a) rewrite the
