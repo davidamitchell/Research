@@ -2,12 +2,12 @@
 review_count: 2
 title: "What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?"
 added: 2026-05-08T10:05:24+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [shadow-it, agentic-ai, ai-governance, enterprise, governance-behaviour, regulated-enterprise, human-factors, observability]
 started: 2026-05-09T06:12:15+00:00
-completed: ~
+completed: 2026-05-09T06:34:21+00:00
 output: [knowledge]
 cites: [2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
 related: [2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-22-enterprise-ai-capability-model]
