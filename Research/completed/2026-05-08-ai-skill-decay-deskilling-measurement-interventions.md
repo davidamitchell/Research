@@ -2,13 +2,13 @@
 review_count: 2
 title: "To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?"
 added: 2026-05-08T10:05:24+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [skill-decay, human-factors, agentic-ai, enterprise, ai-governance, human-in-the-loop, agentic-coding, organisational-learning]
 started: 2026-05-09T02:23:03+00:00
-completed: ~
-output: []
+completed: 2026-05-09T02:44:07+00:00
+output: [knowledge]
 cites: [2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-05-01-human-oversight-ai-software-development, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp]
 related: [2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-22-enterprise-ai-capability-model]
 superseded_by: ~
