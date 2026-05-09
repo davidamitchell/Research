@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Build vs improve tradeoff: how should organisations allocate effort between feature delivery and throughput-improvement work, and what do theoretical models imply for velocity, quality, and Pareto-shaped outcomes?"
 added: 2026-05-09T02:05:08+00:00
 status: reviewing
