@@ -14,6 +14,7 @@ For AI coding agents working on this repository.
 > 9. **Every source in a research item's `## Sources` section must include a URL** — `[Display Name](https://url)` or bare `https://url`. Sources without URLs cannot be verified or linked on the published site. A completed item with URL-free sources is not done.
 > 10. **For any non-trivial development work, follow the mandatory development loop: `swe` (design) → `tdd` (implement) → `code-review` (verify).** All three skills must be applied in sequence. Trivial = a single-line config change or typo fix with no logic. When in doubt, use the loop.
 > 11. **When assigned to a new research request issue: apply the `research-question` skill, add a backlog item, open a PR — stop. Do NOT conduct the research. That is the research-loop workflow's job.**
+> 12. **Pace deliberately: keep going, take your time, do not do too much at once, make todos, use subagents, refocus on the objective often, capture all work to be done, review often, go slow.**
 
 ---
 
@@ -564,6 +565,20 @@ Before marking a backlog slice as done:
 ---
 
 ## Working Methodology
+
+### Pacing and Scope
+
+Work deliberately. These rules apply to every session:
+
+- **Keep going** — finish what you started before starting something new.
+- **Take your time** — correctness over speed. A slow, correct step is worth more than a fast, wrong one.
+- **Do not do too much at once** — one slice at a time. Complete it, commit it, then move to the next.
+- **Make todos** — if you spot work that is out of scope for the current slice, write it down as a backlog item and return to the current task.
+- **Use subagents** — delegate parallel or specialised work to subagent sessions rather than bundling everything into one pass.
+- **Refocus on the objective often** — before every commit, re-read the original task statement. Confirm you are still solving the stated problem.
+- **Capture all work to be done** — if you discover scope mid-session, add it to the backlog before continuing. Do not carry undocumented intent.
+- **Review often** — read back what you have written before moving to the next step. Catch errors early.
+- **Go slow** — when uncertain, stop and think. A paused session that asks a question is better than a fast session that ships the wrong thing.
 
 ### Root cause before action
 
