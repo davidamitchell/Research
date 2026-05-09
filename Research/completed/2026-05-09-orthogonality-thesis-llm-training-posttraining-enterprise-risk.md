@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 99886c9a6459606a2065cb72832b2e5d2b158b6a
+    changed: 2026-05-09
+    progress: progress/2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk.md
+    summary: Initial completion
 ---
 
 # Orthogonality thesis under modern Large Language Model (LLM) training and post-training: implications for enterprise tool-using workload risk
