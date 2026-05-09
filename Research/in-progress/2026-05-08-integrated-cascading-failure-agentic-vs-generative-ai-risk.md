@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?"
 added: 2026-05-08T10:05:24+00:00
 status: reviewing
