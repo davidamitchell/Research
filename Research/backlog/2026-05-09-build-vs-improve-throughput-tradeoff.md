@@ -36,7 +36,7 @@ Given constrained engineering capacity, how should organisations allocate effort
 - Vendor-specific tool comparisons
 - Detailed staffing plans for a single organisation
 - Cost modelling that requires proprietary internal financial data
-- General Artificial Intelligence (AI) policy debates not directly linked to throughput/quality allocation decisions
+- General Artificial Intelligence policy debates not directly linked to throughput/quality allocation decisions
 
 **Constraints:**
 - Expand all acronyms on first use
