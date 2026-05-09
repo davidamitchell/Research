@@ -1,7 +1,7 @@
 # 2026-05-09 -- Add backlog item (build-vs-improve-throughput-tradeoff)
 
 **Completed:**
-- `/home/runner/work/Research/Research/Research/backlog/2026-05-09-build-vs-improve-throughput-tradeoff.md` — added from issue "Build vs improve tradeoff research"; scoped to theoretical and practical models for allocating effort between feature delivery and throughput-improvement work, including Pareto distribution implications.
+- `Research/backlog/2026-05-09-build-vs-improve-throughput-tradeoff.md` — added from issue "Build vs improve tradeoff research"; scoped to theoretical and practical models for allocating effort between feature delivery and throughput-improvement work, including Pareto distribution implications.
 
 ## Mini-Retro
 
