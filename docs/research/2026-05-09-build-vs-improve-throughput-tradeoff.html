@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI inverted the knowledge-work scarcity equation — Research</title>
+          <title>Build vs improve tradeoff — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -661,151 +661,125 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>AI inverted the knowledge-work scarcity equation</span>
+    <span>Build vs improve tradeoff</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI inverted the knowledge-work scarcity equation</h1>
-  <p class="full-title-subtitle">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Build vs improve tradeoff</h1>
+  <p class="full-title-subtitle">Build vs improve tradeoff: how should organisations allocate effort between feature delivery and throughput-improvement work, and what do theoretical models imply for velocity, quality, and Pareto-shaped outcomes?</p>
   <div class="meta-bar">
-    <span>2026-03-14</span>
+    <span>2026-05-09</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/quality.html">quality</a> <a class="tag" href="/Research/tags/throughput.html">throughput</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/verification.html">verification</a> 
+    <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/organisational-theory.html">organisational-theory</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/measurement.html">measurement</a> <a class="tag" href="/Research/tags/throughput.html">throughput</a> <a class="tag" href="/Research/tags/reliability.html">reliability</a> <a class="tag" href="/Research/tags/technical-debt.html">technical-debt</a> <a class="tag" href="/Research/tags/platform-engineering.html">platform-engineering</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-build-vs-improve-throughput-tradeoff.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-volume-vs-correctness-ai-era" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-09-build-vs-improve-throughput-tradeoff" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Volume up, delivery flat: AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat</li>
-<li>3x top-decile quality with structured AI use: In the Dell&#39;Acqua et al. (2025) pre-registered RCT at P&amp;G, teams using AI were 9.2 percentage points more likely to produce solutions rated in the top decile by expert judges, compared to a control mean of 5.8%, corresponding to approximately three times more chances of reaching top-decile quality</li>
-<li>AI substitutes for average collaboration, not peak collaboration: AI-enabled individuals in the P&amp;G RCT matched the average quality of two-person human teams working without AI, but the highest quality outputs still came from human teams augmented by AI; peak collaborative judgment, not average competence, is the differentiating constraint</li>
-<li>The verification bottleneck is empirically measured: Faros AI 2025 data shows PR review time increased 91% and PR size grew 154% alongside high AI adoption; the human review step did not accelerate to match AI generation speed</li>
-<li>The agentic tarpit names the multi-agent correctness failure mode: Wes McKinney&#39;s 2025 blog post &quot;The Mythical Agent-Month&quot; identified that parallel AI agent sessions produce contradictory and bloated outputs at machine speed, requiring human reconciliation that cannot be accelerated by adding more agents, creating a hard bottleneck at human conceptual integrity</li>
-<li>Workslop is a measurable organisational consequence of volume without correctness discipline: BetterUp Labs (2025) research found approximately 40% of workers received poor-quality AI-generated content in the past month, estimated at 15% of total workplace content, generating coordination overhead and eroding interpersonal trust</li>
-<li>The prototype-to-production gap is structural and unresolved: AI has dramatically compressed the time from blank slate to working proof of concept, but judgment-intensive production work — requirements translation, architectural trade-offs, distributed system debugging, and production-readiness validation — remains human-bottlenecked and has not been equivalently accelerated by current AI tooling</li>
-<li>AI breaks functional silos in innovation tasks: The P&amp;G RCT found that AI-assisted Research and Development (R&amp;D) and commercial professionals independently produced balanced, integrated proposals regardless of professional background, demonstrating that AI can reduce quality losses from siloed domain expertise by giving individuals access to cross-functional competency</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The strongest theoretical rule is to allocate scarce capacity to the current bottleneck rather than to preserve a fixed build-versus-improve ratio, because Theory of Constraints predicts that improving non-constraints yields little system-wide throughput gain while relieving the binding constraint changes total output<span class="claim-sources"><a class="claim-source-link" href="https://www.tocinstitute.org/five-focusing-steps.html" target="_blank" rel="noopener" title="https://www.tocinstitute.org/five-focusing-steps.html">Theory (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-01-backpressure-theory-of-constraints.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-01-backpressure-theory-of-constraints.md">Mitchell (2026)</a></span></li>
+<li>Little&#39;s Law implies that when feature demand pushes more work into a delivery system than the system can complete, Work in Progress rises and lead time lengthens, so apparent short-term busyness can reduce throughput and predictability rather than increase them<span class="claim-sources"><a class="claim-source-link" href="https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387" target="_blank" rel="noopener" title="https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387">Little (1961)</a><a class="claim-source-link" href="https://dora.dev/guides/dora-metrics/" target="_blank" rel="noopener" title="https://dora.dev/guides/dora-metrics/">DevOps (n.d.)</a></span></li>
+<li>Technical debt converts some short-term feature speed into later drag, because shortcuts taken under time or resource pressure create harder maintenance, reduced velocity, and unexpected rework that consume future engineering capacity<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/html/2403.06484v1" target="_blank" rel="noopener" title="https://arxiv.org/html/2403.06484v1">Avgeriou et al. (2024)</a><a class="claim-source-link" href="https://www.deloitte.com/us/en/insights/topics/technology-management/technical-debt-impact.html" target="_blank" rel="noopener" title="https://www.deloitte.com/us/en/insights/topics/technology-management/technical-debt-impact.html">Deloitte (2026)</a></span></li>
+<li>The DORA delivery evidence used in this item does not support a permanent tradeoff between speed and quality, because the cited DORA sources say top-performing teams achieve both higher throughput and lower instability when they improve testing, deployment, and feedback systems<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/guides/dora-metrics/" target="_blank" rel="noopener" title="https://dora.dev/guides/dora-metrics/">DevOps (n.d.)</a><a class="claim-source-link" href="https://research.google/pubs/dora-accelerate-state-of-devops-2024-report/" target="_blank" rel="noopener" title="https://research.google/pubs/dora-accelerate-state-of-devops-2024-report/">Google (2024)</a></span></li>
+<li>Once repetitive operational work becomes a large enough share of team attention, improvement work should displace marginal feature work, because Site Reliability Engineering guidance treats toil reduction and automation as return-on-investment decisions required to protect engineering capacity<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/eliminating-toil/" target="_blank" rel="noopener" title="https://sre.google/workbook/eliminating-toil/">Google (n.d.)</a></span></li>
+<li>Pareto-style concentration means improvement investment should be targeted at hot spots rather than spread uniformly, because a minority of modules or workflows often drive most defect risk or delivery friction and therefore offer the highest leverage for capacity recovery<span class="claim-sources"><a class="claim-source-link" href="https://dictionary.apa.org/pareto-principle" target="_blank" rel="noopener" title="https://dictionary.apa.org/pareto-principle">American (n.d.)</a><a class="claim-source-link" href="https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/" target="_blank" rel="noopener" title="https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/">Ball (2005)</a></span></li>
+<li>Platform engineering is a valid form of throughput-improvement investment when it builds high-quality self-service golden paths for common workflows, but the evidence also says it should be introduced incrementally because the payback can follow a J-curve rather than an immediate straight line<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/capabilities/platform-engineering/" target="_blank" rel="noopener" title="https://dora.dev/capabilities/platform-engineering/">DevOps (n.d.)</a><a class="claim-source-link" href="https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full" target="_blank" rel="noopener" title="https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full">Science (2026)</a></span></li>
+<li>The most practical allocation policy is trigger-based: keep feature delivery primary while lead time, failure, recovery, toil share, and hotspot concentration stay within agreed bands, then shift capacity toward improvement when those indicators worsen persistently<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/guides/dora-metrics/" target="_blank" rel="noopener" title="https://dora.dev/guides/dora-metrics/">DevOps (n.d.)</a><a class="claim-source-link" href="https://sre.google/workbook/eliminating-toil/" target="_blank" rel="noopener" title="https://sre.google/workbook/eliminating-toil/">Google (n.d.)</a><a class="claim-source-link" href="https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/" target="_blank" rel="noopener" title="https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/">Ball (2005)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has
-dramatically reduced the cost of generating output. Does the evidence support the thesis that
-correctness — whether a given output is architecturally sound, strategically coherent, and fit for
-production — is now the primary scarce resource? And if so, what practices and team structures
-actually increase correctness rather than merely volume?</p>
-<p>Specifically: how does shared mental model size (a function of team size) interact with the volume
-of AI-generated output to determine a team's real productivity — and what does this imply for how
-quality should be managed in the AI era?</p>
+<p>Given constrained engineering capacity, how should organisations allocate effort between (1) building features within an existing system and (2) improving the system itself (tooling, process, architecture, and quality controls) to maximise long-run throughput and delivery quality? Which theoretical models from software engineering, operations science, economics, and adjacent disciplines best explain this tradeoff, and how does a Pareto distribution framing (for defects, bottlenecks, or value concentration) change recommended allocation strategies?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p>Correctness — whether output is production-ready, strategically coherent, or factually accurate — has become the primary constraint in AI-augmented knowledge work; volume generation is no longer the limiting factor. Faros AI's 2025 telemetry study of 10,000+ developers recorded individual task completion up 21% and PR merges up 98%, yet organisational delivery metrics remained flat — the &quot;AI Productivity Paradox.&quot; The Dell'Acqua et al. (2025) pre-registered RCT at P&amp;G explains why: AI-assisted teams were approximately three times more likely to produce top-10% quality outputs, but only when human judgment was structurally embedded through training, guided prompting, and expert evaluation; without that structure, AI generates volume at machine speed while verification remains bottlenecked by human attention. Wes McKinney named this the &quot;agentic tarpit&quot; — parallel AI sessions produce contradictory, bloated outputs faster than human judgment can triage them — and industry researchers documented its organisational expression as &quot;workslop&quot;: AI-generated content that looks professional but lacks substance, received by approximately 40% of workers in the past month. Increasing correctness requires the same disciplined practices that always mattered — small batches, explicit quality standards, domain expertise — which organisations that master them can use to differentiate when competitors are focused on volume. <strong>[inference — derived from evidence convergence; the competitive advantage framing is interpretive]</strong></p>
+<p>Organisations should allocate build-versus-improve effort by following the current bottleneck, not by holding a fixed percentage split, because Theory of Constraints and Little's Law both imply that overloaded systems convert extra feature intake into more queue length and longer lead time before they convert it into shipped value.</p>
+<p>System-improvement work becomes throughput work once debt, toil, rework, or unstable deployment pipelines are the binding constraint, because those frictions tax every subsequent feature and reduce the amount of delivered value per unit of engineering effort.</p>
+<p>DORA and platform-engineering evidence shift the question away from a simple speed-versus-quality framing and toward delivery-system design, because the cited sources say organisations improve long-run outcomes by making software delivery faster and more stable through targeted system improvements.</p>
+<p>Pareto-style concentration changes the recommendation from generic improvement time to hotspot-focused intervention, because a minority of modules, workflows, or queues usually dominate defect risk, review load, or delivery delay.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p><strong>Volume up, delivery flat:</strong> AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat. [high confidence]</p>
-</li>
-<li>
-<p><strong>3x top-decile quality with structured AI use:</strong> In the Dell'Acqua et al. (2025) pre-registered RCT at P&amp;G, teams using AI were 9.2 percentage points more likely to produce solutions rated in the top decile by expert judges, compared to a control mean of 5.8%, corresponding to approximately three times more chances of reaching top-decile quality. [high confidence]</p>
-</li>
-<li>
-<p><strong>AI substitutes for average collaboration, not peak collaboration:</strong> AI-enabled individuals in the P&amp;G RCT matched the average quality of two-person human teams working without AI, but the highest quality outputs still came from human teams augmented by AI; peak collaborative judgment, not average competence, is the differentiating constraint. [high confidence]</p>
-</li>
-<li>
-<p><strong>The verification bottleneck is empirically measured:</strong> Faros AI 2025 data shows PR review time increased 91% and PR size grew 154% alongside high AI adoption; the human review step did not accelerate to match AI generation speed. [high confidence]</p>
-</li>
-<li>
-<p><strong>The agentic tarpit names the multi-agent correctness failure mode:</strong> Wes McKinney's 2025 blog post &quot;The Mythical Agent-Month&quot; identified that parallel AI agent sessions produce contradictory and bloated outputs at machine speed, requiring human reconciliation that cannot be accelerated by adding more agents, creating a hard bottleneck at human conceptual integrity. [high confidence]</p>
-</li>
-<li>
-<p><strong>Workslop is a measurable organisational consequence of volume without correctness discipline:</strong> BetterUp Labs (2025) research found approximately 40% of workers received poor-quality AI-generated content in the past month, estimated at 15% of total workplace content, generating coordination overhead and eroding interpersonal trust. [medium confidence]</p>
-</li>
-<li>
-<p><strong>The prototype-to-production gap is structural and unresolved:</strong> AI has dramatically compressed the time from blank slate to working proof of concept, but judgment-intensive production work — requirements translation, architectural trade-offs, distributed system debugging, and production-readiness validation — remains human-bottlenecked and has not been equivalently accelerated by current AI tooling. [high confidence]</p>
-</li>
-<li>
-<p><strong>AI breaks functional silos in innovation tasks:</strong> The P&amp;G RCT found that AI-assisted Research and Development (R&amp;D) and commercial professionals independently produced balanced, integrated proposals regardless of professional background, demonstrating that AI can reduce quality losses from siloed domain expertise by giving individuals access to cross-functional competency. [high confidence]</p>
-</li>
-<li>
-<p><strong>No universal cross-domain correctness index exists:</strong> A search across empirical literature and industry practice found no standardised measurement framework for correctness applicable across code, strategy, and content domains; organisations lack the tooling to measure the constraint they must now manage most urgently. [medium confidence]</p>
-</li>
-<li>
-<p><strong>Small batches and explicit quality standards are the evidence-backed correctness practices:</strong> DORA 2025 identifies working in small batches as the practice most reliably associated with amplifying AI's positive effects; Shopify CEO Toby Lütke's 2025 AI mandate frames explicit taste standards and proof-of-concept discipline as the structural complement to AI-generated output, but no systematic effectiveness study has been published on either practice in the AI context. [medium confidence]</p>
-</li>
+<li><strong>The strongest theoretical rule is to allocate scarce capacity to the current bottleneck rather than to preserve a fixed build-versus-improve ratio, because Theory of Constraints predicts that improving non-constraints yields little system-wide throughput gain while relieving the binding constraint changes total output.</strong></li>
+<li><strong>Little's Law implies that when feature demand pushes more work into a delivery system than the system can complete, Work in Progress rises and lead time lengthens, so apparent short-term busyness can reduce throughput and predictability rather than increase them.</strong></li>
+<li><strong>Technical debt converts some short-term feature speed into later drag, because shortcuts taken under time or resource pressure create harder maintenance, reduced velocity, and unexpected rework that consume future engineering capacity.</strong></li>
+<li><strong>The DORA delivery evidence used in this item does not support a permanent tradeoff between speed and quality, because the cited DORA sources say top-performing teams achieve both higher throughput and lower instability when they improve testing, deployment, and feedback systems.</strong></li>
+<li><strong>Once repetitive operational work becomes a large enough share of team attention, improvement work should displace marginal feature work, because Site Reliability Engineering guidance treats toil reduction and automation as return-on-investment decisions required to protect engineering capacity.</strong></li>
+<li><strong>Pareto-style concentration means improvement investment should be targeted at hot spots rather than spread uniformly, because a minority of modules or workflows often drive most defect risk or delivery friction and therefore offer the highest leverage for capacity recovery.</strong></li>
+<li><strong>Platform engineering is a valid form of throughput-improvement investment when it builds high-quality self-service golden paths for common workflows, but the evidence also says it should be introduced incrementally because the payback can follow a J-curve rather than an immediate straight line.</strong></li>
+<li><strong>The most practical allocation policy is trigger-based: keep feature delivery primary while lead time, failure, recovery, toil share, and hotspot concentration stay within agreed bands, then shift capacity toward improvement when those indicators worsen persistently.</strong></li>
 </ol>
 <h3>Assumptions</h3>
-<ol>
-<li>
-<p>The P&amp;G RCT findings (3x top-decile quality) generalise directionally to other knowledge-work domains, though the specific magnitude applies only to consumer goods innovation tasks structured under experimental conditions. <em>Justification:</em> The mechanism (structured AI access + domain expertise + evaluation framework) is domain-agnostic; the magnitude is domain-specific.</p>
-</li>
-<li>
-<p>&quot;Correctness&quot; is interpreted as &quot;fitness for purpose&quot; in the relevant domain — expert-judged quality for innovation, bug-free production-ready delivery for software, accuracy + utility for content — not as formal mathematical correctness. <em>Justification:</em> No domain-agnostic definition of correctness was found; all empirical measures are domain-specific operationalisations.</p>
-</li>
-<li>
-<p>The Faros AI sample (mid-to-large engineering organisations) may over-represent enterprise software teams. AI-native startups with different team structures and higher domain expertise per capita may show different patterns. <em>Justification:</em> No AI-native startup telemetry study of comparable scale was found.</p>
-</li>
-</ol>
+<ul>
+<li>The organisation can measure at least basic flow and instability indicators, because the synthesis depends on observable triggers rather than on a purely narrative notion of &quot;the system feels slow.&quot;</li>
+<li>Demand for additional feature work is real enough that pausing it has an opportunity cost, because otherwise the build-versus-improve choice collapses into a pure maintenance problem.</li>
+</ul>
 <h3>Analysis</h3>
-<p>AI accelerates the generation phase of knowledge work without equivalently accelerating the verification phase. <strong>[inference — derived from Faros AI telemetry showing flat DORA metrics despite volume increases, and from the P&amp;G RCT showing quality improvements only when verification scaffolding is present]</strong> Because verification is the binding constraint, organisational throughput does not improve commensurately with volume. <strong>[inference — derived from the same evidence]</strong> The P&amp;G RCT establishes this experimentally; Faros AI and DORA data measure it at scale; McKinney's agentic tarpit explains the mechanism.</p>
-<p>A critical distinction emerges from the P&amp;G study: AI substitutes for <em>average</em> peer collaboration, not peak collaborative quality. <strong>[inference — derived from Dell'Acqua et al. 2025 treatment arm comparisons]</strong> Solo practitioners using AI can compete with unaugmented teams on typical tasks, meaning the baseline of acceptable output has been raised for everyone. Organisations and teams that differentiate on quality are those that combine strong human judgment with AI — not those that substitute AI for human judgment. <strong>[inference — extrapolated from P&amp;G study design; not directly tested as an organisational strategy]</strong></p>
-<p>The competing interpretation — that flat organisational metrics reflect adoption friction rather than a structural constraint — is not supported by the evidence. DORA 2024 data shows <em>degradation</em> under high adoption, not improvement. The verification bottleneck is cognitive, not technical: no amount of faster AI makes domain expertise faster to acquire or contextual judgment faster to exercise. <strong>[inference — derived from evidence; the cognitive-bottleneck characterisation is analytical, not empirically measured]</strong></p>
-<p>Investing in human judgment capacity is the higher-leverage response to the volume-correctness inversion — particularly the judgment required for verification, architectural decision-making, and domain expertise. <strong>[inference — derived from evidence synthesis; prescriptive framing is the authors' interpretation, not a finding from any single study]</strong> Practices, hiring, and tooling calibrated to this constraint will be more effective than those calibrated to maximising AI-generated volume.</p>
+<p>This item relies more heavily on mechanism and indicator sources than on exact percentage studies, so the synthesis weights causal models and operating indicators above any fixed ratio heuristic.</p>
+<p>The decisive combination is Little's Law plus Theory of Constraints: one explains why overloaded systems get slower as queues grow, and the other explains why only the bottleneck matters for throughput improvement.</p>
+<p>Technical debt and toil matter because they turn invisible system frictions into recurring taxes on every later change, which means improvement work can have higher marginal value than the next feature once those taxes become the dominant constraint.</p>
+<p>The strongest rival remedy is to preserve feature delivery and solve delay by adding people or by mandating more output, but the flow literature does not support that when the real constraint is queueing, defect hot spots, or unstable operating paths rather than headcount alone.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>No cross-domain correctness metric:</strong> The most critical practical gap. Organisations cannot manage what they cannot measure. Developing correctness metrics for strategy and content domains (analogous to bug rate for code) is a prerequisite for managing the new binding constraint.</li>
-<li><strong>P&amp;G RCT generalisability:</strong> The study was conducted under experimental conditions with trained participants, expert judges, and real business stakes. Deployments without equivalent scaffolding may not reproduce the quality improvement. The 3x figure should be treated as an upper bound under ideal conditions, not a baseline expectation.</li>
-<li><strong>Workslop magnitude uncertain:</strong> The 40% / 15% estimates are survey-derived and not independently replicated. The direction (low-quality AI content is a measurable phenomenon) is credible; the magnitude should be treated as indicative.</li>
-<li><strong>Long-term expertise decay risk (speculative):</strong> If AI automation of entry-level tasks eliminates the positions where future expert verifiers develop their judgment, the system undermines its own verification capacity over a 5–10 year horizon. No longitudinal study yet exists; this remains a credible structural risk rather than a demonstrated finding.</li>
+<li>Flow models explain direction and mechanism well, but they do not yield a universally valid percentage split between feature work and system improvement.</li>
+<li>Platform-engineering evidence is useful and increasingly structured, but academic causal evidence on exact payback remains thinner than practitioner guidance.</li>
+<li>Technical debt cost magnitudes are partly survey-based and model-based, so precise burden estimates are less robust than the general claim that debt creates rework and slower future delivery.</li>
+<li>Organisations with poor measurement may still know they are overloaded, but the trigger-based policy becomes noisier when toil, lead time, and recovery data are not instrumented well.</li>
 </ul>
 <h3>Open Questions</h3>
-<ol>
-<li>Can AI-assisted verification tools (automated review, AI code auditors, fact-checking agents) close the verification bottleneck, or is the bottleneck fundamentally cognitive and therefore not addressable by adding more AI? If the latter, what is the correct investment model?</li>
-<li>How should organisations operationalise &quot;correctness&quot; measurement in strategy and content domains at scale, given the absence of a standardised framework?</li>
-<li>What is the correct ratio of AI-output volume to human-review capacity, and how does this ratio change as AI model quality improves?</li>
-<li>Does the P&amp;G finding (non-core employees reaching expert-quality outputs with AI) imply that small teams can maintain correctness standards on cross-functional tasks by relying on AI for the competence they lack? If so, what are the failure modes when that reliance exceeds a threshold?</li>
-</ol>
-<h3>Output</h3>
 <ul>
-<li><strong>Type:</strong> knowledge</li>
-<li><strong>Description:</strong> Evidence-based synthesis of the volume-vs-correctness inversion thesis, with primary empirical grounding in the Dell'Acqua et al. (2025) P&amp;G RCT (NBER w33641) and the Faros AI 2025 productivity paradox study. Establishes that correctness is the binding constraint in AI-augmented knowledge work and identifies the verification bottleneck and agentic tarpit as the two key mechanisms.</li>
-<li><strong>Key sources:</strong>
-<ol>
-<li>Dell'Acqua et al. (2025), &quot;The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise,&quot; NBER Working Paper w33641 — <a href="https://www.nber.org/system/files/working_papers/w33641/w33641.pdf">**Dell&#39;Acqua, F. et al. (2025).** HBS / P&amp;G field experiment — National Bureau of Economic Research (NBER) Working Paper w33641</a></li>
-<li>Wes McKinney, &quot;The Mythical Agent-Month&quot; (2025) — <a href="https://wesmckinney.com/blog/mythical-agent-month/">**Wes McKinney — &quot;The Mythical Agent-Month&quot;**</a></li>
-<li>Faros AI, &quot;The AI Productivity Paradox&quot; (2025) — <a href="https://www.faros.ai/blog/ai-software-engineering">**Faros AI 2025 &quot;AI Productivity Paradox&quot;**</a></li>
-</ol>
-</li>
+<li>Which numeric trigger bands, for example toil share or recovery-time thresholds, are most predictive of when improvement work should temporarily dominate feature work in different operating environments?</li>
+<li>What is the strongest before-and-after evidence for platform engineering payback outside vendor or survey claims, especially in legacy-heavy enterprises?</li>
+<li>Which hotspot indicators, churn, incidents, rework, or review delay, are most reliable for selecting the vital few improvement targets in different codebases?</li>
 </ul>
+<hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p>Starting points and consulted sources:</p>
 <ul>
-<li>[x] <a href="https://youtu.be/hnwM01CpzmA?si=UIeEUIVJ4yZUzDNI"><strong>Video transcript</strong></a> — (primary source)</li>
-<li>[x] <a href="https://github.com/davidamitchell/Latest-developments-/blob/main/history/2026-03-09.txt"><strong>Latest developments context</strong></a></li>
-<li>[x] <a href="https://www.nber.org/system/files/working_papers/w33641/w33641.pdf"><strong>Dell'Acqua, F. et al. (2025).</strong> HBS / P&amp;G field experiment — National Bureau of Economic Research (NBER) Working Paper w33641</a></li>
-<li>[x] <a href="https://wesmckinney.com/blog/mythical-agent-month/"><strong>Wes McKinney — &quot;The Mythical Agent-Month&quot;</strong></a></li>
-<li>[x] <a href="https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html"><strong>Shopify CEO Toby Lütke memo (April 2025)</strong></a></li>
-<li>[x] <a href="https://www.faros.ai/blog/ai-software-engineering"><strong>Faros AI 2025 &quot;AI Productivity Paradox&quot;</strong></a></li>
-<li>[x] <a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"><strong>DORA Report 2025</strong></a></li>
-<li>[x] <a href="https://thetechnomist.com/p/the-verification-bottleneck-why-ais"><strong>The Technomist — &quot;The Verification Bottleneck&quot;</strong></a></li>
-<li>[x] <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/New-Future-Of-Work-Report-2025.pdf"><strong>Microsoft New Future of Work Report 2025</strong></a></li>
-<li>[x] <strong>Related item:</strong> <code>Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md</code></li>
-<li>[x] <strong>Related item:</strong> <code>Research/completed/2026-03-12-ai-force-multiplier-ambition-expansion.md</code></li>
+<li>[x] <a href="https://www.routledge.com/The-Goal-A-Process-of-Ongoing-Improvement/Goldratt-Cox/p/book/9781138384020">Goldratt and Cox (1984) The Goal</a></li>
+<li>[x] <a href="https://www.tocinstitute.org/five-focusing-steps.html">Theory of Constraints Institute Five Focusing Steps</a></li>
+<li>[x] <a href="https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387">Little (1961) A Proof for the Queuing Formula: L = (lambda) W</a></li>
+<li>[x] <a href="https://www.celeritaspublishing.com/book/the-principles-of-product-development-flow/">Reinertsen (2009) The Principles of Product Development Flow</a></li>
+<li>[x] <a href="https://itrevolution.com/product/accelerate/">Forsgren et al. (2018) Accelerate</a></li>
+<li>[x] <a href="https://dictionary.apa.org/pareto-principle">American Psychological Association (APA) Dictionary of Psychology Pareto principle</a></li>
+<li>[x] <a href="https://sre.google/workbook/eliminating-toil/">Google Site Reliability Engineering (SRE) Workbook: Eliminating Toil</a></li>
+<li>[x] <a href="https://dora.dev/guides/dora-metrics/">DevOps Research and Assessment (DORA) Metrics Guide</a></li>
+<li>[x] <a href="https://dora.dev/research/2025/measurement-frameworks/">DevOps Research and Assessment (DORA) Measurement Frameworks Guide</a></li>
+<li>[x] <a href="https://dora.dev/capabilities/platform-engineering/">DevOps Research and Assessment (DORA) Platform engineering</a></li>
+<li>[x] <a href="https://research.google/pubs/dora-accelerate-state-of-devops-2024-report/">Google (2024) DORA Accelerate State of DevOps 2024 Report</a></li>
+<li>[x] <a href="https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full">Frontiers in Computer Science (2026) Platform engineering and internal developer portals: a multivocal literature review</a></li>
+<li>[x] <a href="https://arxiv.org/html/2403.06484v1">Avgeriou et al. (2024) Technical Debt Management: The Road Ahead for Successful Software Delivery</a></li>
+<li>[x] <a href="https://www.deloitte.com/us/en/insights/topics/technology-management/technical-debt-impact.html">Deloitte (2026) Measuring technical debt and latent potential</a></li>
+<li>[x] <a href="https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/">Nagappan and Ball (2005) Use of Relative Code Churn Measures to Predict System Defect Density</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-01-backpressure-theory-of-constraints.md">Mitchell (2026) What is &quot;backpressure&quot; in the Theory of Constraints?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-measuring-opportunity-cost.md">Mitchell (2026) The measurement asymmetry: why we cut costs but can't see lost opportunities</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-software-engineering-investment-case-llm.md">Mitchell (2026) What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is the correct response to systems capability debt?</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.md">Mitchell (2026) What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates?</a></li>
 </ul>
 <hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-03-ai-workflow-todo-digest.html">Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management</a> <span class="related-note">via agentic-ai, productivity</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-23-agent-orchestration-anvil-max.html">Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland&#39;s multi-model orchestration gist</a> <span class="related-note">via agentic-ai, verification</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-22-agents-as-finishers-and-synthesisers.html">Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans</a> <span class="related-note">via agentic-ai, productivity</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a> <span class="related-note">via agentic-ai, productivity</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html">What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?</a> <span class="related-note">via measurement, software-engineering, technical-debt</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html">What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?</a> <span class="related-note">via measurement, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-08-capability-debt-definition-measurement-ai-risk-amplification.html">How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?</a> <span class="related-note">via measurement, technical-debt</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-ubiquitous-language-ai-code-consistency.html">Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence</a> <span class="related-note">via software-engineering, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <span class="related-note">via software-engineering, workflow</span></div>
 </div></div>
 
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-01-backpressure-theory-of-constraints.html">Backpressure Infrastructure and the Theory of Constraints</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-software-engineering-investment-case-llm.html">What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-26-measuring-opportunity-cost.html">The measurement asymmetry: why we cut costs but can&#39;t see lost opportunities</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html">What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-01-backpressure-theory-of-constraints.html">Backpressure Infrastructure and the Theory of Constraints</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-26-measuring-opportunity-cost.html">The measurement asymmetry: why we cut costs but can&#39;t see lost opportunities</a></div>
+</div>
+
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html">Best practices in financial forecasting for IT operational run costs</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk.html">LLM training and post-training</a></div>
   </div>
 </main>
 </body>

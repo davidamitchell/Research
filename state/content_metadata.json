@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-09T07:36:33Z",
+  "extracted_at": "2026-05-09T07:48:17Z",
   "items": {
     "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk": {
       "named_concepts": [
@@ -103,6 +103,105 @@
             "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-build-vs-improve-throughput-tradeoff": {
+      "named_concepts": [
+        "lead time",
+        "technical debt",
+        "current bottleneck",
+        "percentage split",
+        "platform engineering",
+        "overloaded systems",
+        "binding constraint",
+        "sources say",
+        "pareto-style concentration",
+        "defect risk",
+        "reduced velocity",
+        "unexpected rework",
+        "engineering capacity",
+        "means improvement",
+        "hot spots",
+        "common workflows",
+        "feature delivery",
+        "toil share",
+        "shift capacity",
+        "fixed ratio"
+      ],
+      "source_urls": [
+        "https://www.routledge.com/The-Goal-A-Process-of-Ongoing-Improvement/Goldratt-Cox/p/book/9781138384020",
+        "https://www.tocinstitute.org/five-focusing-steps.html",
+        "https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387",
+        "https://www.celeritaspublishing.com/book/the-principles-of-product-development-flow/",
+        "https://itrevolution.com/product/accelerate/",
+        "https://dictionary.apa.org/pareto-principle",
+        "https://sre.google/workbook/eliminating-toil/",
+        "https://dora.dev/guides/dora-metrics/",
+        "https://dora.dev/research/2025/measurement-frameworks/",
+        "https://dora.dev/capabilities/platform-engineering/",
+        "https://research.google/pubs/dora-accelerate-state-of-devops-2024-report/",
+        "https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full",
+        "https://arxiv.org/html/2403.06484v1",
+        "https://www.deloitte.com/us/en/insights/topics/technology-management/technical-debt-impact.html",
+        "https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest theoretical rule is to allocate scarce capacity to the current bottleneck rather than to preserve a fixed build-versus-improve ratio, because Theory of Constraints predicts that improving non-constraints yields little system-wide throughput gain while relieving the binding constraint changes total output",
+          "sources": [
+            "https://www.tocinstitute.org/five-focusing-steps.html",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-01-backpressure-theory-of-constraints.md"
+          ]
+        },
+        {
+          "text": "Little's Law implies that when feature demand pushes more work into a delivery system than the system can complete, Work in Progress rises and lead time lengthens, so apparent short-term busyness can reduce throughput and predictability rather than increase them",
+          "sources": [
+            "https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387",
+            "https://dora.dev/guides/dora-metrics/"
+          ]
+        },
+        {
+          "text": "Technical debt converts some short-term feature speed into later drag, because shortcuts taken under time or resource pressure create harder maintenance, reduced velocity, and unexpected rework that consume future engineering capacity",
+          "sources": [
+            "https://arxiv.org/html/2403.06484v1",
+            "https://www.deloitte.com/us/en/insights/topics/technology-management/technical-debt-impact.html"
+          ]
+        },
+        {
+          "text": "The DORA delivery evidence used in this item does not support a permanent tradeoff between speed and quality, because the cited DORA sources say top-performing teams achieve both higher throughput and lower instability when they improve testing, deployment, and feedback systems",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://research.google/pubs/dora-accelerate-state-of-devops-2024-report/"
+          ]
+        },
+        {
+          "text": "Once repetitive operational work becomes a large enough share of team attention, improvement work should displace marginal feature work, because Site Reliability Engineering guidance treats toil reduction and automation as return-on-investment decisions required to protect engineering capacity",
+          "sources": [
+            "https://sre.google/workbook/eliminating-toil/"
+          ]
+        },
+        {
+          "text": "Pareto-style concentration means improvement investment should be targeted at hot spots rather than spread uniformly, because a minority of modules or workflows often drive most defect risk or delivery friction and therefore offer the highest leverage for capacity recovery",
+          "sources": [
+            "https://dictionary.apa.org/pareto-principle",
+            "https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/"
+          ]
+        },
+        {
+          "text": "Platform engineering is a valid form of throughput-improvement investment when it builds high-quality self-service golden paths for common workflows, but the evidence also says it should be introduced incrementally because the payback can follow a J-curve rather than an immediate straight line",
+          "sources": [
+            "https://dora.dev/capabilities/platform-engineering/",
+            "https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2026.1814498/full"
+          ]
+        },
+        {
+          "text": "The most practical allocation policy is trigger-based: keep feature delivery primary while lead time, failure, recovery, toil share, and hotspot concentration stay within agreed bands, then shift capacity toward improvement when those indicators worsen persistently",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://sre.google/workbook/eliminating-toil/",
+            "https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/"
           ]
         }
       ]
