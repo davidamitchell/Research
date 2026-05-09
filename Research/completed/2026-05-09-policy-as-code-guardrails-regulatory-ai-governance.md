@@ -2,14 +2,14 @@
 review_count: 2
 title: "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation"
 added: 2026-05-09T22:44:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
 tags: [policy-as-code, governance, agentic-ai, llm, ai-governance, compliance, regulatory, guardrails, workflow]
 started: 2026-05-09T23:23:17+00:00
-completed: ~
-output: []
+completed: 2026-05-09T23:45:33+00:00
+output: [knowledge]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
   - 2026-04-26-ai-lowcode-governance-enforcement-architecture
