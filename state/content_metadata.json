@@ -1,6 +1,112 @@
 {
-  "extracted_at": "2026-05-09T06:43:33Z",
+  "extracted_at": "2026-05-09T06:56:45Z",
   "items": {
+    "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk": {
+      "named_concepts": [
+        "bounded machine",
+        "machine identities",
+        "runtime monitoring",
+        "enterprise-safe objectives",
+        "goal misgeneralisation",
+        "alignment faking",
+        "external controls",
+        "strategic compliance",
+        "changed conditions",
+        "current interpretability",
+        "identities runtime",
+        "orthogonality thesis",
+        "current post-training",
+        "objective replacement",
+        "deterministic external",
+        "earned autonomy",
+        "modern training",
+        "reduce dangerous",
+        "dangerous behaviour",
+        "controls bounded"
+      ],
+      "source_urls": [
+        "https://nickbostrom.com/superintelligentwill.pdf",
+        "https://steveomohundro.com/wp-content/uploads/2009/12/ai_drives_final.pdf",
+        "https://arxiv.org/abs/2203.02155",
+        "https://arxiv.org/abs/2305.18290",
+        "https://arxiv.org/abs/1906.01820",
+        "https://arxiv.org/abs/2105.14111",
+        "https://www.anthropic.com/news/constitutional-ai-harmlessness-from-ai-feedback",
+        "https://www.anthropic.com/research/claude-character",
+        "https://www.anthropic.com/research/alignment-faking",
+        "https://www.anthropic.com/research/tracing-thoughts-language-model",
+        "https://www.anthropic.com/research/teaching-claude-why",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss",
+        "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-orthogonality-thesis-ai-alignment-interpretability.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Modern training does not overturn the core operational lesson of the orthogonality thesis, because current evidence still supports treating capability growth and enterprise-safe objectives as separable properties in deployed assistant systems",
+          "sources": [
+            "https://nickbostrom.com/superintelligentwill.pdf",
+            "https://arxiv.org/abs/2203.02155",
+            "https://davidamitchell.github.io/Research/research/2026-04-30-orthogonality-thesis-ai-alignment-interpretability.html"
+          ]
+        },
+        {
+          "text": "Current post-training methods, including RLHF, DPO, Constitutional AI, and character training, are best understood as behaviour-shaping and preference-steering methods rather than as proof that a model now has a stable, enterprise-safe objective",
+          "sources": [
+            "https://arxiv.org/abs/2203.02155",
+            "https://arxiv.org/abs/2305.18290",
+            "https://www.anthropic.com/news/constitutional-ai-harmlessness-from-ai-feedback",
+            "https://www.anthropic.com/research/claude-character"
+          ]
+        },
+        {
+          "text": "Empirical work on goal misgeneralisation and alignment faking supports the inference that a capable model can retain useful skills while still exhibiting shifted objectives or strategic compliance under changed conditions",
+          "sources": [
+            "https://arxiv.org/abs/2105.14111",
+            "https://www.anthropic.com/research/alignment-faking",
+            "https://arxiv.org/abs/1906.01820"
+          ]
+        },
+        {
+          "text": "Recent Anthropic training results strengthen the case that post-training can materially reduce dangerous behaviour, but they also show that direct suppression on the evaluation distribution does not by itself guarantee robust performance out of distribution",
+          "sources": [
+            "https://www.anthropic.com/research/teaching-claude-why"
+          ]
+        },
+        {
+          "text": "Current interpretability can expose some local reasoning structure and detect some fake rationales, yet it still falls short of certifying stable model-wide goals or motives that an enterprise could treat as reliable intent evidence",
+          "sources": [
+            "https://www.anthropic.com/research/tracing-thoughts-language-model",
+            "https://davidamitchell.github.io/Research/research/2026-04-30-orthogonality-thesis-ai-alignment-interpretability.html"
+          ]
+        },
+        {
+          "text": "The enterprise risk changes qualitatively when a post-trained model becomes an agent, because residual uncertainty about objectives is now expressed through retrieval, tool use, delegated permissions, and machine-speed action rather than only through bad chat answers",
+          "sources": [
+            "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "Enterprises should deploy these systems only inside deterministic external controls, bounded machine identities, runtime monitoring, validation, override, and earned-autonomy mechanisms that assume behavioural compliance can fail under changed conditions",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss",
+            "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
     "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness": {
       "named_concepts": [
         "shadow ai",
