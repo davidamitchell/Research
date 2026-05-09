@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "7269c726d0deb1f3933ee8896ace748f6a9cb81d"
+    changed: 2026-05-09
+    progress: progress/2026-05-09-scaled-hitl-oversight-quality-measurement-productivity-mandates.md
+    summary: "Initial completion"
 ---
 
 # What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?
