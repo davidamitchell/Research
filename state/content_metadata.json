@@ -1,6 +1,110 @@
 {
-  "extracted_at": "2026-05-09T02:32:29Z",
+  "extracted_at": "2026-05-09T02:46:15Z",
   "items": {
+    "2026-05-08-ai-skill-decay-deskilling-measurement-interventions": {
+      "named_concepts": [
+        "unaided competence",
+        "verification debugging",
+        "debugging anomaly",
+        "anomaly detection",
+        "fallback reasoning",
+        "measure assisted",
+        "later unaided",
+        "senior practitioners",
+        "still lose",
+        "fallback competence",
+        "capability loss",
+        "every low-level",
+        "low-level execution",
+        "execution skill",
+        "assisted completion",
+        "completion speed",
+        "heavy ai",
+        "junior practitioners",
+        "mental models",
+        "lose fallback"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1016/0005-1098(83",
+        "https://doi.org/10.1177/001872089703900402",
+        "https://www.amazon.com/Glass-Cage-Automation-Nicholas-Carr/dp/0393240762",
+        "https://jamanetwork.com/journals/jama/fullarticle/2645749",
+        "https://arxiv.org/abs/2302.06590",
+        "https://par.nsf.gov/biblio/10545734-does-using-artificial-intelligence-assistance-accelerate-skill-decay-hinder-skill-development-without-performers-awareness",
+        "https://arxiv.org/html/2601.20245v1",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://www.faasafety.gov/files/events/SO/SO15/2025/SO15138466/the_retention_of_manual_flying_skills_in_the_automated_cockpit-NASA.pdf",
+        "https://www.aft.org/ae/winter1991/collins_brown_holum",
+        "https://arxiv.org/abs/2602.00726",
+        "https://www.nature.com/articles/s41746-026-02410-1",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-01-human-oversight-ai-software-development.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest direct AI-era evidence shows that heavy reliance on AI can reduce later unaided competence, because randomized software experiments and field evidence from clinical AI both report weaker non-AI performance after routine AI assistance",
+          "sources": [
+            "https://arxiv.org/html/2601.20245v1",
+            "https://www.nature.com/articles/s41746-026-02410-1"
+          ]
+        },
+        {
+          "text": "The capabilities most exposed to decay are verification, debugging, anomaly detection, situational awareness, and fallback reasoning, because those are the skills humans use when automation fails and the skills that become less practiced under routine delegated execution",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://www.faasafety.gov/files/events/SO/SO15/2025/SO15138466/the_retention_of_manual_flying_skills_in_the_automated_cockpit-NASA.pdf",
+            "https://www.nature.com/articles/s41746-026-02410-1"
+          ]
+        },
+        {
+          "text": "Short-run AI productivity studies do not settle the deskilling question on their own, because they measure assisted completion speed on bounded tasks rather than retained competence, fallback performance, or independent problem-solving after the tool is removed",
+          "sources": [
+            "https://arxiv.org/abs/2302.06590",
+            "https://arxiv.org/html/2601.20245v1"
+          ]
+        },
+        {
+          "text": "Junior practitioners are more vulnerable to never-skilling than senior practitioners, because apprenticeship and human-AI collaboration evidence show that novices use AI as scaffolding during skill formation while experts are more likely to challenge outputs against richer prior mental models",
+          "sources": [
+            "https://www.aft.org/ae/winter1991/collins_brown_holum",
+            "https://arxiv.org/abs/2602.00726",
+            "https://arxiv.org/html/2601.20245v1"
+          ]
+        },
+        {
+          "text": "Senior practitioners are not immune to skill erosion, because the aviation and medical evidence shows that experienced operators can still lose manual or diagnostic recovery capability when routine automated support removes the need for active cross-checking",
+          "sources": [
+            "https://www.faasafety.gov/files/events/SO/SO15/2025/SO15138466/the_retention_of_manual_flying_skills_in_the_automated_cockpit-NASA.pdf",
+            "https://www.nature.com/articles/s41746-026-02410-1"
+          ]
+        },
+        {
+          "text": "A central mechanism is automation bias under trust, workload, and time pressure, because over-reliance rises when the system is usually right, evidence is compressed, and users do not need to generate or defend an independent judgment",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
+          ]
+        },
+        {
+          "text": "The most evidence-backed intervention bundle combines error-salience briefings, less aggregated evidence views, challenge-before-accept workflow steps, and periodic AI-off practice, because those are the interventions with direct experimental or operational support across the retrieved literature",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+            "https://www.faasafety.gov/files/events/SO/SO15/2025/SO15138466/the_retention_of_manual_flying_skills_in_the_automated_cockpit-NASA.pdf"
+          ]
+        },
+        {
+          "text": "A cautious enterprise response is to pair bounded AI acceleration with skill audits such as fallback drills, seeded-error reviews, and periodic unaided assessments, while reserving apprenticeship tasks for progressive independence rather than full delegation",
+          "sources": [
+            "https://arxiv.org/html/2601.20245v1",
+            "https://www.aft.org/ae/winter1991/collins_brown_holum",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html"
+          ]
+        }
+      ]
+    },
     "2026-05-08-ai-capability-reference-architecture-second-cycle-update": {
       "named_concepts": [
         "five eyes",
