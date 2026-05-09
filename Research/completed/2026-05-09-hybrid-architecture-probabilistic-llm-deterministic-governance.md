@@ -2,14 +2,14 @@
 review_count: 2
 title: "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement"
 added: 2026-05-09T22:44:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-09-llm-determinism-limits-temperature-zero
 tags: [agentic-ai, llm, ai-governance, workflow, policy-enforcement, human-oversight, enterprise-architecture]
 started: 2026-05-09T23:02:09+00:00
-completed: ~
-output: []
+completed: 2026-05-09T23:21:07+00:00
+output: [knowledge]
 cites:
   - 2026-04-26-ai-lowcode-governance-enforcement-architecture
   - 2026-04-26-ai-lowcode-observability-telemetry-governance
