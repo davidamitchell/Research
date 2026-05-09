@@ -461,6 +461,14 @@ easily-detectable issues.
     or score tables as if they automatically prove the evaluative judgment you
     derive from them.
 
+2gb. **Management-jargon synthesis check** -- if a sentence uses management or
+    strategy labels such as "balanced scorecard", "fast lane", "operating
+    model", "control tower", or similar packaging terms, either (a) rewrite the
+    phrase into plain descriptive language, or (b) bind the first use to an
+    authoritative definition source. If the sentence also combines multiple
+    sourced components into one recommended package, default the package claim
+    to `[inference]`, not `[fact]`.
+
 2ga. **Workflow-fit and production-readiness judgments** -- if a sentence says
     a tool is suitable or unsuitable for GitHub Actions, Continuous
     Integration and Continuous Delivery (CI/CD), inline gating, production
