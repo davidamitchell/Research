@@ -2,12 +2,12 @@
 review_count: 2
 title: "How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?"
 added: 2026-05-08T10:05:24+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: [2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai, 2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness, 2026-05-08-ai-skill-decay-deskilling-measurement-interventions, 2026-05-08-capability-debt-definition-measurement-ai-risk-amplification, 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates]
 tags: [agentic-ai, ai-governance, systems-capability-debt, operational-risk, incentives, skill-decay, human-in-the-loop, enterprise, risk-framework]
 started: 2026-05-09T06:57:40+00:00
-completed: ~
+completed: 2026-05-09T07:25:08+00:00
 output: [knowledge]
 cites: [2026-04-22-enterprise-ai-capability-model, 2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-05-07-five-eyes-ai-risks-and-advice]
 related: [2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-governance-maturity-model, 2026-04-26-permission-safe-rag-enterprise-information-architecture]
