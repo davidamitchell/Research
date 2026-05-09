@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?"
 added: 2026-05-08T10:05:24+00:00
 status: reviewing
