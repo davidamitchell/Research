@@ -1,6 +1,113 @@
 {
-  "extracted_at": "2026-05-09T03:44:39Z",
+  "extracted_at": "2026-05-09T03:52:41Z",
   "items": {
+    "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates": {
+      "named_concepts": [
+        "official guidance",
+        "verification intensity",
+        "override rate",
+        "hybrid tiered",
+        "exception review",
+        "competence authority",
+        "authority independence",
+        "independence manageable",
+        "manageable caseload",
+        "oversight quality",
+        "queue depth",
+        "challenge culture",
+        "oversight model",
+        "single universal",
+        "high-volume ai",
+        "meaningful human",
+        "synchronous approval",
+        "highest-consequence actions",
+        "review statistical",
+        "statistical sampling"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1518/001872095779049543",
+        "https://doi.org/10.2514/6.2004-6313",
+        "https://www.cambridge.org/core/books/human-error/CBEF9FDCF7E4A83E38A2BD66F2ECC21F",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning",
+        "https://www.fca.org.uk/publications/corporate-documents/artificial-intelligence-ai-update-further-governments-response-ai-white-paper",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A hybrid tiered oversight model is the most defensible design for high-volume enterprise AI use, because the official sources support strict synchronous approval only for the highest-consequence actions while allowing lower-risk work to move to exception review, statistical sampling, and periodic audit",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "Meaningful human review depends on reviewer competence, authority, independence, manageable caseload, and real stop or override rights, which means passive sign-off or symbolic approval does not satisfy the strongest official guidance on AI oversight",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/"
+          ]
+        },
+        {
+          "text": "Oversight quality should be measured with dual KPI bundles rather than with productivity alone, because the reviewed guidance and empirical evidence require target accuracy, tolerance, override logging, depth of evidence checking by reviewers, and system-stability monitoring in addition to output speed",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
+          ]
+        },
+        {
+          "text": "The most useful operational metric set combines sampled AI error-detection rate, target accuracy and tolerance, override and disagreement rates, verification intensity, meaning observable evidence-checking effort by reviewers, review latency, queue depth, caseload, and fallback-trigger rate, because no single metric can distinguish accurate automation from nominal review",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+            "https://link.springer.com/article/10.1007/s00146-025-02422-7"
+          ]
+        },
+        {
+          "text": "Override rate should not be treated as a standalone success metric, because a low override rate can signal either a genuinely accurate system or a reviewer who has stopped checking carefully under workload or trust pressure",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
+          ]
+        },
+        {
+          "text": "Workload and trust pressure increase automation bias, meaning over-reliance on automated recommendations, while explicit information about possible system errors and less aggregated evidence improve verification intensity more reliably than generic reminders that the reviewer is responsible",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
+          ]
+        },
+        {
+          "text": "Genuine challenge culture requires structural protection for disagreement, including independent reviewers, senior-level visibility, safety-first norms, and no-blame override expectations, because review quality collapses when organisations reward queue clearance more clearly than careful challenge",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html"
+          ]
+        },
+        {
+          "text": "Adding more reviewers without changing the operating model only delays the bottleneck, because AI can raise throughput while delivery stability still worsens unless the organisation also improves routing, testing, feedback loops, and telemetry",
+          "sources": [
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-01-human-oversight-ai-software-development.html"
+          ]
+        }
+      ]
+    },
     "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai": {
       "named_concepts": [
         "acceptance rate",
