@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 625e51ebd159cc0837971c7e9c58d90039a8b2c8
+    changed: 2026-05-09
+    progress: progress/2026-05-09-ai-skill-decay-deskilling-measurement-interventions.md
+    summary: "Initial completion"
 ---
 
 # To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?
