@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?"
 added: 2026-05-08T10:05:24+00:00
 status: reviewing
