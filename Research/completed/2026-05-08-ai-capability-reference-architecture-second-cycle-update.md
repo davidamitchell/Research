@@ -34,7 +34,12 @@ superseded_by: ~
 supersedes: ~
 item_type: synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 4901d2e71c95cb9b11dd700ec41a9d87558bfe32
+    changed: 2026-05-09
+    progress: progress/2026-05-09-ai-capability-reference-architecture-second-cycle-update.md
+    summary: "Initial completion"
 ---
 
 # Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items
