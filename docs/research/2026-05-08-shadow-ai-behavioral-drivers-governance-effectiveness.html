@@ -1,0 +1,792 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>What are the primary behavioural and structural drivers of unsanctioned AI… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>What are the primary behavioural and structural drivers of unsanctioned AI…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>What are the primary behavioural and structural drivers of unsanctioned AI…</h1>
+  <p class="full-title-subtitle">What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?</p>
+  <div class="meta-bar">
+    <span>2026-05-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/shadow-it.html">shadow-it</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <a class="tag" href="/Research/tags/governance-behaviour.html">governance-behaviour</a> <a class="tag" href="/Research/tags/regulated-enterprise.html">regulated-enterprise</a> <a class="tag" href="/Research/tags/human-factors.html">human-factors</a> <a class="tag" href="/Research/tags/observability.html">observability</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Post-rollout shadow AI is driven primarily by the same unmet-demand and workflow-friction conditions that drove earlier shadow IT, namely slow official delivery paths, weak business-IT fit, and sanctioned tools that do not match real work needs, while weak enforcement and risk unawareness remain secondary contributors<span class="claim-sources"><a class="claim-source-link" href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf" target="_blank" rel="noopener" title="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf">Klotz et al. (2019)</a><a class="claim-source-link" href="https://jitm.ubalt.edu/XXX-4/article1.pdf" target="_blank" rel="noopener" title="https://jitm.ubalt.edu/XXX-4/article1.pdf">Kopper et al. (2019)</a><a class="claim-source-link" href="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks" target="_blank" rel="noopener" title="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks">IBM (2025)</a><a class="claim-source-link" href="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/" target="_blank" rel="noopener" title="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">LinkedIn (2024)</a></span></li>
+<li>Sanctioned rollout does not reliably displace unofficial AI use, because Microsoft, IBM, and Cyberhaven all show high enterprise adoption coexisting with persistent Bring Your Own AI, personal-account use, and unofficial tool selection<span class="claim-sources"><a class="claim-source-link" href="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/" target="_blank" rel="noopener" title="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">LinkedIn (2024)</a><a class="claim-source-link" href="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks" target="_blank" rel="noopener" title="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks">IBM (2025)</a><a class="claim-source-link" href="https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk" target="_blank" rel="noopener" title="https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk">Labs (2024)</a></span></li>
+<li>The best-supported causal interpretation is that official rollout often legitimises AI as normal work infrastructure while leaving employees free to choose faster or better-fitting shadow tools when the sanctioned lane remains narrow, poorly integrated, or weakly trained<span class="claim-sources"><a class="claim-source-link" href="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/" target="_blank" rel="noopener" title="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">LinkedIn (2024)</a><a class="claim-source-link" href="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks" target="_blank" rel="noopener" title="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks">IBM (2025)</a><a class="claim-source-link" href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener" title="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA (2025)</a></span></li>
+<li>Managed enterprise-agent platforms expose materially stronger control surfaces than unmanaged tools, because official control surfaces support real-time policy enforcement over authentication, tools, knowledge sources, channels, and triggers, plus audit logging and security-status feedback<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Learn (2025)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Learn (2025)</a></span></li>
+<li>Those same mechanisms are only partially effective against shadow AI systems that can call tools or take multi-step actions, because discovery can reveal unsanctioned app usage and traffic volume, but it cannot by itself reconstruct the prompt content, reasoning chain, or delegated tool actions that make agentic failures dangerous<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery">Learn (2025)</a><a class="claim-source-link" href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks" target="_blank" rel="noopener" title="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">Center (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Mitchell (2026)</a></span></li>
+<li>Shadow agentic AI is harder to contain than earlier shadow IT because the risk surface now includes hidden prompt injection, model-mediated exfiltration, and unintended tool execution, which means classic DLP and application inventory are necessary but insufficient controls<span class="claim-sources"><a class="claim-source-link" href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" target="_blank" rel="noopener" title="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">Owasp (n.d.)</a><a class="claim-source-link" href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks" target="_blank" rel="noopener" title="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">Center (2025)</a><a class="claim-source-link" href="https://www.ibm.com/think/topics/shadow-ai" target="_blank" rel="noopener" title="https://www.ibm.com/think/topics/shadow-ai">IBM (n.d.)</a></span></li>
+<li>The most credible governance design is therefore enablement plus containment: make the sanctioned lane lower-friction and better-trained for routine work, while forcing high-risk agentic use onto managed rails with discovery, attributed telemetry, least privilege, and pre-action approval or hold controls<span class="claim-sources"><a class="claim-source-link" href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noopener" title="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National (2023)</a><a class="claim-source-link" href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener" title="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA (2025)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Learn (2025)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery">Learn (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Mitchell (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What are the primary behavioural and structural drivers of shadow Artificial Intelligence (AI) adoption, meaning unsanctioned use of AI tools without formal approval or oversight, in enterprises after official tools have been rolled out, and what is the causal relationship between sanctioned tool provision and shadow usage, specifically, do provided tools reduce shadow AI or normalise bypass behaviours? How effective are current governance mechanisms, policies, Data Loss Prevention (DLP), and monitoring, at containing shadow AI systems that can call tools or take multi-step actions, referred to below as agentic AI, compared to earlier shadow Information Technology (IT) adoption waves?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Sanctioned AI rollout does not, by itself, materially suppress unsanctioned AI use, referred to below as shadow AI; it more often normalises AI use while employees continue choosing faster or better-fitting unofficial tools.</p>
+<p>The strongest drivers remain the same structural frictions that powered earlier shadow IT, slow sanctioned delivery, poor business-IT fit, weak workflow integration, and unmet demand, while weak enforcement and risk unawareness act mainly as contributing rather than primary drivers.</p>
+<p>Current governance mechanisms provide materially stronger constraints inside sanctioned platforms, where authentication, tool restrictions, channel restrictions, and real-time DLP are available, but they remain only partially effective at containing shadow AI systems that can call tools or take multi-step actions because off-rail prompt semantics, tool plans, and delegated actions remain only partly visible.</p>
+<p>Compared with earlier shadow IT waves, the behavioural problem is continuous but the containment problem is harder, because agentic AI adds cognition, autonomy, and machine-speed action risk that require discovery, attributed telemetry, and pre-action controls rather than policy and app inventory alone.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Post-rollout shadow AI is driven primarily by the same unmet-demand and workflow-friction conditions that drove earlier shadow IT, namely slow official delivery paths, weak business-IT fit, and sanctioned tools that do not match real work needs, while weak enforcement and risk unawareness remain secondary contributors.</strong></li>
+<li><strong>Sanctioned rollout does not reliably displace unofficial AI use, because Microsoft, IBM, and Cyberhaven all show high enterprise adoption coexisting with persistent Bring Your Own AI, personal-account use, and unofficial tool selection.</strong></li>
+<li><strong>The best-supported causal interpretation is that official rollout often legitimises AI as normal work infrastructure while leaving employees free to choose faster or better-fitting shadow tools when the sanctioned lane remains narrow, poorly integrated, or weakly trained.</strong></li>
+<li><strong>Managed enterprise-agent platforms expose materially stronger control surfaces than unmanaged tools, because official control surfaces support real-time policy enforcement over authentication, tools, knowledge sources, channels, and triggers, plus audit logging and security-status feedback.</strong></li>
+<li><strong>Those same mechanisms are only partially effective against shadow AI systems that can call tools or take multi-step actions, because discovery can reveal unsanctioned app usage and traffic volume, but it cannot by itself reconstruct the prompt content, reasoning chain, or delegated tool actions that make agentic failures dangerous.</strong></li>
+<li><strong>Shadow agentic AI is harder to contain than earlier shadow IT because the risk surface now includes hidden prompt injection, model-mediated exfiltration, and unintended tool execution, which means classic DLP and application inventory are necessary but insufficient controls.</strong></li>
+<li><strong>The most credible governance design is therefore enablement plus containment: make the sanctioned lane lower-friction and better-trained for routine work, while forcing high-risk agentic use onto managed rails with discovery, attributed telemetry, least privilege, and pre-action approval or hold controls.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>Microsoft survey data, IBM survey data, and Cyberhaven telemetry were treated as collectively representative enough to support direction-of-travel claims across enterprise knowledge work. Justification: the three sources independently report the same persistence pattern after rollout.</li>
+<li>Microsoft Copilot Studio was treated as a representative example of current sanctioned enterprise-agent governance surfaces rather than as a unique outlier. Justification: the control categories align with NIST's governance, inventory, monitoring, and role-control expectations.</li>
+<li>Off-rail personal-account use was treated as only partially observable at enterprise level. Justification: the reviewed discovery sources expose app traffic, users, and bytes transferred, but not a full prompt-to-action trace for unmanaged tools.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>The most persuasive evidence on sanctioned-tool effects came from post-rollout sources that directly measured behaviour rather than only describing risk, because those sources show official availability and shadow persistence at the same time.</li>
+<li>Earlier shadow-IT literature was weighted heavily for mechanism, because it explains why users route around governance, while current AI sources were weighted heavily for changed speed and scale.</li>
+<li>A pure-enforcement explanation is weaker than the mixed fit-and-friction explanation, because earlier shadow-IT studies already treat lack of restrictions and lack of awareness as contributing factors, while IBM and Cyberhaven still show heavy unofficial use even after official tools and policy attention are present.</li>
+<li>The governance synthesis separates control efficacy by surface, managed-lane controls provide stronger constraints, discovery can be useful, but unmanaged agentic actions remain harder to interpret and stop than unmanaged app use in older shadow-IT settings.</li>
+<li>The recommended design favours system improvement over prohibition, because the evidence suggests organisations need better internal platforms and stronger managed-rail containment together, not either one alone.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The evidence for sanctioned rollout causing more shadow use is observational rather than experimental, so the strongest conclusion is persistence and normalisation, not a quantified universal causal uplift.</li>
+<li>Official Microsoft documentation proves control availability but does not, on its own, prove cross-enterprise effectiveness rates for each control in production.</li>
+<li>Discovery and network telemetry reduce visibility gaps, but they do not eliminate the residual risk from unmanaged personal accounts, encrypted traffic, or prompt-level semantics that remain outside full enterprise inspection.</li>
+<li>Inaccessible Gartner and McAfee seeded pages may contain additional quantitative detail, but the core conclusions here do not depend on them because accessible Microsoft, IBM, Cyberhaven, NIST, and shadow-IT literature already support the main findings.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What specific platform-quality and workflow-integration changes most reliably convert high-demand Bring Your Own AI users into sustained sanctioned-platform users?</li>
+<li>Which telemetry fields are minimally sufficient to distinguish benign unsanctioned experimentation from high-risk off-rail agentic use without creating disproportionate privacy or data-minimisation concerns?</li>
+<li>What is the most usable enterprise pattern for pre-action approval or verification hold that contains agentic risk without pushing routine workers back into shadow channels?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p>Starting points and follow-on sources:</p>
+<ul>
+<li>[ ] <a href="https://www.mcafee.com/">McAfee (n.d.) McAfee homepage</a> - seeded shadow-IT source, returned 403 in this session, not used for downstream factual support</li>
+<li>[ ] <a href="https://www.gartner.com/">Gartner (n.d.) Gartner homepage</a> - seeded analyst source, returned 403 in this session, not used for downstream factual support</li>
+<li>[ ] <a href="https://misq.umn.edu/misq/article/35/4/1017/2622/Privacy-in-the-Digital-Age-a-Review-of-Information">Belanger and Crossler (2011) Privacy in the Digital Age: A Review of Information Privacy Research in Information Systems</a> - corrected record for the seeded DOI, checked but not used for downstream factual support</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work">Microsoft WorkLab (2023) Will AI Fix Work?</a> - workload-pressure baseline for why workers want AI assistance</li>
+<li>[x] <a href="https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft and LinkedIn (2024) Work Trend Index on the state of AI at work</a> - post-rollout Bring Your Own AI (BYOAI) evidence</li>
+<li>[x] <a href="https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks">IBM (2025) Is rising AI adoption creating shadow AI risks?</a> - survey evidence on unofficial use, feature gaps, and training demand</li>
+<li>[x] <a href="https://www.ibm.com/think/topics/shadow-ai">IBM (n.d.) Shadow AI</a> - definitional comparison between shadow AI and shadow IT, plus productivity and governance framing</li>
+<li>[x] <a href="https://www.ibm.com/reports/data-breach">IBM and Ponemon Institute (2025) Cost of a Data Breach Report, The AI oversight gap</a> - governance-gap indicators for incidents, access controls, and shadow AI policy absence</li>
+<li>[x] <a href="https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk">Cyberhaven Labs (2024) Shadow AI: How employees are leading the charge in AI adoption and putting company data at risk</a> - enterprise telemetry on personal accounts, sensitive data, and persistence after enterprise rollout</li>
+<li>[x] <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf">Klotz et al. (2019) Causing factors, outcomes, and governance of Shadow IT and business-managed IT</a> - shadow-IT baseline on slowness, unmet needs, and governance response</li>
+<li>[x] <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Kopper et al. (2019) Shadow IT and Business-managed IT: Practitioner Perceptions and Their Comparison to Literature</a> - practitioner baseline on business-IT misalignment, agility gaps, and policy weakness</li>
+<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) (2023) AI Risk Management Framework Core</a> - cross-cutting governance, inventory, training, monitoring, and role-clarity baseline</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Microsoft Learn (2025) Copilot Studio security and governance</a> - sanctioned-platform control surfaces and auditability</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Microsoft Learn (2025) Configure data policies for agents in Copilot Studio</a> - real-time DLP enforcement and configurable restrictions over tools, knowledge, channels, authentication, and triggers</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery">Microsoft Learn (2025) Shadow AI discovery in Microsoft Entra Global Secure Access</a> - network-based discovery and usage analytics for unsanctioned AI apps and tools</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">Microsoft Security Response Center (2025) How Microsoft defends against indirect prompt injection attacks</a> - action and exfiltration risks that exceed classic DLP-only framing</li>
+<li>[x] <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">Open Worldwide Application Security Project (OWASP) (2025) LLM01 Prompt Injection</a> - why prompt injection remains incompletely preventable and why least privilege and human approval remain necessary</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">Google Cloud DORA (2025) Announcing the 2025 DORA report</a> - evidence that AI amplifies existing workflow and platform weaknesses</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">Mitchell (2026) How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?</a> - prior repository synthesis on governance circumvention drivers</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html">Mitchell (2026) What capability and control design is needed to mitigate incentive misalignment, shadow AI, rail bypass, and skill decay at enterprise scale?</a> - prior repository synthesis on interacting failure modes and scaled controls</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html">Mitchell (2026) What are the primary failure modes in enterprise AI and low-code deployments, and how can governance systems be designed to mitigate them?</a> - prior repository synthesis on failure classes and control mapping</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">Mitchell (2026) What observability and telemetry model is required to govern AI and low-code systems at scale?</a> - prior repository synthesis on telemetry and reconstruction requirements</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Mitchell (2026) UELGF extension: agentic AI-specific risks and runtime monitoring for non-deterministic behaviour</a> - prior repository synthesis on precursor monitoring for agentic risk</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html">What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?</a> <span class="related-note">via agentic-ai, ai-governance, enterprise, governance-behaviour, human-factors, regulated-enterprise, shadow-it</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html">What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?</a> <span class="related-note">via agentic-ai, ai-governance, enterprise, governance-behaviour, regulated-enterprise</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-08-capability-debt-definition-measurement-ai-risk-amplification.html">How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?</a> <span class="related-note">via agentic-ai, ai-governance, enterprise, regulated-enterprise, shadow-it</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html">Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem</a> <span class="related-note">via agentic-ai, ai-governance, enterprise, observability, regulated-enterprise</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-08-ai-skill-decay-deskilling-measurement-interventions.html">To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?</a> <span class="related-note">via agentic-ai, ai-governance, enterprise, human-factors</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html">What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html">What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-22-enterprise-ai-capability-model.html">Enterprise AI capability model for use-case maturity decisions</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html">HITL control at scale under high-volume multi-step AI adoption, and how should…</a></div>
+  </div>
+</main>
+</body>
+</html>

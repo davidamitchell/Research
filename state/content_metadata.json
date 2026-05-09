@@ -1,6 +1,116 @@
 {
-  "extracted_at": "2026-05-09T06:21:25Z",
+  "extracted_at": "2026-05-09T06:35:02Z",
   "items": {
+    "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness": {
+      "named_concepts": [
+        "shadow ai",
+        "earlier shadow",
+        "materially stronger",
+        "agentic ai",
+        "control surfaces",
+        "unmanaged tools",
+        "business-it fit",
+        "unmet demand",
+        "weak enforcement",
+        "risk unawareness",
+        "stronger constraints",
+        "partially effective",
+        "ai systems",
+        "call tools",
+        "multi-step actions",
+        "actions remain",
+        "discovery attributed",
+        "attributed telemetry",
+        "post-rollout shadow",
+        "sanctioned rollout"
+      ],
+      "source_urls": [
+        "https://www.mcafee.com/",
+        "https://www.gartner.com/",
+        "https://misq.umn.edu/misq/article/35/4/1017/2622/Privacy-in-the-Digital-Age-a-Review-of-Information",
+        "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work",
+        "https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/",
+        "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+        "https://www.ibm.com/think/topics/shadow-ai",
+        "https://www.ibm.com/reports/data-breach",
+        "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+        "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+        "https://jitm.ubalt.edu/XXX-4/article1.pdf",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery",
+        "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Post-rollout shadow AI is driven primarily by the same unmet-demand and workflow-friction conditions that drove earlier shadow IT, namely slow official delivery paths, weak business-IT fit, and sanctioned tools that do not match real work needs, while weak enforcement and risk unawareness remain secondary contributors",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+            "https://jitm.ubalt.edu/XXX-4/article1.pdf",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/"
+          ]
+        },
+        {
+          "text": "Sanctioned rollout does not reliably displace unofficial AI use, because Microsoft, IBM, and Cyberhaven all show high enterprise adoption coexisting with persistent Bring Your Own AI, personal-account use, and unofficial tool selection",
+          "sources": [
+            "https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk"
+          ]
+        },
+        {
+          "text": "The best-supported causal interpretation is that official rollout often legitimises AI as normal work infrastructure while leaving employees free to choose faster or better-fitting shadow tools when the sanctioned lane remains narrow, poorly integrated, or weakly trained",
+          "sources": [
+            "https://news.microsoft.com/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report"
+          ]
+        },
+        {
+          "text": "Managed enterprise-agent platforms expose materially stronger control surfaces than unmanaged tools, because official control surfaces support real-time policy enforcement over authentication, tools, knowledge sources, channels, and triggers, plus audit logging and security-status feedback",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention"
+          ]
+        },
+        {
+          "text": "Those same mechanisms are only partially effective against shadow AI systems that can call tools or take multi-step actions, because discovery can reveal unsanctioned app usage and traffic volume, but it cannot by itself reconstruct the prompt content, reasoning chain, or delegated tool actions that make agentic failures dangerous",
+          "sources": [
+            "https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery",
+            "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        },
+        {
+          "text": "Shadow agentic AI is harder to contain than earlier shadow IT because the risk surface now includes hidden prompt injection, model-mediated exfiltration, and unintended tool execution, which means classic DLP and application inventory are necessary but insufficient controls",
+          "sources": [
+            "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+            "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+            "https://www.ibm.com/think/topics/shadow-ai"
+          ]
+        },
+        {
+          "text": "The most credible governance design is therefore enablement plus containment: make the sanctioned lane lower-friction and better-trained for routine work, while forcing high-risk agentic use onto managed rails with discovery, attributed telemetry, least privilege, and pre-action approval or hold controls",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+            "https://learn.microsoft.com/en-us/entra/global-secure-access/concept-shadow-ai-discovery",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
     "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates": {
       "named_concepts": [
         "official guidance",
