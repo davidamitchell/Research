@@ -2,12 +2,12 @@
 review_count: 2
 title: "Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements"
 added: 2026-05-09T22:44:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [governance, llm, agentic-ai, ai-governance, regulatory, compliance]
 started: 2026-05-10T20:12:32+00:00
-completed: ~
+completed: 2026-05-10T20:37:24+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
