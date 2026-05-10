@@ -2,12 +2,12 @@
 review_count: 2
 title: "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk"
 added: 2026-05-09T22:56:47+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, operational-risk]
 started: 2026-05-09T23:47:30+00:00
-completed: ~
+completed: 2026-05-10T00:09:46+00:00
 output: [knowledge]
 cites: [2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk]
 related: []
