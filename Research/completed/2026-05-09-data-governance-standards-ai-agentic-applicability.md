@@ -17,15 +17,17 @@ cites:
   - 2026-04-26-data-governance-ai-lowcode-enterprise-enforcement
   - 2026-04-26-ai-lowcode-regulatory-compliance-alignment
   - 2026-04-30-explainable-ai-xai-regulation-governance
-  - 2026-04-26-data-governance-ai-lowcode-enterprise-enforcement
-  - 2026-04-26-ai-lowcode-regulatory-compliance-alignment
-  - 2026-04-30-explainable-ai-xai-regulation-governance
 related: []
 superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b0e2e2097f4d3f3be0dad3da81bd18c8326f1d84
+    changed: 2026-05-10
+    progress: progress/2026-05-10-data-governance-standards-ai-agentic-applicability.md
+    summary: Initial completion
 ---
 
 # Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments
