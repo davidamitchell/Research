@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Key-person dependency and Basel execution, delivery, and process-management risk linkage"
 added: 2026-05-09T22:56:47+00:00
 status: reviewing
