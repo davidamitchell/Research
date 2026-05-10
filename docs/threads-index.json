@@ -6580,14 +6580,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "power platform",
       "copilot studio",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -6607,6 +6607,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]
