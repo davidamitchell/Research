@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-10T19:54:52Z",
+  "extracted_at": "2026-05-10T20:11:12Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -344,6 +344,119 @@
             "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
             "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
             "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-data-governance-standards-ai-agentic-applicability": {
+      "named_concepts": [
+        "ai systems",
+        "multi-step autonomous",
+        "autonomous ai",
+        "iso iec",
+        "accessible official",
+        "chained ai",
+        "ai workflows",
+        "automated decisions",
+        "artificial intelligence",
+        "intelligence risk",
+        "risk management",
+        "management framework",
+        "human-ai oversight",
+        "gdpr guidance",
+        "automated decisionmaking",
+        "decisionmaking technology",
+        "technology rules",
+        "externalized policy",
+        "proposals lineage",
+        "stop rights"
+      ],
+      "source_urls": [
+        "https://www.iso.org/standard/56639.html",
+        "https://www.iso.org/standard/56641.html",
+        "https://www.dama.org/cpages/body-of-knowledge",
+        "https://www.dama.org/dama-dmbok-revision/",
+        "https://www.damadmbok.org/copy-of-about-dama-dmbok",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://airc.nist.gov/airmf-resources/playbook/",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+        "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/how-do-we-ensure-fairness-in-ai/what-is-the-impact-of-article-22-of-the-uk-gdpr-on-fairness/",
+        "https://cppa.ca.gov/announcements/2025/20250923.html",
+        "https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf",
+        "https://www.law.cornell.edu/cfr/text/45/164.306",
+        "https://www.law.cornell.edu/cfr/text/45/164.312",
+        "https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The NIST Artificial Intelligence Risk Management Framework and its companion resources already apply directly to AI systems because they explicitly require legal and regulatory management, human-AI oversight roles, third-party risk handling, ongoing monitoring, and contingency processes",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://airc.nist.gov/airmf-resources/playbook/",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+          ]
+        },
+        {
+          "text": "ISO/IEC 38505 applies to AI deployments at the governance-of-data layer because it governs current and future use of data created, collected, stored, or controlled by information-technology systems, but its accessible official material remains principle-level rather than runtime-specific",
+          "sources": [
+            "https://www.iso.org/standard/56639.html",
+            "https://www.iso.org/standard/56641.html"
+          ]
+        },
+        {
+          "text": "DAMA-DMBOK applies to AI systems through its data-governance, security, metadata, and data-quality knowledge areas, and DAMA's 2024 revision adds AI governance and ethics without replacing the framework's underlying data-management structure",
+          "sources": [
+            "https://www.dama.org/cpages/body-of-knowledge",
+            "https://www.dama.org/dama-dmbok-revision/",
+            "https://www.damadmbok.org/copy-of-about-dama-dmbok"
+          ]
+        },
+        {
+          "text": "GDPR guidance already constrains AI systems used for solely automated decisions with legal or similarly significant effects by requiring notice, contestability, regular checks, and meaningful human review that relates to the actual outcome rather than nominal upstream involvement",
+          "sources": [
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/how-do-we-ensure-fairness-in-ai/what-is-the-impact-of-article-22-of-the-uk-gdpr-on-fairness/"
+          ]
+        },
+        {
+          "text": "California's approved Automated Decisionmaking Technology rules turn meaningful review into a concrete operational test by requiring a human reviewer who can interpret the system output, analyze other relevant information, and change the decision, with significant-decision obligations beginning in 2027",
+          "sources": [
+            "https://cppa.ca.gov/announcements/2025/20250923.html",
+            "https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf"
+          ]
+        },
+        {
+          "text": "HIPAA already covers AI systems that create, receive, maintain, or transmit electronic protected health information because current rules require confidentiality, integrity, availability, access control, audit controls, authentication, and transmission security for those information systems",
+          "sources": [
+            "https://www.law.cornell.edu/cfr/text/45/164.306",
+            "https://www.law.cornell.edu/cfr/text/45/164.312"
+          ]
+        },
+        {
+          "text": "The main gaps for chained AI workflows are threshold scope and control-surface specificity, because the reviewed standards say what outcomes organizations owe but rarely specify exactly when every workflow crosses a legal trigger or how to govern tool calls, delegated subtasks, shared state, or cross-system side effects",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://www.iso.org/standard/56639.html",
+            "https://www.dama.org/dama-dmbok-revision/",
+            "https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf",
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://www.law.cornell.edu/cfr/text/45/164.312"
+          ]
+        },
+        {
+          "text": "The best-supported compensating controls are externalized policy enforcement, structured action proposals, lineage and decision logging, third-party oversight, and meaningful human escalation or stop rights, because those mechanisms translate principle-level obligations into inspectable runtime behavior",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html"
           ]
         }
       ]
