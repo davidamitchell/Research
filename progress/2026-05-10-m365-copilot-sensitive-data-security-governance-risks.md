@@ -1,7 +1,7 @@
 # 2026-05-10 — Add backlog item (m365-copilot-sensitive-data-security-governance-risks)
 
 **Completed:**
-- `Research/backlog/2026-05-10-m365-copilot-sensitive-data-security-governance-risks.md` — added from issue #[New research questions]; asks what documented security, compliance, and governance risks exist when Generative AI (GenAI) tools such as Microsoft 365 (M365) Copilot are used to draft documents in environments containing sensitive, confidential, or classified information.
+- `Research/backlog/2026-05-10-m365-copilot-sensitive-data-security-governance-risks.md` — added from issue #503; asks what documented security, compliance, and governance risks exist when Generative AI (GenAI) tools such as Microsoft 365 (M365) Copilot are used to draft documents in environments containing sensitive, confidential, or classified information.
 
 ## Mini-Retro
 

@@ -35,7 +35,7 @@ What are the documented security, compliance, and governance risks of using Gene
 - How Microsoft 365 Copilot interacts with Microsoft Graph permissions and sensitivity labels when retrieving content for generative tasks
 - Real-world incidents or case studies where AI assistants inadvertently surfaced or incorporated classified or sensitive data into new outputs
 - Technical and policy mitigations — Data Loss Prevention (DLP), restricted content discovery, GCC High (Government Community Cloud High), sensitivity label enforcement — and how effective they are
-- How regulatory frameworks (GDPR (General Data Protection Regulation), CMMC (Cybersecurity Maturity Model Certification), ITAR (International Traffic in Arms Regulations), national security policies) view the use of commercial GenAI on sensitive data
+- How regulatory frameworks (GDPR (General Data Protection Regulation), CMMC (Cybersecurity Maturity Model Certification), ITAR (International Traffic in Arms Regulations), national security policies) view the use of commercial Generative AI (GenAI) on sensitive data
 - Risk profile differences between consumer/cloud Copilot, enterprise-licensed versions, and air-gapped or private deployments
 - How over-permissioning and data sprawl in SharePoint/OneDrive amplify risks when AI is introduced
 - Impact of poor or absent data classification labelling on GenAI-driven data leakage
