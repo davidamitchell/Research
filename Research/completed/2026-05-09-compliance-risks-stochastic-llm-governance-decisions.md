@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 9581d39e3860b9334b6ff553c3ae638b30289de3
+    changed: 2026-05-10
+    progress: progress/2026-05-10-compliance-risks-stochastic-llm-governance-decisions.md
+    summary: Initial completion
 ---
 
 # Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions
