@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-10T20:21:51Z",
+  "extracted_at": "2026-05-10T20:38:27Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -344,6 +344,109 @@
             "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
             "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
             "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-governance-policy-determinism-vs-stochastic-llm": {
+      "named_concepts": [
+        "artificial intelligence",
+        "european union",
+        "union artificial",
+        "intelligence act",
+        "governance decisions",
+        "language model",
+        "information commissioner",
+        "iso iec",
+        "model behavior",
+        "final authority",
+        "model output",
+        "documented control",
+        "control process",
+        "european commission",
+        "deterministic rules",
+        "empowered human",
+        "final decision",
+        "meaningful oversight",
+        "assistive tasks",
+        "nist artificial"
+      ],
+      "source_urls": [
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+        "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/how-do-we-ensure-fairness-in-ai/what-is-the-impact-of-article-22-of-the-uk-gdpr-on-fairness/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15",
+        "https://www.iso.org/standard/56639.html",
+        "https://www.iso.org/standard/56641.html",
+        "https://link.springer.com/article/10.1007/s11023-018-9482-5",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+        "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The NIST Artificial Intelligence Risk Management Framework GOVERN function requires documented legal and regulatory understanding, transparent controls, ongoing monitoring, clear roles, and executive responsibility, which supports treating governance as a documented control process rather than as ad hoc model behavior at the point of decision",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://www.iso.org/standard/56641.html"
+          ]
+        },
+        {
+          "text": "European Commission and Information Commissioner's Office guidance restrict solely automated significant decisions and require meaningful human intervention, contestability, and regular checks, so nominal human involvement around a stochastic model is not enough when the outcome matters",
+          "sources": [
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/how-do-we-ensure-fairness-in-ai/what-is-the-impact-of-article-22-of-the-uk-gdpr-on-fairness/"
+          ]
+        },
+        {
+          "text": "Articles 12, 14, and 15 of the European Union Artificial Intelligence Act require lifetime logs, effective human oversight with override or stop capability, and consistent accuracy or robustness, which makes irreproducible free-form model output an inadequate sole control surface for high-risk governance decisions",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15"
+          ]
+        },
+        {
+          "text": "ISO/IEC 38505, ISO/IEC 38507, and Floridi et al. reinforce the same direction by framing acceptable data and Artificial Intelligence use as a governing-body responsibility that must preserve stakeholder confidence, intelligibility, and accountable explanation",
+          "sources": [
+            "https://www.iso.org/standard/56639.html",
+            "https://www.iso.org/standard/56641.html",
+            "https://link.springer.com/article/10.1007/s11023-018-9482-5"
+          ]
+        },
+        {
+          "text": "Microsoft's Azure OpenAI documentation states that repeated calls are nondeterministic by default and that determinism is still not guaranteed even when seed and backend fingerprint controls are held constant, so current provider features improve consistency but do not guarantee reproducibility",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output"
+          ]
+        },
+        {
+          "text": "Thinking Machines Lab's technical analysis indicates that temperature zero does not eliminate practical nondeterminism and links residual variance to serving-path behavior such as batch-sensitive execution, so decoding settings alone are not a sufficient governance control",
+          "sources": [
+            "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/"
+          ]
+        },
+        {
+          "text": "Governance decisions that approve, deny, classify, sanction, or trigger reporting or side effects therefore need deterministic rules, logged thresholds, or empowered human adjudication as the final authority, because that is where traceability and contestability are tested in practice",
+          "sources": [
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/how-do-we-ensure-fairness-in-ai/what-is-the-impact-of-article-22-of-the-uk-gdpr-on-fairness/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html"
+          ]
+        },
+        {
+          "text": "Controlled probabilistic variation is acceptable for preparatory or assistive tasks only when outputs are logged and routed through deterministic or meaningfully supervised final gates before any consequential action is executed",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html]"
           ]
         }
       ]
