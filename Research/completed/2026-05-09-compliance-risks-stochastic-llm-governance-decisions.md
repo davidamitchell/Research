@@ -2,12 +2,12 @@
 review_count: 2
 title: "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions"
 added: 2026-05-09T22:44:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [compliance, llm, governance, agentic-ai, ai-governance, hallucinations, privacy, financial-services]
 started: 2026-05-10T19:19:52+00:00
-completed: ~
+completed: 2026-05-10T19:38:03+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
@@ -176,9 +176,9 @@ What evidence or guidance exists on the compliance risks of relying primarily on
 
 ### §4 Consistency Check
 
-- [fact; source: https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html] No contradiction was found between the banking sources and the privacy sources: both require stronger governance than raw model output, although the banking guidance is less explicit because it excludes generative and agentic AI from current scope.
+- [inference; source: https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en] No contradiction was found between the banking sources and the privacy sources: both require stronger governance than raw model output, although the banking guidance is less explicit because it excludes generative and agentic AI from current scope.
 - [inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html] The apparent tension between "risk-based AI adoption" and "do not rely on stochastic output as final authority" resolves cleanly once the architecture separates model assistance from final governance authority.
-- [fact; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/] The empirical evidence is stronger on legal and clinical unreliability than on published financial-services incident data, so cross-sector reliability claims are carried as inference where needed rather than overstated as direct finance-sector fact.
+- [inference; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/] The empirical evidence gathered in this item is stronger on legal and clinical unreliability than on published financial-services incident data, so cross-sector reliability claims are carried as inference where needed rather than overstated as direct finance-sector fact.
 
 ### §5 Depth and Breadth Expansion
 
@@ -237,8 +237,6 @@ The best-supported operating model is therefore to keep the LLM where variance i
 **Risks, gaps, uncertainties:**
 
 - [fact; source: https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html] Public banking guidance is currently clearer about governance expectations than about detailed generative-AI validation standards, because the latest interagency model-risk guidance excludes generative and agentic systems from scope.
-- [fact; source: https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes] Direct LLM-specific enforcement actions for internal governance decisions remain thinner than the broader guidance base, so some deployment conclusions rely on synthesizing privacy, consumer-protection, and model-governance sources rather than on a large case set.
-- [fact; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/] The accessible empirical evidence in this session is strongest in legal and medical settings, not in published financial-services incident studies, although those domains are still probative because they stress the same accuracy and traceability properties.
 - [fact; source: https://arxiv.org/abs/2108.07258; https://arxiv.org/abs/2112.04359] Foundation-model risk literature is broad and not written as sector-specific compliance guidance, so it strengthens structural-risk claims more than it proves any one regulator's enforcement theory.
 
 **Open questions:**
@@ -308,8 +306,6 @@ The best-supported operating model is therefore to keep the Large Language Model
 ### Risks, Gaps, and Uncertainties
 
 - Public banking guidance is currently clearer about governance expectations than about detailed generative-AI validation standards, because the latest interagency model-risk guidance excludes generative and agentic systems from scope. [fact; source: https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html]
-- Direct LLM-specific enforcement actions for internal governance decisions remain thinner than the broader guidance base, so some deployment conclusions rely on synthesizing privacy, consumer-protection, and model-governance sources rather than on a large case set. [fact; source: https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes]
-- The accessible empirical evidence in this session is strongest in legal and medical settings, not in published financial-services incident studies, although those domains are still probative because they stress the same accuracy and traceability properties. [fact; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/]
 - Foundation-model risk literature is broad and not written as sector-specific compliance guidance, so it strengthens structural-risk claims more than it proves any one regulator's enforcement theory. [fact; source: https://arxiv.org/abs/2108.07258; https://arxiv.org/abs/2112.04359]
 
 ### Open Questions
@@ -323,7 +319,7 @@ The best-supported operating model is therefore to keep the Large Language Model
 ## Output
 
 - Type: knowledge
-- Description: This item concludes that stochastic Large Language Model output is best used as an assistive proposal layer rather than as the final authority for governance, privacy, or regulatory decisions, because the strongest accessible guidance and evidence point toward safeguards, traceability, and accountable override outside the model. [inference; source: https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html]
+- Description: This item concludes that probabilistic Large Language Model output is best used as an assistive proposal layer rather than as the final authority for governance, privacy, or regulatory decisions, because the strongest accessible guidance and evidence point toward safeguards, traceability, and accountable override outside the model. [inference; source: https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html]
 - Links:
   - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en
   - https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes
