@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): defined-process requirements for risk mitigation"
 added: 2026-05-09T22:56:47+00:00
 status: reviewing
