@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-09T23:58:52Z",
+  "extracted_at": "2026-05-10T00:10:47Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -443,6 +443,93 @@
             "https://dora.dev/guides/dora-metrics/",
             "https://sre.google/workbook/eliminating-toil/",
             "https://www.microsoft.com/en-us/research/publication/use-of-relative-code-churn-measures-to-predict-system-defect-density/"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification": {
+      "named_concepts": [
+        "basel committee",
+        "banking supervision",
+        "supervision bcbs",
+        "international organization",
+        "standardization iso",
+        "national institute",
+        "technology nist",
+        "operational risk",
+        "internal governance",
+        "processes people",
+        "uncertainty around",
+        "critical operations",
+        "information-quality risk",
+        "system-and-data control",
+        "continuous monitoring",
+        "manual desktop",
+        "desktop applications",
+        "enterprise risk",
+        "risk management",
+        "around objectives"
+      ],
+      "source_urls": [
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://www.bis.org/publ/bcbs239.htm",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.iso.org/iso-31000-risk-management.html",
+        "https://www.iso.org/news/ref2263.html",
+        "https://doi.org/10.6028/NIST.SP.800-37r2",
+        "https://doi.org/10.6028/NIST.SP.800-53r5",
+        "https://csrc.nist.gov/glossary/term/System_of_Records",
+        "https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Basel Committee on Banking Supervision (BCBS) classifies unmanaged business-critical workforce-data tooling as operational risk because its core definition covers losses from inadequate or failed internal processes, people, and systems, and because operational risk is inherent in all banking products, activities, processes, and systems",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.htm"
+          ]
+        },
+        {
+          "text": "When the workforce data supports risk reporting or other critical banking decisions, Basel Committee on Banking Supervision (BCBS) 239 implies that the pattern should be treated as a risk-data-aggregation weakness because the framework requires supporting data architecture, largely automated aggregation, and effective controls over manual spreadsheets and databases",
+          "sources": [
+            "https://www.bis.org/publ/bcbs239.htm"
+          ]
+        },
+        {
+          "text": "Basel Committee on Banking Supervision (BCBS) operational-resilience guidance implies that the pattern should be treated as a dependency-mapping and critical-information resilience problem because banks must map the people, technology, processes, and information needed to deliver critical operations through disruption",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d516.htm"
+          ]
+        },
+        {
+          "text": "International Organization for Standardization (ISO) 31000 does not publish a sector-specific label for shadow workforce-data handling, but its official public guidance still classifies the pattern as an internal governance and information-quality risk that increases uncertainty around organizational objectives and decision making",
+          "sources": [
+            "https://www.iso.org/iso-31000-risk-management.html",
+            "https://www.iso.org/news/ref2263.html"
+          ]
+        },
+        {
+          "text": "National Institute of Standards and Technology (NIST) Risk Management Framework and Special Publication 800-53 guidance classify the pattern as a system-and-data control issue that must be managed through inventory, account management, information-flow enforcement, event logging, integrity verification, and continuous monitoring",
+          "sources": [
+            "https://doi.org/10.6028/NIST.SP.800-37r2",
+            "https://doi.org/10.6028/NIST.SP.800-53r5"
+          ]
+        },
+        {
+          "text": "If the workforce dataset is retrieved by employee or contractor identifiers, National Institute of Standards and Technology (NIST) guidance shows that the same unmanaged-tool pattern can also carry privacy and records-governance implications rather than only operational inefficiency",
+          "sources": [
+            "https://csrc.nist.gov/glossary/term/System_of_Records",
+            "https://doi.org/10.6028/NIST.SP.800-53r5"
+          ]
+        },
+        {
+          "text": "Across the three frameworks, the shadow-tool pattern is consistently treated as enterprise risk that degrades decision quality, auditability, and resilience once the data materially affects operations or oversight",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.htm",
+            "https://www.iso.org/iso-31000-risk-management.html",
+            "https://doi.org/10.6028/NIST.SP.800-37r2"
           ]
         }
       ]
