@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 7b9b4fc18eb17be3656f5026981346106c29def8
+    changed: 2026-05-10
+    progress: progress/2026-05-10-governance-policy-determinism-vs-stochastic-llm.md
+    summary: "Initial completion"
 ---
 
 # Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements
