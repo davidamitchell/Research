@@ -6090,13 +6090,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -6152,7 +6152,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -6650,14 +6650,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -6697,7 +6697,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "workflow-knowledge-graph-agentic-ai",
@@ -6870,13 +6870,13 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-claude-code",
-    "title": "copilot coding / coding agent / claude code",
+    "slug": "coding-agent-copilot-coding-claude-code",
+    "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "claude code"
     ],
     "item_count": 5,
@@ -6907,7 +6907,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
     "slug": "cost-allocation-financial-services-tbm-council",
@@ -6950,13 +6950,13 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "agents md"
     ],
     "item_count": 5,
@@ -6987,7 +6987,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7023,6 +7023,41 @@
       }
     ],
     "url": "/Research/threads/youtube-transcripts-tooling.html"
+  },
+  {
+    "slug": "workflow-organisation-process",
+    "title": "workflow / organisation / process",
+    "kind": "implicit",
+    "tag_cluster": [
+      "workflow",
+      "organisation",
+      "process"
+    ],
+    "concept_cluster": [],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-02-27-simple-process-for-adding-research-item",
+        "title": "Simple process for adding a research item",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
+        "added": "2026-05-09"
+      }
+    ],
+    "url": "/Research/threads/workflow-organisation-process.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -7210,36 +7245,6 @@
     "url": "/Research/threads/research-methodology-quality-assurance-knowledge-integration.html"
   },
   {
-    "slug": "workflow-process-organisation",
-    "title": "workflow / process / organisation",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "process",
-      "organisation"
-    ],
-    "concept_cluster": [],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-02-27-simple-process-for-adding-research-item",
-        "title": "Simple process for adding a research item",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      }
-    ],
-    "url": "/Research/threads/workflow-process-organisation.html"
-  },
-  {
     "slug": "llm-context-window-mcp",
     "title": "llm / context-window / mcp",
     "kind": "implicit",
@@ -7270,14 +7275,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
-      "direct publish"
+      "copilot studio",
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7297,6 +7302,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]

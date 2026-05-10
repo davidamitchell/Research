@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-10T00:18:25Z",
+  "extracted_at": "2026-05-10T00:29:18Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -344,6 +344,96 @@
             "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
             "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
             "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-cobit-cmmi-defined-process-risk-mitigation": {
+      "named_concepts": [
+        "tailoring rules",
+        "organizational assets",
+        "organizational standards",
+        "shared assets",
+        "workforce-process mitigation",
+        "threshold logic",
+        "higher threshold",
+        "standards tailoring",
+        "documented purpose",
+        "complete standard",
+        "standard steps",
+        "approved tailoring",
+        "shared organizational",
+        "local workaround",
+        "durable threshold",
+        "workforce-risk mitigation",
+        "effectiveness threshold",
+        "monitoring against",
+        "complete monitored",
+        "monitored practice"
+      ],
+      "source_urls": [
+        "https://www.isaca.org/resources/cobit",
+        "https://www.isaca.org/resources/news-and-trends/industry-news/2019/using-cobit-2019-performance-management-model-to-assess-governance-and-management-objectives",
+        "https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement",
+        "https://www.isaca.org/resources/news-and-trends/industry-news/2020/effective-capability-and-maturity-assessment-using-cobit-2019",
+        "https://www.isaca.org/resources/news-and-trends/industry-news/2020/using-cobit-2019-to-plan-and-execute-an-organization-transformation-strategy",
+        "https://www.isaca.org/resources/isaca-journal/issues/2021/volume-6/building-a-maturity-model-for-cobit-2019-based-on-cmmi",
+        "https://cmmiinstitute.com/learning/appraisals/levels",
+        "https://cmmiinstitute.com/",
+        "https://cmmiinstitute.com/cmmi",
+        "https://www.isaca.org/enterprise/cmmi-performance-solutions",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-maturity-model.html"
+      ],
+      "key_claims": [
+        {
+          "text": "COBIT 2019 and CMMI both treat complete project-level control as the minimum effectiveness threshold, but they reserve durable sustainability for level 3 defined or established processes that use shared organizational standards and assets",
+          "sources": [
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement",
+            "https://cmmiinstitute.com/learning/appraisals/levels"
+          ]
+        },
+        {
+          "text": "COBIT 2019 requires stakeholder awareness, identified process owners, systematic evidence collection, validation of work products and interviews, and traceable ratings before a process-capability claim is credible",
+          "sources": [
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2019/using-cobit-2019-performance-management-model-to-assess-governance-and-management-objectives",
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2020/effective-capability-and-maturity-assessment-using-cobit-2019"
+          ]
+        },
+        {
+          "text": "COBIT's public level descriptions show that level 3 starts when the process is well defined, uses organizational assets, and operates inside an enterprise gap-analysis and road-map discipline rather than as a reactive local workaround",
+          "sources": [
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement",
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2020/using-cobit-2019-to-plan-and-execute-an-organization-transformation-strategy"
+          ]
+        },
+        {
+          "text": "CMMI's official level definitions separate a complete set of practices with progress monitoring against project objectives from the higher threshold that adds organizational standards, tailoring rules, and contribution back into shared assets",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals/levels"
+          ]
+        },
+        {
+          "text": "CMMI maturity level 3 is proactive and organization-wide, so a workforce-process mitigation that still depends on one team, one manager, or one undocumented spreadsheet-based routine remains below the durable threshold implied by the model",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals/levels",
+            "https://cmmiinstitute.com/cmmi"
+          ]
+        },
+        {
+          "text": "For workforce and skills risks, the CMMI People framing and adjacent shadow-workaround evidence imply that sustainable mitigation must reduce workflow bottlenecks through standard methods and capability-building, not only through managerial reminders or local compliance checks",
+          "sources": [
+            "https://cmmiinstitute.com/cmmi",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html"
+          ]
+        },
+        {
+          "text": "A practical evaluation checklist for workforce-process mitigation therefore requires documented purpose and scope, named ownership, complete standard steps, approved tailoring rules, trained participants, preserved work products, review metrics, and a feedback path into the common organizational method",
+          "sources": [
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2019/using-cobit-2019-performance-management-model-to-assess-governance-and-management-objectives",
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2020/using-cobit-2019-to-plan-and-execute-an-organization-transformation-strategy",
+            "https://cmmiinstitute.com/learning/appraisals/levels"
           ]
         }
       ]
