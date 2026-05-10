@@ -425,6 +425,12 @@ easily-detectable issues.
     describe how this item will be handled rather than what the external
     evidence says.
 
+2c2. **§7 review-metadata check** -- treat `§7 Recursive Review` lines such as
+    `Review result: pass`, `Acronym audit: ...`, and `Claim audit: ...` as
+    pure metadata fragments unless you intentionally turn them into labeled,
+    source-bound claims. Do not leave review-outcome sentences as unlabeled
+    declarative prose.
+
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official
     page, update the entry in `## Sources` to the working official URL before
@@ -512,6 +518,12 @@ easily-detectable issues.
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.
+
+3a. **Binary-contrast phrasing** -- avoid unsupported formulations such as
+   `not X but Y`, `not because ... but because ...`, or similar contrast
+   templates in `## Findings` and `§6 Synthesis`. If the contrast itself is
+   the substantive claim, cite direct support for both halves; otherwise
+   rewrite into direct affirmative prose.
 
 4. **AI slop phrases** -- scan `## Findings` for: "Furthermore",
    "Additionally", "It is important to note", "In conclusion", "It is worth
