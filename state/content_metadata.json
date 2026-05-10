@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-10T19:26:46Z",
+  "extracted_at": "2026-05-10T19:39:09Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -344,6 +344,103 @@
             "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
             "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/task-adherence",
             "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-compliance-risks-stochastic-llm-governance-decisions": {
+      "named_concepts": [
+        "language model",
+        "artificial intelligence",
+        "model-risk guidance",
+        "model outputs",
+        "compliance risk",
+        "language models",
+        "donotpay action",
+        "automated legal-compliance",
+        "legal-compliance checking",
+        "meaningful human",
+        "human escalation",
+        "united kingdom",
+        "governance decisions",
+        "banking model-risk",
+        "guidance excludes",
+        "excludes generative",
+        "agentic artificial",
+        "stochastic model",
+        "monitoring validation",
+        "one regulator"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+        "https://ec.europa.eu/newsroom/article29/items/612053",
+        "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning",
+        "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes",
+        "https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations",
+        "https://arxiv.org/abs/2112.04359",
+        "https://arxiv.org/abs/2108.07258",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/"
+      ],
+      "key_claims": [
+        {
+          "text": "European Union and United Kingdom data-protection guidance restricts solely automated decisions with legal or similarly significant effects and requires meaningful safeguards, so probabilistic and potentially variable Large Language Model outputs are a weak choice for sole authority in privacy or governance decisions",
+          "sources": [
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ec.europa.eu/newsroom/article29/items/612053",
+            "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/"
+          ]
+        },
+        {
+          "text": "Meaningful human intervention must be able to understand, challenge, and change an automated outcome, which means nominal review layered on top of a probabilistic model does not remove the compliance risk if the reviewer is only rubber-stamping",
+          "sources": [
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ec.europa.eu/newsroom/article29/items/612053"
+          ]
+        },
+        {
+          "text": "United Kingdom financial regulators and NIST frame Artificial Intelligence governance as a problem of accountability, monitoring, validation, and role clarity, which supports controlled use of models but not blind reliance on probabilistic outputs for final compliance judgments",
+          "sources": [
+            "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+            "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "Current United States banking model-risk guidance excludes generative and agentic Artificial Intelligence from scope while preserving governance, validation, monitoring, and third-party oversight expectations for covered models",
+          "sources": [
+            "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html"
+          ]
+        },
+        {
+          "text": "The Federal Trade Commission's DoNotPay action shows that the Commission will challenge claims that a chatbot can substitute for professional legal services or automated legal-compliance checking when testing and evidence are missing",
+          "sources": [
+            "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes]"
+          ]
+        },
+        {
+          "text": "Official legal-practice guidance and clinical literature both show that Large Language Models can fabricate authorities, vary across repeated prompts, and provide unsafe or untraceable recommendations, which makes them a poor fit for compliance workflows that depend on accuracy, consistency, and auditable reasoning",
+          "sources": [
+            "https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/"
+          ]
+        },
+        {
+          "text": "Foundation-model research indicates that misinformation, privacy leakage, and automation harms are structural downstream risks, so using one stochastic model across many governance tasks concentrates rather than localizes compliance exposure",
+          "sources": [
+            "https://arxiv.org/abs/2112.04359",
+            "https://arxiv.org/abs/2108.07258"
+          ]
+        },
+        {
+          "text": "The strongest currently supported design is a hybrid architecture in which the Large Language Model prepares proposals or summaries while deterministic policies, audit logs, and empowered human escalation retain final decision authority for consequential actions",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html"
           ]
         }
       ]
