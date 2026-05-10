@@ -5415,13 +5415,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -5477,7 +5477,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -5915,14 +5915,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -5962,7 +5962,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
     "slug": "workflow-knowledge-graph-agentic-ai",
@@ -6175,6 +6175,46 @@
     "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
   },
   {
+    "slug": "workflow-organisation-process",
+    "title": "workflow / organisation / process",
+    "kind": "implicit",
+    "tag_cluster": [
+      "workflow",
+      "organisation",
+      "process"
+    ],
+    "concept_cluster": [],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-02-27-simple-process-for-adding-research-item",
+        "title": "Simple process for adding a research item",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
+        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
+        "added": "2026-05-09"
+      }
+    ],
+    "url": "/Research/threads/workflow-organisation-process.html"
+  },
+  {
     "slug": "coding-agent-copilot-coding-claude-code",
     "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
@@ -6215,14 +6255,14 @@
     "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -6252,7 +6292,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
     "slug": "coding-agent-copilot-coding-agents-md",
@@ -6328,41 +6368,6 @@
       }
     ],
     "url": "/Research/threads/youtube-transcripts-tooling.html"
-  },
-  {
-    "slug": "workflow-organisation-process",
-    "title": "workflow / organisation / process",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "organisation",
-      "process"
-    ],
-    "concept_cluster": [],
-    "item_count": 4,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-02-27-simple-process-for-adding-research-item",
-        "title": "Simple process for adding a research item",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      }
-    ],
-    "url": "/Research/threads/workflow-organisation-process.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",

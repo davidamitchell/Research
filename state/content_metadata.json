@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-10T20:49:58Z",
+  "extracted_at": "2026-05-10T21:00:45Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -235,6 +235,87 @@
             "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-key-person-dependency-basel-risk-linkage": {
+      "named_concepts": [
+        "basel committee",
+        "banking supervision",
+        "key-person dependency",
+        "process management",
+        "operational risk",
+        "execution delivery",
+        "delivery process",
+        "critical operation",
+        "dependency threatens",
+        "supervision guidance",
+        "supervision adds",
+        "control weakness",
+        "basel-compatible reporting",
+        "delivery steps",
+        "controls manual",
+        "supervision operational-risk",
+        "threatens recurring",
+        "process execution",
+        "operational-resilience reporting",
+        "map people"
+      ],
+      "source_urls": [
+        "https://www.bis.org/bcbs/publ/d515.pdf",
+        "https://www.bis.org/bcbs/publ/d516.pdf",
+        "https://www.bis.org/publ/bcbs239.pdf",
+        "https://www.bis.org/bcbs/qisoprisknote.pdf",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Basel Committee on Banking Supervision guidance supports classifying key-person dependency as operational risk because a process that depends on one indispensable person's availability or tacit knowledge fits the published definition of loss arising from failed people, processes, and systems",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.pdf"
+          ]
+        },
+        {
+          "text": "The Basel loss-event type \"Execution, Delivery & Process Management\" is the closest specific event classification when the dependency threatens transaction capture, execution, maintenance, deadlines, responsibilities, reconciliations, handoffs, or delivery steps, because the published category explicitly covers failed transaction processing and process management",
+          "sources": [
+            "https://www.bis.org/bcbs/qisoprisknote.pdf"
+          ]
+        },
+        {
+          "text": "A workforce-critical key-person dependency should be escalated into operational-resilience reporting when the person's absence could disrupt a critical operation, because banks are required to map people, technology, processes, information, facilities, and their interdependencies against tolerance for disruption",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d516.pdf"
+          ]
+        },
+        {
+          "text": "Basel Committee on Banking Supervision guidance expects business-continuity planning to address disruption that impacts key personnel and to define internal decision-making and invocation triggers, which makes a single-person bottleneck in a critical process a continuity-planning issue rather than only an informal staffing note",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d516.pdf"
+          ]
+        },
+        {
+          "text": "When the same key-person dependency controls manual spreadsheets, desktop databases, or similar workflows used for risk aggregation or risk reporting, Basel Committee on Banking Supervision 239 adds a second supervisory concern because the framework requires largely automated aggregation and effective mitigants over manual desktop applications",
+          "sources": [
+            "https://www.bis.org/publ/bcbs239.pdf"
+          ]
+        },
+        {
+          "text": "Escalation becomes strongest once the dependency can cause missed responsibility, task misperformance, delivery failure, business-continuity invocation, or inaccurate, incomplete, or untimely risk data",
+          "sources": [
+            "https://www.bis.org/bcbs/qisoprisknote.pdf",
+            "https://www.bis.org/bcbs/publ/d516.pdf",
+            "https://www.bis.org/publ/bcbs239.pdf"
+          ]
+        },
+        {
+          "text": "Basel-compatible reporting should therefore describe key-person dependency as a causal concentration in process execution and then add the relevant Basel surface labels, instead of treating it as a generic human-resources issue with no explicit operational-risk taxonomy",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.pdf",
+            "https://www.bis.org/bcbs/qisoprisknote.pdf",
+            "https://www.bis.org/bcbs/publ/d516.pdf",
+            "https://www.bis.org/publ/bcbs239.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
           ]
         }
       ]
