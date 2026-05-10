@@ -14,10 +14,13 @@ cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
   - 2026-04-26-human-in-the-loop-ai-automated-workflows
   - 2026-05-09-compliance-risks-stochastic-llm-governance-decisions
-related:
   - 2026-04-26-data-governance-ai-lowcode-enterprise-enforcement
   - 2026-04-26-ai-lowcode-regulatory-compliance-alignment
   - 2026-04-30-explainable-ai-xai-regulation-governance
+  - 2026-04-26-data-governance-ai-lowcode-enterprise-enforcement
+  - 2026-04-26-ai-lowcode-regulatory-compliance-alignment
+  - 2026-04-30-explainable-ai-xai-regulation-governance
+related: []
 superseded_by: ~
 supersedes: ~
 item_type: primary
@@ -29,7 +32,7 @@ versions: []
 
 ## Research Question
 
-How do established data governance standards, including ISO/IEC 38505, DAMA-DMBOK (Data Management Body of Knowledge), and the NIST (National Institute of Standards and Technology) Artificial Intelligence Risk Management Framework (AI RMF), and regulations, including GDPR (General Data Protection Regulation) accountability rules, CCPA (California Consumer Privacy Act) automated decisionmaking rules, and HIPAA (Health Insurance Portability and Accountability Act), apply specifically to AI systems and multi-step autonomous AI deployments?
+How do established data governance standards, including International Organization for Standardization and International Electrotechnical Commission (ISO/IEC) 38505, DAMA-DMBOK (Data Management Body of Knowledge), and the NIST (National Institute of Standards and Technology) Artificial Intelligence Risk Management Framework (AI RMF), and regulations, including GDPR (General Data Protection Regulation) accountability rules, CCPA (California Consumer Privacy Act) automated decisionmaking rules, and HIPAA (Health Insurance Portability and Accountability Act), apply specifically to AI systems and multi-step autonomous AI deployments?
 
 ## Scope
 
@@ -241,6 +244,7 @@ The evidence is strongest where regulators or standards bodies speak directly to
 For ISO/IEC 38505 and DAMA-DMBOK, the accessible official evidence is enough to show applicability at the governance, stewardship, lineage, quality, and accountability layers, but not enough to claim clause-level control prescriptions for multi-step autonomous AI. [inference; source: https://www.iso.org/standard/56639.html; https://www.dama.org/cpages/body-of-knowledge; https://www.dama.org/dama-dmbok-revision/; https://www.damadmbok.org/copy-of-about-dama-dmbok]
 That asymmetry matters because it explains why organizations still need an implementation layer that converts principle-level duties into runtime controls, especially when one deployment chains model prompts, tool calls, external vendors, and human approvals. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html]
 The prior completed items matter here because they supply implementation detail, but they do not replace the external sources; instead, they show one coherent way to operationalize the external obligations with deterministic policy, logging, and human escalation. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html]
+That conclusion also matches earlier repository work on regulatory-compliance alignment, data-governance enforcement, and explainability in regulated industries, which all point to enforceable control points and inspectable decision records as the practical bridge between general governance duties and deployed AI behavior. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html; https://davidamitchell.github.io/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html; https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html]
 
 **Risks, gaps, uncertainties:**
 
@@ -266,7 +270,7 @@ The prior completed items matter here because they supply implementation detail,
 ### §7 Recursive Review
 
 - Review result: pass
-- Acronym audit: AI, DAMA-DMBOK, NIST, AI RMF, GDPR, CCPA, HIPAA, Automated Decisionmaking Technology, and electronic protected health information expanded on first use in prose.
+- Acronym audit: AI, ISO/IEC, DAMA-DMBOK, NIST, AI RMF, GDPR, CCPA, HIPAA, Automated Decisionmaking Technology, and electronic protected health information expanded on first use in prose.
 - Claim audit: sections 0 through 6 carry source-bound facts or clearly marked inferences; no visible assumptions remain.
 - Parity audit: Findings mirror section 6 synthesis.
 - Confidence: medium
@@ -317,6 +321,7 @@ The evidence is strongest where regulators or standards bodies speak directly to
 For ISO/IEC 38505 and DAMA-DMBOK, the accessible official evidence is enough to show applicability at the governance, stewardship, lineage, quality, and accountability layers, but not enough to claim clause-level control prescriptions for multi-step autonomous AI. [inference; source: https://www.iso.org/standard/56639.html; https://www.dama.org/cpages/body-of-knowledge; https://www.dama.org/dama-dmbok-revision/; https://www.damadmbok.org/copy-of-about-dama-dmbok]
 That asymmetry matters because it explains why organizations still need an implementation layer that converts principle-level duties into runtime controls, especially when one deployment chains model prompts, tool calls, external vendors, and human approvals. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html]
 The prior completed items matter here because they supply implementation detail, but they do not replace the external sources; instead, they show one coherent way to operationalize the external obligations with deterministic policy, logging, and human escalation. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html]
+That conclusion also matches earlier repository work on regulatory-compliance alignment, data-governance enforcement, and explainability in regulated industries, which all point to enforceable control points and inspectable decision records as the practical bridge between general governance duties and deployed AI behavior. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html; https://davidamitchell.github.io/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html; https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html]
 
 ### Risks, Gaps, and Uncertainties
 
