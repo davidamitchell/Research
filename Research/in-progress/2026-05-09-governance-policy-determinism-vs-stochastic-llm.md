@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements"
 added: 2026-05-09T22:44:23+00:00
 status: reviewing
