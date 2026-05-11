@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection"
 added: 2026-05-09T22:56:47+00:00
 status: reviewing
