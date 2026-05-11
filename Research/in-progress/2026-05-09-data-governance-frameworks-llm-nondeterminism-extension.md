@@ -141,7 +141,7 @@ How can traditional data governance frameworks be extended or mapped to address 
 
 #### B. Generative-system risk surfaces expose where classical data-governance assumptions break down
 
-- [fact; source: https://doi.org/10.6028/NIST.AI.600-1] The NIST Generative Artificial Intelligence profile says its initial focus for generative AI is Governance, Content Provenance, Pre-deployment Testing, and Incident Disclosure.
+- [fact; source: https://doi.org/10.6028/NIST.AI.600-1] The NIST Generative Artificial Intelligence profile says its initial focus for generative AI is Governance, Content Provenance, meaning records of how generated content was sourced or produced, Pre-deployment Testing, and Incident Disclosure.
 - [fact; source: https://doi.org/10.6028/NIST.AI.600-1] The same profile states that generative Artificial Intelligence risks arise across design, development, deployment, operation, and decommissioning and explicitly highlights confabulation, meaning confidently stated but false output, non-transparent value-chain integration, prompt injection, meaning input crafted to alter model behavior, and other human-AI interaction risks.
 - [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The NIST AI Risk Management Framework Core makes governance a cross-cutting function and requires documented legal requirements, transparent controls, ongoing monitoring, clear accountability, inventorying AI systems, and contingency processes for third-party failures.
 - [fact; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf] Microsoft Responsible AI Standard v2 requires impact assessments, fit-for-purpose evidence, data-governance and management practices, customer-facing transparency documentation, and human oversight and control capabilities for all AI systems.
@@ -252,11 +252,11 @@ Prior repository items sharpen the final control recommendation by adding empiri
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: Large Language Model (LLM), Artificial Intelligence (AI), Data Management Body of Knowledge (DAMA-DMBOK), International Organization for Standardization and International Electrotechnical Commission (ISO/IEC), Control Objectives for Information and Related Technologies (COBIT), and Machine Learning Operations (MLOps) expanded on first use
-- Claim audit: labeled claims added throughout Research Skill Output, Evidence Map rows begin with epistemic status, and Findings mirror Section 6
-- Source audit: all listed Sources entries use URL-backed links and dead Microsoft blog link replaced with accessible Microsoft PDF
-- Cross-reference audit: adjacent completed items on applicability, determinism, hybrid control, policy-as-code, compliance risk, explainability, and assurance reviewed for related or cited treatment
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-data-governance-frameworks-llm-nondeterminism-extension.md] Review status: pass.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-data-governance-frameworks-llm-nondeterminism-extension.md] Acronym audit status: Large Language Model (LLM), Artificial Intelligence (AI), Data Management Body of Knowledge (DAMA-DMBOK), International Organization for Standardization and International Electrotechnical Commission (ISO/IEC), Control Objectives for Information and Related Technologies (COBIT), and Machine Learning Operations (MLOps) are expanded on first use.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-data-governance-frameworks-llm-nondeterminism-extension.md] Claim audit status: Research Skill Output uses labeled claims, Evidence Map rows begin with epistemic status, and Findings mirror Section 6.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-data-governance-frameworks-llm-nondeterminism-extension.md] Source audit status: the listed Sources entries use URL-backed links and the dead Microsoft blog link has been replaced with an accessible Microsoft PDF.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-data-governance-frameworks-llm-nondeterminism-extension.md] Cross-reference audit status: adjacent completed items on applicability, determinism, hybrid control, policy-as-code, compliance risk, explainability, and assurance are reflected in the cites or related fields.
 
 ---
 
