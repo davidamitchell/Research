@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior"
 added: 2026-05-09T22:44:23+00:00
 status: reviewing
