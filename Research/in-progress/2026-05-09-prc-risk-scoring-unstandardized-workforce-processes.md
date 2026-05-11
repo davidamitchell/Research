@@ -22,7 +22,7 @@ versions: []
 
 ## Research Question
 
-How should inherent-risk and control-effectiveness scores in a PRC library change when workforce and skills processes are undocumented, unstandardized, or partially manual?
+How should inherent risk, meaning exposure before relying on controls, and control effectiveness, meaning the demonstrated reliability of the mitigating control, scores in a PRC library change when workforce and skills processes are undocumented, unstandardized, or partially manual?
 
 ## Scope
 
@@ -77,6 +77,7 @@ Risk libraries can understate exposure when they assume process standardization 
 ### §0 Initialise
 
 - Question: How should inherent-risk and control-effectiveness scores in a Process-Risk-Control (PRC) library change when workforce and skills processes are undocumented, unstandardized, or partially manual?
+- [inference; source: https://www.bis.org/bcbs/publ/d515.htm; https://pcaobus.org/standards/auditing-standards/details/AS2201; https://cmmiinstitute.com/learning/appraisals/levels; https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement] Working definitions for this item: inherent risk means the exposure present before relying on the mitigating control, control effectiveness means how reliably the control can be shown to reduce that exposure, and defined-process threshold means the point at which execution uses organizational standards and assets rather than only local practice.
 - Scope: Translate public framework language into auditable PRC scoring logic for process immaturity, evidence thresholds, and minimum documentation conditions, without building a quantitative model or setting enterprise-specific risk appetite.
 - Constraints: Primary and official framework sources first, completed-item cross-reference required, Uniform Resource Locator (URL)-backed citations only, and every abbreviation expanded on first use in the document.
 - Output: knowledge item with mirrored synthesis and Findings sections, explicit scoring rules, an Evidence Map, and documentation minimums for lower scores.
@@ -144,15 +145,15 @@ Risk libraries can understate exposure when they assume process standardization 
 
 #### D. PRC scoring synthesis
 
-- [inference; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.iso.org/iso-31000-risk-management.html; https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html] For a material workforce process, undocumented or purely intuitive execution should floor inherent risk at least one band above the score used for a documented, organization-standard process, because the process itself is inadequately understood and therefore not yet fully assessable.
+- [inference; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.iso.org/iso-31000-risk-management.html; https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html] For a material workforce process, undocumented or purely intuitive execution should move inherent risk upward from the score used for a documented, organization-standard process, because the process itself is inadequately understood and therefore not yet fully assessable.
 - [inference; source: https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm; https://davidamitchell.github.io/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html] A further upward adjustment is justified when the process remains partially manual, relies on spreadsheets or desktop databases, or depends on one person's tacit knowledge, especially when the process supports critical operations or risk reporting.
 - [inference; source: https://cmmiinstitute.com/learning/appraisals/levels; https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement; https://davidamitchell.github.io/Research/research/2026-05-09-cobit-cmmi-defined-process-risk-mitigation.html] Control effectiveness should be capped at weak until the process is at least complete, monitored, and evidenced, and capped at moderate until it reaches the defined-process threshold with organizational standards, trained execution, and shared assets.
 - [assumption; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm] This item assumes the workforce process is material to operational delivery, access, staffing, reporting, or continuity; if the process is trivial and local only, the same maturity logic still applies but the inherent-risk uplift may be smaller.
 
 ### §3 Reasoning
 
-- [fact; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.iso.org/iso-31000-risk-management.html] The framework evidence agrees that risk rises when the organization cannot clearly identify, evaluate, monitor, and communicate how a material process actually operates.
-- [fact; source: https://cmmiinstitute.com/learning/appraisals/levels; https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement] The maturity evidence also agrees that a complete local practice and a defined organizational process are different states, with the durable threshold beginning only at the defined state.
+- [inference; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.iso.org/iso-31000-risk-management.html] The framework evidence points in the same direction: risk rises when the organization cannot clearly identify, evaluate, monitor, and communicate how a material process actually operates.
+- [inference; source: https://cmmiinstitute.com/learning/appraisals/levels; https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement] The maturity evidence also points in the same direction: a complete local practice and a defined organizational process are different states, with the durable threshold beginning only at the defined state.
 - [inference; source: https://www.bis.org/publ/bcbs239.htm; https://pcaobus.org/standards/auditing-standards/details/AS2201; https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final] PRC scoring should therefore separate three cases rather than two: undocumented or intuitive processes, documented but still manual or local processes, and organization-defined processes with evidence, policy, review, and training.
 - [inference; source: https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm; https://cmmiinstitute.com/learning/appraisals/levels] Because manuality, spreadsheet dependence, and key-person concentration add distinct failure modes beyond mere lack of documentation, they justify an extra inherent-risk uplift even after a process becomes documented.
 
@@ -173,7 +174,7 @@ Risk libraries can understate exposure when they assume process standardization 
 
 **Executive summary:**
 
-Material workforce processes that are undocumented, unstandardized, or partly manual should be scored as higher inherent risk and lower control effectiveness than an equivalent organization-defined process, because the evidence base shows that process opacity, manual handling, and local variation increase uncertainty, error probability, and continuity dependence. [inference; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.bis.org/publ/bcbs239.htm; https://www.iso.org/iso-31000-risk-management.html] For a material process, undocumented or purely intuitive execution should raise inherent risk at least one band above the standardized baseline, and spreadsheet-dependent, desktop-database-dependent, or single-person-dependent execution should usually justify a further upward adjustment when the process affects reporting, access, staffing, or critical operations. [inference; source: https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm; https://davidamitchell.github.io/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html] Control effectiveness should be capped at weak until the process is complete, monitored, and evidenced, and capped at moderate until it reaches the defined-process threshold with organizational standards, trained participants, review, and shared assets. [inference; source: https://cmmiinstitute.com/learning/appraisals/levels; https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement; https://pcaobus.org/standards/auditing-standards/details/AS2201] The first defensible basis for lower PRC scores is therefore documented, organization-backed repeatability rather than manager reassurance or long habit. [inference; source: https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final; https://davidamitchell.github.io/Research/research/2026-05-09-cobit-cmmi-defined-process-risk-mitigation.html]
+Material workforce processes that are undocumented, unstandardized, or partly manual should be scored as higher inherent risk and lower control effectiveness than an equivalent organization-defined process, because the evidence base shows that process opacity, manual handling, and local variation increase uncertainty, error probability, and continuity dependence. [inference; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.bis.org/publ/bcbs239.htm; https://www.iso.org/iso-31000-risk-management.html] For a material process, undocumented or purely intuitive execution should move inherent risk upward from the standardized baseline, and spreadsheet-dependent, desktop-database-dependent, or single-person-dependent execution should usually justify a further upward adjustment when the process affects reporting, access, staffing, or critical operations. [inference; source: https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm; https://davidamitchell.github.io/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html] Control effectiveness should be capped at weak until the process is complete, monitored, and evidenced, and capped at moderate until it reaches the defined-process threshold with organizational standards, trained participants, review, and shared assets. [inference; source: https://cmmiinstitute.com/learning/appraisals/levels; https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement; https://pcaobus.org/standards/auditing-standards/details/AS2201] The first defensible basis for lower PRC scores is therefore documented, organization-backed repeatability rather than manager reassurance or long habit. [inference; source: https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final; https://davidamitchell.github.io/Research/research/2026-05-09-cobit-cmmi-defined-process-risk-mitigation.html]
 
 **Key findings:**
 
@@ -218,10 +219,8 @@ The evidence weighs more heavily toward conditions and thresholds than toward nu
 
 ### §7 Recursive Review
 
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Review outcome recorded for this revision: pass on the inline self-review checks applied before the external workflow run.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Acronym audit result recorded in this revision: Process-Risk-Control (PRC), Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), National Institute of Standards and Technology (NIST), Capability Maturity Model Integration (CMMI), Control Objectives for Information and Related Technologies (COBIT), Public Company Accounting Oversight Board (PCAOB), and Uniform Resource Locator (URL) are expanded on first use.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Claim-label audit result recorded in this revision: visible factual and inferential claims in Research Skill Output carry epistemic labels and URL-backed source binding.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Findings-parity and uncertainty audit result recorded in this revision: Findings mirrors §6 Synthesis, and assumptions plus risks keep the scoring uncertainty explicit.
+- Opinion: pass
+- Checks: acronym expansion; claim labels and source binding; Findings and §6 parity; uncertainty placement
 
 ---
 
@@ -253,7 +252,7 @@ Material workforce processes that are undocumented, unstandardized, or partly ma
 
 ### Assumptions
 
-- [assumption; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm] The PRC library uses ordered qualitative bands such as low, medium, and high for inherent risk and weak, moderate, and strong for control effectiveness, so "one-band uplift" and "score cap" are practical translation rules rather than claims about a universal numeric scale.
+- [assumption; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.bis.org/publ/bcbs239.htm; https://www.bis.org/bcbs/publ/d516.htm] The PRC library uses ordered qualitative bands such as low, medium, and high for inherent risk and weak, moderate, and strong for control effectiveness, so "upward adjustment" and "score cap" are practical translation rules rather than claims about a universal numeric scale.
 - [assumption; source: https://www.bis.org/bcbs/publ/d515.htm; https://www.bis.org/bcbs/publ/d516.htm] The workforce processes in view are material to staffing, approvals, access, reporting, or continuity; low-materiality local routines would still follow the same maturity logic but may warrant smaller score movement.
 
 ### Analysis
@@ -268,7 +267,7 @@ The evidence weighs more heavily toward conditions and thresholds than toward nu
 
 ### Open Questions
 
-- Which concrete ordinal or numeric PRC scale best preserves comparability when one-band and two-band uplifts are translated into enterprise scoring practice?
+- Which concrete ordinal or numeric PRC scale best preserves comparability when upward adjustments are translated into enterprise scoring practice?
 - Which workforce-process attributes, such as approval authority, access rights, regulatory attestation, or staffing for critical operations, should trigger automatic high-materiality classification in the PRC library?
 - What evidence-retention pattern best distinguishes a moderate manual control from a weak manual control for workforce workflows that cannot yet be automated?
 
