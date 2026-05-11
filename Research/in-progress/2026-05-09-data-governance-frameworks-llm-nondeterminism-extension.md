@@ -1,0 +1,321 @@
+---
+title: "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Alignment Uncertainty"
+added: 2026-05-09T22:44:23+00:00
+status: reviewing
+priority: medium
+blocks:
+  - 2026-05-09-data-governance-standards-ai-agentic-applicability
+tags: [governance, agentic-ai, llm, ai-governance, compliance, organisation]
+started: 2026-05-11T13:19:18+00:00
+completed: ~
+output: [knowledge]
+cites:
+  - 2026-05-09-data-governance-standards-ai-agentic-applicability
+  - 2026-05-09-governance-policy-determinism-vs-stochastic-llm
+  - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
+  - 2026-05-09-policy-as-code-guardrails-regulatory-ai-governance
+  - 2026-05-09-llm-determinism-limits-temperature-zero
+  - 2026-05-09-compliance-risks-stochastic-llm-governance-decisions
+related:
+  - 2026-04-22-ai-governance-assurance-change-control-verification
+  - 2026-04-30-explainable-ai-xai-regulation-governance
+  - 2026-04-26-human-in-the-loop-ai-automated-workflows
+superseded_by: ~
+supersedes: ~
+item_type: primary
+confidence: medium
+versions: []
+---
+
+# Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Alignment Uncertainty
+
+## Research Question
+
+How can traditional data governance frameworks be extended or mapped to address the inherent non-determinism and alignment uncertainty of modern Large Language Models (LLMs) and multi-step agent systems?
+
+## Scope
+
+**In scope:**
+- Analysis of Data Management Body of Knowledge (DAMA-DMBOK), International Organization for Standardization and International Electrotechnical Commission (ISO/IEC) 38505, and Control Objectives for Information and Related Technologies (COBIT) governance domains and their extension points
+- Proposed extensions or adaptations in academic literature and industry frameworks
+- New governance domains or capabilities required specifically for LLM and multi-step agent systems, for example governance of prompt templates, model lineage, and inference audit trails
+- Alignment uncertainty as a distinct governance problem separate from data quality
+
+**Out of scope:**
+- Proposing entirely novel frameworks, focus is extension or mapping of existing standards
+- Governance of training data and model development, including Machine Learning Operations (MLOps), because the focus is deployed and inference-time governance
+
+**Constraints:** Extensions must map clearly to existing framework structures so organizations can adopt them without wholesale replacement.
+
+## Context
+
+- Traditional data governance frameworks were built for structured data assets, stewardship, and accountable use of data, but their public guidance remains principle-level rather than runtime-specific for probabilistic generative systems. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance]
+- The National Institute of Standards and Technology (NIST) Generative Artificial Intelligence (AI) profile and current vendor responsible-AI frameworks now name content provenance, meaning records of how generated content was sourced or produced, plus pre-deployment testing, incident disclosure, impact assessment, human oversight, safeguards, and ongoing evaluation as explicit control areas for generative systems. [fact; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+- Prior completed items in this repository already concluded that deterministic enforcement, versioned policy, and audit evidence need to sit outside raw model output for consequential workflows, so this item focuses on how traditional governance domains should absorb those controls rather than replace themselves. [fact; source: https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html]
+
+## Approach
+
+1. Map the governance domains of DAMA-DMBOK, ISO/IEC 38505, and COBIT to the capabilities required for LLM and multi-step agent system governance.
+2. Identify the gaps, specifically domains for which no public framework concept exists and domains that require significant reinterpretation.
+3. Review proposed extensions in academic literature and industry guidance, especially NIST, Google, Microsoft, and explainability literature.
+4. Synthesize a mapping from existing domain to required extension to proposed control for deployed and inference-time governance.
+
+## Sources
+
+- [x] [DAMA International DAMA-DMBOK Data Management Body of Knowledge](https://www.dama.org/cpages/body-of-knowledge)
+- [x] [DAMA DMBOK 3.0 Project](https://www.damadmbok.org/)
+- [x] [ISO/IEC 38505-1:2017 Information technology, Governance of IT, Governance of data](https://www.iso.org/standard/56639.html)
+- [x] [ISACA COBIT Resource Center](https://www.isaca.org/resources/cobit)
+- [x] [ISACA (2025) Leveraging COBIT for Effective AI System Governance](https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance)
+- [x] [NIST AI Risk Management Framework Overview](https://www.nist.gov/itl/ai-risk-management-framework)
+- [x] [NIST AI Risk Management Framework Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)
+- [x] [NIST AI Risk Management Framework Playbook](https://airc.nist.gov/airmf-resources/playbook/)
+- [x] [NIST (2024) Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile](https://doi.org/10.6028/NIST.AI.600-1)
+- [x] [Microsoft (2022) Responsible AI Standard v2 General Requirements](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf)
+- [x] [Microsoft (2022) Responsible AI Impact Assessment Template](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf)
+- [x] [Google AI Responsible Generative AI Toolkit Overview](https://ai.google.dev/responsible?hl=en)
+- [x] [Google AI Responsible Generative AI Toolkit Design a Responsible Approach](https://ai.google.dev/responsible/docs/design?hl=en)
+- [x] [Google AI Responsible Generative AI Toolkit Evaluation](https://ai.google.dev/responsible/docs/evaluation?hl=en)
+- [x] [Google AI Responsible Generative AI Toolkit Safeguards](https://ai.google.dev/responsible/docs/safeguards?hl=en)
+- [x] [Google AI Model Alignment](https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en)
+- [x] [Arrieta et al. (2020) Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI](https://doi.org/10.1016/j.inffus.2019.12.012)
+- [x] [Data Governance Standards and Regulations Applied to Artificial Intelligence Systems and Multi-Step Autonomous AI Deployments](https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html)
+- [x] [Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model Elements](https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html)
+- [x] [Hybrid Architecture Design: Probabilistic Large Language Models for Interpretation, Deterministic Layers for Governance Enforcement](https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html)
+- [x] [Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation](https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html)
+- [x] [Practical Limits of Large Language Model Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts](https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html)
+- [x] [Compliance Risks of Relying on Stochastic Large Language Model Outputs for Governance, Privacy, and Regulatory Decisions](https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html)
+
+## Related
+
+- [Data Governance Standards and Regulations Applied to Artificial Intelligence Systems and Multi-Step Autonomous AI Deployments](https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html)
+- [Automated governance assurance and change control verification patterns for AI-assisted delivery](https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html)
+- [Explainable Artificial Intelligence: current research state, leading institutions, and regulatory intersection in heavily regulated industries](https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html)
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill - retained verbatim in the completed item. Sections 0-5 are the investigation, and section 6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- Question: how can traditional data-governance frameworks be extended or mapped so they can govern Large Language Model non-determinism and alignment uncertainty in deployed systems?
+- Scope: DAMA-DMBOK, ISO/IEC 38505, COBIT, accessible industry responsible-AI frameworks, and deployed inference-time controls rather than training-pipeline governance.
+- Constraints: primary official framework sources first, public summaries where core standards are paywalled, and prior completed repository items used only as synthesis support.
+- Output: knowledge.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html] Prior completed repository items already established that AI governance obligations attach to deployed systems and that deterministic control layers remain necessary for consequential workflows, so this item asks how older data-governance domains should absorb those requirements.
+
+### §1 Question Decomposition
+
+- **Root question:** which parts of traditional data governance already apply to Large Language Model systems, and which parts require reinterpretation or extension?
+- **A. Baseline framework coverage**
+  - A1. What governance domains do DAMA-DMBOK, ISO/IEC 38505, and COBIT already cover for accountability, stewardship, quality, metadata, security, and monitoring?
+  - A2. How explicitly do those frameworks discuss Artificial Intelligence or probabilistic system behavior in the accessible public material?
+- **B. Large Language Model-specific failure surfaces**
+  - B1. Which risks in deployed generative systems are not captured well by classic relational-data assumptions?
+  - B2. Which of those risks relate to non-determinism, alignment uncertainty, prompt drift, model drift, and opaque inference paths?
+- **C. Extension patterns**
+  - C1. What operational controls do NIST, Microsoft, and Google add for generative systems?
+  - C2. Which of those controls map cleanly back into existing governance domains rather than requiring a new top-level framework?
+- **D. Domain mapping**
+  - D1. How should existing governance domains be reinterpreted for governance of prompt templates, model lineage, inference audit trails, and evaluation evidence?
+  - D2. Which control surfaces require deterministic enforcement or human override?
+- **E. Synthesis**
+  - E1. What is the smallest credible extension set that makes traditional frameworks usable for deployed Large Language Model governance?
+  - E2. Which gaps remain weakly specified even after those extensions?
+
+### §2 Investigation
+
+#### A. Traditional frameworks provide the baseline governance domains, but not deployed Large Language Model control detail
+
+- [fact; source: https://www.dama.org/cpages/body-of-knowledge] DAMA describes DAMA-DMBOK as a globally recognized framework that structures, governs, and optimizes data assets while aligning with regulatory compliance and emerging technologies such as Artificial Intelligence and machine learning.
+- [fact; source: https://www.dama.org/cpages/body-of-knowledge] DAMA also says DAMA-DMBOK is not a prescriptive standard and must be interpreted for the organization's own environment, which makes extension through reinterpretation consistent with the framework's own design.
+- [fact; source: https://www.damadmbok.org/] The DAMA-DMBOK 3.0 project states that it aims to update and modernize the Body of Knowledge to address evolving challenges and opportunities in data management, including advances in AI and analytics.
+- [fact; source: https://www.iso.org/standard/56639.html] ISO/IEC 38505-1:2017 applies to the governance of current and future use of data created, collected, stored, or controlled by information-technology systems and is intended to give governing bodies and auditors confidence in the organization's governance of data.
+- [fact; source: https://www.isaca.org/resources/cobit] ISACA describes COBIT 2019 as a governance framework for enterprise governance of information and technology that is designed to integrate with other standards, regulations, and best practices.
+- [fact; source: https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance] ISACA's 2025 white paper says COBIT is a robust, adaptable solution for AI governance and management and names ethics, accountability, transparency, and compliance as AI-specific challenges that COBIT can absorb through its lifecycle-based model.
+- [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance] The accessible public material shows that traditional frameworks already provide the anchor domains for Large Language Model governance, but they do so at the level of governance principles and management categories rather than at the level of prompt, model, and inference controls.
+
+#### B. Generative-system risk surfaces expose where classical data-governance assumptions break down
+
+- [fact; source: https://doi.org/10.6028/NIST.AI.600-1] The NIST Generative Artificial Intelligence profile says its initial focus for generative AI is Governance, Content Provenance, Pre-deployment Testing, and Incident Disclosure.
+- [fact; source: https://doi.org/10.6028/NIST.AI.600-1] The same profile states that generative Artificial Intelligence risks arise across design, development, deployment, operation, and decommissioning and explicitly highlights confabulation, meaning confidently stated but false output, non-transparent value-chain integration, prompt injection, meaning input crafted to alter model behavior, and other human-AI interaction risks.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The NIST AI Risk Management Framework Core makes governance a cross-cutting function and requires documented legal requirements, transparent controls, ongoing monitoring, clear accountability, inventorying AI systems, and contingency processes for third-party failures.
+- [fact; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf] Microsoft Responsible AI Standard v2 requires impact assessments, fit-for-purpose evidence, data-governance and management practices, customer-facing transparency documentation, and human oversight and control capabilities for all AI systems.
+- [fact; source: https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en] Google's Responsible Generative AI Toolkit requires system-level policies, transparency artifacts, lifecycle evaluation, red teaming, and input or output safeguards for generative products.
+- [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en] The gap is therefore not that traditional governance domains become irrelevant, but that deployed generative systems need extra control surfaces for provenance, evaluation, safeguards, and incident handling that older data frameworks do not name explicitly.
+
+#### C. Governance of prompt templates, model lineage, and inference audit trails are the main metadata and stewardship extensions
+
+- [fact; source: https://ai.google.dev/responsible?hl=en; https://ai.google.dev/responsible/docs/design?hl=en] Google's toolkit tells teams to define system-level policies about what an application should and should not generate and to publish transparency artifacts describing how the model works and where unexpected behavior may occur.
+- [fact; source: https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en] Google's Model Alignment guidance treats prompt templates and their revisions as process artifacts that can be iteratively improved from feedback and used to inform transparency practices.
+- [fact; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf] Microsoft requires teams to document intended uses, model inputs and outputs, performance metrics, error types, oversight roles, and yearly updates to the impact assessment before new releases or new intended uses.
+- [fact; source: https://doi.org/10.6028/NIST.AI.600-1] NIST elevates content provenance to one of the four primary generative-AI considerations, which makes evidence about source, generation path, and downstream handling part of governance rather than an optional observability add-on.
+- [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf; https://doi.org/10.6028/NIST.AI.600-1] DAMA-style metadata management and stewardship therefore need to expand from business data dictionaries and lineage records to include prompt templates, system instructions, model versions, evaluation sets, transparency notes, impact assessments, and generation provenance.
+
+#### D. Alignment uncertainty is a continuous assurance problem, not only a data-quality problem
+
+- [fact; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf] Microsoft requires documented performance metrics, documented error types, pre-release evaluation, ongoing evaluation frequency, and human-oversight functions for AI systems.
+- [fact; source: https://ai.google.dev/responsible/docs/evaluation?hl=en] Google distinguishes development evaluations, assurance evaluations, red teaming, and external evaluations, and recommends application-specific safety datasets rather than relying only on public benchmarks.
+- [fact; source: https://doi.org/10.6028/NIST.AI.600-1] NIST says some generative-AI risks are difficult to estimate because of limited visibility into training data and the immature state of AI measurement and safety science, and it treats confabulation as a named risk.
+- [fact; source: https://doi.org/10.1016/j.inffus.2019.12.012] Arrieta et al. frame explainability, accountability, and auditability as foundational for responsible AI adoption in sensitive domains.
+- [inference; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://doi.org/10.6028/NIST.AI.600-1; https://doi.org/10.1016/j.inffus.2019.12.012] Alignment uncertainty should therefore be governed as an ongoing assurance and verification stream, with benchmarked behavior, known failure taxonomies, and explicit review thresholds, rather than being collapsed into classical source-data quality alone.
+
+#### E. Deterministic decision authority and human override are the main accountability and control extensions
+
+- [fact; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf] Microsoft requires stakeholders to understand intended uses, interpret system behavior, know when and how to override or interrupt the system, and remain aware of automation bias.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] NIST requires roles and responsibilities for human-AI configurations, executive responsibility for AI risk decisions, and contingency processes for high-risk third-party AI failures.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html] Prior completed repository items found that current Large Language Model infrastructure remains only partially reproducible and that consequential governance is most defensible when deterministic policy or approval layers sit outside raw model output.
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html] Extending traditional frameworks therefore means assigning Large Language Models a bounded proposal or interpretation role while keeping authoritative allow, deny, escalate, and release decisions in deterministic or explicitly accountable control layers.
+
+#### F. Mapping the extension points back into existing framework domains
+
+- [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en] Governance and accountability domains map to impact assessment, intended-use restriction, role separation, and human override; metadata and lineage domains map to prompt, model, and provenance records; quality domains map to evaluation datasets, error thresholds, and confabulation tracking; security and compliance domains map to safeguards, prompt-injection defenses, and release controls; and audit domains map to transparency notes, inference logs, and incident disclosure.
+
+### §3 Reasoning
+
+- [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance] Because DAMA-DMBOK, ISO/IEC 38505, and COBIT are principle-level governance frameworks rather than narrow technical standards, the strongest reading is that they should be extended by reinterpretation of their existing domains rather than replaced by a wholly new governance taxonomy.
+- [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en] The most defensible extension set is the one already converging across NIST and vendor frameworks: provenance, pre-deployment testing, safeguards, impact assessment, transparency, ongoing evaluation, and incident handling.
+- [inference; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html] Prompt templates, system instructions, and model versions belong inside governance because they change system behavior in production much like schema changes, business-rule changes, or application releases do.
+- [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://doi.org/10.1016/j.inffus.2019.12.012; https://ai.google.dev/responsible/docs/evaluation?hl=en] Alignment uncertainty is better treated as an assurance and control-verification problem than as classical data quality, because a system may have well-governed source data and still produce unsafe or misaligned outputs through prompt interaction, model drift, or confabulation.
+
+### §4 Consistency Check
+
+- [fact; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance] No reviewed source argues that traditional data-governance frameworks are irrelevant to Large Language Model deployments, and the tension in the evidence is about operational specificity rather than about whether governance duties exist.
+- [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit] The main precision limit is that DAMA-DMBOK, ISO/IEC 38505, and most COBIT core material remain partly paywalled or summarized publicly, so clause-level mapping is weaker than the mapping available from NIST and public vendor frameworks.
+- [fact; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en] NIST, Microsoft, and Google all converge on evaluation, documentation, safeguards, and oversight, so the proposed extension set is not resting on a single evidence family.
+
+### §5 Depth and Breadth Expansion
+
+- [inference; source: https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] **Organisational lens:** COBIT and NIST both imply that ownership and review cadence must be explicit, so the extension is not just technical logging but a governance operating model with named decision owners.
+- [inference; source: https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en] **Technical lens:** governance of prompt templates is a practical control surface because prompts, safety policies, and safeguard thresholds directly shape model behavior even when training data do not change.
+- [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf] **Regulatory lens:** impact assessment, content provenance, and incident disclosure are the clearest public bridges from principle-level governance to operational evidence for deployed generative systems.
+- [inference; source: https://doi.org/10.1016/j.inffus.2019.12.012; https://ai.google.dev/responsible/docs/evaluation?hl=en] **Assurance lens:** explainability, benchmarked behavior, and external review remain important because governance cannot rely on output plausibility alone when alignment uncertainty persists.
+
+### §6 Synthesis
+
+**Executive summary:**
+
+Traditional data governance frameworks can be extended for Large Language Model systems by treating prompt templates, model versions, evaluation evidence, and inference provenance as governed assets and by keeping final consequential authority outside stochastic model output. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://doi.org/10.6028/NIST.AI.600-1]
+The accessible public material for DAMA-DMBOK, ISO/IEC 38505, and COBIT already covers accountability, stewardship, metadata, quality, security, and monitoring, but it does not specify how to govern probabilistic outputs, prompt changes, or model-version drift in deployed generative systems. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance]
+NIST's generative profile plus Microsoft's and Google's responsible-AI frameworks supply the missing operational extensions: impact assessments, intended-use restrictions, content provenance, transparency artifacts, safeguards, red teaming, ongoing evaluation, and incident handling. [fact; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+Alignment uncertainty should be governed as a continuous assurance and change-control problem rather than folded into classical data quality alone, because behavior can shift through prompt interaction, safeguard tuning, and model or backend changes even when business data remain stable. [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html]
+
+**Key findings:**
+
+1. **DAMA-DMBOK, ISO/IEC 38505, and COBIT remain usable baseline frameworks for deployed Large Language Model governance because they already define stewardship, accountability, metadata, quality, security, and monitoring domains, but they require explicit reinterpretation for generative-system control surfaces.** ([inference]; medium confidence; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance)
+2. **Metadata and lineage governance must expand from business-data catalogs and pipeline lineage to versioned prompt templates, system instructions, model identifiers, evaluation sets, transparency artifacts, impact assessments, and generation provenance if organizations want auditable Large Language Model operations.** ([inference]; medium confidence; source: https://www.dama.org/cpages/body-of-knowledge; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf; https://doi.org/10.6028/NIST.AI.600-1)
+3. **Classical data-quality governance is insufficient on its own, because deployed generative systems also require behavioral evaluation, confabulation tracking, red teaming, and release criteria that measure whether outputs remain fit for purpose under realistic and adversarial conditions.** ([inference]; high confidence; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://doi.org/10.6028/NIST.AI.600-1)
+4. **Governance of prompt templates is a first-class extension point for traditional governance frameworks, because system-level policies, prompt templates, safeguard thresholds, and tool-use constraints materially change model behavior and therefore need documented ownership, review, and revision history.** ([inference]; medium confidence; source: https://ai.google.dev/responsible?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en)
+5. **Accountability and oversight domains must be extended so that Large Language Models operate as bounded proposal or interpretation layers while deterministic policy, approval, rollback, and human-override mechanisms retain final authority for consequential governance actions.** ([inference]; medium confidence; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html)
+6. **The most adoptable extension strategy is not a new standalone governance framework but a mapped control stack in which traditional governance domains absorb generative-AI-specific practices such as content provenance, transparency notes, incident disclosure, safeguards, and ongoing assurance review.** ([inference]; medium confidence; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en)
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Traditional governance frameworks remain the baseline, but they need generative-system reinterpretation. | https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance | medium | principle-level coverage |
+| [inference] Metadata and lineage must expand to prompts, models, evaluations, and provenance artifacts. | https://www.dama.org/cpages/body-of-knowledge; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf; https://doi.org/10.6028/NIST.AI.600-1 | medium | stewardship extension |
+| [fact] Behavioral assurance must include evaluation, confabulation tracking, and fit-for-purpose release criteria. | https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://doi.org/10.6028/NIST.AI.600-1 | high | explicit external requirements |
+| [inference] Governance of prompt templates is a first-class governed artifact set. | https://ai.google.dev/responsible?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en | medium | prompt and safeguard controls |
+| [inference] Consequential authority should stay in deterministic policy or human-control layers. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html | medium | control-boundary synthesis |
+| [inference] The most adoptable path is a mapped extension stack, not a replacement framework. | https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1; https://ai.google.dev/responsible/docs/design?hl=en | medium | adoption-focused synthesis |
+
+**Assumptions:**
+
+- Public summaries of DAMA-DMBOK, ISO/IEC 38505, and COBIT are sufficiently representative to support domain-level mapping even though the full standards texts are partly paywalled. [assumption; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit]
+- Prompt templates, system instructions, and safeguard policies can be treated as governed metadata assets even when older framework wording does not name them explicitly, because public vendor guidance already treats them as documented and reviewable operational artifacts. [assumption; source: https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf]
+
+**Analysis:**
+
+The evidence favors extension by mapping rather than replacement because the older frameworks still describe the right governance categories, but newer sources add the operational evidence required for deployed generative systems. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1]
+The strongest cross-source convergence sits around four extensions: provenance, evaluation, safeguards, and accountability, because NIST, Microsoft, and Google each publish controls in those areas even though they differ in terminology. [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+The practical mapping is therefore: governance and accountability to impact assessment and role separation; metadata and lineage to prompts, models, and generation provenance; quality to behavioral evaluation and confabulation thresholds; security to safeguards and prompt-injection defenses; and audit to transparency notes, release evidence, and incident disclosure. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+Prior repository items sharpen the final control recommendation by adding empirical and governance-specific evidence that current Large Language Model systems remain only partially reproducible, which makes deterministic external authority the safer interpretation of traditional accountability obligations. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+**Risks, gaps, uncertainties:**
+
+- Public access to DAMA-DMBOK, COBIT, and ISO/IEC 38505 is summary-level, so some domain mappings are stronger at the category level than at the clause level. [fact; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit]
+- Google and Microsoft provide implementation-rich guidance, but those sources are vendor frameworks rather than neutral cross-industry standards, so they strengthen the operational extension pattern more than they settle sector-independent minimum requirements. [inference; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+- The public evidence is stronger for inference-time governance and behavioral assurance than for formal amendment text inside legacy frameworks themselves, which means the mapped extension is better supported than any claim that the older frameworks have already been rewritten comprehensively for Large Language Models. [inference; source: https://www.damadmbok.org/; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1]
+
+**Open questions:**
+
+- Which minimum inference-log fields should become a de facto standard for cross-vendor Large Language Model governance, especially where providers expose different model-version and backend metadata?
+- How should organizations set escalation thresholds for alignment uncertainty when evaluation results are mixed across adversarial, safety, and fit-for-purpose benchmarks?
+- What governance pattern best handles multi-step agent workflows that chain multiple models, tools, and safeguard layers across organizational boundaries?
+
+### §7 Recursive Review
+
+- Review result: pass
+- Acronym audit: Large Language Model (LLM), Artificial Intelligence (AI), Data Management Body of Knowledge (DAMA-DMBOK), International Organization for Standardization and International Electrotechnical Commission (ISO/IEC), Control Objectives for Information and Related Technologies (COBIT), and Machine Learning Operations (MLOps) expanded on first use
+- Claim audit: labeled claims added throughout Research Skill Output, Evidence Map rows begin with epistemic status, and Findings mirror Section 6
+- Source audit: all listed Sources entries use URL-backed links and dead Microsoft blog link replaced with accessible Microsoft PDF
+- Cross-reference audit: adjacent completed items on applicability, determinism, hybrid control, policy-as-code, compliance risk, explainability, and assurance reviewed for related or cited treatment
+
+---
+
+## Findings
+
+### Executive Summary
+
+Traditional data governance frameworks can be extended for Large Language Model systems by treating prompt templates, model versions, evaluation evidence, and inference provenance as governed assets and by keeping final consequential authority outside stochastic model output. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://doi.org/10.6028/NIST.AI.600-1]
+The accessible public material for DAMA-DMBOK, ISO/IEC 38505, and COBIT already covers accountability, stewardship, metadata, quality, security, and monitoring, but it does not specify how to govern probabilistic outputs, prompt changes, or model-version drift in deployed generative systems. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance]
+NIST's generative profile plus Microsoft's and Google's responsible-AI frameworks supply the missing operational extensions: impact assessments, intended-use restrictions, content provenance, transparency artifacts, safeguards, red teaming, ongoing evaluation, and incident handling. [fact; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+Alignment uncertainty should be governed as a continuous assurance and change-control problem rather than folded into classical data quality alone, because behavior can shift through prompt interaction, safeguard tuning, and model or backend changes even when business data remain stable. [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html]
+
+### Key Findings
+
+1. **DAMA-DMBOK, ISO/IEC 38505, and COBIT remain usable baseline frameworks for deployed Large Language Model governance because they already define stewardship, accountability, metadata, quality, security, and monitoring domains, but they require explicit reinterpretation for generative-system control surfaces.** ([inference]; medium confidence; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance)
+2. **Metadata and lineage governance must expand from business-data catalogs and pipeline lineage to versioned prompt templates, system instructions, model identifiers, evaluation sets, transparency artifacts, impact assessments, and generation provenance if organizations want auditable Large Language Model operations.** ([inference]; medium confidence; source: https://www.dama.org/cpages/body-of-knowledge; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf; https://doi.org/10.6028/NIST.AI.600-1)
+3. **Classical data-quality governance is insufficient on its own, because deployed generative systems also require behavioral evaluation, confabulation tracking, red teaming, and release criteria that measure whether outputs remain fit for purpose under realistic and adversarial conditions.** ([inference]; high confidence; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://doi.org/10.6028/NIST.AI.600-1)
+4. **Governance of prompt templates is a first-class extension point for traditional governance frameworks, because system-level policies, prompt templates, safeguard thresholds, and tool-use constraints materially change model behavior and therefore need documented ownership, review, and revision history.** ([inference]; medium confidence; source: https://ai.google.dev/responsible?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en)
+5. **Accountability and oversight domains must be extended so that Large Language Models operate as bounded proposal or interpretation layers while deterministic policy, approval, rollback, and human-override mechanisms retain final authority for consequential governance actions.** ([inference]; medium confidence; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html)
+6. **The most adoptable extension strategy is not a new standalone governance framework but a mapped control stack in which traditional governance domains absorb generative-AI-specific practices such as content provenance, transparency notes, incident disclosure, safeguards, and ongoing assurance review.** ([inference]; medium confidence; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Traditional governance frameworks remain the baseline, but they need generative-system reinterpretation. | https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance | medium | principle-level coverage |
+| [inference] Metadata and lineage must expand to prompts, models, evaluations, and provenance artifacts. | https://www.dama.org/cpages/body-of-knowledge; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf; https://doi.org/10.6028/NIST.AI.600-1 | medium | stewardship extension |
+| [fact] Behavioral assurance must include evaluation, confabulation tracking, and fit-for-purpose release criteria. | https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://doi.org/10.6028/NIST.AI.600-1 | high | explicit external requirements |
+| [inference] Governance of prompt templates is a first-class governed artifact set. | https://ai.google.dev/responsible?hl=en; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en | medium | prompt and safeguard controls |
+| [inference] Consequential authority should stay in deterministic policy or human-control layers. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html | medium | control-boundary synthesis |
+| [inference] The most adoptable path is a mapped extension stack, not a replacement framework. | https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1; https://ai.google.dev/responsible/docs/design?hl=en | medium | adoption-focused synthesis |
+
+### Assumptions
+
+- Public summaries of DAMA-DMBOK, ISO/IEC 38505, and COBIT are sufficiently representative to support domain-level mapping even though the full standards texts are partly paywalled. [assumption; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit]
+- Prompt templates, system instructions, and safeguard policies can be treated as governed metadata assets even when older framework wording does not name them explicitly, because public vendor guidance already treats them as documented and reviewable operational artifacts. [assumption; source: https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf]
+
+### Analysis
+
+The evidence favors extension by mapping rather than replacement because the older frameworks still describe the right governance categories, but newer sources add the operational evidence required for deployed generative systems. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1]
+The strongest cross-source convergence sits around four extensions: provenance, evaluation, safeguards, and accountability, because NIST, Microsoft, and Google each publish controls in those areas even though they differ in terminology. [inference; source: https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+The practical mapping is therefore: governance and accountability to impact assessment and role separation; metadata and lineage to prompts, models, and generation provenance; quality to behavioral evaluation and confabulation thresholds; security to safeguards and prompt-injection defenses; and audit to transparency notes, release evidence, and incident disclosure. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+Prior repository items sharpen the final control recommendation by adding empirical and governance-specific evidence that current Large Language Model systems remain only partially reproducible, which makes deterministic external authority the safer interpretation of traditional accountability obligations. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html; https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html; https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+### Risks, Gaps, and Uncertainties
+
+- Public access to DAMA-DMBOK, COBIT, and ISO/IEC 38505 is summary-level, so some domain mappings are stronger at the category level than at the clause level. [fact; source: https://www.dama.org/cpages/body-of-knowledge; https://www.iso.org/standard/56639.html; https://www.isaca.org/resources/cobit]
+- Google and Microsoft provide implementation-rich guidance, but those sources are vendor frameworks rather than neutral cross-industry standards, so they strengthen the operational extension pattern more than they settle sector-independent minimum requirements. [inference; source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf; https://ai.google.dev/responsible/docs/design?hl=en; https://ai.google.dev/responsible/docs/evaluation?hl=en; https://ai.google.dev/responsible/docs/safeguards?hl=en]
+- The public evidence is stronger for inference-time governance and behavioral assurance than for formal amendment text inside legacy frameworks themselves, which means the mapped extension is better supported than any claim that the older frameworks have already been rewritten comprehensively for Large Language Models. [inference; source: https://www.damadmbok.org/; https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance; https://doi.org/10.6028/NIST.AI.600-1]
+
+### Open Questions
+
+- Which minimum inference-log fields should become a de facto standard for cross-vendor Large Language Model governance, especially where providers expose different model-version and backend metadata?
+- How should organizations set escalation thresholds for alignment uncertainty when evaluation results are mixed across adversarial, safety, and fit-for-purpose benchmarks?
+- What governance pattern best handles multi-step agent workflows that chain multiple models, tools, and safeguard layers across organizational boundaries?
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: Mapping of traditional data-governance domains to Large Language Model-specific controls for governance of prompt templates, provenance, behavioral assurance, and deterministic oversight in deployed systems. [inference; source: https://www.dama.org/cpages/body-of-knowledge; https://doi.org/10.6028/NIST.AI.600-1; https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf]
+- Links:
+  - https://doi.org/10.6028/NIST.AI.600-1
+  - https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf
+  - https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance
