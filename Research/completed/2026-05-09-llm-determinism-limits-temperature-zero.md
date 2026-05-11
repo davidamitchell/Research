@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 6464fe2e00bb322566b2fa2ad1fc3a5b5b6ec6c8
+    changed: 2026-05-11
+    progress: progress/2026-05-11-llm-determinism-limits-temperature-zero.md
+    summary: "Initial completion"
 ---
 
 # Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts
