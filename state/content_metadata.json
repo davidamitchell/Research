@@ -1,6 +1,91 @@
 {
-  "extracted_at": "2026-05-11T11:55:03Z",
+  "extracted_at": "2026-05-11T12:11:20Z",
   "items": {
+    "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes": {
+      "named_concepts": [
+        "control effectiveness",
+        "workforce process",
+        "basel committee",
+        "banking supervision",
+        "material workforce",
+        "workforce processes",
+        "capability maturity",
+        "maturity model",
+        "model integration",
+        "inherent risk",
+        "critical operations",
+        "defined-process threshold",
+        "trained participants",
+        "shared assets",
+        "prc scores",
+        "inherent-risk uplift",
+        "summary material",
+        "organization-defined process",
+        "manual handling",
+        "upward adjustment"
+      ],
+      "source_urls": [
+        "https://www.bis.org/publ/bcbs239.htm",
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.iso.org/iso-31000-risk-management.html",
+        "https://doi.org/10.6028/NIST.SP.800-37r2",
+        "https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final",
+        "https://pcaobus.org/standards/auditing-standards/details/AS2201",
+        "https://cmmiinstitute.com/learning/appraisals/levels",
+        "https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-cobit-cmmi-defined-process-risk-mitigation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A material workforce process that is undocumented or mainly intuitive should not retain the same inherent-risk score as a documented, organization-defined process, because Basel Committee on Banking Supervision and International Organization for Standardization sources treat poorly understood internal processes as higher uncertainty and higher operational-risk exposure",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.htm",
+            "https://www.iso.org/iso-31000-risk-management.html"
+          ]
+        },
+        {
+          "text": "A material workforce process that still depends on spreadsheets, desktop databases, or other manual handling should receive an additional inherent-risk uplift beyond the documentation penalty, because Basel Committee on Banking Supervision 239 links manual desktop workflows to higher error risk and requires consistently applied mitigants",
+          "sources": [
+            "https://www.bis.org/publ/bcbs239.htm"
+          ]
+        },
+        {
+          "text": "Control effectiveness should be capped at weak when the workforce process lacks complete documented steps, named ownership, retained execution evidence, and monitoring against explicit objectives, because Capability Maturity Model Integration level 2 and Public Company Accounting Oversight Board evidence rules make those conditions the first credible baseline for repeatable control operation",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals/levels",
+            "https://pcaobus.org/standards/auditing-standards/details/AS2201"
+          ]
+        },
+        {
+          "text": "Control effectiveness should be capped at moderate rather than strong until the workforce process reaches the defined-process threshold that uses organizational standards, approved tailoring, shared assets, trained participants, and regular review, because both public Control Objectives for Information and Related Technologies guidance and Capability Maturity Model Integration distinguish durable defined execution from merely complete local execution",
+          "sources": [
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement",
+            "https://cmmiinstitute.com/learning/appraisals/levels",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-cobit-cmmi-defined-process-risk-mitigation.html"
+          ]
+        },
+        {
+          "text": "Documentation minimums that justify lowering PRC scores include a stated purpose and scope, named owner, standard steps with inputs and outputs, approved exception or tailoring rules, retained evidence, trained participants, review cadence, and a mechanism for updating the common process after failures or exceptions",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals/levels",
+            "https://www.isaca.org/resources/news-and-trends/industry-news/2019/defining-target-capability-levels-in-cobit-2019-a-proposal-for-refinement",
+            "https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final",
+            "https://pcaobus.org/standards/auditing-standards/details/AS2201"
+          ]
+        },
+        {
+          "text": "Workforce processes that affect critical operations, access control decisions, staffing allocation, regulatory attestations, or risk reporting merit stricter score penalties for immaturity than low-materiality administrative routines, because Basel operational-resilience and risk-data guidance treats those dependencies as wider continuity and data-integrity exposures",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d516.htm",
+            "https://www.bis.org/publ/bcbs239.htm",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
+          ]
+        }
+      ]
+    },
     "2026-05-09-policy-lsp-capability-debt-detection": {
       "named_concepts": [
         "structural mismatch",
