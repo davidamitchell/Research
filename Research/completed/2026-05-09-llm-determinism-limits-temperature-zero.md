@@ -2,12 +2,12 @@
 review_count: 2
 title: "Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts"
 added: 2026-05-09T22:44:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [llm, governance, agentic-ai, evaluation, ai-governance]
 started: 2026-05-11T10:30:26+00:00
-completed: ~
+completed: 2026-05-11T10:52:15+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-governance-policy-determinism-vs-stochastic-llm
@@ -106,7 +106,7 @@ What are the practical limits of making LLM (Large Language Model)-based decisio
   - A1. Do current vendor documents say temperature zero or fixed seeds are fully deterministic?
   - A2. What do repeated-run empirical studies report when prompts are held constant?
 - **B. Residual nondeterminism sources**
-  - B1. Which mechanisms still change outputs after greedy decoding is selected?
+  - B1. Which mechanisms still change outputs after the system is set to choose the highest-probability next token?
   - B2. How do backend changes, batching, hardware paths, and model versioning affect replayability?
 - **C. Constrained-output controls**
   - C1. What do structured outputs, strict tool schemas, and grammar-constrained decoding guarantee?
@@ -132,9 +132,9 @@ What are the practical limits of making LLM (Large Language Model)-based decisio
 
 #### B. Residual nondeterminism is driven by serving-path behavior, numerical precision, and model-change surfaces
 
-- [fact; source: https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/] Thinking Machines Lab says LLM Application Programming Interface services and common open-source inference libraries remain non-deterministic in practice even with greedy decoding, and argues that batch-sensitive serving behavior is the main practical source of variance rather than sampling alone.
-- [fact; source: https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html] The vLLM FAQ says the same request can vary across runs because output log probabilities can change when batching changes, speculative decoding expands batches, or concurrent traffic alters the batch composition seen by the request.
-- [fact; source: https://docs.sglang.ai/references/faq.html] The SGLang FAQ says temperature-zero requests can still diverge because dynamic batching and prefix caching dispatch different kernels, and it recommends disabling cache features and sending one request at a time to get only mostly deterministic behavior.
+- [fact; source: https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/] Thinking Machines Lab says LLM Application Programming Interface services and common open-source inference libraries remain non-deterministic in practice even when the system is set to choose the highest-probability next token, and argues that batch-sensitive serving behavior is the main practical source of variance rather than sampling alone.
+- [fact; source: https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html] The vLLM FAQ says the same request can vary across runs because output log probabilities can change when batching changes, lookahead decoding methods expand batches with extra candidate continuations, or concurrent traffic alters the batch composition seen by the request.
+- [fact; source: https://docs.sglang.ai/references/faq.html] The SGLang FAQ says temperature-zero requests can still diverge because dynamic batching and reused cached prompt-prefix computations dispatch different kernels, and it recommends disabling cache features and sending one request at a time to get only mostly deterministic behavior.
 - [fact; source: https://pytorch.org/docs/2.11/notes/randomness.html] PyTorch says completely reproducible results are not guaranteed across releases, commits, platforms, or even central processing unit versus graphics processing unit runs with identical seeds, and also notes that deterministic modes usually reduce performance.
 - [fact; source: https://cookbook.openai.com/examples/reproducible_outputs_with_the_seed_parameter; https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output] OpenAI and Microsoft both expose `system_fingerprint` precisely because backend configuration changes can alter repeatability even when prompts and seed values stay fixed.
 - [fact; source: https://docs.anthropic.com/en/docs/about-claude/models/overview; https://docs.anthropic.com/en/docs/about-claude/model-deprecations] Anthropic says model identifiers are pinned snapshots or alias pointers depending on model generation, and it documents routine model deprecations and migrations.
@@ -146,7 +146,7 @@ What are the practical limits of making LLM (Large Language Model)-based decisio
 - [fact; source: https://developers.openai.com/api/docs/guides/structured-outputs] OpenAI says Structured Outputs guarantee that responses adhere to the supplied JSON Schema, unlike older JSON mode which guarantees valid JSON but not schema adherence.
 - [fact; source: https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs] Microsoft says structured outputs make a model follow a supplied JSON Schema definition and recommends strict schema enforcement for function calling and complex multi-step workflows.
 - [fact; source: https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview] Anthropic says `strict: true` in tool definitions ensures Claude tool calls match the declared schema exactly, which constrains the allowed action envelope at the tool-call boundary.
-- [fact; source: https://lmql.ai/docs/language/constraints.html] The Language Model Query Language (LMQL) constraints guide says constraints are evaluated eagerly on each generated token and translated into token masks so that invalid branches fail early during generation rather than only after the full response is produced.
+- [fact; source: https://lmql.ai/docs/language/constraints.html] The Language Model Query Language (LMQL) constraints guide says constraints are evaluated eagerly on each generated token and translated into per-token allow or deny filters so that invalid branches fail early during generation rather than only after the full response is produced.
 - [fact; source: https://arxiv.org/abs/2305.13971] Geng et al. say grammar-constrained decoding guarantees that model output follows the supplied structure and demonstrate that constrained models outperform unconstrained models on several structured natural-language-processing tasks.
 - [fact; source: https://arxiv.org/abs/2212.06094] Beurer-Kellner et al. say LMQL allows constraints over model output and combines prompting with control flow so that structured decoding can be expressed as a higher-level program.
 - [inference; source: https://developers.openai.com/api/docs/guides/structured-outputs; https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview; https://lmql.ai/docs/language/constraints.html; https://arxiv.org/abs/2305.13971] These controls reliably improve output-structure stability by forcing responses into a typed or grammatical envelope, but they do not by themselves guarantee that the same semantic judgment, rationale, or classification will be chosen on every run.
