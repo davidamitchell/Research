@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments"
 added: 2026-05-10T04:59:39+00:00
 status: reviewing
