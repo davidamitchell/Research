@@ -25,7 +25,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: d2cdfc292efaec6132530bc90c20fc3e30c04485
+    changed: 2026-05-11
+    progress: progress/2026-05-11-data-governance-frameworks-llm-nondeterminism-extension.md
+    summary: "Initial completion"
 ---
 
 # Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior
