@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts"
 added: 2026-05-09T22:56:47+00:00
 status: reviewing
