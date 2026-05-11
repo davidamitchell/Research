@@ -1,6 +1,119 @@
 {
-  "extracted_at": "2026-05-11T13:04:12Z",
+  "extracted_at": "2026-05-11T13:18:35Z",
   "items": {
+    "2026-05-10-m365-copilot-sensitive-data-security-governance-risks": {
+      "named_concepts": [
+        "microsoft copilot",
+        "restricted content",
+        "content discovery",
+        "public documentation",
+        "web grounding",
+        "existing user",
+        "overshared content",
+        "residual gaps",
+        "deployments reduce",
+        "amplifies pre-existing",
+        "search friction",
+        "microsoft documents",
+        "file-level inheritance",
+        "interim safeguard",
+        "protect onedrive",
+        "grounding creates",
+        "separate compliance",
+        "compliance boundary",
+        "microsoft states",
+        "government community"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing",
+        "https://learn.microsoft.com/en-us/purview/sensitivity-labels-office-apps#microsoft-365-copilot",
+        "https://learn.microsoft.com/en-us/purview/sensitivity-labels-coauthoring",
+        "https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance",
+        "https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-step3",
+        "https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance",
+        "https://learn.microsoft.com/en-us/microsoft-365-copilot/manage-public-web-access",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview",
+        "https://learn.microsoft.com/en-us/compliance/regulatory/offering-itar",
+        "https://learn.microsoft.com/en-us/purview/ai-microsoft-purview",
+        "https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing",
+        "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_047",
+        "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_080",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+        "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development",
+        "https://www.gartner.com/en/documents/4959763",
+        "https://metomic.io/resource-centre/the-hidden-risks-of-microsoft-copilot-for-m365",
+        "https://media.defense.gov/2023/Nov/02/2003333300/-1/-1/1/DOD_DATA_ANALYTICS_AI_ADOPTION_STRATEGY.PDF"
+      ],
+      "key_claims": [
+        {
+          "text": "Microsoft 365 Copilot materially amplifies pre-existing permission sprawl because it uses Microsoft Graph and existing user entitlements to retrieve data that the user can already view, while removing the search friction that previously hid overshared content behind weak discoverability",
+          "sources": [
+            "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+            "https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing",
+            "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_047"
+          ]
+        },
+        {
+          "text": "Microsoft documents that Copilot conversations inherit the highest-priority sensitivity label from referenced content and that encrypted files require EXTRACT and VIEW rights, but public documentation is less explicit about whether every generated-file workflow inherits labels identically, because file-level inheritance is described as applying when supported",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing",
+            "https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-step3",
+            "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_080"
+          ]
+        },
+        {
+          "text": "Restricted Content Discovery is an interim safeguard for high-risk SharePoint sites, but it does not change permissions, does not protect OneDrive, can take substantial time to propagate, and can degrade Copilot answer completeness because it removes content from discovery rather than fixing access",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery",
+            "https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot"
+          ]
+        },
+        {
+          "text": "DLP for Copilot can block sensitive prompts, prevent external web grounding, and exclude files or emails with selected sensitivity labels from Copilot processing, yet Microsoft documents residual gaps such as citation visibility for excluded items, non-scanned uploaded prompt files, and delayed enforcement for labels applied mid-session in Office apps",
+          "sources": [
+            "https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about",
+            "https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot"
+          ]
+        },
+        {
+          "text": "Microsoft 365 stores Copilot prompts, responses, citations, and referenced resources inside Microsoft 365 and exposes them to Purview audit, retention, and eDiscovery workflows, which means regulated use can be investigated after the fact but only if the organization has actually configured those governance services",
+          "sources": [
+            "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+            "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing",
+            "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance"
+          ]
+        },
+        {
+          "text": "Optional web grounding creates a separate compliance boundary because Microsoft sends generated Bing queries outside the normal tenant-internal grounding path, and Microsoft states that the Data Protection Addendum, HIPAA, and EU Data Boundary do not apply to those generated search queries even though direct tenant identifiers are removed",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-365-copilot/manage-public-web-access",
+            "https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about"
+          ]
+        },
+        {
+          "text": "Government Community Cloud, Government Community Cloud High, and Department of Defense deployments reduce jurisdiction, sovereignty, and screened-personnel risk for sensitive government workloads, but Microsoft states that there is no ITAR certification and that customers remain responsible for correct architecture, data protection, and contractual posture inside those environments",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview",
+            "https://learn.microsoft.com/en-us/compliance/regulatory/offering-itar"
+          ]
+        },
+        {
+          "text": "Regulated organizations should treat Copilot as a governed retrieval and drafting layer rather than as an autonomous final authority for consequential outputs, because public European, United Kingdom, NIST, and NCSC guidance converges on accountable human oversight, lifecycle risk management, and secure operation rather than uncontrolled automated use on sensitive data",
+          "sources": [
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+            "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"
+          ]
+        }
+      ]
+    },
     "2026-05-09-system-of-record-bypass-control-deficiencies": {
       "named_concepts": [
         "weak change",

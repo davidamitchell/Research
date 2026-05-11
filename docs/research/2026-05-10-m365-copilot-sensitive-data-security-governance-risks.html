@@ -1,0 +1,787 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools…</h1>
+  <p class="full-title-subtitle">Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments</p>
+  <div class="meta-bar">
+    <span>2026-05-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/microsoft.html">microsoft</a> <a class="tag" href="/Research/tags/copilot.html">copilot</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/compliance.html">compliance</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/regulatory.html">regulatory</a> <a class="tag" href="/Research/tags/sensitive-data.html">sensitive-data</a> <a class="tag" href="/Research/tags/access-control.html">access-control</a> <a class="tag" href="/Research/tags/data-classification.html">data-classification</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-10-m365-copilot-sensitive-data-security-governance-risks.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-10-m365-copilot-sensitive-data-security-governance-risks" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Microsoft 365 Copilot materially amplifies pre-existing permission sprawl because it uses Microsoft Graph and existing user entitlements to retrieve data that the user can already view, while removing the search friction that previously hid overshared content behind weak discoverability<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing">Microsoft (n.d.)</a><a class="claim-source-link" href="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_047" target="_blank" rel="noopener" title="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_047">Microsoft (n.d.)</a></span></li>
+<li>Microsoft documents that Copilot conversations inherit the highest-priority sensitivity label from referenced content and that encrypted files require EXTRACT and VIEW rights, but public documentation is less explicit about whether every generated-file workflow inherits labels identically, because file-level inheritance is described as applying when supported<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-step3" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-step3">Microsoft (n.d.)</a><a class="claim-source-link" href="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_080" target="_blank" rel="noopener" title="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_080">Microsoft (n.d.)</a></span></li>
+<li>Restricted Content Discovery is an interim safeguard for high-risk SharePoint sites, but it does not change permissions, does not protect OneDrive, can take substantial time to propagate, and can degrade Copilot answer completeness because it removes content from discovery rather than fixing access<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot">Microsoft (n.d.)</a></span></li>
+<li>DLP for Copilot can block sensitive prompts, prevent external web grounding, and exclude files or emails with selected sensitivity labels from Copilot processing, yet Microsoft documents residual gaps such as citation visibility for excluded items, non-scanned uploaded prompt files, and delayed enforcement for labels applied mid-session in Office apps<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot">Microsoft (n.d.)</a></span></li>
+<li>Microsoft 365 stores Copilot prompts, responses, citations, and referenced resources inside Microsoft 365 and exposes them to Purview audit, retention, and eDiscovery workflows, which means regulated use can be investigated after the fact but only if the organization has actually configured those governance services<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance">Microsoft (n.d.)</a></span></li>
+<li>Optional web grounding creates a separate compliance boundary because Microsoft sends generated Bing queries outside the normal tenant-internal grounding path, and Microsoft states that the Data Protection Addendum, HIPAA, and EU Data Boundary do not apply to those generated search queries even though direct tenant identifiers are removed<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365-copilot/manage-public-web-access" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365-copilot/manage-public-web-access">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about">Microsoft (n.d.)</a></span></li>
+<li>Government Community Cloud, Government Community Cloud High, and Department of Defense deployments reduce jurisdiction, sovereignty, and screened-personnel risk for sensitive government workloads, but Microsoft states that there is no ITAR certification and that customers remain responsible for correct architecture, data protection, and contractual posture inside those environments<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/compliance/regulatory/offering-itar" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/compliance/regulatory/offering-itar">Microsoft (n.d.)</a></span></li>
+<li>Regulated organizations should treat Copilot as a governed retrieval and drafting layer rather than as an autonomous final authority for consequential outputs, because public European, United Kingdom, NIST, and NCSC guidance converges on accountable human oversight, lifecycle risk management, and secure operation rather than uncontrolled automated use on sensitive data<span class="claim-sources"><a class="claim-source-link" href="https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en" target="_blank" rel="noopener" title="https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en">European (n.d.)</a><a class="claim-source-link" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank" rel="noopener" title="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/">Information (n.d.)</a><a class="claim-source-link" href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10" target="_blank" rel="noopener" title="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">NIST (n.d.)</a><a class="claim-source-link" href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development" target="_blank" rel="noopener" title="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development">UK (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What are the documented security, compliance, and governance risks of using Generative Artificial Intelligence (GenAI) tools such as Microsoft 365 (M365) Copilot for drafting memos, reports, and other documents in enterprise, government, or regulated environments that contain sensitive, confidential, or classified information?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Microsoft 365 Copilot presents high governance and compliance risk for sensitive or regulated data unless the tenant has already remediated oversharing, enforced durable labeling and DLP controls, and constrained the specific grounding paths Copilot may use. [inference] [source: <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft Learn Data, privacy, and security for Microsoft 365 Copilot</a> <a href="https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing">Microsoft Learn Data risk assessments for oversharing</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot]">learn.microsoft.com</a>
+A dominant documented risk mechanism is inherited-access amplification: Copilot honors existing user permissions, so weak SharePoint and OneDrive governance becomes easier to exploit because natural-language prompts collapse the search cost of finding overshared content. [inference] [source: <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft Learn Data, privacy, and security for Microsoft 365 Copilot</a> <a href="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_047]">microsoft.github.io</a>
+Microsoft provides real controls, including highest-priority label handling, DLP exclusions, Restricted Content Discovery, auditing, retention, and sovereign government-cloud deployment, but each control is partial and leaves residual gaps that matter in regulated environments. [fact] [source: <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing">Microsoft Learn Microsoft 365 Copilot data protection architecture</a> <a href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about">Microsoft Learn Protect Microsoft 365 Copilot and Copilot Chat with DLP</a> <a href="https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery">Microsoft Learn Restrict SharePoint content from being used in Microsoft 365 Copilot</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview]">learn.microsoft.com</a>
+Government and sovereign deployments reduce jurisdictional and personnel-access exposure, but Microsoft explicitly leaves tenant architecture, permissions hygiene, labeling quality, and regulatory compliance execution with the customer. [fact] [source: <a href="https://learn.microsoft.com/en-us/compliance/regulatory/offering-itar">Microsoft Learn International Traffic in Arms Regulations (ITAR)</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview]">learn.microsoft.com</a></p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Microsoft 365 Copilot materially amplifies pre-existing permission sprawl because it uses Microsoft Graph and existing user entitlements to retrieve data that the user can already view, while removing the search friction that previously hid overshared content behind weak discoverability.</strong></li>
+<li><strong>Microsoft documents that Copilot conversations inherit the highest-priority sensitivity label from referenced content and that encrypted files require EXTRACT and VIEW rights, but public documentation is less explicit about whether every generated-file workflow inherits labels identically, because file-level inheritance is described as applying when supported.</strong></li>
+<li><strong>Restricted Content Discovery is an interim safeguard for high-risk SharePoint sites, but it does not change permissions, does not protect OneDrive, can take substantial time to propagate, and can degrade Copilot answer completeness because it removes content from discovery rather than fixing access.</strong></li>
+<li><strong>DLP for Copilot can block sensitive prompts, prevent external web grounding, and exclude files or emails with selected sensitivity labels from Copilot processing, yet Microsoft documents residual gaps such as citation visibility for excluded items, non-scanned uploaded prompt files, and delayed enforcement for labels applied mid-session in Office apps.</strong></li>
+<li><strong>Microsoft 365 stores Copilot prompts, responses, citations, and referenced resources inside Microsoft 365 and exposes them to Purview audit, retention, and eDiscovery workflows, which means regulated use can be investigated after the fact but only if the organization has actually configured those governance services.</strong></li>
+<li><strong>Optional web grounding creates a separate compliance boundary because Microsoft sends generated Bing queries outside the normal tenant-internal grounding path, and Microsoft states that the Data Protection Addendum, HIPAA, and EU Data Boundary do not apply to those generated search queries even though direct tenant identifiers are removed.</strong></li>
+<li><strong>Government Community Cloud, Government Community Cloud High, and Department of Defense deployments reduce jurisdiction, sovereignty, and screened-personnel risk for sensitive government workloads, but Microsoft states that there is no ITAR certification and that customers remain responsible for correct architecture, data protection, and contractual posture inside those environments.</strong></li>
+<li><strong>Regulated organizations should treat Copilot as a governed retrieval and drafting layer rather than as an autonomous final authority for consequential outputs, because public European, United Kingdom, NIST, and NCSC guidance converges on accountable human oversight, lifecycle risk management, and secure operation rather than uncontrolled automated use on sensitive data.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>None.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The reviewed public evidence base is stronger on documented mechanisms and controls than on public postmortems of named Copilot data-leak incidents. [inference] [source: <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft Learn Data, privacy, and security for Microsoft 365 Copilot</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot]">learn.microsoft.com</a>
+That still supports a firm conclusion because Microsoft repeatedly frames oversharing remediation, labeling, DLP, and auditability as prerequisite work, which would be unnecessary if the product's built-in guardrails fully neutralized sensitive-data exposure on their own.
+The evidence also shows that no single control is sufficient: Restricted Content Discovery narrows discovery but preserves access, labels protect only where they are correctly applied and supported, DLP blocks specific paths but has known blind spots, and sovereign deployment addresses jurisdiction rather than tenant hygiene.
+The strongest synthesis is therefore an operating-model claim: Copilot on sensitive data is viable only as a bounded layer inside an already-governed tenant, not as a shortcut around access reviews, classification discipline, or human-accountable compliance decisions.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Public evidence is much stronger on documented control behavior than on named public incident reports for Microsoft 365 Copilot specifically, so incident severity is inferred mainly from mechanism and control guidance rather than from a large public breach corpus.</li>
+<li>Microsoft's public documentation is explicit about conversation-level label inheritance and qualified about new-content inheritance, so organizations handling highly sensitive data should test each creation path they intend to allow before assuming label continuity is universal.</li>
+<li>DLP does not scan files uploaded directly into prompts and can still expose excluded items as citations, which leaves a residual metadata and user-behavior surface even where content-processing controls are configured.</li>
+<li>Sovereign deployment reduces some legal and jurisdictional exposure, but Microsoft's own compliance material still places architectural and operational responsibility on the customer, so a government cloud should be treated as a prerequisite for some data classes rather than as a complete control solution.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which specific Microsoft 365 Copilot generated-file workflows still lack verified public documentation for deterministic sensitivity-label inheritance in production tenants?</li>
+<li>How should organizations classify and govern Copilot-generated derivative documents when the source set mixes labeled and unlabeled content?</li>
+<li>Which regulator or procurement frameworks will begin requiring explicit evidence of Copilot oversharing assessment, web-grounding control, and post-use audit configuration as part of AI assurance?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy">Microsoft Learn Data, privacy, and security for Microsoft 365 Copilot</a> - Primary Microsoft description of Graph access, service-boundary handling, training-use commitments, and stored interaction data.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing">Microsoft Learn Microsoft 365 Copilot data protection architecture</a> - Primary Microsoft description of access control, encryption, highest-priority label behavior, auditing, and stored Copilot interaction data.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels-office-apps#microsoft-365-copilot">Microsoft Learn Microsoft 365 Copilot and sensitivity labels</a> - Primary Microsoft labeling reference for Office-app sensitivity-label support used to cross-check Copilot protection claims.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels-coauthoring">Microsoft Learn Co-authoring for files with sensitivity labels</a> - Primary Microsoft documentation on label metadata behavior and limitations for labeled Office files.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery">Microsoft Learn Restrict SharePoint content from being used in Microsoft 365 Copilot</a> - Primary Microsoft documentation on Restricted Content Discovery behavior and limits.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot">Microsoft Learn Configure a secure and governed foundation for Microsoft 365 Copilot</a> - Primary Microsoft deployment guidance for permissions remediation, labeling, DLP, and regulation-readiness.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance">Microsoft Learn Secure and governed data foundation for Microsoft 365 Copilot</a> - Primary Microsoft blueprint that frames oversharing remediation, guardrails, and regulatory readiness as the Copilot deployment baseline.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-step3">Microsoft Learn Protect interactions in secure and govern Microsoft 365 Copilot agents</a> - Primary Microsoft documentation for conversation-level label inheritance and DLP interaction controls.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about">Microsoft Learn Protect Microsoft 365 Copilot and Copilot Chat with DLP</a> - Primary Microsoft documentation for blocking sensitive prompts, web grounding, and labeled files or emails in Copilot.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance">Microsoft Learn Security and governance for Microsoft 365 Copilot and agents</a> - Primary Microsoft governance framework for oversharing, Purview, retention, audit, and inherited protections.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365-copilot/manage-public-web-access">Microsoft Learn Data, privacy, and security for web queries in Microsoft 365 Copilot</a> - Primary Microsoft documentation for optional web grounding, generated Bing queries, and the limits of Data Protection Addendum (DPA), Health Insurance Portability and Accountability Act (HIPAA), and European Union (EU) Data Boundary coverage for those queries.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/gov-overview">Microsoft Learn Understand Microsoft U.S. government cloud environments for Copilot</a> - Primary Microsoft government-cloud positioning for GCC, GCC High, and DoD deployments.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/compliance/regulatory/offering-itar">Microsoft Learn International Traffic in Arms Regulations (ITAR)</a> - Primary Microsoft compliance statement on ITAR-supporting commitments and customer responsibility.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/ai-microsoft-purview">Microsoft Learn Microsoft Purview protections for AI apps</a> - Primary Microsoft Purview documentation for sensitivity labels, DLP, auditing, and retention across AI apps.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/data-security-posture-management-oversharing">Microsoft Learn Data risk assessments for oversharing</a> - Primary Microsoft documentation for oversharing assessment and remediation workflows.</li>
+<li>[x] <a href="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_047">Microsoft Zero Trust Assessment AI 047 Assess and remediate data oversharing for Copilot readiness</a> - Microsoft-authored implementation guidance explaining why oversharing is the dominant Copilot data-security risk.</li>
+<li>[x] <a href="https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/AI/AI_080">Microsoft Zero Trust Assessment AI 080 Define sensitivity label inheritance requirements for AI outputs</a> - Microsoft-authored implementation guidance clarifying output-label inheritance expectations for Copilot and related agents.</li>
+<li>[x] <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">NIST Artificial Intelligence Risk Management Framework (AI RMF 1.0)</a> - Primary standards-body framing for lifecycle AI risk management.</li>
+<li>[x] <a href="https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en">European Commission Restrictions on automated decision-making</a> - Primary European Union guidance on solely automated significant decisions and safeguards.</li>
+<li>[x] <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/">Information Commissioner's Office Guidance on AI and data protection</a> - Primary United Kingdom guidance on accountability, governance, fairness, and accuracy in AI.</li>
+<li>[x] <a href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development">UK National Cyber Security Centre Guidelines for secure AI system development</a> - Primary lifecycle security guidance for AI systems.</li>
+<li>[ ] <a href="https://www.gartner.com/en/documents/4959763">Gartner How to Govern Generative AI Access to Sensitive Enterprise Data</a> - Seeded analyst source checked but not used as evidence because the accessible text is paywalled.</li>
+<li>[ ] <a href="https://metomic.io/resource-centre/the-hidden-risks-of-microsoft-copilot-for-m365">Metomic The Hidden Risks of Microsoft Copilot for M365</a> - Seeded analyst source checked but not used as evidence because the URL did not resolve to accessible content in this session.</li>
+<li>[ ] <a href="https://media.defense.gov/2023/Nov/02/2003333300/-1/-1/1/DOD_DATA_ANALYTICS_AI_ADOPTION_STRATEGY.PDF">Department of Defense Data, Analytics, and AI Adoption Strategy</a> - Seeded primary source checked but not used as evidence because the Portable Document Format (PDF) file returned access denied in this session.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison</a> <span class="related-note">via agentic-ai, copilot, governance, llm, microsoft, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html">Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation</a> <span class="related-note">via agentic-ai, compliance, governance, llm, regulatory</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html">Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements</a> <span class="related-note">via agentic-ai, compliance, governance, llm, regulatory</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html">Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments</a> <span class="related-note">via agentic-ai, compliance, governance, llm, regulatory</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</a> <span class="related-note">via access-control, agentic-ai, governance, llm, security</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html">Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html">Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ms-copilot-cowork.html">What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html">How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html">Knowledge curation governance as an enterprise AI capability in regulated financial institutions</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html">Control deficiencies from bypassing designated workforce record platforms</a></div>
+  </div>
+</main>
+</body>
+</html>
