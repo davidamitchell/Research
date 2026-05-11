@@ -1,6 +1,117 @@
 {
-  "extracted_at": "2026-05-11T12:41:21Z",
+  "extracted_at": "2026-05-11T12:55:06Z",
   "items": {
+    "2026-05-09-system-of-record-bypass-control-deficiencies": {
+      "named_concepts": [
+        "weak change",
+        "change control",
+        "access staffing",
+        "control incomplete",
+        "manual reconciliation",
+        "severity rises",
+        "informs access",
+        "staffing attestations",
+        "risk reporting",
+        "lineage failure",
+        "incomplete auditability",
+        "data-quality degradation",
+        "deficiency classes",
+        "national institute",
+        "european central",
+        "central bank",
+        "control objectives",
+        "related technologies",
+        "designated workforce",
+        "workforce record"
+      ],
+      "source_urls": [
+        "https://www.bis.org/publ/bcbs239.htm",
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://op.europa.eu/en/publication-detail/-/publication/637209da-0c36-11ef-a251-01aa75ed71a1/language-en",
+        "https://doi.org/10.6028/NIST.SP.800-53r5",
+        "https://doi.org/10.6028/NIST.SP.800-37r2",
+        "https://csrc.nist.gov/glossary/term/Provenance",
+        "https://csrc.nist.gov/glossary/term/System_of_Records",
+        "https://www.isaca.org/resources/cobit",
+        "https://www.intrenion.com/framework-isaca-cobit-2019-processes/",
+        "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9",
+        "https://support.microsoft.com/en-us/office/view-previous-versions-of-office-files-5c1e076f-a9c9-41b8-8ace-f77b9642e2c2",
+        "https://support.microsoft.com/en-us/office/get-help-with-show-changes-in-excel-a1493bf9-25c3-470a-b970-60eceb0136e5",
+        "https://support.microsoft.com/en-us/office/work-together-on-powerpoint-presentations-0c30ee3f-8674-4f0e-97be-89cf2892a34d",
+        "https://www.deloitte.com/au/en/Industries/financial-services/blogs/analytics-automation-spreadsheets-who-control.html",
+        "https://www.deloitte.com/uk/en/services/consulting-risk/blogs/2023/spreadsheet-controls-are-your-spreadsheets-exposing-your-organisation-to-unmitigated-risks.html",
+        "https://eusprig.org/research-info/research-and-best-practice/",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The most recurrent deficiency when designated workforce record platforms are bypassed is authoritative-source and lineage failure, because exports, copied workbooks, and copied presentation content detach the working artifact from the source record that should remain authoritative",
+          "sources": [
+            "https://www.bis.org/publ/bcbs239.htm",
+            "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts.html"
+          ]
+        },
+        {
+          "text": "Incomplete auditability and non-repudiation are the next most common deficiencies, because materially relevant edits in Excel and PowerPoint can occur outside a complete retained trail of actor, prior value, revision type, and review outcome",
+          "sources": [
+            "https://doi.org/10.6028/NIST.SP.800-53r5",
+            "https://support.microsoft.com/en-us/office/get-help-with-show-changes-in-excel-a1493bf9-25c3-470a-b970-60eceb0136e5",
+            "https://support.microsoft.com/en-us/office/work-together-on-powerpoint-presentations-0c30ee3f-8674-4f0e-97be-89cf2892a34d"
+          ]
+        },
+        {
+          "text": "Weak change control is a common downstream deficiency, because shadow artifacts allow undocumented assumptions, manual workarounds, and local edits to bypass approved change decisions, validation expectations, and retained change records",
+          "sources": [
+            "https://doi.org/10.6028/NIST.SP.800-53r5",
+            "https://www.bis.org/publ/bcbs239.htm",
+            "https://www.deloitte.com/uk/en/services/consulting-risk/blogs/2023/spreadsheet-controls-are-your-spreadsheets-exposing-your-organisation-to-unmitigated-risks.html"
+          ]
+        },
+        {
+          "text": "Inventory, ownership, and access governance deficiencies recur because business-user tools outside the central technology framework are harder to discover, classify, assign, permission, and monitor as controlled process components",
+          "sources": [
+            "https://www.deloitte.com/au/en/Industries/financial-services/blogs/analytics-automation-spreadsheets-who-control.html",
+            "https://www.intrenion.com/framework-isaca-cobit-2019-processes/",
+            "https://doi.org/10.6028/NIST.SP.800-53r5"
+          ]
+        },
+        {
+          "text": "Data-quality degradation is a common deficiency, because manual reconciliation, manual adjustments, one-way refresh paths, and inconsistent underlying data can directly distort reports and decisions and can also slow them",
+          "sources": [
+            "https://op.europa.eu/en/publication-detail/-/publication/637209da-0c36-11ef-a251-01aa75ed71a1/language-en",
+            "https://www.bis.org/publ/bcbs239.htm",
+            "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9"
+          ]
+        },
+        {
+          "text": "Operational-resilience weakness is also common, because spreadsheet and presentation bypasses concentrate process knowledge, prolong manual compilation, and make control execution more fragile during staff turnover, stress events, or urgent management requests",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.htm",
+            "https://www.bis.org/publ/bcbs239.htm",
+            "https://www.deloitte.com/uk/en/services/consulting-risk/blogs/2023/spreadsheet-controls-are-your-spreadsheets-exposing-your-organisation-to-unmitigated-risks.html"
+          ]
+        },
+        {
+          "text": "The same six deficiency classes align strongly across Basel Committee on Banking Supervision, National Institute of Standards and Technology, and European Central Bank control surfaces, and accessible Control Objectives for Information and Related Technologies materials place them in compatible data, change, business-control, and compliance categories",
+          "sources": [
+            "https://www.bis.org/publ/bcbs239.htm",
+            "https://doi.org/10.6028/NIST.SP.800-53r5",
+            "https://op.europa.eu/en/publication-detail/-/publication/637209da-0c36-11ef-a251-01aa75ed71a1/language-en",
+            "https://www.intrenion.com/framework-isaca-cobit-2019-processes/"
+          ]
+        },
+        {
+          "text": "Severity rises when the bypassed artifact informs access, staffing, attestations, or risk reporting, because the same local workaround then affects privacy, accountability, governance, and operational-resilience outcomes beyond the immediate team",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d515.htm",
+            "https://op.europa.eu/en/publication-detail/-/publication/637209da-0c36-11ef-a251-01aa75ed71a1/language-en",
+            "https://csrc.nist.gov/glossary/term/System_of_Records"
+          ]
+        }
+      ]
+    },
     "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy": {
       "named_concepts": [
         "formal risk",
