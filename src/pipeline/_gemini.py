@@ -1,211 +1,248 @@
-"""Gemini generative AI client with model discovery and cascade fallback.
+"""Shared Gemini client factory used by the enrichment pipeline.
 
-_MODEL_CASCADE lists flash-class models to try in order (newest → oldest).
-At runtime, build_cascade() prepends any newer models discovered via the
-ListModels API, so Gemini 3.x (and beyond) surfaces automatically without
-code changes.
+Ported from davidamitchell/Latest-developments- and adapted for the Research
+repo's Markdown-based corpus.
 
-Usage:
-    import os
-    from src.pipeline._gemini import build_cascade, generate_with_fallback
+Three concerns:
 
-    api_key = os.environ["GEMINI_API_KEY"]
-    cascade = build_cascade(api_key)
-    text, model_used = generate_with_fallback(api_key, "Hello!", cascade)
+_HeaderCapturingClient — httpx.Client that records x-ratelimit-* response headers
+_RateLimiter          — adaptive per-minute pacer driven by those headers
+_ModelCascade         — walks through models in order as each model's daily quota
+                        is exhausted
+
+All code that calls the Gemini API should obtain a client via make_gemini_client()
+so header capture is universal and rate-limit state is shared across calls.
 """
 
 from __future__ import annotations
 
-import re
+import logging
 import time
-from typing import Any
+from datetime import UTC, datetime
 
 import httpx
 
-_BASE = "https://generativelanguage.googleapis.com/v1beta"
+logger = logging.getLogger(__name__)
 
-# Static fallback cascade — maintained when new models ship.
-# Ordered newest → oldest; gemini-2.5-flash is confirmed working (2026-05-11).
+# ---------------------------------------------------------------------------
+# Model cascade
+# ---------------------------------------------------------------------------
+
+# Try newest models first; advance when a model's daily quota is exhausted.
+# gemini-3-flash and gemini-3.1-flash-lite are the current Gemini 3 models
+# (2026-05-11).  gemini-2.5-flash is confirmed working as of the same date.
 _MODEL_CASCADE: list[str] = [
+    "gemini-3-flash",
+    "gemini-3.1-flash-lite",
     "gemini-2.5-flash",
-    "gemini-2.0-flash",
-    "gemini-1.5-flash",
+    "gemini-2.5-flash-lite",
 ]
 
-# Statuses that mean "this model won't serve the request — try the next one".
-_SKIP_STATUSES: frozenset[int] = frozenset({404, 429, 500, 502, 503, 504})
-# Statuses that mean the request itself is broken — no point trying other models.
-_FATAL_STATUSES: frozenset[int] = frozenset({401, 403})
-
 
 # ---------------------------------------------------------------------------
-# Model discovery
+# HTTP transport
 # ---------------------------------------------------------------------------
 
 
-def list_models(api_key: str, *, timeout: float = 15.0) -> list[str]:
-    """Return all model IDs that support generateContent.
+class _HeaderCapturingClient(httpx.Client):
+    """httpx.Client that records x-ratelimit-* headers after every response.
 
-    Calls the ListModels REST endpoint.  Returns [] on any network or API
-    error so callers can fall back to _MODEL_CASCADE without crashing.
+    Injected into genai.Client via HttpOptions(httpx_client=...) — a supported,
+    documented hook — so all Gemini calls flow through it automatically.
     """
-    try:
-        resp = httpx.get(
-            f"{_BASE}/models",
-            params={"key": api_key},
-            timeout=timeout,
-        )
-        resp.raise_for_status()
-        data: dict[str, Any] = resp.json()
-    except Exception:
-        return []
 
-    return [
-        m["name"].removeprefix("models/")
-        for m in data.get("models", [])
-        if "generateContent" in m.get("supportedGenerationMethods", [])
-        and m.get("name", "").startswith("models/")
-    ]
+    def __init__(self, **kwargs: object) -> None:
+        kwargs.setdefault("follow_redirects", True)
+        super().__init__(**kwargs)  # type: ignore[arg-type]
+        self.ratelimit_headers: dict[str, str] = {}
+
+    def send(self, request: httpx.Request, **kwargs: object) -> httpx.Response:  # type: ignore[override]
+        response = super().send(request, **kwargs)  # type: ignore[arg-type]
+        self.ratelimit_headers = {
+            k.lower(): v for k, v in response.headers.items() if k.lower().startswith("x-ratelimit")
+        }
+        return response
 
 
-def _flash_sort_key(model_id: str) -> tuple[int, int, int] | None:
-    """Parse a sort key (major, minor, is_lite) from a flash model ID.
+# ---------------------------------------------------------------------------
+# Rate limiter
+# ---------------------------------------------------------------------------
 
-    Returns None for non-flash models.  is_lite=0 sorts before is_lite=1 so
-    base flash ranks above flash-lite at the same version.
 
-    Examples:
-        "gemini-3.1-flash"      → (3, 1, 0)
-        "gemini-2.5-flash"      → (2, 5, 0)
-        "gemini-2.5-flash-lite" → (2, 5, 1)
-        "gemini-2.0-flash"      → (2, 0, 0)
+def _parse_reset_seconds(reset_str: str) -> float | None:
+    """Parse x-ratelimit-reset-requests into seconds until reset.
+
+    Handles: bare float ("60"), duration with suffix ("4s"), ISO-8601 timestamp.
+    Returns None when the string is empty or unparseable.
     """
-    m = re.match(r"^gemini-(\d+)\.(\d+)-flash(-lite)?$", model_id)
-    if not m:
+    s = reset_str.strip()
+    if not s:
         return None
-    return (int(m.group(1)), int(m.group(2)), 0 if m.group(3) is None else 1)
-
-
-def build_cascade(api_key: str) -> list[str]:
-    """Build a flash-model cascade by calling ListModels, newest-first.
-
-    Steps:
-      1. Call ListModels to discover all models available to this API key.
-      2. Keep only models whose IDs match the gemini-X.Y-flash[-lite] pattern.
-      3. Sort: major desc → minor desc → base before lite.
-      4. Append any _MODEL_CASCADE entries not already present as a safety net.
-
-    Falls back entirely to _MODEL_CASCADE if the API call fails or returns no
-    flash models — e.g. when the key is not yet valid in CI before the secret
-    is set.
-    """
-    all_models = list_models(api_key)
-
-    keyed: list[tuple[tuple[int, int, int], str]] = []
-    for mid in all_models:
-        key = _flash_sort_key(mid)
-        if key is not None:
-            keyed.append((key, mid))
-
-    if not keyed:
-        return list(_MODEL_CASCADE)
-
-    # Sort newest-first: negate major+minor so larger = earlier in list.
-    keyed.sort(key=lambda x: (-x[0][0], -x[0][1], x[0][2]))
-
-    seen: set[str] = set()
-    result: list[str] = []
-    for _, mid in keyed:
-        if mid not in seen:
-            seen.add(mid)
-            result.append(mid)
-
-    # Append static fallbacks not found by ListModels.
-    for mid in _MODEL_CASCADE:
-        if mid not in seen:
-            seen.add(mid)
-            result.append(mid)
-
-    return result
-
-
-# ---------------------------------------------------------------------------
-# Generation
-# ---------------------------------------------------------------------------
-
-
-def generate(
-    api_key: str,
-    model: str,
-    prompt: str,
-    *,
-    max_tokens: int = 512,
-    temperature: float = 0.2,
-    timeout: float = 30.0,
-) -> str:
-    """Call generateContent for a single model.  Raises on any error."""
-    payload: dict[str, Any] = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "maxOutputTokens": max_tokens,
-            "temperature": temperature,
-        },
-    }
-    resp = httpx.post(
-        f"{_BASE}/models/{model}:generateContent",
-        params={"key": api_key},
-        json=payload,
-        timeout=timeout,
-    )
-    if resp.status_code in _FATAL_STATUSES:
-        resp.raise_for_status()  # auth errors — no point continuing
-    resp.raise_for_status()
-
-    data: dict[str, Any] = resp.json()
-    candidates = data.get("candidates", [])
-    if not candidates:
-        raise ValueError(f"No candidates in response from {model}")
-    parts = candidates[0].get("content", {}).get("parts", [])
-    if not parts:
-        raise ValueError(f"No parts in candidate from {model}")
-    return str(parts[0].get("text", ""))
-
-
-def generate_with_fallback(
-    api_key: str,
-    prompt: str,
-    cascade: list[str],
-    *,
-    max_tokens: int = 512,
-    temperature: float = 0.2,
-) -> tuple[str, str]:
-    """Try each model in cascade until one succeeds.
-
-    Returns (response_text, model_id_used).
-    Raises RuntimeError if every model in the cascade fails.
-    """
-    last_exc: Exception | None = None
-
-    for model in cascade:
+    if s.endswith("s"):
         try:
-            text = generate(
-                api_key,
-                model,
-                prompt,
-                max_tokens=max_tokens,
-                temperature=temperature,
+            return max(float(s[:-1]), 0.0)
+        except ValueError:
+            pass
+    try:
+        return max(float(s), 0.0)
+    except ValueError:
+        pass
+    try:
+        reset_dt = datetime.fromisoformat(s.replace("Z", "+00:00"))
+        return max((reset_dt - datetime.now(UTC)).total_seconds(), 0.0)
+    except (ValueError, OverflowError):
+        pass
+    return None
+
+
+class _RateLimiter:
+    """Adaptive per-minute pacer for Gemini API calls.
+
+    Uses 60/rpm seconds as a minimum interval floor.  Before each wait() call,
+    the captured x-ratelimit-remaining-requests header is inspected:
+
+    - remaining == 0 → wait for the reset window (x-ratelimit-reset-requests)
+    - remaining <= 3 → triple the interval to coast to the window boundary
+    - remaining >  3 → restore the minimum interval
+
+    When headers are absent (network error or mocked client in tests), the
+    fixed interval is used unchanged.
+    """
+
+    def __init__(self, rpm: int = 15, http_client: _HeaderCapturingClient | None = None) -> None:
+        self._min_interval = 60.0 / rpm
+        self._interval = self._min_interval
+        self._last: float = 0.0
+        self._http_client = http_client
+
+    def _update_from_headers(self, headers: dict[str, str]) -> None:
+        remaining_str = headers.get("x-ratelimit-remaining-requests")
+        if not remaining_str:
+            return
+        try:
+            remaining = int(remaining_str)
+        except ValueError:
+            logger.debug(
+                "Rate limiter: non-integer x-ratelimit-remaining-requests %r", remaining_str
             )
-            return text, model
-        except httpx.HTTPStatusError as exc:
-            status = exc.response.status_code
-            if status in _FATAL_STATUSES:
-                raise  # auth failure — abort immediately
-            last_exc = exc
-        except Exception as exc:
-            last_exc = exc
+            return
 
-        time.sleep(0.5)  # brief pause before next model
+        if remaining <= 0:
+            reset_str = headers.get("x-ratelimit-reset-requests", "")
+            wait = _parse_reset_seconds(reset_str) or 60.0
+            logger.warning("Rate limiter: quota window exhausted — waiting %.1fs for reset", wait)
+            self._interval = wait
+        elif remaining <= 3:
+            self._interval = max(self._min_interval * 3, 20.0)
+            logger.debug(
+                "Rate limiter: %d request(s) remaining — slowing to %.1fs interval",
+                remaining,
+                self._interval,
+            )
+        else:
+            self._interval = self._min_interval
 
-    raise RuntimeError(
-        f"All {len(cascade)} models in cascade failed. Last error: {last_exc}"
-    ) from last_exc
+    def wait(self) -> None:
+        if self._http_client and self._http_client.ratelimit_headers:
+            self._update_from_headers(self._http_client.ratelimit_headers)
+        now = time.monotonic()
+        gap = self._interval - (now - self._last)
+        if gap > 0:
+            logger.debug("Rate limiter: waiting %.1fs before next Gemini call", gap)
+            time.sleep(gap)
+        self._last = time.monotonic()
+
+
+# ---------------------------------------------------------------------------
+# Model cascade
+# ---------------------------------------------------------------------------
+
+
+class _ModelCascade:
+    """Walks through Gemini models in cascade order as each model's daily quota is exhausted.
+
+    Starts at starting_model (must appear in _MODEL_CASCADE; treated as a sole
+    option otherwise).  Each advance() resets the rate limiter so the new model
+    gets a fresh pacing window.  The shared _HeaderCapturingClient is cleared of
+    stale headers on advance so the new model's first response is read cleanly.
+
+    Two triggers for advance():
+    1. Quota-exhaustion exception from the caller
+    2. check_daily_quota_header() — proactive: x-ratelimit-remaining-*-per-day == 0
+    """
+
+    def __init__(self, starting_model: str, rpm: int, http_client: _HeaderCapturingClient) -> None:
+        try:
+            idx = _MODEL_CASCADE.index(starting_model)
+            self._models = _MODEL_CASCADE[idx:]
+        except ValueError:
+            self._models = [starting_model]
+        self._idx = 0
+        self._rpm = rpm
+        self._http_client = http_client
+        self._limiter = _RateLimiter(rpm=rpm, http_client=http_client)
+
+    @property
+    def model(self) -> str:
+        return self._models[min(self._idx, len(self._models) - 1)]
+
+    @property
+    def all_exhausted(self) -> bool:
+        return self._idx >= len(self._models)
+
+    def advance(self) -> bool:
+        """Switch to the next model.  Returns True if one is available, False if done."""
+        prev = self.model
+        self._idx += 1
+        if not self.all_exhausted:
+            logger.warning("Quota exhausted for %r — switching to %r", prev, self.model)
+            self._http_client.ratelimit_headers = {}
+            self._limiter = _RateLimiter(rpm=self._rpm, http_client=self._http_client)
+            return True
+        logger.error("All models in cascade exhausted — AI enrichment disabled for this run")
+        return False
+
+    def wait(self) -> None:
+        self._limiter.wait()
+
+    def check_daily_quota_header(self) -> bool:
+        """Return True when response headers signal this model's daily allowance is zero."""
+        headers = self._http_client.ratelimit_headers
+        for key in (
+            "x-ratelimit-remaining-requests-per-day",
+            "x-ratelimit-remaining-tokens-per-day",
+            "x-ratelimit-remaining-day",
+        ):
+            val = headers.get(key)
+            if val is not None:
+                try:
+                    if int(val) <= 0:
+                        return True
+                except ValueError:
+                    pass
+        return False
+
+
+# ---------------------------------------------------------------------------
+# Client factory
+# ---------------------------------------------------------------------------
+
+
+def make_gemini_client(api_key: str) -> tuple[object, _HeaderCapturingClient]:
+    """Construct a Gemini client wired to a header-capturing httpx transport.
+
+    Returns (genai_client, http_client).  All callers should use this factory so
+    every Gemini call captures x-ratelimit-* headers consistently.
+
+    Pass http_client to _ModelCascade to enable adaptive pacing and quota
+    detection.
+    """
+    from google import genai  # noqa: PLC0415
+    from google.genai import types  # noqa: PLC0415
+
+    http_client = _HeaderCapturingClient()
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(httpx_client=http_client),
+    )
+    return client, http_client

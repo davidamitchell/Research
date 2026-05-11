@@ -25,6 +25,7 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0012](0012-research-loop-safety-control-value-uplift.md) | Research loop safety control value uplift | Accepted | 2026-04-27 |
 | [0013](0013-research-item-frontmatter-schema-extension.md) | Research item frontmatter schema extension (W-0044 to W-0049) | Accepted | 2026-04-28 |
 | [0014](0014-knowledge-synthesis-directory.md) | Knowledge/ synthesis directory and schema | Accepted | 2026-05-05 |
+| [0015](0015-gemini-ai-theme-enrichment.md) | Gemini AI theme enrichment pipeline | Accepted | 2026-05-11 |
 
 ---
 

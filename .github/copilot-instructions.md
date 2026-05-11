@@ -69,6 +69,7 @@ The following table is the ground truth. Do not guess what exists outside this t
 | `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
 | `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
 | `TAVILY_API_KEY` | ✅ Yes | Web search via Tavily API and `tavily-mcp` MCP server |
+| `GEMINI_API_KEY` | ✅ Yes | Google Generative AI API key; used by `scripts/enrich_items.py` and `enrich-items.yml` to classify research items with `ai_themes` via the `google-genai` SDK |
 | Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
 
 If a workflow you are designing requires a credential not in this table, **ask before building**. Do not proceed on the assumption it exists or can be easily added.
