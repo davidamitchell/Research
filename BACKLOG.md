@@ -1142,22 +1142,26 @@ Current individual item pages show only the Markdown body. Readers cannot see re
 
 status: open
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-11
 
 ### Outcome
 
-The GH Pages site includes a synthesis candidates page at `docs/synthesis-candidates.html` listing groups of completed items that share three or more tags:
+The GH Pages site includes a synthesis candidates page at `docs/synthesis-candidates.html` listing groups of completed items that share two or more `ai_themes` values:
 
-- `scripts/build_site.py` updated: a `generate_synthesis_candidates()` function computes tag co-occurrence clusters (groups of items sharing ≥3 canonical tags), ranks clusters by cluster size and average item confidence, and renders them as a browsable page
-- Each cluster card shows: shared tags, item count, list of item titles linked to their individual pages, and a "Synthesise this cluster" call-to-action linking to the `synthesis-loop.yml` dispatch instructions
+- `scripts/build_site.py` updated: a `generate_synthesis_candidates()` function groups completed items by shared `ai_themes` values (≥2 shared themes), ranks clusters by cluster size and average item confidence, and renders them as a browsable page
+- Each cluster card shows: shared `ai_themes`, item count, list of item titles linked to their individual pages, and a "Synthesise this cluster" call-to-action linking to the `synthesis-loop.yml` dispatch instructions
 - The page is linked from the site nav alongside "All Items", "Backlog", and "Tags"
 - A "Synthesis Candidates" link is added to all site pages in the nav
 - The workflow trigger (`build_site.yml`) already covers `Research/completed/**`; no workflow changes needed
-- Tests cover: cluster computation returns correct groups, minimum-tag threshold is respected, ranking is deterministic, nav link is present in all page templates
+- Tests cover: cluster computation returns correct groups, minimum-theme threshold is respected, ranking is deterministic, nav link is present in all page templates
 
 ### Context
 
-The synthesis workflow (W-0051) exists but has no discovery mechanism — a reader must manually identify which items cluster well for synthesis. The synthesis candidates page surfaces this automatically, reducing the cognitive load of finding synthesis-ready clusters. It is the complement to the tag vocabulary work (W-0043, W-0053): once tags are canonical, tag co-occurrence becomes a reliable cluster signal. Dependent on W-0043 (canonical tags) and W-0053 (tag report) being complete.
+The synthesis workflow (W-0051) exists but has no discovery mechanism — a reader must manually identify which items cluster well for synthesis. The synthesis candidates page surfaces this automatically.
+
+**Revised clustering signal (2026-05-11):** Original design used tag co-occurrence (depending on W-0043 canonical vocabulary and W-0053 tag report). With `ai_themes` enrichment (W-0069) providing a clean 16-item controlled-vocabulary classification on all items, `ai_themes` overlap is a superior clustering signal: the vocabulary is already controlled, no near-synonym noise, and all 300+ items will be classified after the backfill. The W-0043/W-0053 dependency for this item is removed. Tag co-occurrence can still be used as a secondary signal once W-0062 completes.
+
+Blocked on W-0069 (ai_themes backfill) and W-0070 (ai_themes wired into site).
 
 ---
 
@@ -1314,3 +1318,48 @@ The synthesis and authoring workflows produce at least one completed synthesis i
 ### Context
 
 W-0051 (synthesis workflow) and W-0052 (authoring workflow) exist but have never been validated against a quality bar. "The workflow exists" is not the same as "the workflow produces useful outputs." This slice provides the end-to-end proof that the synthesis pipeline can produce a knowledge artifact that meets the peer-review standard defined by the `citation-discipline`, `speculation-control`, and `remove-ai-slop` skills. Blocked on W-0051 (synthesis workflow — done) and preferably on W-0061 (synthesis candidates page) for cluster discovery.
+
+---
+
+## W-0069
+
+status: ready
+created: 2026-05-11
+updated: 2026-05-11
+
+### Outcome
+
+All completed research items carry an `ai_themes` frontmatter field drawn from the 16-item controlled vocabulary, and the enrichment pipeline is running on `main`:
+
+- Branch `claude/update-gemini-models-y7wIV` is merged to `main`; `src/pipeline/_gemini.py`, `scripts/enrich_items.py`, and `.github/workflows/enrich-items.yml` are present on `main`
+- The `Enrich Items with AI Themes` workflow is triggered in backfill mode with `max_items: 297`; it runs to completion (or to quota exhaustion, leaving a checkpoint)
+- Every completed item in `Research/completed/` either has `ai_themes: [...]` set or has been attempted (quota exhaustion is the only acceptable reason for absence)
+- `make check` and `pytest` pass on `main` post-merge
+
+### Context
+
+`src/pipeline/_gemini.py` implements the Gemini client factory, adaptive rate limiter (`_RateLimiter`), and model cascade (`_ModelCascade`) ported from `davidamitchell/Latest-developments-`. `scripts/enrich_items.py` adds `ai_themes` to completed items idempotently. The branch has 47 passing unit tests, a clean ruff check, ADR-0015, and the `GEMINI_API_KEY` secret is confirmed present in the repository. This is the prerequisite for W-0070 and W-0061.
+
+---
+
+## W-0070
+
+status: open
+created: 2026-05-11
+updated: 2026-05-11
+
+### Outcome
+
+The GH Pages site exposes `ai_themes` as a navigable dimension: 16 theme index pages, per-item theme badges, and related-by-theme links on each item page:
+
+- `scripts/build_site.py` updated:
+  - 16 theme pages at `docs/themes/<theme-slug>.html`, each listing all items carrying that theme, sorted by date descending; structured identically to existing tag pages
+  - Each item page shows `ai_themes` as styled badges (consistent with existing tag badges) linking to the corresponding theme page
+  - The "Related Items" section on each item page gains a "Related by theme" subsection listing items that share ≥2 `ai_themes` values with the current item, capped at 5 items
+  - A "Themes" nav link is added to all pages, linking to a `docs/themes/index.html` that lists all 16 themes with item counts
+- `build_site.yml` trigger already covers `Research/completed/**`; no workflow changes needed
+- Tests cover: theme pages render for all 16 themes, item badges link correctly, related-by-theme returns items with ≥2 shared themes, items with no `ai_themes` degrade gracefully (field absent → no badges, no related-by-theme)
+
+### Context
+
+Once W-0069 (backfill) is done, every item has `ai_themes` set but the site renders none of it — the enrichment is invisible. This item makes it visible and useful. Theme pages give readers a cleaner navigation layer than the 935-tag tag pages (643 of which are singletons). The related-by-theme links improve cross-item discovery without requiring manual `related:` frontmatter. Prerequisite for W-0061 (synthesis candidates using `ai_themes` clusters). Blocked on W-0069.
