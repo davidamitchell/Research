@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: 2026-05-09-enterprise-risk-workforce-shadow-systems
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: ac3e5112baeb92b3bbf5018a5065d441b3cb5b41
+    changed: 2026-05-11
+    progress: progress/2026-05-11-process-inefficiency-vs-latent-risk-taxonomy.md
+    summary: "Initial completion"
 ---
 
 # Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows
