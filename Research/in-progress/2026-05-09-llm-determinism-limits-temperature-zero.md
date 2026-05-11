@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts"
 added: 2026-05-09T22:44:23+00:00
 status: reviewing
