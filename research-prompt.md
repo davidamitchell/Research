@@ -454,6 +454,10 @@ easily-detectable issues.
     at least one independent primary source or credible external secondary
     source at the point of claim. Otherwise downgrade the confidence to
     `medium` or narrow the claim so the stronger confidence is actually earned.
+    Treat multiple documents from the same vendor or standards body as one
+    evidence family for this check: two Microsoft pages are stronger than one,
+    but they are not independent enough on their own to justify `high`
+    confidence for an evaluative synthesis claim.
 
 2g. **Comparative-claim coverage** -- if a sentence compares two control
     surfaces, operating models, or investment choices, confirm the cited
@@ -467,6 +471,10 @@ easily-detectable issues.
     itself makes that comparison directly. Do not treat benchmark design facts
     or score tables as if they automatically prove the evaluative judgment you
     derive from them.
+    The same default applies to adjectives and verdict words such as "useful,"
+    "strongest," "weakest," "dominant," "safe," or "unsafe": unless a cited
+    source itself makes that judgment, keep the sentence as `[inference]` or
+    rewrite it into non-evaluative factual prose.
 
 2g1. **Cross-source synthesis status** -- if a sentence combines an empirical
     result with a conceptual or theoretical source to conclude that models
