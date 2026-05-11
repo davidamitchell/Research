@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: 2026-05-09-enterprise-risk-workforce-shadow-systems
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 1a9721d4395fc85a7b348098cf726be05d20b5cb
+    changed: 2026-05-11
+    progress: progress/2026-05-11-policy-lsp-capability-debt-detection.md
+    summary: Initial completion
 ---
 
 # Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection
