@@ -29,14 +29,33 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 # Try newest models first; advance when a model's daily quota is exhausted.
-# gemini-3-flash and gemini-3.1-flash-lite are the current Gemini 3 models
-# (2026-05-11).  gemini-2.5-flash is confirmed working as of the same date.
+# Each model has its own independent free-tier quota pool — never assume a
+# single global RPM.  Unknown limits (gemini-3-*) default to 15 RPM; verify
+# at aistudio.google.com before relying on those models for large backfills.
+#
+#   gemini-3-flash         — check aistudio.google.com for current limits
+#   gemini-3.1-flash-lite  — check aistudio.google.com for current limits
+#   gemini-2.5-flash-lite  30 RPM / 1 500 RPD — fastest; best throughput
+#   gemini-2.0-flash       15 RPM / 1 500 RPD — high RPD; strong capability
+#   gemini-2.5-flash       10 RPM /   500 RPD — strongest reasoning; lower RPD
 _MODEL_CASCADE: list[str] = [
     "gemini-3-flash",
     "gemini-3.1-flash-lite",
-    "gemini-2.5-flash",
     "gemini-2.5-flash-lite",
+    "gemini-2.0-flash",
+    "gemini-2.5-flash",
 ]
+
+# Per-model RPM for the free tier.  Used by _ModelCascade to set the correct
+# pacing interval when the rate limiter is reset on model advance.
+# Conservative 15 RPM is used for models whose limits are not yet documented.
+_MODEL_RATES: dict[str, int] = {
+    "gemini-3-flash": 15,
+    "gemini-3.1-flash-lite": 15,
+    "gemini-2.5-flash-lite": 30,
+    "gemini-2.0-flash": 15,
+    "gemini-2.5-flash": 10,
+}
 
 
 # ---------------------------------------------------------------------------
@@ -178,9 +197,13 @@ class _ModelCascade:
         except ValueError:
             self._models = [starting_model]
         self._idx = 0
-        self._rpm = rpm
+        self._default_rpm = rpm  # fallback when model not in _MODEL_RATES
         self._http_client = http_client
-        self._limiter = _RateLimiter(rpm=rpm, http_client=http_client)
+        self._limiter = _RateLimiter(rpm=self._model_rpm(), http_client=http_client)
+
+    def _model_rpm(self) -> int:
+        """Return the documented RPM for the current model, or the default."""
+        return _MODEL_RATES.get(self.model, self._default_rpm)
 
     @property
     def model(self) -> str:
@@ -197,7 +220,7 @@ class _ModelCascade:
         if not self.all_exhausted:
             logger.warning("Quota exhausted for %r — switching to %r", prev, self.model)
             self._http_client.ratelimit_headers = {}
-            self._limiter = _RateLimiter(rpm=self._rpm, http_client=self._http_client)
+            self._limiter = _RateLimiter(rpm=self._model_rpm(), http_client=self._http_client)
             return True
         logger.error("All models in cascade exhausted — AI enrichment disabled for this run")
         return False

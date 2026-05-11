@@ -9,6 +9,7 @@ import pytest
 
 from src.pipeline._gemini import (
     _MODEL_CASCADE,
+    _MODEL_RATES,
     _HeaderCapturingClient,
     _ModelCascade,
     _parse_reset_seconds,
@@ -153,11 +154,19 @@ class TestModelCascade:
         assert cascade.all_exhausted
 
     def test_advance_returns_false_when_exhausted(self) -> None:
-        cascade = self._make_cascade("gemini-2.5-flash-lite")
-        # Only one model left at this point — exhaust it.
+        cascade = self._make_cascade("gemini-2.5-flash")
+        # gemini-2.5-flash is the last model — one advance exhausts the cascade.
         ok = cascade.advance()
         assert not ok
         assert cascade.all_exhausted
+
+    def test_per_model_rpm_used_on_advance(self) -> None:
+        cascade = self._make_cascade("gemini-3-flash")
+        cascade.advance()  # advances to gemini-3.1-flash-lite
+        assert cascade.model == "gemini-3.1-flash-lite"
+        assert cascade._limiter._min_interval == pytest.approx(
+            60.0 / _MODEL_RATES["gemini-3.1-flash-lite"]
+        )
 
     def test_check_daily_quota_header_zero(self) -> None:
         cascade = self._make_cascade()
@@ -170,10 +179,25 @@ class TestModelCascade:
         assert cascade.check_daily_quota_header() is False
 
     def test_model_cascade_order(self) -> None:
-        """gemini-3-flash must be first in the static cascade."""
+        """gemini-3-flash first; gemini-2.0-flash present; throughput models before reasoning."""
         assert _MODEL_CASCADE[0] == "gemini-3-flash"
+        assert "gemini-2.0-flash" in _MODEL_CASCADE
         assert "gemini-2.5-flash" in _MODEL_CASCADE
-        assert _MODEL_CASCADE.index("gemini-3-flash") < _MODEL_CASCADE.index("gemini-2.5-flash")
+        # High-throughput models (2.5-flash-lite, 2.0-flash) precede lower-RPD 2.5-flash.
+        assert _MODEL_CASCADE.index("gemini-2.5-flash-lite") < _MODEL_CASCADE.index(
+            "gemini-2.5-flash"
+        )
+        assert _MODEL_CASCADE.index("gemini-2.0-flash") < _MODEL_CASCADE.index("gemini-2.5-flash")
+
+    def test_model_rates_complete(self) -> None:
+        """Every model in the cascade must have a documented RPM."""
+        for model in _MODEL_CASCADE:
+            assert model in _MODEL_RATES, f"No documented RPM for {model!r}"
+
+    def test_per_model_rpm_initial(self) -> None:
+        """Cascade initial rate limiter uses the starting model's documented RPM."""
+        cascade = self._make_cascade("gemini-2.5-flash-lite")  # 30 RPM
+        assert cascade._limiter._min_interval == pytest.approx(60.0 / 30)
 
 
 # ---------------------------------------------------------------------------
