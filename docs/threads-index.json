@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 104,
+    "item_count": 105,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -527,6 +527,11 @@
         "added": "2026-05-09"
       },
       {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
         "slug": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
         "title": "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments",
         "added": "2026-05-10"
@@ -544,7 +549,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 60,
+    "item_count": 61,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -837,6 +842,11 @@
         "added": "2026-05-09"
       },
       {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
         "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
         "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
         "added": "2026-05-09"
@@ -859,7 +869,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 58,
+    "item_count": 59,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1142,6 +1152,11 @@
         "added": "2026-05-09"
       },
       {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
         "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
         "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
         "added": "2026-05-09"
@@ -1164,7 +1179,7 @@
       "security"
     ],
     "concept_cluster": [],
-    "item_count": 54,
+    "item_count": 55,
     "items": [
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
@@ -1427,6 +1442,11 @@
         "added": "2026-05-09"
       },
       {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
         "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
         "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
         "added": "2026-05-09"
@@ -1449,7 +1469,7 @@
       "enterprise"
     ],
     "concept_cluster": [],
-    "item_count": 47,
+    "item_count": 48,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
@@ -1679,6 +1699,11 @@
       {
         "slug": "2026-05-09-data-governance-standards-ai-agentic-applicability",
         "title": "Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
         "added": "2026-05-09"
       },
       {
@@ -2178,236 +2203,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-workflow.html"
-  },
-  {
-    "slug": "ai-governance-agentic-ai-low-code",
-    "title": "ai-governance / agentic-ai / low-code",
-    "kind": "implicit",
-    "tag_cluster": [
-      "ai-governance",
-      "agentic-ai",
-      "low-code"
-    ],
-    "concept_cluster": [],
-    "item_count": 43,
-    "items": [
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-04-26-multi-ai-provider-control-planes",
-        "title": "Multi-provider AI control planes: capabilities, vendors, and coverage gaps",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
-        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
-        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
-        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
-        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
-        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
-        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
-        "title": "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
-        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-governance-culture-incentives-behaviour",
-        "title": "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
-        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
-        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
-        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-out-of-band-policy-invalidation-remediation",
-        "title": "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
-        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
-        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
-        "title": "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
-        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
-        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-06-aibom-schema-design-standards-alignment",
-        "title": "What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
-        "title": "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
-        "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
-        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
-        "title": "Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
-        "title": "Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
-        "title": "What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
-        "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
-        "title": "How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
-        "title": "How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
-        "title": "To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
-        "title": "Orthogonality thesis under modern Large Language Model (LLM) training and post-training: implications for enterprise tool-using workload risk",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-llm-determinism-limits-temperature-zero",
-        "title": "Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
-        "title": "Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-data-governance-standards-ai-agentic-applicability",
-        "title": "Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
-        "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
-        "added": "2026-05-09"
-      }
-    ],
-    "url": "/Research/threads/ai-governance-agentic-ai-low-code.html"
   },
   {
     "slug": "agentic-ai-llm-security",
@@ -3170,6 +2965,281 @@
     "url": "/Research/threads/agentic-ai-observability-llm.html"
   },
   {
+    "slug": "ai-governance-agentic-ai-low-code",
+    "title": "ai-governance / agentic-ai / low-code",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-governance",
+      "agentic-ai",
+      "low-code"
+    ],
+    "concept_cluster": [],
+    "item_count": 25,
+    "items": [
+      {
+        "slug": "2026-03-12-exploration-synthesis-gap",
+        "title": "Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-04-22-ai-governance-assurance-change-control-verification",
+        "title": "Automated governance assurance and change control verification patterns for AI-assisted delivery",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-culture-incentives-behaviour",
+        "title": "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+        "title": "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
+        "title": "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+        "title": "What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+        "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+        "title": "What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
+        "title": "How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
+        "title": "How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
+        "title": "To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+        "title": "Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-standards-ai-agentic-applicability",
+        "title": "Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
+        "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
+        "added": "2026-05-09"
+      }
+    ],
+    "url": "/Research/threads/ai-governance-agentic-ai-low-code.html"
+  },
+  {
+    "slug": "ai-governance-low-code-enterprise-governance",
+    "title": "ai-governance / low-code / enterprise-governance",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-governance",
+      "low-code",
+      "enterprise-governance"
+    ],
+    "concept_cluster": [],
+    "item_count": 24,
+    "items": [
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
+        "title": "What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-lifecycle-management",
+        "title": "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+        "title": "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-culture-incentives-behaviour",
+        "title": "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
+        "title": "What capability and control design is needed to mitigate incentive misalignment, shadow Artificial Intelligence (AI), rail bypass, and skill decay at enterprise scale?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+        "title": "Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+        "title": "Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+        "title": "What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+        "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
+        "title": "How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?",
+        "added": "2026-05-08"
+      }
+    ],
+    "url": "/Research/threads/ai-governance-low-code-enterprise-governance.html"
+  },
+  {
     "slug": "agentic-ai-skills-workflow",
     "title": "agentic-ai / skills / workflow",
     "kind": "implicit",
@@ -3293,121 +3363,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-skills-workflow.html"
-  },
-  {
-    "slug": "low-code-ai-governance-enterprise-governance",
-    "title": "low-code / ai-governance / enterprise-governance",
-    "kind": "implicit",
-    "tag_cluster": [
-      "low-code",
-      "ai-governance",
-      "enterprise-governance"
-    ],
-    "concept_cluster": [],
-    "item_count": 20,
-    "items": [
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
-        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
-        "title": "What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
-        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
-        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
-        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
-        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-lifecycle-management",
-        "title": "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
-        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
-        "title": "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
-        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
-        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-governance-culture-incentives-behaviour",
-        "title": "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
-        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-30-explainable-ai-xai-regulation-governance",
-        "title": "Explainable Artificial Intelligence (XAI): current research state, leading institutions, and regulatory intersection in heavily regulated industries",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
-        "title": "How does the European Union (EU) AI Act and related international AI governance regulation intersect with machine-readable AI component-inventory requirements for high-risk multi-step tool-using Artificial Intelligence (AI) systems?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
-        "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
-        "added": "2026-05-09"
-      }
-    ],
-    "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
   },
   {
     "slug": "governance-financial-services-citizen-development",
@@ -4090,6 +4045,91 @@
     "url": "/Research/threads/agentic-ai-rag-llm.html"
   },
   {
+    "slug": "workflow-organisation-governance",
+    "title": "workflow / organisation / governance",
+    "kind": "implicit",
+    "tag_cluster": [
+      "workflow",
+      "organisation",
+      "governance"
+    ],
+    "concept_cluster": [],
+    "item_count": 14,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
+        "title": "Control deficiencies from bypassing designated workforce record platforms",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
+        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
+        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
+        "added": "2026-05-09"
+      }
+    ],
+    "url": "/Research/threads/workflow-organisation-governance.html"
+  },
+  {
     "slug": "agentic-ai-organisational-design-strategy",
     "title": "agentic-ai / organisational-design / strategy",
     "kind": "implicit",
@@ -4345,6 +4385,91 @@
     "url": "/Research/threads/agentic-ai-operational-risk-regulated-banking.html"
   },
   {
+    "slug": "ai-governance-enterprise-governance-low-code",
+    "title": "ai-governance / enterprise-governance / low-code",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-governance",
+      "enterprise-governance",
+      "low-code"
+    ],
+    "concept_cluster": [],
+    "item_count": 14,
+    "items": [
+      {
+        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+        "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
+        "title": "How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
+        "title": "To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
+      }
+    ],
+    "url": "/Research/threads/ai-governance-enterprise-governance-low-code.html"
+  },
+  {
     "slug": "agentic-ai-anthropic-memory",
     "title": "agentic-ai / anthropic / memory",
     "kind": "implicit",
@@ -4513,86 +4638,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-financial-services-regulation.html"
-  },
-  {
-    "slug": "workflow-organisation-operational-risk",
-    "title": "workflow / organisation / operational-risk",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "organisation",
-      "operational-risk"
-    ],
-    "concept_cluster": [],
-    "item_count": 13,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
-        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
-        "title": "Control deficiencies from bypassing designated workforce record platforms",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
-        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      }
-    ],
-    "url": "/Research/threads/workflow-organisation-operational-risk.html"
   },
   {
     "slug": "agentic-ai-pbac-prompt-injection",
@@ -5660,13 +5705,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -5722,7 +5767,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -6160,14 +6205,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -6207,7 +6252,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "workflow-knowledge-graph-agentic-ai",
@@ -6460,14 +6505,14 @@
     "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -6497,17 +6542,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -6537,7 +6582,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6575,13 +6620,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -6607,7 +6652,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -6790,14 +6835,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
-      "direct publish"
+      "copilot studio",
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -6817,6 +6862,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]

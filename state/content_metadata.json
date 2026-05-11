@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-11T13:32:16Z",
+  "extracted_at": "2026-05-11T13:48:39Z",
   "items": {
     "2026-05-10-m365-copilot-sensitive-data-security-governance-risks": {
       "named_concepts": [
@@ -1389,6 +1389,113 @@
             "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
             "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
             "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension": {
+      "named_concepts": [
+        "prompt templates",
+        "language model",
+        "iso iec",
+        "dama-dmbok iso",
+        "governance frameworks",
+        "deployed generative",
+        "generative systems",
+        "traditional governance",
+        "separate framework",
+        "mapped extension",
+        "model systems",
+        "consequential authority",
+        "metadata quality",
+        "quality security",
+        "generative profile",
+        "frameworks supply",
+        "missing operational",
+        "impact assessments",
+        "content provenance",
+        "provenance transparency"
+      ],
+      "source_urls": [
+        "https://www.dama.org/cpages/body-of-knowledge",
+        "https://www.damadmbok.org/",
+        "https://www.iso.org/standard/56639.html",
+        "https://www.isaca.org/resources/cobit",
+        "https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://airc.nist.gov/airmf-resources/playbook/",
+        "https://doi.org/10.6028/NIST.AI.600-1",
+        "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf",
+        "https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf",
+        "https://ai.google.dev/responsible?hl=en",
+        "https://ai.google.dev/responsible/docs/design?hl=en",
+        "https://ai.google.dev/responsible/docs/evaluation?hl=en",
+        "https://ai.google.dev/responsible/docs/safeguards?hl=en",
+        "https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en",
+        "https://doi.org/10.1016/j.inffus.2019.12.012",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html"
+      ],
+      "key_claims": [
+        {
+          "text": "DAMA-DMBOK, ISO/IEC 38505, and COBIT remain usable baseline frameworks for deployed Large Language Model governance because they already define stewardship, accountability, metadata, quality, security, and monitoring domains, but they require explicit reinterpretation for generative-system control surfaces",
+          "sources": [
+            "https://www.dama.org/cpages/body-of-knowledge",
+            "https://www.iso.org/standard/56639.html",
+            "https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance"
+          ]
+        },
+        {
+          "text": "Metadata and lineage governance must expand from business-data catalogs and pipeline lineage to versioned prompt templates, system instructions, model identifiers, evaluation sets, transparency artifacts, impact assessments, and generation provenance if organizations want auditable Large Language Model operations",
+          "sources": [
+            "https://www.dama.org/cpages/body-of-knowledge",
+            "https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en",
+            "https://ai.google.dev/responsible/docs/design?hl=en",
+            "https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf",
+            "https://doi.org/10.6028/NIST.AI.600-1"
+          ]
+        },
+        {
+          "text": "Classical data-quality governance is insufficient on its own, because deployed generative systems also require behavioral evaluation, confabulation tracking, red teaming, and release criteria that measure whether outputs remain fit for purpose under realistic and adversarial conditions",
+          "sources": [
+            "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf",
+            "https://ai.google.dev/responsible/docs/evaluation?hl=en",
+            "https://doi.org/10.6028/NIST.AI.600-1"
+          ]
+        },
+        {
+          "text": "Governance of prompt templates is a first-class extension point for traditional governance frameworks, because system-level policies, prompt templates, safeguard thresholds, and tool-use constraints materially change model behavior and therefore need documented ownership, review, and revision history",
+          "sources": [
+            "https://ai.google.dev/responsible?hl=en",
+            "https://ai.google.dev/responsible/docs/design?hl=en",
+            "https://ai.google.dev/responsible/docs/alignment/model-alignment?hl=en",
+            "https://ai.google.dev/responsible/docs/safeguards?hl=en"
+          ]
+        },
+        {
+          "text": "Accountability and oversight domains must be extended so that Large Language Models operate as bounded proposal or interpretation layers while deterministic policy, approval, rollback, and human-override mechanisms retain final authority for consequential governance actions",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html"
+          ]
+        },
+        {
+          "text": "The currently lower-friction extension strategy is a mapped control stack in which traditional governance domains absorb generative-AI-specific practices such as content provenance, transparency notes, incident disclosure, safeguards, and ongoing assurance review, even though a separate framework could still offer clearer clause-level guidance in some sectors",
+          "sources": [
+            "https://www.dama.org/cpages/body-of-knowledge",
+            "https://www.iso.org/standard/56639.html",
+            "https://www.isaca.org/resources/white-papers/2025/leveraging-cobit-for-effective-ai-system-governance",
+            "https://doi.org/10.6028/NIST.AI.600-1",
+            "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Responsible-AI-Standard-General-Requirements.pdf",
+            "https://ai.google.dev/responsible/docs/design?hl=en"
           ]
         }
       ]
