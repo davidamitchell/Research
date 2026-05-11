@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-11T11:11:07Z",
+  "extracted_at": "2026-05-11T11:15:47Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -235,6 +235,115 @@
             "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts": {
+      "named_concepts": [
+        "accountability au",
+        "microsoft lists",
+        "national institute",
+        "configuration management",
+        "management cm",
+        "native artifact",
+        "technology nist",
+        "one-way derivatives",
+        "edit classes",
+        "revision highlighting",
+        "version history",
+        "microsoft purview",
+        "nist special",
+        "special publication",
+        "publication sp",
+        "derivatives whose",
+        "whose later",
+        "later edits",
+        "several edit",
+        "risk reporting"
+      ],
+      "source_urls": [
+        "https://doi.org/10.6028/NIST.SP.800-53r5",
+        "https://doi.org/10.6028/NIST.SP.800-37r2",
+        "https://csrc.nist.gov/pubs/sp/800/137/final",
+        "https://csrc.nist.gov/pubs/sp/800/39/final",
+        "https://csrc.nist.gov/glossary/term/Provenance",
+        "https://support.microsoft.com/en-us/office/how-versioning-works-in-lists-and-libraries-0f6cd105-974f-44a4-aadb-43ac5bdfd247",
+        "https://support.microsoft.com/en-us/office/enable-and-configure-versioning-for-a-list-or-library-1555d642-23ee-446a-990a-bcab618c7a37",
+        "https://support.microsoft.com/en-us/office/view-the-version-history-of-an-item-or-file-in-a-list-or-library-53262060-5092-424d-a50b-c798b0ec32b1",
+        "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9",
+        "https://support.microsoft.com/en-us/office/view-previous-versions-of-office-files-5c1e076f-a9c9-41b8-8ace-f77b9642e2c2",
+        "https://support.microsoft.com/en-us/office/show-changes-that-were-made-in-a-workbook-978ceea7-bbf6-4337-bca7-22e7cc9892e8",
+        "https://support.microsoft.com/en-us/office/get-help-with-show-changes-in-excel-a1493bf9-25c3-470a-b970-60eceb0136e5",
+        "https://support.microsoft.com/en-us/office/compare-two-versions-of-a-workbook-by-using-spreadsheet-compare-0e1627fd-ce14-4c33-9ab1-8ea82c6a5a7e",
+        "https://support.microsoft.com/en-us/office/track-changes-in-your-presentation-35dad781-50f7-4c4f-9b15-cf418f03c279",
+        "https://support.microsoft.com/en-us/office/work-together-on-powerpoint-presentations-0c30ee3f-8674-4f0e-97be-89cf2892a34d",
+        "https://learn.microsoft.com/en-us/purview/audit-solutions-overview",
+        "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
+      ],
+      "key_claims": [
+        {
+          "text": "National Institute of Standards and Technology (NIST) defines provenance as the chronology of origin, ownership, location, and changes to data and systems, so a workforce artifact that captures only partial edit history already falls short of the control intent behind provenance-complete integrity evidence",
+          "sources": [
+            "https://csrc.nist.gov/glossary/term/Provenance",
+            "https://doi.org/10.6028/NIST.SP.800-53r5"
+          ]
+        },
+        {
+          "text": "Microsoft Lists can show who changed an item, when it changed, and which properties changed, but lists support only major versions and exported Excel workbooks become one-way derivatives whose later edits are disconnected from the list's native history",
+          "sources": [
+            "https://support.microsoft.com/en-us/office/how-versioning-works-in-lists-and-libraries-0f6cd105-974f-44a4-aadb-43ac5bdfd247",
+            "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9"
+          ]
+        },
+        {
+          "text": "Excel version history works only for files stored in OneDrive or SharePoint, while Show Changes is limited to recent changes and excludes several edit classes, which means workbook-native audit evidence is both environment-dependent and incomplete",
+          "sources": [
+            "https://support.microsoft.com/en-us/office/view-previous-versions-of-office-files-5c1e076f-a9c9-41b8-8ace-f77b9642e2c2",
+            "https://support.microsoft.com/en-us/office/show-changes-that-were-made-in-a-workbook-978ceea7-bbf6-4337-bca7-22e7cc9892e8",
+            "https://support.microsoft.com/en-us/office/get-help-with-show-changes-in-excel-a1493bf9-25c3-470a-b970-60eceb0136e5"
+          ]
+        },
+        {
+          "text": "Spreadsheet Compare provides richer workbook differencing, but it is a separate enterprise-licensed comparison tool rather than a native continuous ledger, so it does not convert ordinary Excel artifact use into always-on provenance control",
+          "sources": [
+            "https://support.microsoft.com/en-us/office/compare-two-versions-of-a-workbook-by-using-spreadsheet-compare-0e1627fd-ce14-4c33-9ab1-8ea82c6a5a7e",
+            "https://support.microsoft.com/en-us/office/get-help-with-show-changes-in-excel-a1493bf9-25c3-470a-b970-60eceb0136e5"
+          ]
+        },
+        {
+          "text": "PowerPoint provides cloud-backed version history and collaborative revision visibility, but Microsoft explicitly states that all revisions may not be indicated, revision highlighting can be turned off, and Compare and Merge is being retired from the current Windows client path",
+          "sources": [
+            "https://support.microsoft.com/en-us/office/track-changes-in-your-presentation-35dad781-50f7-4c4f-9b15-cf418f03c279",
+            "https://support.microsoft.com/en-us/office/work-together-on-powerpoint-presentations-0c30ee3f-8674-4f0e-97be-89cf2892a34d"
+          ]
+        },
+        {
+          "text": "These product behaviors map most directly to Audit and Accountability (AU)-3 and Audit and Accountability (AU)-12 because native histories do not consistently generate or preserve sufficiently complete records of event type, source, outcome, and affected object across all relevant changes",
+          "sources": [
+            "https://doi.org/10.6028/NIST.SP.800-53r5",
+            "https://support.microsoft.com/en-us/office/get-help-with-show-changes-in-excel-a1493bf9-25c3-470a-b970-60eceb0136e5",
+            "https://support.microsoft.com/en-us/office/work-together-on-powerpoint-presentations-0c30ee3f-8674-4f0e-97be-89cf2892a34d",
+            "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9"
+          ]
+        },
+        {
+          "text": "When artifact outputs feed regulated or business-critical workforce processes, the same traceability gaps also implicate Audit and Accountability (AU)-10, Configuration Management (CM)-3, Configuration Management (CM)-8, and System and Information Integrity (SI)-7 because enterprises then need irrefutable action evidence, retained change-control records, inventory of derivatives, and integrity-verification support",
+          "sources": [
+            "https://doi.org/10.6028/NIST.SP.800-53r5",
+            "https://doi.org/10.6028/NIST.SP.800-37r2",
+            "https://csrc.nist.gov/pubs/sp/800/137/final",
+            "https://support.microsoft.com/en-us/office/export-to-excel-from-sharepoint-or-lists-bfb2ea48-6118-4fa9-abb6-cced9424e5d9"
+          ]
+        },
+        {
+          "text": "Severity rises with data criticality and process dependency, with the highest-risk case occurring when shadow artifacts act as the authoritative record for approvals, access rights, payroll, compliance evidence, or risk reporting without a stronger audit and monitoring overlay",
+          "sources": [
+            "https://doi.org/10.6028/NIST.SP.800-37r2",
+            "https://csrc.nist.gov/pubs/sp/800/39/final",
+            "https://csrc.nist.gov/pubs/sp/800/137/final",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
           ]
         }
       ]
