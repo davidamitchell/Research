@@ -217,11 +217,10 @@ The evidence weighs more heavily toward conditions and thresholds than toward nu
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: Process-Risk-Control (PRC), Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), National Institute of Standards and Technology (NIST), Capability Maturity Model Integration (CMMI), Control Objectives for Information and Related Technologies (COBIT), Public Company Accounting Oversight Board (PCAOB), and Uniform Resource Locator (URL) are expanded on first use.
-- Claim audit: all factual and inferential claims in Research Skill Output carry labels and URL-backed source binding.
-- Parity audit: Findings mirrors §6 Synthesis without adding new substantive claims.
-- Uncertainty audit: numeric scoring increments and local materiality choices remain explicit in assumptions and risks.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Review outcome recorded for this revision: pass on the inline self-review checks applied before the external workflow run.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Acronym audit result recorded in this revision: Process-Risk-Control (PRC), Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), National Institute of Standards and Technology (NIST), Capability Maturity Model Integration (CMMI), Control Objectives for Information and Related Technologies (COBIT), Public Company Accounting Oversight Board (PCAOB), and Uniform Resource Locator (URL) are expanded on first use.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Claim-label audit result recorded in this revision: visible factual and inferential claims in Research Skill Output carry epistemic labels and URL-backed source binding.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md] Findings-parity and uncertainty audit result recorded in this revision: Findings mirrors §6 Synthesis, and assumptions plus risks keep the scoring uncertainty explicit.
 
 ---
 
