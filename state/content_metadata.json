@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-11T10:39:22Z",
+  "extracted_at": "2026-05-11T10:54:13Z",
   "items": {
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
@@ -235,6 +235,125 @@
             "https://www.aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
             "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-09-llm-determinism-limits-temperature-zero": {
+      "named_concepts": [
+        "repeated-run studies",
+        "outputs strict",
+        "strict tool",
+        "tool schemas",
+        "structured outputs",
+        "grammar-constrained decoding",
+        "every run",
+        "keep llms",
+        "deterministic rules",
+        "human approval",
+        "temperature zero",
+        "fixed seeds",
+        "repeated runs",
+        "residual nondeterminism",
+        "platform effects",
+        "provider metadata",
+        "pinned model",
+        "model identifiers",
+        "identifiers improve",
+        "improve traceability"
+      ],
+      "source_urls": [
+        "https://cookbook.openai.com/examples/reproducible_outputs_with_the_seed_parameter",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+        "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+        "https://docs.anthropic.com/en/docs/about-claude/model-deprecations",
+        "https://pytorch.org/docs/2.11/notes/randomness.html",
+        "https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html",
+        "https://docs.sglang.ai/references/faq.html",
+        "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/",
+        "https://arxiv.org/abs/2408.04667",
+        "https://arxiv.org/abs/2502.20747",
+        "https://arxiv.org/abs/2601.19934",
+        "https://developers.openai.com/api/docs/guides/structured-outputs",
+        "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+        "https://arxiv.org/abs/2212.06094",
+        "https://lmql.ai/docs/language/constraints.html",
+        "https://arxiv.org/abs/2305.13971",
+        "https://arxiv.org/abs/2203.02155",
+        "https://arxiv.org/abs/2102.02503"
+      ],
+      "key_claims": [
+        {
+          "text": "Temperature zero and fixed seeds reduce output variance in present-day LLM systems, but they do not deliver a hard identical-output guarantee across repeated runs in either vendor documentation or empirical studies",
+          "sources": [
+            "https://cookbook.openai.com/examples/reproducible_outputs_with_the_seed_parameter",
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+            "https://arxiv.org/abs/2408.04667",
+            "https://arxiv.org/abs/2502.20747",
+            "https://arxiv.org/abs/2601.19934"
+          ]
+        },
+        {
+          "text": "Residual nondeterminism comes from serving-path behavior and platform effects, especially batching, numerical precision, cache use, and software or hardware differences, not only from token-sampling randomness",
+          "sources": [
+            "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/",
+            "https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html",
+            "https://docs.sglang.ai/references/faq.html",
+            "https://pytorch.org/docs/2.11/notes/randomness.html"
+          ]
+        },
+        {
+          "text": "Provider metadata such as `system_fingerprint` and pinned model identifiers improve traceability by exposing backend changes and explicit model snapshots to the caller",
+          "sources": [
+            "https://cookbook.openai.com/examples/reproducible_outputs_with_the_seed_parameter",
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+            "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+            "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+          ]
+        },
+        {
+          "text": "Structured outputs, strict tool schemas, and grammar-constrained decoding can guarantee valid structure, schema adherence, or grammar conformity for downstream consumers",
+          "sources": [
+            "https://developers.openai.com/api/docs/guides/structured-outputs",
+            "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+            "https://arxiv.org/abs/2305.13971"
+          ]
+        },
+        {
+          "text": "Structural guarantees do not imply semantic determinism, because multiple different classifications, rationales, or recommendations can still satisfy the same schema or grammar",
+          "sources": [
+            "https://developers.openai.com/api/docs/guides/structured-outputs",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+            "https://lmql.ai/docs/language/constraints.html",
+            "https://arxiv.org/abs/2305.13971"
+          ]
+        },
+        {
+          "text": "Stronger reproducibility is achievable only by controlling the wider inference environment, often by sacrificing throughput through single-request execution, deterministic modes, stricter numeric settings, or disabled caching",
+          "sources": [
+            "https://docs.sglang.ai/references/faq.html",
+            "https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html",
+            "https://pytorch.org/docs/2.11/notes/randomness.html"
+          ]
+        },
+        {
+          "text": "Governance-grade designs should therefore treat the LLM as a bounded proposal engine whose outputs are validated, normalized, and then passed to deterministic rules or human approval before any authoritative side effect occurs",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
+            "https://developers.openai.com/api/docs/guides/structured-outputs",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+          ]
+        },
+        {
+          "text": "The most useful practical taxonomy separates exact same-token replay, stable schema-conforming structure, and deterministic control of side effects, with current tools improving the second far more reliably than the first and deterministic external enforcement remaining the only robust route to the third",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html",
+            "https://arxiv.org/abs/2408.04667",
+            "https://arxiv.org/abs/2601.19934"
           ]
         }
       ]
