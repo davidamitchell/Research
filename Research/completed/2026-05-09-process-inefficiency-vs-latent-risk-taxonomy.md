@@ -2,12 +2,12 @@
 review_count: 1
 title: "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows"
 added: 2026-05-09T22:56:47+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow]
 started: 2026-05-11T12:11:45+00:00
-completed: ~
+completed: 2026-05-11T12:28:08+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-prc-risk-scoring-unstandardized-workforce-processes
