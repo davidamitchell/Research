@@ -1,6 +1,109 @@
 {
-  "extracted_at": "2026-05-11T12:21:43Z",
+  "extracted_at": "2026-05-11T12:30:25Z",
   "items": {
+    "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy": {
+      "named_concepts": [
+        "formal risk",
+        "concentrated dependency",
+        "hidden risk",
+        "critical operations",
+        "intake heuristic",
+        "clearly material",
+        "material condition",
+        "reinforcing cluster",
+        "weaker conditions",
+        "resilience guidance",
+        "backlog age",
+        "control surfaces",
+        "ordinary process",
+        "process inefficiency",
+        "control objectives",
+        "visible reversible",
+        "reversible local",
+        "local waste",
+        "people process",
+        "skill-tracking workflows"
+      ],
+      "source_urls": [
+        "https://www.iso.org/iso-31000-risk-management.html",
+        "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+        "https://csrc.nist.gov/Projects/risk-management/about-rmf",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline",
+        "https://www.ior-institute.org/sound-practice-guidance/key-risk-indicators/",
+        "https://www.lean.org/lexicon-terms/seven-wastes/",
+        "https://www.lean.org/lexicon-terms/cycle-time/",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Visible waiting, correction, rework, and other nonvalue-creating time are reliable indicators of ordinary process inefficiency, but those signals alone do not prove formal risk because Lean treats them as waste symptoms rather than as evidence of breached control objectives or threatened critical operations",
+          "sources": [
+            "https://www.lean.org/lexicon-terms/seven-wastes/",
+            "https://www.lean.org/lexicon-terms/cycle-time/"
+          ]
+        },
+        {
+          "text": "A workforce workflow becomes a formal risk concern when a weakness in people, processes, systems, or external dependencies can affect objectives, drive loss, or require a risk-based response from leadership, because the reviewed ISO, NIST, and Office of the Superintendent of Financial Institutions sources all frame risk in terms of decision-worthy exposure rather than inconvenience alone",
+          "sources": [
+            "https://www.iso.org/iso-31000-risk-management.html",
+            "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+            "https://csrc.nist.gov/Projects/risk-management/about-rmf",
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline"
+          ]
+        },
+        {
+          "text": "The most auditable distinction criteria are consequence and reversibility, persistence and recurrence, detectability and provenance, dependency concentration and interconnectedness, and control-effectiveness evidence, because those dimensions map cleanly onto appetite, limits, tolerances, Key Risk Indicator governance, and end-to-end dependency mapping",
+          "sources": [
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline",
+            "https://www.ior-institute.org/sound-practice-guidance/key-risk-indicators/"
+          ]
+        },
+        {
+          "text": "Persistence after local fixes or across repeated reporting periods should usually be treated as an escalation signal rather than as routine noise, because the reviewed guidance uses leading and lagging indicators, residual-risk reassessment, and scenario analysis to detect weaknesses that are maturing toward a breach of limits",
+          "sources": [
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline",
+            "https://www.ior-institute.org/sound-practice-guidance/key-risk-indicators/"
+          ]
+        },
+        {
+          "text": "Low detectability or weak provenance turns a delay or manual workaround into hidden risk when control owners cannot verify what changed, who changed it, or whether stale or altered information is already driving downstream workforce decisions",
+          "sources": [
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts.html"
+          ]
+        },
+        {
+          "text": "Single-person, single-tool, or single-step dependency is the clearest bridge from local inefficiency to hidden risk, because end-to-end mapping and resilience guidance treat concentrated dependencies as interruption paths that can disable critical operations under plausible disruption",
+          "sources": [
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline",
+            "https://www.bis.org/bcbs/publ/d516.htm",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html"
+          ]
+        },
+        {
+          "text": "Approval bottlenecks and rubber-stamping should be escalated as hidden risk, not left as efficiency debt, when review quality collapses into nominal sign-off, because the workflow then loses a real detection and challenge control while still presenting a misleading appearance of oversight",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html"
+          ]
+        },
+        {
+          "text": "A practical intake heuristic is to keep an issue in the inefficiency bucket only when it is visible, locally reversible, within tolerance, and unlinked to concentrated dependency or evidence gaps, and to escalate it into risk intake when either one clearly material condition or a reinforcing cluster of weaker conditions is present",
+          "sources": [
+            "https://www.lean.org/lexicon-terms/seven-wastes/",
+            "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/operational-risk-management-resilience-guideline",
+            "https://www.ior-institute.org/sound-practice-guidance/key-risk-indicators/",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.html"
+          ]
+        }
+      ]
+    },
     "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes": {
       "named_concepts": [
         "control effectiveness",
