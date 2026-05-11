@@ -2,12 +2,12 @@
 review_count: 1
 title: "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts"
 added: 2026-05-09T22:56:47+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, operational-risk]
 started: 2026-05-11T10:54:44+00:00
-completed: ~
+completed: 2026-05-11T11:13:53+00:00
 output: [knowledge]
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification]
 related: [2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-05-09-key-person-dependency-basel-risk-linkage]
