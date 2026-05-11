@@ -2,12 +2,12 @@
 review_count: 2
 title: "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes"
 added: 2026-05-09T22:56:47+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, organisational-design]
 started: 2026-05-11T11:45:15+00:00
-completed: ~
+completed: 2026-05-11T12:09:41+00:00
 output: []
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification, 2026-05-09-cobit-cmmi-defined-process-risk-mitigation]
 related: [2026-05-09-key-person-dependency-basel-risk-linkage]
