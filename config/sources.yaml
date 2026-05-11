@@ -48,3 +48,11 @@ arxiv:
     - "large language models agents"
     - "agentic AI systems"
     - "predictive processing active inference"
+
+gemini:
+  # Preferred model for AI enrichment (enrich_items.py / enrich-items workflow).
+  # The pipeline cascades through flash-class models newest-first if this model
+  # is unavailable or returns a 404.  The cascade is built at runtime via the
+  # ListModels API so new models (e.g. gemini-3.x) are picked up automatically.
+  # Confirmed working: gemini-2.5-flash (2026-05-11).
+  gemini_model: gemini-2.5-flash
