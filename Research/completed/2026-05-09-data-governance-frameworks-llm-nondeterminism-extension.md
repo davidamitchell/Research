@@ -2,13 +2,13 @@
 review_count: 2
 title: "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior"
 added: 2026-05-09T22:44:23+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
 tags: [governance, agentic-ai, llm, ai-governance, compliance, organisation]
 started: 2026-05-11T13:19:18+00:00
-completed: ~
+completed: 2026-05-11T13:45:22+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
