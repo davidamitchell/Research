@@ -1,6 +1,114 @@
 {
-  "extracted_at": "2026-05-11T11:26:18Z",
+  "extracted_at": "2026-05-11T11:44:40Z",
   "items": {
+    "2026-05-09-policy-lsp-capability-debt-detection": {
+      "named_concepts": [
+        "structural mismatch",
+        "persistent capability",
+        "capability mismatches",
+        "diagnostic surface",
+        "structured policy",
+        "workforce planning",
+        "platform investment",
+        "policy decisions",
+        "workforce capability",
+        "workforce-taxonomy identifiers",
+        "exception patterns",
+        "authorization services",
+        "reusable skill",
+        "repository label",
+        "label policy-lsp",
+        "best understood",
+        "lsp-style policy",
+        "sfia form",
+        "complementary workforce-taxonomy",
+        "workforce-taxonomy pair"
+      ],
+      "source_urls": [
+        "https://microsoft.github.io/language-server-protocol/",
+        "https://microsoft.github.io/language-server-protocol/specifications/specification-current/",
+        "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html",
+        "https://sfia-online.org/en/framework/sfia-8",
+        "https://sfia-online.org/en/sfia-9/skills/all-skills-a-z",
+        "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center",
+        "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/about/faq",
+        "https://www.isaca.org/resources/cobit",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-21-technology-capability-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The repository label \"Policy-LSP\" is best understood as an LSP-style policy diagnostic surface over structured policy decisions",
+          "sources": [
+            "https://microsoft.github.io/language-server-protocol/",
+            "https://microsoft.github.io/language-server-protocol/specifications/specification-current/",
+            "https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html"
+          ]
+        },
+        {
+          "text": "The NICE Framework and SFIA form a complementary workforce-taxonomy pair because NICE decomposes work into roles, tasks, and Task, Knowledge, and Skill statements, while SFIA normalizes reusable skills, codes, and responsibility levels across role profiles",
+          "sources": [
+            "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center",
+            "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/about/faq",
+            "https://sfia-online.org/en/framework/sfia-8",
+            "https://sfia-online.org/en/sfia-9/skills/all-skills-a-z"
+          ]
+        },
+        {
+          "text": "Modern policy engines already emit the structured request, response, revision, and audit fields that an automated detector can reuse, so the remaining gap is data joining and diagnostic presentation rather than a new policy-calculation primitive",
+          "sources": [
+            "https://www.openpolicyagent.org/docs/latest/",
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html"
+          ]
+        },
+        {
+          "text": "Persistent capability mismatches become prospectively detectable when policy-required capabilities and actual workforce coverage stay misaligned across repeated workflow executions, especially when the same missing-role, missing-skill, override, or exception patterns recur across time and teams",
+          "sources": [
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/about/faq",
+            "https://sfia-online.org/en/sfia-9/skills/all-skills-a-z",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html"
+          ]
+        },
+        {
+          "text": "The minimum viable detection model needs four versioned objects, governed workflow definitions, policy requirement objects, workforce capability records, and execution evidence, because comparing any one of those in isolation cannot distinguish structural mismatch from one-off operational noise",
+          "sources": [
+            "https://www.openpolicyagent.org/docs/latest/",
+            "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+            "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-21-technology-capability-models.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html"
+          ]
+        },
+        {
+          "text": "Governance frameworks imply that persistent capability-mismatch detection should primarily feed Govern, Map, Measure, and Manage loops, workforce planning, and platform investment decisions, because AI and automation amplify weak foundations instead of compensating for them",
+          "sources": [
+            "https://www.isaca.org/resources/cobit",
+            "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+            "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report"
+          ]
+        },
+        {
+          "text": "This item extends prior repository work by turning prior system-capability-gap and shadow workforce-system risk findings from retrospective diagnosis into a prospective, machine-assisted detection pattern that can run inside delivery pipelines or policy review loops",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
+          ]
+        }
+      ]
+    },
     "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance": {
       "named_concepts": [
         "reviewer authority",
