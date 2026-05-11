@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a10afbcc98e1f1363afffd1979578407fe986350
+    changed: 2026-05-11
+    progress: progress/2026-05-11-m365-copilot-sensitive-data-security-governance-risks.md
+    summary: Initial completion
 ---
 
 # Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments
