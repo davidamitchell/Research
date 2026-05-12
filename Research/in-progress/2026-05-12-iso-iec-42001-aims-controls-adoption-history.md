@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 controls, adoption, reputation, and evolution"
 added: 2026-05-12T07:18:27+00:00
 status: reviewing
