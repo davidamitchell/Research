@@ -3,12 +3,15 @@
 Ported from davidamitchell/Latest-developments- and adapted for the Research
 repo's Markdown-based corpus.
 
-Three concerns:
+Four concerns:
 
 _HeaderCapturingClient — httpx.Client that records x-ratelimit-* response headers
 _RateLimiter          — adaptive per-minute pacer driven by those headers
-_ModelCascade         — walks through models in order as each model's daily quota
-                        is exhausted
+_ModelCascade         — walks through models in order as each model's DAILY QUOTA
+                        is exhausted (RPM backoff is handled by _RateLimiter, not
+                        by advancing the cascade)
+resolve_cascade()     — queries client.models.list() at runtime to discover the
+                        actual model IDs for each desired cascade entry
 
 All code that calls the Gemini API should obtain a client via make_gemini_client()
 so header capture is universal and rate-limit state is shared across calls.
@@ -25,35 +28,108 @@ import httpx
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Model cascade
+# Model cascade — desired order and per-model rate hints
 # ---------------------------------------------------------------------------
-
-# Try newest models first; advance when a model's daily quota is exhausted.
-# Each model has its own independent free-tier quota pool — never assume a
-# single global RPM.  Verified actual free-tier limits 2026-05-12:
 #
-#   gemini-3-flash         — check aistudio.google.com for current limits
-#   gemini-3.1-flash-lite  — check aistudio.google.com for current limits
-#   gemini-2.5-flash-lite  10 RPM / 1 500 RPD — free tier (NOT 30; that is paid)
-#   gemini-2.0-flash       limit: 0 on free tier (exhausted or unavailable)
-#   gemini-2.5-flash       10 RPM /   500 RPD — thinking model; raise max_output_tokens
-_MODEL_CASCADE: list[str] = [
-    "gemini-3-flash",
-    "gemini-3.1-flash-lite",
-    "gemini-2.5-flash-lite",
-    "gemini-2.0-flash",
-    "gemini-2.5-flash",
+# Priority order (highest capability first, highest throughput last).
+# Each entry: (id_fragment, fallback_rpm).
+#
+#   id_fragment   — matched as a substring against model IDs returned by the API.
+#                   Use the most specific fragment that uniquely identifies the
+#                   model family without matching a more-specific entry below it.
+#   fallback_rpm  — conservative RPM used when no verified rate is in _MODEL_RATES.
+#
+# Cascade advances on DAILY QUOTA exhaustion only.  RPM rate-limiting is handled
+# by _RateLimiter waiting for the x-ratelimit-reset-requests window — the cascade
+# must NOT advance just because the per-minute bucket is temporarily full.
+#
+# Verified free-tier limits (confirmed from 429 quotaValue fields, 2026-05-12):
+#   gemini-2.5-flash-lite  10 RPM (NOT 30 — that is the paid tier)
+#   gemini-2.5-flash       10 RPM (uses thinking tokens; ThinkingConfig needed)
+#   gemini-2.0-flash       limit: 0 on free tier (cascade skips immediately)
+#
+# Pro model limits: unknown — check aistudio.google.com.  Conservative 10 RPM used.
+_DESIRED_CASCADE: list[tuple[str, int]] = [
+    ("gemini-3.1-pro", 10),
+    ("gemini-2.5-pro", 10),
+    ("gemini-3-flash", 15),
+    ("gemini-2.5-flash", 10),
+    ("gemini-3.1-flash-lite", 15),
+    ("gemini-2.5-flash-lite", 10),
 ]
 
-# Per-model RPM for the free tier — verified from 429 error quotaValue fields.
-# Conservative 15 RPM for models whose limits are not yet observed in practice.
+# Verified per-model RPM for the free tier.  Entries here override the
+# fallback_rpm in _DESIRED_CASCADE.  Also used for fragment-based lookup when
+# the resolved model ID contains extra version suffixes (e.g. "-001").
 _MODEL_RATES: dict[str, int] = {
-    "gemini-3-flash": 15,
-    "gemini-3.1-flash-lite": 15,
+    "gemini-2.5-flash": 10,  # confirmed 10 RPM free tier (2026-05-12)
     "gemini-2.5-flash-lite": 10,  # confirmed 10 RPM free tier (2026-05-12)
     "gemini-2.0-flash": 15,  # limit: 0 seen on free tier; cascade skips fast
-    "gemini-2.5-flash": 10,  # confirmed 10 RPM; uses thinking tokens
 }
+
+# Fallback model list used when resolve_cascade() cannot reach the API.
+# Derived from _DESIRED_CASCADE so there is a single source of truth for order.
+_MODEL_CASCADE: list[str] = [fragment for fragment, _ in _DESIRED_CASCADE]
+
+
+# ---------------------------------------------------------------------------
+# Runtime model discovery
+# ---------------------------------------------------------------------------
+
+
+def resolve_cascade(client: object) -> list[str]:
+    """Query the Gemini API for available models and return IDs in cascade order.
+
+    Calls client.models.list() to discover which models are actually present on
+    the account.  Each entry in _DESIRED_CASCADE is matched to available model
+    IDs by its id_fragment (substring match).  A fragment matches a model only
+    when no more-specific cascade fragment (one that starts with this fragment
+    followed by a hyphen) also matches — this prevents "gemini-2.5-flash"
+    from claiming "gemini-2.5-flash-lite" models.
+
+    Logs all available generateContent models and each resolved mapping so the
+    operator can verify which IDs are in use without guessing.
+
+    Falls back to _MODEL_CASCADE fragment strings if the API call fails.
+    """
+    try:
+        raw_models = list(client.models.list())  # type: ignore[union-attr]
+    except Exception as exc:
+        logger.warning("models.list() failed: %s — using cascade fragments as IDs", exc)
+        return list(_MODEL_CASCADE)
+
+    available: list[str] = []
+    for m in raw_models:
+        name = getattr(m, "name", "") or ""
+        mid = name.removeprefix("models/")
+        if not mid:
+            continue
+        methods = getattr(m, "supported_generation_methods", None) or []
+        if methods and "generateContent" not in methods:
+            continue
+        available.append(mid)
+
+    logger.info("Available generateContent models (%d): %s", len(available), sorted(available))
+
+    resolved: list[str] = []
+    for fragment, _ in _DESIRED_CASCADE:
+        # Fragments that strictly extend this one (e.g. "gemini-2.5-flash-lite"
+        # extends "gemini-2.5-flash" with a "-" separator).
+        more_specific = [
+            f for f, _ in _DESIRED_CASCADE if f != fragment and f.startswith(fragment + "-")
+        ]
+        matches = [
+            mid for mid in available if fragment in mid and not any(s in mid for s in more_specific)
+        ]
+        if not matches:
+            logger.warning("Cascade: no available model matching %r — skipping", fragment)
+            continue
+        # Prefer the shortest ID (canonical non-preview version over dated previews).
+        best = min(matches, key=len)
+        resolved.append(best)
+        logger.info("Cascade: %r → %r", fragment, best)
+
+    return resolved
 
 
 # ---------------------------------------------------------------------------
@@ -178,30 +254,48 @@ class _RateLimiter:
 class _ModelCascade:
     """Walks through Gemini models in cascade order as each model's daily quota is exhausted.
 
-    Starts at starting_model (must appear in _MODEL_CASCADE; treated as a sole
-    option otherwise).  Each advance() resets the rate limiter so the new model
-    gets a fresh pacing window.  The shared _HeaderCapturingClient is cleared of
-    stale headers on advance so the new model's first response is read cleanly.
+    Initialise with a resolved model list from resolve_cascade() so that actual
+    API model IDs are used rather than hard-coded fragments.  Falls back to
+    _MODEL_CASCADE if no explicit list is provided.
 
     Two triggers for advance():
-    1. Quota-exhaustion exception from the caller
+    1. Daily quota exception from the caller (429/403 after rate-limiter backoff)
     2. check_daily_quota_header() — proactive: x-ratelimit-remaining-*-per-day == 0
     """
 
-    def __init__(self, starting_model: str, rpm: int, http_client: _HeaderCapturingClient) -> None:
+    def __init__(
+        self,
+        starting_model: str,
+        rpm: int,
+        http_client: _HeaderCapturingClient,
+        *,
+        models: list[str] | None = None,
+    ) -> None:
+        model_list = models if models is not None else _MODEL_CASCADE
         try:
-            idx = _MODEL_CASCADE.index(starting_model)
-            self._models = _MODEL_CASCADE[idx:]
+            idx = model_list.index(starting_model)
+            self._models = list(model_list[idx:])
         except ValueError:
-            self._models = [starting_model]
+            self._models = list(model_list)
         self._idx = 0
-        self._default_rpm = rpm  # fallback when model not in _MODEL_RATES
+        self._default_rpm = rpm  # fallback when model not in _MODEL_RATES or _DESIRED_CASCADE
         self._http_client = http_client
         self._limiter = _RateLimiter(rpm=self._model_rpm(), http_client=http_client)
 
     def _model_rpm(self) -> int:
-        """Return the documented RPM for the current model, or the default."""
-        return _MODEL_RATES.get(self.model, self._default_rpm)
+        """Return the RPM for the current model.
+
+        Checks _MODEL_RATES first (verified limits), then matches by fragment
+        against _DESIRED_CASCADE (handles version-suffixed IDs like "-001"),
+        then falls back to _default_rpm.
+        """
+        model = self.model
+        if model in _MODEL_RATES:
+            return _MODEL_RATES[model]
+        for fragment, fallback_rpm in _DESIRED_CASCADE:
+            if fragment in model:
+                return _MODEL_RATES.get(fragment, fallback_rpm)
+        return self._default_rpm
 
     @property
     def model(self) -> str:
@@ -216,7 +310,7 @@ class _ModelCascade:
         prev = self.model
         self._idx += 1
         if not self.all_exhausted:
-            logger.warning("Quota exhausted for %r — switching to %r", prev, self.model)
+            logger.warning("Daily quota exhausted for %r — switching to %r", prev, self.model)
             self._http_client.ratelimit_headers = {}
             self._limiter = _RateLimiter(rpm=self._model_rpm(), http_client=self._http_client)
             return True

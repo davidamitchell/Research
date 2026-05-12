@@ -39,16 +39,21 @@ Each model has its own daily quota. The cascade in `src/pipeline/_gemini.py` wal
 through models newest-first and advances when a model's daily quota is exhausted.
 Per-model RPM is set in `_MODEL_RATES`; never guess or use a single global default.
 
-| Model | RPM | RPD | Notes |
-|---|---|---|---|
-| `gemini-3-flash` | — | — | Check aistudio.google.com for current limits |
-| `gemini-3.1-flash-lite` | — | — | Check aistudio.google.com for current limits |
-| `gemini-2.5-flash-lite` | 10 | 1 500 | Fastest; best throughput for backfill (10 RPM confirmed free tier) |
-| `gemini-2.0-flash` | 15 | 1 500 | High RPD; strong general capability |
-| `gemini-2.5-flash` | 10 | 500 | Strongest reasoning; lower throughput |
+Cascade priority order (highest capability → highest throughput):
 
-Total confirmed daily capacity across known models: ~3 500 RPD — enough to enrich
-the full 300-item corpus in a single workflow run across the cascade.
+| Priority | Model | RPM | RPD | Notes |
+|---|---|---|---|---|
+| 1 | `gemini-3.1-pro` | — | — | Check aistudio.google.com |
+| 2 | `gemini-2.5-pro` | — | — | Check aistudio.google.com |
+| 3 | `gemini-3-flash` | — | — | Check aistudio.google.com |
+| 4 | `gemini-2.5-flash` | 10 | 500 | Confirmed free tier (2026-05-12); thinking model |
+| 5 | `gemini-3.1-flash-lite` | — | — | Check aistudio.google.com |
+| 6 | `gemini-2.5-flash-lite` | 10 | 1 500 | Confirmed free tier (2026-05-12) |
+
+Cascade advances on **daily quota exhaustion only**. RPM backoff is handled by
+the adaptive rate limiter — it reads `x-ratelimit-*` headers and waits for the
+reset window without advancing the cascade. Model IDs are discovered at runtime
+via `client.models.list()` — never hard-coded or guessed.
 
 Starting model is configured in `config/sources.yaml → gemini.gemini_model`.
 
