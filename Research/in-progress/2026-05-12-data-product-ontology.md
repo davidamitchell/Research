@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Data product ontology: definition, adoption, and current relevance"
 added: 2026-05-12T08:17:21+00:00
 status: reviewing
