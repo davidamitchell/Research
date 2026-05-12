@@ -45,10 +45,10 @@ sys.path.insert(0, str(_REPO_ROOT))
 
 from src.logger import get_logger  # noqa: E402
 from src.pipeline._gemini import (  # noqa: E402
-    _DESIRED_CASCADE,
+    _FALLBACK_CASCADE,
     _ModelCascade,
+    build_model_cascade,
     make_gemini_client,
-    resolve_cascade,
 )
 
 logger = get_logger(__name__)
@@ -360,7 +360,7 @@ def _load_starting_fragment() -> str:
     Returns a fragment string (e.g. "gemini-2.5-flash-lite") that is matched
     against the resolved model list in main().
     """
-    default = _DESIRED_CASCADE[0][0]
+    default = _FALLBACK_CASCADE[0]
     if not CONFIG_PATH.exists():
         return default
     try:
@@ -422,27 +422,17 @@ def main() -> int:
         logger.error("GEMINI_API_KEY environment variable is not set.")
         return 1
 
-    starting_fragment = args.model or _load_starting_fragment()
-    logger.info("Building Gemini client — desired start: %s", starting_fragment)
+    fallback_hint = args.model or _load_starting_fragment()
+    logger.info("Building model cascade — fallback start: %s", fallback_hint)
 
-    client, http_client = make_gemini_client(api_key)
-
-    # Discover actual model IDs from the API so we never hard-code or guess IDs.
-    resolved = resolve_cascade(client)
+    # Discover model IDs via REST before constructing the genai client.
+    resolved = build_model_cascade(api_key, fallback_hint)
     if not resolved:
         logger.error("No Gemini models resolved from API — cannot enrich items.")
         return 1
 
-    # Find the first resolved model whose ID contains the desired starting fragment.
-    starting_model = next((m for m in resolved if starting_fragment in m), resolved[0])
-    if starting_fragment not in starting_model:
-        logger.warning(
-            "Starting fragment %r not found in resolved cascade — using %r",
-            starting_fragment,
-            starting_model,
-        )
-
-    cascade = _ModelCascade(starting_model, rpm=args.rpm, http_client=http_client, models=resolved)
+    client, http_client = make_gemini_client(api_key)
+    cascade = _ModelCascade(resolved, rpm=args.rpm, http_client=http_client)
     logger.info("Model cascade: %s", cascade._models)
 
     if args.dry_run:

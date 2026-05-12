@@ -5,21 +5,22 @@ repo's Markdown-based corpus.
 
 Four concerns:
 
-_HeaderCapturingClient — httpx.Client that records x-ratelimit-* response headers
-_RateLimiter          — adaptive per-minute pacer driven by those headers
-_ModelCascade         — walks through models in order as each model's DAILY QUOTA
-                        is exhausted (RPM backoff is handled by _RateLimiter, not
-                        by advancing the cascade)
-resolve_cascade()     — queries client.models.list() at runtime to discover the
-                        actual model IDs for each desired cascade entry
+_HeaderCapturingClient  — httpx.Client that records x-ratelimit-* response headers
+_RateLimiter            — adaptive per-minute pacer driven by those headers
+_ModelCascade           — walks through models in order as each model's DAILY QUOTA
+                          is exhausted (RPM backoff is handled by _RateLimiter, not
+                          by advancing the cascade)
+build_model_cascade()   — queries ListModels at runtime to build the fully-sorted
+                          cascade; never hard-codes or guesses model IDs
 
-All code that calls the Gemini API should obtain a client via make_gemini_client()
-so header capture is universal and rate-limit state is shared across calls.
+All code that makes Gemini API calls should obtain a client via make_gemini_client()
+so header capture is universal and the rate-limit state is shared.
 """
 
 from __future__ import annotations
 
 import logging
+import re
 import time
 from datetime import UTC, datetime
 
@@ -28,48 +29,28 @@ import httpx
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Model cascade — desired order and per-model rate hints
+# Model cascade — safe fallback used when ListModels cannot be reached
 # ---------------------------------------------------------------------------
 #
-# Priority order (highest capability first, highest throughput last).
-# Each entry: (id_fragment, fallback_rpm).
-#
-#   id_fragment   — matched as a substring against model IDs returned by the API.
-#                   Use the most specific fragment that uniquely identifies the
-#                   model family without matching a more-specific entry below it.
-#   fallback_rpm  — conservative RPM used when no verified rate is in _MODEL_RATES.
+# build_model_cascade() queries the API and returns ALL available models sorted
+# by tier (Pro → Flash → Flash-Lite) then by version (newest first).  This
+# fallback is only used when the HTTP call fails.
 #
 # Cascade advances on DAILY QUOTA exhaustion only.  RPM rate-limiting is handled
-# by _RateLimiter waiting for the x-ratelimit-reset-requests window — the cascade
-# must NOT advance just because the per-minute bucket is temporarily full.
+# by _RateLimiter waiting for the x-ratelimit-reset-requests window.
 #
 # Verified free-tier limits (confirmed from 429 quotaValue fields, 2026-05-12):
 #   gemini-2.5-flash-lite  10 RPM (NOT 30 — that is the paid tier)
 #   gemini-2.5-flash       10 RPM (uses thinking tokens; ThinkingConfig needed)
 #   gemini-2.0-flash       limit: 0 on free tier (cascade skips immediately)
-#
-# Pro model limits: unknown — check aistudio.google.com.  Conservative 10 RPM used.
-_DESIRED_CASCADE: list[tuple[str, int]] = [
-    ("gemini-3.1-pro", 10),
-    ("gemini-2.5-pro", 10),
-    ("gemini-3-flash", 15),
-    ("gemini-2.5-flash", 10),
-    ("gemini-3.1-flash-lite", 15),
-    ("gemini-2.5-flash-lite", 10),
+_FALLBACK_CASCADE: list[str] = [
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
 ]
 
-# Verified per-model RPM for the free tier.  Entries here override the
-# fallback_rpm in _DESIRED_CASCADE.  Also used for fragment-based lookup when
-# the resolved model ID contains extra version suffixes (e.g. "-001").
-_MODEL_RATES: dict[str, int] = {
-    "gemini-2.5-flash": 10,  # confirmed 10 RPM free tier (2026-05-12)
-    "gemini-2.5-flash-lite": 10,  # confirmed 10 RPM free tier (2026-05-12)
-    "gemini-2.0-flash": 15,  # limit: 0 seen on free tier; cascade skips fast
-}
-
-# Fallback model list used when resolve_cascade() cannot reach the API.
-# Derived from _DESIRED_CASCADE so there is a single source of truth for order.
-_MODEL_CASCADE: list[str] = [fragment for fragment, _ in _DESIRED_CASCADE]
+# Kept for backwards compatibility with callers that import _MODEL_CASCADE.
+_MODEL_CASCADE: list[str] = _FALLBACK_CASCADE
 
 
 # ---------------------------------------------------------------------------
@@ -77,59 +58,97 @@ _MODEL_CASCADE: list[str] = [fragment for fragment, _ in _DESIRED_CASCADE]
 # ---------------------------------------------------------------------------
 
 
-def resolve_cascade(client: object) -> list[str]:
-    """Query the Gemini API for available models and return IDs in cascade order.
+def _model_sort_key(model_id: str) -> tuple[int, int, int, int]:
+    """Sort key implementing the desired cascade tier order.
 
-    Calls client.models.list() to discover which models are actually present on
-    the account.  Each entry in _DESIRED_CASCADE is matched to available model
-    IDs by its id_fragment (substring match).  A fragment matches a model only
-    when no more-specific cascade fragment (one that starts with this fragment
-    followed by a hyphen) also matches — this prevents "gemini-2.5-flash"
-    from claiming "gemini-2.5-flash-lite" models.
+    Tier 0 — Pro        (highest capability, lowest daily quota)
+    Tier 1 — Flash      (balanced)
+    Tier 2 — Flash-Lite (highest daily quota, lightest capability)
+    Tier 3 — Unrecognised (sorted last)
 
-    Logs all available generateContent models and each resolved mapping so the
-    operator can verify which IDs are in use without guessing.
-
-    Falls back to _MODEL_CASCADE fragment strings if the API call fails.
+    Within each tier: newest major.minor first, stable releases before
+    experimental/preview variants.
     """
+    if re.search(r"gemini-\d.*-flash-lite", model_id):
+        tier = 2
+    elif re.search(r"gemini-\d.*-flash", model_id):
+        tier = 1
+    elif re.search(r"gemini-\d.*-pro", model_id):
+        tier = 0
+    else:
+        tier = 3
+
+    m = re.match(r"gemini-(\d+)(?:\.(\d+))?", model_id)
+    if not m:
+        return (tier, 0, 0, 0)
+    major = int(m.group(1))
+    minor = int(m.group(2) or "0")
+    is_experimental = 1 if re.search(r"preview|exp\b|experimental", model_id, re.IGNORECASE) else 0
+    return (tier, -major, -minor, is_experimental)
+
+
+def build_model_cascade(api_key: str, fallback_hint: str) -> list[str]:
+    """Query ListModels and return the full ordered model cascade.
+
+    Makes a direct REST call to the Gemini API — does not require a genai
+    client to be created first.  Filters to versioned Pro and Flash models
+    that support generateContent, then sorts by tier and version:
+
+        Tier 0 — Pro     (gemini-X.Y-pro)          highest capability
+        Tier 1 — Flash   (gemini-X.Y-flash)         balanced
+        Tier 2 — Flash-Lite (gemini-X.Y-flash-lite) highest daily quota
+
+    Within each tier: newest version first, stable before experimental.
+
+    Falls back to _FALLBACK_CASCADE on any network or API error.  The
+    API key is redacted from exception messages before logging.
+    """
+    url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}&pageSize=200"
     try:
-        raw_models = list(client.models.list())  # type: ignore[union-attr]
+        with httpx.Client(follow_redirects=True, timeout=15.0) as http:
+            resp = http.get(url)
+            resp.raise_for_status()
+            data = resp.json()
+
+        model_ids: list[str] = []
+        for model in data.get("models", []):
+            name: str = model.get("name", "")
+            methods: list[str] = model.get("supportedGenerationMethods", [])
+            if not name.startswith("models/"):
+                continue
+            model_id = name[len("models/") :]
+            # Only versioned flash/pro models — exclude legacy IDs like "gemini-pro".
+            if not re.match(r"gemini-\d+(?:\.\d+)?-(pro|flash)", model_id):
+                continue
+            if "generateContent" not in methods:
+                continue
+            model_ids.append(model_id)
+
+        if not model_ids:
+            logger.warning("ListModels returned no usable models — using fallback cascade")
+            return _build_fallback(fallback_hint)
+
+        model_ids.sort(key=_model_sort_key)
+        logger.info(
+            "Available models (%d, sorted by tier+version): %s",
+            len(model_ids),
+            ", ".join(model_ids),
+        )
+        return model_ids
+
     except Exception as exc:
-        logger.warning("models.list() failed: %s — using cascade fragments as IDs", exc)
-        return list(_MODEL_CASCADE)
+        # Redact API key before logging — httpx.HTTPStatusError includes the full
+        # request URL (with ?key=...) in its __str__.
+        safe_msg = re.sub(r"key=[^&\s]+", "key=***", str(exc))
+        logger.warning("ListModels failed (%s) — using fallback cascade", safe_msg)
+        return _build_fallback(fallback_hint)
 
-    available: list[str] = []
-    for m in raw_models:
-        name = getattr(m, "name", "") or ""
-        mid = name.removeprefix("models/")
-        if not mid:
-            continue
-        methods = getattr(m, "supported_generation_methods", None) or []
-        if methods and "generateContent" not in methods:
-            continue
-        available.append(mid)
 
-    logger.info("Available generateContent models (%d): %s", len(available), sorted(available))
-
-    resolved: list[str] = []
-    for fragment, _ in _DESIRED_CASCADE:
-        # Fragments that strictly extend this one (e.g. "gemini-2.5-flash-lite"
-        # extends "gemini-2.5-flash" with a "-" separator).
-        more_specific = [
-            f for f, _ in _DESIRED_CASCADE if f != fragment and f.startswith(fragment + "-")
-        ]
-        matches = [
-            mid for mid in available if fragment in mid and not any(s in mid for s in more_specific)
-        ]
-        if not matches:
-            logger.warning("Cascade: no available model matching %r — skipping", fragment)
-            continue
-        # Prefer the shortest ID (canonical non-preview version over dated previews).
-        best = min(matches, key=len)
-        resolved.append(best)
-        logger.info("Cascade: %r → %r", fragment, best)
-
-    return resolved
+def _build_fallback(starting_model: str) -> list[str]:
+    if starting_model in _FALLBACK_CASCADE:
+        idx = _FALLBACK_CASCADE.index(starting_model)
+        return list(_FALLBACK_CASCADE[idx:])
+    return [starting_model] + list(_FALLBACK_CASCADE)
 
 
 # ---------------------------------------------------------------------------
@@ -191,7 +210,7 @@ def _parse_reset_seconds(reset_str: str) -> float | None:
 class _RateLimiter:
     """Adaptive per-minute pacer for Gemini API calls.
 
-    Uses 60/rpm seconds as a minimum interval floor.  Before each wait() call,
+    Uses 60/rpm seconds as a minimum interval floor.  Before each wait() call
     the captured x-ratelimit-remaining-requests header is inspected:
 
     - remaining == 0 → wait for the reset window (x-ratelimit-reset-requests)
@@ -254,48 +273,27 @@ class _RateLimiter:
 class _ModelCascade:
     """Walks through Gemini models in cascade order as each model's daily quota is exhausted.
 
-    Initialise with a resolved model list from resolve_cascade() so that actual
-    API model IDs are used rather than hard-coded fragments.  Falls back to
-    _MODEL_CASCADE if no explicit list is provided.
+    Initialise with the list returned by build_model_cascade() so actual API
+    model IDs are used.  Each advance() resets the rate limiter so the new model
+    gets a fresh pacing window and stale x-ratelimit-* headers are cleared.
 
     Two triggers for advance():
-    1. Daily quota exception from the caller (429/403 after rate-limiter backoff)
+    1. Quota-exhaustion exception from the caller (429/403)
     2. check_daily_quota_header() — proactive: x-ratelimit-remaining-*-per-day == 0
     """
 
     def __init__(
         self,
-        starting_model: str,
+        models: list[str],
         rpm: int,
         http_client: _HeaderCapturingClient,
-        *,
-        models: list[str] | None = None,
     ) -> None:
-        model_list = models if models is not None else _MODEL_CASCADE
-        try:
-            idx = model_list.index(starting_model)
-            self._models = list(model_list[idx:])
-        except ValueError:
-            self._models = list(model_list)
+        self._models = list(models) if models else list(_FALLBACK_CASCADE)
         self._idx = 0
-        self._default_rpm = rpm  # fallback when model not in _MODEL_RATES or _DESIRED_CASCADE
+        self._rpm = rpm
         self._http_client = http_client
-        self._limiter = _RateLimiter(rpm=self._model_rpm(), http_client=http_client)
-
-    def _model_rpm(self) -> int:
-        """Return the RPM for the current model.
-
-        Checks _MODEL_RATES first (verified limits), then matches by fragment
-        against _DESIRED_CASCADE (handles version-suffixed IDs like "-001"),
-        then falls back to _default_rpm.
-        """
-        model = self.model
-        if model in _MODEL_RATES:
-            return _MODEL_RATES[model]
-        for fragment, fallback_rpm in _DESIRED_CASCADE:
-            if fragment in model:
-                return _MODEL_RATES.get(fragment, fallback_rpm)
-        return self._default_rpm
+        self._limiter = _RateLimiter(rpm=rpm, http_client=http_client)
+        logger.info("Model cascade (%d models): %s", len(self._models), ", ".join(self._models))
 
     @property
     def model(self) -> str:
@@ -307,12 +305,14 @@ class _ModelCascade:
 
     def advance(self) -> bool:
         """Switch to the next model.  Returns True if one is available, False if done."""
+        if self.all_exhausted:
+            return False
         prev = self.model
         self._idx += 1
         if not self.all_exhausted:
             logger.warning("Daily quota exhausted for %r — switching to %r", prev, self.model)
             self._http_client.ratelimit_headers = {}
-            self._limiter = _RateLimiter(rpm=self._model_rpm(), http_client=self._http_client)
+            self._limiter = _RateLimiter(rpm=self._rpm, http_client=self._http_client)
             return True
         logger.error("All models in cascade exhausted — AI enrichment disabled for this run")
         return False
