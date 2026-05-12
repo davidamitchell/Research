@@ -1,7 +1,7 @@
 # 2026-05-12 -- Add backlog item (hardware-load-inference-performance)
 
 **Completed:**
-- `Research/backlog/2026-05-12-hardware-load-inference-performance.md` — added from issue #(new research); validated question: how does hardware resource load (CPU, GPU, memory pressure) affect Large Language Model (LLM) inference performance — latency, throughput, and output quality consistency — and what are the practical implications for AI agent reliability in production deployments?
+- `Research/backlog/2026-05-12-hardware-load-inference-performance.md` — added from issue #(new research); validated question: how does hardware resource load (Central Processing Unit (CPU), Graphics Processing Unit (GPU), memory pressure) affect Large Language Model (LLM) inference performance — latency, throughput, and output quality consistency — and what are the practical implications for AI agent reliability in production deployments?
 
 ## Mini-Retro
 

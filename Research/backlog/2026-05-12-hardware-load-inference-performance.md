@@ -21,21 +21,21 @@ versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YY
 
 ## Research Question
 
-How does hardware resource load (CPU, GPU, and memory pressure) affect Large Language Model (LLM) inference performance — specifically latency, throughput, and output quality consistency — and what are the practical implications for AI agent reliability in production deployments?
+How does hardware resource load (Central Processing Unit (CPU), Graphics Processing Unit (GPU), and memory pressure) affect Large Language Model (LLM) inference performance — specifically latency, throughput, and output quality consistency — and what are the practical implications for AI agent reliability in production deployments?
 
 ## Scope
 
 **In scope:**
 - GPU and CPU utilisation effects on LLM inference latency and throughput
-- Hardware memory pressure (GPU VRAM contention, CPU RAM pressure) and its effect on inference output quality and token sampling consistency
+- Hardware memory pressure (GPU Video Random Access Memory (VRAM) contention, CPU Random Access Memory (RAM) pressure) and its effect on inference output quality and token sampling consistency
 - Behaviour of inference serving systems (vLLM, Text Generation Inference (TGI), Ollama) under resource contention
 - Empirical benchmarks and published measurements of LLM inference performance variance under load
 - Practical implications for AI agent orchestration: whether load-dependent performance variability requires architectural mitigations
 
 **Out of scope:**
 - Model training performance and hardware requirements
-- Non-LLM inference (classical ML, computer vision, etc.)
-- Cloud provider pricing models and SLA comparisons
+- Non-LLM inference (classical Machine Learning (ML), computer vision, etc.)
+- Cloud provider pricing models and Service Level Agreement (SLA) comparisons
 - Specific vendor hardware benchmarks unrelated to load contention
 
 **Constraints:** Focus on self-hosted and cloud LLM inference; academic papers, inference serving documentation, and practitioner benchmarks are all valid source types; no specific time horizon.
