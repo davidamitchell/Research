@@ -554,7 +554,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 62,
+    "item_count": 63,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -860,6 +860,11 @@
         "slug": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
         "title": "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments",
         "added": "2026-05-10"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
+        "added": "2026-05-12"
       },
       {
         "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
@@ -1734,7 +1739,7 @@
       "workflow"
     ],
     "concept_cluster": [],
-    "item_count": 47,
+    "item_count": 48,
     "items": [
       {
         "slug": "2026-03-02-transaction-costs",
@@ -1965,6 +1970,11 @@
         "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
         "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
+        "added": "2026-05-12"
       },
       {
         "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
@@ -2459,7 +2469,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 36,
+    "item_count": 37,
     "items": [
       {
         "slug": "2026-02-27-simple-process-for-adding-research-item",
@@ -2640,6 +2650,11 @@
         "slug": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
         "title": "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments",
         "added": "2026-05-10"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
+        "added": "2026-05-12"
       }
     ],
     "url": "/Research/threads/agentic-ai-workflow-llm.html"
@@ -5720,13 +5735,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -5782,7 +5797,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -6070,6 +6085,56 @@
     "url": "/Research/threads/rory-sutherland-behavioral-economics-strategy.html"
   },
   {
+    "slug": "workflow-knowledge-graph-agentic-ai",
+    "title": "workflow / knowledge-graph / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "workflow",
+      "knowledge-graph",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
+        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
+        "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-05-02-research-item-versioning-amendment-norms",
+        "title": "What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
+        "title": "What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
+        "added": "2026-05-12"
+      }
+    ],
+    "url": "/Research/threads/workflow-knowledge-graph-agentic-ai.html"
+  },
+  {
     "slug": "predictive-processing-consciousness-anil-seth",
     "title": "predictive-processing / consciousness / anil-seth",
     "kind": "implicit",
@@ -6220,14 +6285,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -6267,52 +6332,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
-  },
-  {
-    "slug": "workflow-knowledge-graph-agentic-ai",
-    "title": "workflow / knowledge-graph / agentic-ai",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "knowledge-graph",
-      "agentic-ai"
-    ],
-    "concept_cluster": [],
-    "item_count": 6,
-    "items": [
-      {
-        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
-        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
-        "added": "2026-04-29"
-      },
-      {
-        "slug": "2026-05-02-research-item-versioning-amendment-norms",
-        "title": "What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
-        "title": "What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
-        "added": "2026-05-02"
-      }
-    ],
-    "url": "/Research/threads/workflow-knowledge-graph-agentic-ai.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -6480,13 +6500,13 @@
     "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -6517,17 +6537,17 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -6557,16 +6577,16 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "github copilot"
     ],
     "item_count": 5,
@@ -6597,7 +6617,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6850,13 +6870,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
+      "power platform",
       "direct publish"
     ],
     "item_count": 3,
@@ -6877,6 +6897,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   }
 ]

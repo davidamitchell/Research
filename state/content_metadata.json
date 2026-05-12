@@ -1,6 +1,122 @@
 {
-  "extracted_at": "2026-05-12T10:47:57Z",
+  "extracted_at": "2026-05-12T11:03:29Z",
   "items": {
+    "2026-05-12-knowledge-graph-lifecycle-management-agentic": {
+      "named_concepts": [
+        "knowledge graph",
+        "old identifiers",
+        "entity resolution",
+        "additive separately",
+        "separately identifiable",
+        "conflict handling",
+        "authoritative graph",
+        "multi-step software",
+        "software agents",
+        "graph states",
+        "preserve historical",
+        "historical identifiers",
+        "attach provenance",
+        "combine validation",
+        "silent in-place",
+        "consumable derivatives",
+        "graph summaries",
+        "identifiable versions",
+        "named-graph snapshots",
+        "explicit version"
+      ],
+      "source_urls": [
+        "https://dl.acm.org/doi/10.1145/3366423.3380185",
+        "https://mitpress.mit.edu/9780262045094/knowledge-graphs/",
+        "https://arxiv.org/abs/2003.02320",
+        "https://www.w3.org/TR/rdf12-concepts/",
+        "https://dl.acm.org/doi/10.1145/3418896",
+        "https://arxiv.org/abs/1905.06397",
+        "https://github.com/dbpedia/databus/blob/master/docs/version.md",
+        "https://github.com/dbpedia/databus/blob/master/docs/versioning.md",
+        "https://www.w3.org/TR/prov-o/",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.wikidata.org/wiki/Help:Merge",
+        "https://www.wikidata.org/wiki/Help:Redirects",
+        "https://www.wikidata.org/wiki/Help:Sources",
+        "https://www.wikidata.org/wiki/Wikidata:Database_download",
+        "https://www.mediawiki.org/wiki/EventStreams",
+        "https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format",
+        "https://www.wikidata.org/wiki/Wikidata:Identifiers",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Publishing Knowledge Graph changes as additive, separately identifiable versions or named-graph snapshots is safer than mutating live schemas in place, because RDF datasets, DBpedia Databus versions, and Wikibase dump metadata all preserve explicit version identity and change timestamps for consumers",
+          "sources": [
+            "https://www.w3.org/TR/rdf12-concepts/",
+            "https://github.com/dbpedia/databus/blob/master/docs/version.md",
+            "https://github.com/dbpedia/databus/blob/master/docs/versioning.md",
+            "https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format"
+          ]
+        },
+        {
+          "text": "Schema evolution should default to additive change and deprecation instead of repurposing old identifiers, because the consulted lifecycle surfaces preserve derivation, issue dates, software versions, and stable interfaces rather than redefining historical identifiers in place",
+          "sources": [
+            "https://github.com/dbpedia/databus/blob/master/docs/versioning.md",
+            "https://www.wikidata.org/wiki/Wikidata:Database_download",
+            "https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format"
+          ]
+        },
+        {
+          "text": "Assertion-level or graph-level provenance should remain queryable throughout the lifecycle, because reference metadata and PROV-style derivation are the mechanisms that let teams explain, compare, and safely overwrite conflicting facts",
+          "sources": [
+            "https://www.wikidata.org/wiki/Help:Sources",
+            "https://www.w3.org/TR/prov-o/",
+            "https://github.com/dbpedia/databus/blob/master/docs/version.md"
+          ]
+        },
+        {
+          "text": "Conflict handling is a two-part discipline that combines structural validation with evidential adjudication, because SHACL can detect invalid graph states while provenance records identify which source asserted each competing fact",
+          "sources": [
+            "https://www.w3.org/TR/shacl/",
+            "https://www.w3.org/TR/prov-o/",
+            "https://www.wikidata.org/wiki/Help:Sources"
+          ]
+        },
+        {
+          "text": "Entity resolution should narrow candidates before matching and should preserve redirects or old identifiers after merge, because production-scale workflows depend on indexing plus matching and Wikidata's duplicate-repair practice prioritises stable identifier continuity",
+          "sources": [
+            "https://arxiv.org/abs/1905.06397",
+            "https://www.wikidata.org/wiki/Help:Merge",
+            "https://www.wikidata.org/wiki/Help:Redirects",
+            "https://www.wikidata.org/wiki/Wikidata:Identifiers"
+          ]
+        },
+        {
+          "text": "Operationally mature freshness management uses a full snapshot plus incremental change stream plus periodic resynchronization, because dumps provide complete stable state while EventStreams-style feeds reduce lag between scheduled full refreshes",
+          "sources": [
+            "https://www.wikidata.org/wiki/Wikidata:Database_download",
+            "https://www.mediawiki.org/wiki/EventStreams"
+          ]
+        },
+        {
+          "text": "For multi-step software agents, every derived graph artifact needs its own freshness stamp and publication gate, because the agent often consumes cached subgraphs, truthy exports, or summaries whose catch-up lag differs from the authoritative graph itself",
+          "sources": [
+            "https://www.wikidata.org/wiki/Wikidata:Database_download",
+            "https://www.mediawiki.org/wiki/EventStreams",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        },
+        {
+          "text": "The safest end-to-end lifecycle is ingest, attach provenance, validate, resolve duplicates conservatively, publish a versioned state, propagate deltas, and periodically recertify or retire stale assertions, because that sequence aligns the strongest controls from standards, open Knowledge Graph operations, and adjacent repository research",
+          "sources": [
+            "https://www.w3.org/TR/prov-o/",
+            "https://www.w3.org/TR/shacl/",
+            "https://github.com/dbpedia/databus/blob/master/docs/version.md",
+            "https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+          ]
+        }
+      ]
+    },
     "2026-05-12-knowledge-graph-agentic-runtime-dependency": {
       "named_concepts": [
         "amazon neptune",
