@@ -2,12 +2,12 @@
 review_count: 2
 title: "Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability"
 added: 2026-05-12T03:27:57+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [llm, agentic-ai, evaluation, ai-platform]
 started: 2026-05-12T18:38:07+00:00
-completed: ~
+completed: 2026-05-12T19:00:37+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites:
   - 2026-05-09-llm-determinism-limits-temperature-zero

@@ -1,13 +1,19 @@
-# 2026-05-12 -- Add backlog item (hardware-load-inference-performance)
+# 2026-05-12 -- Complete research item (hardware-load-inference-performance)
 
 **Completed:**
-- `Research/backlog/2026-05-12-hardware-load-inference-performance.md` — added from issue #(new research); validated question: how does hardware resource load (Central Processing Unit (CPU), Graphics Processing Unit (GPU), memory pressure) affect Large Language Model (LLM) inference performance — latency, throughput, and output quality consistency — and what are the practical implications for AI agent reliability in production deployments?
+- `Research/completed/2026-05-12-hardware-load-inference-performance.md` — completed the research item after review; conclusion: inference reliability shifts mainly at scheduler, memory, and numerical-path thresholds rather than at a single utilization percentage.
+- `learnings.md` — updated Thread 18 to capture LLM serving as a concrete backpressure and constraint-management case.
+
+**Key sources:**
+- [Agrawal et al. (2024) Taming Throughput-Latency Tradeoff in Large Language Model Inference with Sarathi-Serve](https://arxiv.org/abs/2403.02310)
+- [Kwon et al. (2023) Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
+- [Yuan et al. (2025) Understanding and Mitigating Numerical Sources of Nondeterminism in Large Language Model Inference](https://arxiv.org/abs/2506.09501)
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. The `research-question` skill process was applied manually (skills submodule not initialised) — the five-test quality check (Specific, Answerable, Scoped, Motivated, Decomposable) identified that the original issue statement was too vague ("does performance change") and produced a tighter validated question naming the specific performance dimensions (latency, throughput, output quality) and the agent reliability implication.
-2. **What slowed down or went wrong?** The skills submodule was empty; the fallback (manual application of the five-test check) works but does not benefit from the full skill prompt structure.
-3. **What single change would prevent this next time?** Initialising the skills submodule (`git submodule update --init`) would make the full skill available; this should be a one-time setup step in the cloud agent environment.
-4. **Is this a pattern?** Yes — the submodule is consistently uninitialised in agent sessions. This is a known gap already in the instructions.
-5. **Does any documentation need updating?** No — the instructions already document the fallback path.
-6. **Do the default instructions need updating?** No new instruction change needed; the existing fallback guidance is clear and was followed correctly.
+1. **Did the process work?** Yes. The research-to-review loop worked once the item was tightened to the repo's exact citation and domain-term rules.
+2. **What slowed down or went wrong?** The review workflow surfaced several prose-level failures that were easy to miss locally, especially authoritative first-use definitions and review-metadata phrasing.
+3. **What single change would prevent this next time?** Treat §7 as pure metadata fragments from the start and add authoritative first-use definition sources for serving metrics and specialist terms before the first draft commit.
+4. **Is this a pattern?** Yes. First-use terminology and review-only metadata wording are recurring failure modes in this repository's research workflow.
+5. **Does any documentation need updating?** `learnings.md` did; this item added a concrete LLM-serving example to the constraint-management thread, so that update was made in this session.
+6. **Do the default instructions need updating?** Not yet. The existing instructions already name acronym and domain-term expansion as common failures; the issue here was execution, not missing guidance.
