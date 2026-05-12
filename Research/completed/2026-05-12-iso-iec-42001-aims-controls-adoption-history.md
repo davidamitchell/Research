@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: aaa167dfe9157358d26b8fd61f9355f3c30d5012
+    changed: 2026-05-12
+    progress: progress/2026-05-12-iso-iec-42001-aims-controls-adoption-history.md
+    summary: Initial completion
 ---
 
 # International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 controls, adoption, reputation, and evolution
