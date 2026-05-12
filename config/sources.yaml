@@ -50,14 +50,20 @@ arxiv:
     - "predictive processing active inference"
 
 gemini:
-  # Starting model for AI enrichment (enrich_items.py / enrich-items workflow).
-  # The pipeline cascades through models newest-first when daily quota is exhausted.
-  # Each model has its own independent free-tier quota pool (verified 2026-05-12):
-  #   gemini-3-flash         — check aistudio.google.com for current limits
-  #   gemini-3.1-flash-lite  — check aistudio.google.com for current limits
-  #   gemini-2.5-flash-lite  10 RPM / 1 500 RPD — fastest; best throughput for backfill
-  #   gemini-2.0-flash       15 RPM / 1 500 RPD — high RPD; strong capability
-  #   gemini-2.5-flash       10 RPM /   500 RPD — strongest reasoning; lower RPD
-  # Total confirmed daily capacity: ~3 500 RPD — enough for a full 300-item backfill.
-  # Per-model RPM is configured in src/pipeline/_gemini.py _MODEL_RATES.
+  # Starting model fragment for AI enrichment (enrich_items.py / enrich-items workflow).
+  # At startup the script calls client.models.list() to discover actual model IDs —
+  # this value is matched as a substring against the resolved IDs, so a fragment like
+  # "gemini-2.5-flash-lite" also matches "gemini-2.5-flash-lite-001".
+  #
+  # Cascade priority order (configured in src/pipeline/_gemini.py _DESIRED_CASCADE):
+  #   1. gemini-3.1-pro        — highest capability; Pro tier
+  #   2. gemini-2.5-pro        — strong reasoning; Pro tier
+  #   3. gemini-3-flash        — check aistudio.google.com for current limits
+  #   4. gemini-2.5-flash      — 10 RPM free tier; thinking model
+  #   5. gemini-3.1-flash-lite — check aistudio.google.com for current limits
+  #   6. gemini-2.5-flash-lite — 10 RPM / 1 500 RPD free tier (confirmed 2026-05-12)
+  #
+  # Cascade advances when a model's DAILY quota is exhausted.  RPM backoff is
+  # handled automatically by the adaptive rate limiter — no cascade advance needed.
+  # Per-model verified RPM lives in src/pipeline/_gemini.py _MODEL_RATES.
   gemini_model: gemini-2.5-flash-lite

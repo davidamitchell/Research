@@ -8,12 +8,14 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from src.pipeline._gemini import (
+    _FALLBACK_CASCADE,
     _MODEL_CASCADE,
-    _MODEL_RATES,
     _HeaderCapturingClient,
+    _model_sort_key,
     _ModelCascade,
     _parse_reset_seconds,
     _RateLimiter,
+    build_model_cascade,
 )
 
 # ---------------------------------------------------------------------------
@@ -120,53 +122,86 @@ class TestRateLimiter:
 
 
 # ---------------------------------------------------------------------------
+# _model_sort_key
+# ---------------------------------------------------------------------------
+
+
+class TestModelSortKey:
+    def test_pro_before_flash(self) -> None:
+        assert _model_sort_key("gemini-2.5-pro") < _model_sort_key("gemini-2.5-flash")
+
+    def test_flash_before_flash_lite(self) -> None:
+        assert _model_sort_key("gemini-2.5-flash") < _model_sort_key("gemini-2.5-flash-lite")
+
+    def test_newer_version_first(self) -> None:
+        # gemini-3 should sort before gemini-2.5 within the same tier
+        assert _model_sort_key("gemini-3-flash") < _model_sort_key("gemini-2.5-flash")
+
+    def test_stable_before_experimental(self) -> None:
+        assert _model_sort_key("gemini-2.5-flash") < _model_sort_key("gemini-2.5-flash-preview")
+
+    def test_flash_lite_not_claimed_by_flash(self) -> None:
+        # flash-lite tier (2) must be strictly higher than flash tier (1)
+        flash_tier = _model_sort_key("gemini-2.5-flash")[0]
+        lite_tier = _model_sort_key("gemini-2.5-flash-lite")[0]
+        assert lite_tier > flash_tier
+
+    def test_unknown_model_sorted_last(self) -> None:
+        assert _model_sort_key("some-unknown-model")[0] == 3
+
+    def test_sort_produces_correct_order(self) -> None:
+        models = [
+            "gemini-2.5-flash-lite",
+            "gemini-2.5-pro",
+            "gemini-3-flash",
+            "gemini-2.5-flash",
+        ]
+        models.sort(key=_model_sort_key)
+        # Pro tier (0) always before Flash (1) regardless of version number.
+        assert models == [
+            "gemini-2.5-pro",
+            "gemini-3-flash",
+            "gemini-2.5-flash",
+            "gemini-2.5-flash-lite",
+        ]
+
+
+# ---------------------------------------------------------------------------
 # _ModelCascade
 # ---------------------------------------------------------------------------
 
 
 class TestModelCascade:
-    def _make_cascade(self, starting: str = "gemini-3-flash") -> _ModelCascade:
+    def _make_cascade(self, models: list[str] | None = None) -> _ModelCascade:
         http_client = _HeaderCapturingClient()
-        return _ModelCascade(starting, rpm=15, http_client=http_client)
+        default_models = ["model-a", "model-b", "model-c"]
+        return _ModelCascade(
+            models=models or default_models,
+            rpm=15,
+            http_client=http_client,
+        )
 
-    def test_starts_at_correct_model(self) -> None:
-        cascade = self._make_cascade("gemini-2.5-flash")
-        assert cascade.model == "gemini-2.5-flash"
-
-    def test_starts_at_head_when_model_unknown(self) -> None:
-        cascade = self._make_cascade("gemini-99-flash")
-        # Falls back to sole entry when not in cascade.
-        assert cascade.model == "gemini-99-flash"
-        assert not cascade.all_exhausted
+    def test_starts_at_first_model(self) -> None:
+        cascade = self._make_cascade(["model-a", "model-b", "model-c"])
+        assert cascade.model == "model-a"
 
     def test_advance_moves_to_next_model(self) -> None:
-        cascade = self._make_cascade("gemini-3-flash")
-        first = cascade.model
+        cascade = self._make_cascade()
         ok = cascade.advance()
         assert ok
-        assert cascade.model != first
-        assert cascade.model == "gemini-3.1-flash-lite"
+        assert cascade.model == "model-b"
 
     def test_all_exhausted_after_draining_cascade(self) -> None:
-        cascade = self._make_cascade("gemini-3-flash")
+        cascade = self._make_cascade()
         for _ in range(len(cascade._models)):
             cascade.advance()
         assert cascade.all_exhausted
 
     def test_advance_returns_false_when_exhausted(self) -> None:
-        cascade = self._make_cascade("gemini-2.5-flash")
-        # gemini-2.5-flash is the last model — one advance exhausts the cascade.
+        cascade = self._make_cascade(["model-a"])
         ok = cascade.advance()
         assert not ok
         assert cascade.all_exhausted
-
-    def test_per_model_rpm_used_on_advance(self) -> None:
-        cascade = self._make_cascade("gemini-3-flash")
-        cascade.advance()  # advances to gemini-3.1-flash-lite
-        assert cascade.model == "gemini-3.1-flash-lite"
-        assert cascade._limiter._min_interval == pytest.approx(
-            60.0 / _MODEL_RATES["gemini-3.1-flash-lite"]
-        )
 
     def test_check_daily_quota_header_zero(self) -> None:
         cascade = self._make_cascade()
@@ -178,26 +213,113 @@ class TestModelCascade:
         cascade._http_client.ratelimit_headers = {"x-ratelimit-remaining-requests-per-day": "100"}
         assert cascade.check_daily_quota_header() is False
 
-    def test_model_cascade_order(self) -> None:
-        """gemini-3-flash first; gemini-2.0-flash present; throughput models before reasoning."""
-        assert _MODEL_CASCADE[0] == "gemini-3-flash"
-        assert "gemini-2.0-flash" in _MODEL_CASCADE
-        assert "gemini-2.5-flash" in _MODEL_CASCADE
-        # High-throughput models (2.5-flash-lite, 2.0-flash) precede lower-RPD 2.5-flash.
-        assert _MODEL_CASCADE.index("gemini-2.5-flash-lite") < _MODEL_CASCADE.index(
-            "gemini-2.5-flash"
-        )
-        assert _MODEL_CASCADE.index("gemini-2.0-flash") < _MODEL_CASCADE.index("gemini-2.5-flash")
+    def test_fallback_cascade_alias(self) -> None:
+        """_MODEL_CASCADE is an alias for _FALLBACK_CASCADE."""
+        assert _MODEL_CASCADE is _FALLBACK_CASCADE
 
-    def test_model_rates_complete(self) -> None:
-        """Every model in the cascade must have a documented RPM."""
-        for model in _MODEL_CASCADE:
-            assert model in _MODEL_RATES, f"No documented RPM for {model!r}"
+    def test_fallback_cascade_non_empty(self) -> None:
+        assert len(_FALLBACK_CASCADE) > 0
 
-    def test_per_model_rpm_initial(self) -> None:
-        """Cascade initial rate limiter uses the starting model's documented RPM."""
-        cascade = self._make_cascade("gemini-2.5-flash-lite")  # 10 RPM confirmed free tier
-        assert cascade._limiter._min_interval == pytest.approx(60.0 / 10)
+    def test_fallback_cascade_order(self) -> None:
+        """Fallback cascade must be sorted by tier+version (same as dynamic sort)."""
+        sorted_copy = sorted(_FALLBACK_CASCADE, key=_model_sort_key)
+        assert sorted_copy == _FALLBACK_CASCADE
+
+
+# ---------------------------------------------------------------------------
+# build_model_cascade
+# ---------------------------------------------------------------------------
+
+
+class TestBuildModelCascade:
+    def _make_model_entry(self, name: str, methods: list[str] | None = None) -> dict:
+        return {
+            "name": f"models/{name}",
+            "supportedGenerationMethods": methods if methods is not None else ["generateContent"],
+        }
+
+    def _mock_response(self, model_names: list[str]) -> MagicMock:
+        resp = MagicMock()
+        resp.json.return_value = {"models": [self._make_model_entry(n) for n in model_names]}
+        resp.raise_for_status.return_value = None
+        return resp
+
+    def test_returns_fallback_on_network_error(self) -> None:
+        with patch("src.pipeline._gemini.httpx.Client") as mock_cls:
+            mock_cls.return_value.__enter__.return_value.get.side_effect = OSError("timeout")
+            result = build_model_cascade("key", "gemini-2.5-flash-lite")
+        # Falls back — result starts at the hint or uses the full fallback
+        assert isinstance(result, list)
+        assert len(result) > 0
+
+    def test_sorts_pro_before_flash(self) -> None:
+        with patch("src.pipeline._gemini.httpx.Client") as mock_cls:
+            mock_cls.return_value.__enter__.return_value.get.return_value = self._mock_response(
+                ["gemini-2.5-flash", "gemini-2.5-pro"]
+            )
+            result = build_model_cascade("key", "gemini-2.5-pro")
+        assert result.index("gemini-2.5-pro") < result.index("gemini-2.5-flash")
+
+    def test_sorts_flash_before_flash_lite(self) -> None:
+        with patch("src.pipeline._gemini.httpx.Client") as mock_cls:
+            mock_cls.return_value.__enter__.return_value.get.return_value = self._mock_response(
+                ["gemini-2.5-flash-lite", "gemini-2.5-flash"]
+            )
+            result = build_model_cascade("key", "gemini-2.5-flash")
+        assert result.index("gemini-2.5-flash") < result.index("gemini-2.5-flash-lite")
+
+    def test_skips_non_generate_content_models(self) -> None:
+        with patch("src.pipeline._gemini.httpx.Client") as mock_cls:
+            mock_cls.return_value.__enter__.return_value.get.return_value = MagicMock(
+                json=lambda: {
+                    "models": [
+                        self._make_model_entry("gemini-2.5-flash", ["embedContent"]),
+                        self._make_model_entry("gemini-2.5-flash-lite", ["generateContent"]),
+                    ]
+                },
+                raise_for_status=lambda: None,
+            )
+            result = build_model_cascade("key", "gemini-2.5-flash-lite")
+        assert "gemini-2.5-flash" not in result
+        assert "gemini-2.5-flash-lite" in result
+
+    def test_skips_unversioned_models(self) -> None:
+        with patch("src.pipeline._gemini.httpx.Client") as mock_cls:
+            mock_cls.return_value.__enter__.return_value.get.return_value = MagicMock(
+                json=lambda: {
+                    "models": [
+                        self._make_model_entry("gemini-pro"),  # legacy, no version
+                        self._make_model_entry("gemini-2.5-flash"),
+                    ]
+                },
+                raise_for_status=lambda: None,
+            )
+            result = build_model_cascade("key", "gemini-2.5-flash")
+        assert "gemini-pro" not in result
+        assert "gemini-2.5-flash" in result
+
+    def test_returns_fallback_when_no_models(self) -> None:
+        with patch("src.pipeline._gemini.httpx.Client") as mock_cls:
+            mock_cls.return_value.__enter__.return_value.get.return_value = MagicMock(
+                json=lambda: {"models": []},
+                raise_for_status=lambda: None,
+            )
+            result = build_model_cascade("key", "gemini-2.5-flash-lite")
+        assert isinstance(result, list)
+        assert len(result) > 0
+
+    def test_api_key_redacted_in_logs(self, caplog: pytest.LogCaptureFixture) -> None:
+        import logging
+
+        with (
+            patch("src.pipeline._gemini.httpx.Client") as mock_cls,
+            caplog.at_level(logging.WARNING, logger="src.pipeline._gemini"),
+        ):
+            mock_cls.return_value.__enter__.return_value.get.side_effect = OSError(
+                "GET https://example.com?key=super-secret-key-123 failed"
+            )
+            build_model_cascade("super-secret-key-123", "gemini-2.5-flash-lite")
+        assert "super-secret-key-123" not in caplog.text
 
 
 # ---------------------------------------------------------------------------
