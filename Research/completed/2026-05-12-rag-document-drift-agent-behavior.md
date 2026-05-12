@@ -24,7 +24,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c31bd3bb22ec66154d85d0fb28c9ab158da598c2
+    changed: 2026-05-12
+    progress: progress/2026-05-12-rag-document-drift-agent-behavior.md
+    summary: "Initial completion"
 ---
 
 # When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?
