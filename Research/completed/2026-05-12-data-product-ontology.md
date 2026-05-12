@@ -2,12 +2,12 @@
 review_count: 2
 title: "Data product ontology: definition, adoption, and current relevance"
 added: 2026-05-12T08:17:21+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [knowledge-graph, governance, organisation]
 started: 2026-05-12T18:10:49+00:00
-completed: ~
+completed: 2026-05-12T18:36:22+00:00
 output: []
 cites:
   - 2026-05-12-web-ontologies-production-knowledge-graph-agentic
