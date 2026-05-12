@@ -1,0 +1,799 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>When Retrieval-Augmented Generation source documents change after agent build… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>When Retrieval-Augmented Generation source documents change after agent build…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>When Retrieval-Augmented Generation source documents change after agent build…</h1>
+  <p class="full-title-subtitle">When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?</p>
+  <div class="meta-bar">
+    <span>2026-05-12</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/organisation.html">organisation</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-12-rag-document-drift-agent-behavior.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-12-rag-document-drift-agent-behavior" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Retrieval-Augmented Generation and agentic retrieval systems can change behavior after document updates because retrieved passages and query plans are part of the model input at inference time, not fixed compile-time assets<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener" title="https://arxiv.org/abs/2005.11401">Lewis et al. (2020)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation">Microsoft (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview">Azure (n.d.)</a></span></li>
+<li>Retrieval regressions arise from more than factual edits, because failed deletion handling, renamed paths, duplicate articles, non-self-contained articles, and chunking changes can all alter what evidence is retrieved or summarized<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/azure/search/search-howto-index-changed-deleted-blobs?tabs=portal" target="_blank" rel="noopener" title="https://learn.microsoft.com/azure/search/search-howto-index-changed-deleted-blobs?tabs=portal">Azure (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219" target="_blank" rel="noopener" title="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219">ServiceNow Community (n.d.)</a><a class="claim-source-link" href="https://docs.datastax.com/en/ragstack/intro-to-rag/indexing.html" target="_blank" rel="noopener" title="https://docs.datastax.com/en/ragstack/intro-to-rag/indexing.html">DataStax (n.d.)</a></span></li>
+<li>The most operationally important behavioral regressions are stale answers, missing facts, blended or contradictory answers, citation drift, and changed workflow choices when altered grounding changes what the agent considers relevant<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2312.10997" target="_blank" rel="noopener" title="https://arxiv.org/abs/2312.10997">Gao et al. (2024)</a><a class="claim-source-link" href="https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html" target="_blank" rel="noopener" title="https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html">Ragas (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview">Azure (n.d.)</a><a class="claim-source-link" href="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219" target="_blank" rel="noopener" title="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219">ServiceNow Community (n.d.)</a></span></li>
+<li>LangSmith, Ragas, and TruLens collectively provide datasets, experiment comparison, retrieval metrics, ground-truth checks, and traced production monitoring, which together form the practical ingredients for corpus-change regression testing<span class="claim-sources"><a class="claim-source-link" href="https://docs.smith.langchain.com/evaluation" target="_blank" rel="noopener" title="https://docs.smith.langchain.com/evaluation">LangSmith (n.d.)</a><a class="claim-source-link" href="https://docs.ragas.io/en/latest/howtos/cli/rag_eval/" target="_blank" rel="noopener" title="https://docs.ragas.io/en/latest/howtos/cli/rag_eval/">Ragas (n.d.)</a><a class="claim-source-link" href="https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html" target="_blank" rel="noopener" title="https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html">Ragas (n.d.)</a><a class="claim-source-link" href="https://www.trulens.org/getting_started/quickstarts/groundtruth_evals_for_retrieval_systems/" target="_blank" rel="noopener" title="https://www.trulens.org/getting_started/quickstarts/groundtruth_evals_for_retrieval_systems/">TruLens (n.d.)</a><a class="claim-source-link" href="https://www.trulens.org/component_guides/instrumentation/" target="_blank" rel="noopener" title="https://www.trulens.org/component_guides/instrumentation/">TruLens (n.d.)</a></span></li>
+<li>None of the inspected evaluation frameworks or platform documents automatically turns the document corpus into a first-class dependency record, so teams need explicit corpus version identifiers, trace metadata, or registry entries to know what was tested and what is live<span class="claim-sources"><a class="claim-source-link" href="https://docs.smith.langchain.com/evaluation" target="_blank" rel="noopener" title="https://docs.smith.langchain.com/evaluation">LangSmith (n.d.)</a><a class="claim-source-link" href="https://docs.ragas.io/en/latest/howtos/cli/rag_eval/" target="_blank" rel="noopener" title="https://docs.ragas.io/en/latest/howtos/cli/rag_eval/">Ragas (n.d.)</a><a class="claim-source-link" href="https://www.trulens.org/component_guides/instrumentation/" target="_blank" rel="noopener" title="https://www.trulens.org/component_guides/instrumentation/">TruLens (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026)</a></span></li>
+<li>Search-infrastructure controls such as aliases, blue-green deployment, replicas, and recoverable indexers make staged rollout and recovery technically feasible for corpus-bearing indexes, so teams can adapt those primitives into corpus-version promotion and rollback workflows even though the cited sources do not document a turnkey RAG pattern<span class="claim-sources"><a class="claim-source-link" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html" target="_blank" rel="noopener" title="https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html">Elasticsearch (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search">Azure (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/rest/api/searchservice/" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/rest/api/searchservice/">Azure (n.d.)</a></span></li>
+<li>Repository dependency-mapping work and ServiceNow knowledge-governance guidance together suggest a governance template for linking agents to governed corpus assets, but the accessible sources stop short of documenting a standard Configuration Management Database or Information Technology Infrastructure Library extension that automatically records exact agent-to-corpus bindings<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026)</a><a class="claim-source-link" href="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219" target="_blank" rel="noopener" title="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219">ServiceNow Community (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>When the source documents indexed in a Retrieval-Augmented Generation (RAG) pipeline change after an agent has been built and tested, what failure modes and behavioral regressions can result in production, and what practices, covering document versioning, behavioral baseline testing, Configuration Management Database (CMDB)-style dependency registration of agent-to-document relationships, and Information Technology Infrastructure Library (ITIL)-inspired change-management governance, exist to detect, govern, and mitigate these regressions?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Post-deployment document changes in Retrieval-Augmented Generation systems act like dependency updates: they can change the retrieved evidence, citations, and downstream agent behavior even when model weights and prompts stay fixed.</p>
+<p>The highest-confidence failure mechanisms are stale or orphaned indexed content, duplicate or conflicting articles, chunk or structure changes that alter ranking, and multi-query retrieval plans that change which evidence reaches the model.</p>
+<p>Current evaluation frameworks can catch many of these regressions through golden datasets, retrieval metrics, and traced production monitoring, but they do not turn the corpus version into a first-class governed dependency on their own.</p>
+<p>The best-supported operational response in this evidence base is to treat the corpus and index as deployable artifacts with version identifiers, staged promotion controls, rollback paths, and registry links from each agent to the corpus version it was tested against.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Retrieval-Augmented Generation and agentic retrieval systems can change behavior after document updates because retrieved passages and query plans are part of the model input at inference time, not fixed compile-time assets.</strong></li>
+<li><strong>Retrieval regressions arise from more than factual edits, because failed deletion handling, renamed paths, duplicate articles, non-self-contained articles, and chunking changes can all alter what evidence is retrieved or summarized.</strong></li>
+<li><strong>The most operationally important behavioral regressions are stale answers, missing facts, blended or contradictory answers, citation drift, and changed workflow choices when altered grounding changes what the agent considers relevant.</strong></li>
+<li><strong>LangSmith, Ragas, and TruLens collectively provide datasets, experiment comparison, retrieval metrics, ground-truth checks, and traced production monitoring, which together form the practical ingredients for corpus-change regression testing.</strong></li>
+<li><strong>None of the inspected evaluation frameworks or platform documents automatically turns the document corpus into a first-class dependency record, so teams need explicit corpus version identifiers, trace metadata, or registry entries to know what was tested and what is live.</strong></li>
+<li><strong>Search-infrastructure controls such as aliases, blue-green deployment, replicas, and recoverable indexers make staged rollout and recovery technically feasible for corpus-bearing indexes, so teams can adapt those primitives into corpus-version promotion and rollback workflows even though the cited sources do not document a turnkey RAG pattern.</strong></li>
+<li><strong>Repository dependency-mapping work and ServiceNow knowledge-governance guidance together suggest a governance template for linking agents to governed corpus assets, but the accessible sources stop short of documenting a standard Configuration Management Database or Information Technology Infrastructure Library extension that automatically records exact agent-to-corpus bindings.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Teams can surface stable corpus or index version identifiers even when tools do not require them. <strong>Justification:</strong> aliases, index objects, and custom trace attributes already exist in the inspected infrastructure, so the missing piece is discipline rather than a missing technical hook.</li>
+<li><strong>Assumption:</strong> For remote knowledge sources, an equivalent control can use source snapshot identifiers, retrieval-response identifiers, or timestamped export bundles when no local search index exists. <strong>Justification:</strong> Azure AI Search explicitly supports remote knowledge sources in agentic retrieval, so version pinning cannot rely only on local index names.</li>
+<li><strong>Assumption:</strong> The inaccessible full ITIL practice guide would not reverse the governance mapping here, because the recommendation is limited to controls already visible in accessible rollout and content-governance sources: approval, impact review, staged promotion, and rollback readiness.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence was weighted toward foundational RAG papers and current platform documentation because the core question is operational causality, namely how a document change reaches inference-time behavior, rather than market positioning or vendor rhetoric.</p>
+<p>Mechanism evidence is stronger than incident evidence: Lewis and Azure show how corpus changes alter the prompt surface, while Azure and ServiceNow show concrete ways stale, deleted, duplicate, or weakly structured content can survive into retrieval and summarization.</p>
+<p>The evaluation frameworks are useful but incomplete for governance because they measure outcomes and traces, not authoritative dependency registration; prior repository work on dependency mapping and runtime divergence fills that missing control-plane perspective.</p>
+<p>A rival response would be to keep corpora fully live for freshness and accept occasional regression, but the cited alias, blue-green, and reliability sources show that search infrastructure already exposes rollout and recovery primitives, so adopting unmanaged freshness remains a governance choice rather than a purely technical constraint.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Publicly accessible named postmortems for document-drift incidents remain sparse in the inspected source base, so incident prevalence and typical blast radius are lower-confidence than the mechanism and mitigation claims above.</li>
+<li>ServiceNow official documentation on Change Management, Dependency Views, and article versioning was not directly readable from the seeded Uniform Resource Locators (URLs) in this session, so ServiceNow-specific governance conclusions rely more on accessible community guidance and prior completed repository items than on first-party manual text.</li>
+<li>The evidence base is stronger for indexed corpora than for fully remote or ephemeral retrieval sources, so some version-pinning advice may need adaptation when the agent retrieves directly from live application programming interfaces (APIs) or remote knowledge sources.</li>
+<li>The inspected evaluation tools show how to compare runs and monitor retrieval quality, but they do not by themselves prove that most teams in production already run corpus-version-aware gates, so maturity of real-world adoption remains uncertain.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which minimum metadata set is sufficient for agent-to-corpus dependency registration: corpus identifier only, index alias plus timestamp, or retrieved-document hashes per run?</li>
+<li>What threshold of semantic delta or affected-article count should trigger mandatory regression testing before a corpus update is promoted?</li>
+<li>How should teams govern remote knowledge sources, where freshness is high but rollback and reproducibility are weaker than with pinned local indexes?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://arxiv.org/abs/2005.11401">Lewis et al. (2020) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2312.10997">Gao et al. (2024) Retrieval-Augmented Generation for Large Language Models: A Survey</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2309.15217">Es et al. (2023) RAGAS: Automated Evaluation of Retrieval Augmented Generation</a></li>
+<li>[x] <a href="https://docs.ragas.io/en/stable/">Ragas Documentation</a></li>
+<li>[x] <a href="https://docs.ragas.io/en/latest/howtos/cli/rag_eval/">Ragas RAG Evaluation Quickstart</a></li>
+<li>[x] <a href="https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html">Ragas Production Monitoring</a></li>
+<li>[x] <a href="https://docs.smith.langchain.com/evaluation">LangSmith Evaluation Documentation</a></li>
+<li>[x] <a href="https://www.trulens.org/component_guides/instrumentation/">TruLens Instrumentation Overview</a></li>
+<li>[x] <a href="https://www.trulens.org/getting_started/quickstarts/groundtruth_evals_for_retrieval_systems/">TruLens Groundtruth Evaluations for Retrieval Systems</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation">Microsoft Foundry Retrieval Augmented Generation</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search">Azure AI Search Overview</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview">Azure AI Search Agentic Retrieval Overview</a></li>
+<li>[x] <a href="https://learn.microsoft.com/azure/search/search-howto-index-changed-deleted-blobs?tabs=portal">Azure AI Search Changed and Deleted Blob Handling</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search">Azure AI Search Reliability</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/rest/api/searchservice/">Azure AI Search Data Plane Representational State Transfer (REST) Application Programming Interfaces</a></li>
+<li>[x] <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html">Elasticsearch Aliases</a></li>
+<li>[x] <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Amazon OpenSearch Service Configuration Changes</a></li>
+<li>[x] <a href="https://docs.datastax.com/en/ragstack/intro-to-rag/indexing.html">DataStax RAGStack Indexing Guidance</a></li>
+<li>[x] <a href="https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219">ServiceNow Community: Best practices to use your knowledge articles with Now Assist</a></li>
+<li>[x] <a href="https://www.teksystems.com/en/insights/article/structuring-knowledge-for-gen-ai-servicenow">TEKsystems Structuring Knowledge for Gen AI in ServiceNow</a></li>
+<li>[ ] <a href="https://www.axelos.com/certifications/itil-service-management/itil-4-foundation">Axelos ITIL 4 Foundation landing page</a></li>
+<li>[ ] <a href="https://www.servicenow.com/docs/r/it-service-management/change-management/c_ITILChangeManagement.html">ServiceNow Change Management documentation</a></li>
+<li>[ ] <a href="https://www.servicenow.com/docs/r/zurich/servicenow-platform/dependency-views/c_NextGenBSMMaps.html">ServiceNow Dependency Views documentation</a></li>
+<li>[ ] <a href="https://www.servicenow.com/docs/r/servicenow-platform/knowledge-management/article-versioning">ServiceNow Knowledge article versioning documentation</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Mitchell (2026) Knowledge Graph in the live execution path of multi-step Large Language Model systems</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Mitchell (2026) Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Mitchell (2026) Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">Mitchell (2026) Declared versus runtime AIBOM divergence</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">Mitchell (2026) ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">Mitchell (2026) ServiceNow orchestration and agentic AI roadmap</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?</a> <span class="related-note">via agentic-ai, evaluation, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-systematic-review-methodology-ai-synthesis.html">What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?</a> <span class="related-note">via agentic-ai, evaluation, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.html">How does STORM&#39;s perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?</a> <span class="related-note">via agentic-ai, evaluation, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-research-to-publication-authoring-workflow.html">What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?</a> <span class="related-note">via agentic-ai, evaluation, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-automated-claim-verification-academic-literature.html">What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?</a> <span class="related-note">via agentic-ai, evaluation, llm, workflow</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html">Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html">How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-06-aibom-declared-construction-practice.html">How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-02-cross-item-synthesis-knowledge-map-architecture.html">What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-12</td><td><a href="https://github.com/davidamitchell/Research/commit/c31bd3bb22ec66154d85d0fb28c9ab158da598c2" target="_blank" rel="noopener">c31bd3b</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">AI agents</a></div>
+  </div>
+</main>
+</body>
+</html>

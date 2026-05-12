@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-12T19:16:18Z",
+  "extracted_at": "2026-05-12T19:52:35Z",
   "items": {
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
@@ -121,6 +121,128 @@
             "https://arxiv.org/abs/2404.16130",
             "https://www.w3.org/TR/json-ld11/",
             "https://www.w3.org/TR/turtle/"
+          ]
+        }
+      ]
+    },
+    "2026-05-12-rag-document-drift-agent-behavior": {
+      "named_concepts": [
+        "remote knowledge",
+        "knowledge sources",
+        "evaluation frameworks",
+        "retrieval metrics",
+        "corpus version",
+        "version identifiers",
+        "regression testing",
+        "retrieval-augmented generation",
+        "traced production",
+        "production monitoring",
+        "staged promotion",
+        "agentic retrieval",
+        "change behavior",
+        "document updates",
+        "retrieved passages",
+        "query plans",
+        "failed deletion",
+        "deletion handling",
+        "chunking changes",
+        "stale answers"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2005.11401",
+        "https://arxiv.org/abs/2312.10997",
+        "https://arxiv.org/abs/2309.15217",
+        "https://docs.ragas.io/en/stable/",
+        "https://docs.ragas.io/en/latest/howtos/cli/rag_eval/",
+        "https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html",
+        "https://docs.smith.langchain.com/evaluation",
+        "https://www.trulens.org/component_guides/instrumentation/",
+        "https://www.trulens.org/getting_started/quickstarts/groundtruth_evals_for_retrieval_systems/",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation",
+        "https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search",
+        "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+        "https://learn.microsoft.com/azure/search/search-howto-index-changed-deleted-blobs?tabs=portal",
+        "https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search",
+        "https://learn.microsoft.com/en-us/rest/api/searchservice/",
+        "https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html",
+        "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html",
+        "https://docs.datastax.com/en/ragstack/intro-to-rag/indexing.html",
+        "https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219",
+        "https://www.teksystems.com/en/insights/article/structuring-knowledge-for-gen-ai-servicenow",
+        "https://www.axelos.com/certifications/itil-service-management/itil-4-foundation",
+        "https://www.servicenow.com/docs/r/it-service-management/change-management/c_ITILChangeManagement.html",
+        "https://www.servicenow.com/docs/r/zurich/servicenow-platform/dependency-views/c_NextGenBSMMaps.html",
+        "https://www.servicenow.com/docs/r/servicenow-platform/knowledge-management/article-versioning",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-29-knowledge-scaffolding-context-engineering.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Retrieval-Augmented Generation and agentic retrieval systems can change behavior after document updates because retrieved passages and query plans are part of the model input at inference time, not fixed compile-time assets",
+          "sources": [
+            "https://arxiv.org/abs/2005.11401",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation",
+            "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview"
+          ]
+        },
+        {
+          "text": "Retrieval regressions arise from more than factual edits, because failed deletion handling, renamed paths, duplicate articles, non-self-contained articles, and chunking changes can all alter what evidence is retrieved or summarized",
+          "sources": [
+            "https://learn.microsoft.com/azure/search/search-howto-index-changed-deleted-blobs?tabs=portal",
+            "https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219",
+            "https://docs.datastax.com/en/ragstack/intro-to-rag/indexing.html"
+          ]
+        },
+        {
+          "text": "The most operationally important behavioral regressions are stale answers, missing facts, blended or contradictory answers, citation drift, and changed workflow choices when altered grounding changes what the agent considers relevant",
+          "sources": [
+            "https://arxiv.org/abs/2312.10997",
+            "https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html",
+            "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+            "https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219"
+          ]
+        },
+        {
+          "text": "LangSmith, Ragas, and TruLens collectively provide datasets, experiment comparison, retrieval metrics, ground-truth checks, and traced production monitoring, which together form the practical ingredients for corpus-change regression testing",
+          "sources": [
+            "https://docs.smith.langchain.com/evaluation",
+            "https://docs.ragas.io/en/latest/howtos/cli/rag_eval/",
+            "https://docs.ragas.io/en/v0.1.21/getstarted/monitoring.html",
+            "https://www.trulens.org/getting_started/quickstarts/groundtruth_evals_for_retrieval_systems/",
+            "https://www.trulens.org/component_guides/instrumentation/"
+          ]
+        },
+        {
+          "text": "None of the inspected evaluation frameworks or platform documents automatically turns the document corpus into a first-class dependency record, so teams need explicit corpus version identifiers, trace metadata, or registry entries to know what was tested and what is live",
+          "sources": [
+            "https://docs.smith.langchain.com/evaluation",
+            "https://docs.ragas.io/en/latest/howtos/cli/rag_eval/",
+            "https://www.trulens.org/component_guides/instrumentation/",
+            "https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html"
+          ]
+        },
+        {
+          "text": "Search-infrastructure controls such as aliases, blue-green deployment, replicas, and recoverable indexers make staged rollout and recovery technically feasible for corpus-bearing indexes, so teams can adapt those primitives into corpus-version promotion and rollback workflows even though the cited sources do not document a turnkey RAG pattern",
+          "sources": [
+            "https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html",
+            "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html",
+            "https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search",
+            "https://learn.microsoft.com/en-us/rest/api/searchservice/"
+          ]
+        },
+        {
+          "text": "Repository dependency-mapping work and ServiceNow knowledge-governance guidance together suggest a governance template for linking agents to governed corpus assets, but the accessible sources stop short of documenting a standard Configuration Management Database or Information Technology Infrastructure Library extension that automatically records exact agent-to-corpus bindings",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
+            "https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219"
           ]
         }
       ]

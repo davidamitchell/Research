@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 108,
+    "item_count": 109,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -549,6 +549,11 @@
       {
         "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
         "title": "Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-rag-document-drift-agent-behavior",
+        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
         "added": "2026-05-12"
       }
     ],
@@ -1509,7 +1514,7 @@
       "workflow"
     ],
     "concept_cluster": [],
-    "item_count": 49,
+    "item_count": 50,
     "items": [
       {
         "slug": "2026-03-02-transaction-costs",
@@ -1754,6 +1759,11 @@
       {
         "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
         "title": "Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-rag-document-drift-agent-behavior",
+        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
         "added": "2026-05-12"
       }
     ],
@@ -2499,7 +2509,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 37,
+    "item_count": 38,
     "items": [
       {
         "slug": "2026-02-27-simple-process-for-adding-research-item",
@@ -2684,6 +2694,11 @@
       {
         "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
         "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-rag-document-drift-agent-behavior",
+        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
         "added": "2026-05-12"
       }
     ],
@@ -3849,7 +3864,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 15,
+    "item_count": 16,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -3924,6 +3939,11 @@
       {
         "slug": "2026-05-12-data-product-ontology",
         "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-rag-document-drift-agent-behavior",
+        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
         "added": "2026-05-12"
       }
     ],
@@ -6325,14 +6345,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -6372,7 +6392,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -6580,14 +6600,14 @@
     "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -6617,17 +6637,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot coding",
       "coding agent",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -6657,7 +6677,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6910,14 +6930,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -6937,6 +6957,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   }
 ]
