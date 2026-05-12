@@ -21,7 +21,12 @@ cites:
   - 2026-03-14-reliable-software-llm-era
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 90deeb5b262c56062f4e51486d55bb772e64ebf7
+    changed: 2026-05-12
+    progress: progress/2026-05-12-regulated-ai-constraint-shift.md
+    summary: "Initial synthesis draft"
 ---
 
 # Regulated enterprise Artificial Intelligence delivery constraint shift
