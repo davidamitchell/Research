@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?"
 added: 2026-05-12T11:03:22+00:00
 status: reviewing
