@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, organisational-design]
+ai_themes: [governance-policy, security-risk, workforce-skills, organisational-processes]
 started: 2026-05-11T11:45:15+00:00
 completed: 2026-05-11T12:09:41+00:00
 output: []

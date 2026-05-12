@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, governance, capability-modelling, operational-risk]
+ai_themes: [governance-policy, workforce-skills, tools-infrastructure, operational-risk]
 started: 2026-05-11T11:16:13+00:00
 completed: 2026-05-11T11:42:38+00:00
 output: [knowledge]

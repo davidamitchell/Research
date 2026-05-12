@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [knowledge-graph, agentic-ai, llm, agent-tooling, memory-system]
+ai_themes: [knowledge-graphs, agentic-ai, llm, ai-architecture, tools-infrastructure]
 started: 2026-05-12T10:02:46+00:00
 completed: 2026-05-12T10:32:38+00:00
 output: [knowledge]
