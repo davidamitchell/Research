@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: bcf2fca20a157dd592d32588a69094567953a4be
+    changed: 2026-05-12
+    progress: progress/2026-05-12-web-ontologies-production-knowledge-graph-agentic.md
+    summary: Initial completion
 ---
 
 # Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices
