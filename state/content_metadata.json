@@ -1,6 +1,108 @@
 {
-  "extracted_at": "2026-05-12T10:15:37Z",
+  "extracted_at": "2026-05-12T10:33:51Z",
   "items": {
+    "2026-05-12-knowledge-graph-agentic-runtime-dependency": {
+      "named_concepts": [
+        "amazon neptune",
+        "wikidata query",
+        "query service",
+        "knowledge graph",
+        "recently refreshed",
+        "pre-generated graph",
+        "graph summaries",
+        "public wikidata",
+        "circuit breakers",
+        "single always-live",
+        "propagation lag",
+        "neo4j bookmarks",
+        "causal consistency",
+        "lag cache",
+        "cache queue",
+        "error metrics",
+        "graph runtime",
+        "refreshed cache",
+        "graphs evolve",
+        "read-after-write correctness"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2312.10997",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://neo4j.com/docs/query-api/current/bookmarks/",
+        "https://neo4j.com/docs/python-manual/current/bookmarks/",
+        "https://neo4j.com/docs/graph-data-science/current/",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/best-practices-general-metrics.html",
+        "https://martinfowler.com/bliki/CircuitBreaker.html",
+        "https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual",
+        "https://www.mediawiki.org/wiki/Wikidata_query_service/Problematic_queries",
+        "https://raw.githubusercontent.com/microsoft/graphrag/main/docs/config/yaml.md",
+        "https://raw.githubusercontent.com/microsoft/graphrag/main/docs/index/outputs.md",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Knowledge Graph runtime architectures consistently separate into live synchronous queries, recently refreshed cache or snapshot reads, and pre-generated graph summaries, because graph expressiveness and latency costs make one universal serving path brittle in production",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130",
+            "https://www.w3.org/TR/sparql11-query/",
+            "https://raw.githubusercontent.com/microsoft/graphrag/main/docs/index/outputs.md"
+          ]
+        },
+        {
+          "text": "Freshness is a first-order correctness constraint, because Knowledge Graphs evolve by nature and graph-derived reports or caches only reflect current reality after explicit incremental merge or rebuild work has completed",
+          "sources": [
+            "https://arxiv.org/abs/2306.08302",
+            "https://arxiv.org/abs/2312.10997",
+            "https://raw.githubusercontent.com/microsoft/graphrag/main/docs/config/yaml.md",
+            "https://raw.githubusercontent.com/microsoft/graphrag/main/docs/index/outputs.md"
+          ]
+        },
+        {
+          "text": "Read-after-write correctness for graph-dependent agent steps requires explicit consistency controls such as Neo4j bookmarks, since replica lag and cross-session propagation delay are normal documented behaviors rather than edge cases",
+          "sources": [
+            "https://neo4j.com/docs/query-api/current/bookmarks/",
+            "https://neo4j.com/docs/python-manual/current/bookmarks/",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html"
+          ]
+        },
+        {
+          "text": "The public Wikidata Query Service is unsuitable as an unguarded hard dependency for multi-step agents, because its official limits cap runtime, processing budget, and parallelism while complex property-path queries can still time out",
+          "sources": [
+            "https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual",
+            "https://www.mediawiki.org/wiki/Wikidata_query_service/Problematic_queries",
+            "https://www.w3.org/TR/sparql11-query/"
+          ]
+        },
+        {
+          "text": "Operational observability for a graph service in the live execution path should include cache hit ratio, replica lag, queue depth, request and error rates, and open connection counts, because Amazon Neptune documents those metrics as leading indicators of latency and throttling pressure",
+          "sources": [
+            "https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/best-practices-general-metrics.html"
+          ]
+        },
+        {
+          "text": "Circuit breakers plus explicit stale-data or deferred-result fallback paths are a sound baseline mitigation set for graph outages, because Fowler documents those responses for failing remote dependencies and Neptune exposes the queue and error metrics that tell operators when to trigger them",
+          "sources": [
+            "https://martinfowler.com/bliki/CircuitBreaker.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.html"
+          ]
+        },
+        {
+          "text": "A small curated Knowledge Graph lowers runtime risk relative to maximal extraction graphs, because it reduces the live dependency surface while preserving the provenance and concept-reuse benefits identified in adjacent completed research items",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html"
+          ]
+        }
+      ]
+    },
     "2026-05-12-graph-db-saas-knowledge-ontology": {
       "named_concepts": [
         "formal ontology",
