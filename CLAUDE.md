@@ -43,7 +43,7 @@ Per-model RPM is set in `_MODEL_RATES`; never guess or use a single global defau
 |---|---|---|---|
 | `gemini-3-flash` | — | — | Check aistudio.google.com for current limits |
 | `gemini-3.1-flash-lite` | — | — | Check aistudio.google.com for current limits |
-| `gemini-2.5-flash-lite` | 30 | 1 500 | Fastest; best throughput for backfill |
+| `gemini-2.5-flash-lite` | 10 | 1 500 | Fastest; best throughput for backfill (10 RPM confirmed free tier) |
 | `gemini-2.0-flash` | 15 | 1 500 | High RPD; strong general capability |
 | `gemini-2.5-flash` | 10 | 500 | Strongest reasoning; lower throughput |
 

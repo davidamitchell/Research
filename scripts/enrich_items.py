@@ -83,6 +83,12 @@ _COMMIT_BATCH = 20
 # Default RPM for rate limiting (Gemini free-tier is 15 RPM).
 _DEFAULT_RPM = 15
 
+# Models that use thinking tokens — ThinkingConfig(thinking_budget=0) must be
+# sent to disable thinking and prevent it consuming max_output_tokens.
+# Use an explicit set rather than a string-contains guard so new model IDs
+# (e.g. gemini-3.5-flash) do not accidentally match.
+_THINKING_MODELS: frozenset[str] = frozenset({"gemini-2.5-flash", "gemini-2.5-flash-lite"})
+
 
 # ---------------------------------------------------------------------------
 # Frontmatter helpers
@@ -94,13 +100,20 @@ def _split_frontmatter(text: str) -> tuple[str, str, str]:
 
     Returns ("", "", text) if no frontmatter is present.
     """
+    # Normalise CRLF/CR so Windows-saved files are handled correctly.
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
     if not text.startswith("---"):
         return "", "", text
-    end = text.find("\n---", 3)
-    if end == -1:
+    # Match the closing fence only when "---" appears alone on its own line
+    # (optional trailing spaces allowed).  This prevents a YAML value like
+    # `description: "foo --- bar"` from being mistaken for the closing fence.
+    m = re.search(r"\n---[ \t]*(?:\n|$)", text[3:])
+    if m is None:
         return "", "", text
+    end = 3 + m.start()  # position of the "\n" before "---"
+    fence_end = 3 + m.end()  # position after the closing fence line
     yaml_block = text[3:end].lstrip("\n")
-    body = text[end + 4 :].lstrip("\n")
+    body = text[fence_end:].lstrip("\n")
     return "---", yaml_block, body
 
 
@@ -201,11 +214,11 @@ def _generate_themes(
 
     cascade.wait()
     try:
-        # gemini-2.5-flash uses thinking tokens that count against
-        # max_output_tokens. Disable thinking to avoid truncated JSON responses.
         model = cascade.model
         thinking_config = None
-        if "2.5-flash" in model:
+        if model in _THINKING_MODELS:
+            # Thinking tokens consume max_output_tokens; disable to prevent
+            # truncated JSON responses.
             thinking_config = types.ThinkingConfig(thinking_budget=0)
         response = client.models.generate_content(  # type: ignore[union-attr]
             model=model,
@@ -232,16 +245,18 @@ def _generate_themes(
             except ImportError:
                 pass
             if is_quota:
+                failed_model = cascade.model
                 logger.warning(
                     "Quota/rate-limit error on %r — advancing cascade: %s",
-                    cascade.model,
+                    failed_model,
                     exc,
                 )
                 cascade.advance()
-                return None, cascade.model
-        logger.warning("Gemini call failed for model %r: %s", cascade.model, exc)
+                return None, failed_model
+        failed_model = cascade.model
+        logger.warning("Gemini call failed for model %r: %s", failed_model, exc)
         cascade.advance()
-        return None, cascade.model
+        return None, failed_model
 
     if cascade.check_daily_quota_header():
         cascade.advance()
@@ -296,7 +311,13 @@ def enrich_item(
 
     if not dry_run:
         new_yaml = _insert_ai_themes(yaml_block, themes)
-        path.write_text(_reconstruct(new_yaml, body), encoding="utf-8")
+        tmp = path.with_suffix(".tmp")
+        try:
+            tmp.write_text(_reconstruct(new_yaml, body), encoding="utf-8")
+            os.replace(tmp, path)
+        finally:
+            if tmp.exists():
+                tmp.unlink(missing_ok=True)
 
     return True
 
@@ -307,8 +328,10 @@ def enrich_item(
 
 
 def _git_commit(message: str) -> None:
+    # Stage modifications to existing tracked files only — no -A so accidental
+    # deletions of completed items are not staged silently.
     subprocess.run(
-        ["git", "add", "-A", "--", str(COMPLETED_DIR)],
+        ["git", "add", "--", str(COMPLETED_DIR)],
         cwd=_REPO_ROOT,
         check=True,
     )
