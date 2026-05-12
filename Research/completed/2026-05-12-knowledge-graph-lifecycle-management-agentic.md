@@ -2,13 +2,13 @@
 review_count: 2
 title: "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness"
 added: 2026-05-12T08:21:48+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [knowledge-graph, agentic-ai, workflow]
 started: 2026-05-12T10:35:05+00:00
-completed: ~
-output: []
+completed: 2026-05-12T10:58:55+00:00
+output: [knowledge]
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
   - 2026-05-12-graph-db-saas-knowledge-ontology
