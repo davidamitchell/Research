@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow]
+ai_themes: [governance-policy, security-risk, workforce-skills, organizational-controls]
 started: 2026-05-11T12:31:24+00:00
 completed: 2026-05-11T12:53:57+00:00
 output: [knowledge]

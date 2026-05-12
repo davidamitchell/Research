@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [microsoft, copilot, governance, compliance, security, agentic-ai, llm, regulatory, sensitive-data, access-control, data-classification]
+ai_themes: [governance-policy, security-risk, agentic-ai, llm-reasoning, data-privacy]
 started: 2026-05-11T12:55:34+00:00
 completed: 2026-05-11T13:16:51+00:00
 output: [knowledge]
