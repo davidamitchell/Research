@@ -190,7 +190,7 @@ def _generate_themes(
     cascade: _ModelCascade,
     prompt: str,
     *,
-    max_output_tokens: int = 200,
+    max_output_tokens: int = 500,
 ) -> tuple[list[str] | None, str]:
     """Call Gemini and parse the theme list.
 
@@ -201,15 +201,22 @@ def _generate_themes(
 
     cascade.wait()
     try:
+        # gemini-2.5-flash uses thinking tokens that count against
+        # max_output_tokens. Disable thinking to avoid truncated JSON responses.
+        model = cascade.model
+        thinking_config = None
+        if "2.5-flash" in model:
+            thinking_config = types.ThinkingConfig(thinking_budget=0)
         response = client.models.generate_content(  # type: ignore[union-attr]
-            model=cascade.model,
+            model=model,
             contents=prompt,
             config=types.GenerateContentConfig(
                 max_output_tokens=max_output_tokens,
                 temperature=0.2,
+                thinking_config=thinking_config,
             ),
         )
-        model_used = cascade.model
+        model_used = model
         raw = response.text or ""
     except Exception as exc:
         # Check for quota exhaustion and advance the cascade.

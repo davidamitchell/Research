@@ -196,8 +196,8 @@ class TestModelCascade:
 
     def test_per_model_rpm_initial(self) -> None:
         """Cascade initial rate limiter uses the starting model's documented RPM."""
-        cascade = self._make_cascade("gemini-2.5-flash-lite")  # 30 RPM
-        assert cascade._limiter._min_interval == pytest.approx(60.0 / 30)
+        cascade = self._make_cascade("gemini-2.5-flash-lite")  # 10 RPM confirmed free tier
+        assert cascade._limiter._min_interval == pytest.approx(60.0 / 10)
 
 
 # ---------------------------------------------------------------------------
