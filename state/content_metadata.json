@@ -1,6 +1,130 @@
 {
-  "extracted_at": "2026-05-12T09:44:29Z",
+  "extracted_at": "2026-05-12T10:02:04Z",
   "items": {
+    "2026-05-12-graph-db-saas-knowledge-ontology": {
+      "named_concepts": [
+        "formal ontology",
+        "stardog cloud",
+        "neo4j auradb",
+        "memgraph cloud",
+        "ontology reasoning",
+        "consulted material",
+        "starting point",
+        "ontotext graphdb",
+        "ontology-first database",
+        "database alternative",
+        "amazon neptune",
+        "ontology semantics",
+        "python driver",
+        "consulted official",
+        "official material",
+        "tigergraph savanna",
+        "neo4j aura",
+        "amazon web",
+        "web services",
+        "services aws"
+      ],
+      "source_urls": [
+        "https://neo4j.com/cloud/platform/aura-graph-database/",
+        "https://neo4j.com/docs/aura/classic/auradb/importing-data/",
+        "https://neo4j.com/docs/python-manual/current/",
+        "https://neo4j.com/docs/cypher-manual/current/clauses/load-csv/",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html",
+        "https://aws.amazon.com/neptune/pricing/",
+        "https://www.stardog.com/stardog-cloud/",
+        "https://docs.stardog.com/query-stardog",
+        "https://docs.stardog.com/inference-engine",
+        "https://graphdb.ontotext.com/documentation/11.0/owl-compliance.html",
+        "https://graphdb.ontotext.com/documentation/master/reasoning.html",
+        "https://graphdb.ontotext.com/documentation/11.0/loading-querying-data.html",
+        "https://graphdb.ontotext.com/documentation/10.1/loading-and-updating-data.html",
+        "https://www.tigergraph.com/pricing/",
+        "https://docs.tigergraph.com/savanna/main/overview/",
+        "https://www.tigergraph.com/gsql/",
+        "https://memgraph.com/pricing",
+        "https://memgraph.com/docs/data-migration",
+        "https://memgraph.com/docs/client-libraries",
+        "https://memgraph.com/docs/querying/differences-in-cypher-implementations",
+        "https://www.w3.org/TR/skos-reference/",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.metaphacts.com/product",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-hosting-options-for-the-research-repo.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Stardog Cloud is the strongest hosted ontology-first starting point in the evaluated set because it combines managed cloud delivery, a documented free tier up to 1 million edges, SPARQL-first querying, and explicit OWL and rule reasoning in one product surface",
+          "sources": [
+            "https://www.stardog.com/stardog-cloud/",
+            "https://docs.stardog.com/query-stardog",
+            "https://docs.stardog.com/inference-engine"
+          ]
+        },
+        {
+          "text": "Ontotext GraphDB is a credible ontology-first database alternative because its official documentation explicitly supports multiple OWL profiles, forward-chaining materialized inference, SPARQL querying, and RDF loading workflows that fit formal knowledge-ontology work",
+          "sources": [
+            "https://graphdb.ontotext.com/documentation/11.0/owl-compliance.html",
+            "https://graphdb.ontotext.com/documentation/master/reasoning.html",
+            "https://graphdb.ontotext.com/documentation/10.1/loading-and-updating-data.html"
+          ]
+        },
+        {
+          "text": "Amazon Neptune is the best dual-model hosted option because it supports property-graph querying through Gremlin and openCypher and semantic querying through SPARQL, but its hosted experience is more infrastructure-shaped than software-as-a-service-shaped for a small pilot",
+          "sources": [
+            "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html",
+            "https://aws.amazon.com/neptune/pricing/"
+          ]
+        },
+        {
+          "text": "Neo4j AuraDB is the strongest developer-experience alternative when formal ontology reasoning is not required, because its managed property-graph service, Python driver, and import tooling are all explicitly documented in the consulted official material",
+          "sources": [
+            "https://neo4j.com/cloud/platform/aura-graph-database/",
+            "https://neo4j.com/docs/python-manual/current/",
+            "https://neo4j.com/docs/aura/classic/auradb/importing-data/",
+            "https://neo4j.com/docs/cypher-manual/current/clauses/load-csv/"
+          ]
+        },
+        {
+          "text": "Memgraph Cloud is suitable for Cypher-compatible graph application prototypes and migration-heavy pilots, but the consulted official material supports a property-graph and migration story rather than a formal ontology and semantic-reasoning story",
+          "sources": [
+            "https://memgraph.com/pricing",
+            "https://memgraph.com/docs/data-migration",
+            "https://memgraph.com/docs/client-libraries",
+            "https://memgraph.com/docs/querying/differences-in-cypher-implementations"
+          ]
+        },
+        {
+          "text": "TigerGraph Savanna should not be the first recommendation for this repository's ontology use case because its current official positioning focuses on enterprise graph analytics, analytical workspaces, and proprietary-query-language-centered scale rather than ontology engineering and semantic-web standards",
+          "sources": [
+            "https://www.tigergraph.com/pricing/",
+            "https://www.tigergraph.com/gsql/",
+            "https://docs.tigergraph.com/savanna/main/overview/"
+          ]
+        },
+        {
+          "text": "metaphactory belongs later in the architecture, if at all, because its official product description reads as a semantic application and workbench layer over RDF, OWL, Simple Knowledge Organization System (SKOS), Shapes Constraint Language (SHACL), and SPARQL rather than as the primary managed graph database substrate",
+          "sources": [
+            "https://www.metaphacts.com/product",
+            "https://www.w3.org/TR/skos-reference/",
+            "https://www.w3.org/TR/shacl/"
+          ]
+        },
+        {
+          "text": "For this repository's current use case, the decision boundary is semantic rigor versus developer convenience: choose Stardog Cloud if ontology reasoning and semantic-web interoperability are central, and choose Neo4j AuraDB only if the project reduces the goal to linked property-graph navigation without formal ontology semantics",
+          "sources": [
+            "https://www.stardog.com/stardog-cloud/",
+            "https://docs.stardog.com/inference-engine",
+            "https://neo4j.com/cloud/platform/aura-graph-database/",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html"
+          ]
+        }
+      ]
+    },
     "2026-05-10-m365-copilot-sensitive-data-security-governance-risks": {
       "named_concepts": [
         "microsoft copilot",
