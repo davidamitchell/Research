@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 2995af5c671147b8d63e955609f9473fbd186159
+    changed: 2026-05-12
+    progress: progress/2026-05-12-knowledge-graph-lifecycle-management-agentic.md
+    summary: Initial completion
 ---
 
 # Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness
