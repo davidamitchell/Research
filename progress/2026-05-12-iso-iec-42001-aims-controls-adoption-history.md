@@ -1,13 +1,14 @@
-# 2026-05-12 -- Add backlog item (iso-iec-42001-aims-controls-adoption-history)
+# 2026-05-12 -- Complete ISO/IEC 42001 item (iso-iec-42001-aims-controls-adoption-history)
 
 **Completed:**
-- `Research/backlog/2026-05-12-iso-iec-42001-aims-controls-adoption-history.md` — added from the issue request; frames a validated question on ISO/IEC 42001 controls, risk mitigation, adoption, reputation, and evolution.
+- `Research/completed/2026-05-12-iso-iec-42001-aims-controls-adoption-history.md` -- completed the ISO/IEC 42001 research item with reviewed findings on scope, control coverage, adoption signals, reputation, and standards evolution.
+- `learnings.md` -- extended Thread 1 with the management-system governance lesson from ISO/IEC 42001.
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. The issue provided enough detail to produce a specific, scoped, decomposable research question and backlog entry.
-2. **What slowed down or went wrong?** The environment initially lacked `ruff`, so validation had to wait until dev dependencies were installed.
-3. **What single change would prevent this next time?** Ensure `pip install -e ".[dev]"` is run at session start in fresh environments.
-4. **Is this a pattern?** Yes. Fresh runner environments often require dependency bootstrapping before checks can run.
-5. **Does any documentation need updating?** No immediate docs update is needed for this backlog-item creation flow.
-6. **Do the default instructions need updating?** No. Existing instructions already cover this workflow and were sufficient.
+1. **Did the process work?** Yes. The research-review workflow caught small citation-discipline issues that were faster to fix than to predict perfectly up front.
+2. **What slowed down or went wrong?** Review success at the workflow level masked item-level failures twice, so I had to inspect the log lines directly and iterate on the item.
+3. **What single change would prevent this next time?** Run a stricter acronym-and-inline-label sweep over Findings and Research Skill Output before the first draft review.
+4. **Is this a pattern?** Yes. Acronym expansion and sentence-level label placement remain the most common review failures in this repo.
+5. **Does any documentation need updating?** No new repo-level process change emerged beyond the existing review-log inspection rule and acronym discipline.
+6. **Do the default instructions need updating?** No. The current instructions already warned about exactly the issues that surfaced here.

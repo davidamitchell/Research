@@ -2,13 +2,13 @@
 review_count: 2
 title: "International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 controls, adoption, reputation, and evolution"
 added: 2026-05-12T07:18:27+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [governance, compliance, ai-governance, regulatory]
 started: 2026-05-12T19:35:51+00:00
-completed: ~
-output: []
+completed: 2026-05-12T20:02:55+00:00
+output: [knowledge]
 cites:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
 related:
