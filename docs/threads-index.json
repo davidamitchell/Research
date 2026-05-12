@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 109,
+    "item_count": 110,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -539,6 +539,11 @@
       {
         "slug": "2026-05-12-hardware-load-inference-performance",
         "title": "Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
+        "title": "International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 controls, adoption, reputation, and evolution",
         "added": "2026-05-12"
       },
       {
@@ -3049,7 +3054,7 @@
       "low-code"
     ],
     "concept_cluster": [],
-    "item_count": 25,
+    "item_count": 26,
     "items": [
       {
         "slug": "2026-03-12-exploration-synthesis-gap",
@@ -3175,6 +3180,11 @@
         "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
         "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
+        "title": "International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 controls, adoption, reputation, and evolution",
+        "added": "2026-05-12"
       }
     ],
     "url": "/Research/threads/ai-governance-agentic-ai-low-code.html"
@@ -6930,13 +6940,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "native governance"
     ],
     "item_count": 3,
@@ -6957,6 +6967,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]

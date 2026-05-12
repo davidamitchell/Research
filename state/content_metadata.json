@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-12T19:52:35Z",
+  "extracted_at": "2026-05-12T20:04:32Z",
   "items": {
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
@@ -461,6 +461,132 @@
             "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
             "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
             "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-12-iso-iec-42001-aims-controls-adoption-history": {
+      "named_concepts": [
+        "iso iec",
+        "impact assessment",
+        "assessment lifecycle",
+        "governance baseline",
+        "publicly accessible",
+        "nine objectives",
+        "organisational ai",
+        "leadership planning",
+        "operation performance",
+        "performance evaluation",
+        "systems applications",
+        "processing sap",
+        "global count",
+        "first certifiable",
+        "management-system standard",
+        "public risk",
+        "risk mitigations",
+        "information duties",
+        "duties intended-use",
+        "public adoption"
+      ],
+      "source_urls": [
+        "https://www.iso.org/standard/42001",
+        "https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html",
+        "https://www.iso.org/committee/6794475.html",
+        "https://www.iso.org/standard/42006",
+        "https://www.unido.org/sites/default/files/files/2025-07/Microsoft%20-%20Overview%20of%20ISO%20IEC%2042001.pdf",
+        "https://mindsetcyber.com.au/iso-42001-controls-list/",
+        "https://www.isms.online/iso-42001/annex-a-controls/",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://www.sap.com/about/trust-center/certification-compliance.html",
+        "https://learn.microsoft.com/en-us/compliance/regulatory/offering-iso-42001",
+        "https://www.sgs.com/en-us/news/2025/09/iso-iec-42001-trustworthy-certification-in-the-age-of-ai",
+        "https://www.sac-accreditation.gov.sg/launch-of-iso-iec-42001-artificial-intelligence-management-systems-accreditation-programme/",
+        "https://scresources.rina.org/resources/Documents/ISO-42001-appendix.pdf",
+        "https://assets.kpmg.com/content/dam/kpmgsites/ch/pdf/ISOIEC-42001-certification.pdf.coredownload.inline.pdf",
+        "https://www.schellman.com/blog/iso-certifications/iso-42001-lessons-learned",
+        "https://cloudsecurityalliance.org/articles/understanding-iso-42001-responsible-ai-governance-in-an-evolving-regulatory-landscape",
+        "https://www.deloitte.com/uk/en/services/audit-assurance/blogs/navigating-ai-assurance-spotlight-on-iso-iec.html",
+        "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/AIC4/aic4_node.html",
+        "https://www.iafcertsearch.org/search/certified-entities",
+        "https://arxiv.org/abs/2412.18670",
+        "https://arxiv.org/abs/2407.17374",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html",
+        "https://www.iso.org/standard/91021.html"
+      ],
+      "key_claims": [
+        {
+          "text": "ISO/IEC 42001:2023 is the first certifiable international management-system standard dedicated to organisational AI governance, and its public clause structure centres on context, leadership, planning, support, operation, performance evaluation, and continual improvement",
+          "sources": [
+            "https://www.iso.org/standard/42001",
+            "https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html",
+            "https://www.unido.org/sites/default/files/files/2025-07/Microsoft%20-%20Overview%20of%20ISO%20IEC%2042001.pdf"
+          ]
+        },
+        {
+          "text": "Publicly accessible mappings indicate that Annex A contains 38 controls in nine objectives, A.2 through A.10, covering policy, internal organisation, resources, impact assessment, lifecycle, data, information for interested parties, responsible use, and third-party relationships",
+          "sources": [
+            "https://mindsetcyber.com.au/iso-42001-controls-list/",
+            "https://www.isms.online/iso-42001/annex-a-controls/",
+            "https://www.unido.org/sites/default/files/files/2025-07/Microsoft%20-%20Overview%20of%20ISO%20IEC%2042001.pdf"
+          ]
+        },
+        {
+          "text": "The standard's most important public risk mitigations are impact assessment, lifecycle verification and validation, event logging, data provenance and quality controls, user and regulator information duties, intended-use constraints, and supplier-accountability controls",
+          "sources": [
+            "https://mindsetcyber.com.au/iso-42001-controls-list/",
+            "https://www.isms.online/iso-42001/annex-a-controls/",
+            "https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html"
+          ]
+        },
+        {
+          "text": "ISO/IEC 42001 is designed to certify management-system discipline rather than the correctness of individual AI outputs, so it works best as a governance baseline and weakest as a standalone proof of technical safety or legal sufficiency",
+          "sources": [
+            "https://www.iso.org/standard/42001",
+            "https://www.cloudsecurityalliance.org/articles/understanding-iso-42001-responsible-ai-governance-in-an-evolving-regulatory-landscape",
+            "https://www.deloitte.com/uk/en/services/audit-assurance/blogs/navigating-ai-assurance-spotlight-on-iso-iec.html",
+            "https://arxiv.org/abs/2412.18670"
+          ]
+        },
+        {
+          "text": "Public adoption evidence since publication shows genuine market traction, because certification bodies, accreditation authorities, and large vendors have all stood up public ISO/IEC 42001 programmes or disclosures, but the evidence remains directional rather than census-grade",
+          "sources": [
+            "https://www.sac-accreditation.gov.sg/launch-of-iso-iec-42001-artificial-intelligence-management-systems-accreditation-programme/",
+            "https://www.sgs.com/en-us/news/2025/09/iso-iec-42001-trustworthy-certification-in-the-age-of-ai",
+            "https://www.schellman.com/blog/iso-certifications/iso-42001-lessons-learned",
+            "https://learn.microsoft.com/en-us/compliance/regulatory/offering-iso-42001",
+            "https://www.sap.com/about/trust-center/certification-compliance.html",
+            "https://www.iafcertsearch.org/search/certified-entities"
+          ]
+        },
+        {
+          "text": "Enterprise and assurance-market sources present the standard positively, with Microsoft, Systems, Applications, and Products in Data Processing (SAP), Societe Generale de Surveillance (SGS), Klynveld Peat Marwick Goerdeler (KPMG), Schellman, Cloud Security Alliance, and Deloitte all framing it as a trust, auditability, and regulatory-readiness mechanism",
+          "sources": [
+            "https://learn.microsoft.com/en-us/compliance/regulatory/offering-iso-42001",
+            "https://www.sap.com/about/trust-center/certification-compliance.html",
+            "https://www.sgs.com/en-us/news/2025/09/iso-iec-42001-trustworthy-certification-in-the-age-of-ai",
+            "https://assets.kpmg.com/content/dam/kpmgsites/ch/pdf/ISOIEC-42001-certification.pdf.coredownload.inline.pdf",
+            "https://www.schellman.com/blog/iso-certifications/iso-42001-lessons-learned",
+            "https://cloudsecurityalliance.org/articles/understanding-iso-42001-responsible-ai-governance-in-an-evolving-regulatory-landscape",
+            "https://www.deloitte.com/uk/en/services/audit-assurance/blogs/navigating-ai-assurance-spotlight-on-iso-iec.html"
+          ]
+        },
+        {
+          "text": "Regulator-facing and research-oriented sources treat ISO/IEC 42001 as necessary but not sufficient, because they pair it with accreditation rules, impact-assessment methods, or additional technical criteria rather than relying on certification alone",
+          "sources": [
+            "https://www.iso.org/standard/42006",
+            "https://www.sac-accreditation.gov.sg/launch-of-iso-iec-42001-artificial-intelligence-management-systems-accreditation-programme/",
+            "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/AIC4/aic4_node.html",
+            "https://arxiv.org/abs/2407.17374",
+            "https://arxiv.org/abs/2412.18670"
+          ]
+        },
+        {
+          "text": "SC 42 was established in 2017, ISO/IEC 42001 was published in 2023, and ISO/IEC 42006 followed in 2025, while public companion-standard evidence shows the ecosystem continuing to expand around certification and impact governance",
+          "sources": [
+            "https://www.iso.org/committee/6794475.html",
+            "https://www.iso.org/standard/42001",
+            "https://www.iso.org/standard/42006",
+            "https://scresources.rina.org/resources/Documents/ISO-42001-appendix.pdf"
           ]
         }
       ]
