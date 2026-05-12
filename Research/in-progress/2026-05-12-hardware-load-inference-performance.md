@@ -76,6 +76,7 @@ For agent reliability, meaning whether a production agent stays inside its respo
 - [x] [Ollama envconfig/config.go](https://github.com/ollama/ollama/blob/main/envconfig/config.go)
 - [x] [ggml-org llama.cpp HTTP Server README](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md)
 - [x] [ggml-org llama-bench README](https://github.com/ggml-org/llama.cpp/tree/master/tools/llama-bench)
+- [x] [Anyscale Understand LLM latency and throughput metrics](https://docs.anyscale.com/llm/serving/benchmarking/metrics)
 
 ## Related
 
@@ -122,7 +123,7 @@ For agent reliability, meaning whether a production agent stays inside its respo
 #### A. Latency and throughput under load are mainly scheduler- and threshold-driven
 
 - [fact; source: https://arxiv.org/abs/2403.02310] Agrawal et al. say each LLM serving request has a prompt-processing prefill phase, which processes the full prompt before the first generated token, and a token-by-token decode phase, which generates later tokens one at a time, which makes batching valuable for throughput but risky for latency if the phases are mixed poorly.
-- [fact; source: https://docs.vllm.ai/en/latest/configuration/optimization/] vLLM says chunked prefill is enabled by default where possible, prioritizes decode requests ahead of prefills, and lets operators trade inter-token latency (ITL, the delay between generated tokens), time to first token (TTFT, the delay before the first generated token), and throughput by changing `max_num_batched_tokens`.
+- [fact; source: https://docs.vllm.ai/en/latest/configuration/optimization/; https://docs.anyscale.com/llm/serving/benchmarking/metrics] vLLM says chunked prefill is enabled by default where possible, prioritizes decode requests ahead of prefills, and lets operators trade inter-token latency (ITL, the delay between generated tokens), time to first token (TTFT, the delay before the first generated token), and throughput by changing `max_num_batched_tokens`.
 - [fact; source: https://huggingface.co/docs/text-generation-inference/main/en/architecture] TGI says its router buffers requests, applies queues and schedulers, and exposes explicit router controls such as `--max-concurrent-requests`, `--max-batch-prefill-tokens`, `--max-batch-total-tokens`, and `--waiting-served-ratio`.
 - [fact; source: https://arxiv.org/abs/2403.02310] Agrawal et al. report that Sarathi-Serve improves serving capacity by 2.6 times for Mistral-7B on one A100 GPU, up to 3.7 times for Yi-34B on two A100 GPUs, and up to 5.6 times for Falcon-180B with pipeline parallelism under tail-latency constraints.
 - [inference; source: https://arxiv.org/abs/2403.02310; https://docs.vllm.ai/en/latest/configuration/optimization/; https://huggingface.co/docs/text-generation-inference/main/en/architecture] The degradation curve under load is therefore best understood as threshold-based and scheduler-mediated rather than as a smooth percentage-of-utilization slowdown, because the dominant transitions appear when batch composition, token budgets, and queueing policy change.
@@ -230,9 +231,9 @@ For production agents, the practical answer is to monitor queue depth, preemptio
 
 **Analysis:**
 
-I weighted official serving documentation and system papers highest for claims about queueing, batching, memory pressure, and hardware bottlenecks, because those sources describe the actual control surfaces used in production inference stacks. [fact; source: https://docs.vllm.ai/en/latest/configuration/optimization/; https://huggingface.co/docs/text-generation-inference/main/en/architecture; https://docs.ollama.com/faq; https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md; https://arxiv.org/abs/2309.06180; https://arxiv.org/abs/2403.02310; https://arxiv.org/abs/2504.11750]
+The consulted support for queueing, batching, memory pressure, and hardware bottlenecks comes mainly from official serving documentation and system papers that describe exposed control surfaces and measured serving behaviour in the systems under study. [inference; source: https://docs.vllm.ai/en/latest/configuration/optimization/; https://huggingface.co/docs/text-generation-inference/main/en/architecture; https://docs.ollama.com/faq; https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md; https://arxiv.org/abs/2309.06180; https://arxiv.org/abs/2403.02310; https://arxiv.org/abs/2504.11750]
 
-For output-consistency claims, I weighted direct evidence of batch- or hardware-sensitive divergence above anecdotal operator reports, because Yuan et al. and the vLLM frequently asked questions page both tie changed execution paths to changed tokens or task outcomes. [fact; source: https://arxiv.org/abs/2506.09501; https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html]
+For output-consistency claims, the most direct consulted evidence comes from batch- or hardware-sensitive divergence results, because Yuan et al. and the vLLM frequently asked questions page both tie changed execution paths to changed tokens or task outcomes. [inference; source: https://arxiv.org/abs/2506.09501; https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html]
 
 The main interpretive choice was to separate "high hardware load" from "changed numerical path," because the consulted sources strongly support the second as a mechanism for output drift and only indirectly support the first. [inference; source: https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html; https://docs.ollama.com/faq; https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/]
 
@@ -257,11 +258,11 @@ That separation narrows the recommendation to concrete operational controls: ope
 
 ### §7 Recursive Review
 
-- Result: all sections populated.
-- Claim audit: factual and inferential claims labeled in Research Skill Output.
-- Acronym audit: first-use expansions checked for LLM, AI, CPU, GPU, RAM, VRAM, KV, TGI, TTFT, and ITL.
-- Domain-term audit: agent reliability, prefill, decode, KV cache, and NUMA explained or grounded at first use.
-- Mirror check: §6 Synthesis and Findings aligned.
+- Result: pass
+- Claim-label audit: complete
+- Acronym audit: complete
+- Domain-term audit: complete
+- Synthesis/Findings parity: confirmed
 
 ---
 
@@ -307,9 +308,9 @@ For production agents, the practical answer is to monitor queue depth, preemptio
 
 ### Analysis
 
-I weighted official serving documentation and system papers highest for claims about queueing, batching, memory pressure, and hardware bottlenecks, because those sources describe the actual control surfaces used in production inference stacks. [fact; source: https://docs.vllm.ai/en/latest/configuration/optimization/; https://huggingface.co/docs/text-generation-inference/main/en/architecture; https://docs.ollama.com/faq; https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md; https://arxiv.org/abs/2309.06180; https://arxiv.org/abs/2403.02310; https://arxiv.org/abs/2504.11750]
+The consulted support for queueing, batching, memory pressure, and hardware bottlenecks comes mainly from official serving documentation and system papers that describe exposed control surfaces and measured serving behaviour in the systems under study. [inference; source: https://docs.vllm.ai/en/latest/configuration/optimization/; https://huggingface.co/docs/text-generation-inference/main/en/architecture; https://docs.ollama.com/faq; https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md; https://arxiv.org/abs/2309.06180; https://arxiv.org/abs/2403.02310; https://arxiv.org/abs/2504.11750]
 
-For output-consistency claims, I weighted direct evidence of batch- or hardware-sensitive divergence above anecdotal operator reports, because Yuan et al. and the vLLM frequently asked questions page both tie changed execution paths to changed tokens or task outcomes. [fact; source: https://arxiv.org/abs/2506.09501; https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html]
+For output-consistency claims, the most direct consulted evidence comes from batch- or hardware-sensitive divergence results, because Yuan et al. and the vLLM frequently asked questions page both tie changed execution paths to changed tokens or task outcomes. [inference; source: https://arxiv.org/abs/2506.09501; https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html]
 
 The main interpretive choice was to separate "high hardware load" from "changed numerical path," because the consulted sources strongly support the second as a mechanism for output drift and only indirectly support the first. [inference; source: https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html; https://docs.ollama.com/faq; https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/]
 
