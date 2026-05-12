@@ -1,7 +1,7 @@
 # 2026-05-12 -- Add backlog item (iso-iec-42001-aims-controls-adoption-history)
 
 **Completed:**
-- `/home/runner/work/Research/Research/Research/backlog/2026-05-12-iso-iec-42001-aims-controls-adoption-history.md` — added from the issue request; frames a validated question on ISO/IEC 42001 controls, risk mitigation, adoption, reputation, and evolution.
+- `Research/backlog/2026-05-12-iso-iec-42001-aims-controls-adoption-history.md` — added from the issue request; frames a validated question on ISO/IEC 42001 controls, risk mitigation, adoption, reputation, and evolution.
 
 ## Mini-Retro
 

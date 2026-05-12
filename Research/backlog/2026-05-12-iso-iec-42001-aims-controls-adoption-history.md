@@ -21,7 +21,7 @@ versions: []
 
 ## Research Question
 
-What is International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 for an Artificial Intelligence Management System (AIMS), which specific controls in Annex A and the main body mitigate key Artificial Intelligence (AI) risks, how widely it has been adopted and certified since publication, how it is perceived by enterprises, regulators, certification bodies, and AI ethics experts, and what development milestones, amendments, and planned revisions define its evolution?
+What is International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 for an Artificial Intelligence Management System (AIMS), and which specific controls in Annex A and the main body mitigate key Artificial Intelligence (AI) risks? How widely has the standard been adopted and certified since publication, how is it perceived by enterprises, regulators, certification bodies, and AI ethics experts, and what development milestones, amendments, and planned revisions define its evolution?
 
 ## Scope
 
