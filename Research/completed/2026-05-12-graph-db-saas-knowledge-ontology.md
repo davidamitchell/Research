@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: fc0d011cf1e4cc81311228510f6ec75f78cfea02
+    changed: 2026-05-12
+    progress: progress/2026-05-12-graph-db-saas-knowledge-ontology.md
+    summary: Initial completion
 ---
 
 # Hosted Software-as-a-Service (SaaS) graph database options for knowledge ontology
