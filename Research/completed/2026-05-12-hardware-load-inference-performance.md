@@ -20,7 +20,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: fb18bb4de3ca214d95fb8130f953afca58863264
+    changed: 2026-05-12
+    progress: progress/2026-05-12-hardware-load-inference-performance.md
+    summary: "Initial completion"
 ---
 
 # Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability
