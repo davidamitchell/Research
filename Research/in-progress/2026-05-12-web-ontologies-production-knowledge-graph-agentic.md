@@ -2,7 +2,7 @@
 title: "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices"
 added: 2026-05-12T08:21:48+00:00
 status: reviewing
-review_count: 1
+review_count: 2
 priority: high
 blocks: []
 tags: [knowledge-graph, agentic-ai, governance, llm]
