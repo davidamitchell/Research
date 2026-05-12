@@ -59,7 +59,7 @@ The maintenance problem is not only about storing facts, but also about preservi
 
 1. Survey academic and practitioner literature on Knowledge Graph lifecycle management, especially update strategies, versioning patterns, and schema migration tooling.
 2. Investigate entity resolution approaches at scale, especially blocking or indexing before matching and conservative merge practices.
-3. Review provenance models for Knowledge Graphs, including RDF 1.2 triple terms, named graphs, and PROV-O, and assess how they support trust propagation and update prioritisation.
+3. Review provenance models for Knowledge Graphs, including RDF 1.2 triple terms, named graphs, and the Provenance Ontology (PROV-O), and assess how they support trust propagation and update prioritisation.
 4. Examine conflict detection and resolution patterns, including assertion-level contradiction, ontology-level inconsistency, and temporal staleness.
 5. Review continuous Knowledge Graph update pipeline architectures, especially Wikidata and DBpedia-style snapshot plus incremental update patterns.
 6. Synthesize the evidence into recommended lifecycle practices and decision criteria for teams maintaining a Knowledge Graph as a dependency for multi-step software agents.
@@ -100,7 +100,7 @@ The maintenance problem is not only about storing facts, but also about preservi
 - Scope: schema versioning, entity resolution, provenance, conflict detection, freshness, and continuous ingestion are in scope; graph-platform choice, runtime-serving patterns, ontology-language selection, and access-policy design are out of scope.
 - Constraints: prefer accessible production documentation, open standards, and well-documented open systems over paywalled summaries; expand acronyms on first use; keep the output directly usable as an operating model.
 - Output format: full section 0 to section 7 investigation plus Findings with Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks, Gaps, Uncertainties, Open Questions, and Output.
-- Prior completed items consulted: [Mitchell (2026) Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes](https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html), [Mitchell (2026) Hosted Software-as-a-Service graph database options for knowledge ontology](https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html), [Mitchell (2026) What entity-relation schema and write-query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?](https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html), and [Mitchell (2026) Knowledge curation governance as an enterprise AI capability in regulated financial institutions](https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html).
+- [inference] Prior completed items consulted: [Mitchell (2026) Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes](https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html), [Mitchell (2026) Hosted Software-as-a-Service graph database options for knowledge ontology](https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html), [Mitchell (2026) What entity-relation schema and write-query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?](https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html), and [Mitchell (2026) Knowledge curation governance as an enterprise AI capability in regulated financial institutions](https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html). [source: https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html; https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html; https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html; https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html]
 - [inference] Working definition: in this item, lifecycle management means the operational controls that preserve a Knowledge Graph's identity model, provenance, structural validity, and freshness as new data arrives and older assertions are corrected, superseded, or retired. [source: https://www.w3.org/TR/prov-o/; https://www.w3.org/TR/shacl/; https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html]
 
 ### §1 Question Decomposition
@@ -139,7 +139,7 @@ The maintenance problem is not only about storing facts, but also about preservi
 #### 2.2 Versioning and publication mechanics
 
 - [fact] RDF 1.2 defines RDF datasets as a default graph plus zero or more named graphs, and it allows triple terms so statements can themselves be objects of other statements. [source: https://www.w3.org/TR/rdf12-concepts/]
-- [fact] PROV-O provides classes and properties for representing provenance and interchange of provenance information across systems, including derivation relationships between entities. [source: https://www.w3.org/TR/prov-o/]
+- [fact] The Provenance Ontology (PROV-O) provides classes and properties for representing provenance and interchange of provenance information across systems, including derivation relationships between entities. [source: https://www.w3.org/TR/prov-o/]
 - [fact] DBpedia Databus distinguishes an abstract artifact from a specific version and from a distribution, requires version-level metadata, and models dataset-version derivation with `prov:wasDerivedFrom`. [source: https://github.com/dbpedia/databus/blob/master/docs/version.md]
 - [fact] DBpedia Databus recommends sortable timestamp-like version identifiers such as `YYYY.MM.DD-hhmmss`, allows re-submission of a version while changing the issued timestamp, and treats `dct:modified` as a version-level timestamp. [source: https://github.com/dbpedia/databus/blob/master/docs/versioning.md]
 - [fact] Wikibase RDF dumps expose `schema:softwareVersion` and `schema:dateModified` on dump metadata, and each entity data node carries `schema:version` and `schema:dateModified` for the entity record. [source: https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format]
@@ -150,7 +150,7 @@ The maintenance problem is not only about storing facts, but also about preservi
 #### 2.3 Provenance and conflict handling
 
 - [fact] Wikidata's sourcing guidance says most statements should be verifiable and backed by references, commonly through `stated in (P248)` for publications or `reference URL (P854)` for online sources. [source: https://www.wikidata.org/wiki/Help:Sources]
-- [fact] SHACL is a W3C Recommendation for validating RDF graphs against shapes and producing validation reports that identify whether data graphs conform to declared constraints. [source: https://www.w3.org/TR/shacl/]
+- [fact] Shapes Constraint Language (SHACL) is a W3C Recommendation for validating RDF graphs against shapes and producing validation reports that identify whether data graphs conform to declared constraints. [source: https://www.w3.org/TR/shacl/]
 - [fact] PROV-O is explicitly intended to represent and interchange provenance information generated in different systems and contexts, and its `prov:wasDerivedFrom` relation is reused directly in DBpedia Databus version metadata. [source: https://www.w3.org/TR/prov-o/; https://github.com/dbpedia/databus/blob/master/docs/version.md]
 - [inference] Conflict detection should therefore be split into two control types: structural validation, using SHACL or an equivalent constraints layer to catch impossible states, and evidential adjudication, using provenance metadata to compare contradictory source assertions without overwriting their traceability. [source: https://www.w3.org/TR/shacl/; https://www.w3.org/TR/prov-o/; https://www.wikidata.org/wiki/Help:Sources]
 - [inference] Recording source-specific assertions in separate named graphs, versioned snapshots, or assertion-level provenance triples is safer than flattening every update into one mutable current-state graph, because separation preserves both contradiction visibility and rollback paths. [source: https://www.w3.org/TR/rdf12-concepts/; https://www.w3.org/TR/prov-o/; https://github.com/dbpedia/databus/blob/master/docs/version.md]
@@ -179,13 +179,13 @@ The maintenance problem is not only about storing facts, but also about preservi
 
 ### §3 Reasoning
 
-- [fact] The strongest direct evidence in the consulted set covers four mechanics clearly: versioned publication, provenance representation, validation against constraints, and conservative duplicate handling. [source: https://github.com/dbpedia/databus/blob/master/docs/version.md; https://www.w3.org/TR/prov-o/; https://www.w3.org/TR/shacl/; https://www.wikidata.org/wiki/Help:Merge]
+- [inference] The consulted evidence directly documents four mechanics more clearly than the others in scope: versioned publication, provenance representation, validation against constraints, and conservative duplicate handling. [source: https://github.com/dbpedia/databus/blob/master/docs/version.md; https://www.w3.org/TR/prov-o/; https://www.w3.org/TR/shacl/; https://www.wikidata.org/wiki/Help:Merge]
 - [inference] No single consulted source provides a complete lifecycle blueprint for agent-facing Knowledge Graphs, so the final operating model is a synthesis of open standards, public platform documentation, and adjacent completed repository items. [source: https://www.w3.org/TR/prov-o/; https://www.w3.org/TR/shacl/; https://www.wikidata.org/wiki/Wikidata:Database_download; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html]
 - [assumption] Teams maintaining a Knowledge Graph for multi-step software agents can choose immutable publication and deprecation conventions at the application or workflow layer even if the underlying database supports in-place mutation. [source: https://github.com/dbpedia/databus/blob/master/docs/versioning.md; https://github.com/dbpedia/databus/blob/master/docs/version.md; https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html]
 
 ### §4 Consistency Check
 
-- [fact] The consulted sources agree that preserving identifier continuity after merge is preferable to deleting or reusing identifiers, even though they implement that continuity through different mechanisms such as redirects, version nodes, or derivation links. [source: https://www.wikidata.org/wiki/Help:Redirects; https://www.wikidata.org/wiki/Help:Merge; https://github.com/dbpedia/databus/blob/master/docs/version.md]
+- [inference] The consulted sources converge on preserving identifier continuity after merge rather than deleting or reusing identifiers, even though they implement that continuity through different mechanisms such as redirects, version nodes, or derivation links. [source: https://www.wikidata.org/wiki/Help:Redirects; https://www.wikidata.org/wiki/Help:Merge; https://github.com/dbpedia/databus/blob/master/docs/version.md]
 - [inference] The evidence is also internally consistent that provenance must remain queryable alongside current data, because the sources repeatedly model references, derivations, or timestamps as first-class metadata rather than optional annotations. [source: https://www.wikidata.org/wiki/Help:Sources; https://www.w3.org/TR/prov-o/; https://github.com/dbpedia/databus/blob/master/docs/version.md; https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format]
 - [inference] Remaining uncertainty is concentrated in operational thresholds, such as merge-confidence cutoffs or acceptable freshness lag, not in the direction of the recommended controls. [source: https://arxiv.org/abs/1905.06397; https://www.mediawiki.org/wiki/EventStreams; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html]
 
@@ -262,12 +262,12 @@ An alternative design that overwrites entities and schemas in place could be sim
 
 ### §7 Recursive Review
 
-- Review result: pass
+- Review status: internal check completed
 - Confidence: medium
-- Acronym audit: passed
-- Domain-term clarity audit: passed
+- Acronym expansion: revised where needed
+- Domain-term clarity: revised where needed
 - Findings and section 6 parity: aligned
-- Open contradictions: none material
+- Open contradictions: none material identified
 
 ---
 
