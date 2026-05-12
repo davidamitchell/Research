@@ -5775,13 +5775,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -5837,7 +5837,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -6580,14 +6580,14 @@
     "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -6617,17 +6617,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot coding",
       "coding agent",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -6657,7 +6657,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6910,13 +6910,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
+      "power platform",
       "direct publish"
     ],
     "item_count": 3,
@@ -6937,6 +6937,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   }
 ]
