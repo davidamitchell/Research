@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Agent evaluation framework — Research</title>
+          <title>LLM inference performance — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -661,150 +661,119 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Agent evaluation framework</span>
+    <span>LLM inference performance</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Agent evaluation framework</h1>
-  <p class="full-title-subtitle">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>LLM inference performance</h1>
+  <p class="full-title-subtitle">Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability</p>
   <div class="meta-bar">
-    <span>2026-03-10</span>
+    <span>2026-05-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/benchmarking.html">benchmarking</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> 
+    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/ai-platform.html">ai-platform</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-12-hardware-load-inference-performance.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-agent-evaluation-cross-repo-analysis" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-12-hardware-load-inference-performance" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Tool-mediated execution is the single universal architectural pattern across all eight surveyed agent frameworks and is the necessary precondition for any systematic evaluation: without discrete, logged tool calls, agent actions cannot be traced, replayed, or compared across versions. Confidence: high</li>
-<li>Trajectory capture — recording the full sequence of tool calls, state transitions, and intermediate outputs for each agent run — is the evaluation primitive that all other evaluation techniques depend on, and it is present in five of the eight surveyed frameworks but implemented in incompatible ways with no shared format across implementations. Confidence: high</li>
-<li>The practitioner consensus in 2025 is that automated evaluation runs gated on quality thresholds (&quot;evals as unit tests&quot;) are expected CI infrastructure for production LLM agents, but fewer than half of the surveyed frameworks provide integrated eval tooling, forcing teams to rely on separate tools such as DeepEval, TruLens, or agentevals. Confidence: high</li>
-<li>The measurement gap between what practitioners want to measure (holistic quality including goal alignment, safety, and factuality) and what they actually measure in CI (task pass rate, latency, cost) persists because holistic metrics require LLM-as-judge evaluation — expensive, inconsistent without structured rubrics, and not integrated into most CI pipelines. Confidence: high</li>
-<li>LangGraph achieves approximately 94% task completion on complex branching workflows in cross-framework benchmarks and is the only orchestration framework with built-in time-travel debugging via DAG checkpoints, making it the strongest surveyed choice for workflows where traceability, rollback, and auditability are required. Confidence: medium (performance figure from secondary sources; architectural uniqueness from primary docs)</li>
-<li>Pydantic AI is the only surveyed framework that applies type-constrained output validation at every agent-tool boundary as a structural control, preventing Layer 1 generation failures by construction rather than by post-hoc parsing — a genuine architectural novelty absent from all other surveyed frameworks. Confidence: high</li>
-<li>OpenHands demonstrated that inference-time scaling with a learned critic model increases SWE-bench Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high</li>
-<li>METR&#39;s time-horizon-of-completion metric — the maximum human-hours task duration at which an agent achieves at least 50% success, currently doubling approximately every seven months — characterises the agent&#39;s capability envelope rather than performance on a fixed benchmark, making it the most future-proof effectiveness signal identified in the survey. Confidence: high</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Under load, Large Language Model serving slows in threshold-like jumps that follow scheduler changes between prompt-processing prefill work and token-by-token decode work, not a smooth linear decline tied to Graphics Processing Unit utilization percentages<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2403.02310" target="_blank" rel="noopener" title="https://arxiv.org/abs/2403.02310">Agrawal et al. (2024)</a><a class="claim-source-link" href="https://docs.vllm.ai/en/latest/configuration/optimization/" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/latest/configuration/optimization/">Vllm (n.d.)</a><a class="claim-source-link" href="https://huggingface.co/docs/text-generation-inference/main/en/architecture" target="_blank" rel="noopener" title="https://huggingface.co/docs/text-generation-inference/main/en/architecture">Hugging (n.d.)</a></span></li>
+<li>Key-value (KV) cache pressure becomes a major concurrent-serving bottleneck once batch demand outruns available memory, and vLLM responds by preempting and recomputing requests after space is freed<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener" title="https://arxiv.org/abs/2309.06180">Kwon et al. (2023)</a><a class="claim-source-link" href="https://docs.vllm.ai/en/latest/configuration/optimization/" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/latest/configuration/optimization/">Vllm (n.d.)</a></span></li>
+<li>Even GPU-heavy inference stacks stay sensitive to Central Processing Unit launch and placement overhead, so low-batch latency can remain CPU-bound long after accelerator capacity appears available<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2504.11750" target="_blank" rel="noopener" title="https://arxiv.org/abs/2504.11750">Vellaisamy et al. (2025)</a><a class="claim-source-link" href="https://docs.vllm.ai/en/latest/configuration/optimization/" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/latest/configuration/optimization/">Vllm (n.d.)</a><a class="claim-source-link" href="https://github.com/ggml-org/llama.cpp/tree/master/tools/llama-bench" target="_blank" rel="noopener" title="https://github.com/ggml-org/llama.cpp/tree/master/tools/llama-bench">Github (n.d.)</a></span></li>
+<li>TGI, Ollama, vLLM, and llama.cpp all expose contention as explicit queueing, batching, and concurrency settings, which makes operator tuning part of reliable serving rather than an optional optimization<span class="claim-sources"><a class="claim-source-link" href="https://huggingface.co/docs/text-generation-inference/main/en/architecture" target="_blank" rel="noopener" title="https://huggingface.co/docs/text-generation-inference/main/en/architecture">Hugging (n.d.)</a><a class="claim-source-link" href="https://docs.ollama.com/faq" target="_blank" rel="noopener" title="https://docs.ollama.com/faq">Ollama (n.d.)</a><a class="claim-source-link" href="https://github.com/ollama/ollama/blob/main/envconfig/config.go" target="_blank" rel="noopener" title="https://github.com/ollama/ollama/blob/main/envconfig/config.go">Ollama (n.d.)</a><a class="claim-source-link" href="https://docs.vllm.ai/en/latest/configuration/optimization/" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/latest/configuration/optimization/">Vllm (n.d.)</a><a class="claim-source-link" href="https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md" target="_blank" rel="noopener" title="https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md">Github (n.d.)</a></span></li>
+<li>Load-sensitive output drift appears when batch shape or hardware path changes the numerical execution path, and the reviewed evidence documents changed sampled tokens plus measurable accuracy shifts under those conditions<span class="claim-sources"><a class="claim-source-link" href="https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html">Vllm (n.d.)</a><a class="claim-source-link" href="https://arxiv.org/abs/2506.09501" target="_blank" rel="noopener" title="https://arxiv.org/abs/2506.09501">Yuan et al. (2025)</a></span></li>
+<li>The consulted evidence does not isolate raw utilization percentages alone as a proven cause of semantic degradation once the numerical path is held fixed; the documented quality risk instead comes from changed precision modes, quantized caches, or altered live batching<span class="claim-sources"><a class="claim-source-link" href="https://docs.ollama.com/faq" target="_blank" rel="noopener" title="https://docs.ollama.com/faq">Ollama (n.d.)</a><a class="claim-source-link" href="https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html">Vllm (n.d.)</a><a class="claim-source-link" href="https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/" target="_blank" rel="noopener" title="https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/">Lab (2025)</a></span></li>
+<li>Reliable agent deployments need workload-class isolation, bounded concurrency, warm model residency, and deterministic external checks, since latency spikes and occasional token drift can compound across multi-step workflows<span class="claim-sources"><a class="claim-source-link" href="https://docs.vllm.ai/en/latest/configuration/optimization/" target="_blank" rel="noopener" title="https://docs.vllm.ai/en/latest/configuration/optimization/">Vllm (n.d.)</a><a class="claim-source-link" href="https://docs.ollama.com/faq" target="_blank" rel="noopener" title="https://docs.ollama.com/faq">Ollama (n.d.)</a><a class="claim-source-link" href="https://huggingface.co/docs/text-generation-inference/main/en/architecture" target="_blank" rel="noopener" title="https://huggingface.co/docs/text-generation-inference/main/en/architecture">Hugging (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Github (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html">Github (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html">Github (n.d.)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in novel ways, whether the agent is effective, and how to detect whether a change to an agent made it better or worse — and what would a minimal viable implementation of such a framework look like?</p>
+<p>How does hardware resource load, Central Processing Unit (CPU), Graphics Processing Unit (GPU), and memory pressure, affect Large Language Model (LLM) inference performance, specifically latency, throughput, and output quality consistency, and what are the practical implications for Artificial Intelligence (AI) agent reliability in production deployments?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p>No universally adopted evaluation framework for cross-repo agent comparison exists in early 2026, but the field has converged on a coherent set of practices. Tool-mediated execution is the single universal architectural pattern across all surveyed frameworks and is the precondition for any systematic evaluation. The critical gap is between the metrics practitioners want (holistic quality: goal alignment, safety, factuality) and what they actually measure in CI (task pass rate, latency, cost), because holistic metrics require LLM-as-judge evaluation that most frameworks do not integrate by default. A minimal viable evaluation framework requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with thresholds, and a gold dataset refresh protocol.</p>
+<p>Hardware load does affect LLM inference reliability, but it does so mainly by pushing serving systems across batching, memory, and numerical-precision thresholds that inflate latency and sometimes change generated tokens, not by making models semantically worse merely because GPU utilization is high.</p>
+<p>The consulted evidence shows that throughput and latency degrade in threshold-like steps when schedulers rebalance prompt-processing prefill work against token-by-token decode work, when key-value (KV) cache space becomes scarce, or when CPU coordination remains the bottleneck despite abundant GPU capacity.</p>
+<p>Output consistency risk is real, but the consulted evidence ties it to batch- or hardware-dependent numerical divergence, including changed batch composition, changed precision mode, or changed accelerator path, rather than to utilization telemetry by itself.</p>
+<p>For production agents, the practical answer is to monitor queue depth, preemption, batch shape, context growth, precision mode, and model pinning as first-class reliability signals, while keeping deterministic policy enforcement outside raw model outputs for consequential actions.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p>Tool-mediated execution is the single universal architectural pattern across all eight surveyed agent frameworks and is the necessary precondition for any systematic evaluation: without discrete, logged tool calls, agent actions cannot be traced, replayed, or compared across versions. Confidence: high.</p>
-</li>
-<li>
-<p>Trajectory capture — recording the full sequence of tool calls, state transitions, and intermediate outputs for each agent run — is the evaluation primitive that all other evaluation techniques depend on, and it is present in five of the eight surveyed frameworks but implemented in incompatible ways with no shared format across implementations. Confidence: high.</p>
-</li>
-<li>
-<p>The practitioner consensus in 2025 is that automated evaluation runs gated on quality thresholds (&quot;evals as unit tests&quot;) are expected CI infrastructure for production LLM agents, but fewer than half of the surveyed frameworks provide integrated eval tooling, forcing teams to rely on separate tools such as DeepEval, TruLens, or agentevals. Confidence: high.</p>
-</li>
-<li>
-<p>The measurement gap between what practitioners want to measure (holistic quality including goal alignment, safety, and factuality) and what they actually measure in CI (task pass rate, latency, cost) persists because holistic metrics require LLM-as-judge evaluation — expensive, inconsistent without structured rubrics, and not integrated into most CI pipelines. Confidence: high.</p>
-</li>
-<li>
-<p>LangGraph achieves approximately 94% task completion on complex branching workflows in cross-framework benchmarks and is the only orchestration framework with built-in time-travel debugging via DAG checkpoints, making it the strongest surveyed choice for workflows where traceability, rollback, and auditability are required. Confidence: medium (performance figure from secondary sources; architectural uniqueness from primary docs).</p>
-</li>
-<li>
-<p>Pydantic AI is the only surveyed framework that applies type-constrained output validation at every agent-tool boundary as a structural control, preventing Layer 1 generation failures by construction rather than by post-hoc parsing — a genuine architectural novelty absent from all other surveyed frameworks. Confidence: high.</p>
-</li>
-<li>
-<p>OpenHands demonstrated that inference-time scaling with a learned critic model increases <a href="https://github.com/princeton-nlp/SWE-bench">SWE-bench</a> Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high.</p>
-</li>
-<li>
-<p>METR's time-horizon-of-completion metric — the maximum human-hours task duration at which an agent achieves at least 50% success, currently doubling approximately every seven months — characterises the agent's capability envelope rather than performance on a fixed benchmark, making it the most future-proof effectiveness signal identified in the survey. Confidence: high.</p>
-</li>
-<li>
-<p>Safety evaluation is the largest unaddressed gap in the surveyed evaluation ecosystem: none of the frameworks integrate OWASP LLM Top 10 checks (prompt injection, guardrail bypass, excessive agency) as first-class CI evaluation targets, despite these being documented production failure modes affecting all agent architectures. Confidence: medium (inferred from absence of evidence in framework documentation).</p>
-</li>
-<li>
-<p>LLM-as-judge evaluation without a structured rubric produces irreproducible results; all reliable implementations require a coded evaluation prompt with explicit scoring dimensions that is itself version-controlled and subject to regression testing, functioning as a machine-readable specification of what &quot;good output&quot; means. Confidence: high.</p>
-</li>
-<li>
-<p>Benchmark saturation is a structural property of all fixed agent benchmarks, and SWE-bench Verified is already approaching 70% resolution for top agents, prompting the creation of SWE-bench-Live; any evaluation framework must include a benchmark refresh mechanism as a design principle rather than treating the initial benchmark as a permanent standard. Confidence: high.</p>
-</li>
-<li>
-<p>A minimal viable evaluation framework for a research loop agent requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with explicit failure thresholds, and a gold dataset refresh protocol — with shadow testing and A/B testing as production-grade extensions. Confidence: high (inference synthesised from primary practitioner and framework sources).</p>
-</li>
+<li><strong>Under load, Large Language Model serving slows in threshold-like jumps that follow scheduler changes between prompt-processing prefill work and token-by-token decode work, not a smooth linear decline tied to Graphics Processing Unit utilization percentages.</strong></li>
+<li><strong>Key-value (KV) cache pressure becomes a major concurrent-serving bottleneck once batch demand outruns available memory, and vLLM responds by preempting and recomputing requests after space is freed.</strong></li>
+<li><strong>Even GPU-heavy inference stacks stay sensitive to Central Processing Unit launch and placement overhead, so low-batch latency can remain CPU-bound long after accelerator capacity appears available.</strong></li>
+<li><strong>TGI, Ollama, vLLM, and llama.cpp all expose contention as explicit queueing, batching, and concurrency settings, which makes operator tuning part of reliable serving rather than an optional optimization.</strong></li>
+<li><strong>Load-sensitive output drift appears when batch shape or hardware path changes the numerical execution path, and the reviewed evidence documents changed sampled tokens plus measurable accuracy shifts under those conditions.</strong></li>
+<li><strong>The consulted evidence does not isolate raw utilization percentages alone as a proven cause of semantic degradation once the numerical path is held fixed; the documented quality risk instead comes from changed precision modes, quantized caches, or altered live batching.</strong></li>
+<li><strong>Reliable agent deployments need workload-class isolation, bounded concurrency, warm model residency, and deterministic external checks, since latency spikes and occasional token drift can compound across multi-step workflows.</strong></li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>A1:</strong> The eight surveyed frameworks are representative of the 2025 agent framework landscape. Justification: they cover the major OSS frameworks by practitioner adoption (AutoGen, CrewAI, LangGraph dominate practitioner comparisons); Pydantic AI and Agno cover type-safe and multi-modal niches; OpenHands/SWE-bench cover the SE-agent benchmark class; Anthropic harness covers the production research-loop pattern. Commercial frameworks (Copilot Coding Agent, Claude Code) are partially covered via prior research.</li>
-<li><strong>A2:</strong> Secondary framework performance figures (94%/91%/89% task completion) are accurate as relative indicators even without primary empirical papers. Justification: multiple independent secondary sources agree on the ranking and approximate magnitude; the architectural explanation (LangGraph's state management reducing a class of failures) is mechanically plausible.</li>
+<li><strong>Assumption:</strong> Agent reliability is defined here as staying inside bounded latency and bounded decision-drift envelopes rather than reproducing byte-identical text. <strong>Justification:</strong> multi-step production agents usually fail first through missed orchestration deadlines or changed action choices.</li>
 </ul>
 <h3>Analysis</h3>
-<p>The central tension in agent evaluation is the determinism-capability trade-off: more capable agents produce more variable outputs, making deterministic unit-test-style assertions inadequate and requiring probabilistic evaluation. This explains the convergence on evals-as-code with LLM-as-judge.</p>
-<p>The divergence across frameworks in evaluation depth reflects design philosophy differences. Pydantic AI prioritises prevention (structural controls at every boundary); LangGraph prioritises operational debuggability (time-travel, checkpoints); OpenHands prioritises benchmark reproducibility (published trajectory datasets). Agno is the only framework that treats evaluation as a first-class framework concern with four distinct built-in eval types.</p>
-<p>For a research loop agent, the architectural implication is clear: the primary evaluation mechanism must be LLM-as-judge with structured rubrics (since outputs are long-form research, not structured data or code patches). The secondary mechanism is trajectory analysis (did the protocol get followed?). The tertiary mechanism is internal consistency checking (do §2 claims appear in §6? Are sources cited?). These three mechanisms correspond exactly to the three layers of the five-component MVF specification.</p>
+<p>The consulted support for queueing, batching, memory pressure, and hardware bottlenecks comes mainly from official serving documentation and system papers that describe exposed control surfaces and measured serving behaviour in the systems under study.</p>
+<p>For output-consistency claims, the most direct consulted evidence comes from batch- or hardware-sensitive divergence results, because Yuan et al. and the vLLM frequently asked questions page both tie changed execution paths to changed tokens or task outcomes.</p>
+<p>The main interpretive choice was to separate &quot;high hardware load&quot; from &quot;changed numerical path,&quot; because the consulted sources strongly support the second as a mechanism for output drift and only indirectly support the first.</p>
+<p>Hypothesis: hardware load is only a service-speed problem and not an output-quality problem.</p>
+<p>I reject that broader claim because vLLM and Yuan et al. both tie changed execution paths to changed sampled tokens or measured task accuracy, even though the evidence remains strongest when load is expressed as changed batch or hardware state rather than as utilization alone.</p>
+<p>That separation narrows the recommendation to concrete operational controls: operators should monitor queue depth, preemption count, batch size, context growth, and precision mode instead of treating a single utilization percentage as a sufficient reliability diagnosis.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>Benchmark saturation:</strong> Fixed benchmarks are gamed or saturated. Any evaluation framework must budget for benchmark refresh as infrastructure cost, not a one-time task.</li>
-<li><strong>LLM-as-judge drift:</strong> Judge model updates can change evaluation results without any change to the agent being evaluated, creating phantom regression signals. Judge model versioning is a required mitigation.</li>
-<li><strong>Safety evaluation gap:</strong> No surveyed framework integrates safety evals in CI. This is an active risk for production agents, including the research loop.</li>
-<li><strong>Shadow testing evidence:</strong> The shadow testing pattern for LLM agents is practitioner-documented but not peer-reviewed in the agent-specific context. Confidence is medium.</li>
-<li><strong>Missing frameworks:</strong> Mastra, Google ADK, and Microsoft Copilot Studio were not surveyed in depth; they may introduce additional patterns not captured here.</li>
+<li>Few consulted primary sources measure complete multi-step agent task success under controlled hardware-load sweeps, so most direct evidence stops at latency, throughput, token divergence, or single-task accuracy variance.</li>
+<li>TGI documentation describes its control surfaces, but the consulted official pages provide fewer public head-to-head benchmark numbers than the vLLM and Sarathi-Serve sources, so cross-system performance ranking remains partial.</li>
+<li>Ollama and llama.cpp official sources document concurrency and memory controls but do not provide equally strong primary studies of output drift under production load, so cross-stack conclusions about quality variance remain medium confidence.</li>
+<li>The numerical-drift evidence is strongest for specific models, hardware, and precisions, especially reasoning models under limited precision, so portability to every inference stack and model family should be treated as an informed but not universal conclusion.</li>
 </ul>
 <h3>Open Questions</h3>
-<ol>
-<li><strong>Research loop evaluation rubric:</strong> What structured rubric should be used to LLM-judge the outputs of this repository's research loop agent? This is a direct follow-on backlog item (priority: high; blocks: implementation of any research loop eval gate).</li>
-<li><strong>Trajectory similarity metric:</strong> Can the research loop agent's trajectory (tool call sequence, sources consulted, protocol adherence) be compared automatically across agent versions to detect regressions without full LLM-as-judge evaluation?</li>
-<li><strong>Benchmark refresh for research agents:</strong> How should a gold dataset of research questions with known-good answers be curated and maintained for research loop evaluation? SWE-bench-Live's continuous update model offers a design pattern.</li>
-<li><strong>Safety eval integration:</strong> What would it take to add OWASP LLM Top 10 checks to the CI pipeline for this repository's research loop agent?</li>
-</ol>
-<h3>Output</h3>
 <ul>
-<li><strong>Type:</strong> knowledge, backlog-item</li>
-<li><strong>Description:</strong> Structured evaluation framework specification covering 8-framework cross-repo analysis, pattern taxonomy, effectiveness signal survey, and 5-component MVF specification. Generates one follow-on backlog item: research loop evaluation rubric specification.</li>
-<li><strong>Key sources:</strong>
-<ol>
-<li>Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025) — <a href="https://arxiv.org/abs/2503.16416">arxiv.org/abs/2503.16416</a></li>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain &quot;Your AI Product Needs Evals&quot;</a></li>
-<li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR (Model Evaluation and Threat Research) task standard</a></li>
-</ol>
-</li>
-</ul>
-
-<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
-<ul>
-<li>[x] <code>Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md</code></li>
-<li>[x] <code>Research/completed/2026-03-05-general-agent-optimization-framework.md</code></li>
-<li>[x] <code>Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md</code></li>
-<li>[x] <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code></li>
-<li>[x] <code>Research/completed/2026-03-10-ai-concept-classification-taxonomy.md</code></li>
-<li>[x] <a href="https://github.com/microsoft/autogen">AutoGen repo</a> — multi-agent conversation framework</li>
-<li>[x] <a href="https://github.com/crewAIInc/crewAI">CrewAI repo</a> — role-based agent orchestration</li>
-<li>[x] <a href="https://github.com/langchain-ai/langgraph">LangGraph repo</a> — stateful agent graphs</li>
-<li>[x] <a href="https://github.com/pydantic/pydantic-ai">Pydantic AI repo</a> — type-safe agent framework</li>
-<li>[x] <a href="https://github.com/agno-agi/agno">Agno repo</a> — multi-modal agent framework</li>
-<li>[x] <a href="https://github.com/All-Hands-AI/OpenHands">OpenHands (previously OpenDevin)</a> — software engineering agents</li>
-<li>[x] <a href="https://github.com/princeton-nlp/SWE-bench">SWE-bench</a> — benchmark for software engineering agents</li>
-<li>[x] Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025)</li>
-<li>[x] Mohammadi et al. &quot;Evaluation and Benchmarking of LLM Agents: A Survey&quot; arXiv:2507.21504 (2025)</li>
-<li>[x] <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR (Model Evaluation and Threat Research) task standard</a></li>
-<li>[x] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain &quot;Your AI Product Needs Evals&quot;</a></li>
-<li>[x] <a href="https://github.com/langchain-ai/agentevals">langchain-ai/agentevals</a></li>
+<li>Which queue-depth, preemption, or batch-shape thresholds best predict real agent task failure rather than only slower response times?</li>
+<li>How much output drift remains in production-serving stacks that adopt batch-invariant kernels or full 32-bit floating-point inference?</li>
+<li>Can prompt-length-aware routing and capacity classes outperform global concurrency caps for mixed fleets of short-chat and long-horizon agent workloads?</li>
 </ul>
 <hr />
 
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html">vLLM OpenAI-Compatible Server</a></li>
+<li>[x] <a href="https://docs.vllm.ai/en/latest/configuration/optimization/">vLLM Optimization and Tuning</a></li>
+<li>[x] <a href="https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html">vLLM Frequently Asked Questions</a></li>
+<li>[x] <a href="https://huggingface.co/docs/text-generation-inference/en/index">Hugging Face Text Generation Inference</a></li>
+<li>[x] <a href="https://huggingface.co/docs/text-generation-inference/main/en/architecture">Hugging Face Text Generation Inference Architecture</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2309.06180">Kwon et al. (2023) Efficient Memory Management for Large Language Model Serving with PagedAttention</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2403.02310">Agrawal et al. (2024) Taming Throughput-Latency Tradeoff in Large Language Model Inference with Sarathi-Serve</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2506.09501">Yuan et al. (2025) Understanding and Mitigating Numerical Sources of Nondeterminism in Large Language Model Inference</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2504.11750">Vellaisamy et al. (2025) Characterizing and Optimizing Large Language Model Inference Workloads on CPU-GPU Coupled Architectures</a></li>
+<li>[x] <a href="https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/">Thinking Machines Lab (2025) Defeating nondeterminism in Large Language Model inference</a></li>
+<li>[x] <a href="https://docs.ollama.com/faq">Ollama Frequently Asked Questions</a></li>
+<li>[x] <a href="https://github.com/ollama/ollama/blob/main/envconfig/config.go">Ollama envconfig/config.go</a></li>
+<li>[x] <a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md">ggml-org llama.cpp HTTP Server README</a></li>
+<li>[x] <a href="https://github.com/ggml-org/llama.cpp/tree/master/tools/llama-bench">ggml-org llama-bench README</a></li>
+<li>[x] <a href="https://docs.anyscale.com/llm/serving/benchmarking/metrics">Anyscale Understand LLM latency and throughput metrics</a></li>
+</ul>
+
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</a> <span class="related-note">via agentic-ai, evaluation, regression</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-12-hardware-load-inference-performance.html">Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html">Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-08-ai-capability-reference-architecture-second-cycle-update.html">Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html">Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture</a> <span class="related-note">via agentic-ai, evaluation</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html">Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-07-ai-production-incidents-deep-dive.html">Production incidents linked to Artificial Intelligence systems</a> <span class="related-note">via agentic-ai, ai-platform, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html">How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?</a> <span class="related-note">via agentic-ai, ai-platform, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html">What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?</a> <span class="related-note">via agentic-ai, ai-platform, llm</span></div>
 </div></div>
 
-  
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html">Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html">Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html">What is the cost, performance, and delivery impact of governance controls on AI and low-code development?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html">How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html">Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-12</td><td><a href="https://github.com/davidamitchell/Research/commit/fb18bb4de3ca214d95fb8130f953afca58863264" target="_blank" rel="noopener">fb18bb4</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-dikw-transformation-functions.html">The DIKW pyramid</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html">Adversarial agents with shared goals</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-12-data-product-ontology.html">Data product ontology</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Hosted Software-as-a-Service (SaaS) graph database options for knowledge…</a></div>
   </div>
 </main>
 </body>

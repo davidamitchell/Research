@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-12T18:51:25Z",
+  "extracted_at": "2026-05-12T19:03:07Z",
   "items": {
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
@@ -339,6 +339,108 @@
             "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
             "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
             "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-12-hardware-load-inference-performance": {
+      "named_concepts": [
+        "output drift",
+        "hardware load",
+        "changed precision",
+        "precision mode",
+        "changed execution",
+        "batching memory",
+        "prompt-processing prefill",
+        "token-by-token decode",
+        "key-value kv",
+        "kv cache",
+        "cpu coordination",
+        "coordination remains",
+        "numerical divergence",
+        "changed batch",
+        "production agents",
+        "monitor queue",
+        "queue depth",
+        "depth preemption",
+        "batch shape",
+        "context growth"
+      ],
+      "source_urls": [
+        "https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html",
+        "https://docs.vllm.ai/en/latest/configuration/optimization/",
+        "https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html",
+        "https://huggingface.co/docs/text-generation-inference/en/index",
+        "https://huggingface.co/docs/text-generation-inference/main/en/architecture",
+        "https://arxiv.org/abs/2309.06180",
+        "https://arxiv.org/abs/2403.02310",
+        "https://arxiv.org/abs/2506.09501",
+        "https://arxiv.org/abs/2504.11750",
+        "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/",
+        "https://docs.ollama.com/faq",
+        "https://github.com/ollama/ollama/blob/main/envconfig/config.go",
+        "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+        "https://github.com/ggml-org/llama.cpp/tree/master/tools/llama-bench",
+        "https://docs.anyscale.com/llm/serving/benchmarking/metrics"
+      ],
+      "key_claims": [
+        {
+          "text": "Under load, Large Language Model serving slows in threshold-like jumps that follow scheduler changes between prompt-processing prefill work and token-by-token decode work, not a smooth linear decline tied to Graphics Processing Unit utilization percentages",
+          "sources": [
+            "https://arxiv.org/abs/2403.02310",
+            "https://docs.vllm.ai/en/latest/configuration/optimization/",
+            "https://huggingface.co/docs/text-generation-inference/main/en/architecture"
+          ]
+        },
+        {
+          "text": "Key-value (KV) cache pressure becomes a major concurrent-serving bottleneck once batch demand outruns available memory, and vLLM responds by preempting and recomputing requests after space is freed",
+          "sources": [
+            "https://arxiv.org/abs/2309.06180",
+            "https://docs.vllm.ai/en/latest/configuration/optimization/"
+          ]
+        },
+        {
+          "text": "Even GPU-heavy inference stacks stay sensitive to Central Processing Unit launch and placement overhead, so low-batch latency can remain CPU-bound long after accelerator capacity appears available",
+          "sources": [
+            "https://arxiv.org/abs/2504.11750",
+            "https://docs.vllm.ai/en/latest/configuration/optimization/",
+            "https://github.com/ggml-org/llama.cpp/tree/master/tools/llama-bench"
+          ]
+        },
+        {
+          "text": "TGI, Ollama, vLLM, and llama.cpp all expose contention as explicit queueing, batching, and concurrency settings, which makes operator tuning part of reliable serving rather than an optional optimization",
+          "sources": [
+            "https://huggingface.co/docs/text-generation-inference/main/en/architecture",
+            "https://docs.ollama.com/faq",
+            "https://github.com/ollama/ollama/blob/main/envconfig/config.go",
+            "https://docs.vllm.ai/en/latest/configuration/optimization/",
+            "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md"
+          ]
+        },
+        {
+          "text": "Load-sensitive output drift appears when batch shape or hardware path changes the numerical execution path, and the reviewed evidence documents changed sampled tokens plus measurable accuracy shifts under those conditions",
+          "sources": [
+            "https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html",
+            "https://arxiv.org/abs/2506.09501"
+          ]
+        },
+        {
+          "text": "The consulted evidence does not isolate raw utilization percentages alone as a proven cause of semantic degradation once the numerical path is held fixed; the documented quality risk instead comes from changed precision modes, quantized caches, or altered live batching",
+          "sources": [
+            "https://docs.ollama.com/faq",
+            "https://docs.vllm.ai/en/v0.7.0/getting_started/faq.html",
+            "https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/"
+          ]
+        },
+        {
+          "text": "Reliable agent deployments need workload-class isolation, bounded concurrency, warm model residency, and deterministic external checks, since latency spikes and occasional token drift can compound across multi-step workflows",
+          "sources": [
+            "https://docs.vllm.ai/en/latest/configuration/optimization/",
+            "https://docs.ollama.com/faq",
+            "https://huggingface.co/docs/text-generation-inference/main/en/architecture",
+            "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html"
           ]
         }
       ]
