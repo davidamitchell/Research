@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c2aef0f9cc22ead8a136492a0b2bbabed21cee2c
+    changed: 2026-05-12
+    progress: progress/2026-05-12-knowledge-graph-agentic-runtime-dependency.md
+    summary: Initial completion
 ---
 
 # Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes
