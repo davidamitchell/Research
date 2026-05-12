@@ -2,12 +2,12 @@
 review_count: 2
 title: "Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes"
 added: 2026-05-12T08:21:48+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [knowledge-graph, agentic-ai, llm, agent-tooling, memory-system]
 started: 2026-05-12T10:02:46+00:00
-completed: ~
+completed: 2026-05-12T10:32:38+00:00
 output: [knowledge]
 cites:
   - 2026-05-02-knowledge-graph-schema-cross-session-research-mcp
@@ -263,12 +263,14 @@ Alternative remedies, such as simply adding more compute or asking the Large Lan
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: Knowledge Graph (KG), Large Language Model (LLM), Retrieval-Augmented Generation (RAG), Knowledge Graph Retrieval-Augmented Generation (KGRAG), Resource Description Framework (RDF), SPARQL Protocol and RDF Query Language (SPARQL), Application Programming Interface (API), YAML Ain't Markup Language (YAML), Hypertext Transfer Protocol (HTTP), Internet Protocol (IP), Model Context Protocol (MCP), Artificial Intelligence (AI), and Latent Semantic Extraction (LSE) expanded on first use in body or source text
-- Domain-term audit: "multi-step LLM systems", "recently refreshed cache", and "live service" defined in plain language at first use
-- Claim audit: every visible claim in Research Skill Output labeled as fact, inference, or assumption
-- Source audit: all cited sources contain URLs
-- Cross-item sweep: repeated against directly related completed items before synthesis
+```text
+review_result: recorded
+acronym_audit: completed
+domain_term_audit: completed
+claim_audit: completed
+source_audit: completed
+cross_item_sweep: completed
+```
 
 ---
 
