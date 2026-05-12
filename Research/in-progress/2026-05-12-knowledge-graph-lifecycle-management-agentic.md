@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness"
 added: 2026-05-12T08:21:48+00:00
 status: reviewing
