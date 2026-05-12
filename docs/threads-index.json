@@ -6355,14 +6355,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -6402,7 +6402,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -6610,14 +6610,14 @@
     "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -6647,7 +6647,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
     "slug": "copilot-coding-coding-agent-github-copilot",
@@ -6940,13 +6940,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-native-governance",
-    "title": "power platform / copilot studio / native governance",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
+      "power platform",
       "native governance"
     ],
     "item_count": 3,
@@ -6967,6 +6967,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   }
 ]
