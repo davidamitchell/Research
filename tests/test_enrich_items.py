@@ -47,6 +47,21 @@ class TestSplitFrontmatter:
         fence, yaml_block, body = _split_frontmatter(text)
         assert fence == ""  # not closed → treat as no frontmatter
 
+    def test_crlf_line_endings(self) -> None:
+        text = "---\r\ntitle: CRLF\r\n---\r\n\r\nBody."
+        fence, yaml_block, body = _split_frontmatter(text)
+        assert fence == "---"
+        assert "title: CRLF" in yaml_block
+        assert body == "Body."
+
+    def test_embedded_dash_fence_in_yaml_value(self) -> None:
+        # A YAML value containing "---" must not be mistaken for the closing fence.
+        text = '---\ntitle: foo\ndescription: "a --- b"\n---\n\nBody.'
+        fence, yaml_block, body = _split_frontmatter(text)
+        assert fence == "---"
+        assert "description" in yaml_block
+        assert body == "Body."
+
 
 # ---------------------------------------------------------------------------
 # _has_ai_themes
@@ -285,3 +300,66 @@ class TestEnrichItem:
         assert result is True
         written = path.read_text(encoding="utf-8")
         assert "ai_themes: [agentic-ai, llm-reasoning]" in written
+
+
+class TestGenerateThemes:
+    """Unit tests for _generate_themes — cascade advance on errors."""
+
+    # Patch sys.modules so `from google.genai import types` succeeds in the
+    # broken test environment where _cffi_backend is missing.
+    _GENAI_MODULES = {
+        "google.genai": MagicMock(),
+        "google.genai.types": MagicMock(),
+        "google.genai.errors": MagicMock(),
+    }
+
+    def _make_cascade(self, model: str = "gemini-3-flash") -> MagicMock:
+        cascade = MagicMock()
+        cascade.model = model
+        cascade.all_exhausted = False
+        cascade.check_daily_quota_header.return_value = False
+        return cascade
+
+    def test_returns_failed_model_name_on_exception(self) -> None:
+        """Returns (None, <failed model>) — the model that errored, not the next one.
+
+        Before the fix, cascade.model was read AFTER advance(), returning the new model.
+        """
+        from scripts.enrich_items import _generate_themes
+
+        cascade = self._make_cascade("gemini-3-flash")
+
+        # Simulate advance changing the model name (as the real cascade would).
+        def _advance() -> bool:
+            cascade.model = "gemini-3.1-flash-lite"
+            return True
+
+        cascade.advance.side_effect = _advance
+        client = MagicMock()
+        client.models.generate_content.side_effect = RuntimeError("network error")
+
+        with (
+            patch.dict("sys.modules", self._GENAI_MODULES),
+            patch("scripts.enrich_items._THINKING_MODELS", frozenset()),
+        ):
+            themes, model_used = _generate_themes(client, cascade, "prompt")
+
+        assert themes is None
+        assert model_used == "gemini-3-flash"  # failing model, not the next one
+
+    def test_cascade_advance_called_on_exception(self) -> None:
+        """cascade.advance() is called exactly once whenever the API call raises."""
+        from scripts.enrich_items import _generate_themes
+
+        cascade = self._make_cascade("gemini-3-flash")
+        client = MagicMock()
+        client.models.generate_content.side_effect = RuntimeError("unexpected")
+
+        with (
+            patch.dict("sys.modules", self._GENAI_MODULES),
+            patch("scripts.enrich_items._THINKING_MODELS", frozenset()),
+        ):
+            themes, _ = _generate_themes(client, cascade, "prompt")
+
+        assert themes is None
+        cascade.advance.assert_called_once()

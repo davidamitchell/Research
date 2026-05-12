@@ -30,14 +30,13 @@ logger = logging.getLogger(__name__)
 
 # Try newest models first; advance when a model's daily quota is exhausted.
 # Each model has its own independent free-tier quota pool — never assume a
-# single global RPM.  Unknown limits (gemini-3-*) default to 15 RPM; verify
-# at aistudio.google.com before relying on those models for large backfills.
+# single global RPM.  Verified actual free-tier limits 2026-05-12:
 #
 #   gemini-3-flash         — check aistudio.google.com for current limits
 #   gemini-3.1-flash-lite  — check aistudio.google.com for current limits
-#   gemini-2.5-flash-lite  30 RPM / 1 500 RPD — fastest; best throughput
-#   gemini-2.0-flash       15 RPM / 1 500 RPD — high RPD; strong capability
-#   gemini-2.5-flash       10 RPM /   500 RPD — strongest reasoning; lower RPD
+#   gemini-2.5-flash-lite  10 RPM / 1 500 RPD — free tier (NOT 30; that is paid)
+#   gemini-2.0-flash       limit: 0 on free tier (exhausted or unavailable)
+#   gemini-2.5-flash       10 RPM /   500 RPD — thinking model; raise max_output_tokens
 _MODEL_CASCADE: list[str] = [
     "gemini-3-flash",
     "gemini-3.1-flash-lite",
@@ -46,15 +45,14 @@ _MODEL_CASCADE: list[str] = [
     "gemini-2.5-flash",
 ]
 
-# Per-model RPM for the free tier.  Used by _ModelCascade to set the correct
-# pacing interval when the rate limiter is reset on model advance.
-# Conservative 15 RPM is used for models whose limits are not yet documented.
+# Per-model RPM for the free tier — verified from 429 error quotaValue fields.
+# Conservative 15 RPM for models whose limits are not yet observed in practice.
 _MODEL_RATES: dict[str, int] = {
     "gemini-3-flash": 15,
     "gemini-3.1-flash-lite": 15,
-    "gemini-2.5-flash-lite": 30,
-    "gemini-2.0-flash": 15,
-    "gemini-2.5-flash": 10,
+    "gemini-2.5-flash-lite": 10,  # confirmed 10 RPM free tier (2026-05-12)
+    "gemini-2.0-flash": 15,  # limit: 0 seen on free tier; cascade skips fast
+    "gemini-2.5-flash": 10,  # confirmed 10 RPM; uses thinking tokens
 }
 
 
