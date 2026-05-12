@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI capability is not a data problem - why the data/analytics department is the… — Research</title>
+          <title>AI agents — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -661,155 +661,138 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>AI capability is not a data problem - why the data/analytics department is the…</span>
+    <span>AI agents</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI capability is not a data problem - why the data/analytics department is the…</h1>
-  <p class="full-title-subtitle">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI agents</h1>
+  <p class="full-title-subtitle">Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices</p>
   <div class="meta-bar">
-    <span>2026-03-07</span>
+    <span>2026-05-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/data-platform.html">data-platform</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> <a class="tag" href="/Research/tags/zero-trust.html">zero-trust</a> <a class="tag" href="/Research/tags/identity.html">identity</a> 
+    <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/llm.html">llm</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ai-not-a-data-problem.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-12-web-ontologies-production-knowledge-graph-agentic.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-ai-not-a-data-problem" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-12-web-ontologies-production-knowledge-graph-agentic" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand. (Confidence: high)</li>
-<li>Martin Fowler&#39;s data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice&#39;s APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane. (Confidence: high)</li>
-<li>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide. (Confidence: high)</li>
-<li>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue. (Confidence: high)</li>
-<li>Knowledge management - the discipline of curating policies, regulations, procedural context, and organisational strategy for agent consumption via RAG or knowledge graphs - is structurally distinct from data management and requires its own tooling, versioning, and governance layer that a data warehouse does not provide. (Confidence: high)</li>
-<li>NIST AI RMF&#39;s Govern function, APRA CPS 230, and Singapore&#39;s Model AI Governance Framework all explicitly require cross-functional AI accountability spanning IT, legal, HR, and compliance; no data/analytics team holds mandate across these functions, and the FCA/PRA confirmed CRO and CTO - not CDO - bear AI risk accountability within their operational domains. (Confidence: high)</li>
-<li>IBM&#39;s 2025 CDO Study found only 26% of CDOs confident their teams can support new AI revenue streams, and 74% of organisations globally fail to scale AI to visible business value; CDO Magazine and HBR both document structural CDO failure in AI delivery, attributing it to mandate gaps, absent engineering skills, and inability to drive cross-functional operating model change. (Confidence: high)</li>
-<li>The hybrid model - data platform as read-only knowledge substrate accessed via a governed API mediation layer, not via direct SQL - preserves the genuine data-platform-centric advantages (data gravity, ML proximity, analytics tooling) while eliminating the NFR, identity, mutation, and accountability risks of direct warehouse access. (Confidence: medium)</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>RDF plus RDFS already cover the baseline graph and schema functions that many operational Knowledge Graphs need, including reusable vocabulary terms, lightweight hierarchy semantics, and named-graph structure, before any heavier reasoning layer is introduced<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/rdf12-concepts/" target="_blank" rel="noopener" title="https://www.w3.org/TR/rdf12-concepts/">Concepts (2024)</a><a class="claim-source-link" href="https://www.w3.org/TR/rdf12-schema/" target="_blank" rel="noopener" title="https://www.w3.org/TR/rdf12-schema/">W3 (n.d.)</a></span></li>
+<li>OWL is easiest to justify when attached to a specific reasoning requirement, because its tractable profiles correspond to different execution patterns: OWL 2 EL for large hierarchies, OWL 2 QL for relational query rewriting, and OWL 2 RL for scalable rule application<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/owl2-profiles/" target="_blank" rel="noopener" title="https://www.w3.org/TR/owl2-profiles/">Profiles (2012)</a><a class="claim-source-link" href="https://www.w3.org/TR/owl2-primer/" target="_blank" rel="noopener" title="https://www.w3.org/TR/owl2-primer/">Primer (2012)</a></span></li>
+<li>SKOS is strongest for organizing concepts, labels, broader-narrower links, and vocabulary mappings, but once a graph needs formal constraints or richer entailment, a domain ontology layer has to carry that extra semantic load<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/skos-reference/" target="_blank" rel="noopener" title="https://www.w3.org/TR/skos-reference/">Reference (2009)</a></span></li>
+<li>Schema.org delivers the most value at web publication boundaries, where broad ecosystem recognition matters, but its consensus-oriented release model makes it a loose interchange vocabulary rather than a precise internal source of truth for operational entities<span class="claim-sources"><a class="claim-source-link" href="https://schema.org/docs/about.html" target="_blank" rel="noopener" title="https://schema.org/docs/about.html">Schema (n.d.)</a><a class="claim-source-link" href="https://schema.org/docs/howwework.html" target="_blank" rel="noopener" title="https://schema.org/docs/howwework.html">Schema (n.d.)</a></span></li>
+<li>A small domain ontology usually stays maintainable longer when it imports support vocabularies instead of recreating them, because PROV-O, OWL-Time, DCAT, and FOAF already cover recurring provenance, temporal, catalog, and actor semantics<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/prov-o/" target="_blank" rel="noopener" title="https://www.w3.org/TR/prov-o/">PROV-O (2013)</a><a class="claim-source-link" href="https://www.w3.org/TR/owl-time/" target="_blank" rel="noopener" title="https://www.w3.org/TR/owl-time/">W3 (n.d.)</a><a class="claim-source-link" href="https://www.w3.org/TR/vocab-dcat-3/" target="_blank" rel="noopener" title="https://www.w3.org/TR/vocab-dcat-3/">W3 (n.d.)</a><a class="claim-source-link" href="https://xmlns.com/foaf/spec/" target="_blank" rel="noopener" title="https://xmlns.com/foaf/spec/">FOAF (n.d.)</a><a class="claim-source-link" href="https://lot.linkeddata.es/" target="_blank" rel="noopener" title="https://lot.linkeddata.es/">LOT (n.d.)</a></span></li>
+<li>Once graph terms affect live systems, ontology governance has to behave like release management, with named ownership, proposal review, additive evolution, explicit deprecation, and published versions rather than silent semantic drift<span class="claim-sources"><a class="claim-source-link" href="https://schema.org/docs/howwework.html" target="_blank" rel="noopener" title="https://schema.org/docs/howwework.html">Schema (n.d.)</a><a class="claim-source-link" href="https://www.wikidata.org/wiki/Wikidata:Property_proposal" target="_blank" rel="noopener" title="https://www.wikidata.org/wiki/Wikidata:Property_proposal">Wikidata (n.d.)</a><a class="claim-source-link" href="https://www.wikidata.org/wiki/Wikidata:Creating_a_property_proposal" target="_blank" rel="noopener" title="https://www.wikidata.org/wiki/Wikidata:Creating_a_property_proposal">Wikidata (n.d.)</a><a class="claim-source-link" href="https://www.w3.org/TR/dwbp/" target="_blank" rel="noopener" title="https://www.w3.org/TR/dwbp/">Practices (2017)</a></span></li>
+<li>Reasoning strategy should be selected from workload shape rather than ontology purity, because query-time inference helps when schemas change often, while materialized entailments make more sense when the same derived facts are read repeatedly under tight latency targets<span class="claim-sources"><a class="claim-source-link" href="https://docs.stardog.com/inference-engine/" target="_blank" rel="noopener" title="https://docs.stardog.com/inference-engine/">Stardog (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Mitchell (2026)</a></span></li>
+<li>Application-facing agents rarely need raw axioms directly, because they usually perform better with query results, bounded graph fragments, or graph-derived summaries than with the ontology&#39;s full formal machinery exposed at prompt time<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2306.08302" target="_blank" rel="noopener" title="https://arxiv.org/abs/2306.08302">Luo et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener" title="https://arxiv.org/abs/2404.16130">Edge et al. (2025)</a><a class="claim-source-link" href="https://www.w3.org/TR/json-ld11/" target="_blank" rel="noopener" title="https://www.w3.org/TR/json-ld11/">W3 (n.d.)</a><a class="claim-source-link" href="https://www.w3.org/TR/turtle/" target="_blank" rel="noopener" title="https://www.w3.org/TR/turtle/">W3 (n.d.)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation's AI capability should NOT be owned by or coupled to its data/analytics department or data platform, and what concrete tradeoffs arise when that coupling is made?</p>
+<p>How should web ontologies, Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org, be selected, composed, and applied when designing and operating a Knowledge Graph (KG), a structured graph of entities and relationships, used by multi-step Artificial Intelligence (AI) agents, and what are the trade-offs between expressivity, runtime performance, and agent comprehensibility?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
-<p>Coupling an organisation's AI capability to its data/analytics department is a structural category error: analytics platforms fail the non-functional requirements of production AI agents by design, and the data/analytics team lacks the organisational mandate, skills, and regulatory accountability required for the operational agent layer. The correct integration architecture places agents against the organisation's API layer - via API gateway, horizontally-scaling services, MCP servers, and STS token exchange (RFC 8693) - which satisfies the latency, HADR, delegated identity, mutation auditability, and zero-trust requirements that analytics platforms cannot. Knowledge management (policies, regulations, procedural context served via RAG) is a distinct discipline from data management and belongs in the API/platform layer, not the warehouse. Regulators including NIST AI RMF, APRA CPS 230, and FCA/PRA confirm that AI accountability requires IT, legal, HR, and compliance mandate that no data/analytics team holds; the empirical record shows that 74% of organisations that anchor AI in data teams fail to scale to visible business value.</p>
+<p>Start a production Knowledge Graph for multi-step Artificial Intelligence (AI) agents with RDF and RDFS, then layer in SKOS, Schema.org, or OWL only when a specific taxonomy, interchange, or reasoning need appears.</p>
+<p>That usually means SKOS for concept navigation, Schema.org at publication edges, and OWL only where formal entailment materially improves validation, subsumption, or rule execution.</p>
+<p>Teams usually get a more durable design by reusing support vocabularies such as PROV-O, OWL-Time, DCAT, and FOAF instead of rebuilding common provenance, time, catalog, and actor semantics from scratch.</p>
+<p>Prompt-facing workflows generally work better with bounded graph fragments, serializations, or graph-derived summaries than with raw axioms, so most semantic complexity should remain behind the interaction layer.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p><strong>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>Martin Fowler's data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice's APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>Knowledge management - the discipline of curating policies, regulations, procedural context, and organisational strategy for agent consumption via RAG or knowledge graphs - is structurally distinct from data management and requires its own tooling, versioning, and governance layer that a data warehouse does not provide.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>NIST AI RMF's Govern function, APRA CPS 230, and Singapore's Model AI Governance Framework all explicitly require cross-functional AI accountability spanning IT, legal, HR, and compliance; no data/analytics team holds mandate across these functions, and the FCA/PRA confirmed CRO and CTO - not CDO - bear AI risk accountability within their operational domains.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>IBM's 2025 CDO Study found only 26% of CDOs confident their teams can support new AI revenue streams, and 74% of organisations globally fail to scale AI to visible business value; CDO Magazine and HBR both document structural CDO failure in AI delivery, attributing it to mandate gaps, absent engineering skills, and inability to drive cross-functional operating model change.</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>The hybrid model - data platform as read-only knowledge substrate accessed via a governed API mediation layer, not via direct SQL - preserves the genuine data-platform-centric advantages (data gravity, ML proximity, analytics tooling) while eliminating the NFR, identity, mutation, and accountability risks of direct warehouse access.</strong> (Confidence: medium)</p>
-</li>
-<li>
-<p><strong>The data team is the correct owner of the analytical and experimental AI layer (model training, data exploration, BI automation, ML experimentation) and an incorrect owner of the operational agent layer (production agents taking consequential actions with real-time write access, regulatory traceability requirements, and operational SLA obligations).</strong> (Confidence: high)</p>
-</li>
-<li>
-<p><strong>Placing AI ownership in the data team creates a structural incentive misalignment: data teams are rewarded for expanding data products and demonstrating AI adoption, creating pressure to accumulate AI ownership even when the team lacks production engineering, security, and change management capability - the behavioural dynamic documented in the 74% failure statistic.</strong> (Confidence: medium)</p>
-</li>
-<li>
-<p><strong>The BI precedent is directly analogous: BI capability placed in data teams in the 2000s eventually transferred to product engineering as BI accumulated operational dependencies that data teams could not service to production SLAs; production AI follows the same arc at higher regulatory and operational stakes.</strong> (Confidence: medium)</p>
-</li>
-<li>
-<p><strong>Regulators have not explicitly mandated separation of analytical and operational data access as a standalone requirement; the implication is indirect - operational risk, auditability, fine-grained access control, and board-level accountability requirements collectively produce the same architectural conclusion.</strong> (Confidence: high)</p>
-</li>
+<li><strong>RDF plus RDFS already cover the baseline graph and schema functions that many operational Knowledge Graphs need, including reusable vocabulary terms, lightweight hierarchy semantics, and named-graph structure, before any heavier reasoning layer is introduced.</strong></li>
+<li><strong>OWL is easiest to justify when attached to a specific reasoning requirement, because its tractable profiles correspond to different execution patterns: OWL 2 EL for large hierarchies, OWL 2 QL for relational query rewriting, and OWL 2 RL for scalable rule application.</strong></li>
+<li><strong>SKOS is strongest for organizing concepts, labels, broader-narrower links, and vocabulary mappings, but once a graph needs formal constraints or richer entailment, a domain ontology layer has to carry that extra semantic load.</strong></li>
+<li><strong>Schema.org delivers the most value at web publication boundaries, where broad ecosystem recognition matters, but its consensus-oriented release model makes it a loose interchange vocabulary rather than a precise internal source of truth for operational entities.</strong></li>
+<li><strong>A small domain ontology usually stays maintainable longer when it imports support vocabularies instead of recreating them, because PROV-O, OWL-Time, DCAT, and FOAF already cover recurring provenance, temporal, catalog, and actor semantics.</strong></li>
+<li><strong>Once graph terms affect live systems, ontology governance has to behave like release management, with named ownership, proposal review, additive evolution, explicit deprecation, and published versions rather than silent semantic drift.</strong></li>
+<li><strong>Reasoning strategy should be selected from workload shape rather than ontology purity, because query-time inference helps when schemas change often, while materialized entailments make more sense when the same derived facts are read repeatedly under tight latency targets.</strong></li>
+<li><strong>Application-facing agents rarely need raw axioms directly, because they usually perform better with query results, bounded graph fragments, or graph-derived summaries than with the ontology's full formal machinery exposed at prompt time.</strong></li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li>
-<p><strong>Assumption:</strong> &quot;Production agent&quot; means an agent that takes consequential actions (sends communications, modifies records, makes decisions with downstream effects) rather than a read-only analytics assistant. <strong>Justification:</strong> The research question and scope explicitly include write operations and the high-stakes agent category is the primary motivating use case. A pure read-only analytics assistant raises fewer NFR concerns, though the identity and audit trail arguments still apply.</p>
-</li>
-<li>
-<p><strong>Assumption:</strong> The skills gap between data/analytics teams and API/platform engineering is sufficiently wide that bridging it within the existing data team structure is not feasible at pace for most organisations. <strong>Justification:</strong> IBM CDO Study and multiple skills gap analyses confirm the gap; however, organisations with large, senior data engineering teams (large tech companies, advanced fintechs) may have more cross-disciplinary skill sets that reduce the gap.</p>
-</li>
+<li>[assumption] Most production teams can keep backend semantic reasoning and prompt-facing graph presentation as separate design surfaces. <strong>Justification:</strong> GraphRAG and JSON-LD both assume a representational layer that is not identical to the full internal graph semantics. [source: <a href="https://arxiv.org/abs/2404.16130">Edge et al. (2025) From Local to Global: A GraphRAG Approach to Query-Focused Summarization</a> <a href="https://www.w3.org/TR/json-ld11/]">www.w3.org</a></li>
+<li>[assumption] For live multi-step AI agents, latency and freshness usually matter more than extracting every logically possible entailment from an expressive ontology. <strong>Justification:</strong> the consulted runtime and reasoning sources document explicit freshness and query-cost trade-offs but do not argue for maximal live entailment as a universal default. [source: <a href="https://docs.stardog.com/inference-engine/">Stardog Reasoning and Inference documentation</a> <a href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html]">davidamitchell.github.io</a></li>
 </ul>
 <h3>Analysis</h3>
-<p>The technical, organisational, and empirical evidence converge on the same structural conclusion. Fowler's operational/analytical data plane separation and the NFR analysis show that analytics platforms fail production agent requirements by design, not by implementation deficiency - the limitations are architectural. Regulatory frameworks (NIST AI RMF, APRA CPS 230, FCA/PRA) and IBM/HBR CDO research independently confirm that no data/analytics team holds the mandate or possesses the skills required for the operational agent layer. The 74% AI scaling failure rate, the 26% CDO readiness figure, and the HBR structural analysis of CDO failure are three empirically independent data points documenting what happens when data teams carry the production AI mandate.</p>
-<p>The genuine counter-argument - data gravity, ML proximity, and prototype speed - was engaged directly. These advantages are real at the analytical and experimental layer. The resolution is the hybrid model: the data team retains ownership of the analytical/experimental plane; the API layer is built or strengthened for the operational agent layer. This is not a radical restructuring; it is a separation of concerns that the data mesh architecture already implies.</p>
-<p>Evidence sufficiency is high for the architectural claims (multiple independent technical sources, primary standards), medium for the organisational claims (empirical data exists but no controlled studies compare AI outcomes by departmental ownership structure), and medium for the BI precedent (widely observable but not systematically studied).</p>
+<p>The standards evidence points to deliberate layering, not semantic maximalism, because RDF, RDFS, OWL, SKOS, and Schema.org each solve a different modeling problem and none of the consulted primary sources claims to replace all of the others.</p>
+<p>That makes ontology choice a systems-design problem rather than a standards-loyalty problem.</p>
+<p>If the graph needs only shared identifiers, labels, and lightweight hierarchy, RDF plus RDFS, with optional SKOS, is enough.</p>
+<p>If the graph must support formal validation, subsumption, or reusable rule patterns, OWL belongs in the design, but usually through a tractable profile and often behind a cache, materialization job, or query-rewriting layer rather than inside every live agent step.</p>
+<p>The governance conclusion follows the same logic: once identifiers and term meanings become operational dependencies, ontology change must move through visible review, release, and deprecation controls rather than through ad hoc edits.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>
-<p><strong>Evidence gap on controlled studies:</strong> No published study directly compares AI programme outcomes by departmental ownership structure (data team vs. cross-functional vs. dedicated AI function). The 74% failure rate is associated with absence of cross-functional ownership, not with data-team ownership specifically - though the CDO readiness gap and HBR analysis provide strong indirect evidence.</p>
-</li>
-<li>
-<p><strong>Inaccessible sources:</strong> Zhamak Dehghani's <em>Data Mesh</em> (O'Reilly, 2022), W3C DID spec, <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a>, <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a>, Google Cloud and Microsoft Azure architecture documentation, Thoughtworks Technology Radar, and McKinsey Global Institute AI survey were not directly fetched in this investigation. These sources were not required to establish the claims - the claims are well-supported by accessed sources - but their absence is noted. The Fowler article (public, accessed) provides the foundational data mesh argument; the Dehghani book would corroborate but is paywalled.</p>
-</li>
-<li>
-<p><strong>Hybrid model evidence:</strong> The recommendation that a hybrid model (data platform as API-mediated read-only knowledge substrate) preserves data-team advantages is an inference, not a directly documented case study. No published case study was found that specifically documented the transition from data-platform-centric to API-layer-centric agent architecture and its outcomes.</p>
-</li>
-<li>
-<p><strong>NZ-specific gap:</strong> RBNZ has no standalone AI governance framework (confirmed in prior research). The claim that NZ regulatory requirements imply cross-functional accountability is correct but derived from BS11/BPR and APRA CPS 230, not from RBNZ-specific AI guidance.</p>
-</li>
-<li>
-<p><strong>Small organisations:</strong> The argument assumes an organisation of sufficient size to have distinct data/analytics and IT/platform engineering functions. Very small organisations where the same team does both may face a different analysis.</p>
-</li>
+<li>Public evidence directly comparing agent answer quality across different ontology serializations remains limited, so the prompt-facing serialization guidance here rests on architecture and tooling evidence rather than on large benchmark suites.</li>
+<li>The materialization side of the reasoning trade-off is supported here partly through a prior repository synthesis rather than through a directly consulted public GraphDB inferencing page, which lowers confidence in platform-specific detail even though the broader trade-off remains well grounded.</li>
+<li>The accessible LOT evidence comes from the official methodology site rather than from a full direct reading of the journal article, so its process claims should be treated as official-framework guidance rather than as a line-by-line paper synthesis.</li>
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li>What does a purpose-built &quot;AI capability function&quot; organisational chart look like in practice, and who should it report to (CTO, COO, CEO)?</li>
-<li>How should organisations handle the transition period where the data team <em>does</em> hold AI tooling but the target state is an API-layer-centric architecture - what is the migration path?</li>
-<li>Is there a documented case study of an organisation that successfully transitioned from data-platform-centric to API-layer-centric AI architecture, and what were the costs and timeline?</li>
-<li>What are the procurement and vendor implications of separating the AI capability from the data platform - does MCP server adoption require significant new vendor contracts?</li>
-<li>How does the argument change for organisations that have invested heavily in lakehouse architectures (Databricks, Delta Lake) that blur the operational/analytical boundary?</li>
+<li>Which ontology-diff and deprecation tools are most effective for small Knowledge Graph teams that do not have a dedicated ontology platform?</li>
+<li>What is the best token-efficient format for exposing provenance-rich graph fragments to LLM agents?</li>
+<li>Under what workload does precomputed OWL RL inference outperform lightweight query rewriting for live agent workflows?</li>
 </ul>
 <hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://martinfowler.com/articles/data-mesh-principles.html">Martin Fowler - &quot;DataMesh&quot; and operational vs. analytical data plane separation</a></li>
-<li>[ ] Zhamak Dehghani - <em>Data Mesh</em> (O'Reilly, 2022) - operational vs. analytical plane distinction</li>
-<li>[x] <a href="https://www.nist.gov/artificial-intelligence/ai-risk-management-framework">National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF)</a> — governance and organisational accountability</li>
-<li>[ ] <a href="https://www.rbnz.govt.nz">RBNZ - AI supervisory expectations and governance guidance</a></li>
-<li>[ ] <a href="https://cloud.google.com/architecture">Google Cloud Architecture - &quot;Separation of analytical and operational workloads&quot;</a></li>
-<li>[ ] <a href="https://learn.microsoft.com/en-us/azure/well-architected/">Microsoft Azure Well-Architected Framework - AI workload NFRs</a></li>
-<li>[ ] Anthropic / OpenAI usage policies and agent architecture guidance</li>
-<li>[ ] <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey Global Institute - &quot;The state of AI in organisations&quot; (annual survey)</a></li>
-<li>[ ] Gartner - &quot;AI governance and organisational design&quot; research notes</li>
-<li>[x] <a href="https://datatracker.ietf.org/doc/html/rfc8693">OAuth 2.0 Token Exchange (RFC 8693) - STS delegation pattern for agents</a></li>
-<li>[ ] <a href="https://www.w3.org/TR/did-core/">W3C Decentralised Identifiers (DID) spec</a></li>
-<li>[ ] <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a></li>
-<li>[ ] <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a></li>
-<li>[ ] Andreessen Horowitz (a16z) - AI enterprise architecture commentary</li>
-<li>[ ] <a href="https://www.thoughtworks.com/radar">Thoughtworks Technology Radar - Data mesh, API gateway, and agent architecture entries</a></li>
-<li>[x] <code>Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md</code> - NZ regulatory context</li>
-<li>[x] <code>Research/backlog/2026-02-28-ai-strategy-business-efficiency-examples.md</code> - AI strategy examples context (now completed)</li>
-<li>[x] <code>Research/backlog/2026-02-28-ai-line-1-line-2-risk-agents.md</code> - risk and governance framing (now completed)</li>
+<li>[x] <a href="https://www.w3.org/TR/rdf12-concepts/">W3C RDF 1.2 Concepts (2024)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/rdf12-schema/">W3C RDF 1.2 Schema (2025 Working Draft)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/owl2-primer/">W3C OWL 2 Web Ontology Language Primer (2012)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/owl2-profiles/">W3C OWL 2 Profiles (2012)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/skos-reference/">W3C SKOS Simple Knowledge Organization System Reference (2009)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/dwbp/">W3C Data on the Web Best Practices (2017)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/swbp-vocab-pub/">W3C Best Practice Recipes for Publishing RDF Vocabularies (2008)</a></li>
+<li>[x] <a href="https://schema.org/docs/about.html">Schema.org About</a></li>
+<li>[x] <a href="https://schema.org/docs/howwework.html">Schema.org How We Work</a></li>
+<li>[x] <a href="https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html">Noy and McGuinness (2001) Ontology Development 101: A Guide to Creating Your First Ontology</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2003.02320">Hogan et al. (2021) Knowledge Graphs</a></li>
+<li>[x] <a href="https://lot.linkeddata.es/">LOT methodology site</a></li>
+<li>[ ] <a href="https://doi.org/10.1016/j.engappai.2022.104755">Poveda-Villalón et al. (2022) LOT: An industrial oriented ontology engineering framework</a></li>
+<li>[x] <a href="http://ontologydesignpatterns.org">OntologyDesignPatterns.org portal</a></li>
+<li>[x] <a href="https://www.wikidata.org/wiki/Wikidata:Property_proposal">Wikidata Property proposal</a></li>
+<li>[x] <a href="https://www.wikidata.org/wiki/Wikidata:Creating_a_property_proposal">Wikidata Creating a property proposal</a></li>
+<li>[x] <a href="https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology">Wikidata WikiProject Ontology</a></li>
+<li>[x] <a href="https://www.w3.org/TR/prov-o/">W3C PROV-O (2013)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/owl-time/">W3C OWL-Time (2023 Candidate Recommendation Draft)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/vocab-dcat-3/">W3C DCAT 3 (2024)</a></li>
+<li>[x] <a href="https://xmlns.com/foaf/spec/">FOAF specification</a></li>
+<li>[x] <a href="https://docs.stardog.com/inference-engine/">Stardog Reasoning and Inference documentation</a></li>
+<li>[ ] <a href="https://graphdb.ontotext.com/documentation/11.0/inference.html">Ontotext GraphDB Inferencing documentation</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2306.08302">Luo et al. (2024) Unifying Large Language Models and Knowledge Graphs: A Roadmap</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2404.16130">Edge et al. (2025) From Local to Global: A GraphRAG Approach to Query-Focused Summarization</a></li>
+<li>[x] <a href="https://www.w3.org/TR/json-ld11/">W3C JSON-LD 1.1</a></li>
+<li>[x] <a href="https://www.w3.org/TR/turtle/">W3C Turtle</a></li>
+<li>[x] <a href="https://www.w3.org/TR/trig/">W3C TriG</a></li>
+<li>[x] <a href="https://www.w3.org/TR/rdf-syntax-grammar/">W3C RDF/XML Syntax Specification</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Mitchell (2026) Knowledge Graph in the live execution path of multi-step Large Language Model systems: architecture and failure modes</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Mitchell (2026) Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Mitchell (2026) Hosted Software-as-a-Service graph database options for knowledge ontology</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html">Mitchell (2026) Knowledge curation governance as an enterprise AI capability in regulated financial institutions</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html">Mitchell (2026) What entity-relation schema and write-query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence agent using the Model Context Protocol memory server?</a></li>
 </ul>
 <hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html">How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?</a> <span class="related-note">via agentic-ai, governance, identity, zero-trust</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</a> <span class="related-note">via agentic-ai, governance, identity</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-01-srinivasan-ai-automation-augmentation-role-replacement.html">Prof Suraj Srinivasan&#39;s automation and augmentation scores: which job roles will Artificial Intelligence replace entirely?</a> <span class="related-note">via agentic-ai, ai-strategy, organisational-design</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via agentic-ai, architecture, governance</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices</a> <span class="related-note">via agentic-ai, governance</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, governance, knowledge-graph, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes</a> <span class="related-note">via agentic-ai, knowledge-graph, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-10-m365-copilot-sensitive-data-security-governance-risks.html">Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments</a> <span class="related-note">via agentic-ai, governance, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html">Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation</a> <span class="related-note">via agentic-ai, governance, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html">Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts</a> <span class="related-note">via agentic-ai, governance, llm</span></div>
 </div></div>
 
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Hosted Software-as-a-Service (SaaS) graph database options for knowledge ontology</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html">Knowledge curation governance as an enterprise AI capability in regulated financial institutions</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html">What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-03-knowledge-representation-agent-context.html">Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management</a></div>
+</div>
+
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-chat-conversational-interface.html">Conversational and chat interface for querying the research corpus</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Knowledge Graph lifecycle management for multi-step software agents</a></div>
   </div>
 </main>
 </body>

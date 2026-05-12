@@ -1,6 +1,130 @@
 {
-  "extracted_at": "2026-05-12T11:14:09Z",
+  "extracted_at": "2026-05-12T11:25:53Z",
   "items": {
+    "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
+      "named_concepts": [
+        "schema org",
+        "graph fragments",
+        "prov-o owl-time",
+        "owl-time dcat",
+        "graph-derived summaries",
+        "owl rl",
+        "knowledge graph",
+        "ai agents",
+        "validation subsumption",
+        "actor semantics",
+        "bounded graph",
+        "raw axioms",
+        "rdf plus",
+        "plus rdfs",
+        "already cover",
+        "baseline graph",
+        "schema functions",
+        "many operational",
+        "lightweight hierarchy",
+        "patterns owl"
+      ],
+      "source_urls": [
+        "https://www.w3.org/TR/rdf12-concepts/",
+        "https://www.w3.org/TR/rdf12-schema/",
+        "https://www.w3.org/TR/owl2-primer/",
+        "https://www.w3.org/TR/owl2-profiles/",
+        "https://www.w3.org/TR/skos-reference/",
+        "https://www.w3.org/TR/dwbp/",
+        "https://www.w3.org/TR/swbp-vocab-pub/",
+        "https://schema.org/docs/about.html",
+        "https://schema.org/docs/howwework.html",
+        "https://protege.stanford.edu/publications/ontology_development/ontology101-noy-mcguinness.html",
+        "https://arxiv.org/abs/2003.02320",
+        "https://lot.linkeddata.es/",
+        "https://doi.org/10.1016/j.engappai.2022.104755",
+        "https://www.wikidata.org/wiki/Wikidata:Property_proposal",
+        "https://www.wikidata.org/wiki/Wikidata:Creating_a_property_proposal",
+        "https://www.wikidata.org/wiki/Wikidata:WikiProject_Ontology",
+        "https://www.w3.org/TR/prov-o/",
+        "https://www.w3.org/TR/owl-time/",
+        "https://www.w3.org/TR/vocab-dcat-3/",
+        "https://xmlns.com/foaf/spec/",
+        "https://docs.stardog.com/inference-engine/",
+        "https://graphdb.ontotext.com/documentation/11.0/inference.html",
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2404.16130",
+        "https://www.w3.org/TR/json-ld11/",
+        "https://www.w3.org/TR/turtle/",
+        "https://www.w3.org/TR/trig/",
+        "https://www.w3.org/TR/rdf-syntax-grammar/",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html"
+      ],
+      "key_claims": [
+        {
+          "text": "RDF plus RDFS already cover the baseline graph and schema functions that many operational Knowledge Graphs need, including reusable vocabulary terms, lightweight hierarchy semantics, and named-graph structure, before any heavier reasoning layer is introduced",
+          "sources": [
+            "https://www.w3.org/TR/rdf12-concepts/",
+            "https://www.w3.org/TR/rdf12-schema/"
+          ]
+        },
+        {
+          "text": "OWL is easiest to justify when attached to a specific reasoning requirement, because its tractable profiles correspond to different execution patterns: OWL 2 EL for large hierarchies, OWL 2 QL for relational query rewriting, and OWL 2 RL for scalable rule application",
+          "sources": [
+            "https://www.w3.org/TR/owl2-profiles/",
+            "https://www.w3.org/TR/owl2-primer/"
+          ]
+        },
+        {
+          "text": "SKOS is strongest for organizing concepts, labels, broader-narrower links, and vocabulary mappings, but once a graph needs formal constraints or richer entailment, a domain ontology layer has to carry that extra semantic load",
+          "sources": [
+            "https://www.w3.org/TR/skos-reference/"
+          ]
+        },
+        {
+          "text": "Schema.org delivers the most value at web publication boundaries, where broad ecosystem recognition matters, but its consensus-oriented release model makes it a loose interchange vocabulary rather than a precise internal source of truth for operational entities",
+          "sources": [
+            "https://schema.org/docs/about.html",
+            "https://schema.org/docs/howwework.html"
+          ]
+        },
+        {
+          "text": "A small domain ontology usually stays maintainable longer when it imports support vocabularies instead of recreating them, because PROV-O, OWL-Time, DCAT, and FOAF already cover recurring provenance, temporal, catalog, and actor semantics",
+          "sources": [
+            "https://www.w3.org/TR/prov-o/",
+            "https://www.w3.org/TR/owl-time/",
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://xmlns.com/foaf/spec/",
+            "https://lot.linkeddata.es/"
+          ]
+        },
+        {
+          "text": "Once graph terms affect live systems, ontology governance has to behave like release management, with named ownership, proposal review, additive evolution, explicit deprecation, and published versions rather than silent semantic drift",
+          "sources": [
+            "https://schema.org/docs/howwework.html",
+            "https://www.wikidata.org/wiki/Wikidata:Property_proposal",
+            "https://www.wikidata.org/wiki/Wikidata:Creating_a_property_proposal",
+            "https://www.w3.org/TR/dwbp/"
+          ]
+        },
+        {
+          "text": "Reasoning strategy should be selected from workload shape rather than ontology purity, because query-time inference helps when schemas change often, while materialized entailments make more sense when the same derived facts are read repeatedly under tight latency targets",
+          "sources": [
+            "https://docs.stardog.com/inference-engine/",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        },
+        {
+          "text": "Application-facing agents rarely need raw axioms directly, because they usually perform better with query results, bounded graph fragments, or graph-derived summaries than with the ontology's full formal machinery exposed at prompt time",
+          "sources": [
+            "https://arxiv.org/abs/2306.08302",
+            "https://arxiv.org/abs/2404.16130",
+            "https://www.w3.org/TR/json-ld11/",
+            "https://www.w3.org/TR/turtle/"
+          ]
+        }
+      ]
+    },
     "2026-05-12-knowledge-graph-lifecycle-management-agentic": {
       "named_concepts": [
         "knowledge graph",
