@@ -2,12 +2,12 @@
 review_count: 2
 title: "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?"
 added: 2026-05-12T11:03:22+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, evaluation, workflow, organisation]
 started: 2026-05-12T19:03:28+00:00
-completed: ~
+completed: 2026-05-12T19:33:35+00:00
 output: []
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
