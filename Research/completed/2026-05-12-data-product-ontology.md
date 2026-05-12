@@ -8,7 +8,7 @@ blocks: []
 tags: [knowledge-graph, governance, organisation]
 started: 2026-05-12T18:10:49+00:00
 completed: 2026-05-12T18:36:22+00:00
-output: []
+output: [knowledge]
 cites:
   - 2026-05-12-web-ontologies-production-knowledge-graph-agentic
 related:
@@ -18,7 +18,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: af44ec4caa089c357f8e5bed20fd93736d76ba47
+    changed: 2026-05-12
+    progress: progress/2026-05-12-data-product-ontology.md
+    summary: "Initial completion"
 ---
 
 # Data product ontology: definition, adoption, and current relevance
