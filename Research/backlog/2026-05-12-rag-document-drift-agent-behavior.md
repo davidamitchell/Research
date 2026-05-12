@@ -1,22 +1,26 @@
 ---
-title: "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what strategies exist to detect, measure, and mitigate them?"
+title: "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?"
 added: 2026-05-12T11:03:22+00:00
 status: backlog
 priority: high
 blocks: []
-tags: [agentic-ai, rag, llm, evaluation, context-engineering]
+tags: [agentic-ai, rag, llm, evaluation, context-engineering, governance, dependency-mapping]
 started: ~
 completed: ~
 output: []
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
   - 2026-04-29-knowledge-scaffolding-context-engineering
+  - 2026-03-21-dependency-mapping-dotnet-terraform-dynatrace
 related:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
   - 2026-05-12-knowledge-graph-lifecycle-management-agentic
   - 2026-04-29-knowledge-scaffolding-context-engineering
   - 2026-05-06-aibom-runtime-generation-divergence-theory
+  - 2026-05-06-aibom-declared-construction-practice
   - 2026-03-08-servicenow-ai-knowledge-rag-agents
+  - 2026-04-27-servicenow-orchestration-agentic-ai-roadmap
+  - 2026-03-21-dependency-mapping-dotnet-terraform-dynatrace
 superseded_by: ~
 supersedes: ~
 item_type: primary
@@ -24,11 +28,11 @@ confidence: medium
 versions: []
 ---
 
-# When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what strategies exist to detect, measure, and mitigate them?
+# When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?
 
 ## Research Question
 
-When the source documents indexed in a Retrieval-Augmented Generation (RAG) pipeline change after an agent has been built and tested, what failure modes and behavioral regressions can result in production, and what strategies — covering document versioning, behavioral baseline testing, and deployment governance — exist to detect, measure, and mitigate these regressions?
+When the source documents indexed in a Retrieval-Augmented Generation (RAG) pipeline change after an agent has been built and tested, what failure modes and behavioral regressions can result in production, and what practices — covering document versioning, behavioral baseline testing, CMDB-style dependency registration of agent-to-document relationships, and ITIL-inspired change management governance — exist to detect, govern, and mitigate these regressions?
 
 ## Scope
 
@@ -41,6 +45,8 @@ When the source documents indexed in a Retrieval-Augmented Generation (RAG) pipe
 - Document versioning and corpus management approaches: snapshot indices, version-pinned retrieval, change-gated pipeline promotion
 - Deployment governance patterns for controlled document-corpus rollouts: canary updates, staged index promotion, review gates
 - How software engineering concepts (semantic versioning, contract testing, dependency management) translate to document corpora as dependencies
+- **Dependency registration and discovery**: whether and how Configuration Management Database (CMDB) or service-registry patterns can formally record the relationship between a deployed agent and the specific document corpus (or corpus version) it depends on, so that impact of a document change can be assessed before propagation
+- **Change management governance**: how Information Technology Infrastructure Library (ITIL) change management concepts — change advisory boards, impact assessment, rollback plans, and authorised change gates — apply to document-corpus updates when those documents are runtime dependencies for production agents; and how platforms such as ServiceNow already surface dependency maps that could be extended to cover agent-to-knowledge-base linkages
 
 **Out of scope:**
 - Knowledge Graph-specific runtime architecture — covered in `2026-05-12-knowledge-graph-agentic-runtime-dependency`
@@ -56,7 +62,9 @@ When the source documents indexed in a Retrieval-Augmented Generation (RAG) pipe
 
 ## Context
 
-Agents are typically built and tested against a specific snapshot of the documents they will query at runtime. Those documents — via Retrieval-Augmented Generation (RAG) or other retrieval methods — inject content into the context window that informs or drives agent decisions. Once deployed, those documents continue to change as knowledge is updated, policies are revised, or product content evolves. The documents are effectively a runtime dependency whose version at test time may diverge significantly from the version encountered in production. This research informs how teams should design, test, and operate agents where document-corpus drift is a known operational risk.
+Agents are typically built and tested against a specific snapshot of the documents they will query at runtime. Those documents — via Retrieval-Augmented Generation (RAG) or other retrieval methods — inject content into the context window that informs or drives agent decisions. Once deployed, those documents continue to change as knowledge is updated, policies are revised, or product content evolves. The documents are effectively a runtime dependency whose version at test time may diverge significantly from the version encountered in production.
+
+This problem mirrors the challenge ITSM (IT Service Management) tooling was built to solve for infrastructure: a Configuration Management Database (CMDB) records what components a service depends on so that the impact of a change can be assessed before it propagates. Platforms such as ServiceNow already expose dependency maps linking services to their supporting configuration items; the open question is how and whether those same patterns can be extended to link deployed agents to the document corpora they depend on, and how change management governance processes should gate document-corpus updates just as they gate infrastructure changes. This research informs how teams should design, test, and operate agents where document-corpus drift is a known operational risk and where no formal dependency or change management discipline yet covers document-to-agent relationships.
 
 ## Approach
 
@@ -80,6 +88,13 @@ Agents are typically built and tested against a specific snapshot of the documen
 5. Synthesise lessons from adjacent completed research that apply to this problem.
    - 5a. What failure-mode mitigations from the KG runtime-dependency item apply to document-corpus dependencies?
    - 5b. What does the AIBOM (Artificial Intelligence Bill of Materials) runtime-divergence item reveal about tracing which document versions participated in a given agent run?
+   - 5c. What does the existing CSDM dependency-mapping item reveal about how service-to-CI linkages are currently modelled, and how far that model needs to be extended to cover agent-to-document relationships?
+
+6. Investigate dependency management and change management patterns for agent-to-document relationships.
+   - 6a. How do CMDB and service-registry patterns represent the dependency between a deployed service and its supporting data sources, and how could those patterns be extended to register an agent's dependency on a specific document corpus or corpus version?
+   - 6b. What ITIL change management concepts — change authorisation, impact assessment, rollback planning, and post-implementation review — apply directly to document-corpus updates when those documents are known runtime dependencies for production agents?
+   - 6c. How does ServiceNow's existing dependency mapping and change management capability model the relationship between knowledge-base articles and the services that consume them, and what gap exists for agentic consumers specifically?
+   - 6d. What leading indicators (corpus diff size, semantic delta, affected-agent blast radius) could feed an automated impact-assessment check in a change management gate before a document-corpus update is promoted to production?
 
 ## Sources
 
@@ -89,6 +104,9 @@ Agents are typically built and tested against a specific snapshot of the documen
 - [ ] [Ragas Documentation](https://docs.ragas.io/en/stable/) — current framework docs; relevant to corpus-version-aware evaluation support
 - [ ] [LangSmith Evaluation Documentation](https://docs.smith.langchain.com/evaluation) — covers dataset-based regression testing and comparison runs for RAG pipelines
 - [ ] [TruLens Documentation](https://www.trulens.org/docs/) — RAG triad (context relevance, groundedness, answer relevance) evaluation; relevant to detecting drift
+- [ ] [ITIL 4 Change Enablement Practice Guide](https://www.axelos.com/certifications/itil-service-management/itil-4-foundation) — defines change authorisation, impact assessment, change advisory boards, and rollback planning; the source process model for applying change management to document-corpus updates
+- [ ] [ServiceNow Configuration Management Database Documentation](https://docs.servicenow.com/bundle/washingtondc-it-service-management/page/product/configuration-management/concept/c_ITILConfigurationManagement.html) — defines CI (Configuration Item) records, dependency relationships, and impact analysis; the pattern to extend for agent-to-document linkages
+- [ ] [ServiceNow Knowledge Management and Search AI Documentation](https://docs.servicenow.com/bundle/washingtondc-it-service-management/page/product/knowledge-management/concept/c_KnowledgeManagement.html) — documents how ServiceNow manages knowledge-base articles and versioning; entry point for gap analysis against agentic consumers
 
 ---
 
