@@ -559,7 +559,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 64,
+    "item_count": 65,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -865,6 +865,11 @@
         "slug": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
         "title": "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments",
         "added": "2026-05-10"
+      },
+      {
+        "slug": "2026-05-12-data-product-ontology",
+        "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
       },
       {
         "slug": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
@@ -3820,6 +3825,96 @@
     "url": "/Research/threads/agentic-ai-ai-platform-governance.html"
   },
   {
+    "slug": "organisation-workflow-governance",
+    "title": "organisation / workflow / governance",
+    "kind": "implicit",
+    "tag_cluster": [
+      "organisation",
+      "workflow",
+      "governance"
+    ],
+    "concept_cluster": [],
+    "item_count": 15,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
+        "title": "Control deficiencies from bypassing designated workforce record platforms",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
+        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
+        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-data-product-ontology",
+        "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
+      }
+    ],
+    "url": "/Research/threads/organisation-workflow-governance.html"
+  },
+  {
     "slug": "low-code-enterprise-governance-ai-governance",
     "title": "low-code / enterprise-governance / ai-governance",
     "kind": "implicit",
@@ -4088,91 +4183,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-rag-llm.html"
-  },
-  {
-    "slug": "workflow-organisation-governance",
-    "title": "workflow / organisation / governance",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "organisation",
-      "governance"
-    ],
-    "concept_cluster": [],
-    "item_count": 14,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
-        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
-        "title": "Control deficiencies from bypassing designated workforce record platforms",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
-        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      }
-    ],
-    "url": "/Research/threads/workflow-organisation-governance.html"
   },
   {
     "slug": "agentic-ai-organisational-design-strategy",
@@ -6300,14 +6310,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -6347,7 +6357,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",

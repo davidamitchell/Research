@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-12T18:23:55Z",
+  "extracted_at": "2026-05-12T18:37:51Z",
   "items": {
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
@@ -463,6 +463,142 @@
             "https://docs.stardog.com/inference-engine",
             "https://neo4j.com/cloud/platform/aura-graph-database/",
             "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-12-data-product-ontology": {
+      "named_concepts": [
+        "public ontology",
+        "official surfaces",
+        "adoption still",
+        "platform-specific models",
+        "openmetadata collibra",
+        "dedicated public",
+        "reuses dcat",
+        "dcat classes",
+        "dprod remains",
+        "publication state",
+        "composition layer",
+        "rights quality",
+        "quality schema",
+        "still sparse",
+        "interoperation target",
+        "native internal",
+        "internal schema",
+        "adjacent standards",
+        "standards collectively",
+        "alternative capability"
+      ],
+      "source_urls": [
+        "https://www.omg.org/spec/DPROD/",
+        "https://ekgf.github.io/dprod/",
+        "https://ekgf.org/dprod/adopt/",
+        "https://github.com/EKGF/dprod/blob/develop/README.md",
+        "https://github.com/EKGF/dprod/blob/develop/ontology/dprod/dprod-ontology.ttl",
+        "https://github.com/EKGF/dprod/commit/ed07bf2c472d2e4951d270b894c7799e064f0065",
+        "https://github.com/EKGF/dprod/commit/bf2eec01ea01f4fa4ced8c16b861a0c547df2eed",
+        "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+        "https://www.omg.org/spec/DPROD/dprod-shapes.ttl",
+        "https://www.w3.org/TR/vocab-dcat-3/",
+        "https://www.w3.org/ns/dcat.ttl",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.w3.org/community/dpvcg/",
+        "https://schema.org/Dataset",
+        "https://www.go-fair.org/fair-principles/",
+        "https://dpds.opendatamesh.org/specifications/dpds/1.0.0/",
+        "https://github.com/EKGF/dprod/blob/develop/ontology/dprod/README.md",
+        "https://github.com/EKGF/dprod/blob/develop/examples/README.md",
+        "https://github.com/EKGF/dprod/blob/develop/concept/README.md",
+        "https://docs.datahub.com/docs/metadata-standards",
+        "https://docs.datahub.com/docs/metadata-modeling/extending-the-metadata-model",
+        "https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products",
+        "https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products/data-products",
+        "https://docs.open-metadata.org/v1.11.x/api-reference/governance/data-products",
+        "https://github.com/open-metadata/OpenMetadata/blob/b8018ab65e87bc7090315d22eb2023c01e592aa3/openmetadata-spec/src/main/resources/rdf/ontology/openmetadata.ttl",
+        "https://docs.collibra.com/Content/Assets/DataProducts/co_data-product.htm",
+        "https://docs.collibra.com/Content/Assets/DataProducts/ta_conf-data-product.htm",
+        "https://atlas.apache.org/2.0.0/TypeSystem.html",
+        "https://github.com/zazuko/rdf-vocabularies/blob/59c06d8df355ab3da9b7f78f3262bfa786b2d23c/ontologies/dprod/meta.nt",
+        "https://github.com/markjspivey-xwisee/hyprcat/blob/f742b3f0fe6a9f49dc77117d984300fa5092a85c/ex.ttl",
+        "https://www.iso.org/standard/81745.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html"
+      ],
+      "key_claims": [
+        {
+          "text": "DPROD is the only dedicated public RDF and OWL ontology for data products found in the consulted evidence, while the other reviewed artifacts are complementary catalog, privacy, interoperability, or descriptor standards rather than competing ontologies",
+          "sources": [
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://www.w3.org/community/dpvcg/",
+            "https://schema.org/Dataset",
+            "https://dpds.opendatamesh.org/specifications/dpds/1.0.0/"
+          ]
+        },
+        {
+          "text": "The published DPROD model is intentionally narrow and reuses DCAT classes for resources, datasets, distributions, and data services, while adding data-product-specific semantics for owner, lifecycle, purpose, domain, ports, datasets, protocol, and security schema type",
+          "sources": [
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+            "https://www.omg.org/spec/DPROD/dprod-shapes.ttl",
+            "https://www.w3.org/TR/vocab-dcat-3/"
+          ]
+        },
+        {
+          "text": "DPROD remains current in 2026 because its public repository shows active maintenance and the OMG spec index is live, but the standard's publication state is still ambiguous because the official surfaces disagree about whether the release is beta, final 1.0, or still in request-for-comments form",
+          "sources": [
+            "https://www.omg.org/spec/DPROD/",
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+            "https://ekgf.org/dprod/adopt/",
+            "https://github.com/EKGF/dprod/blob/develop/README.md",
+            "https://github.com/EKGF/dprod/commit/ed07bf2c472d2e4951d270b894c7799e064f0065"
+          ]
+        },
+        {
+          "text": "The official DPROD materials use the ontology as a composition layer for real operating concerns, with examples for lineage, data rights, quality, schema, and observability, which indicates that DPROD is meant to work alongside specialized vocabularies instead of encoding every governance concern directly",
+          "sources": [
+            "https://github.com/EKGF/dprod/blob/develop/examples/README.md",
+            "https://github.com/EKGF/dprod/blob/develop/ontology/dprod/README.md",
+            "https://github.com/EKGF/dprod/blob/develop/concept/README.md",
+            "https://www.w3.org/TR/shacl/"
+          ]
+        },
+        {
+          "text": "Public adoption signals exist outside the originating workgroup, including a Zazuko vocabulary entry, a downstream Turtle example repository, and an OpenMetadata ontology alignment, but those signals are still sparse and do not demonstrate broad native ecosystem conformance",
+          "sources": [
+            "https://github.com/zazuko/rdf-vocabularies/blob/59c06d8df355ab3da9b7f78f3262bfa786b2d23c/ontologies/dprod/meta.nt",
+            "https://github.com/markjspivey-xwisee/hyprcat/blob/f742b3f0fe6a9f49dc77117d984300fa5092a85c/ex.ttl",
+            "https://github.com/open-metadata/OpenMetadata/blob/b8018ab65e87bc7090315d22eb2023c01e592aa3/openmetadata-spec/src/main/resources/rdf/ontology/openmetadata.ttl"
+          ]
+        },
+        {
+          "text": "Major catalog platforms publicly document their own data-product operating models or extensible metadata systems, which indicates that DPROD is currently more of an interoperation target than the native internal schema of the dominant tools",
+          "sources": [
+            "https://docs.open-metadata.org/v1.11.x/api-reference/governance/data-products",
+            "https://docs.collibra.com/Content/Assets/DataProducts/co_data-product.htm",
+            "https://docs.collibra.com/Content/Assets/DataProducts/ta_conf-data-product.htm",
+            "https://docs.datahub.com/docs/metadata-standards",
+            "https://atlas.apache.org/2.0.0/TypeSystem.html"
+          ]
+        },
+        {
+          "text": "Adjacent standards collectively provide the main alternative capability set to DPROD in the consulted evidence, with DCAT handling catalog exchange, DPV handling privacy semantics, schema.org supporting web discovery, FAIR stating interoperability requirements, and DPDS capturing broader descriptor structure and contracts",
+          "sources": [
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://www.w3.org/community/dpvcg/",
+            "https://schema.org/Dataset",
+            "https://www.go-fair.org/fair-principles/",
+            "https://dpds.opendatamesh.org/specifications/dpds/1.0.0/"
+          ]
+        },
+        {
+          "text": "DPROD remains relevant as the most current dedicated semantic candidate for data-product interoperability, but organisations should expect local mapping work because no public evidence in this item shows industry-wide consensus or out-of-the-box support across the leading catalog products",
+          "sources": [
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+            "https://github.com/EKGF/dprod/commit/ed07bf2c472d2e4951d270b894c7799e064f0065",
+            "https://docs.open-metadata.org/v1.11.x/api-reference/governance/data-products",
+            "https://docs.collibra.com/Content/Assets/DataProducts/co_data-product.htm",
+            "https://docs.datahub.com/docs/metadata-standards",
+            "https://atlas.apache.org/2.0.0/TypeSystem.html"
           ]
         }
       ]
