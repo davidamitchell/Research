@@ -90,6 +90,7 @@ What does it mean to treat a Knowledge Graph as a data product in a data mesh ar
 - [x] [W3C (2013) SPARQL 1.1 Federated Query](https://www.w3.org/TR/sparql11-federated-query/)
 - [x] [W3C (2015) Linked Data Platform 1.0](https://www.w3.org/TR/ldp/)
 - [x] [Solid Project (n.d.) Solid Protocol](https://solidproject.org/TR/protocol)
+- [x] [Hogan et al. (2021) Knowledge Graphs](https://arxiv.org/abs/2003.02320)
 - [x] [Bizer et al. (2009) Linked Data - the story so far](https://eprints.soton.ac.uk/271285/)
 - [x] [Mitchell (2026) Data product ontology: definition, adoption, and current relevance](https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html)
 - [x] [Mitchell (2026) Knowledge Graph in the live execution path of multi-step Large Language Model systems: architecture and failure modes](https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html)
@@ -105,10 +106,11 @@ What does it mean to treat a Knowledge Graph as a data product in a data mesh ar
 
 ### §0 Initialise
 
-- Question: determine how to run a Knowledge Graph as a reusable product owned by one business area inside a decentralized data architecture, and define the ownership, contract, discoverability, interoperability, and runtime-governance implications when software agents depend on it.
+- Question: determine how to run a graph of entities and relationships as a reusable product owned by one business area inside a decentralized data architecture, and define the ownership, contract, discoverability, interoperability, and runtime-governance implications when software agents depend on it.
 - Scope: data mesh principles, graph-specific product contracts, catalogue behavior, graph interoperability, and adjacent repository findings are in scope; detailed access control design and vendor procurement are out of scope.
 - Constraints: primary standards and first-party documentation first; direct public case studies on Knowledge Graph plus data mesh are likely sparse and must be treated as a gap rather than assumed.
 - Output format: full section 0 to section 7 research record plus Findings with Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks, Gaps, Uncertainties, Open Questions, Recommended Data Product Template, and Output.
+- [fact] Hogan et al. describe knowledge graphs as graph-based structures used to exploit diverse, dynamic, and large-scale collections of data, which is the operational meaning used in this item. [source: https://arxiv.org/abs/2003.02320]
 - [inference] Prior completed items most relevant here are the data product ontology item, the runtime dependency item, the lifecycle management item, and the production ontology item, because together they already cover data-product semantics, runtime failure surfaces, versioned graph publication, and ontology-stack choices. [source: https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html; https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html]
 - [fact] Dehghani defines four underpinning data mesh principles, domain-oriented decentralized ownership, data as a product, self-serve data platform, and federated computational governance, and frames them as collectively necessary for scale with usability and integrity. [source: https://martinfowler.com/articles/data-mesh-principles.html]
 
@@ -216,7 +218,7 @@ What does it mean to treat a Knowledge Graph as a data product in a data mesh ar
 
 **Executive summary:**
 
-Treating a Knowledge Graph as a data product in a data mesh means making each graph exposure a domain-owned, discoverable, versioned, and contract-bound product rather than a loosely shared semantic utility. [inference; source: https://martinfowler.com/articles/data-mesh-principles.html; https://www.w3.org/TR/vocab-dcat-3/; https://www.omg.org/spec/DPROD/dprod-ontology.ttl]
+Treating a Knowledge Graph, a graph-based structure used to exploit diverse, dynamic, and large-scale collections of data, as a data product in a data mesh means making each graph exposure a domain-owned, discoverable, versioned, and contract-bound product rather than a loosely shared semantic utility. [inference; source: https://arxiv.org/abs/2003.02320; https://martinfowler.com/articles/data-mesh-principles.html; https://www.w3.org/TR/vocab-dcat-3/; https://www.omg.org/spec/DPROD/dprod-ontology.ttl]
 
 The domain should own the graph product's local semantics, release cadence, and quality promises, while federated governance should own the cross-domain rules that let graph products compose safely, especially identifiers, mandatory metadata, and conformance expectations. [inference; source: https://martinfowler.com/articles/data-mesh-principles.html; https://www.omg.org/spec/DPROD/dprod-ontology.ttl]
 
@@ -267,7 +269,6 @@ Alternative designs, such as a single enterprise graph team or a purely table-st
 
 - Direct public case studies that document a Knowledge Graph explicitly operated as a data mesh data product and used as a runtime dependency for software agents are scarce, so this item relies more on standards and operating-model synthesis than on one published enterprise exemplar. [inference; source: https://martinfowler.com/articles/data-mesh-principles.html; https://www.omg.org/spec/DPROD/; https://docs.datahub.com/docs/dataproducts]
 - DataHub, OpenMetadata, Collibra, and Atlas clearly model data products, but their public documentation does not define one shared graph-specific contract vocabulary, so implementation detail will vary by toolchain. [fact; source: https://docs.datahub.com/docs/generated/metamodel/entities/dataproduct; https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products; https://docs.collibra.com/Content/Assets/DataProducts/ta_conf-data-product.htm; https://atlas.apache.org/2.0.0/TypeSystem.html]
-- The O'Reilly book remains a canonical source for data mesh, but this item relied on Dehghani's accessible Martin Fowler articles for directly citable principle definitions. [fact; source: https://martinfowler.com/articles/data-monolith-to-mesh.html; https://martinfowler.com/articles/data-mesh-principles.html]
 - The exact threshold at which live federation becomes unsafe depends on endpoint performance, query complexity, and agent duty cycle, so the recommendation to prefer curated outputs for repeated runtime use is a design inference rather than a universal numeric rule. [inference; source: https://www.w3.org/TR/sparql11-federated-query/; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html]
 
 **Open questions:**
@@ -299,7 +300,7 @@ Alternative designs, such as a single enterprise graph team or a purely table-st
 
 ### Executive Summary
 
-Treating a Knowledge Graph as a data product in a data mesh means making each graph exposure a domain-owned, discoverable, versioned, and contract-bound product rather than a loosely shared semantic utility. [inference; source: https://martinfowler.com/articles/data-mesh-principles.html; https://www.w3.org/TR/vocab-dcat-3/; https://www.omg.org/spec/DPROD/dprod-ontology.ttl]
+Treating a Knowledge Graph, a graph-based structure used to exploit diverse, dynamic, and large-scale collections of data, as a data product in a data mesh means making each graph exposure a domain-owned, discoverable, versioned, and contract-bound product rather than a loosely shared semantic utility. [inference; source: https://arxiv.org/abs/2003.02320; https://martinfowler.com/articles/data-mesh-principles.html; https://www.w3.org/TR/vocab-dcat-3/; https://www.omg.org/spec/DPROD/dprod-ontology.ttl]
 
 The domain should own the graph product's local semantics, release cadence, and quality promises, while federated governance should own the cross-domain rules that let graph products compose safely, especially identifiers, mandatory metadata, and conformance expectations. [inference; source: https://martinfowler.com/articles/data-mesh-principles.html; https://www.omg.org/spec/DPROD/dprod-ontology.ttl]
 
@@ -350,7 +351,6 @@ Alternative designs, such as a single enterprise graph team or a purely table-st
 
 - Direct public case studies that document a Knowledge Graph explicitly operated as a data mesh data product and used as a runtime dependency for software agents are scarce, so this item relies more on standards and operating-model synthesis than on one published enterprise exemplar. [inference; source: https://martinfowler.com/articles/data-mesh-principles.html; https://www.omg.org/spec/DPROD/; https://docs.datahub.com/docs/dataproducts]
 - DataHub, OpenMetadata, Collibra, and Atlas clearly model data products, but their public documentation does not define one shared graph-specific contract vocabulary, so implementation detail will vary by toolchain. [fact; source: https://docs.datahub.com/docs/generated/metamodel/entities/dataproduct; https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products; https://docs.collibra.com/Content/Assets/DataProducts/ta_conf-data-product.htm; https://atlas.apache.org/2.0.0/TypeSystem.html]
-- The O'Reilly book remains a canonical source for data mesh, but this item relied on Dehghani's accessible Martin Fowler articles for directly citable principle definitions. [fact; source: https://martinfowler.com/articles/data-monolith-to-mesh.html; https://martinfowler.com/articles/data-mesh-principles.html]
 - The exact threshold at which live federation becomes unsafe depends on endpoint performance, query complexity, and agent duty cycle, so the recommendation to prefer curated outputs for repeated runtime use is a design inference rather than a universal numeric rule. [inference; source: https://www.w3.org/TR/sparql11-federated-query/; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html]
 
 ### Open Questions
