@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [pipeline-platforms, ci-cd, copilot-studio, power-platform, harness, aws-codebuild, aws-codedeploy, jenkins, governance, orchestration, deployment-pipeline, citizen-development]
+ai_themes: [agentic-ai, governance-policy, ai-architecture, tools-infrastructure, mlops-deployment]
 started: 2026-04-28T18:33:09+00:00
 completed: 2026-04-28T19:02:09+00:00
 output: [knowledge]

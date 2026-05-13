@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [large-language-model-as-judge, evaluation, validation, pipeline, continuous-integration-continuous-delivery, agentic-artificial-intelligence, quality-gates, evaluations, benchmarking, copilot-studio]
+ai_themes: [agentic-ai, benchmarks-eval, ai-architecture, mlops-deployment, pipeline-validation]
 started: 2026-04-28T19:05:27+00:00
 completed: 2026-04-28T19:34:02+00:00
 output: [knowledge]

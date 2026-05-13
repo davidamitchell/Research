@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucinations, runtime-monitoring, non-determinism, observability, governed-golden-rail]
+ai_themes: [agentic-ai, multi-agent, governance-policy, security-risk, runtime-observability]
 started: 2026-04-28T09:14:33+00:00
 completed: 2026-04-28T09:43:47+00:00
 output: [knowledge]

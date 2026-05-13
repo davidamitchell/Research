@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [uelgf, human-oversight, accountability, escalation, agentic-ai, governance, human-owner, board-risk, openai-practices, eu-ai-act, regulated-banking]
+ai_themes: [agentic-ai, governance-policy, security-risk, human-in-the-loop]
 started: 2026-04-28T09:47:16+00:00
 completed: 2026-04-28T10:12:54+00:00
 output: [knowledge]

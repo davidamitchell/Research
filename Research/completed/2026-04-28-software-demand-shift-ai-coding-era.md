@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [agentic-ai, agentic-coding, software-cost, saas, build-vs-buy, transaction-costs, platform-engineering, internal-developer-platform, observability, identity, market-structure]
+ai_themes: [agentic-ai, tools-infrastructure, cost-performance, software-economics, market-dynamics]
 started: 2026-04-29T09:06:19+00:00
 completed: 2026-04-29T09:42:02+00:00
 output: [knowledge]
