@@ -2,12 +2,12 @@
 review_count: 2
 title: "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance"
 added: 2026-05-12T08:21:48+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [knowledge-graph, agentic-ai, governance, ricardian-contracts]
 started: 2026-05-13T10:02:08+00:00
-completed: ~
+completed: 2026-05-13T10:28:16+00:00
 output: [knowledge]
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
