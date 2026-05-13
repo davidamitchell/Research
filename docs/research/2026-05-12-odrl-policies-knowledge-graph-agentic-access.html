@@ -1,0 +1,802 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ODRL policies in Knowledge Graphs for software-agent access control and usage… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>ODRL policies in Knowledge Graphs for software-agent access control and usage…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>ODRL policies in Knowledge Graphs for software-agent access control and usage…</h1>
+  <p class="full-title-subtitle">Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance</p>
+  <div class="meta-bar">
+    <span>2026-05-12</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/ricardian-contracts.html">ricardian-contracts</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-12-odrl-policies-knowledge-graph-agentic-access.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-12-odrl-policies-knowledge-graph-agentic-access" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>ODRL 2.2 is expressive enough to model KG access and usage governance because it defines policies, permissions, prohibitions, duties, parties, assets, constraints, inheritance, and conflict strategies over generic IRI-identified resources<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/odrl-model/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-model/">World (2018)</a><a class="claim-source-link" href="https://www.w3.org/TR/odrl-vocab/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-vocab/">World (2018)</a></span></li>
+<li>The most robust KG attachment pattern is to bind ODRL policies to named graph, dataset, or service URIs with `odrl:hasPolicy` or `odrl:target`, then treat those URIs as the policy boundary that request-time evaluation operates against<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/odrl-model/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-model/">World (2018)</a><a class="claim-source-link" href="https://www.w3.org/TR/odrl-vocab/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-vocab/">World (2018)</a><a class="claim-source-link" href="https://w3c.github.io/odrl/profile-dataspaces/" target="_blank" rel="noopener" title="https://w3c.github.io/odrl/profile-dataspaces/">World (n.d.)</a></span></li>
+<li>WAC and ACP provide resource and request context for Solid systems, but they do not replace ODRL because they lack first-class duties, purpose constraints, explicit prohibitions, and richer downstream usage conditions<span class="claim-sources"><a class="claim-source-link" href="https://solidproject.org/TR/wac" target="_blank" rel="noopener" title="https://solidproject.org/TR/wac">Solid (n.d.)</a><a class="claim-source-link" href="https://solidproject.org/TR/acp" target="_blank" rel="noopener" title="https://solidproject.org/TR/acp">Solid (n.d.)</a><a class="claim-source-link" href="https://www.w3.org/TR/odrl-model/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-model/">World (2018)</a></span></li>
+<li>ODRL does not authenticate requesters, so runtime enforcement depends on external identity layers such as WebID, Solid-OIDC, ACP context attributes, or Verifiable Credentials to resolve which party and request parameters should be evaluated<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/odrl-model/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-model/">World (2018)</a><a class="claim-source-link" href="https://solidproject.org/TR/oidc" target="_blank" rel="noopener" title="https://solidproject.org/TR/oidc">Solid (n.d.)</a><a class="claim-source-link" href="https://solidproject.org/TR/acp" target="_blank" rel="noopener" title="https://solidproject.org/TR/acp">Solid (n.d.)</a><a class="claim-source-link" href="https://www.w3.org/TR/vc-data-model/" target="_blank" rel="noopener" title="https://www.w3.org/TR/vc-data-model/">World (n.d.)</a><a class="claim-source-link" href="https://w3id.org/oac/" target="_blank" rel="noopener" title="https://w3id.org/oac/">Esteves et al. (2023)</a></span></li>
+<li>The reviewed Solid, IDSA, Dataspace Connector, and Gaia-X materials all separate ODRL policy expression from enforcement, placing enforcement in pod servers, connectors, middleware, or derived runtime policy engines rather than in ODRL itself<span class="claim-sources"><a class="claim-source-link" href="https://w3c.github.io/odrl/bp/" target="_blank" rel="noopener" title="https://w3c.github.io/odrl/bp/">Practices (2019)</a><a class="claim-source-link" href="https://w3id.org/oac/" target="_blank" rel="noopener" title="https://w3id.org/oac/">Esteves et al. (2023)</a><a class="claim-source-link" href="https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl" target="_blank" rel="noopener" title="https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl">International (n.d.)</a><a class="claim-source-link" href="https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/" target="_blank" rel="noopener" title="https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/">Gitlab (n.d.)</a></span></li>
+<li>Current tooling supports ODRL authoring, profile extension, and draft evaluator semantics, but the ecosystem remains fragmented and the reviewed sources do not show a production-grade ODRL-aware SPARQL rewriter or named-graph filter<span class="claim-sources"><a class="claim-source-link" href="https://w3c.github.io/odrl/formal-semantics/" target="_blank" rel="noopener" title="https://w3c.github.io/odrl/formal-semantics/">World (n.d.)</a><a class="claim-source-link" href="https://ruben.verborgh.org/publications/slabbink_eswc_2025/" target="_blank" rel="noopener" title="https://ruben.verborgh.org/publications/slabbink_eswc_2025/">Slabbinck et al. (2025)</a><a class="claim-source-link" href="https://comunica.dev/docs/query/advanced/solid/" target="_blank" rel="noopener" title="https://comunica.dev/docs/query/advanced/solid/">Comunica (n.d.)</a></span></li>
+<li>Query-time enforcement can only cover the subset of ODRL that resolves before release, such as allow, deny, and filterable constraints, while duties such as attribution, deletion, notification, and onward-policy transfer require post-access execution or monitoring<span class="claim-sources"><a class="claim-source-link" href="https://www.w3.org/TR/odrl-model/" target="_blank" rel="noopener" title="https://www.w3.org/TR/odrl-model/">World (2018)</a><a class="claim-source-link" href="https://w3c.github.io/odrl/formal-semantics/" target="_blank" rel="noopener" title="https://w3c.github.io/odrl/formal-semantics/">World (n.d.)</a><a class="claim-source-link" href="https://w3c.github.io/odrl/bp/" target="_blank" rel="noopener" title="https://w3c.github.io/odrl/bp/">Practices (2019)</a></span></li>
+<li>For software-agent access to a KG, the best-supported design is a layered one in which bounded machine identities call a middleware decision point that evaluates ODRL-tagged graph assets and translates only the decision-ready subset into query filtering or denial<span class="claim-sources"><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Mitchell (2026)</a><a class="claim-source-link" href="https://w3c.github.io/odrl/formal-semantics/" target="_blank" rel="noopener" title="https://w3c.github.io/odrl/formal-semantics/">World (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How can the World Wide Web Consortium (W3C) Open Digital Rights Language (ODRL) be used to encode access control, usage policies, and governance constraints within or alongside a Knowledge Graph (KG) that serves as a runtime dependency for multi-step software systems, and what are the practical patterns, limitations, and emerging tooling for enforcing ODRL policies at software-agent query time?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>ODRL can encode access and usage governance for Knowledge Graphs, but it cannot by itself enforce software-agent query-time controls; practical systems must pair ODRL policies with external identity, policy-decision, and policy-enforcement components.</p>
+<p>The strongest attachment pattern is to treat each named graph, meaning an RDF graph in a dataset that has its own identifier, dataset URI, or graph-backed service URI as an ODRL asset, attach policy metadata with <code>odrl:hasPolicy</code> or <code>odrl:target</code>, and evaluate permissions, prohibitions, duties, and constraints against request context before query execution or result release.</p>
+<p>Solid, IDSA, Gaia-X, and related tooling show a consistent architectural split: ODRL or ODRL-derived profiles express usage conditions, while pod servers, connector stacks, and middleware perform the actual allow, deny, filter, logging, and post-access duty execution.</p>
+<p>For KG systems used by software agents, the recommended pattern is bounded machine identity plus ODRL-tagged graph assets plus middleware that translates the allow-or-deny subset of ODRL into query filtering, while duties such as attribution, deletion, and notification are audited outside the query path.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>ODRL 2.2 is expressive enough to model KG access and usage governance because it defines policies, permissions, prohibitions, duties, parties, assets, constraints, inheritance, and conflict strategies over generic IRI-identified resources.</strong></li>
+<li><strong>The most robust KG attachment pattern is to bind ODRL policies to named graph, dataset, or service URIs with <code>odrl:hasPolicy</code> or <code>odrl:target</code>, then treat those URIs as the policy boundary that request-time evaluation operates against.</strong></li>
+<li><strong>WAC and ACP provide resource and request context for Solid systems, but they do not replace ODRL because they lack first-class duties, purpose constraints, explicit prohibitions, and richer downstream usage conditions.</strong></li>
+<li><strong>ODRL does not authenticate requesters, so runtime enforcement depends on external identity layers such as WebID, Solid-OIDC, ACP context attributes, or Verifiable Credentials to resolve which party and request parameters should be evaluated.</strong></li>
+<li><strong>The reviewed Solid, IDSA, Dataspace Connector, and Gaia-X materials all separate ODRL policy expression from enforcement, placing enforcement in pod servers, connectors, middleware, or derived runtime policy engines rather than in ODRL itself.</strong></li>
+<li><strong>Current tooling supports ODRL authoring, profile extension, and draft evaluator semantics, but the ecosystem remains fragmented and the reviewed sources do not show a production-grade ODRL-aware SPARQL rewriter or named-graph filter.</strong></li>
+<li><strong>Query-time enforcement can only cover the subset of ODRL that resolves before release, such as allow, deny, and filterable constraints, while duties such as attribution, deletion, notification, and onward-policy transfer require post-access execution or monitoring.</strong></li>
+<li><strong>For software-agent access to a KG, the best-supported design is a layered one in which bounded machine identities call a middleware decision point that evaluates ODRL-tagged graph assets and translates only the decision-ready subset into query filtering or denial.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The KG exposes stable URIs for named graphs, datasets, or graph-backed resources so that ODRL policies can attach to meaningful boundaries. <strong>Justification:</strong> ODRL assets are URI-identified resources, and the graph-layer recommendation depends on stable attachment points.</li>
+<li><strong>Assumption:</strong> Runtime request context can supply identity, client, issuer, and purpose values to the policy decision layer even when the graph query language does not carry those features natively. <strong>Justification:</strong> reviewed Solid and ODRL evaluator materials assume such context exists outside the policy expression itself.</li>
+<li><strong>Assumption:</strong> Post-access duties are operationally acceptable when executed by separate monitoring or execution components rather than by the SPARQL engine itself. <strong>Justification:</strong> the reviewed sources repeatedly separate usage-policy expression from execution and monitoring infrastructure.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence favors ODRL as an expressive policy layer and does not favor ODRL as a self-sufficient graph-native runtime, because every authoritative source that directly addresses implementation separates policy description from the system that enforces it.</p>
+<p>That split resolves the main design question for KGs: store and publish policy in RDF-native form, but let a dedicated decision layer evaluate policy against request context and let a dedicated enforcement layer deny, filter, log, or trigger post-access duties.</p>
+<p>The strongest positive evidence for query-time enforcement is indirect rather than direct, because query rewriting exists for Linked Data access control and ODRL evaluators exist as draft semantics or prototypes, but the reviewed material does not show a mature implementation that joins those capabilities into a production-grade SPARQL control surface.</p>
+<p>The practical implication is to keep query-time ODRL evaluation focused on the subset that can deterministically produce allow, deny, or filter decisions, and to keep duties, propagation, and compliance evidence in adjacent execution and audit paths.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The evidence base is strong for ODRL expression and for connector-boundary enforcement, but weak for graph-native SPARQL enforcement inside mainstream KG products.</li>
+<li>The seeded Steyskal and Polleres source could not be verified from an accessible primary text in this runtime, so linked-data licensing history is supported here mainly by later W3C and data-space materials.</li>
+<li>The ODRL Formal Semantics and ODRL Data Spaces profile are community drafts rather than W3C Recommendations, which lowers confidence for claims about interoperable evaluator behavior.</li>
+<li>The public Solid and Inrupt material demonstrates runtime identity and access context, but not a normative bridge from those identity claims into fully standardized ODRL evaluation semantics.</li>
+<li>Gaia-X evidence in this item is stronger on the expression versus runtime split than on direct proof of ODRL-native enforcement, because the originally seeded Gaia-X URL was stale and the replacement source is a current policy page rather than a full architecture study.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What is the cleanest way to bind named-graph identifiers and SPARQL query structure to ODRL constraints without creating a profile that is too engine-specific?</li>
+<li>Which runtime claim format is most practical for software-agent purpose assertions in enterprise graph systems: OIDC claims, VCs, or application-specific middleware parameters?</li>
+<li>How should post-access duties such as deletion-after-use or onward-policy transfer be audited when graph results are cached, summarized, or merged into downstream derived artifacts?</li>
+<li>Is there enough repeated demand to justify a dedicated KG-focused ODRL profile that adds first-class graph query, graph update, and graph partition operands beyond the current data-spaces draft?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.w3.org/TR/odrl-model/">World Wide Web Consortium (W3C) ODRL Information Model 2.2 (2018)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/odrl-vocab/">World Wide Web Consortium (W3C) ODRL Vocabulary and Expression 2.2 (2018)</a></li>
+<li>[x] <a href="https://www.w3.org/TR/rdf11-concepts/">World Wide Web Consortium (W3C) RDF 1.1 Concepts and Abstract Syntax</a></li>
+<li>[x] <a href="https://w3c.github.io/odrl/bp/">World Wide Web Consortium (W3C) ODRL Implementation Best Practices (2019)</a></li>
+<li>[x] <a href="https://w3c.github.io/odrl/formal-semantics/">World Wide Web Consortium (W3C) ODRL Formal Semantics draft</a></li>
+<li>[x] <a href="https://w3c.github.io/odrl/profile-dataspaces/">World Wide Web Consortium (W3C) ODRL Data Spaces profile draft</a></li>
+<li>[x] <a href="https://solidproject.org/TR/wac">Solid Project Web Access Control specification</a></li>
+<li>[x] <a href="https://solidproject.org/TR/oidc">Solid Project Solid-OIDC specification</a></li>
+<li>[x] <a href="https://solidproject.org/TR/acp">Solid Project Access Control Policy specification</a></li>
+<li>[x] <a href="https://doi.org/10.1109/EuroSPW54576.2021.00038">Esteves et al. (2021) ODRL Profile for Expressing Consent through Granular Access Control Policies in Solid</a></li>
+<li>[x] <a href="https://harshp.com/research/publications/048-odrl-profile-consent-solid-acp">Esteves et al. (2021) ODRL Profile for Expressing Consent through Granular Access Control Policies in Solid, open access summary</a></li>
+<li>[x] <a href="https://w3id.org/oac/">Esteves et al. (2023) ODRL Profile for Access Control 0.2</a></li>
+<li>[x] <a href="https://link.springer.com/chapter/10.1007/978-3-031-11609-4_3">Esteves et al. (2022) Using the ODRL Profile for Access Control for Solid Pod Resource Governance</a></li>
+<li>[x] <a href="https://docs.inrupt.com/guides/access-control-policies">Inrupt Access Control Policies</a></li>
+<li>[x] <a href="https://www.w3.org/TR/vc-data-model/">World Wide Web Consortium (W3C) Verifiable Credentials Data Model 2.0</a></li>
+<li>[x] <a href="https://docs.internationaldataspaces.org/">International Data Spaces Association (IDSA) Knowledge Base</a></li>
+<li>[x] <a href="https://internationaldataspaces.org/offers/reference-architecture/">International Data Spaces Association (IDSA) Reference Architecture page</a></li>
+<li>[x] <a href="https://github.com/International-Data-Spaces-Association/IDS-G/blob/main/UsageControl/Specification/Concepts/T7_ODRL_policies.md">International Data Spaces Association (IDSA) ODRL policy concepts</a></li>
+<li>[x] <a href="https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl">International Data Spaces Association (IDSA) Dataspace Connector usage control policies</a></li>
+<li>[x] <a href="https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/">Gaia-X Data Exchange policies</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2007.00461">Kirrane et al. (2020) Query Based Access Control for Linked Data</a></li>
+<li>[x] <a href="https://researchportal.bath.ac.uk/en/publications/odrl-policy-modelling-and-compliance-checking/">De Vos et al. (2019) ODRL Policy Modelling and Compliance Checking</a></li>
+<li>[x] <a href="https://ruben.verborgh.org/publications/slabbink_eswc_2025/">Slabbinck et al. (2025) Interoperable Interpretation and Evaluation of ODRL Policies</a></li>
+<li>[x] <a href="https://comunica.dev/docs/query/advanced/solid/">Comunica querying over Solid</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Mitchell (2026) Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Mitchell (2026) Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026) What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Mitchell (2026) Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html">Mitchell (2026) Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-14-ricardian-contract-model.html">Mitchell (2026) Ricardian Contract model: history, current state, and latest research</a></li>
+<li>[ ] <a href="https://arxiv.org/abs/1501.03791">Steyskal and Polleres source cited in the seed item, seeded URL resolved to an unrelated paper and was not used as evidence</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices</a> <span class="related-note">via agentic-ai, governance, knowledge-graph</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-12-knowledge-graph-data-product-agentic.html">Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies</a> <span class="related-note">via agentic-ai, governance, knowledge-graph</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html">Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?</a> <span class="related-note">via agentic-ai, governance, knowledge-graph</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via agentic-ai, governance, knowledge-graph</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness</a> <span class="related-note">via agentic-ai, knowledge-graph</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html">Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html">Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-14-ricardian-contract-model.html">Ricardian Contract model: history, current state, and latest research</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-knowledge-graph-data-product-agentic.html">Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">AI agents</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html">Knowledge Graph lifecycle management for multi-step software agents</a></div>
+  </div>
+</main>
+</body>
+</html>

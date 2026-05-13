@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-13T10:17:21Z",
+  "extracted_at": "2026-05-13T10:29:45Z",
   "items": {
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
@@ -243,6 +243,132 @@
             "https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html",
             "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-runtime-generation-divergence-theory.html",
             "https://www.servicenow.com/community/knowledge-management-articles/best-practices-to-use-your-knowledge-articles-with-now-assist/ta-p/2824219"
+          ]
+        }
+      ]
+    },
+    "2026-05-12-odrl-policies-knowledge-graph-agentic-access": {
+      "named_concepts": [
+        "request context",
+        "usage governance",
+        "odrl policies",
+        "external identity",
+        "attachment pattern",
+        "named graph",
+        "bounded machine",
+        "odrl-tagged graph",
+        "graph assets",
+        "reviewed solid",
+        "post-access duties",
+        "permissions prohibitions",
+        "prohibitions duties",
+        "against request",
+        "solid idsa",
+        "usage conditions",
+        "pod servers",
+        "deny filter",
+        "machine identity",
+        "identity plus"
+      ],
+      "source_urls": [
+        "https://www.w3.org/TR/odrl-model/",
+        "https://www.w3.org/TR/odrl-vocab/",
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://w3c.github.io/odrl/bp/",
+        "https://w3c.github.io/odrl/formal-semantics/",
+        "https://w3c.github.io/odrl/profile-dataspaces/",
+        "https://solidproject.org/TR/wac",
+        "https://solidproject.org/TR/oidc",
+        "https://solidproject.org/TR/acp",
+        "https://doi.org/10.1109/EuroSPW54576.2021.00038",
+        "https://harshp.com/research/publications/048-odrl-profile-consent-solid-acp",
+        "https://w3id.org/oac/",
+        "https://link.springer.com/chapter/10.1007/978-3-031-11609-4_3",
+        "https://docs.inrupt.com/guides/access-control-policies",
+        "https://www.w3.org/TR/vc-data-model/",
+        "https://docs.internationaldataspaces.org/",
+        "https://internationaldataspaces.org/offers/reference-architecture/",
+        "https://github.com/International-Data-Spaces-Association/IDS-G/blob/main/UsageControl/Specification/Concepts/T7_ODRL_policies.md",
+        "https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl",
+        "https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/",
+        "https://arxiv.org/abs/2007.00461",
+        "https://researchportal.bath.ac.uk/en/publications/odrl-policy-modelling-and-compliance-checking/",
+        "https://ruben.verborgh.org/publications/slabbink_eswc_2025/",
+        "https://comunica.dev/docs/query/advanced/solid/",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-14-ricardian-contract-model.html",
+        "https://arxiv.org/abs/1501.03791"
+      ],
+      "key_claims": [
+        {
+          "text": "ODRL 2.2 is expressive enough to model KG access and usage governance because it defines policies, permissions, prohibitions, duties, parties, assets, constraints, inheritance, and conflict strategies over generic IRI-identified resources",
+          "sources": [
+            "https://www.w3.org/TR/odrl-model/",
+            "https://www.w3.org/TR/odrl-vocab/"
+          ]
+        },
+        {
+          "text": "The most robust KG attachment pattern is to bind ODRL policies to named graph, dataset, or service URIs with `odrl:hasPolicy` or `odrl:target`, then treat those URIs as the policy boundary that request-time evaluation operates against",
+          "sources": [
+            "https://www.w3.org/TR/odrl-model/",
+            "https://www.w3.org/TR/odrl-vocab/",
+            "https://w3c.github.io/odrl/profile-dataspaces/"
+          ]
+        },
+        {
+          "text": "WAC and ACP provide resource and request context for Solid systems, but they do not replace ODRL because they lack first-class duties, purpose constraints, explicit prohibitions, and richer downstream usage conditions",
+          "sources": [
+            "https://solidproject.org/TR/wac",
+            "https://solidproject.org/TR/acp",
+            "https://www.w3.org/TR/odrl-model/"
+          ]
+        },
+        {
+          "text": "ODRL does not authenticate requesters, so runtime enforcement depends on external identity layers such as WebID, Solid-OIDC, ACP context attributes, or Verifiable Credentials to resolve which party and request parameters should be evaluated",
+          "sources": [
+            "https://www.w3.org/TR/odrl-model/",
+            "https://solidproject.org/TR/oidc",
+            "https://solidproject.org/TR/acp",
+            "https://www.w3.org/TR/vc-data-model/",
+            "https://w3id.org/oac/"
+          ]
+        },
+        {
+          "text": "The reviewed Solid, IDSA, Dataspace Connector, and Gaia-X materials all separate ODRL policy expression from enforcement, placing enforcement in pod servers, connectors, middleware, or derived runtime policy engines rather than in ODRL itself",
+          "sources": [
+            "https://w3c.github.io/odrl/bp/",
+            "https://w3id.org/oac/",
+            "https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl",
+            "https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/"
+          ]
+        },
+        {
+          "text": "Current tooling supports ODRL authoring, profile extension, and draft evaluator semantics, but the ecosystem remains fragmented and the reviewed sources do not show a production-grade ODRL-aware SPARQL rewriter or named-graph filter",
+          "sources": [
+            "https://w3c.github.io/odrl/formal-semantics/",
+            "https://ruben.verborgh.org/publications/slabbink_eswc_2025/",
+            "https://comunica.dev/docs/query/advanced/solid/"
+          ]
+        },
+        {
+          "text": "Query-time enforcement can only cover the subset of ODRL that resolves before release, such as allow, deny, and filterable constraints, while duties such as attribution, deletion, notification, and onward-policy transfer require post-access execution or monitoring",
+          "sources": [
+            "https://www.w3.org/TR/odrl-model/",
+            "https://w3c.github.io/odrl/formal-semantics/",
+            "https://w3c.github.io/odrl/bp/"
+          ]
+        },
+        {
+          "text": "For software-agent access to a KG, the best-supported design is a layered one in which bounded machine identities call a middleware decision point that evaluates ODRL-tagged graph assets and translates only the decision-ready subset into query filtering or denial",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+            "https://w3c.github.io/odrl/formal-semantics/"
           ]
         }
       ]

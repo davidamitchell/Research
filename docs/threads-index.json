@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 111,
+    "item_count": 112,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -552,6 +552,11 @@
         "added": "2026-05-12"
       },
       {
+        "slug": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+        "title": "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance",
+        "added": "2026-05-12"
+      },
+      {
         "slug": "2026-05-12-knowledge-graph-data-product-agentic",
         "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
         "added": "2026-05-12"
@@ -579,7 +584,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 66,
+    "item_count": 67,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -897,6 +902,11 @@
         "added": "2026-05-12"
       },
       {
+        "slug": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+        "title": "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance",
+        "added": "2026-05-12"
+      },
+      {
         "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
         "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
         "added": "2026-05-12"
@@ -924,7 +934,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 61,
+    "item_count": 62,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1224,6 +1234,11 @@
       {
         "slug": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
         "title": "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+        "title": "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance",
         "added": "2026-05-12"
       },
       {
@@ -5070,6 +5085,76 @@
     "url": "/Research/threads/agentic-ai-regulation-financial-services.html"
   },
   {
+    "slug": "agentic-ai-pbac-pdp",
+    "title": "agentic-ai / pbac / pdp",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "pbac",
+      "pdp"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-02-agent-memory-management-context-injection",
+        "title": "Agent Memory Management and Context Injection",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
+        "title": "Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-out-of-band-policy-invalidation-remediation",
+        "title": "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+        "title": "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance",
+        "added": "2026-05-12"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-pbac-pdp.html"
+  },
+  {
     "slug": "agentic-ai-synthesis-productivity",
     "title": "agentic-ai / synthesis / productivity",
     "kind": "implicit",
@@ -6375,14 +6460,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -6422,7 +6507,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -6590,13 +6675,13 @@
     "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -6627,7 +6712,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
     "slug": "cost-allocation-tbm-council-financial-services",
@@ -6670,13 +6755,13 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "github copilot"
     ],
     "item_count": 5,
@@ -6707,7 +6792,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -6960,13 +7045,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "native governance"
     ],
     "item_count": 3,
@@ -6987,6 +7072,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]
