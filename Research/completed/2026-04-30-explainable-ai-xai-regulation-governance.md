@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-ai, governance, regulation, financial-services, healthcare, eu-ai-act, audit, model-risk]
+ai_themes: [governance-policy, security-risk, mlops-deployment, explainability-transparency]
 started: 2026-05-01T02:24:45+00:00
 completed: 2026-05-01T02:49:42+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

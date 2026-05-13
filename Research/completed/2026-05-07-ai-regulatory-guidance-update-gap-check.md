@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [regulation, financial-services, governance, apra, rbnz, fma, osfi]
+ai_themes: [governance-policy, security-risk, financial-services]
 started: 2026-05-07T13:32:28+00:00
 completed: 2026-05-07T14:17:50+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

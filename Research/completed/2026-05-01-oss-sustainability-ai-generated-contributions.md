@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [open-source, agentic-ai, governance, workflow]
+ai_themes: [agentic-ai, governance-policy, workforce-skills, human-ai-interaction]
 started: 2026-05-01T22:21:59+00:00
 completed: 2026-05-01T22:42:53+00:00
 output: [knowledge]

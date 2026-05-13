@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [governance, regulation, financial-services, audit, risk-management, compliance, machine-learning, explainability]
+ai_themes: [governance-policy, security-risk, ai-architecture, regulatory-compliance, financial-risk-modeling]
 started: 2026-05-01T02:01:23+00:00
 completed: 2026-05-01T02:23:08+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

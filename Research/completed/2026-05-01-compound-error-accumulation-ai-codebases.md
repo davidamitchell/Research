@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, llm, evaluation, technical-debt, governance]
+ai_themes: [agentic-ai, governance-policy, security-risk, benchmarks-eval, technical-debt]
 started: 2026-05-01T21:32:27+00:00
 completed: 2026-05-01T21:51:56+00:00
 output: [knowledge]

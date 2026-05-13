@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [context-engineering, llm, agentic-ai, rag, prompt-engineering, memory-system, workflow, knowledge-graph]
+ai_themes: [agentic-ai, memory-context, rag-retrieval, knowledge-graphs, context-engineering]
 started: 2026-04-29T09:43:40+00:00
 completed: 2026-04-29T10:10:00+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

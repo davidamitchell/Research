@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [alignment, governance, explainability, ai-safety, llm, agentic-ai, mechanistic-interpretability]
+ai_themes: [agentic-ai, governance-policy, ai-safety-theory, mechanistic-interpretability]
 started: 2026-05-01T08:51:56+00:00
 completed: 2026-05-01T09:14:23+00:00
 output: [knowledge]

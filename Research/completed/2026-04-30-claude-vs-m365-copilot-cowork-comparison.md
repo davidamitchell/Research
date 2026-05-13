@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-ai, llm, microsoft, copilot, cowork, anthropic, enterprise, governance, security]
+ai_themes: [agentic-ai, governance-policy, security-risk, cost-performance, enterprise-adoption]
 started: 2026-05-01T01:36:31+00:00
 completed: 2026-05-01T01:59:48+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

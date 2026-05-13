@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: [2026-05-01-terminal-bench-minimal-coding-agent-benchmarks, 2026-05-01-coding-agent-context-management-transparency, 2026-05-01-self-modifying-agent-architectures, 2026-05-01-extension-systems-ai-coding-agents, 2026-05-01-oss-sustainability-ai-generated-contributions, 2026-05-01-compound-error-accumulation-ai-codebases, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-human-oversight-ai-software-development]
 tags: [agentic-ai, agentic-coding, software-engineering, governance, code-quality, open-source, human-ai-collaboration]
+ai_themes: [agentic-ai, governance-policy, workforce-skills, software-engineering]
 started: 2026-05-02T00:30:49+00:00
 completed: 2026-05-02T00:53:29+00:00
 output: [knowledge]

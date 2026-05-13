@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
 tags: [agentic-coding, software-engineering, technical-debt, evaluation, llm]
+ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, software-sustainability, code-quality-metrics]
 started: 2026-04-30T20:52:07+00:00
 completed: 2026-04-30T21:16:17+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
