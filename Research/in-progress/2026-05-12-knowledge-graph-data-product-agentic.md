@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies"
 added: 2026-05-12T08:21:48+00:00
 status: reviewing
