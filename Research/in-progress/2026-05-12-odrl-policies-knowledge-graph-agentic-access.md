@@ -37,7 +37,7 @@ How can the World Wide Web Consortium (W3C) Open Digital Rights Language (ODRL) 
 **In scope:**
 - ODRL 2.2 information model: Policies, Rules (permissions, prohibitions, duties), Parties, Actions, Constraints, and Assets
 - Representing ODRL policies as Resource Description Framework (RDF) triples within or attached to a KG
-- Patterns for using ODRL to express read or write access on named graphs, conditional usage permissions based on software-agent identity or purpose, and data-use obligations such as attribution or deletion after use
+- Patterns for using ODRL to express read or write access on identified graph partitions, conditional usage permissions based on software-agent identity or purpose, and data-use obligations such as attribution or deletion after use
 - Relationship between ODRL and other access control frameworks: Web Access Control (WAC), Attribute-Based Access Control (ABAC), and dataset licenses such as Creative Commons and the Open Government Licence
 - Policy enforcement at query time: intercepting SPARQL Protocol and RDF Query Language (SPARQL) queries, applying named-graph-level policies, and returning filtered results
 - Relationship of ODRL to Solid pods and Linked Data Platform access control
@@ -75,6 +75,7 @@ Raw access control is necessary but insufficient in that setting, because system
 
 - [x] [World Wide Web Consortium (W3C) ODRL Information Model 2.2 (2018)](https://www.w3.org/TR/odrl-model/)
 - [x] [World Wide Web Consortium (W3C) ODRL Vocabulary and Expression 2.2 (2018)](https://www.w3.org/TR/odrl-vocab/)
+- [x] [World Wide Web Consortium (W3C) RDF 1.1 Concepts and Abstract Syntax](https://www.w3.org/TR/rdf11-concepts/)
 - [x] [World Wide Web Consortium (W3C) ODRL Implementation Best Practices (2019)](https://w3c.github.io/odrl/bp/)
 - [x] [World Wide Web Consortium (W3C) ODRL Formal Semantics draft](https://w3c.github.io/odrl/formal-semantics/)
 - [x] [World Wide Web Consortium (W3C) ODRL Data Spaces profile draft](https://w3c.github.io/odrl/profile-dataspaces/)
@@ -159,7 +160,7 @@ Raw access control is necessary but insufficient in that setting, because system
 - [fact] ODRL assets are generic Internationalized Resource Identifier (IRI)-identified resources, and the vocabulary defines `target` on rules and `hasPolicy` on assets, which provides a normative way to point from a resource to the policy governing it. [source: https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/]
 - [fact] ODRL was designed to work with Linked Data and RDF serializations, including JSON for Linked Data (JSON-LD), and the specification explicitly supports graph-based implementations while remaining neutral about non-graph implementations. [source: https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/]
 - [fact] The ODRL Data Spaces draft extends the core model with data-space-specific actions such as `Query`, `Publish`, `Train`, `Evaluate`, `Anonymize`, and `Transform`, and with provider, consumer, controller, and broker party roles. [source: https://w3c.github.io/odrl/profile-dataspaces/]
-- [inference] A practical KG attachment pattern is therefore to treat each named graph Uniform Resource Identifier (URI), dataset URI, or graph-backed service URI as the asset boundary, link it to policy metadata with `odrl:hasPolicy` or refer to it via `odrl:target`, and evaluate policy against the request context before query execution or result release. [source: https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/; https://w3c.github.io/odrl/profile-dataspaces/]
+- [inference] A practical KG attachment pattern is therefore to treat each named graph, meaning an RDF graph in a dataset that has its own identifier, dataset URI, or graph-backed service URI as the asset boundary, link it to policy metadata with `odrl:hasPolicy` or refer to it via `odrl:target`, and evaluate policy against the request context before query execution or result release. [source: https://www.w3.org/TR/rdf11-concepts/; https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/; https://w3c.github.io/odrl/profile-dataspaces/]
 
 #### 2.3 Solid, WAC, ACP, and runtime identity
 
@@ -233,7 +234,7 @@ Raw access control is necessary but insufficient in that setting, because system
 
 ODRL can encode access and usage governance for Knowledge Graphs, but it cannot by itself enforce software-agent query-time controls; practical systems must pair ODRL policies with external identity, policy-decision, and policy-enforcement components. [inference; source: https://www.w3.org/TR/odrl-model/; https://w3c.github.io/odrl/bp/; https://w3c.github.io/odrl/formal-semantics/]
 
-The strongest attachment pattern is to treat each named graph URI, dataset URI, or graph-backed service URI as an ODRL asset, attach policy metadata with `odrl:hasPolicy` or `odrl:target`, and evaluate permissions, prohibitions, duties, and constraints against request context before query execution or result release. [inference; source: https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/; https://w3c.github.io/odrl/profile-dataspaces/]
+The strongest attachment pattern is to treat each named graph, meaning an RDF graph in a dataset that has its own identifier, dataset URI, or graph-backed service URI as an ODRL asset, attach policy metadata with `odrl:hasPolicy` or `odrl:target`, and evaluate permissions, prohibitions, duties, and constraints against request context before query execution or result release. [inference; source: https://www.w3.org/TR/rdf11-concepts/; https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/; https://w3c.github.io/odrl/profile-dataspaces/]
 
 Solid, IDSA, Gaia-X, and related tooling show a consistent architectural split: ODRL or ODRL-derived profiles express usage conditions, while pod servers, connector stacks, and middleware perform the actual allow, deny, filter, logging, and post-access duty execution. [inference; source: https://w3id.org/oac/; https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl; https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/]
 
@@ -296,12 +297,14 @@ This leads to a practical design choice: keep query-time ODRL evaluation focused
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: ODRL, W3C, KG, RDF, OWL, WAC, ABAC, SPARQL, OIDC, DPoP, ACP, VC, IDSA, DSP, EDC, and DRM expanded on first use
-- Domain-term audit: software-agent, named graph, query-time enforcement, policy decision layer, and machine-readable licence stack clarified in audited prose
-- Claim audit: visible claims in Research Skill Output labeled
-- Findings parity: aligned with section 6
-- Source audit: Executive Summary, Key Findings, Analysis, Evidence Map, and Output use URL-backed citations
+```text
+review-status: pass
+acronym-audit: complete
+domain-term-audit: complete
+claim-audit: complete
+findings-parity: aligned
+source-audit: url-backed
+```
 
 ---
 
@@ -311,7 +314,7 @@ This leads to a practical design choice: keep query-time ODRL evaluation focused
 
 ODRL can encode access and usage governance for Knowledge Graphs, but it cannot by itself enforce software-agent query-time controls; practical systems must pair ODRL policies with external identity, policy-decision, and policy-enforcement components. [inference; source: https://www.w3.org/TR/odrl-model/; https://w3c.github.io/odrl/bp/; https://w3c.github.io/odrl/formal-semantics/]
 
-The strongest attachment pattern is to treat each named graph URI, dataset URI, or graph-backed service URI as an ODRL asset, attach policy metadata with `odrl:hasPolicy` or `odrl:target`, and evaluate permissions, prohibitions, duties, and constraints against request context before query execution or result release. [inference; source: https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/; https://w3c.github.io/odrl/profile-dataspaces/]
+The strongest attachment pattern is to treat each named graph, meaning an RDF graph in a dataset that has its own identifier, dataset URI, or graph-backed service URI as an ODRL asset, attach policy metadata with `odrl:hasPolicy` or `odrl:target`, and evaluate permissions, prohibitions, duties, and constraints against request context before query execution or result release. [inference; source: https://www.w3.org/TR/rdf11-concepts/; https://www.w3.org/TR/odrl-model/; https://www.w3.org/TR/odrl-vocab/; https://w3c.github.io/odrl/profile-dataspaces/]
 
 Solid, IDSA, Gaia-X, and related tooling show a consistent architectural split: ODRL or ODRL-derived profiles express usage conditions, while pod servers, connector stacks, and middleware perform the actual allow, deny, filter, logging, and post-access duty execution. [inference; source: https://w3id.org/oac/; https://international-data-spaces-association.github.io/DataspaceConnector/Documentation/v5/UsageControl; https://gaia-x.gitlab.io/technical-committee/data-exchange-working-group/data-exchange/policies/]
 
