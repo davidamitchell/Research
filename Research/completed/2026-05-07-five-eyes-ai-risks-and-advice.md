@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [ai-governance, security, policy]
+ai_themes: [governance-policy, security-risk, international-relations]
 started: 2026-05-07T14:20:20+00:00
 completed: 2026-05-07T18:41:55+00:00
 output: [knowledge]

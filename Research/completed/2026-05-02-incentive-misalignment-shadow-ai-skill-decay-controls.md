@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, ai-governance, shadow-it, incentives, governance-behaviour, human-factors, skill-decay, enterprise, regulated-enterprise, culture]
+ai_themes: [agentic-ai, governance-policy, workforce-skills, incentives, enterprise-risk]
 started: 2026-05-02T10:16:41+00:00
 completed: 2026-05-02T10:37:35+00:00
 output: [knowledge]

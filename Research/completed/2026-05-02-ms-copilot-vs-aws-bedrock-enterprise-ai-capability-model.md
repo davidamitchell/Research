@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, enterprise, ai-governance, microsoft, aws, capability-model, control-plane, finops, observability, security, identity, github-copilot, regulated-enterprise]
+ai_themes: [agentic-ai, governance-policy, ai-architecture, tools-infrastructure, cost-performance]
 started: 2026-05-02T01:50:41+00:00
 completed: 2026-05-02T02:18:20+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [skill-decay, human-factors, agentic-ai, enterprise, ai-governance, human-in-the-loop, agentic-coding, organisational-learning]
+ai_themes: [workforce-skills, governance-policy, human-factors, organizational-learning]
 started: 2026-05-09T02:23:03+00:00
 completed: 2026-05-09T02:44:07+00:00
 output: [knowledge]

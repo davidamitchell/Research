@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [systems-capability-debt, technical-debt, agentic-ai, enterprise, operational-risk, ai-governance, measurement, shadow-it, culture, regulated-enterprise]
+ai_themes: [agentic-ai, security-risk, governance-policy, workforce-skills, organizational-risk]
 started: 2026-05-09T02:47:36+00:00
 completed: 2026-05-09T03:08:11+00:00
 output: []

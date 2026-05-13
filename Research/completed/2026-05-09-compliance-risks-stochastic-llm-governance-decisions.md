@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [compliance, llm, governance, agentic-ai, ai-governance, hallucinations, privacy, financial-services]
+ai_themes: [governance-policy, security-risk, llm-reasoning, compliance-risk]
 started: 2026-05-10T19:19:52+00:00
 completed: 2026-05-10T19:38:03+00:00
 output: [knowledge]

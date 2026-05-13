@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [vendor-governance, enterprise, ai-platform, multi-platform, microsoft, aws, control-plane, agentic-ai, ai-governance, regulated-enterprise, finops, identity]
+ai_themes: [ai-architecture, governance-policy, tools-infrastructure, cost-performance, vendor-interoperability]
 started: 2026-05-03T03:31:33+00:00
 completed: 2026-05-03T03:54:02+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
