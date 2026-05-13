@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [observability, enterprise-architecture, dependency-mapping, it-architecture, measurement, governance]
+ai_themes: [governance-policy, benchmarks-eval, knowledge-graphs, ai-architecture, tools-infrastructure, system-legibility]
 started: 2026-05-06T09:16:34+00:00
 completed: 2026-05-06T09:49:05+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

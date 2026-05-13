@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [human-in-the-loop, automation-bias, agentic-ai, ai-governance, enterprise, measurement, governance-behaviour, regulated-enterprise, workflow]
+ai_themes: [governance-policy, mlops-deployment, workforce-skills, ai-governance, human-oversight]
 started: 2026-05-09T03:33:35+00:00
 completed: 2026-05-09T03:50:39+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-05-06-aibom-identity-attribution-multiagent-practice]
 tags: [agentic-ai, identity, security, governance, access-control, delegation, attribution, zero-trust]
+ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture]
 started: 2026-05-06T09:51:18+00:00
 completed: 2026-05-06T10:12:47+00:00
 output: [knowledge]

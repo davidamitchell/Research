@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: [2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai, 2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness, 2026-05-08-ai-skill-decay-deskilling-measurement-interventions, 2026-05-08-capability-debt-definition-measurement-ai-risk-amplification, 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates]
 tags: [agentic-ai, ai-governance, systems-capability-debt, operational-risk, incentives, skill-decay, human-in-the-loop, enterprise, risk-framework]
+ai_themes: [agentic-ai, security-risk, governance-policy, workforce-skills, operational-risk]
 started: 2026-05-09T06:57:40+00:00
 completed: 2026-05-09T07:25:08+00:00
 output: [knowledge]

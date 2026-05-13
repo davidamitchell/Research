@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [workflow, organisational-theory, software-engineering, measurement, throughput, reliability, technical-debt, platform-engineering]
+ai_themes: [tools-infrastructure, mlops-deployment, workforce-skills, cost-performance, organisational-design]
 started: 2026-05-09T07:27:16+00:00
 completed: 2026-05-09T07:46:18+00:00
 output: [knowledge]

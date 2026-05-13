@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, software-engineering, incentives, governance-behaviour, enterprise, measurement, technical-debt]
+ai_themes: [agentic-ai, governance-policy, workforce-skills, cost-performance, measurement-metrics]
 started: 2026-05-09T03:09:50+00:00
 completed: 2026-05-09T03:31:23+00:00
 output: [knowledge]

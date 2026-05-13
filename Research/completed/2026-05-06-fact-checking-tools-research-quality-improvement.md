@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [research-methodology, quality-assurance, evaluation, research-loop, fact-checking, llm, workflow]
+ai_themes: [benchmarks-eval, research-methodology, llm-reasoning, tools-infrastructure]
 started: 2026-05-06T22:37:33+00:00
 completed: 2026-05-06T22:57:27+00:00
 output: [backlog-item, knowledge]  # skill | tool | agent | knowledge | backlog-item

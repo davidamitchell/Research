@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [shadow-it, agentic-ai, ai-governance, enterprise, governance-behaviour, regulated-enterprise, human-factors, observability]
+ai_themes: [agentic-ai, governance-policy, security-risk, workforce-skills, organizational-behavior]
 started: 2026-05-09T06:12:15+00:00
 completed: 2026-05-09T06:34:21+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-05-06-aibom-runtime-capture-opentelemetry-practice]
 tags: [agentic-ai, governance, llm, observability, runtime-monitoring, security]
+ai_themes: [agentic-ai, governance-policy, observability-monitoring, ai-architecture]
 started: 2026-05-06T10:14:22+00:00
 completed: 2026-05-06T10:33:39+00:00
 output: [knowledge]

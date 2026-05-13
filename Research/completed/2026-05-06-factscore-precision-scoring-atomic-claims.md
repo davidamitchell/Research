@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-fact-checking-tools-research-quality-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [llm, hallucinations, evaluation, research-methodology, benchmarking, fact-checking]
+ai_themes: [benchmarks-eval, llm-reasoning, fact-checking-methodology]
 started: 2026-05-06T12:01:12+00:00
 completed: 2026-05-06T12:23:36+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

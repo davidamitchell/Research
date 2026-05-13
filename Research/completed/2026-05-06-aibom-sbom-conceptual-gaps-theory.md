@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-aibom-schema-design-standards-alignment, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-declared-construction-practice]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, governance, llm, security, supply-chain, knowledge-graph, ai-governance]
+ai_themes: [agentic-ai, governance-policy, knowledge-graphs, security-risk, ai-architecture]
 started: 2026-05-06T10:35:10+00:00
 completed: 2026-05-06T10:58:37+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item

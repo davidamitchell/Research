@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [agentic-ai, observability, security, llm, runtime-monitoring, ai-platform, governance]
+ai_themes: [agentic-ai, governance-policy, tools-infrastructure, security-risk]
 started: 2026-05-06T22:17:27+00:00
 completed: 2026-05-06T22:34:00+00:00
 output: [knowledge]
