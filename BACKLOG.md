@@ -1401,7 +1401,7 @@ updated: 2026-05-13
 `scripts/build_site.py` produces a graph artifact for the published corpus (for example `docs/data/graph.json`) with explicit provenance and baseline weighting:
 
 - Nodes represent published items (`Research/completed/` and `Knowledge/`) with slug, title, type, and URL.
-- Edges represent machine-readable relationships (`cites`, `related`, and other explicitly supported relationship surfaces already in the corpus).
+- Edges represent machine-readable relationships (`cites`, `related`, and other explicitly supported relationship sources already in the corpus).
 - Every edge includes a `weight` field initialized to `1`.
 - Every edge includes traceability fields showing exactly where it came from (source item slug, relationship field/type, and evidence reference needed to explain the edge in the user interface).
 - Tests verify deterministic output and required schema fields.
