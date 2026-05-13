@@ -24,7 +24,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: ea88cd1bfbc2cfc3613a1584e6cea602640d660b
+    changed: 2026-05-13
+    progress: progress/2026-05-13-odrl-policies-knowledge-graph-agentic-access.md
+    summary: "Initial completion"
 ---
 
 # Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance
