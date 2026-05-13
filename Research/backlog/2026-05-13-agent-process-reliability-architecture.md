@@ -74,11 +74,11 @@ This question informs architecture decisions for deploying AI agents in organiza
 
 ## Sources
 
-- [ ] [Object Management Group Business Process Model and Notation (BPMN) 2.0.2 Specification](https://www.omg.org/spec/BPMN/2.0.2/) — formal process modeling baseline for formal process-layer analysis
-- [ ] [National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/itl/ai-risk-management-framework) — governance and risk framing for reliability and oversight dimensions
+- [ ] [Object Management Group (OMG) Business Process Model and Notation (BPMN) 2.0.2 Specification](https://www.omg.org/spec/BPMN/2.0.2/) — formal process modeling baseline for formal process-layer analysis
+- [ ] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/itl/ai-risk-management-framework) — governance and risk framing for reliability and oversight dimensions
 - [ ] [Camunda Documentation](https://docs.camunda.io/) — representative low-code and workflow orchestration reference material
 - [ ] [LangChain Documentation](https://python.langchain.com/docs/introduction/) — representative pro-code agent framework architecture and execution controls
-- [ ] [arXiv search: Large Language Model (LLM) agents workflow reliability](https://arxiv.org/search/?query=LLM+agents+workflow+reliability&searchtype=all) — starting point for current academic evidence on agent reliability and process adherence
+- [ ] [arXiv search: Large Language Model (LLM) agents workflow reliability](https://arxiv.org/search/?query=large+language+model+agents+workflow+reliability&searchtype=all) — starting point for current academic evidence on agent reliability and process adherence
 
 ---
 

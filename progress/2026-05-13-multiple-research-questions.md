@@ -1,13 +1,13 @@
 # 2026-05-13 -- Add backlog item (multiple-research-questions)
 
 **Completed:**
-- `/home/runner/work/Research/Research/Research/backlog/2026-05-13-agent-process-reliability-architecture.md` — added from issue "Multiple research questions"; scoped a single validated primary question plus decomposed sub-questions covering identification, reconciliation, execution, governance, architectural comparison, and contextual moderators.
+- `Research/backlog/2026-05-13-agent-process-reliability-architecture.md` — added from issue "Multiple research questions"; scoped a single validated primary question plus decomposed sub-questions covering identification, reconciliation, execution, governance, architectural comparison, and contextual moderators.
 
 ## Related
 
-- `/home/runner/work/Research/Research/Research/_template.md`
-- `/home/runner/work/Research/Research/Research/README.md`
-- `/home/runner/work/Research/Research/.github/copilot-instructions.md`
+- `Research/_template.md`
+- `Research/README.md`
+- `.github/copilot-instructions.md`
 
 ## Mini-Retro
 
