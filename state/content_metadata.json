@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-13T09:46:59Z",
+  "extracted_at": "2026-05-13T10:01:35Z",
   "items": {
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
@@ -359,6 +359,128 @@
             "https://github.com/dbpedia/databus/blob/master/docs/version.md",
             "https://www.mediawiki.org/wiki/Special:MyLanguage/Wikibase/Indexing/RDF_Dump_Format",
             "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-12-knowledge-graph-data-product-agentic": {
+      "named_concepts": [
+        "graph product",
+        "knowledge graph",
+        "federated governance",
+        "graph products",
+        "software agents",
+        "live federation",
+        "curated outputs",
+        "graph-shape validation",
+        "unrestricted live",
+        "graph semantics",
+        "producing domain",
+        "shared identifiers",
+        "operating model",
+        "freshness windows",
+        "identifiers mandatory",
+        "mandatory metadata",
+        "standards define",
+        "safe runtime",
+        "domain-owned serving",
+        "serving unit"
+      ],
+      "source_urls": [
+        "https://www.oreilly.com/library/view/data-mesh/9781492092384/",
+        "https://martinfowler.com/articles/data-monolith-to-mesh.html",
+        "https://martinfowler.com/articles/data-mesh-principles.html",
+        "https://www.w3.org/TR/vocab-dcat-3/",
+        "https://dpds.opendatamesh.org/specifications/dpds/1.0.0/",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.omg.org/spec/DPROD/",
+        "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+        "https://ekgf.github.io/dprod/",
+        "https://docs.getdbt.com/reference/resource-configs/contract",
+        "https://docs.datahub.com/docs/dataproducts",
+        "https://docs.datahub.com/docs/generated/metamodel/entities/dataproduct",
+        "https://docs.datahub.com/docs/metadata-modeling/metadata-model",
+        "https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products",
+        "https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products/data-products",
+        "https://atlas.apache.org/2.0.0/TypeSystem.html",
+        "https://docs.collibra.com/Content/Assets/DataProducts/co_data-product.htm",
+        "https://docs.collibra.com/Content/Assets/DataProducts/ta_conf-data-product.htm",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://www.w3.org/TR/sparql11-federated-query/",
+        "https://www.w3.org/TR/ldp/",
+        "https://solidproject.org/TR/protocol",
+        "https://arxiv.org/abs/2003.02320",
+        "https://eprints.soton.ac.uk/271285/",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-data-governance-standards-ai-agentic-applicability.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A Knowledge Graph becomes a data mesh product only when it is packaged as a domain-owned serving unit with explicit metadata, interfaces, and operating commitments, because Dehghani defines the data product as the deployable architectural quantum rather than as raw shared data alone",
+          "sources": [
+            "https://martinfowler.com/articles/data-mesh-principles.html",
+            "https://martinfowler.com/articles/data-monolith-to-mesh.html"
+          ]
+        },
+        {
+          "text": "The ownership split should keep local graph semantics inside the producing domain while moving shared identifiers, mandatory metadata, and interoperability rules into federated governance, because data mesh standardizes cross-domain concerns but leaves bounded-context modeling to domains",
+          "sources": [
+            "https://martinfowler.com/articles/data-mesh-principles.html",
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl"
+          ]
+        },
+        {
+          "text": "A credible Knowledge Graph product contract needs a layered structure of catalog metadata, graph-shape validation, and operational promises, because no single consulted standard covers discoverability, graph constraints, lifecycle status, ports, and service obligations by itself",
+          "sources": [
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+            "https://dpds.opendatamesh.org/specifications/dpds/1.0.0/",
+            "https://docs.getdbt.com/reference/resource-configs/contract"
+          ]
+        },
+        {
+          "text": "Mainstream catalog tools can register graph product ownership and discoverability but do not yet provide native graph-specific semantic contracts as their default operating model, so graph teams still need extensions, custom metadata, or external ontologies",
+          "sources": [
+            "https://docs.datahub.com/docs/generated/metamodel/entities/dataproduct",
+            "https://docs.open-metadata.org/v1.12.x/how-to-guides/data-governance/domains-&-data-products",
+            "https://docs.collibra.com/Content/Assets/DataProducts/ta_conf-data-product.htm",
+            "https://atlas.apache.org/2.0.0/TypeSystem.html"
+          ]
+        },
+        {
+          "text": "Cross-domain graph interoperability is technically feasible through SPARQL federation, LDP, and Solid, but those standards define transport and query composition rather than safe runtime budgets or semantic alignment, so they are enabling mechanisms rather than sufficient product contracts",
+          "sources": [
+            "https://www.w3.org/TR/sparql11-federated-query/",
+            "https://www.w3.org/TR/ldp/",
+            "https://solidproject.org/TR/protocol",
+            "https://eprints.soton.ac.uk/271285/"
+          ]
+        },
+        {
+          "text": "For software-agent runtime dependencies, repeated cross-domain needs should usually be exposed through curated outputs or cached derivative views rather than unrestricted live federation, because graph runtime safety depends on explicit freshness, availability, and query-budget controls",
+          "sources": [
+            "https://www.w3.org/TR/sparql11-federated-query/",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html"
+          ]
+        },
+        {
+          "text": "The minimum lifecycle commitment for a graph product should include semantic version policy, provenance-preserving change publication, freshness windows for authoritative and derived views, and a deprecation notice path, because those are the controls that stop graph change from becoming silent runtime drift",
+          "sources": [
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://www.omg.org/spec/DPROD/dprod-ontology.ttl",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html"
+          ]
+        },
+        {
+          "text": "Public standards support this operating model more strongly than public implementation case studies do, so the recommendation is well grounded as a standards-based design pattern but not yet as a widely documented, mature enterprise norm for Knowledge Graph runtime products",
+          "sources": [
+            "https://martinfowler.com/articles/data-mesh-principles.html",
+            "https://www.omg.org/spec/DPROD/",
+            "https://docs.datahub.com/docs/dataproducts"
           ]
         }
       ]
