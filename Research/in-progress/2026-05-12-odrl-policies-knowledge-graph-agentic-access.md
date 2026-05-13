@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance"
 added: 2026-05-12T08:21:48+00:00
 status: reviewing
