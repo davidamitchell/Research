@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: ba2dc9562274acc8e848ed0ccb2a936a6b8a4325
+    changed: 2026-05-13
+    progress: progress/2026-05-13-knowledge-graph-data-product-agentic.md
+    summary: "Initial completion"
 ---
 
 # Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies
