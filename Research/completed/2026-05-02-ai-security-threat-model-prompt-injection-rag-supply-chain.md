@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [security, prompt-injection, rag, agentic-ai, llm, ai-governance, enterprise, access-control, supply-chain, runtime-monitoring]
+ai_themes: [security-risk, rag-retrieval, agentic-ai, tools-infrastructure]
 started: 2026-05-02T09:08:55+00:00
 completed: 2026-05-02T09:28:33+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
