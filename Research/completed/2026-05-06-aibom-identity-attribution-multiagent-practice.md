@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, identity, security, access-control, delegation, attribution, llm, governance]
+ai_themes: [agentic-ai, multi-agent, security-risk, tools-infrastructure, identity-management]
 started: 2026-05-06T21:09:53+00:00
 completed: 2026-05-06T21:34:46+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
