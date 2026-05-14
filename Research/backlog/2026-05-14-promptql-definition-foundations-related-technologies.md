@@ -49,7 +49,7 @@ This issue asks for a scoped understanding of PromptQL and its ecosystem so futu
 
 1. Establish a precise definition of PromptQL from primary source material and identify its claimed problem statement.
 2. Map the nearest active research areas and summarise what questions those communities are currently investigating.
-3. Identify likely foundational research threads (for example text-to-SQL, prompt programming, retrieval and tool-use reasoning) and trace concrete links where evidence exists.
+3. Identify likely foundational research threads (for example, text-to-SQL, prompt programming, retrieval and tool-use reasoning) and trace concrete links where evidence exists.
 4. Build a related-technology landscape that contrasts PromptQL with adjacent tools and frameworks.
 5. Synthesize implications for what should be researched next in this repository.
 
@@ -59,7 +59,7 @@ This issue asks for a scoped understanding of PromptQL and its ecosystem so futu
 - [ ] [Yao et al. (2023) ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — candidate foundation for tool-use reasoning patterns relevant to prompt-driven query workflows
 - [ ] [Scholak et al. (2021) PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models](https://arxiv.org/abs/2109.05093) — representative text-to-SQL constraint method to compare against PromptQL-style approaches
 - [ ] [Qin et al. (2023) Tool Learning with Foundation Models](https://arxiv.org/abs/2304.08354) — survey-style context for tool-use and orchestration techniques potentially adjacent to PromptQL
-- [ ] [LangChain SQL Question Answering Documentation](https://python.langchain.com/docs/tutorials/sql_qa/) — practical related technology for natural-language-to-database interaction
+- [ ] [LangChain SQL Question Answering Documentation](https://python.langchain.com/docs/tutorials/sql_qa/) — implementation example for natural-language-to-database interaction workflows
 
 ---
 
