@@ -56,7 +56,7 @@ This issue asks for a scoped understanding of PromptQL and its ecosystem so futu
 ## Sources
 
 - [ ] [PromptQL Official Site](https://www.promptql.io/) — primary product/source entry point for PromptQL definitions and claims
-- [ ] [Yao et al. (2023) ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — candidate foundation for tool-using reasoning patterns relevant to prompt-driven query workflows
+- [ ] [Yao et al. (2023) ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — candidate foundation for tool-use reasoning patterns relevant to prompt-driven query workflows
 - [ ] [Scholak et al. (2021) PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models](https://arxiv.org/abs/2109.05093) — representative text-to-SQL constraint method to compare against PromptQL-style approaches
 - [ ] [Qin et al. (2023) Tool Learning with Foundation Models](https://arxiv.org/abs/2304.08354) — survey-style context for tool-use and orchestration techniques potentially adjacent to PromptQL
 - [ ] [LangChain SQL Question Answering Documentation](https://python.langchain.com/docs/tutorials/sql_qa/) — practical related technology for natural-language-to-database interaction
