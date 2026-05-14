@@ -13,12 +13,15 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 import json
 
 from build_site import (
+    _GRAPH_JS,
+    _MINI_GRAPH_JS,
     _cluster_overlap,
     _item_url,
     _validate_graph,
     build_all_items_page,
     build_graph_json,
     build_graph_page,
+    build_item_page,
     build_knowledge_index_page,
     build_research_master_page,
     detect_concept_threads,
@@ -1354,3 +1357,65 @@ def test_weighting_rationale_is_positive() -> None:
     links = {"a": [{"item": item_b, "shared_tags": ["x", "y"], "rel": "related"}]}
     graph = json.loads(build_graph_json(items, links, slug_to))
     assert all(e["weight"] > 0 for e in graph["edges"])
+
+
+# ---------------------------------------------------------------------------
+# Graph mobile + mini-graph tests
+# ---------------------------------------------------------------------------
+
+
+def _make_item_for_page(slug: str) -> dict:
+    """Minimal item dict sufficient for build_item_page."""
+    return {
+        "slug": slug,
+        "title": slug,
+        "display_title": slug,
+        "tags": ["ai"],
+        "added_str": "2026-01-01",
+        "sections": {},
+        "github_url": f"https://github.com/example/Research/blob/main/Research/{slug}.md",
+        "item_type": "primary",
+        "confidence": "medium",
+        "_sources_text": "",
+    }
+
+
+def test_graph_js_has_touch_events() -> None:
+    assert "touchstart" in _GRAPH_JS
+    assert "touchmove" in _GRAPH_JS
+    assert "touchend" in _GRAPH_JS
+
+
+def test_mini_graph_js_exists() -> None:
+    assert isinstance(_MINI_GRAPH_JS, str) and len(_MINI_GRAPH_JS) > 100
+
+
+def test_mini_graph_js_reads_focal_slug() -> None:
+    assert "GRAPH_FOCAL_SLUG" in _MINI_GRAPH_JS
+
+
+def test_mini_graph_js_navigates_on_click() -> None:
+    assert "window.location.href" in _MINI_GRAPH_JS
+
+
+def test_mini_graph_js_has_touch_events() -> None:
+    assert "touchstart" in _MINI_GRAPH_JS
+    assert "touchend" in _MINI_GRAPH_JS
+
+
+def test_item_page_has_mini_graph_canvas() -> None:
+    item = _make_item_for_page("2026-01-01-foo")
+    html = build_item_page(item, None, None)
+    assert "mini-graph-canvas" in html
+
+
+def test_item_page_has_focal_slug_script() -> None:
+    item = _make_item_for_page("2026-01-01-foo")
+    html = build_item_page(item, None, None)
+    assert "GRAPH_FOCAL_SLUG" in html
+
+
+def test_item_page_focal_slug_matches_item() -> None:
+    item = _make_item_for_page("2026-01-01-foo")
+    html = build_item_page(item, None, None)
+    assert '"2026-01-01-foo"' in html

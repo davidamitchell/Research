@@ -641,32 +641,56 @@ main {
 .versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
           <style>
-.graph-wrap { display: flex; flex-direction: column; gap: 1rem; }
-#graph-canvas { width: 100%; height: 600px; background: #0f172a;
-  border: 1px solid var(--border); border-radius: 6px; cursor: grab; display: block; }
+.graph-wrap { display: flex; flex-direction: column; gap: 0.75rem; }
+#graph-canvas { width: 100%; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; display: block; }
 #graph-canvas:active { cursor: grabbing; }
+.graph-controls { display: flex; flex-wrap: wrap; gap: 0.5rem;
+  align-items: center; padding: 0.5rem 0; }
+.filter-btn { display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.25rem 0.65rem; border: 1px solid var(--border);
+  border-radius: 4px; background: var(--surface-2);
+  color: var(--text); font-family: inherit; font-size: var(--text-xs);
+  cursor: pointer; transition: opacity 0.15s; }
+.filter-btn:hover { border-color: var(--text-muted); }
+.filter-btn.off { opacity: 0.3; }
+.filter-btn .fdot { width: 8px; height: 8px; border-radius: 50%;
+  display: inline-block; flex-shrink: 0; }
+.fcount { color: var(--text-muted); }
+.ctrl-sep { width: 1px; height: 1.4rem; background: var(--border); margin: 0 0.25rem; }
+#btn-fit { padding: 0.25rem 0.65rem; border: 1px solid var(--border);
+  border-radius: 4px; background: var(--surface-2);
+  color: var(--text-muted); font-family: inherit;
+  font-size: var(--text-xs); cursor: pointer; }
+#btn-fit:hover { color: var(--text); border-color: var(--text-muted); }
+#node-search { padding: 0.25rem 0.6rem; border: 1px solid var(--border);
+  border-radius: 4px; background: var(--surface-2);
+  color: var(--text); font-family: inherit; font-size: var(--text-xs);
+  width: 14rem; }
+#node-search::placeholder { color: var(--text-muted); }
 #info-panel { background: var(--surface); border: 1px solid var(--border);
-  border-radius: 6px; padding: 1rem; min-height: 5rem; font-size: var(--text-sm); }
+  border-radius: 6px; padding: 1rem; min-height: 4.5rem;
+  font-size: var(--text-sm); }
 .panel-hint { color: var(--text-muted); margin: 0; }
 .panel-row { display: flex; gap: 0.75rem; padding: 0.3rem 0;
   border-bottom: 1px solid var(--border); align-items: baseline; }
 .panel-row:last-child { border-bottom: none; }
-.panel-label { min-width: 6rem; color: var(--text-muted); font-size: var(--text-xs);
-  text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; }
+.panel-label { min-width: 6rem; color: var(--text-muted);
+  font-size: var(--text-xs); text-transform: uppercase;
+  letter-spacing: 0.05em; flex-shrink: 0; }
 .panel-rel { font-weight: 600; }
 .panel-rel-cites { color: #2dd4bf; }
 .panel-rel-related { color: #a78bfa; }
-.panel-rel-tag-overlap { color: #94a3b8; }
-.graph-legend { display: flex; flex-wrap: wrap; gap: 1rem;
-  font-size: var(--text-xs); color: var(--text-muted); }
-.legend-item { display: flex; align-items: center; gap: 0.4rem; }
-.legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.legend-cites { background: #2dd4bf; }
-.legend-related { background: #a78bfa; }
-.legend-tag { background: #64748b; }
-.legend-primary { background: #2dd4bf; }
-.legend-synthesis { background: #a78bfa; }
+.panel-rel-tag-overlap { color: #64748b; }
 #graph-stats { font-size: var(--text-xs); color: var(--text-muted); }
+#graph-canvas { touch-action: none; }
+.panel-item-link { font-weight: 600; }
+@media (max-width: 600px) {
+  .graph-controls { gap: 0.35rem; }
+  #node-search { width: 100%; }
+  .ctrl-sep { display: none; }
+}
 </style>
 
         </head>
@@ -689,7 +713,7 @@ main {
 <div class="page-wrap">
   <h1>Knowledge Graph</h1>
   <p id="graph-stats">Loading&hellip;</p>
-<div class="graph-legend"><span class="legend-item"><span class="legend-dot legend-cites"></span>cites</span><span class="legend-item"><span class="legend-dot legend-related"></span>related</span><span class="legend-item"><span class="legend-dot legend-tag"></span>tag-overlap</span><span class="legend-item"><span class="legend-dot legend-primary"></span>primary item</span><span class="legend-item"><span class="legend-dot legend-synthesis"></span>synthesis item</span></div>  <div class="graph-wrap">
+<div class="graph-controls"><button class="filter-btn" id="filter-cites" data-rel="cites"><span class="fdot" style="background:#2dd4bf"></span>cites <span class="fcount">…</span></button><button class="filter-btn" id="filter-related" data-rel="related"><span class="fdot" style="background:#a78bfa"></span>related <span class="fcount">…</span></button><button class="filter-btn" id="filter-tag" data-rel="tag-overlap"><span class="fdot" style="background:#64748b"></span>tag-overlap <span class="fcount">…</span></button><span class="ctrl-sep"></span><button id="btn-fit">fit</button><span class="ctrl-sep"></span><input id="node-search" type="search" placeholder="Search nodes…" /></div>  <div class="graph-wrap">
     <canvas id="graph-canvas"></canvas>
     <div id="info-panel"><p class="panel-hint">Loading graph&hellip;</p></div>
   </div>
@@ -699,15 +723,20 @@ main {
   var canvas = document.getElementById('graph-canvas');
   var ctx = canvas.getContext('2d');
   var panel = document.getElementById('info-panel');
+  var searchInput = document.getElementById('node-search');
   var nodes = [], edges = [], nodeMap = {};
   var transform = {x: 0, y: 0, scale: 1};
-  var dragging = false, lastMouseX = 0, lastMouseY = 0, clickX = 0, clickY = 0;
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var lastTouchDist = null;
   var selected = null;
   var ticks = 0, MAX_TICKS = 300;
+  var animRunning = false;
+  var searchQuery = '';
+  var filters = {cites: true, related: true, 'tag-overlap': true};
 
   function resize() {
     canvas.width = canvas.parentElement.offsetWidth || 800;
-    canvas.height = Math.min(600, window.innerHeight * 0.7);
+    canvas.height = Math.min(680, Math.max(400, window.innerHeight - 240));
   }
 
   function toWorld(cx, cy) {
@@ -719,21 +748,31 @@ main {
 
   function initNodes(data) {
     var W = canvas.width, H = canvas.height;
-    nodes = data.nodes.map(function(n) {
-      return Object.assign({}, n, {
-        x: Math.random() * W * 0.8 + W * 0.1,
-        y: Math.random() * H * 0.8 + H * 0.1,
+    var n = data.nodes.length;
+    var r = Math.min(W, H) * 0.38;
+    nodes = data.nodes.map(function(nd, i) {
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 30,
+        y: H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 30,
         vx: 0, vy: 0
       });
     });
     nodeMap = {};
-    nodes.forEach(function(n) { nodeMap[n.slug] = n; });
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
     edges = data.edges.map(function(e) {
       return Object.assign({}, e, {
         sourceNode: nodeMap[e.source],
         targetNode: nodeMap[e.target]
       });
     }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var counts = {cites: 0, related: 0, 'tag-overlap': 0};
+    data.edges.forEach(function(e) { if (e.rel in counts) counts[e.rel]++; });
+    ['cites', 'related', 'tag-overlap'].forEach(function(rel) {
+      var id = 'filter-' + rel.replace('-overlap', '');
+      var sp = document.querySelector('#' + id + ' .fcount');
+      if (sp) sp.textContent = counts[rel];
+    });
   }
 
   function tick() {
@@ -774,46 +813,82 @@ main {
     ctx.scale(transform.scale, transform.scale);
     var showLabels = transform.scale >= 0.55;
     var R = 6 / transform.scale;
-    var i, e, s, t, n, isSelected;
+    var i, e, s, t, n, isSelected, dim, matched;
+    var q = searchQuery.trim().toLowerCase();
     for (i = 0; i < edges.length; i++) {
-      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      e = edges[i];
+      if (!filters[e.rel]) continue;
+      s = e.sourceNode; t = e.targetNode;
       isSelected = (selected === e);
+      dim = q && s.slug.indexOf(q) < 0 && t.slug.indexOf(q) < 0 &&
+            t.title.toLowerCase().indexOf(q) < 0 && s.title.toLowerCase().indexOf(q) < 0;
       ctx.beginPath();
-      ctx.moveTo(s.x, s.y);
-      ctx.lineTo(t.x, t.y);
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
       ctx.strokeStyle = isSelected ? '#f59e0b' : (REL_COLORS[e.rel] || '#64748b');
       ctx.lineWidth = isSelected ? 2.5 / transform.scale : Math.max(0.4, e.weight * 0.35) / transform.scale;
-      ctx.globalAlpha = isSelected ? 1.0 : 0.45;
+      ctx.globalAlpha = isSelected ? 1.0 : (dim ? 0.06 : 0.38);
       ctx.stroke();
       ctx.globalAlpha = 1.0;
     }
     for (i = 0; i < nodes.length; i++) {
       n = nodes[i]; isSelected = (selected === n);
+      matched = q && (n.slug.indexOf(q) >= 0 || n.title.toLowerCase().indexOf(q) >= 0);
+      dim = q && !matched;
       ctx.beginPath();
-      ctx.arc(n.x, n.y, R, 0, Math.PI * 2);
-      ctx.fillStyle = isSelected ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.arc(n.x, n.y, isSelected || matched ? R * 1.6 : R, 0, Math.PI * 2);
+      ctx.fillStyle = isSelected || matched ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.globalAlpha = dim ? 0.15 : 1.0;
       ctx.fill();
-      if (showLabels) {
-        ctx.fillStyle = '#e2e8f0';
+      ctx.globalAlpha = 1.0;
+      if (showLabels && !dim) {
+        ctx.fillStyle = matched ? '#f59e0b' : (isSelected ? '#f59e0b' : '#64748b');
         ctx.font = (10 / transform.scale) + 'px sans-serif';
-        var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 22);
+        var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 24);
         ctx.fillText(label, n.x + R + 2, n.y + 3 / transform.scale);
       }
     }
     ctx.restore();
   }
 
-  function loop() {
-    if (ticks < MAX_TICKS) { tick(); ticks++; }
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var W = canvas.width, H = canvas.height, pad = 48;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.05);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
     draw();
-    requestAnimationFrame(loop);
   }
 
   function hitNode(wx, wy) {
-    var R = 8 / transform.scale, i, n, dx, dy;
+    var R = 10 / transform.scale, i, nd, dx, dy;
     for (i = nodes.length - 1; i >= 0; i--) {
-      n = nodes[i]; dx = wx - n.x; dy = wy - n.y;
-      if (dx * dx + dy * dy <= R * R) return n;
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
     }
     return null;
   }
@@ -821,7 +896,9 @@ main {
   function hitEdge(wx, wy) {
     var THRESH = 6 / transform.scale, i, e, s, t, dx, dy, len2, tp, px, py, cx, cy;
     for (i = 0; i < edges.length; i++) {
-      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      e = edges[i];
+      if (!filters[e.rel]) continue;
+      s = e.sourceNode; t = e.targetNode;
       dx = t.x - s.x; dy = t.y - s.y; len2 = dx * dx + dy * dy;
       if (len2 < 1) continue;
       tp = Math.max(0, Math.min(1, ((wx - s.x) * dx + (wy - s.y) * dy) / len2));
@@ -832,48 +909,55 @@ main {
     return null;
   }
 
-  function esc(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  function esc(v) {
+    return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
   function showPanel(obj) {
     selected = obj;
     if (!obj) {
-      panel.innerHTML = '<p class="panel-hint">Click a node or edge to see details. Drag to pan &middot; Scroll to zoom.</p>';
-      return;
+      panel.innerHTML = '<p class="panel-hint">Click a node or edge to inspect. Drag to pan · Scroll or pinch to zoom.</p>';
+      redraw(); return;
     }
     if (obj.sourceNode) {
       var srcNode = nodeMap[obj.source], tgtNode = nodeMap[obj.target];
-      var srcHref = srcNode ? srcNode.url : '#';
-      var tgtHref = tgtNode ? tgtNode.url : '#';
       panel.innerHTML =
-        '<div class="panel-row"><span class="panel-label">Relationship</span><span class="panel-rel panel-rel-' + esc(obj.rel) + '">' + esc(obj.rel) + '</span></div>' +
+        '<div class="panel-row"><span class="panel-label">Relationship</span>' +
+        '<span class="panel-rel panel-rel-' + esc(obj.rel) + '">' + esc(obj.rel) + '</span></div>' +
         '<div class="panel-row"><span class="panel-label">Evidence</span><code>' + esc(obj.evidence) + '</code></div>' +
-        '<div class="panel-row"><span class="panel-label">Provenance</span><a href="/Research/research/' + esc(obj.provenance) + '.html">' + esc(obj.provenance) + '</a></div>' +
-        '<div class="panel-row"><span class="panel-label">Source</span><a href="' + esc(srcHref) + '">' + esc(obj.source) + '</a></div>' +
-        '<div class="panel-row"><span class="panel-label">Target</span><a href="' + esc(tgtHref) + '">' + esc(obj.target) + '</a></div>' +
-        '<div class="panel-row"><span class="panel-label">Weight</span>' + esc(obj.weight) + '</div>';
+        '<div class="panel-row"><span class="panel-label">From</span>' +
+        '<a href="' + esc(srcNode ? srcNode.url : '#') + '">' + esc(obj.source) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">To</span>' +
+        '<a href="' + esc(tgtNode ? tgtNode.url : '#') + '">' + esc(obj.target) + '</a></div>';
     } else {
       panel.innerHTML =
-        '<div class="panel-row"><span class="panel-label">Title</span><a href="' + esc(obj.url) + '">' + esc(obj.title) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">Item</span>' +
+        '<a class="panel-item-link" href="' + esc(obj.url) + '">' + esc(obj.title) + ' →</a></div>' +
         '<div class="panel-row"><span class="panel-label">Type</span>' + esc(obj.type) + '</div>' +
         '<div class="panel-row"><span class="panel-label">Slug</span><code>' + esc(obj.slug) + '</code></div>';
     }
+    redraw();
   }
 
   canvas.addEventListener('mousedown', function(e) {
-    dragging = true; lastMouseX = e.clientX; lastMouseY = e.clientY;
+    dragging = true; lastMX = e.clientX; lastMY = e.clientY;
     clickX = e.clientX; clickY = e.clientY;
   });
   canvas.addEventListener('mousemove', function(e) {
-    if (!dragging) return;
-    transform.x += e.clientX - lastMouseX;
-    transform.y += e.clientY - lastMouseY;
-    lastMouseX = e.clientX; lastMouseY = e.clientY;
+    if (dragging) {
+      transform.x += e.clientX - lastMX; transform.y += e.clientY - lastMY;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var rect = canvas.getBoundingClientRect();
+      var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+      canvas.style.cursor = hitNode(w.x, w.y) ? 'pointer' : 'grab';
+    }
   });
   canvas.addEventListener('mouseup', function(e) {
     var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
     dragging = false;
+    canvas.style.cursor = 'grab';
     if (moved < 4) {
       var rect = canvas.getBoundingClientRect();
       var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
@@ -888,8 +972,84 @@ main {
     transform.x = mx - (mx - transform.x) * factor;
     transform.y = my - (my - transform.y) * factor;
     transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
+    redraw();
   }, {passive: false});
-  window.addEventListener('resize', function() { resize(); });
+
+  canvas.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    if (e.touches.length === 1) {
+      dragging = true; lastTouchDist = null;
+      lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
+      clickX = lastMX; clickY = lastMY;
+    } else if (e.touches.length === 2) {
+      dragging = false;
+      lastTouchDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    }
+  }, {passive: false});
+  canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    if (e.touches.length === 1 && dragging) {
+      transform.x += e.touches[0].clientX - lastMX;
+      transform.y += e.touches[0].clientY - lastMY;
+      lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
+      redraw();
+    } else if (e.touches.length === 2) {
+      var dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      if (lastTouchDist) {
+        var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        var rect = canvas.getBoundingClientRect();
+        mx -= rect.left; my -= rect.top;
+        var factor = dist / lastTouchDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
+        redraw();
+      }
+      lastTouchDist = dist;
+    }
+  }, {passive: false});
+  canvas.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    if (e.touches.length === 0 && e.changedTouches.length) {
+      var moved = Math.abs(e.changedTouches[0].clientX - clickX) +
+                  Math.abs(e.changedTouches[0].clientY - clickY);
+      dragging = false;
+      if (moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.changedTouches[0].clientX - rect.left,
+                        e.changedTouches[0].clientY - rect.top);
+        showPanel(hitNode(w.x, w.y) || hitEdge(w.x, w.y) || null);
+      }
+    }
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var rel = btn.dataset.rel;
+      filters[rel] = !filters[rel];
+      btn.classList.toggle('off', !filters[rel]);
+      redraw();
+    });
+  });
+
+  var fitBtn = document.getElementById('btn-fit');
+  if (fitBtn) fitBtn.addEventListener('click', fitToView);
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      searchQuery = searchInput.value;
+      redraw();
+    });
+  }
 
   resize();
   fetch('/Research/data/graph.json')
@@ -897,9 +1057,9 @@ main {
     .then(function(data) {
       initNodes(data);
       showPanel(null);
-      loop();
       document.getElementById('graph-stats').textContent =
         data.node_count + ' nodes · ' + data.edge_count + ' edges';
+      startAnim();
     })
     .catch(function() {
       panel.innerHTML = '<p class="panel-hint">graph.json not found — run the site build to generate it.</p>';
