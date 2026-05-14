@@ -829,6 +829,7 @@ def html_nav(active: str = "") -> str:
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
+        f'      <a href="/Research/graph.html"{_cls("graph")}>{ICON_THREAD}Graph</a>\n'
         '      <a href="https://github.com/davidamitchell/Research"'
         f' target="_blank" rel="noopener">{ICON_GITHUB}GitHub</a>\n'
         "    </div>\n"
@@ -2955,8 +2956,17 @@ def build_graph_json(
     - ``related_slugs`` frontmatter field — directed edge from declaring item to related slug
     - ``links`` (tag-overlap) — undirected; canonical direction is source < target (alphabetical)
 
+    Weighting rationale (W-0075):
+    +--------------+--------+-----------------------------------------------+
+    | rel          | weight | rationale                                     |
+    +--------------+--------+-----------------------------------------------+
+    | cites        | 4      | direct intellectual dependency — strongest     |
+    | related      | 3      | explicit frontmatter declaration               |
+    | tag-overlap  | N      | N = number of shared tags (implicit, 1..N)    |
+    +--------------+--------+-----------------------------------------------+
+
     Every edge carries:
-    - ``weight`` — initialized to 1 (baseline; refined by W-0075)
+    - ``weight`` — numeric strength (see table above)
     - ``rel`` — relationship type: "cites" | "related" | "tag-overlap"
     - ``evidence`` — frontmatter field name or comma-joined shared tag list
     - ``provenance`` — slug of the item that declares the relationship
@@ -2988,7 +2998,7 @@ def build_graph_json(
                 {
                     "source": source,
                     "target": target,
-                    "weight": 1,
+                    "weight": 4,
                     "rel": "cites",
                     "evidence": "frontmatter:cites",
                     "provenance": source,
@@ -3002,7 +3012,7 @@ def build_graph_json(
                 {
                     "source": source,
                     "target": target,
-                    "weight": 1,
+                    "weight": 3,
                     "rel": "related",
                     "evidence": "frontmatter:related",
                     "provenance": source,
@@ -3022,7 +3032,7 @@ def build_graph_json(
                 {
                     "source": canonical_a,
                     "target": canonical_b,
-                    "weight": 1,
+                    "weight": max(1, len(shared_tags)),
                     "rel": "tag-overlap",
                     "evidence": ",".join(sorted(shared_tags)),
                     "provenance": source_slug,
@@ -3039,7 +3049,325 @@ def build_graph_json(
         "nodes": nodes,
         "edges": edges,
     }
+    errors = _validate_graph(graph)
+    if errors:
+        raise ValueError("Graph validation failed:\n" + "\n".join(f"  {e}" for e in errors))
     return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+def _validate_graph(graph: dict) -> list[str]:
+    """Validate a graph dict against the schema-1.0 requirements.
+
+    Returns a (possibly empty) list of human-readable error strings.
+    An empty list means the graph is valid.
+    """
+    errors: list[str] = []
+    nodes = graph.get("nodes", [])
+    edges = graph.get("edges", [])
+    node_slugs = {n["slug"] for n in nodes}
+
+    if graph.get("node_count") != len(nodes):
+        errors.append(f"node_count {graph.get('node_count')!r} != actual node count {len(nodes)}")
+    if graph.get("edge_count") != len(edges):
+        errors.append(f"edge_count {graph.get('edge_count')!r} != actual edge count {len(edges)}")
+
+    for i, edge in enumerate(edges):
+        for field in ("weight", "provenance", "rel", "evidence", "source", "target"):
+            if field not in edge:
+                errors.append(f"edge[{i}] missing required field '{field}'")
+        src = edge.get("source", "")
+        tgt = edge.get("target", "")
+        if src and src not in node_slugs:
+            errors.append(f"edge[{i}] source '{src}' references unknown node")
+        if tgt and tgt not in node_slugs:
+            errors.append(f"edge[{i}] target '{tgt}' references unknown node")
+
+    return errors
+
+
+# Graph page inline JS — vanilla force-directed layout, no external library.
+# Uses plain string (not f-string) to avoid escaping curly braces.
+_GRAPH_JS = """\
+(function () {
+  var canvas = document.getElementById('graph-canvas');
+  var ctx = canvas.getContext('2d');
+  var panel = document.getElementById('info-panel');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMouseX = 0, lastMouseY = 0, clickX = 0, clickY = 0;
+  var selected = null;
+  var ticks = 0, MAX_TICKS = 300;
+
+  function resize() {
+    canvas.width = canvas.parentElement.offsetWidth || 800;
+    canvas.height = Math.min(600, window.innerHeight * 0.7);
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var W = canvas.width, H = canvas.height;
+    nodes = data.nodes.map(function(n) {
+      return Object.assign({}, n, {
+        x: Math.random() * W * 0.8 + W * 0.1,
+        y: Math.random() * H * 0.8 + H * 0.1,
+        vx: 0, vy: 0
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(n) { nodeMap[n.slug] = n; });
+    edges = data.edges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+  }
+
+  function tick() {
+    var REPULSION = 8000, SPRING = 0.018, REST = 120, DAMP = 0.85;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        f = REPULSION / d2;
+        a.vx -= dx * f; a.vy -= dy * f;
+        b.vx += dx * f; b.vy += dy * f;
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST * Math.max(1, e.weight)) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      s.vx += fx; s.vy += fy;
+      t.vx -= fx; t.vy -= fy;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+      nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b'};
+
+  function draw() {
+    var W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+    ctx.save();
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var showLabels = transform.scale >= 0.55;
+    var R = 6 / transform.scale;
+    var i, e, s, t, n, isSelected;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      isSelected = (selected === e);
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = isSelected ? '#f59e0b' : (REL_COLORS[e.rel] || '#64748b');
+      ctx.lineWidth = isSelected ? 2.5 / transform.scale : Math.max(0.4, e.weight * 0.35) / transform.scale;
+      ctx.globalAlpha = isSelected ? 1.0 : 0.45;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i]; isSelected = (selected === n);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, R, 0, Math.PI * 2);
+      ctx.fillStyle = isSelected ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      if (showLabels) {
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = (10 / transform.scale) + 'px sans-serif';
+        var label = n.slug.replace(/^\\d{4}-\\d{2}-\\d{2}-/, '').slice(0, 22);
+        ctx.fillText(label, n.x + R + 2, n.y + 3 / transform.scale);
+      }
+    }
+    ctx.restore();
+  }
+
+  function loop() {
+    if (ticks < MAX_TICKS) { tick(); ticks++; }
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  function hitNode(wx, wy) {
+    var R = 8 / transform.scale, i, n, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      n = nodes[i]; dx = wx - n.x; dy = wy - n.y;
+      if (dx * dx + dy * dy <= R * R) return n;
+    }
+    return null;
+  }
+
+  function hitEdge(wx, wy) {
+    var THRESH = 6 / transform.scale, i, e, s, t, dx, dy, len2, tp, px, py, cx, cy;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y; len2 = dx * dx + dy * dy;
+      if (len2 < 1) continue;
+      tp = Math.max(0, Math.min(1, ((wx - s.x) * dx + (wy - s.y) * dy) / len2));
+      px = s.x + tp * dx; py = s.y + tp * dy;
+      cx = wx - px; cy = wy - py;
+      if (cx * cx + cy * cy < THRESH * THRESH) return e;
+    }
+    return null;
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function showPanel(obj) {
+    selected = obj;
+    if (!obj) {
+      panel.innerHTML = '<p class="panel-hint">Click a node or edge to see details. Drag to pan &middot; Scroll to zoom.</p>';
+      return;
+    }
+    if (obj.sourceNode) {
+      var srcNode = nodeMap[obj.source], tgtNode = nodeMap[obj.target];
+      var srcHref = srcNode ? srcNode.url : '#';
+      var tgtHref = tgtNode ? tgtNode.url : '#';
+      panel.innerHTML =
+        '<div class="panel-row"><span class="panel-label">Relationship</span><span class="panel-rel panel-rel-' + esc(obj.rel) + '">' + esc(obj.rel) + '</span></div>' +
+        '<div class="panel-row"><span class="panel-label">Evidence</span><code>' + esc(obj.evidence) + '</code></div>' +
+        '<div class="panel-row"><span class="panel-label">Provenance</span><a href="/Research/research/' + esc(obj.provenance) + '.html">' + esc(obj.provenance) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">Source</span><a href="' + esc(srcHref) + '">' + esc(obj.source) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">Target</span><a href="' + esc(tgtHref) + '">' + esc(obj.target) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">Weight</span>' + esc(obj.weight) + '</div>';
+    } else {
+      panel.innerHTML =
+        '<div class="panel-row"><span class="panel-label">Title</span><a href="' + esc(obj.url) + '">' + esc(obj.title) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">Type</span>' + esc(obj.type) + '</div>' +
+        '<div class="panel-row"><span class="panel-label">Slug</span><code>' + esc(obj.slug) + '</code></div>';
+    }
+  }
+
+  canvas.addEventListener('mousedown', function(e) {
+    dragging = true; lastMouseX = e.clientX; lastMouseY = e.clientY;
+    clickX = e.clientX; clickY = e.clientY;
+  });
+  canvas.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    transform.x += e.clientX - lastMouseX;
+    transform.y += e.clientY - lastMouseY;
+    lastMouseX = e.clientX; lastMouseY = e.clientY;
+  });
+  canvas.addEventListener('mouseup', function(e) {
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    dragging = false;
+    if (moved < 4) {
+      var rect = canvas.getBoundingClientRect();
+      var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+      showPanel(hitNode(w.x, w.y) || hitEdge(w.x, w.y) || null);
+    }
+  });
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.12 : 0.89;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
+  }, {passive: false});
+  window.addEventListener('resize', function() { resize(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      showPanel(null);
+      loop();
+      document.getElementById('graph-stats').textContent =
+        data.node_count + ' nodes · ' + data.edge_count + ' edges';
+    })
+    .catch(function() {
+      panel.innerHTML = '<p class="panel-hint">graph.json not found — run the site build to generate it.</p>';
+    });
+})();
+"""
+
+
+def build_graph_page() -> str:
+    """Generate docs/graph.html — an interactive force-directed graph view.
+
+    Loads docs/data/graph.json (produced by build_graph_json) and renders
+    nodes and edges on an HTML5 canvas using a vanilla-JS force simulation.
+    No external JS library is required (see ADR-0016).
+    """
+    legend_html = (
+        '<div class="graph-legend">'
+        '<span class="legend-item"><span class="legend-dot legend-cites"></span>cites</span>'
+        '<span class="legend-item"><span class="legend-dot legend-related"></span>related</span>'
+        '<span class="legend-item"><span class="legend-dot legend-tag"></span>tag-overlap</span>'
+        '<span class="legend-item"><span class="legend-dot legend-primary"></span>primary item</span>'
+        '<span class="legend-item"><span class="legend-dot legend-synthesis"></span>synthesis item</span>'
+        "</div>"
+    )
+
+    extra_css = textwrap.dedent("""\
+        <style>
+        .graph-wrap { display: flex; flex-direction: column; gap: 1rem; }
+        #graph-canvas { width: 100%; height: 600px; background: #0f172a;
+          border: 1px solid var(--border); border-radius: 6px; cursor: grab; display: block; }
+        #graph-canvas:active { cursor: grabbing; }
+        #info-panel { background: var(--surface); border: 1px solid var(--border);
+          border-radius: 6px; padding: 1rem; min-height: 5rem; font-size: var(--text-sm); }
+        .panel-hint { color: var(--text-muted); margin: 0; }
+        .panel-row { display: flex; gap: 0.75rem; padding: 0.3rem 0;
+          border-bottom: 1px solid var(--border); align-items: baseline; }
+        .panel-row:last-child { border-bottom: none; }
+        .panel-label { min-width: 6rem; color: var(--text-muted); font-size: var(--text-xs);
+          text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; }
+        .panel-rel { font-weight: 600; }
+        .panel-rel-cites { color: #2dd4bf; }
+        .panel-rel-related { color: #a78bfa; }
+        .panel-rel-tag-overlap { color: #94a3b8; }
+        .graph-legend { display: flex; flex-wrap: wrap; gap: 1rem;
+          font-size: var(--text-xs); color: var(--text-muted); }
+        .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .legend-cites { background: #2dd4bf; }
+        .legend-related { background: #a78bfa; }
+        .legend-tag { background: #64748b; }
+        .legend-primary { background: #2dd4bf; }
+        .legend-synthesis { background: #a78bfa; }
+        #graph-stats { font-size: var(--text-xs); color: var(--text-muted); }
+        </style>
+        """)
+
+    return (
+        html_head("Knowledge Graph", extra_head=extra_css)
+        + html_nav("graph")
+        + textwrap.dedent("""\
+            <div class="page-wrap">
+              <h1>Knowledge Graph</h1>
+              <p id="graph-stats">Loading&hellip;</p>
+            """)
+        + legend_html
+        + textwrap.dedent("""\
+              <div class="graph-wrap">
+                <canvas id="graph-canvas"></canvas>
+                <div id="info-panel"><p class="panel-hint">Loading graph&hellip;</p></div>
+              </div>
+            </div>
+            """)
+        + f"<script>\n{_GRAPH_JS}\n</script>\n"
+        + html_foot()
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -3110,6 +3438,9 @@ def main() -> None:
     (GRAPH_DATA_DIR / "graph.json").write_text(
         build_graph_json(all_items, links, slug_to_item), encoding="utf-8"
     )
+
+    print("Building graph.html…")
+    (DOCS_DIR / "graph.html").write_text(build_graph_page(), encoding="utf-8")
 
     pages_written = 0
 

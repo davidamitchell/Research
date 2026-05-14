@@ -15,12 +15,15 @@ import json
 from build_site import (
     _cluster_overlap,
     _item_url,
+    _validate_graph,
     build_all_items_page,
     build_graph_json,
+    build_graph_page,
     build_knowledge_index_page,
     build_research_master_page,
     detect_concept_threads,
     detect_threads,
+    html_nav,
     load_knowledge_items,
     render_card,
     strip_evidence_labels,
@@ -987,15 +990,15 @@ def test_graph_json_edge_required_fields() -> None:
             assert field in edge, f"edge missing field: {field}"
 
 
-def test_graph_json_edge_weight_is_one() -> None:
-    """All edges have weight=1 (baseline model)."""
+def test_graph_json_edge_weight_is_positive() -> None:
+    """All edges have a positive weight."""
     item_a = _make_graph_item("a", cites=["b"], related=["c"])
     item_b = _make_graph_item("b")
     item_c = _make_graph_item("c")
     items = [item_a, item_b, item_c]
     slug_to = {i["slug"]: i for i in items}
     parsed = json.loads(build_graph_json(items, {}, slug_to))
-    assert all(e["weight"] == 1 for e in parsed["edges"])
+    assert all(e["weight"] > 0 for e in parsed["edges"])
 
 
 def test_graph_json_related_edge_produced() -> None:
@@ -1101,3 +1104,253 @@ def test_graph_json_empty_items() -> None:
     assert parsed["edges"] == []
     assert parsed["node_count"] == 0
     assert parsed["edge_count"] == 0
+
+
+# ---------------------------------------------------------------------------
+# build_graph_page (W-0073)
+# ---------------------------------------------------------------------------
+
+
+def test_graph_page_returns_html() -> None:
+    """build_graph_page returns a string that starts with <!doctype html>."""
+    html = build_graph_page()
+    assert html.strip().lower().startswith("<!doctype html")
+
+
+def test_graph_page_loads_graph_json() -> None:
+    """Page fetches /Research/data/graph.json."""
+    html = build_graph_page()
+    assert "/Research/data/graph.json" in html
+
+
+def test_graph_page_has_canvas() -> None:
+    """Page contains a canvas element for rendering."""
+    html = build_graph_page()
+    assert "<canvas" in html
+
+
+def test_graph_page_nav_link_present() -> None:
+    """Nav bar includes a Graph link for the graph page."""
+    nav = html_nav("graph")
+    assert "/Research/graph.html" in nav
+
+
+def test_graph_page_graph_nav_active() -> None:
+    """Graph nav link is marked active when active='graph'."""
+    nav = html_nav("graph")
+    assert 'class="active"' in nav
+
+
+def test_graph_page_provenance_panel() -> None:
+    """Page contains JS or HTML for a provenance/info panel."""
+    html = build_graph_page()
+    assert "provenance" in html.lower() or "panel" in html.lower()
+
+
+def test_graph_page_uses_graph_json_fields() -> None:
+    """Page JS references the expected graph.json field names."""
+    html = build_graph_page()
+    for field in ("nodes", "edges", "slug", "rel", "evidence"):
+        assert field in html, f"graph page missing reference to field: {field}"
+
+
+# ---------------------------------------------------------------------------
+# _validate_graph (W-0074)
+# ---------------------------------------------------------------------------
+
+
+def _make_valid_graph() -> dict:
+    """Minimal valid graph dict for validation tests."""
+    return {
+        "schema_version": "1.0",
+        "generated": "2026-05-14T00:00:00Z",
+        "node_count": 2,
+        "edge_count": 1,
+        "nodes": [
+            {"slug": "a", "title": "A", "type": "primary", "url": "/Research/research/a.html"},
+            {"slug": "b", "title": "B", "type": "primary", "url": "/Research/research/b.html"},
+        ],
+        "edges": [
+            {
+                "source": "a",
+                "target": "b",
+                "weight": 1,
+                "rel": "cites",
+                "evidence": "frontmatter:cites",
+                "provenance": "a",
+            }
+        ],
+    }
+
+
+def test_validate_graph_passes_valid_graph() -> None:
+    """A well-formed graph passes validation without error."""
+    errors = _validate_graph(_make_valid_graph())
+    assert errors == []
+
+
+def test_validate_graph_detects_orphan_edge_source() -> None:
+    """Edge whose source slug is not in nodes is flagged."""
+    graph = _make_valid_graph()
+    graph["edges"][0]["source"] = "nonexistent"
+    errors = _validate_graph(graph)
+    assert any("nonexistent" in e for e in errors)
+
+
+def test_validate_graph_detects_orphan_edge_target() -> None:
+    """Edge whose target slug is not in nodes is flagged."""
+    graph = _make_valid_graph()
+    graph["edges"][0]["target"] = "ghost"
+    errors = _validate_graph(graph)
+    assert any("ghost" in e for e in errors)
+
+
+def test_validate_graph_detects_missing_edge_weight() -> None:
+    """Edge without a weight field is flagged."""
+    graph = _make_valid_graph()
+    del graph["edges"][0]["weight"]
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_detects_missing_edge_provenance() -> None:
+    """Edge without a provenance field is flagged."""
+    graph = _make_valid_graph()
+    del graph["edges"][0]["provenance"]
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_detects_node_count_mismatch() -> None:
+    """node_count field not matching actual node list is flagged."""
+    graph = _make_valid_graph()
+    graph["node_count"] = 99
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_detects_edge_count_mismatch() -> None:
+    """edge_count field not matching actual edge list is flagged."""
+    graph = _make_valid_graph()
+    graph["edge_count"] = 99
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_empty_graph_is_valid() -> None:
+    """Empty graph (no nodes, no edges) passes validation."""
+    graph = {
+        "schema_version": "1.0",
+        "generated": "2026-05-14T00:00:00Z",
+        "node_count": 0,
+        "edge_count": 0,
+        "nodes": [],
+        "edges": [],
+    }
+    assert _validate_graph(graph) == []
+
+
+def test_build_graph_json_produces_valid_graph() -> None:
+    """build_graph_json output passes _validate_graph with no errors."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    graph = json.loads(build_graph_json(items, {}, slug_to))
+    assert _validate_graph(graph) == []
+
+
+# ---------------------------------------------------------------------------
+# Edge weighting (W-0075)
+# ---------------------------------------------------------------------------
+
+
+def test_cites_edge_weight_exceeds_tag_overlap() -> None:
+    """cites edges are weighted higher than tag-overlap edges."""
+    item_a = _make_graph_item("a", cites=["b"], tags=["ai", "llm"])
+    item_b = _make_graph_item("b", tags=["ai", "llm"])
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [{"item": item_b, "shared_tags": ["ai", "llm"], "rel": "related"}],
+        "b": [{"item": item_a, "shared_tags": ["ai", "llm"], "rel": "related"}],
+    }
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    cites_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "cites")
+    tag_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "tag-overlap")
+    assert cites_w > tag_w
+
+
+def test_related_edge_weight_exceeds_tag_overlap() -> None:
+    """related edges are weighted higher than tag-overlap edges."""
+    item_a = _make_graph_item("a", related=["b"], tags=["ai", "llm"])
+    item_b = _make_graph_item("b", tags=["ai", "llm"])
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [{"item": item_b, "shared_tags": ["ai", "llm"], "rel": "related"}],
+        "b": [{"item": item_a, "shared_tags": ["ai", "llm"], "rel": "related"}],
+    }
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    related_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "related")
+    tag_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "tag-overlap")
+    assert related_w > tag_w
+
+
+def test_tag_overlap_weight_scales_with_shared_count() -> None:
+    """tag-overlap weight increases with the number of shared tags."""
+    item_a = _make_graph_item("a", tags=["ai", "llm", "rag", "agents"])
+    item_b = _make_graph_item("b", tags=["ai", "llm", "rag", "agents"])
+    item_c = _make_graph_item("c", tags=["ai", "llm"])
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [
+            {"item": item_b, "shared_tags": ["ai", "llm", "rag", "agents"], "rel": "related"},
+            {"item": item_c, "shared_tags": ["ai", "llm"], "rel": "related"},
+        ],
+    }
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    tag_edges = {
+        frozenset([e["source"], e["target"]]): e["weight"]
+        for e in graph["edges"]
+        if e["rel"] == "tag-overlap"
+    }
+    w_ab = tag_edges[frozenset(["a", "b"])]
+    w_ac = tag_edges[frozenset(["a", "c"])]
+    assert w_ab > w_ac
+
+
+def test_weighting_output_is_deterministic() -> None:
+    """Weighted graph output is deterministic across two calls."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    out1 = build_graph_json(items, {}, slug_to)
+    out2 = build_graph_json(items, {}, slug_to)
+    parsed1 = json.loads(out1)
+    parsed2 = json.loads(out2)
+    assert [e["weight"] for e in parsed1["edges"]] == [e["weight"] for e in parsed2["edges"]]
+
+
+def test_weighting_schema_backwards_compatible() -> None:
+    """Weighted graph still passes _validate_graph (schema unchanged)."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    graph = json.loads(build_graph_json(items, {}, slug_to))
+    assert _validate_graph(graph) == []
+
+
+def test_weighting_rationale_is_positive() -> None:
+    """All edge weights are positive numbers."""
+    item_a = _make_graph_item("a", cites=["b"], related=["c"], tags=["x", "y"])
+    item_b = _make_graph_item("b", tags=["x", "y"])
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    links = {"a": [{"item": item_b, "shared_tags": ["x", "y"], "rel": "related"}]}
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    assert all(e["weight"] > 0 for e in graph["edges"])

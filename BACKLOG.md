@@ -1429,9 +1429,9 @@ Implemented `build_graph_json(all_items, links, slug_to_item)` in `scripts/build
 
 ## W-0073
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1455,15 +1455,17 @@ The issue requires graph functionality to be traceable in the GitHub Pages user 
 - If vendoring the library produces binary or minified files in `docs/`, confirm they are handled by the `build_site.yml` workflow write path — not committed manually on the branch.
 - `docs/` must not be staged or committed on the implementing branch. Run `git status` before every commit and confirm no `docs/` paths appear.
 
-Blocked on W-0072.
+### Notes
+
+ADR-0016 written: vanilla-JS force-directed layout chosen (no external library — see ADR-0016). `build_graph_page()` added to `scripts/build_site.py`. Generates `docs/graph.html` with canvas, force simulation, pan/zoom, click-to-inspect provenance panel. `html_nav()` updated with "Graph" nav link. 8 tests in `tests/test_build_site.py`.
 
 ---
 
 ## W-0074
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1478,15 +1480,17 @@ Graph quality gates are enforced in code and tests:
 
 Traceability requirements are only reliable if schema and integrity checks fail fast during generation and test runs.
 
-Blocked on W-0072 and W-0073.
+### Notes
+
+`_validate_graph(graph) -> list[str]` added to `scripts/build_site.py`. Checks: node_count/edge_count match, all required edge fields present, all edge source/target slugs in node set. Called from `build_graph_json()` — raises `ValueError` on failure. 9 tests covering valid graphs, orphan edges, missing fields, count mismatches, and empty-graph case.
 
 ---
 
 ## W-0075
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1500,5 +1504,9 @@ Edge-weighting evolves beyond the baseline `weight: 1` model:
 ### Context
 
 The issue explicitly requires weighted edges with an initial default of `1`, plus follow-on stories for a later weighting algorithm. This item is that follow-on phase.
+
+### Notes
+
+Weighting algorithm added to `build_graph_json()`: `cites`=4, `related`=3, `tag-overlap`=N (N = number of shared tags, min 1). Rationale documented in docstring table and ADR-0016. Schema backwards-compatible (weight remains a positive number). 6 new tests covering type ordering, tag-count scaling, determinism, schema validity, and positivity.
 
 Blocked on W-0072 and W-0074.
