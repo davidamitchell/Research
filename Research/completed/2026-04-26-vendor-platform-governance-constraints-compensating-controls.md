@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [vendor-governance, low-code, ai-platform, compensating-controls, enterprise-governance, platform-limitations, multi-platform, microsoft-power-platform, salesforce]
+ai_themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, platform-ecosystem]
 started: 2026-04-27T14:18:27+00:00
 completed: 2026-04-27T14:51:41+00:00
 output: [knowledge]

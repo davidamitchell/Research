@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [academic-publishing, post-publication, corrections, retractions, amendments, rebuttal, immutability, versioning, knowledge-management, research-methodology, doi, corrigendum, erratum]
+ai_themes: [governance-policy, knowledge-management, tools-infrastructure, scholarly-infrastructure, version-control-systems]
 started: 2026-04-27T08:55:01+00:00
 completed: 2026-04-27T09:27:23+00:00
 output: [knowledge]

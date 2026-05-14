@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]
+ai_themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, workforce-skills, citizen-development]
 started: 2026-04-26T06:03:17+00:00
 completed: 2026-04-26T06:03:17+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

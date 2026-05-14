@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 tags: [policy-coherence, policy-as-code, open-policy-agent, formal-specification, invariant-registry, agentic-ai, regulated-banking, governance, automated-enforcement]
+ai_themes: [agentic-ai, governance-policy, tools-infrastructure, formal-verification]
 started: 2026-04-26T10:02:06+00:00
 completed: 2026-04-26T10:32:03+00:00
 output: [knowledge]
