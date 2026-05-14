@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-27-cryptographic-intent-preservation-runtime-evaluation]
 tags: [pbac, pip, pdp, invariants, anomaly-detection, agentic-ai, intent-alignment, prompt-injection, cynefin, bayesian-reasoning, reward-hacking, context-synthesis]
+ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, invariant-monitoring]
 started: 2026-04-27T04:33:32+00:00
 completed: 2026-04-27T04:50:42+00:00
 output: [knowledge]

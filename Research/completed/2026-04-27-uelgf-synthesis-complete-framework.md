@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [uelgf, synthesis, governed-golden-rail, policy-architecture, entity-lifecycle, agentic-ai, citizen-development, regulated-banking, board-risk, systems-capability-debt, decommission, runtime-feedback, formal-specification]
+ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, enterprise-lifecycle-management]
 started: 2026-04-27T11:26:02+00:00
 completed: 2026-04-27T11:52:03+00:00
 output: [knowledge]

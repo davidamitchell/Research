@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-27-out-of-band-policy-invalidation-remediation, 2026-04-27-pip-invariant-anomaly-detection]
 tags: [pbac, pdp, pap, policy-synchronisation, lifecycle-governance, versioning, content-addressing, policy-lsp, governance-decay, agentic-ai]
+ai_themes: [agentic-ai, governance-policy, ai-architecture, tools-infrastructure, policy-lifecycle-integrity]
 started: 2026-04-27T03:15:22+00:00
 completed: 2026-04-27T03:37:11+00:00
 output: [knowledge]

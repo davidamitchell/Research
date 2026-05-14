@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-02-research-to-publication-authoring-workflow]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, llm, workflow, knowledge-graph, evaluation, hallucinations]
+ai_themes: [ai-architecture, knowledge-management, benchmarks-eval, tools-infrastructure, rag-retrieval]
 started: 2026-05-02T08:41:24+00:00
 completed: 2026-05-02T09:05:51+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

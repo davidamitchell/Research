@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
 tags: [uelgf, runtime-feedback, continuous-evaluation, observability, signal-aggregation, scope-drift, rail-improvement, systems-capability-debt, demand-signal, pep, pip, regulated-banking]
+ai_themes: [governance-policy, ai-architecture, mlops-deployment, runtime-governance, systems-engineering]
 started: 2026-04-27T07:35:03+00:00
 completed: 2026-04-27T07:58:55+00:00
 output: [knowledge]

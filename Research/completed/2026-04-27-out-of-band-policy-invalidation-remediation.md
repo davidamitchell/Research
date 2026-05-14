@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [pbac, pap, pep, policy-invalidation, kill-switch, distributed-systems, cap-theorem, consistency-model, agentic-ai, cia-classification, operational-risk, lifecycle-governance]
+ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, distributed-systems-resilience]
 started: 2026-04-27T10:50:39+00:00
 completed: 2026-04-27T11:21:51+00:00
 output: [knowledge]

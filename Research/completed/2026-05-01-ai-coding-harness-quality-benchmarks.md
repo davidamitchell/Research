@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-coding, evaluation, benchmarks, agentic-ai, llm, agent-tooling, developer-tooling]
+ai_themes: [agentic-ai, benchmarks-eval, tools-infrastructure, developer-productivity]
 started: 2026-05-01T08:22:25+00:00
 completed: 2026-05-01T08:49:47+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

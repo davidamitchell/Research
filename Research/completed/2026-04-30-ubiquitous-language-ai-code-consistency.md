@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
 tags: [agentic-coding, software-engineering, llm, agentic-ai, workflow]
+ai_themes: [agentic-ai, knowledge-management, tools-infrastructure, software-architecture]
 started: 2026-05-01T07:55:42+00:00
 completed: 2026-05-01T08:19:52+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

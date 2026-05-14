@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, security, governance, supply-chain, llm, ai-governance, observability]
+ai_themes: [agentic-ai, security-risk, governance-policy, ai-architecture, supply-chain-security]
 started: 2026-05-06T20:40:30+00:00
 completed: 2026-05-06T21:07:31+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
