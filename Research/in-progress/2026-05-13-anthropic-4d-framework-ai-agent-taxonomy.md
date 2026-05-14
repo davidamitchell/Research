@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is Anthropic's '4D' framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?"
 added: 2026-05-13T21:41:19+00:00
 status: reviewing
