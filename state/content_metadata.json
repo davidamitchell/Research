@@ -1,6 +1,103 @@
 {
-  "extracted_at": "2026-05-14T10:09:03Z",
+  "extracted_at": "2026-05-14T10:21:53Z",
   "items": {
+    "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy": {
+      "named_concepts": [
+        "fluency model",
+        "nist oecd",
+        "collaborative harms",
+        "harms taxonomy",
+        "human practice",
+        "product process",
+        "ai systems",
+        "taking responsibility",
+        "agi levels",
+        "problem awareness",
+        "awareness platform",
+        "task delegation",
+        "automation augmentation",
+        "agency modes",
+        "specification layer",
+        "performance description",
+        "workflows-versus-agents guidance",
+        "agi framework",
+        "course assets",
+        "executive summary"
+      ],
+      "source_urls": [
+        "https://www.anthropic.com/ai-fluency",
+        "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf",
+        "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://doi.org/10.6028/NIST.AI.200-1",
+        "https://oecd.ai/en/classification",
+        "https://oecd.ai/en/wonk/documents/oecd-framework-for-classifying-ai-systems-two-page-overview",
+        "https://arxiv.org/html/2407.01294v2",
+        "https://arxiv.org/abs/2311.02462"
+      ],
+      "key_claims": [
+        {
+          "text": "Anthropic defines the 4D framework as four interconnected competencies necessary for AI interactions to remain effective, efficient, ethical, and safe, which makes it a fluency model for human practice rather than a classification scheme for AI systems themselves",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf"
+          ]
+        },
+        {
+          "text": "Delegation in Anthropic's materials means setting goals and deciding whether, when, and how to engage with AI, and the framework breaks that work into problem awareness, platform awareness, and task delegation across automation, augmentation, and agency modes",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf",
+            "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf"
+          ]
+        },
+        {
+          "text": "Description is the framework's specification layer because Anthropic divides it into product, process, and performance description that respectively define the desired output, the system's method, and the behaviour expected during collaboration",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf"
+          ]
+        },
+        {
+          "text": "Discernment and Diligence make the framework explicitly evaluative and accountability-oriented, since Anthropic asks users to assess product, process, and performance while also selecting systems carefully, disclosing AI use honestly, and taking responsibility for deployed outputs",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf"
+          ]
+        },
+        {
+          "text": "NIST's AI Use Taxonomy is broader and more operationally neutral than 4D because it classifies 16 human-AI activity types independent of technique or domain, whereas 4D focuses on competencies a person should apply in any interaction with AI",
+          "sources": [
+            "https://doi.org/10.6028/NIST.AI.200-1",
+            "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf"
+          ]
+        },
+        {
+          "text": "The OECD framework and the collaborative harms taxonomy both cover governance surfaces that 4D leaves largely implicit, including stakeholders, economic context, data inputs, model properties, task outputs, and harms categories, so they are better suited to policy, registry, and risk mapping work",
+          "sources": [
+            "https://oecd.ai/en/classification",
+            "https://oecd.ai/en/wonk/documents/oecd-framework-for-classifying-ai-systems-two-page-overview",
+            "https://arxiv.org/html/2407.01294v2"
+          ]
+        },
+        {
+          "text": "Anthropic's separate workflows-versus-agents guidance complements 4D by supplying an architecture choice model that the fluency framework does not provide, which means teams can use 4D to structure human practice and use workflows-versus-agents to structure system design",
+          "sources": [
+            "https://www.anthropic.com/research/building-effective-agents",
+            "https://www.anthropic.com/ai-fluency"
+          ]
+        },
+        {
+          "text": "DeepMind's AGI framework shows that 4D sits on a different taxonomy axis from capability and autonomy taxonomies, because it explains collaboration quality while other frameworks explain what systems do, what risks they present, or how capable they are",
+          "sources": [
+            "https://arxiv.org/abs/2311.02462",
+            "https://doi.org/10.6028/NIST.AI.200-1",
+            "https://oecd.ai/en/classification",
+            "https://arxiv.org/html/2407.01294v2"
+          ]
+        }
+      ]
+    },
     "2026-05-13-agent-process-reliability-architecture": {
       "named_concepts": [
         "behavioral traces",
