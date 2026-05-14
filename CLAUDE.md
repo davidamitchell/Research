@@ -46,7 +46,7 @@ Cascade priority order (highest capability → highest throughput):
 | 1 | `gemini-3.1-pro` | — | — | Check aistudio.google.com |
 | 2 | `gemini-2.5-pro` | — | — | Check aistudio.google.com |
 | 3 | `gemini-3-flash` | — | — | Check aistudio.google.com |
-| 4 | `gemini-2.5-flash` | 10 | 500 | Confirmed free tier (2026-05-12); thinking model |
+| 4 | `gemini-2.5-flash` | 5 | 20 | Confirmed from aistudio dashboard (2026-05-14); thinking model |
 | 5 | `gemini-3.1-flash-lite` | — | — | Check aistudio.google.com |
 | 6 | `gemini-2.5-flash-lite` | 10 | 1 500 | Confirmed free tier (2026-05-12) |
 
