@@ -48,7 +48,7 @@ Many organisations that serve distinct customer segments (e.g., consumer, enterp
 
 ## Approach
 
-1. Define and distinguish "customer-cohort demand organisation" and "information-domain IT structure" precisely, drawing on Team Topologies (TT) vocabulary and Conway's Law.
+1. Define and distinguish "customer-cohort demand organisation" and "information-domain IT structure" precisely, drawing on Team Topologies vocabulary and Conway's Law.
 2. Search for empirical evidence — case studies, surveys, industry reports — documenting delivery and quality failures linked to this structural mismatch.
 3. Identify the most commonly recurring failure modes (e.g., unclear ownership, feature prioritisation conflicts, integration debt, long cycle times).
 4. Examine whether the failure modes differ by organisation size, industry, or technology maturity.

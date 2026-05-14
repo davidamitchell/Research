@@ -30,12 +30,12 @@ What failure modes have been empirically observed in organisations where account
 - Both strategic-layer manifestations (e.g., two senior leaders owning the same portfolio outcome) and IT-layer manifestations (e.g., no single team owning a shared service)
 - Combined cases where gaps exist at both layers concurrently
 - Observable symptoms: decision paralysis, conflicting priorities, finger-pointing, unowned technical debt, scope creep, initiative abandonment
-- Governance models (RACI — Responsible, Accountable, Consulted, Informed; DCI — Decision Rights, Consultation, Information; DACI — Driver, Approver, Contributor, Informed) as analytical lenses for accountability structure
+- Governance models (RACI — Responsible, Accountable, Consulted, Informed; DACI — Driver, Approver, Contributor, Informed) as analytical lenses for accountability structure
 
 **Out of scope:**
 - Individual leadership capability failures unrelated to structural accountability design
 - Failure modes in organisations with clear, non-overlapping accountability structures
-- Detailed prescriptive RACI (Responsible, Accountable, Consulted, Informed) redesign blueprints without empirical grounding
+- Detailed prescriptive RACI redesign blueprints without empirical grounding
 
 **Constraints:**
 - Prefer primary empirical sources (case studies, post-mortems, governance audits, surveys) over consulting opinion

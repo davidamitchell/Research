@@ -52,7 +52,7 @@ A common large-enterprise and government pattern is for risk oversight to sit wi
 3. Search for empirical evidence — case studies, audit reports, governance research — of failure modes directly attributable to this separation.
 4. Categorise the failure modes by type (decision quality, investment timing, cost management, risk tolerance, outcome realisation).
 5. Examine whether failure severity varies by sector (financial services, government, healthcare, technology) or organisation size.
-6. Review evidence on governance mechanisms (e.g., portfolio accountability boards, P&L (Profit and Loss) co-ownership, value stream funding) that have empirically reduced failure rates from this separation.
+6. Review evidence on governance mechanisms (e.g., portfolio accountability boards, Profit and Loss (P&L) co-ownership, value stream funding) that have empirically reduced failure rates from this separation.
 
 ## Sources
 
