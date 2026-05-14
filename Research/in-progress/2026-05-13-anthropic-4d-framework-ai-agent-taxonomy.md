@@ -1,11 +1,11 @@
 ---
 title: "What is Anthropic's '4D' framework for AI fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?"
 added: 2026-05-13T21:41:19+00:00
-status: backlog  # backlog | in-progress | reviewing | completed
+status: in-progress
 priority: medium  # low | medium | high
 blocks: []
 tags: [agentic-ai, llm, evaluation, workflow]
-started: ~
+started: 2026-05-14T09:56:14+00:00
 completed: ~
 output: [knowledge]
 cites: []
