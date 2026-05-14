@@ -48,7 +48,7 @@ The issue requests an active-research deep dive into the Endsley model. This que
 ## Approach
 
 1. Reconstruct the original model from primary sources and define each Situational Awareness level precisely.
-2. Identify how the model is measured in empirical work (for example, Situation Awareness Global Assessment Technique and related operational proxies).
+2. Identify how the model is measured in empirical work (for example, Situation Awareness Global Assessment Technique (SAGAT) and related operational proxies).
 3. Review contemporary studies and reviews that apply or critique the model in high-automation settings.
 4. Compare supportive vs. critical findings to identify where the model is robust, contested, or misapplied.
 5. Translate findings into concrete implications for Human-in-the-Loop oversight design and evaluation in AI-assisted systems.

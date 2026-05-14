@@ -1,7 +1,7 @@
 # 2026-05-14 -- Add backlog item (endsley-model-situational-awareness-deep-dive)
 
 **Completed:**
-- `Research/backlog/2026-05-14-endsley-model-situational-awareness-deep-dive.md` — added from issue "New research questions"; validated question asks what the Endsley model is, how it is defined and measured, and how useful it is for evaluating oversight in automated and Artificial Intelligence (AI)-assisted systems.
+- `Research/backlog/2026-05-14-endsley-model-situational-awareness-deep-dive.md` — added from issue "New research questions"; validated question asks what the Endsley model is, how it is defined and measured, and how useful it is for evaluating oversight in automated and artificial intelligence (AI)-assisted systems.
 
 ## Mini-Retro
 
