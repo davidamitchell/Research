@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "bdf2909d52f3fc049e164750427ba82dcbf99090"
+    changed: 2026-05-14
+    progress: "progress/2026-05-14-anthropic-4d-framework-ai-agent-taxonomy.md"
+    summary: "Initial completion"
 ---
 
 # What is Anthropic's '4D' framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?
