@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "36ad29598d1bcdc4c0815edaa903e2c85cbed0d4"
+    changed: 2026-05-14
+    progress: progress/2026-05-14-agent-process-reliability-architecture.md
+    summary: "Initial completion"
 ---
 
 # Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems
