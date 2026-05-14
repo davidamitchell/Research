@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems"
 added: 2026-05-13T19:34:45+00:00
 status: reviewing
