@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-14T09:39:24Z",
+  "extracted_at": "2026-05-14T09:55:01Z",
   "items": {
     "2026-05-13-agent-process-reliability-architecture": {
       "named_concepts": [
@@ -101,6 +101,115 @@
             "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
             "https://docs.langchain.com/oss/python/langgraph/persistence",
             "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop"
+          ]
+        }
+      ]
+    },
+    "2026-05-13-a2a-tool-calling-orchestration-overhead": {
+      "named_concepts": [
+        "remote agents",
+        "tool calling",
+        "tool wrappers",
+        "invocation abstraction",
+        "task state",
+        "a2a layer",
+        "modality negotiation",
+        "a2a versus",
+        "framework documentation",
+        "orchestration overhead",
+        "one orchestrator",
+        "tool-result costs",
+        "planning quality",
+        "coordination topology",
+        "topology matter",
+        "reasoning outcomes",
+        "hierarchy implemented",
+        "discovery task",
+        "plain tool",
+        "internal hierarchies"
+      ],
+      "source_urls": [
+        "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "https://a2a-protocol.org/latest/specification/",
+        "https://www.anthropic.com/news/model-context-protocol",
+        "https://modelcontextprotocol.io/introduction",
+        "https://modelcontextprotocol.io/docs/concepts/architecture",
+        "https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx",
+        "https://www.rfc-editor.org/rfc/rfc9110",
+        "https://www.jsonrpc.org/specification",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb",
+        "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "https://arxiv.org/abs/2308.08155",
+        "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents",
+        "https://docs.langchain.com/oss/python/langchain/multi-agent",
+        "https://aclanthology.org/2025.acl-long.421/",
+        "https://openreview.net/forum?id=Oljnxmf4pc",
+        "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": [
+        {
+          "text": "In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents",
+            "https://docs.langchain.com/oss/python/langchain/multi-agent",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+          ]
+        },
+        {
+          "text": "A2A carries protocol-native features that plain tool calling does not natively preserve, including Agent Card discovery, stateful task lifecycle, artifacts, modality negotiation, and async updates for opaque remote services",
+          "sources": [
+            "https://a2a-protocol.org/latest/specification/",
+            "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/"
+          ]
+        },
+        {
+          "text": "MCP and vendor tool-calling patterns standardise how an Artificial Intelligence (AI) host discovers context primitives or emits callable schemas, but they still model capability access through a host-mediated tool loop rather than through a first-class remote agent contract",
+          "sources": [
+            "https://modelcontextprotocol.io/docs/concepts/architecture",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+            "https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb"
+          ]
+        },
+        {
+          "text": "Available public benchmarks suggest that planning quality and coordination topology affect reasoning outcomes more visibly than invocation abstraction, but the absence of a direct A2A-versus-tool benchmark keeps that conclusion provisional",
+          "sources": [
+            "https://openreview.net/forum?id=Oljnxmf4pc",
+            "https://aclanthology.org/2025.acl-long.421/"
+          ]
+        },
+        {
+          "text": "Tool-mediated unification is most likely to preserve or modestly improve reasoning quality in bounded hierarchies because fewer handoffs reduce duplicated context, but it does not solve planner mistakes, poor decomposition, or weak coordination policy",
+          "sources": [
+            "https://openreview.net/forum?id=Oljnxmf4pc",
+            "https://docs.langchain.com/oss/python/langchain/multi-agent",
+            "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents"
+          ]
+        },
+        {
+          "text": "A specialised A2A layer becomes justified when the system crosses security boundaries, spans independently managed teams or vendors, needs long-running asynchronous tasks, or must preserve remote-agent identity and negotiated capabilities as first-class objects",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents",
+            "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+            "https://a2a-protocol.org/latest/specification/"
+          ]
+        },
+        {
+          "text": "Wrapping remote agents as generic tools can reduce local friction while simultaneously weakening identity and audit visibility, unless machine identity, credential scoping, and delegation metadata are preserved outside the wrapper",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        },
+        {
+          "text": "The most defensible default is therefore a layered design in which internal specialist capabilities are exposed as tools, while truly independent remote agents keep an A2A boundary only when that boundary carries interoperability or governance value that tool calling would erase",
+          "sources": [
+            "https://a2a-protocol.org/latest/specification/",
+            "https://docs.langchain.com/oss/python/langchain/multi-agent",
+            "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html"
           ]
         }
       ]
