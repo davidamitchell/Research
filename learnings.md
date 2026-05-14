@@ -548,3 +548,18 @@ The OpenFactCheck item adds a framework-surface corollary: even a benchmark-rich
 - `Research/completed/2026-05-12-knowledge-graph-lifecycle-management-agentic.md` — adds the graph-operations corollary that authoritative graph state should move through additive versioned publication, conservative duplicate resolution with stable identifiers, provenance-aware conflict handling, and snapshot-plus-delta freshness control rather than silent in-place mutation
 
 **Open thread:** What minimum evidence package would satisfy an external auditor who needs to replay the exact knowledge version behind a customer-impacting answer or decision? When should a corrected source trigger downstream revalidation of prompts, retrieval settings, or agent instructions rather than simple re-ingestion? What practical metric should quantify the false-assurance gap between structurally complete inventories and semantically safe behavior?
+
+---
+
+## Thread 20 — AI frameworks classify different objects, so teams need layered vocabulary
+
+**The learning:** Apparent disagreement between AI frameworks is often not a substantive contradiction but a mismatch in what the framework is trying to classify. Anthropic's 4D model classifies user competencies for working with AI. The repository's concept taxonomy classifies system concepts such as prompts, memory, controls, and tools. NIST-style taxonomies classify what an AI system contributes to a task. OECD-style frameworks classify system context and governance surfaces. Architecture framings such as workflows versus agents classify orchestration patterns. The practical consequence is that teams should stop looking for one master taxonomy that does every job and instead adopt a layered vocabulary: one framework for teaching people how to collaborate with AI, one for describing system structure, and one for governance or evaluation where risk and accountability matter.
+
+**Evidence:**
+- `Research/completed/2026-05-13-anthropic-4d-framework-ai-agent-taxonomy.md` — shows that Anthropic's 4D framework is a fluency and collaboration model, while NIST, OECD, harms taxonomies, and DeepMind's AGI levels classify different objects
+- `Research/completed/2026-03-10-ai-concept-classification-taxonomy.md` — provides the concept-first taxonomy for prompts, memory, failure modes, controls, tools, and problem domains, which is complementary to a competency-first model
+- `Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md` — shows why evaluation requires a shared structural vocabulary and cannot rely on local naming conventions alone
+- `Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md` — shows that workflows-versus-agents is an architecture classifier, not a training or fluency model
+- `Research/completed/2026-03-02-integrative-framework-agent-decision-making.md` — adds the decision-layer view that different knowledge and intent layers need different forms of representation rather than one undifferentiated schema
+
+**Open thread:** What is the smallest layered vocabulary that stays usable across training, architecture review, evaluation, and audit without forcing teams to learn multiple disconnected taxonomies?
