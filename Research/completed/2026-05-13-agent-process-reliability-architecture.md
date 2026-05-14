@@ -2,12 +2,12 @@
 review_count: 2
 title: "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems"
 added: 2026-05-13T19:34:45+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, workflow, organisation, evaluation, llm, memory-system]
 started: 2026-05-14T09:01:14+00:00
-completed: ~
+completed: 2026-05-14T09:26:34+00:00
 output: []
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
