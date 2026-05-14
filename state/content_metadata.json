@@ -1,6 +1,110 @@
 {
-  "extracted_at": "2026-05-14T09:11:04Z",
+  "extracted_at": "2026-05-14T09:28:02Z",
   "items": {
+    "2026-05-13-agent-process-reliability-architecture": {
+      "named_concepts": [
+        "behavioral traces",
+        "execution authority",
+        "pro-code runtimes",
+        "process knowledge",
+        "executable workflow",
+        "approval hooks",
+        "runtime dependency",
+        "process selection",
+        "unstructured process",
+        "process mining",
+        "ambiguous cases",
+        "side effects",
+        "stable steps",
+        "exception handling",
+        "document-based process",
+        "agent behavior",
+        "workflow systems",
+        "strongest available",
+        "available authority",
+        "process execution"
+      ],
+      "source_urls": [
+        "https://www.omg.org/spec/BPMN/2.0.2/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.langchain.com/oss/python/langgraph/persistence",
+        "https://docs.camunda.io/docs/components/modeler/bpmn/",
+        "https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/",
+        "https://docs.camunda.io/docs/components/concepts/job-workers/",
+        "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+        "https://arxiv.org/html/2601.01743v1",
+        "https://arxiv.org/abs/2401.13677",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Executable workflow systems are the strongest available authority for process execution in the reviewed evidence because they combine normative process definitions, explicit pause points, typed work units, and deterministic advancement rules in the runtime itself",
+          "sources": [
+            "https://www.omg.org/spec/BPMN/2.0.2/",
+            "https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/",
+            "https://docs.camunda.io/docs/components/concepts/job-workers/"
+          ]
+        },
+        {
+          "text": "Stateful pro-code runtimes become more reliable when they externalize execution state through checkpoints and approval hooks, because long-horizon agent behavior becomes more reproducible and restartable when the runtime can resume from a governed intermediate state",
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+            "https://arxiv.org/html/2601.01743v1"
+          ]
+        },
+        {
+          "text": "Semi-formal process knowledge from documents, knowledge bases, and other curated artifacts should be treated as a versioned runtime dependency rather than as a fixed truth source, because corpus drift can silently change process selection and downstream behavior after deployment",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html"
+          ]
+        },
+        {
+          "text": "Inference from unstructured or behavioral traces is valuable for process discovery and exception detection, but current evidence does not support using it as sole execution authority because confidence in unstructured process mining remains challenge-heavy and review-dependent",
+          "sources": [
+            "https://arxiv.org/abs/2401.13677",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop"
+          ]
+        },
+        {
+          "text": "Reliable process selection should apply an explicit authority hierarchy of formal model first, curated semi-formal guidance second, and tacit inference third, with mandatory escalation whenever those layers disagree on a consequential action",
+          "sources": [
+            "https://www.omg.org/spec/BPMN/2.0.2/",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://arxiv.org/abs/2401.13677",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "The strongest operating model is a workflow-engine or visual orchestration outer layer for stable paths, paired with a code-centric interpretive inner layer for ambiguous cases, because repeatable steps benefit from native auditability while exceptions require richer memory, retrieval, and checkpoint control",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+            "https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/",
+            "https://docs.langchain.com/oss/python/langgraph/persistence"
+          ]
+        },
+        {
+          "text": "Auditability depends on correlating source provenance, runtime checkpoint state, policy or approval decisions, and final side effects in one execution record, because none of those evidence streams is sufficient on its own to explain why a process path was chosen",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop"
+          ]
+        }
+      ]
+    },
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
         "schema org",
