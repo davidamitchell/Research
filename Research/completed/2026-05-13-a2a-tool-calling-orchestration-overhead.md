@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "7019685d5f3fd77d3ce46023e745d8d379eb1357"
+    changed: 2026-05-14
+    progress: progress/2026-05-14-a2a-tool-calling-orchestration-overhead.md
+    summary: "Initial completion"
 ---
 
 # Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems
