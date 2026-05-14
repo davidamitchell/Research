@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring"
 added: 2026-05-13T19:07:27+00:00
 status: reviewing
