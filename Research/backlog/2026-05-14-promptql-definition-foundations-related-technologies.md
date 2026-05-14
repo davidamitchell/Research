@@ -27,13 +27,13 @@ What is PromptQL, what active research areas are most closely related to it, wha
 
 **In scope:**
 - A working definition of PromptQL, including its stated purpose, user model, and core concepts
-- Current research activity in closely related areas such as natural-language interface systems for data access, text-to-SQL pipelines, and large language model-assisted query planning
+- Current research activity in closely related areas such as natural-language interface systems for data access, text-to-SQL pipelines, and large language model (LLM)-assisted query planning
 - Candidate research papers, methods, and prior systems that PromptQL may draw from
 - A comparison map of related technologies (frameworks, products, and open-source tools) relevant to PromptQL-style workflows
 
 **Out of scope:**
 - Building or benchmarking a production PromptQL implementation
-- Exhaustive survey of every natural-language-processing or database query method
+- Exhaustive survey of every natural-language processing (NLP) or database query method
 - Vendor purchasing recommendations or long-term roadmap commitments
 
 **Constraints:**
