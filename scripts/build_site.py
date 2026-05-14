@@ -3096,16 +3096,23 @@ _GRAPH_JS = """(function () {
   var nodes = [], edges = [], nodeMap = {};
   var transform = {x: 0, y: 0, scale: 1};
   var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
-  var lastTouchDist = null;
+  var activePointers = {};
   var selected = null;
+  var selectedNeighbors = null;
   var ticks = 0, MAX_TICKS = 300;
   var animRunning = false;
   var searchQuery = '';
-  var filters = {cites: true, related: true, 'tag-overlap': true};
+  var filters = {cites: true, related: true, 'tag-overlap': false};
+  var REST = 120;
 
   function resize() {
-    canvas.width = canvas.parentElement.offsetWidth || 800;
-    canvas.height = Math.min(680, Math.max(400, window.innerHeight - 240));
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.parentElement.clientWidth || 800;
+    var cssH = Math.min(680, Math.max(400, window.innerHeight - 240));
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
   }
 
   function toWorld(cx, cy) {
@@ -3116,7 +3123,9 @@ _GRAPH_JS = """(function () {
   }
 
   function initNodes(data) {
-    var W = canvas.width, H = canvas.height;
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
     var n = data.nodes.length;
     var r = Math.min(W, H) * 0.38;
     nodes = data.nodes.map(function(nd, i) {
@@ -3144,19 +3153,85 @@ _GRAPH_JS = """(function () {
     });
   }
 
-  function tick() {
-    var REPULSION = 8000, SPRING = 0.018, REST = 120, DAMP = 0.85;
-    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
-    for (i = 0; i < nodes.length; i++) {
-      for (j = i + 1; j < nodes.length; j++) {
-        a = nodes[i]; b = nodes[j];
-        dx = b.x - a.x; dy = b.y - a.y;
-        d2 = dx * dx + dy * dy + 1;
-        f = REPULSION / d2;
-        a.vx -= dx * f; a.vy -= dy * f;
-        b.vx += dx * f; b.vy += dy * f;
-      }
+  function makeBarnesHut(allNodes, x0, y0, x1, y1) {
+    var QX0=0,QY0=1,QX1=2,QY1=3,QCX=4,QCY=5,QM=6,QBODY=7,QCHILD=8;
+
+    function newCell(ax0, ay0, ax1, ay1) {
+      return [ax0, ay0, ax1, ay1, 0, 0, 0, -1, null];
     }
+
+    function subdivide(q) {
+      var mx = (q[QX0]+q[QX1])*0.5, my = (q[QY0]+q[QY1])*0.5;
+      q[QCHILD] = [
+        newCell(q[QX0],q[QY0],mx,my),
+        newCell(mx,q[QY0],q[QX1],my),
+        newCell(q[QX0],my,mx,q[QY1]),
+        newCell(mx,my,q[QX1],q[QY1])
+      ];
+    }
+
+    function insert(q, idx) {
+      var n = allNodes[idx];
+      if (q[QM] === 0) {
+        q[QCX] = n.x; q[QCY] = n.y; q[QM] = 1; q[QBODY] = idx; return;
+      }
+      if (q[QCHILD] === null) {
+        subdivide(q);
+        insert(q, q[QBODY]);
+        q[QBODY] = -1;
+      }
+      q[QCX] = (q[QCX]*q[QM] + n.x) / (q[QM]+1);
+      q[QCY] = (q[QCY]*q[QM] + n.y) / (q[QM]+1);
+      q[QM]++;
+      var mx = (q[QX0]+q[QX1])*0.5, my = (q[QY0]+q[QY1])*0.5;
+      insert(q[QCHILD][(n.x>=mx?1:0)+(n.y>=my?2:0)], idx);
+    }
+
+    var root = newCell(x0, y0, x1, y1);
+    allNodes.forEach(function(_, i) { insert(root, i); });
+
+    return function applyRepulsion(n, REPULSION, THETA, DIST_MAX) {
+      var stack = [root], q, dx, dy, d2, d, w, f;
+      while (stack.length) {
+        q = stack.pop();
+        if (q[QM] === 0) continue;
+        if (q[QCHILD] === null && allNodes[q[QBODY]] === n) continue;
+        dx = q[QCX] - n.x; dy = q[QCY] - n.y;
+        d2 = dx*dx + dy*dy;
+        if (d2 === 0) continue;
+        if (d2 > DIST_MAX*DIST_MAX) continue;
+        w = q[QX1] - q[QX0];
+        if (q[QCHILD] === null || w*w < THETA*THETA*d2) {
+          d = Math.sqrt(d2);
+          f = REPULSION * q[QM] / (d2 + 1);
+          n.vx -= dx/d * f;
+          n.vy -= dy/d * f;
+        } else {
+          for (var ci = 0; ci < 4; ci++) {
+            if (q[QCHILD][ci][QM] > 0) stack.push(q[QCHILD][ci]);
+          }
+        }
+      }
+    };
+  }
+
+  function tick() {
+    var REPULSION = 400, THETA = 0.9, DIST_MAX = 250;
+    var SPRING = 0.018, DAMP = 0.85;
+    var i, j, dx, dy, d, f, fx, fy, e, s, t;
+
+    var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].x < x0) x0 = nodes[i].x;
+      if (nodes[i].y < y0) y0 = nodes[i].y;
+      if (nodes[i].x > x1) x1 = nodes[i].x;
+      if (nodes[i].y > y1) y1 = nodes[i].y;
+    }
+    var applyRep = makeBarnesHut(nodes, x0-1, y0-1, x1+1, y1+1);
+    for (i = 0; i < nodes.length; i++) {
+      applyRep(nodes[i], REPULSION, THETA, DIST_MAX);
+    }
+
     for (i = 0; i < edges.length; i++) {
       e = edges[i]; s = e.sourceNode; t = e.targetNode;
       dx = t.x - s.x; dy = t.y - s.y;
@@ -3254,7 +3329,8 @@ _GRAPH_JS = """(function () {
   }
 
   function hitNode(wx, wy) {
-    var R = 10 / transform.scale, i, nd, dx, dy;
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
     for (i = nodes.length - 1; i >= 0; i--) {
       nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
       if (dx * dx + dy * dy <= R * R) return nd;
@@ -3308,31 +3384,83 @@ _GRAPH_JS = """(function () {
     redraw();
   }
 
-  canvas.addEventListener('mousedown', function(e) {
-    dragging = true; lastMX = e.clientX; lastMY = e.clientY;
-    clickX = e.clientX; clickY = e.clientY;
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
   });
-  canvas.addEventListener('mousemove', function(e) {
-    if (dragging) {
-      transform.x += e.clientX - lastMX; transform.y += e.clientY - lastMY;
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        canvas.style.cursor = hitNode(w.x, w.y) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
       lastMX = e.clientX; lastMY = e.clientY;
       redraw();
     } else {
-      var rect = canvas.getBoundingClientRect();
-      var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
-      canvas.style.cursor = hitNode(w.x, w.y) ? 'pointer' : 'grab';
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
+        redraw();
+      }
     }
   });
-  canvas.addEventListener('mouseup', function(e) {
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
     var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
-    dragging = false;
-    canvas.style.cursor = 'grab';
-    if (moved < 4) {
-      var rect = canvas.getBoundingClientRect();
-      var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
-      showPanel(hitNode(w.x, w.y) || hitEdge(w.x, w.y) || null);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        showPanel(hitNode(w.x, w.y) || hitEdge(w.x, w.y) || null);
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
     }
   });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
   canvas.addEventListener('wheel', function(e) {
     e.preventDefault();
     var rect = canvas.getBoundingClientRect();
@@ -3342,61 +3470,6 @@ _GRAPH_JS = """(function () {
     transform.y = my - (my - transform.y) * factor;
     transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
     redraw();
-  }, {passive: false});
-
-  canvas.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    if (e.touches.length === 1) {
-      dragging = true; lastTouchDist = null;
-      lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
-      clickX = lastMX; clickY = lastMY;
-    } else if (e.touches.length === 2) {
-      dragging = false;
-      lastTouchDist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-    }
-  }, {passive: false});
-  canvas.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-    if (e.touches.length === 1 && dragging) {
-      transform.x += e.touches[0].clientX - lastMX;
-      transform.y += e.touches[0].clientY - lastMY;
-      lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
-      redraw();
-    } else if (e.touches.length === 2) {
-      var dist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      if (lastTouchDist) {
-        var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-        var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-        var rect = canvas.getBoundingClientRect();
-        mx -= rect.left; my -= rect.top;
-        var factor = dist / lastTouchDist;
-        transform.x = mx - (mx - transform.x) * factor;
-        transform.y = my - (my - transform.y) * factor;
-        transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
-        redraw();
-      }
-      lastTouchDist = dist;
-    }
-  }, {passive: false});
-  canvas.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    if (e.touches.length === 0 && e.changedTouches.length) {
-      var moved = Math.abs(e.changedTouches[0].clientX - clickX) +
-                  Math.abs(e.changedTouches[0].clientY - clickY);
-      dragging = false;
-      if (moved < 8) {
-        var rect = canvas.getBoundingClientRect();
-        var w = toWorld(e.changedTouches[0].clientX - rect.left,
-                        e.changedTouches[0].clientY - rect.top);
-        showPanel(hitNode(w.x, w.y) || hitEdge(w.x, w.y) || null);
-      }
-    }
   }, {passive: false});
 
   window.addEventListener('resize', function() { resize(); redraw(); });
@@ -3449,9 +3522,12 @@ _MINI_GRAPH_CSS = """\
 #mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
   font-weight: 500; margin: 0 0 0.25rem; }
 .mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
 #mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
   border: 1px solid var(--border); border-radius: 6px;
-  cursor: grab; touch-action: none; }
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
 #mini-graph-canvas:active { cursor: grabbing; }
 .view-full-graph { display: inline-block; margin-top: 0.5rem;
   font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
@@ -3468,12 +3544,18 @@ _MINI_GRAPH_JS = """\
   var nodes = [], edges = [], nodeMap = {};
   var transform = {x: 0, y: 0, scale: 1};
   var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
-  var lastTouchDist = null;
+  var activePointers = {};
+  var REST = 80;
   var ticks = 0, MAX_TICKS = 200, animRunning = false;
 
   function resize() {
-    canvas.width = canvas.parentElement.offsetWidth || 640;
-    canvas.height = 280;
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
   }
 
   function toWorld(cx, cy) {
@@ -3484,7 +3566,9 @@ _MINI_GRAPH_JS = """\
   }
 
   function initNodes(data) {
-    var W = canvas.width, H = canvas.height;
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
     var neighborSlugs = {};
     neighborSlugs[FOCAL] = true;
     var localEdges = [], seen = {};
@@ -3530,13 +3614,14 @@ _MINI_GRAPH_JS = """\
   }
 
   function tick() {
-    var REPULSION = 3000, SPRING = 0.025, REST = 80, DAMP = 0.8;
+    var REPULSION = 3000, DIST_MAX = 200, SPRING = 0.025, DAMP = 0.8;
     var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
     for (i = 0; i < nodes.length; i++) {
       for (j = i + 1; j < nodes.length; j++) {
         a = nodes[i]; b = nodes[j];
         dx = b.x - a.x; dy = b.y - a.y;
         d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
         f = REPULSION / d2;
         if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
         if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
@@ -3562,9 +3647,11 @@ _MINI_GRAPH_JS = """\
   var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569'};
 
   function draw() {
-    var W = canvas.width, H = canvas.height;
-    ctx.clearRect(0, 0, W, H);
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
+    ctx.scale(dpr, dpr);
     ctx.translate(transform.x, transform.y);
     ctx.scale(transform.scale, transform.scale);
     var R = 7 / transform.scale;
@@ -3618,7 +3705,8 @@ _MINI_GRAPH_JS = """\
       if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
       if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
     });
-    var W = canvas.width, H = canvas.height, pad = 56;
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
     var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
     transform.scale = Math.max(scale, 0.1);
     transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
@@ -3627,7 +3715,8 @@ _MINI_GRAPH_JS = """\
   }
 
   function hitNode(wx, wy) {
-    var R = 12 / transform.scale, i, nd, dx, dy;
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
     for (i = nodes.length - 1; i >= 0; i--) {
       nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
       if (dx * dx + dy * dy <= R * R) return nd;
@@ -3635,34 +3724,87 @@ _MINI_GRAPH_JS = """\
     return null;
   }
 
-  function handleTap(clientX, clientY) {
-    var rect = canvas.getBoundingClientRect();
-    var w = toWorld(clientX - rect.left, clientY - rect.top);
-    var nd = hitNode(w.x, w.y);
-    if (nd && !nd.isFocal) window.location.href = nd.url;
-  }
+  function redraw() { if (!animRunning) draw(); }
 
-  canvas.addEventListener('mousedown', function(e) {
-    dragging = true; lastMX = e.clientX; lastMY = e.clientY;
-    clickX = e.clientX; clickY = e.clientY;
-  });
-  canvas.addEventListener('mousemove', function(e) {
-    if (dragging) {
-      transform.x += e.clientX - lastMX; transform.y += e.clientY - lastMY;
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
       lastMX = e.clientX; lastMY = e.clientY;
-      if (!animRunning) draw();
+      clickX = e.clientX; clickY = e.clientY;
     } else {
-      var rect = canvas.getBoundingClientRect();
-      var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
-      var nd = hitNode(w.x, w.y);
-      canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      dragging = false;
     }
   });
-  canvas.addEventListener('mouseup', function(e) {
-    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
-    dragging = false;
-    if (moved < 4) handleTap(e.clientX, e.clientY);
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
   });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
   canvas.addEventListener('wheel', function(e) {
     e.preventDefault();
     var rect = canvas.getBoundingClientRect();
@@ -3674,57 +3816,7 @@ _MINI_GRAPH_JS = """\
     if (!animRunning) draw();
   }, {passive: false});
 
-  canvas.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    if (e.touches.length === 1) {
-      dragging = true; lastTouchDist = null;
-      lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
-      clickX = lastMX; clickY = lastMY;
-    } else if (e.touches.length === 2) {
-      dragging = false;
-      lastTouchDist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-    }
-  }, {passive: false});
-  canvas.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-    if (e.touches.length === 1 && dragging) {
-      transform.x += e.touches[0].clientX - lastMX;
-      transform.y += e.touches[0].clientY - lastMY;
-      lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
-      if (!animRunning) draw();
-    } else if (e.touches.length === 2) {
-      var dist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      if (lastTouchDist) {
-        var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-        var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-        var rect = canvas.getBoundingClientRect();
-        mx -= rect.left; my -= rect.top;
-        var factor = dist / lastTouchDist;
-        transform.x = mx - (mx - transform.x) * factor;
-        transform.y = my - (my - transform.y) * factor;
-        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
-        if (!animRunning) draw();
-      }
-      lastTouchDist = dist;
-    }
-  }, {passive: false});
-  canvas.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    if (e.touches.length === 0 && e.changedTouches.length) {
-      var moved = Math.abs(e.changedTouches[0].clientX - clickX) +
-                  Math.abs(e.changedTouches[0].clientY - clickY);
-      dragging = false;
-      if (moved < 8) handleTap(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-    }
-  }, {passive: false});
-
-  window.addEventListener('resize', function() { resize(); if (!animRunning) draw(); });
+  window.addEventListener('resize', function() { resize(); redraw(); });
 
   resize();
   fetch('/Research/data/graph.json')
@@ -3758,7 +3850,8 @@ def build_graph_page() -> str:
         .graph-wrap { display: flex; flex-direction: column; gap: 0.75rem; }
         #graph-canvas { width: 100%; background: #0a0f18;
           border: 1px solid var(--border); border-radius: 6px;
-          cursor: grab; display: block; }
+          cursor: grab; display: block;
+          user-select: none; -webkit-tap-highlight-color: transparent; }
         #graph-canvas:active { cursor: grabbing; }
         .graph-controls { display: flex; flex-wrap: wrap; gap: 0.5rem;
           align-items: center; padding: 0.5rem 0; }
@@ -3853,7 +3946,9 @@ def build_item_graph_section(slug: str) -> str:
         '<section id="mini-graph-section">\n'
         "<h2>Connected items</h2>\n"
         '<p class="mini-graph-meta" id="mini-graph-count">Loading\u2026</p>\n'
+        '<div class="mini-graph-wrap">\n'
         '<canvas id="mini-graph-canvas"></canvas>\n'
+        "</div>\n"
         '<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph \u2192</a>\n'
         "</section>\n"
         f'<script>window.GRAPH_FOCAL_SLUG = "{slug}";</script>\n'

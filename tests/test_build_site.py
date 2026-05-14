@@ -14,6 +14,7 @@ import json
 
 from build_site import (
     _GRAPH_JS,
+    _MINI_GRAPH_CSS,
     _MINI_GRAPH_JS,
     _cluster_overlap,
     _item_url,
@@ -1380,10 +1381,10 @@ def _make_item_for_page(slug: str) -> dict:
     }
 
 
-def test_graph_js_has_touch_events() -> None:
-    assert "touchstart" in _GRAPH_JS
-    assert "touchmove" in _GRAPH_JS
-    assert "touchend" in _GRAPH_JS
+def test_graph_js_has_pointer_events_replacing_touch() -> None:
+    assert "pointerdown" in _GRAPH_JS
+    assert "pointermove" in _GRAPH_JS
+    assert "pointerup" in _GRAPH_JS
 
 
 def test_mini_graph_js_exists() -> None:
@@ -1398,9 +1399,9 @@ def test_mini_graph_js_navigates_on_click() -> None:
     assert "window.location.href" in _MINI_GRAPH_JS
 
 
-def test_mini_graph_js_has_touch_events() -> None:
-    assert "touchstart" in _MINI_GRAPH_JS
-    assert "touchend" in _MINI_GRAPH_JS
+def test_mini_graph_js_has_pointer_events_replacing_touch() -> None:
+    assert "pointerdown" in _MINI_GRAPH_JS
+    assert "pointerup" in _MINI_GRAPH_JS
 
 
 def test_item_page_has_mini_graph_canvas() -> None:
@@ -1419,3 +1420,57 @@ def test_item_page_focal_slug_matches_item() -> None:
     item = _make_item_for_page("2026-01-01-foo")
     html = build_item_page(item, None, None)
     assert '"2026-01-01-foo"' in html
+
+
+# ---------------------------------------------------------------------------
+# Graph mobile polish (items 1–10)
+# ---------------------------------------------------------------------------
+
+
+def test_graph_js_uses_device_pixel_ratio() -> None:
+    assert "devicePixelRatio" in _GRAPH_JS
+
+
+def test_mini_graph_js_uses_device_pixel_ratio() -> None:
+    assert "devicePixelRatio" in _MINI_GRAPH_JS
+
+
+def test_graph_js_has_distance_max() -> None:
+    assert "DIST_MAX" in _GRAPH_JS
+
+
+def test_graph_js_adaptive_rest_uses_canvas_size() -> None:
+    assert "Math.min(W, H)" in _GRAPH_JS or "Math.min(W,H)" in _GRAPH_JS
+
+
+def test_graph_js_hit_target_minimum_22px() -> None:
+    assert "22 / transform.scale" in _GRAPH_JS or "22/transform.scale" in _GRAPH_JS
+
+
+def test_graph_page_css_has_user_select_none() -> None:
+    html = build_graph_page()
+    assert "user-select: none" in html
+
+
+def test_graph_js_tag_overlap_off_by_default() -> None:
+    assert "'tag-overlap': false" in _GRAPH_JS
+
+
+def test_graph_js_has_neighbour_highlight() -> None:
+    assert "selectedNeighbors" in _GRAPH_JS
+
+
+def test_mini_graph_css_has_aspect_ratio() -> None:
+    assert "aspect-ratio" in _MINI_GRAPH_CSS
+
+
+def test_graph_js_uses_pointer_events() -> None:
+    assert "pointerdown" in _GRAPH_JS
+
+
+def test_mini_graph_js_uses_pointer_events() -> None:
+    assert "pointerdown" in _MINI_GRAPH_JS
+
+
+def test_graph_js_has_barnes_hut() -> None:
+    assert "makeBarnesHut" in _GRAPH_JS
