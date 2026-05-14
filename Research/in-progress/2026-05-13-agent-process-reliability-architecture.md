@@ -269,7 +269,7 @@ Tacit process inference remains operationally useful for discovering undocumente
 
 The sources converge on a layered answer rather than a single best platform. Formal workflow systems are strongest where process knowledge is already explicit and repeatable, because they keep process state outside the model and make the next step inspectable before it happens. [inference; source: https://www.omg.org/spec/BPMN/2.0.2/; https://docs.camunda.io/docs/components/concepts/job-workers/]
 
-Pro-code runtimes matter because many organizations do not have fully modeled processes, and exception handling depends on retrieval, planning, and memory. The evidence from LangGraph, Microsoft Agent Framework, and the broader agent-architecture survey shows that these systems become more governable when they checkpoint state, re-emit pending approvals, and separate interpretation from action. [inference; source: https://docs.langchain.com/oss/python/langgraph/persistence; https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop; https://arxiv.org/html/2601.01743v1]
+Pro-code runtimes matter where processes are incomplete, weakly modeled, or exception-heavy, because handling those cases depends on retrieval, planning, and memory rather than a fully specified workflow graph. The evidence from LangGraph, Microsoft Agent Framework, and the broader agent-architecture survey shows that these systems become more governable when they checkpoint state, re-emit pending approvals, and separate interpretation from action. [inference; source: https://docs.langchain.com/oss/python/langgraph/persistence; https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop; https://arxiv.org/html/2601.01743v1]
 
 The central trade-off is between flexibility and authority. Semi-formal and tacit sources widen coverage, but they are less stable and less attributable than executable models, so they should enrich or challenge a proposed action rather than automatically authorize it. This is why the recommended architecture uses source hierarchy plus escalation instead of trusting the highest-relevance retrieval result. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html; https://arxiv.org/abs/2401.13677; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/]
 
@@ -289,13 +289,10 @@ The low-code versus pro-code comparison is therefore not a winner-take-all choic
 
 ### §7 Recursive Review
 
-Review result: pass
-
-Acronym audit: AI, BPMN, NIST, AI RMF, and LLM are expanded on first use in the document.
-
-Claim audit: visible claims in the research record are labeled or rewritten as metadata fragments; Findings claims use suffix citations and confidence labels.
-
-Parity check: Findings mirror the substantive claims in §6 Synthesis.
+- Review result: pass
+- Acronym audit: Artificial Intelligence (AI), Business Process Model and Notation (BPMN), National Institute of Standards and Technology (NIST), AI Risk Management Framework (AI RMF), and Large Language Model (LLM) expanded on first use
+- Claim audit: visible claims in the research record labeled or rewritten as metadata fragments; Findings claims use suffix citations and confidence labels
+- Parity check: Findings mirror the substantive claims in §6 Synthesis
 
 ---
 
