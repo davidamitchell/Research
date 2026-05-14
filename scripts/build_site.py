@@ -50,6 +50,7 @@ RESEARCH_DIR = DOCS_DIR / "research"
 KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
+GRAPH_DATA_DIR = DOCS_DIR / "data"
 
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
 GITHUB_KNOWLEDGE_BASE = "https://github.com/davidamitchell/Research/blob/main/Knowledge/"
@@ -2939,6 +2940,108 @@ def build_threads_index_json(threads: list[dict]) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
+def build_graph_json(
+    all_items: list[dict],
+    links: dict[str, list[dict]],
+    slug_to_item: dict[str, dict],
+) -> str:
+    """Serialize the in-memory relationship graph to a JSON string.
+
+    Schema version 1.0.  Output is deterministic: nodes sorted by slug,
+    edges sorted by (source, target, rel).
+
+    Edge sources:
+    - ``cites`` frontmatter field — directed edge from declaring item to cited slug
+    - ``related_slugs`` frontmatter field — directed edge from declaring item to related slug
+    - ``links`` (tag-overlap) — undirected; canonical direction is source < target (alphabetical)
+
+    Every edge carries:
+    - ``weight`` — initialized to 1 (baseline; refined by W-0075)
+    - ``rel`` — relationship type: "cites" | "related" | "tag-overlap"
+    - ``evidence`` — frontmatter field name or comma-joined shared tag list
+    - ``provenance`` — slug of the item that declares the relationship
+    """
+    node_slugs: set[str] = {item["slug"] for item in all_items}
+
+    nodes = sorted(
+        [
+            {
+                "slug": item["slug"],
+                "title": item["title"],
+                "type": item.get("item_type", "primary"),
+                "url": item.get("page_url", f"/Research/research/{item['slug']}.html"),
+            }
+            for item in all_items
+        ],
+        key=lambda n: n["slug"],
+    )
+
+    edges: list[dict] = []
+
+    for item in all_items:
+        source = item["slug"]
+
+        for target in item.get("cites") or []:
+            if target not in node_slugs:
+                continue
+            edges.append(
+                {
+                    "source": source,
+                    "target": target,
+                    "weight": 1,
+                    "rel": "cites",
+                    "evidence": "frontmatter:cites",
+                    "provenance": source,
+                }
+            )
+
+        for target in item.get("related_slugs") or []:
+            if target not in node_slugs:
+                continue
+            edges.append(
+                {
+                    "source": source,
+                    "target": target,
+                    "weight": 1,
+                    "rel": "related",
+                    "evidence": "frontmatter:related",
+                    "provenance": source,
+                }
+            )
+
+    seen_pairs: set[tuple[str, str]] = set()
+    for source_slug, related in links.items():
+        for entry in related:
+            target_slug = entry["item"]["slug"]
+            canonical_a, canonical_b = sorted([source_slug, target_slug])
+            if (canonical_a, canonical_b) in seen_pairs:
+                continue
+            seen_pairs.add((canonical_a, canonical_b))
+            shared_tags = entry.get("shared_tags") or []
+            edges.append(
+                {
+                    "source": canonical_a,
+                    "target": canonical_b,
+                    "weight": 1,
+                    "rel": "tag-overlap",
+                    "evidence": ",".join(sorted(shared_tags)),
+                    "provenance": source_slug,
+                }
+            )
+
+    edges.sort(key=lambda e: (e["source"], e["target"], e["rel"]))
+
+    graph: dict = {
+        "schema_version": "1.0",
+        "generated": datetime.now(tz=UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "nodes": nodes,
+        "edges": edges,
+    }
+    return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -2996,10 +3099,17 @@ def main() -> None:
 
     # Ensure owned output directories are clean (removes stale pages)
     DOCS_DIR.mkdir(exist_ok=True)
+    GRAPH_DATA_DIR.mkdir(exist_ok=True)
     for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THREADS_DIR):
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
+
+    # Graph artifact — serialized after singleton-tag filter and slug_to_item are ready
+    print("Building graph.json…")
+    (GRAPH_DATA_DIR / "graph.json").write_text(
+        build_graph_json(all_items, links, slug_to_item), encoding="utf-8"
+    )
 
     pages_written = 0
 

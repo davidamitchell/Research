@@ -10,10 +10,13 @@ import pytest
 
 # Make scripts/ importable
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+import json
+
 from build_site import (
     _cluster_overlap,
     _item_url,
     build_all_items_page,
+    build_graph_json,
     build_knowledge_index_page,
     build_research_master_page,
     detect_concept_threads,
@@ -868,3 +871,233 @@ def test_build_knowledge_index_page_with_items() -> None:
     assert "my-synthesis" in html
     assert "/Research/knowledge/my-synthesis.html" in html
     assert "No synthesis items yet" not in html
+
+
+# ---------------------------------------------------------------------------
+# build_graph_json
+# ---------------------------------------------------------------------------
+
+
+def _make_graph_item(
+    slug: str,
+    kind: str = "research",
+    cites: list[str] | None = None,
+    related: list[str] | None = None,
+    tags: list[str] | None = None,
+) -> dict:
+    """Minimal item dict with all fields required by build_graph_json."""
+    prefix = "knowledge" if kind == "knowledge" else "research"
+    return {
+        "slug": slug,
+        "title": f"Title for {slug}",
+        "item_type": "synthesis" if kind == "knowledge" else "primary",
+        "page_url": f"/Research/{prefix}/{slug}.html",
+        "cites": cites or [],
+        "related_slugs": related or [],
+        "tags": tags or [],
+        "added": datetime(2026, 1, 1, tzinfo=UTC),
+        "_kind": kind,
+    }
+
+
+def test_graph_json_returns_valid_json() -> None:
+    """build_graph_json returns parseable JSON."""
+    item = _make_graph_item("alpha")
+    result = build_graph_json([item], {}, {"alpha": item})
+    parsed = json.loads(result)
+    assert isinstance(parsed, dict)
+
+
+def test_graph_json_schema_fields_present() -> None:
+    """Top-level schema fields are present."""
+    item = _make_graph_item("alpha")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    for field in ("schema_version", "generated", "nodes", "edges", "node_count", "edge_count"):
+        assert field in parsed, f"missing field: {field}"
+
+
+def test_graph_json_schema_version() -> None:
+    """schema_version is '1.0'."""
+    item = _make_graph_item("alpha")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    assert parsed["schema_version"] == "1.0"
+
+
+def test_graph_json_node_required_fields() -> None:
+    """Every node has slug, title, type, and url."""
+    item = _make_graph_item("alpha")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    assert len(parsed["nodes"]) == 1
+    node = parsed["nodes"][0]
+    for field in ("slug", "title", "type", "url"):
+        assert field in node, f"node missing field: {field}"
+
+
+def test_graph_json_node_values() -> None:
+    """Node values map correctly from the item dict."""
+    item = _make_graph_item("alpha", kind="research")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    node = parsed["nodes"][0]
+    assert node["slug"] == "alpha"
+    assert node["title"] == "Title for alpha"
+    assert node["type"] == "primary"
+    assert node["url"] == "/Research/research/alpha.html"
+
+
+def test_graph_json_node_count_matches() -> None:
+    """node_count equals len(nodes)."""
+    items = [_make_graph_item(s) for s in ("a", "b", "c")]
+    parsed = json.loads(build_graph_json(items, {}, {i["slug"]: i for i in items}))
+    assert parsed["node_count"] == len(parsed["nodes"]) == 3
+
+
+def test_graph_json_edge_count_matches() -> None:
+    """edge_count equals len(edges)."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    assert parsed["edge_count"] == len(parsed["edges"])
+
+
+def test_graph_json_cites_edge_produced() -> None:
+    """A frontmatter cites entry produces a cites edge."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    cites_edges = [e for e in parsed["edges"] if e["rel"] == "cites"]
+    assert len(cites_edges) == 1
+    edge = cites_edges[0]
+    assert edge["source"] == "a"
+    assert edge["target"] == "b"
+
+
+def test_graph_json_edge_required_fields() -> None:
+    """Every edge has source, target, weight, rel, evidence, and provenance."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    for edge in parsed["edges"]:
+        for field in ("source", "target", "weight", "rel", "evidence", "provenance"):
+            assert field in edge, f"edge missing field: {field}"
+
+
+def test_graph_json_edge_weight_is_one() -> None:
+    """All edges have weight=1 (baseline model)."""
+    item_a = _make_graph_item("a", cites=["b"], related=["c"])
+    item_b = _make_graph_item("b")
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    assert all(e["weight"] == 1 for e in parsed["edges"])
+
+
+def test_graph_json_related_edge_produced() -> None:
+    """A frontmatter related entry produces a related edge."""
+    item_a = _make_graph_item("a", related=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    related_edges = [e for e in parsed["edges"] if e["rel"] == "related"]
+    assert len(related_edges) == 1
+    assert related_edges[0]["source"] == "a"
+    assert related_edges[0]["target"] == "b"
+
+
+def test_graph_json_tag_overlap_edge_produced() -> None:
+    """Tag-overlap entries from links produce tag-overlap edges."""
+    item_a = _make_graph_item("a", tags=["ai", "llm"])
+    item_b = _make_graph_item("b", tags=["ai", "llm"])
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [{"item": item_b, "shared_tags": ["ai", "llm"], "rel": "related"}],
+        "b": [{"item": item_a, "shared_tags": ["ai", "llm"], "rel": "related"}],
+    }
+    parsed = json.loads(build_graph_json(items, links, slug_to))
+    tag_edges = [e for e in parsed["edges"] if e["rel"] == "tag-overlap"]
+    assert len(tag_edges) == 1  # deduplicated: only one canonical A-B edge
+
+
+def test_graph_json_tag_overlap_canonical_direction() -> None:
+    """Tag-overlap edge source < target (canonical direction, alphabetical)."""
+    item_a = _make_graph_item("alpha")
+    item_b = _make_graph_item("beta")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "beta": [{"item": item_a, "shared_tags": ["ai", "ml"], "rel": "related"}],
+    }
+    parsed = json.loads(build_graph_json(items, links, slug_to))
+    tag_edges = [e for e in parsed["edges"] if e["rel"] == "tag-overlap"]
+    assert len(tag_edges) == 1
+    assert tag_edges[0]["source"] == "alpha"
+    assert tag_edges[0]["target"] == "beta"
+
+
+def test_graph_json_orphan_cites_skipped() -> None:
+    """cites to a slug not in the node set is silently skipped."""
+    item_a = _make_graph_item("a", cites=["nonexistent"])
+    parsed = json.loads(build_graph_json([item_a], {}, {"a": item_a}))
+    assert len(parsed["edges"]) == 0
+
+
+def test_graph_json_deterministic() -> None:
+    """Identical inputs produce identical JSON output."""
+    item_a = _make_graph_item("a", cites=["b"], related=["c"])
+    item_b = _make_graph_item("b")
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    links: dict = {}
+    out1 = build_graph_json(items, links, slug_to)
+    out2 = build_graph_json(items, links, slug_to)
+    assert out1 == out2
+
+
+def test_graph_json_nodes_sorted_by_slug() -> None:
+    """Nodes appear in ascending slug order."""
+    items = [_make_graph_item(s) for s in ("zebra", "apple", "mango")]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    slugs = [n["slug"] for n in parsed["nodes"]]
+    assert slugs == sorted(slugs)
+
+
+def test_graph_json_edges_sorted() -> None:
+    """Edges are sorted by (source, target, rel)."""
+    item_a = _make_graph_item("a", cites=["c", "b"])
+    item_b = _make_graph_item("b")
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    keys = [(e["source"], e["target"], e["rel"]) for e in parsed["edges"]]
+    assert keys == sorted(keys)
+
+
+def test_graph_json_edge_provenance_is_declaring_item() -> None:
+    """Edge provenance is the slug of the item declaring the relationship."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    edge = parsed["edges"][0]
+    assert edge["provenance"] == "a"
+
+
+def test_graph_json_empty_items() -> None:
+    """Empty items list produces a graph with no nodes and no edges."""
+    parsed = json.loads(build_graph_json([], {}, {}))
+    assert parsed["nodes"] == []
+    assert parsed["edges"] == []
+    assert parsed["node_count"] == 0
+    assert parsed["edge_count"] == 0
