@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 343c37460b178626747c2fa8598d6fd9aa606b7e
+    changed: 2026-05-14
+    progress: progress/2026-05-14-graph-db-landscape-tco-interoperability.md
+    summary: "Initial completion"
 ---
 
 # Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring
