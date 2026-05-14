@@ -25,4 +25,36 @@
 
 6. **Do the default instructions need updating?** No new conventions emerged.
 
-**Next:** W-0073 (graph page in GitHub Pages, blocked on W-0072 — now unblocked). Requires ADR before implementation (new JS library dependency).
+**Next:** W-0073, W-0074, W-0075 — see continuation below.
+
+---
+
+## Continuation: W-0073, W-0074, W-0075
+
+**Completed:**
+- `docs-adr/0016-graph-visualization-approach.md` — ADR for graph visualization. Rejected D3/Cytoscape (new external dependency + CDN risk); chose vanilla-JS force-directed layout embedded inline. No new dependencies of any kind.
+- `docs-adr/README.md` — ADR index updated with entry for 0016.
+- `scripts/build_site.py`:
+  - `_validate_graph(graph) -> list[str]` — validates edge references, required fields, count consistency; called from `build_graph_json()` which raises `ValueError` on failure.
+  - `build_graph_page()` — generates `docs/graph.html` with canvas, 300-tick force simulation, pan/zoom, click-to-inspect provenance panel, legend, and stats line. `_GRAPH_JS` constant holds ~200 lines of vanilla ES5 JS.
+  - `html_nav()` updated: Graph link added between Search and GitHub.
+  - `GRAPH_DATA_DIR` constant added; `main()` now writes `docs/graph.html` alongside `docs/data/graph.json`.
+  - `build_graph_json()` weighting updated: `cites`=4, `related`=3, `tag-overlap`=N (shared tag count, min 1). Rationale documented in docstring table.
+- `tests/test_build_site.py` — 16 new tests for W-0073/74 (graph page, nav link, validate_graph) + 6 for W-0075 (weighting). Total: 37 graph tests; 470 pass.
+- `BACKLOG.md` — W-0073, W-0074, W-0075 marked done with implementation notes.
+
+## Mini-Retro
+
+1. **Did the process work?** Yes. TDD applied throughout. ADR written before any implementation code — the decision to use vanilla JS rather than D3 was the right call; it eliminated all dependency concerns and kept `build_site.py` as the single source of truth. All four items (W-0072/73/74/75) are done and tested.
+
+2. **What slowed down or went wrong?** One small friction: the test file imported `html_head` when the nav function is actually `html_nav` — caught immediately on the first red run. Minor.
+
+3. **What single change would prevent this next time?** Check the exact function names in `build_site.py` before writing tests that import them — `grep -n "^def "` is a one-second check.
+
+4. **Is this a pattern?** Not a recurring one — it was a fast catch. No action needed.
+
+5. **Does any documentation need updating?** ADR-0016 written and indexed. BACKLOG.md updated. No other docs need changing.
+
+6. **Do the default instructions need updating?** No new conventions emerged. The pattern of embedding JS as a plain string constant in a Python template (to avoid f-string escaping conflicts) is worth noting mentally but not a convention change.
+
+**State at close:** W-0071 through W-0075 are all done. The graph pipeline is complete end-to-end: `build_graph_json` exports the artifact, `_validate_graph` enforces integrity, `build_graph_page` renders it with traceable edges, and the weighting algorithm gives meaningful edge strengths.
