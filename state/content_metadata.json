@@ -1,6 +1,145 @@
 {
-  "extracted_at": "2026-05-14T10:35:21Z",
+  "extracted_at": "2026-05-14T10:49:37Z",
   "items": {
+    "2026-05-13-graph-db-landscape-tco-interoperability": {
+      "named_concepts": [
+        "neo4j auradb",
+        "aws-native dual-model",
+        "semantic interoperability",
+        "ecosystem depth",
+        "stardog cloud",
+        "amazon neptune",
+        "small-team total",
+        "total cost",
+        "accessible current",
+        "ontology reasoning",
+        "platform surface",
+        "higher operating",
+        "operating complexity",
+        "graphdb remains",
+        "less self-serve",
+        "cloud offers",
+        "managed hosting",
+        "commercial transparency",
+        "technically strong",
+        "current commercial"
+      ],
+      "source_urls": [
+        "https://neo4j.com/pricing/",
+        "https://neo4j.com/docs/aura/classic/auradb/importing-data/",
+        "https://neo4j.com/docs/python-manual/current/",
+        "https://neo4j.com/terms/support-terms/",
+        "https://graphacademy.neo4j.com/",
+        "https://graphacademy.neo4j.com/certifications/neo4j-certification/",
+        "https://neo4j.com/careers/",
+        "https://community.neo4j.com/",
+        "https://github.com/neo4j/neo4j",
+        "https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow",
+        "https://aws.amazon.com/neptune/pricing/",
+        "https://aws.amazon.com/neptune/sla/",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/feature-sparql-compliance.html",
+        "https://aws.amazon.com/premiumsupport/plans/",
+        "https://aws.amazon.com/training/",
+        "https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow",
+        "https://www.stardog.com/pricing/",
+        "https://www.stardog.com/stardog-cloud/",
+        "https://www.stardog.com/support/",
+        "https://www.stardog.com/platform/",
+        "https://docs.stardog.com/query-stardog",
+        "https://community.stardog.com/",
+        "https://www.stardog.com/company/careers/",
+        "https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow",
+        "https://memgraph.com/pricing",
+        "https://memgraph.com/docs/client-libraries",
+        "https://memgraph.com/docs/data-migration",
+        "https://github.com/memgraph/memgraph",
+        "https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow",
+        "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+        "https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow",
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Stardog Cloud offers the strongest overall balance for this repository's ontology-first use case because it combines managed hosting, a free learning tier, explicit semantic-web standards support, published enterprise support tiers, and a 99.9 percent uptime commitment in one coherent platform surface",
+          "sources": [
+            "https://www.stardog.com/stardog-cloud/",
+            "https://www.stardog.com/support/",
+            "https://docs.stardog.com/query-stardog",
+            "https://www.stardog.com/platform/"
+          ]
+        },
+        {
+          "text": "Neo4j AuraDB and Amazon Neptune provide the clearest public commercial transparency, but Neo4j's flat capacity pricing and low-friction import tooling make its small-team total cost of ownership easier to reason about than Neptune's instance, storage, input and output, backup, and surrounding-AWS billing model",
+          "sources": [
+            "https://neo4j.com/pricing/",
+            "https://neo4j.com/docs/aura/classic/auradb/importing-data/",
+            "https://aws.amazon.com/neptune/pricing/",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html"
+          ]
+        },
+        {
+          "text": "GraphDB remains a technically strong ontology-first alternative because it exposes RDF, SPARQL, SHACL, RDFS, OWL, and RDF4J-compatible REST surfaces, but its accessible current commercial path looks more like enterprise marketplace procurement than an easily self-serve pilot service",
+          "sources": [
+            "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html"
+          ]
+        },
+        {
+          "text": "Amazon Neptune is the best conditional choice when the project needs both property-graph and semantic-graph support inside Amazon Web Services, but its higher operational overhead and more complex billing structure make it a weaker default recommendation for this repository than Stardog or Neo4j",
+          "sources": [
+            "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html",
+            "https://aws.amazon.com/neptune/pricing/",
+            "https://aws.amazon.com/neptune/sla/"
+          ]
+        },
+        {
+          "text": "Neo4j has the strongest public community and hiring signal in the shortlist because it pairs formal certification, a large public forum, 23,056 Stack Overflow questions, and a public engineering surface, while the comparator evidence for Neptune, Stardog, Memgraph, and GraphDB is materially thinner or more specialized",
+          "sources": [
+            "https://graphacademy.neo4j.com/",
+            "https://graphacademy.neo4j.com/certifications/neo4j-certification/",
+            "https://community.neo4j.com/",
+            "https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow",
+            "https://github.com/neo4j/neo4j",
+            "https://aws.amazon.com/training/",
+            "https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow",
+            "https://community.stardog.com/",
+            "https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow",
+            "https://memgraph.com/docs/client-libraries",
+            "https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow",
+            "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+            "https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow"
+          ]
+        },
+        {
+          "text": "Memgraph Cloud is attractive for Cypher-compatible prototyping and migration-heavy work because it offers fully managed hosting, simple memory-based pricing logic, and broad import options, but the consulted evidence does not support choosing it over Stardog, GraphDB, or Neptune for ontology-first interoperability",
+          "sources": [
+            "https://memgraph.com/pricing",
+            "https://memgraph.com/docs/data-migration",
+            "https://memgraph.com/docs/client-libraries"
+          ]
+        },
+        {
+          "text": "Using a repository-weighted framework that prioritizes semantic interoperability over ecosystem depth, the recommended selection path is Stardog first, Neo4j AuraDB second as the non-semantic fallback, Neptune third for AWS-native dual-model requirements, GraphDB fourth as the procurement-heavier semantic alternative, and Memgraph fifth for this specific ontology-first decision",
+          "sources": [
+            "https://www.stardog.com/stardog-cloud/",
+            "https://docs.stardog.com/query-stardog",
+            "https://neo4j.com/pricing/",
+            "https://aws.amazon.com/neptune/pricing/",
+            "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+            "https://memgraph.com/pricing",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html"
+          ]
+        }
+      ]
+    },
     "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy": {
       "named_concepts": [
         "fluency model",
