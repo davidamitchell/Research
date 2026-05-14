@@ -1363,3 +1363,136 @@ The GH Pages site exposes `ai_themes` as a navigable dimension: 16 theme index p
 ### Context
 
 Once W-0069 (backfill) is done, every item has `ai_themes` set but the site renders none of it — the enrichment is invisible. This item makes it visible and useful. Theme pages give readers a cleaner navigation layer than the 935-tag tag pages (643 of which are singletons). The related-by-theme links improve cross-item discovery without requiring manual `related:` frontmatter. Prerequisite for W-0061 (synthesis candidates using `ai_themes` clusters). Blocked on W-0069.
+
+---
+
+## W-0071
+
+status: open
+created: 2026-05-13
+updated: 2026-05-13
+
+### Outcome
+
+Graph capability backlog is explicitly scoped and sequenced using existing completed research and current open work:
+
+1. **Review backlog** — map overlaps and dependencies across W-0034, W-0044, W-0051, W-0061, and W-0070 so graph work does not duplicate existing related-items/thread/theme features.
+2. **Understand research** — extract design constraints from completed research on knowledge linking and map architecture (`2026-03-03-knowledge-linking-connected-corpus.md`, `2026-05-02-cross-item-synthesis-knowledge-map-architecture.md`).
+3. **Design** — produce a graph model that is file-based and GitHub Pages compatible, with traceable edges and explicit provenance.
+4. **Review design** — run a design review pass (correctness, maintainability, constraints fit) before implementation.
+5. **High-level backlog items** — capture implementation epics for data model/export, GitHub Pages user interface, and quality gates.
+6. **Refine backlog items** — split epics into small, testable slices with acceptance criteria and dependencies.
+7. **Review whole backlog and adjust sequencing** — ensure graph items are ordered relative to existing synthesis/theme work and that blocked relationships are explicit.
+
+### Context
+
+This item is the backlog-construction slice requested by the issue. It does **not** implement graph functionality; it defines and sequences the work so implementation can proceed with low rework risk.
+
+---
+
+## W-0072
+
+status: open
+created: 2026-05-13
+updated: 2026-05-13
+
+### Outcome
+
+`scripts/build_site.py` produces a graph artifact for the published corpus (for example `docs/data/graph.json`) with explicit provenance and baseline weighting:
+
+- Nodes represent published items (`Research/completed/` and `Knowledge/`) with slug, title, type, and URL.
+- Edges represent machine-readable relationships (`cites`, `related`, and other explicitly supported relationship sources already in the corpus).
+- Every edge includes a `weight` field initialized to `1`.
+- Every edge includes traceability fields showing exactly where it came from (source item slug, relationship field/type, and evidence reference needed to explain the edge in the user interface).
+- Tests verify deterministic output and required schema fields.
+
+### Context
+
+Current site generation computes relationship links for rendering but does not expose a first-class traceable graph artifact with weighted edges. This is the minimum viable graph substrate.
+
+`build_site.py` already builds an in-memory relationship graph (line ~2965, `"Building relationship graph…"`) and loads `cites`/`related_slugs` per item. Exporting to JSON is a serialization step on data that already exists — do not re-derive the graph from scratch.
+
+**Build watch-outs:**
+- `docs/data/` is inside `docs/` which is auto-generated and must never be committed on a feature branch. The `build_site.yml` workflow is the sole write path. Verify the artifact directory is created inside the existing `build_site.py` `main()` function, after the `DOCS_DIR.mkdir(exist_ok=True)` call at line ~2998, so it is always regenerated on a clean build.
+- Tag-filtered items: `build_site.py` drops singleton tags before building links (line ~2960). The graph artifact must be serialized after this filter runs, or node metadata will be inconsistent with what the site renders.
+- `docs/` must not be staged or committed on the implementing branch. Run `git status` before every commit and confirm no `docs/` paths appear.
+
+Blocked on W-0071.
+
+---
+
+## W-0073
+
+status: open
+created: 2026-05-13
+updated: 2026-05-13
+
+### Outcome
+
+GitHub Pages includes a graph view that is traceable in the front end:
+
+- A dedicated graph page is generated and linked from site navigation.
+- The page loads the generated graph artifact and renders nodes/edges in a static-site-friendly way.
+- Selecting an edge reveals provenance (why the edge exists, where it came from, and links back to source item pages).
+- The page remains usable without external services or runtime credentials.
+- Tests cover rendering hooks and edge-traceability display logic.
+
+### Context
+
+The issue requires graph functionality to be traceable in the GitHub Pages user interface, not just in backend data.
+
+**ADR required before implementation.** Rendering an interactive graph in a browser requires a JavaScript visualization library (D3, Sigma, vis.js, or equivalent). Adding any such library is a new external dependency and triggers the ADR requirement in the Non-Negotiable Constraints. Write the ADR using the `adr` skill before writing any implementation code.
+
+**Build watch-outs:**
+- The graph page must be generated inside `build_site.py` alongside existing page generation, not as a separate script, so `build_site.yml` picks it up automatically with no workflow changes.
+- Avoid CDN-loaded scripts if the library can be vendored (bundled inline or as a local asset under `docs/`). CDN loading creates a runtime external dependency that breaks the "usable without external services" requirement if the CDN is unavailable.
+- If vendoring the library produces binary or minified files in `docs/`, confirm they are handled by the `build_site.yml` workflow write path — not committed manually on the branch.
+- `docs/` must not be staged or committed on the implementing branch. Run `git status` before every commit and confirm no `docs/` paths appear.
+
+Blocked on W-0072.
+
+---
+
+## W-0074
+
+status: open
+created: 2026-05-13
+updated: 2026-05-13
+
+### Outcome
+
+Graph quality gates are enforced in code and tests:
+
+- Validation ensures every edge references existing node slugs.
+- Validation ensures every edge has `weight` and provenance fields.
+- Validation ensures edge generation is reproducible from repository state.
+- CI coverage includes graph artifact and graph-page generation paths.
+
+### Context
+
+Traceability requirements are only reliable if schema and integrity checks fail fast during generation and test runs.
+
+Blocked on W-0072 and W-0073.
+
+---
+
+## W-0075
+
+status: open
+created: 2026-05-13
+updated: 2026-05-13
+
+### Outcome
+
+Edge-weighting evolves beyond the baseline `weight: 1` model:
+
+- A weighting algorithm is defined and documented (for example combining relationship type, evidence strength, or recency signals).
+- The algorithm preserves deterministic output and backwards-compatible schema.
+- Weighting rationale is inspectable so users can understand why a given edge is stronger/weaker.
+- Tests cover scoring rules and stability expectations.
+
+### Context
+
+The issue explicitly requires weighted edges with an initial default of `1`, plus follow-on stories for a later weighting algorithm. This item is that follow-on phase.
+
+Blocked on W-0072 and W-0074.
