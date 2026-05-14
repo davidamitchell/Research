@@ -2,12 +2,12 @@
 review_count: 2
 title: "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems"
 added: 2026-05-13T09:01:36+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [agentic-ai, agent-tooling, llm, governance, workflow]
 started: 2026-05-14T09:29:21+00:00
-completed: ~
+completed: 2026-05-14T09:52:32+00:00
 output: [knowledge]
 cites:
   - 2026-03-18-api-context-hubs-rag-mcp
@@ -241,7 +241,7 @@ Unifying specialised Agent-to-Agent (A2A) interactions into tool-calling interfa
 
 **Key findings:**
 
-1. **In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs.** ([inference]; high confidence; source: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents; https://docs.langchain.com/oss/python/langchain/multi-agent; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
+1. **In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents; https://docs.langchain.com/oss/python/langchain/multi-agent; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
 2. **A2A carries protocol-native features that plain tool calling does not natively preserve, including Agent Card discovery, stateful task lifecycle, artifacts, modality negotiation, and async updates for opaque remote services.** ([fact]; high confidence; source: https://a2a-protocol.org/latest/specification/; https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
 3. **MCP and vendor tool-calling patterns standardise how an Artificial Intelligence (AI) host discovers context primitives or emits callable schemas, but they still model capability access through a host-mediated tool loop rather than through a first-class remote agent contract.** ([inference]; medium confidence; source: https://modelcontextprotocol.io/docs/concepts/architecture; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview; https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb)
 4. **Available public benchmarks suggest that planning quality and coordination topology affect reasoning outcomes more visibly than invocation abstraction, but the absence of a direct A2A-versus-tool benchmark keeps that conclusion provisional.** ([inference]; low confidence; source: https://openreview.net/forum?id=Oljnxmf4pc; https://aclanthology.org/2025.acl-long.421/)
@@ -254,7 +254,7 @@ Unifying specialised Agent-to-Agent (A2A) interactions into tool-calling interfa
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] Internal hierarchies usually reduce overhead by using tools instead of extra agent handoffs. | https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents ; https://docs.langchain.com/oss/python/langchain/multi-agent ; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview | high | Fewer coordination layers |
+| [inference] Internal hierarchies usually reduce overhead by using tools instead of extra agent handoffs. | https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents ; https://docs.langchain.com/oss/python/langchain/multi-agent ; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview | medium | Mixed but directional evidence |
 | [fact] A2A includes remote-agent discovery, task state, artifacts, async status, and modality negotiation. | https://a2a-protocol.org/latest/specification/ ; https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/ | high | Protocol-native surface |
 | [inference] MCP and vendor tool calling expose host-mediated capability access rather than a first-class remote agent contract. | https://modelcontextprotocol.io/docs/concepts/architecture ; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview ; https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb | medium | Client and server tool split |
 | [inference] Available benchmarks suggest planning and topology matter more than invocation abstraction, but do not directly test A2A versus tools. | https://openreview.net/forum?id=Oljnxmf4pc ; https://aclanthology.org/2025.acl-long.421/ | low | No direct head-to-head benchmark |
@@ -302,7 +302,7 @@ Unifying specialised Agent-to-Agent (A2A) interactions into tool-calling interfa
 
 ### Key Findings
 
-1. **In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs.** ([inference]; high confidence; source: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents; https://docs.langchain.com/oss/python/langchain/multi-agent; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
+1. **In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs.** ([inference]; medium confidence; source: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents; https://docs.langchain.com/oss/python/langchain/multi-agent; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
 2. **A2A carries protocol-native features that plain tool calling does not natively preserve, including Agent Card discovery, stateful task lifecycle, artifacts, modality negotiation, and async updates for opaque remote services.** ([fact]; high confidence; source: https://a2a-protocol.org/latest/specification/; https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
 3. **MCP and vendor tool-calling patterns standardise how an Artificial Intelligence (AI) host discovers context primitives or emits callable schemas, but they still model capability access through a host-mediated tool loop rather than through a first-class remote agent contract.** ([inference]; medium confidence; source: https://modelcontextprotocol.io/docs/concepts/architecture; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview; https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb)
 4. **Available public benchmarks suggest that planning quality and coordination topology affect reasoning outcomes more visibly than invocation abstraction, but the absence of a direct A2A-versus-tool benchmark keeps that conclusion provisional.** ([inference]; low confidence; source: https://openreview.net/forum?id=Oljnxmf4pc; https://aclanthology.org/2025.acl-long.421/)
@@ -315,7 +315,7 @@ Unifying specialised Agent-to-Agent (A2A) interactions into tool-calling interfa
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] Internal hierarchies usually reduce overhead by using tools instead of extra agent handoffs. | https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents ; https://docs.langchain.com/oss/python/langchain/multi-agent ; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview | high | Fewer coordination layers |
+| [inference] Internal hierarchies usually reduce overhead by using tools instead of extra agent handoffs. | https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents ; https://docs.langchain.com/oss/python/langchain/multi-agent ; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview | medium | Mixed but directional evidence |
 | [fact] A2A includes remote-agent discovery, task state, artifacts, async status, and modality negotiation. | https://a2a-protocol.org/latest/specification/ ; https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/ | high | Protocol-native surface |
 | [inference] MCP and vendor tool calling expose host-mediated capability access rather than a first-class remote agent contract. | https://modelcontextprotocol.io/docs/concepts/architecture ; https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview ; https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb | medium | Client and server tool split |
 | [inference] Available benchmarks suggest planning and topology matter more than invocation abstraction, but do not directly test A2A versus tools. | https://openreview.net/forum?id=Oljnxmf4pc ; https://aclanthology.org/2025.acl-long.421/ | low | No direct head-to-head benchmark |
