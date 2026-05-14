@@ -87,7 +87,8 @@ Anthropic presents AI fluency as practical skill in interacting with AI systems 
 - Scope: Anthropic 4D, NIST activity taxonomy, OECD system classification, Anthropic workflows-versus-agents architecture guidance, Benbouzid et al. harms taxonomy, and Google DeepMind's Artificial General Intelligence (AGI) levels as a contrasting capability taxonomy.
 - Constraints: primary-source preference, URL-backed citations only, 2022 to 2025 focus.
 - Output: full structured synthesis with executive summary, key findings, evidence map, assumptions, analysis, risks, and open questions.
-- Prior completed-item scan: the nearest completed items are the repository's concept-first taxonomy, agent evaluation framework, agent decision-making framework, and AI coding harnesses survey. The concept-first taxonomy is directly cited because it provides a useful internal contrast between system-concept taxonomies and Anthropic's competency-first fluency model. Related-item URLs: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-ai-concept-classification-taxonomy.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-integrative-framework-agent-decision-making.md
+- Prior completed items consulted: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-ai-concept-classification-taxonomy.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-integrative-framework-agent-decision-making.md
+- Direct cross-reference selected for citation: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-ai-concept-classification-taxonomy.md
 
 ### §1 Question Decomposition
 
@@ -324,7 +325,7 @@ Teams building or governing AI agents should therefore pair 4D with a structural
 
 ### Analysis
 
-The strongest evidence is around Anthropic's own definitions, because the course page, framework summary, and terminology sheet align on the names and practical meaning of the four Ds. [fact; source: https://www.anthropic.com/ai-fluency; https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf; https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf]
+The strongest evidence is around Anthropic's own definitions, because the course page, framework summary, and terminology sheet align on the names and practical meaning of the four Ds. [inference; source: https://www.anthropic.com/ai-fluency; https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf; https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf]
 
 The main analytical move is therefore not recovering what 4D says, but determining what kind of framework it is relative to other schemes. [inference; source: https://doi.org/10.6028/NIST.AI.200-1; https://oecd.ai/en/classification; https://arxiv.org/html/2407.01294v2; https://arxiv.org/abs/2311.02462]
 
@@ -336,7 +337,7 @@ For practitioners, the trade-off is straightforward: 4D is easier to teach and a
 
 ### Risks, Gaps, and Uncertainties
 
-- Anthropic's public evidence base currently exposes the 4D framework through course assets and downloadable teaching materials rather than through a single standalone technical paper, so the official definitions are clear but the public explanatory depth is thinner than in the NIST and OECD publications. [fact; source: https://www.anthropic.com/ai-fluency; https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf; https://doi.org/10.6028/NIST.AI.200-1; https://oecd.ai/en/classification]
+- Anthropic's public evidence base currently exposes the 4D framework through course assets and downloadable teaching materials rather than through a single standalone technical paper, so the official definitions are clear but the public explanatory depth is thinner than in the NIST and OECD publications. [inference; source: https://www.anthropic.com/ai-fluency; https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf; https://doi.org/10.6028/NIST.AI.200-1; https://oecd.ai/en/classification]
 - The comparison set mixes frameworks designed for different classification objects, which means some differences are purpose differences rather than rival claims about the same object. [inference; source: https://doi.org/10.6028/NIST.AI.200-1; https://oecd.ai/en/classification; https://arxiv.org/html/2407.01294v2; https://arxiv.org/abs/2311.02462]
 - The DeepMind comparator is informative but less directly relevant to day-to-day agent-building teams than NIST, OECD, or Anthropic's own workflows-versus-agents guidance. [inference; source: https://arxiv.org/abs/2311.02462; https://www.anthropic.com/research/building-effective-agents]
 
