@@ -2,12 +2,12 @@
 review_count: 2
 title: "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams"
 added: 2026-05-14T18:48:56+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [organisation, organisational-design, organisational-theory]
 started: 2026-05-15T02:36:52+00:00
-completed: ~
+completed: 2026-05-15T03:05:27+00:00
 output: [knowledge]
 cites: [2026-05-14-org-failure-modes-accountability-gaps]
 related: [2026-04-22-enterprise-ai-platform-operating-models]
