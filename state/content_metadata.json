@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-15T03:18:40Z",
+  "extracted_at": "2026-05-15T03:27:42Z",
   "items": {
+    "2026-05-14-org-failure-modes-project-demand-product-it": {
+      "named_concepts": [
+        "product teams",
+        "one backlog",
+        "project-based demand",
+        "weak product",
+        "annual project",
+        "build-and-run teams",
+        "outcome reviews",
+        "team capacity",
+        "product ownership",
+        "feedback loops",
+        "long-lived product",
+        "large-enterprise transitions",
+        "defects risk",
+        "strongest supported",
+        "supported mitigation",
+        "continuously funded",
+        "funded build-and-run",
+        "project budgeting",
+        "technical debt",
+        "business cases"
+      ],
+      "source_urls": [
+        "https://projecttoproduct.org/",
+        "https://teamtopologies.com/book",
+        "https://teamtopologies.com/key-concepts",
+        "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum",
+        "https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf",
+        "https://itrevolution.com/accelerate-book/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/",
+        "https://itrevolution.com/articles/project-to-product-transformation-case-study-fortune-100-retail-enterprise/",
+        "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+        "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+        "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+        "https://less.works/blog/2026/02/20/project-based-funding-in-product-development",
+        "https://www.infoq.com/news/2017/11/products-vs-projects/",
+        "https://www.pmi.org/learning/thought-leadership/pulse"
+      ],
+      "key_claims": [
+        {
+          "text": "Annual project budgeting creates a demand-capacity mismatch for product teams, because it approves work in large planned batches while stable teams can only absorb work through bounded ongoing capacity and re-prioritisation",
+          "sources": [
+            "https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf",
+            "https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets"
+          ]
+        },
+        {
+          "text": "When project identifiers remain attached to backlog items, the product backlog becomes a negotiated merge of project claims, incidents, and technical debt instead of a single ranked view of product value",
+          "sources": [
+            "https://less.works/blog/2026/02/20/project-based-funding-in-product-development",
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+            "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum"
+          ]
+        },
+        {
+          "text": "Project-governed product teams lose ownership quality because new-feature business cases crowd out defect fixing, incident reduction, risk work, and technical-debt reduction that long-lived product stewardship requires",
+          "sources": [
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+            "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum",
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html"
+          ]
+        },
+        {
+          "text": "Hybrid project and product rules recreate matrix-style decision conflict, because project sponsors, finance gates, and line managers continue competing to direct the same team capacity that the product team is supposed to own",
+          "sources": [
+            "https://less.works/blog/2026/02/20/project-based-funding-in-product-development",
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md"
+          ]
+        },
+        {
+          "text": "Release speed and customer feedback slow down under the mismatch, because project milestones and cross-team coordination preserve large-batch delivery and reduce the autonomy that high-performing product teams need",
+          "sources": [
+            "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-cohort-demand-domain-it.md"
+          ]
+        },
+        {
+          "text": "Team stability improves only partially when organisations rename teams as products, because project-based demand still encourages stop-start funding, role ambiguity, and pressure to reshape capacity around the next approved initiative",
+          "sources": [
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-fortune-100-retail-enterprise/"
+          ]
+        },
+        {
+          "text": "The strongest evidenced mitigation is to move governance up to outcome and capacity review, keep one visible backlog for all work, and continuously fund build-and-run teams instead of funding temporary project slices",
+          "sources": [
+            "https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf",
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+            "https://less.works/blog/2026/02/20/project-based-funding-in-product-development"
+          ]
+        }
+      ]
+    },
     "2026-05-14-org-failure-modes-cohort-demand-domain-it": {
       "named_concepts": [
         "customer cohorts",
