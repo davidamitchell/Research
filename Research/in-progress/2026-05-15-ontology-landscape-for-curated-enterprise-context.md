@@ -197,15 +197,15 @@ The decision surface is the boundary between a formal ontology as canonical sema
 
 ### §4 Consistency Check
 
-- [fact] No consulted primary source claims that OWL alone provides closed-world validation, native edge-property ergonomics, temporal reasoning sufficient for operational governance, and Large Language Model retrieval behavior in one integrated standard.[source: https://www.w3.org/TR/owl2-overview/; https://www.w3.org/TR/shacl/; https://www.w3.org/groups/wg/rdf-star/; https://www.w3.org/TR/vocab-dcat-3/]
-- [fact] No consulted source contradicted the need for ontology matching, graph refinement, or human curation when heterogeneous corpora are merged into a governed knowledge graph.[source: https://doi.org/10.1007/978-3-642-38721-0; https://www.semantic-web-journal.net/content/knowledge-graph-refinement-survey-approaches-and-evaluation-methods; https://arxiv.org/abs/2210.12714]
+- [inference] No consulted primary source presented OWL alone as a complete solution for closed-world validation, relationship annotation, temporal governance, and Large Language Model retrieval behavior in one integrated standard.[source: https://www.w3.org/TR/owl2-overview/; https://www.w3.org/TR/shacl/; https://www.w3.org/groups/wg/rdf-star/; https://www.w3.org/TR/vocab-dcat-3/]
+- [inference] The consulted sources consistently support the need for ontology matching, graph refinement, or human curation when heterogeneous corpora are merged into a governed knowledge graph.[source: https://doi.org/10.1007/978-3-642-38721-0; https://www.semantic-web-journal.net/content/knowledge-graph-refinement-survey-approaches-and-evaluation-methods; https://arxiv.org/abs/2210.12714]
 - [inference] The remaining uncertainty is about where the operational storage boundary should sit, not about whether the semantic-governance boundary needs an ontology layer.[source: https://ceur-ws.org/Vol-2100/paper26.pdf; https://arxiv.org/abs/2003.02320; https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html]
 
 ### §5 Depth and Breadth Expansion
 
-- [fact] Technically, the evidence points to an architecture that separates semantic typing, validation, temporal-version metadata, and retrieval execution rather than collapsing them into one mechanism.[source: https://www.w3.org/TR/owl2-profiles/; https://www.w3.org/TR/shacl/; https://www.w3.org/TR/vocab-dcat-3/; https://arxiv.org/abs/2308.02457]
-- [fact] Organisationally, the same separation matches ownership boundaries because catalog metadata, lifecycle control, and domain semantics are maintained by different stakeholders in real systems.[source: https://www.w3.org/TR/vocab-dcat-3/; https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-data-product-agentic.html]
-- [fact] Behaviourally, Large Language Model systems benefit from graph-grounded retrieval and reasoning only when the underlying graph remains typed, versioned, and constraint-checked.[source: https://arxiv.org/abs/2404.16130; https://arxiv.org/abs/2408.08921; https://arxiv.org/abs/2310.01061; https://arxiv.org/abs/2302.07200]
+- [inference] Technically, the evidence points to an architecture that separates semantic typing, validation, temporal-version metadata, and retrieval execution instead of collapsing them into one mechanism.[source: https://www.w3.org/TR/owl2-profiles/; https://www.w3.org/TR/shacl/; https://www.w3.org/TR/vocab-dcat-3/; https://arxiv.org/abs/2308.02457]
+- [inference] Organisationally, the same separation aligns with different stakeholder responsibilities because catalog metadata, lifecycle control, and domain semantics are maintained through distinct governance surfaces in real systems.[source: https://www.w3.org/TR/vocab-dcat-3/; https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-data-product-agentic.html]
+- [inference] Behaviourally, Large Language Model systems benefit most from graph-grounded retrieval and reasoning when the underlying graph remains typed, versioned, and constraint-checked.[source: https://arxiv.org/abs/2404.16130; https://arxiv.org/abs/2408.08921; https://arxiv.org/abs/2310.01061; https://arxiv.org/abs/2302.07200]
 - [inference] The depth check strengthens the hybrid conclusion because each additional lens introduces another required layer instead of revealing a single representation that can safely absorb all roles.[source: https://www.w3.org/TR/owl2-overview/; https://www.w3.org/TR/shacl/; https://www.w3.org/TR/vocab-dcat-3/; https://arxiv.org/abs/2408.08921]
 
 ### §6 Synthesis
@@ -256,7 +256,7 @@ The repository's adjacent completed items sharpen that same conclusion by showin
 
 **Risks, gaps, uncertainties:**
 
-- No platform benchmark evidence gathered; conclusion remains architecture-level.
+- [inference] No platform benchmark evidence was gathered in this item, so the conclusion remains architecture-level.[source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-15-ontology-landscape-for-curated-enterprise-context.md]
 - [fact] The consulted literature is stronger on semantic modeling, graph retrieval, and ontology engineering than on peer-reviewed access-control policy execution inside ontology systems.[source: https://doi.org/10.1007/978-3-642-38721-0; https://arxiv.org/abs/2210.00105]
 - [fact] RDF-star standardization is still in progress.[source: https://www.w3.org/groups/wg/rdf-star/]
 - [inference] Platform evaluation should check current RDF-star behavior and the final standards outcome together before relationship-annotation patterns are treated as settled.[source: https://www.w3.org/groups/wg/rdf-star/; https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html]
@@ -328,7 +328,7 @@ The repository's adjacent completed items sharpen that same conclusion by showin
 
 ### Risks, Gaps, and Uncertainties
 
-- No platform benchmark evidence gathered; conclusion remains architecture-level.
+- [inference] No platform benchmark evidence was gathered in this item, so the conclusion remains architecture-level.[source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-15-ontology-landscape-for-curated-enterprise-context.md]
 - [fact] The consulted literature is stronger on semantic modeling, graph retrieval, and ontology engineering than on peer-reviewed access-control policy execution inside ontology systems.[source: https://doi.org/10.1007/978-3-642-38721-0; https://arxiv.org/abs/2210.00105]
 - [fact] RDF-star standardization is still in progress.[source: https://www.w3.org/groups/wg/rdf-star/]
 - [inference] Platform evaluation should check current RDF-star behavior and the final standards outcome together before relationship-annotation patterns are treated as settled.[source: https://www.w3.org/groups/wg/rdf-star/; https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html]
