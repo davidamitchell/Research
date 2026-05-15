@@ -1,6 +1,96 @@
 {
-  "extracted_at": "2026-05-15T03:42:34Z",
+  "extracted_at": "2026-05-15T03:52:37Z",
   "items": {
+    "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability": {
+      "named_concepts": [
+        "risk cost",
+        "split accountability",
+        "benefits ownership",
+        "one accountable",
+        "outcomes management",
+        "separate risk",
+        "benefit ownership",
+        "strongest supported",
+        "supported mitigation",
+        "accountability framework",
+        "risk operating",
+        "operating cost",
+        "close trade-offs",
+        "delayed commitments",
+        "delivery ownership",
+        "ownership produces",
+        "produces weak",
+        "local operators",
+        "cost shifting",
+        "liability transfer"
+      ],
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/0304405X7690026X",
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=20375",
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=9691",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+        "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf",
+        "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+        "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html",
+        "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "When risk, operating cost, and benefits are owned by different units, programmes repeatedly lose the one actor who can close trade-offs, so governance expands into duplicated boards, delayed commitments, and reversible decisions rather than decisive action",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf"
+          ]
+        },
+        {
+          "text": "Benefit ownership separated from cost and delivery ownership produces weak investment cases, because central sponsors keep benefits qualitative or unmeasured while local operators face specific budget, transition, and service burdens that are easier to see and harder to ignore",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Split accountability makes cost shifting and liability transfer normal operating behaviour, with central programmes omitting local transition costs and local units later inheriting onboarding, compatibility, support, or transfer obligations they did not fully price into the original decision",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Risk management weakens when the actor naming the risk does not control delivery and spend, which shows up empirically as ownerless risk-register items, persistent backlogs, continuing customisations, and slow corrective action even after the problem is well understood",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Severity rises in multi-function or multi-organisation settings where one function can lag or opt out of standards, because the full-system benefit depends on the slowest function even when finance, technology, or another domain is already prepared to move",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf"
+          ]
+        },
+        {
+          "text": "Handover points are a distinctive failure surface under split accountability, because unresolved questions about benefits reporting, financial liability, technical standards, and service-transfer cost emerge exactly when operational responsibility changes hands",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf"
+          ]
+        },
+        {
+          "text": "The best-supported mitigations converge on integrated decision rights, one accountable office, explicit outcomes management, and funded support for participating units, rather than on adding more oversight layers to the same fragmented structure",
+          "sources": [
+            "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf"
+          ]
+        }
+      ]
+    },
     "2026-05-14-org-failure-modes-project-demand-product-it": {
       "named_concepts": [
         "product teams",
