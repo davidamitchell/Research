@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-05-15T02:47:47Z",
+  "extracted_at": "2026-05-15T03:08:13Z",
   "items": {
+    "2026-05-14-org-failure-modes-cohort-demand-domain-it": {
+      "named_concepts": [
+        "customer cohorts",
+        "cohort initiative",
+        "domain teams",
+        "delivery teams",
+        "end-to-end ownership",
+        "best-supported mitigation",
+        "outcome ownership",
+        "value streams",
+        "service providers",
+        "every cohort",
+        "initiative becomes",
+        "dependency-managed integration",
+        "integration effort",
+        "queueing handoffs",
+        "consulted cases",
+        "percent waste",
+        "wait time",
+        "tightly coupled",
+        "coupled environments",
+        "lead times"
+      ],
+      "source_urls": [
+        "https://teamtopologies.com/book",
+        "https://teamtopologies.com/key-concepts",
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://itrevolution.com/accelerate-book/",
+        "https://aisel.aisnet.org/icis2020/is_development/is_development/5/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html",
+        "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/",
+        "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+        "https://www.mindtheproduct.com/how-we-transformed-ych-blue-digital-limited-structure-from-matrix-to-product-based/",
+        "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/",
+        "https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/"
+      ],
+      "key_claims": [
+        {
+          "text": "When customer-cohort demand is routed through separate identity, payments, product-data, or other domain teams, each cohort initiative becomes a dependency-managed integration effort rather than an end-to-end customer change, because the primary delivery teams do not own the whole flow",
+          "sources": [
+            "https://teamtopologies.com/key-concepts",
+            "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        },
+        {
+          "text": "Queueing, handoffs, and long wait states recur across the consulted cases, including one 42-team component-team transformation that reported 97 percent waste or wait time and DORA evidence that tightly coupled environments drive lead times measured in weeks or months",
+          "sources": [
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        },
+        {
+          "text": "Priority disputes and slow decisions emerge because customer-side managers optimise segment outcomes while domain or functional managers optimise local capacity and architecture, recreating matrix-style escalation patterns with ambiguous authority over the same work",
+          "sources": [
+            "https://www.mindtheproduct.com/how-we-transformed-ych-blue-digital-limited-structure-from-matrix-to-product-based/",
+            "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/",
+            "https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/"
+          ]
+        },
+        {
+          "text": "End-to-end ownership becomes blurred even when every component has an owner, because component ownership does not automatically supply a single accountable owner for the customer outcome that crosses those components",
+          "sources": [
+            "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md",
+            "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/"
+          ]
+        },
+        {
+          "text": "The mismatch hardens into the software and release process, so customer changes inherit architecture seams, integrated-test dependencies, and big-bang coordination costs instead of moving through an independently deployable value stream",
+          "sources": [
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        },
+        {
+          "text": "The pain increases with scale and requirement complexity, since the coordination value of feature teams rises in complex environments while larger organisations add more backlogs, interfaces, and service bottlenecks for each customer-facing change",
+          "sources": [
+            "https://aisel.aisnet.org/icis2020/is_development/is_development/5/",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/"
+          ]
+        },
+        {
+          "text": "The best-supported mitigation is to make customer cohorts or other value streams the primary ownership boundary, while domain teams act as platform or complicated-subsystem service providers with clear decision rights and explicit interfaces",
+          "sources": [
+            "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html",
+            "https://teamtopologies.com/key-concepts",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/",
+            "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/"
+          ]
+        }
+      ]
+    },
     "2026-05-14-org-failure-modes-accountability-gaps": {
       "named_concepts": [
         "decision rights",
