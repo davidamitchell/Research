@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Ontology landscape for curated lexical and structured enterprise context"
 added: 2026-05-15T19:57:36+00:00
 status: reviewing
