@@ -1,6 +1,132 @@
 {
-  "extracted_at": "2026-05-15T10:22:14Z",
+  "extracted_at": "2026-05-15T10:40:54Z",
   "items": {
+    "2026-05-14-promptql-definition-foundations-related-technologies": {
+      "named_concepts": [
+        "semantic metadata",
+        "metadata layer",
+        "materials describe",
+        "enterprise natural-language-to-sql",
+        "consulted public",
+        "public promptql",
+        "promptql materials",
+        "public design",
+        "query plans",
+        "reusable artifacts",
+        "messy enterprise",
+        "deterministic execution",
+        "plans artifacts",
+        "domain learning",
+        "technical priorities",
+        "promptql aligns",
+        "ambiguity schema",
+        "constrained plan-and-runtime",
+        "plan-and-runtime surface",
+        "layered context"
+      ],
+      "source_urls": [
+        "https://www.promptql.io/",
+        "https://promptql.io/docs/index/",
+        "https://promptql.io/docs/architecture/",
+        "https://promptql.io/docs/capabilities/",
+        "https://promptql.io/docs/quickstart/",
+        "https://promptql.io/docs/decision-making/",
+        "https://promptql.io/research",
+        "https://arxiv.org/abs/2210.03629",
+        "https://arxiv.org/abs/2109.05093",
+        "https://arxiv.org/abs/2304.08354",
+        "https://arxiv.org/abs/2408.05109",
+        "https://arxiv.org/abs/2406.01265",
+        "https://arxiv.org/abs/2506.01273",
+        "https://docs.langchain.com/oss/python/langchain/sql-agent",
+        "https://docs.langchain.com/oss/python/langgraph/sql-agent",
+        "https://docs.anthropic.com/en/docs/agents-and-tools/mcp",
+        "https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/",
+        "https://devblogs.microsoft.com/ise/llm-sql-query-generation/",
+        "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+        "https://arxiv.org/abs/2404.16130",
+        "https://blog.grayscale.vc/promptql-agenticsummitblr/",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-context-compression-rag-enterprise-knowledge.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-cross-item-synthesis-knowledge-map-architecture.html"
+      ],
+      "key_claims": [
+        {
+          "text": "PromptQL's official materials describe it as an AI platform for natural-language analysis and automation over enterprise data that uses semantic metadata, editable query plans, reusable artifacts, and deterministic execution outside the model",
+          "sources": [
+            "https://promptql.io/docs/index/",
+            "https://promptql.io/docs/architecture/",
+            "https://promptql.io/docs/capabilities/",
+            "https://promptql.io/docs/quickstart/",
+            "https://www.promptql.io/"
+          ]
+        },
+        {
+          "text": "PromptQL is presented with one surface for business users and another for builders, because the playground exposes plans, artifacts, and reliability signals while the platform is also offered through application programming interfaces and automations",
+          "sources": [
+            "https://promptql.io/docs/quickstart/",
+            "https://promptql.io/docs/decision-making/",
+            "https://www.promptql.io/"
+          ]
+        },
+        {
+          "text": "PromptQL's public research page names a continuously updated domain learning layer and a human-readable deterministic Domain-Specific Language, which supports the inference that semantic grounding and constrained execution are its main technical priorities",
+          "sources": [
+            "https://promptql.io/research"
+          ]
+        },
+        {
+          "text": "PromptQL aligns most closely with current text-to-SQL and natural-language-to-SQL research, because it inherits the same unresolved problems around ambiguity, schema mapping, domain context, validation, and production robustness documented in recent surveys and enterprise deployments",
+          "sources": [
+            "https://arxiv.org/abs/2408.05109",
+            "https://arxiv.org/abs/2406.01265",
+            "https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/",
+            "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+            "https://devblogs.microsoft.com/ise/llm-sql-query-generation/"
+          ]
+        },
+        {
+          "text": "PromptQL also fits the reasoning-plus-tool-use lineage represented by ReAct, tool-learning surveys, and interactive SQL exploration agents, but its public design narrows that lineage into a constrained plan-and-runtime surface instead of open-ended orchestration",
+          "sources": [
+            "https://arxiv.org/abs/2210.03629",
+            "https://arxiv.org/abs/2304.08354",
+            "https://arxiv.org/abs/2506.01273",
+            "https://promptql.io/docs/architecture/",
+            "https://promptql.io/research"
+          ]
+        },
+        {
+          "text": "PromptQL's semantic metadata layer also places it near graph-backed or layered context systems, because those approaches similarly help agents navigate relationships, business rules, and structure across multiple data sources",
+          "sources": [
+            "https://promptql.io/docs/architecture/",
+            "https://promptql.io/docs/capabilities/",
+            "https://arxiv.org/abs/2404.16130",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        },
+        {
+          "text": "PromptQL should be evaluated against four adjacent categories, generic SQL agents, enterprise natural-language-to-SQL stacks, Model Context Protocol tool-composition systems, and graph-backed Retrieval-Augmented Generation systems, because each one covers a different portion of PromptQL's claimed surface",
+          "sources": [
+            "https://docs.langchain.com/oss/python/langchain/sql-agent",
+            "https://docs.langchain.com/oss/python/langgraph/sql-agent",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/mcp",
+            "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+            "https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/",
+            "https://arxiv.org/abs/2404.16130"
+          ]
+        },
+        {
+          "text": "The consulted public PromptQL materials describe the architecture and research agenda, but they do not include independent benchmarks comparing that combined design against alternative systems on messy enterprise data",
+          "sources": [
+            "https://promptql.io/research",
+            "https://promptql.io/docs/index/",
+            "https://www.promptql.io/"
+          ]
+        }
+      ]
+    },
     "2026-05-14-org-failure-modes-vendor-standards-gaps": {
       "named_concepts": [
         "technical debt",
