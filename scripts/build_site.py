@@ -3383,7 +3383,8 @@ _GRAPH_JS = """(function () {
         '<div class="panel-row"><span class="panel-label">To</span>' +
         '<a href="' + esc(tgtNode ? tgtNode.url : '#') + '">' + esc(obj.target) + '</a></div>';
     } else {
-      selectedNeighbors = {'n:' + obj.slug: true};
+      selectedNeighbors = {};
+      selectedNeighbors['n:' + obj.slug] = true;
       edges.forEach(function(e) {
         if (e.sourceNode === obj || e.targetNode === obj) {
           selectedNeighbors['e:' + e.source + '|' + e.target] = true;
