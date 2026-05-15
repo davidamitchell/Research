@@ -178,7 +178,7 @@ What is the Endsley Model of situational awareness, meaning the perception of re
 
 **Executive summary:**
 
-- Endsley's three-level model remains a useful decomposition for evaluating human oversight because it specifies the minimum information a reviewer must perceive, understand, and project before intervening in an automated system. [inference; source: https://bura.brunel.ac.uk/handle/2438/1422; https://pubmed.ncbi.nlm.nih.gov/31560575/]
+- Endsley's three-level model remains a useful decomposition for evaluating human oversight because it defines situational awareness as perceiving relevant elements, comprehending their meaning, and projecting their near-future status before intervening in an automated system. [inference; source: https://bura.brunel.ac.uk/handle/2438/1422; https://pubmed.ncbi.nlm.nih.gov/31560575/]
 - Current evidence does not support using the model as a complete oversight-evaluation framework in highly automated or AI-assisted settings, because modern failure modes also depend on workload, automation bias, reviewer authority, and coordination across people and artefacts. [inference; source: https://www.diva-portal.org/smash/record.jsf?pid=diva2:479674; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
 - Human factors measurement research supports using direct objective measures such as SAGAT, supplemented by workload, override-log, and review-quality metrics, rather than relying on a single situational-awareness score. [inference; source: https://pubmed.ncbi.nlm.nih.gov/31560575/; https://bura.brunel.ac.uk/handle/2438/1422; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
 - For modern AI oversight, the best-supported use of the Endsley model is as one component of a broader governance assessment that combines interface legibility, reviewer verification behaviour, caseload, and real stop-or-override power. [inference; source: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html]
@@ -234,10 +234,10 @@ Official oversight sources complete the picture by adding authority, competence,
 - Which interface patterns most reliably improve Level 2 comprehension and Level 3 projection for reviewers supervising Large Language Model (LLM) systems?
 ### §7 Recursive Review
 
-- Review result: provisional pass after internal logic, acronym, citation, and parity checks.
-- Acronym audit: Artificial Intelligence (AI), Human-in-the-Loop (HITL), Situation Awareness Global Assessment Technique (SAGAT), Situation Present Assessment Method (SPAM), Situation Awareness Rating Technique (SART), Artificial Intelligence Risk Management Framework (AI RMF), command, control, communication, computers and intelligence (C4i), Large Language Model (LLM), Agent Teaming Situation Awareness (ATSA).
-- Claim audit: all factual and inferential prose in Research Skill Output is labeled; Findings mirror Section 6 content.
-- Remaining uncertainty: human-AI-specific framework claims stay at medium confidence because the accessible extension literature is thinner than the classical situational-awareness measurement literature.
+- Review status: provisional internal pass.
+- Acronyms checked: Artificial Intelligence (AI), Human-in-the-Loop (HITL), Situation Awareness Global Assessment Technique (SAGAT), Situation Present Assessment Method (SPAM), Situation Awareness Rating Technique (SART), Artificial Intelligence Risk Management Framework (AI RMF), command, control, communication, computers and intelligence (C4i), Large Language Model (LLM), Agent Teaming Situation Awareness (ATSA).
+- Claim labeling check: Research Skill Output labeled; Findings aligned with Section 6.
+- [inference; source: https://arxiv.org/abs/2308.16785; https://pubmed.ncbi.nlm.nih.gov/31560575/] Remaining uncertainty stays highest around human-AI-specific framework claims, because the accessible extension literature is thinner than the classical situational-awareness measurement literature.
 
 ---
 
@@ -245,7 +245,7 @@ Official oversight sources complete the picture by adding authority, competence,
 
 ### Executive Summary
 
-Endsley's three-level model remains a useful decomposition for evaluating human oversight because it specifies the minimum information a reviewer must perceive, understand, and project before intervening in an automated system. [inference; source: https://bura.brunel.ac.uk/handle/2438/1422; https://pubmed.ncbi.nlm.nih.gov/31560575/]
+Endsley's three-level model remains a useful decomposition for evaluating human oversight because it defines situational awareness as perceiving relevant elements, comprehending their meaning, and projecting their near-future status before intervening in an automated system. [inference; source: https://bura.brunel.ac.uk/handle/2438/1422; https://pubmed.ncbi.nlm.nih.gov/31560575/]
 
 Current evidence does not support using the model as a complete oversight-evaluation framework in highly automated or AI-assisted settings, because modern failure modes also depend on workload, automation bias, reviewer authority, and coordination across people and artefacts. [inference; source: https://www.diva-portal.org/smash/record.jsf?pid=diva2:479674; https://link.springer.com/article/10.1007/s00146-025-02422-7; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
 
