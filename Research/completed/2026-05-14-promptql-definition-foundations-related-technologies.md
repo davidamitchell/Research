@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 7a84bae9f8512c07230c42f00264960ba9e5edb4
+    changed: 2026-05-15
+    progress: progress/2026-05-15-promptql-definition-foundations-related-technologies.md
+    summary: "Initial completion"
 ---
 
 # PromptQL definition, research foundations, and related technologies
