@@ -9,7 +9,7 @@ started: ~
 completed: ~
 output: []  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-27-uelgf-policy-architecture-8-layer-context, 2026-04-27-uelgf-entity-taxonomy-cia-classification, 2026-04-27-uelgf-synthesis-complete-framework]
-related: [2026-04-27-uelgf-runtime-feedback-loop, 2026-04-28-uelgf-tooling-reference-architecture, 2026-04-27-pdp-universal-policy-synchronisation-integrity]
+related: [2026-04-27-uelgf-runtime-feedback-loop, 2026-04-28-uelgf-tooling-reference-architecture, 2026-04-27-pdp-universal-policy-synchronisation-integrity, 2026-05-15-ontology-landscape-for-curated-enterprise-context]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
@@ -51,6 +51,9 @@ Prior completed research dependencies:
 - [UELGF entity taxonomy and CIA classification](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-entity-taxonomy-cia-classification.md)
 - [UELGF complete framework synthesis](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-synthesis-complete-framework.md)
 
+Potential research-backlog dependency:
+- [Ontology landscape for curated lexical and structured enterprise context](https://github.com/davidamitchell/Research/blob/main/Research/backlog/2026-05-15-ontology-landscape-for-curated-enterprise-context.md) — candidate prerequisite for shared ontology and graph-model baseline decisions; if this item remains unmerged or is renamed, keep the dependency intent and update to the canonical successor slug.
+
 ## Approach
 
 1. Define the ontology surface: map each UELGF layer and entity type to candidate classes, properties, relationship predicates, and integrity constraints.
@@ -59,7 +62,7 @@ Prior completed research dependencies:
 4. Design an ingestion and normalisation pipeline for Kiwibank internal policy, system state, and domain artefacts, including provenance, update cadence, and contradiction handling.
 5. Produce a dependency map covering:
    5a. follow-up research questions implied by unresolved design choices in this item;
-   5b. dependency ordering across existing research backlog items and newly generated follow-up questions.
+   5b. dependency ordering across existing research backlog items and newly generated follow-up questions, explicitly testing whether `2026-05-15-ontology-landscape-for-curated-enterprise-context` should run first as a discovery prerequisite.
 
 ## Sources
 

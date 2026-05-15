@@ -2,6 +2,7 @@
 
 **Completed:**
 - `/home/runner/work/Research/Research/Research/backlog/2026-05-15-uelgf-live-queryable-knowledge-graph.md` — added from the "New research" issue to scope how UELGF should evolve into a live, queryable knowledge graph with explicit dependency mapping to prior UELGF work and follow-up research questions.
+- `/home/runner/work/Research/Research/Research/backlog/2026-05-15-uelgf-live-queryable-knowledge-graph.md` — updated after PR feedback to capture a potential dependency on `2026-05-15-ontology-landscape-for-curated-enterprise-context` in `related`, `Context`, and `Approach` dependency-ordering guidance.
 
 ## Mini-Retro
 
