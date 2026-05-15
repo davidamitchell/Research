@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Organisational failure modes: vendor non-compliance with or absence of implementation standards"
 added: 2026-05-14T18:48:56+00:00
 status: reviewing
