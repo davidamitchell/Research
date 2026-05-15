@@ -1,6 +1,102 @@
 {
-  "extracted_at": "2026-05-15T02:20:33Z",
+  "extracted_at": "2026-05-15T02:36:26Z",
   "items": {
+    "2026-05-14-org-failure-modes-accountability-gaps": {
+      "named_concepts": [
+        "decision rights",
+        "consequential decision",
+        "team topologies",
+        "governance objectives",
+        "information technology",
+        "delivery layer",
+        "unresolved issues",
+        "backlog growth",
+        "strongest supported",
+        "supported remedy",
+        "outcome together",
+        "documented cross-party",
+        "cross-party roles",
+        "benefit ownership",
+        "accountability failure",
+        "failure appears",
+        "delay notices",
+        "legacy-system complexity",
+        "failure pattern",
+        "explicit accountable"
+      ],
+      "source_urls": [
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=20375",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://www.isaca.org/resources/cobit",
+        "https://teamtopologies.com/book",
+        "https://scielo.org.za/scielo.php?script=sci_arttext&pid=S1560-683X2019000100011",
+        "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+        "https://www.nao.org.uk/reports/the-national-programme-for-it-in-the-nhs-an-update-on-the-delivery-of-detailed-care-records-systems/",
+        "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+        "https://files.gao.gov/reports/GAO-25-107795/index.html",
+        "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf",
+        "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Where strategic accountability is overlapping or absent, organisations repeatedly lose decision speed and benefit ownership because no single senior actor can settle trade-offs across cost, scope, liability, and local implementation constraints",
+          "sources": [
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html"
+          ]
+        },
+        {
+          "text": "At the information technology delivery layer, accountability failure appears as concrete operational symptoms such as delay notices, unresolved open issues, backlog growth, and modernization work that cannot close cleanly",
+          "sources": [
+            "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+            "https://files.gao.gov/reports/GAO-25-107795/index.html",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Shared-service and outsourced operating models are especially vulnerable because authority, contractual control, operational work, and consequences are split across organisations unless hand-offs and escalation rights are deliberately specified",
+          "sources": [
+            "https://scielo.org.za/scielo.php?script=sci_arttext&pid=S1560-683X2019000100011",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "The most severe retrieved cases combine strategic-layer ambiguity with delivery-layer ambiguity alongside legacy-system complexity, contractual friction, or scope expansion, producing a coupled failure pattern in which programmes keep spending money while scope shrinks, liabilities stay unclear, and realised benefits lag far behind plan",
+          "sources": [
+            "https://www.nao.org.uk/reports/the-national-programme-for-it-in-the-nhs-an-update-on-the-delivery-of-detailed-care-records-systems/",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Finger-pointing and decision paralysis are structural consequences of duplicated authority or missing ownership, because each actor can rationally defer hard choices to another boundary",
+          "sources": [
+            "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        },
+        {
+          "text": "The strongest evidenced intervention is explicit accountable ownership for each consequential decision or outcome, together with documented cross-party roles, transition responsibilities, and escalation paths",
+          "sources": [
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html"
+          ]
+        },
+        {
+          "text": "Control Objectives for Information and Related Technologies and Team Topologies provide usable vocabularies for naming governance objectives, role boundaries, and team interfaces after accountable owners have been defined",
+          "sources": [
+            "https://www.isaca.org/resources/cobit",
+            "https://teamtopologies.com/book",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        }
+      ]
+    },
     "2026-05-13-graph-db-landscape-tco-interoperability": {
       "named_concepts": [
         "neo4j auradb",
