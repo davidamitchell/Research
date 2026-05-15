@@ -231,7 +231,7 @@ What is PromptQL, what active research areas are most closely related to it, wha
 
 **Executive summary:**
 
-PromptQL is a constrained natural-language data agent that combines organization-specific semantic metadata, editable multi-step query plans, and deterministic execution outside the Large Language Model rather than a generic chat interface. [inference; source: https://promptql.io/docs/index/; https://promptql.io/docs/architecture/; https://promptql.io/docs/quickstart/; https://www.promptql.io/]
+PromptQL is a constrained natural-language data agent that combines organization-specific semantic metadata, which describes business concepts and source structure, editable multi-step query plans, which show the proposed workflow, and deterministic execution outside the Large Language Model rather than a generic chat interface. [inference; source: https://promptql.io/docs/index/; https://promptql.io/docs/architecture/; https://promptql.io/docs/quickstart/; https://www.promptql.io/]
 
 Its closest live research neighbors are Large Language Model-driven text-to-SQL, tool-use planning, and graph-backed context systems, because those fields address the same three hard problems that PromptQL foregrounds: schema and business-context grounding, multi-step reasoning over data operations, and reliable execution under ambiguity. [inference; source: https://arxiv.org/abs/2408.05109; https://arxiv.org/abs/2406.01265; https://arxiv.org/abs/2304.08354; https://arxiv.org/abs/2404.16130]
 
@@ -248,7 +248,7 @@ The main unresolved question for future practical evaluation is whether that arc
 5. **PromptQL also fits the reasoning-plus-tool-use lineage represented by ReAct, tool-learning surveys, and interactive SQL exploration agents, but its public design narrows that lineage into a constrained plan-and-runtime surface instead of open-ended orchestration.** ([inference]; medium confidence; source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2304.08354; https://arxiv.org/abs/2506.01273; https://promptql.io/docs/architecture/; https://promptql.io/research)
 6. **PromptQL's semantic metadata layer also places it near graph-backed or layered context systems, because those approaches similarly help agents navigate relationships, business rules, and structure across multiple data sources.** ([inference]; medium confidence; source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/; https://arxiv.org/abs/2404.16130; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html)
 7. **PromptQL should be evaluated against four adjacent categories, generic SQL agents, enterprise natural-language-to-SQL stacks, Model Context Protocol tool-composition systems, and graph-backed Retrieval-Augmented Generation systems, because each one covers a different portion of PromptQL's claimed surface.** ([inference]; medium confidence; source: https://docs.langchain.com/oss/python/langchain/sql-agent; https://docs.langchain.com/oss/python/langgraph/sql-agent; https://docs.anthropic.com/en/docs/agents-and-tools/mcp; https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql; https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/; https://arxiv.org/abs/2404.16130)
-8. **The public material describes PromptQL's architecture and research agenda clearly, but it does not yet include independent benchmarks comparing that combined design against alternative systems on messy enterprise data.** ([fact]; medium confidence; source: https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/)
+8. **The consulted public PromptQL materials describe the architecture and research agenda, but they do not include independent benchmarks comparing that combined design against alternative systems on messy enterprise data.** ([inference]; medium confidence; source: https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/)
 
 **Evidence map:**
 
@@ -261,7 +261,7 @@ The main unresolved question for future practical evaluation is whether that arc
 | [inference] PromptQL narrows reasoning-plus-tool-use patterns into a constrained plan-and-runtime surface. | https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2304.08354; https://arxiv.org/abs/2506.01273; https://promptql.io/docs/architecture/; https://promptql.io/research | medium | Cross-source synthesis |
 | [inference] PromptQL's semantic metadata layer is comparable to graph-backed or layered context systems. | https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/; https://arxiv.org/abs/2404.16130; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html | medium | External plus repository prior art |
 | [inference] PromptQL should be compared against SQL agents, enterprise natural-language-to-SQL stacks, Model Context Protocol tools, and graph-backed Retrieval-Augmented Generation systems. | https://docs.langchain.com/oss/python/langchain/sql-agent; https://docs.langchain.com/oss/python/langgraph/sql-agent; https://docs.anthropic.com/en/docs/agents-and-tools/mcp; https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql; https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/; https://arxiv.org/abs/2404.16130 | medium | Comparative synthesis |
-| [fact] Public PromptQL materials do not yet provide independent benchmarks showing higher reliability than alternatives. | https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/ | medium | Bounded absence claim |
+| [inference] The consulted public PromptQL materials do not include independent benchmarks comparing reliability against alternatives. | https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/ | medium | Bounded absence inference |
 
 **Assumptions:**
 
@@ -280,7 +280,7 @@ That combination leads to a practical evaluation frame for future work: compare 
 
 **Risks, gaps, uncertainties:**
 
-- Public material explains the architecture clearly, but no independently verified benchmark or detailed case study was found in the consulted sources. [fact; source: https://promptql.io/research; https://www.promptql.io/]
+- The consulted public material describes the architecture in detail, but it did not include an independently verified benchmark or detailed case study. [inference; source: https://promptql.io/research; https://www.promptql.io/]
 - The public material does not make it fully clear whether the semantic metadata layer is operationally closer to a knowledge graph, a semantic layer, or a lighter metadata index. [fact; source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/]
 - The strongest comparative claims about PromptQL outperforming other patterns come from secondary commentary rather than from PromptQL's own primary materials. [fact; source: https://blog.grayscale.vc/promptql-agenticsummitblr/; https://promptql.io/docs/index/]
 - The consulted official material focuses mainly on structured and semi-structured enterprise data workflows, so broader claims about open-world action-taking agents would be premature. [inference; source: https://promptql.io/docs/decision-making/; https://promptql.io/research]
@@ -294,11 +294,11 @@ That combination leads to a practical evaluation frame for future work: compare 
 
 ### §7 Recursive Review
 
-- Review result: pass.
-- Acronym audit: PromptQL-specific prose expands Large Language Model (LLM), Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP), Domain-Specific Language (DSL), and application programming interface where first used.
-- Claim audit: all visible claims in Research Skill Output are labeled as fact, inference, or assumption and bound to URL-backed sources.
-- Cross-item integration: completed-item cross-references included for knowledge representation and live knowledge-graph dependency surfaces.
-- Remaining uncertainty: comparative performance claims remain inferential because no independent public benchmark was located.
+- Review result: pass
+- Acronym audit: complete
+- Claim audit: complete
+- Cross-item integration: included
+- Remaining uncertainty: no independent public benchmark located in consulted sources
 
 ---
 
@@ -306,7 +306,7 @@ That combination leads to a practical evaluation frame for future work: compare 
 
 ### Executive Summary
 
-PromptQL is best read as a constrained enterprise data system rather than a general-purpose chat assistant, because its public design ties model output to semantic metadata, inspectable plans, reusable artifacts, and a runtime that executes outside the model. [inference; source: https://promptql.io/docs/index/; https://promptql.io/docs/architecture/; https://promptql.io/docs/quickstart/; https://www.promptql.io/]
+PromptQL is best read as a constrained enterprise data system rather than a general-purpose chat assistant, because its public design ties model output to semantic metadata, which describes business concepts and source structure, inspectable query plans, which show the proposed workflow, reusable artifacts such as tables and charts, and a runtime that executes outside the model. [inference; source: https://promptql.io/docs/index/; https://promptql.io/docs/architecture/; https://promptql.io/docs/quickstart/; https://www.promptql.io/]
 
 That design connects it most directly to text-to-SQL, tool-use planning, and graph-backed context research, which together address grounding, multi-step data operations, and execution reliability under ambiguity. [inference; source: https://arxiv.org/abs/2408.05109; https://arxiv.org/abs/2406.01265; https://arxiv.org/abs/2304.08354; https://arxiv.org/abs/2404.16130]
 
@@ -321,7 +321,7 @@ The current public record therefore supports treating PromptQL as a synthesis of
 5. **PromptQL also fits the reasoning-plus-tool-use lineage represented by ReAct, tool-learning surveys, and interactive SQL exploration agents, but its public design narrows that lineage into a constrained plan-and-runtime surface instead of open-ended orchestration.** ([inference]; medium confidence; source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2304.08354; https://arxiv.org/abs/2506.01273; https://promptql.io/docs/architecture/; https://promptql.io/research)
 6. **PromptQL's semantic metadata layer also places it near graph-backed or layered context systems, because those approaches similarly help agents navigate relationships, business rules, and structure across multiple data sources.** ([inference]; medium confidence; source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/; https://arxiv.org/abs/2404.16130; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html)
 7. **PromptQL should be evaluated against four adjacent categories, generic SQL agents, enterprise natural-language-to-SQL stacks, Model Context Protocol tool-composition systems, and graph-backed Retrieval-Augmented Generation systems, because each one covers a different portion of PromptQL's claimed surface.** ([inference]; medium confidence; source: https://docs.langchain.com/oss/python/langchain/sql-agent; https://docs.langchain.com/oss/python/langgraph/sql-agent; https://docs.anthropic.com/en/docs/agents-and-tools/mcp; https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql; https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/; https://arxiv.org/abs/2404.16130)
-8. **The public material describes PromptQL's architecture and research agenda clearly, but it does not yet include independent benchmarks comparing that combined design against alternative systems on messy enterprise data.** ([fact]; medium confidence; source: https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/)
+8. **The consulted public PromptQL materials describe the architecture and research agenda, but they do not include independent benchmarks comparing that combined design against alternative systems on messy enterprise data.** ([inference]; medium confidence; source: https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/)
 
 ### Evidence Map
 
@@ -334,7 +334,7 @@ The current public record therefore supports treating PromptQL as a synthesis of
 | [inference] PromptQL narrows reasoning-plus-tool-use patterns into a constrained plan-and-runtime surface. | https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2304.08354; https://arxiv.org/abs/2506.01273; https://promptql.io/docs/architecture/; https://promptql.io/research | medium | Cross-source synthesis |
 | [inference] PromptQL's semantic metadata layer is comparable to graph-backed or layered context systems. | https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/; https://arxiv.org/abs/2404.16130; https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html | medium | External plus repository prior art |
 | [inference] PromptQL should be compared against SQL agents, enterprise natural-language-to-SQL stacks, Model Context Protocol tools, and graph-backed Retrieval-Augmented Generation systems. | https://docs.langchain.com/oss/python/langchain/sql-agent; https://docs.langchain.com/oss/python/langgraph/sql-agent; https://docs.anthropic.com/en/docs/agents-and-tools/mcp; https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql; https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/; https://arxiv.org/abs/2404.16130 | medium | Comparative synthesis |
-| [fact] Public PromptQL materials do not yet include independent benchmarks comparing reliability against alternatives. | https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/ | medium | Bounded absence claim |
+| [inference] The consulted public PromptQL materials do not include independent benchmarks comparing reliability against alternatives. | https://promptql.io/research; https://promptql.io/docs/index/; https://www.promptql.io/ | medium | Bounded absence inference |
 
 ### Assumptions
 
@@ -353,7 +353,7 @@ That combination leads to a practical evaluation frame for future work: compare 
 
 ### Risks, Gaps, and Uncertainties
 
-- Public material explains the architecture clearly, but no independently verified benchmark or detailed case study was found in the consulted sources. [fact; source: https://promptql.io/research; https://www.promptql.io/]
+- The consulted public material describes the architecture in detail, but it did not include an independently verified benchmark or detailed case study. [inference; source: https://promptql.io/research; https://www.promptql.io/]
 - The public material does not make it fully clear whether the semantic metadata layer is operationally closer to a knowledge graph, a semantic layer, or a lighter metadata index. [fact; source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/]
 - The strongest comparative claims about PromptQL outperforming other patterns come from secondary commentary rather than from PromptQL's own primary materials. [fact; source: https://blog.grayscale.vc/promptql-agenticsummitblr/; https://promptql.io/docs/index/]
 - The consulted official material focuses mainly on structured and semi-structured enterprise data workflows, so broader claims about open-world action-taking agents would be premature. [inference; source: https://promptql.io/docs/decision-making/; https://promptql.io/research]
