@@ -246,13 +246,11 @@ Mode: full.
 - [inference; source: https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf; https://cisr.mit.edu/content/classic-topics-decision-rights] Under what conditions can a formal accountability framework substitute for full co-location of risk, cost, and benefits ownership without recreating the same integration problem?
 ### §7 Recursive Review
 
-Review result: pass
-
-Acronym audit: business units (BUs), information technology (IT), Human Resources (HR), Enterprise Resource Planning (ERP), arm's-length bodies (ALBs), and Senior Responsible Owner (SRO) expanded on first use
-
-Claim audit: Research Skill Output claims labeled; Findings mirrored from Section 6
-
-Cross-item audit: adjacent completed items on accountability gaps and project-demand mismatch cited as supporting synthesis only
+- status: pass
+- acronym-first-use: checked
+- claim-labels: checked
+- findings-parity: checked
+- cross-item-links: checked
 
 ---
 
