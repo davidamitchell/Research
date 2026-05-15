@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-15T09:53:46Z",
+  "extracted_at": "2026-05-15T10:06:55Z",
   "items": {
     "2026-05-14-org-failure-modes-vendor-standards-gaps": {
       "named_concepts": [
@@ -473,6 +473,105 @@
             "https://www.isaca.org/resources/cobit",
             "https://teamtopologies.com/book",
             "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-endsley-model-situational-awareness-deep-dive": {
+      "named_concepts": [
+        "situational awareness",
+        "highly automated",
+        "human factors",
+        "direct objective",
+        "endsley model",
+        "official oversight",
+        "enterprise oversight",
+        "three-level model",
+        "model remains",
+        "automation bias",
+        "single situational-awareness",
+        "situational-awareness score",
+        "verification behaviour",
+        "awareness improves",
+        "review quality",
+        "automated systems",
+        "accurate situational",
+        "sensor fusion",
+        "situational-awareness models",
+        "complex socio-technical"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1518/001872095779049543",
+        "https://bura.brunel.ac.uk/handle/2438/1422",
+        "https://pubmed.ncbi.nlm.nih.gov/31560575/",
+        "https://www.diva-portal.org/smash/record.jsf?pid=diva2:479674",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+        "https://arxiv.org/abs/2308.16785",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10142809/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      ],
+      "key_claims": [
+        {
+          "text": "The Endsley model still anchors human factors work because it decomposes situational awareness into perception, comprehension, and projection, and later reviews treat that three-level structure as the dominant conceptual basis for measurement and interface evaluation",
+          "sources": [
+            "https://bura.brunel.ac.uk/handle/2438/1422",
+            "https://pubmed.ncbi.nlm.nih.gov/31560575/"
+          ]
+        },
+        {
+          "text": "Human factors literature operationalises the model through several measurement families, especially SAGAT freeze probes, SPAM real-time probes, SART subjective ratings, and observer assessments, but review work recommends combining methods because no single measure captures complex team environments well enough on its own",
+          "sources": [
+            "https://bura.brunel.ac.uk/handle/2438/1422",
+            "https://pubmed.ncbi.nlm.nih.gov/31560575/"
+          ]
+        },
+        {
+          "text": "The strongest current direct-measure evidence appears to favour SAGAT, because Endsley's 2021 meta-analysis found it more sensitive than SPAM and free of several confounds that affect real-time probe methods, even though both predict performance",
+          "sources": [
+            "https://pubmed.ncbi.nlm.nih.gov/31560575/"
+          ]
+        },
+        {
+          "text": "Recent AI-assisted decision-support evidence suggests that situational awareness improves oversight quality only when the interface and workflow sustain active verification, since error briefings and less aggregated evidence improve review quality more reliably than generic reminders of reviewer responsibility",
+          "sources": [
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+            "https://link.springer.com/article/10.1007/s00146-025-02422-7"
+          ]
+        },
+        {
+          "text": "Highly automated systems still require accurate situational awareness for safe decisions, and the technical challenge rises because context is assembled through sensor fusion, model inference, and rapidly changing machine behaviour rather than through a stable human-observable operating picture",
+          "sources": [
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10142809/",
+            "https://arxiv.org/abs/2308.16785"
+          ]
+        },
+        {
+          "text": "The main theoretical limitation for oversight evaluation is that classical situational-awareness models are primarily individual-centred, while team and distributed-cognition critiques argue that effective oversight in complex socio-technical systems is distributed across people, artefacts, and coordination practices",
+          "sources": [
+            "https://www.diva-portal.org/smash/record.jsf?pid=diva2:479674",
+            "https://bura.brunel.ac.uk/handle/2438/1422",
+            "https://arxiv.org/abs/2308.16785"
+          ]
+        },
+        {
+          "text": "Official oversight guidance supports a limited-scope reading of the model, because regulators require understanding system limits and outputs while also requiring override rights, stop capability, competent staffing, monitoring, logs, independence, and manageable caseload",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "Compared with prior repository work, the evidence here suggests that queue pressure and weak governance often erode Level 2 comprehension and Level 3 projection before they eliminate nominal human sign-off",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
           ]
         }
       ]
