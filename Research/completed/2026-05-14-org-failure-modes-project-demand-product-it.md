@@ -8,14 +8,19 @@ blocks: []
 tags: [organisation, organisational-design, governance, product-management, project-management]
 started: 2026-05-15T03:08:37+00:00
 completed: 2026-05-15T03:27:08+00:00
-output: []
+output: [knowledge]
 cites: [2026-05-14-org-failure-modes-accountability-gaps, 2026-05-14-org-failure-modes-cohort-demand-domain-it]
 related: [2026-04-22-enterprise-ai-platform-operating-models]
 superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5a5bf890a00ad10c74c6aa51ea7279974befdb0e
+    changed: 2026-05-15
+    progress: progress/2026-05-15-org-failure-modes-project-demand-product-it.md
+    summary: "Initial completion"
 ---
 
 # Organisational failure modes: project-based demand with product-based information technology (IT) teams
