@@ -50,6 +50,7 @@ RESEARCH_DIR = DOCS_DIR / "research"
 KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
+GRAPH_DATA_DIR = DOCS_DIR / "data"
 
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
 GITHUB_KNOWLEDGE_BASE = "https://github.com/davidamitchell/Research/blob/main/Knowledge/"
@@ -828,6 +829,7 @@ def html_nav(active: str = "") -> str:
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
+        f'      <a href="/Research/graph.html"{_cls("graph")}>{ICON_THREAD}Graph</a>\n'
         '      <a href="https://github.com/davidamitchell/Research"'
         f' target="_blank" rel="noopener">{ICON_GITHUB}GitHub</a>\n'
         "    </div>\n"
@@ -2660,7 +2662,7 @@ def build_item_page(
         )
 
     return (
-        html_head(f"{escape(display_title)} — Research")
+        html_head(f"{escape(display_title)} — Research", extra_head=_MINI_GRAPH_CSS)
         + html_nav()
         + f"""\
 <main>
@@ -2694,6 +2696,7 @@ def build_item_page(
   </div>
 </main>
 """
+        + build_item_graph_section(wiki_slug)
         + html_foot()
     )
 
@@ -2939,6 +2942,1040 @@ def build_threads_index_json(threads: list[dict]) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
+def build_graph_json(
+    all_items: list[dict],
+    links: dict[str, list[dict]],
+    slug_to_item: dict[str, dict],
+) -> str:
+    """Serialize the in-memory relationship graph to a JSON string.
+
+    Schema version 1.0.  Output is deterministic: nodes sorted by slug,
+    edges sorted by (source, target, rel).
+
+    Edge sources:
+    - ``cites`` frontmatter field — directed edge from declaring item to cited slug
+    - ``related_slugs`` frontmatter field — directed edge from declaring item to related slug
+    - ``links`` (tag-overlap) — undirected; canonical direction is source < target (alphabetical)
+
+    Weighting rationale (W-0075):
+    +--------------+--------+-----------------------------------------------+
+    | rel          | weight | rationale                                     |
+    +--------------+--------+-----------------------------------------------+
+    | cites        | 4      | direct intellectual dependency — strongest     |
+    | related      | 3      | explicit frontmatter declaration               |
+    | tag-overlap  | N      | N = number of shared tags (implicit, 1..N)    |
+    +--------------+--------+-----------------------------------------------+
+
+    Every edge carries:
+    - ``weight`` — numeric strength (see table above)
+    - ``rel`` — relationship type: "cites" | "related" | "tag-overlap"
+    - ``evidence`` — frontmatter field name or comma-joined shared tag list
+    - ``provenance`` — slug of the item that declares the relationship
+    """
+    node_slugs: set[str] = {item["slug"] for item in all_items}
+
+    nodes = sorted(
+        [
+            {
+                "slug": item["slug"],
+                "title": item["title"],
+                "type": item.get("item_type", "primary"),
+                "url": item.get("page_url", f"/Research/research/{item['slug']}.html"),
+            }
+            for item in all_items
+        ],
+        key=lambda n: n["slug"],
+    )
+
+    edges: list[dict] = []
+
+    for item in all_items:
+        source = item["slug"]
+
+        for target in item.get("cites") or []:
+            if target not in node_slugs:
+                continue
+            edges.append(
+                {
+                    "source": source,
+                    "target": target,
+                    "weight": 4,
+                    "rel": "cites",
+                    "evidence": "frontmatter:cites",
+                    "provenance": source,
+                }
+            )
+
+        for target in item.get("related_slugs") or []:
+            if target not in node_slugs:
+                continue
+            edges.append(
+                {
+                    "source": source,
+                    "target": target,
+                    "weight": 3,
+                    "rel": "related",
+                    "evidence": "frontmatter:related",
+                    "provenance": source,
+                }
+            )
+
+    seen_pairs: set[tuple[str, str]] = set()
+    for source_slug, related in links.items():
+        for entry in related:
+            target_slug = entry["item"]["slug"]
+            canonical_a, canonical_b = sorted([source_slug, target_slug])
+            if (canonical_a, canonical_b) in seen_pairs:
+                continue
+            seen_pairs.add((canonical_a, canonical_b))
+            shared_tags = entry.get("shared_tags") or []
+            edges.append(
+                {
+                    "source": canonical_a,
+                    "target": canonical_b,
+                    "weight": max(1, len(shared_tags)),
+                    "rel": "tag-overlap",
+                    "evidence": ",".join(sorted(shared_tags)),
+                    "provenance": source_slug,
+                }
+            )
+
+    edges.sort(key=lambda e: (e["source"], e["target"], e["rel"]))
+
+    graph: dict = {
+        "schema_version": "1.0",
+        "generated": datetime.now(tz=UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "nodes": nodes,
+        "edges": edges,
+    }
+    errors = _validate_graph(graph)
+    if errors:
+        raise ValueError("Graph validation failed:\n" + "\n".join(f"  {e}" for e in errors))
+    return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+def _validate_graph(graph: dict) -> list[str]:
+    """Validate a graph dict against the schema-1.0 requirements.
+
+    Returns a (possibly empty) list of human-readable error strings.
+    An empty list means the graph is valid.
+    """
+    errors: list[str] = []
+    nodes = graph.get("nodes", [])
+    edges = graph.get("edges", [])
+    node_slugs = {n["slug"] for n in nodes}
+
+    if graph.get("node_count") != len(nodes):
+        errors.append(f"node_count {graph.get('node_count')!r} != actual node count {len(nodes)}")
+    if graph.get("edge_count") != len(edges):
+        errors.append(f"edge_count {graph.get('edge_count')!r} != actual edge count {len(edges)}")
+
+    for i, edge in enumerate(edges):
+        for field in ("weight", "provenance", "rel", "evidence", "source", "target"):
+            if field not in edge:
+                errors.append(f"edge[{i}] missing required field '{field}'")
+        src = edge.get("source", "")
+        tgt = edge.get("target", "")
+        if src and src not in node_slugs:
+            errors.append(f"edge[{i}] source '{src}' references unknown node")
+        if tgt and tgt not in node_slugs:
+            errors.append(f"edge[{i}] target '{tgt}' references unknown node")
+
+    return errors
+
+
+# Graph page inline JS — vanilla force-directed layout, no external library.
+# Uses plain string (not f-string) to avoid escaping curly braces.
+_GRAPH_JS = """(function () {
+  var canvas = document.getElementById('graph-canvas');
+  var ctx = canvas.getContext('2d');
+  var panel = document.getElementById('info-panel');
+  var searchInput = document.getElementById('node-search');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var selected = null;
+  var selectedNeighbors = null;
+  var ticks = 0, MAX_TICKS = 300;
+  var animRunning = false;
+  var searchQuery = '';
+  var filters = {cites: true, related: true, 'tag-overlap': false};
+  var REST = 120;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.parentElement.clientWidth || 800;
+    var cssH = Math.min(680, Math.max(400, window.innerHeight - 240));
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var n = data.nodes.length;
+    var r = Math.min(W, H) * 0.42;
+    nodes = data.nodes.map(function(nd, i) {
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 30,
+        y: H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 30,
+        vx: 0, vy: 0
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = data.edges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var counts = {cites: 0, related: 0, 'tag-overlap': 0};
+    data.edges.forEach(function(e) { if (e.rel in counts) counts[e.rel]++; });
+    ['cites', 'related', 'tag-overlap'].forEach(function(rel) {
+      var id = 'filter-' + rel.replace('-overlap', '');
+      var sp = document.querySelector('#' + id + ' .fcount');
+      if (sp) sp.textContent = counts[rel];
+    });
+  }
+
+  function makeBarnesHut(allNodes, x0, y0, x1, y1) {
+    var QX0=0,QY0=1,QX1=2,QY1=3,QCX=4,QCY=5,QM=6,QBODY=7,QCHILD=8;
+
+    function newCell(ax0, ay0, ax1, ay1) {
+      return [ax0, ay0, ax1, ay1, 0, 0, 0, -1, null];
+    }
+
+    function subdivide(q) {
+      var mx = (q[QX0]+q[QX1])*0.5, my = (q[QY0]+q[QY1])*0.5;
+      q[QCHILD] = [
+        newCell(q[QX0],q[QY0],mx,my),
+        newCell(mx,q[QY0],q[QX1],my),
+        newCell(q[QX0],my,mx,q[QY1]),
+        newCell(mx,my,q[QX1],q[QY1])
+      ];
+    }
+
+    function insert(q, idx) {
+      var n = allNodes[idx];
+      if (q[QM] === 0) {
+        q[QCX] = n.x; q[QCY] = n.y; q[QM] = 1; q[QBODY] = idx; return;
+      }
+      if (q[QCHILD] === null) {
+        subdivide(q);
+        insert(q, q[QBODY]);
+        q[QBODY] = -1;
+      }
+      q[QCX] = (q[QCX]*q[QM] + n.x) / (q[QM]+1);
+      q[QCY] = (q[QCY]*q[QM] + n.y) / (q[QM]+1);
+      q[QM]++;
+      var mx = (q[QX0]+q[QX1])*0.5, my = (q[QY0]+q[QY1])*0.5;
+      insert(q[QCHILD][(n.x>=mx?1:0)+(n.y>=my?2:0)], idx);
+    }
+
+    var root = newCell(x0, y0, x1, y1);
+    allNodes.forEach(function(_, i) { insert(root, i); });
+
+    return function applyRepulsion(n, REPULSION, THETA, DIST_MAX) {
+      var stack = [root], q, dx, dy, d2, d, w, f;
+      while (stack.length) {
+        q = stack.pop();
+        if (q[QM] === 0) continue;
+        if (q[QCHILD] === null && allNodes[q[QBODY]] === n) continue;
+        dx = q[QCX] - n.x; dy = q[QCY] - n.y;
+        d2 = dx*dx + dy*dy;
+        if (d2 === 0) continue;
+        if (d2 > DIST_MAX*DIST_MAX) continue;
+        w = q[QX1] - q[QX0];
+        if (q[QCHILD] === null || w*w < THETA*THETA*d2) {
+          d = Math.sqrt(d2);
+          f = REPULSION * q[QM] / (d2 + 1);
+          n.vx -= dx/d * f;
+          n.vy -= dy/d * f;
+        } else {
+          for (var ci = 0; ci < 4; ci++) {
+            if (q[QCHILD][ci][QM] > 0) stack.push(q[QCHILD][ci]);
+          }
+        }
+      }
+    };
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 400, THETA = 0.9, DIST_MAX = 250;
+    var SPRING = 0.003 + 0.015 * progress;
+    var DAMP = 0.55 + 0.30 * progress;
+    var i, j, dx, dy, d, f, fx, fy, e, s, t;
+
+    var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].x < x0) x0 = nodes[i].x;
+      if (nodes[i].y < y0) y0 = nodes[i].y;
+      if (nodes[i].x > x1) x1 = nodes[i].x;
+      if (nodes[i].y > y1) y1 = nodes[i].y;
+    }
+    var applyRep = makeBarnesHut(nodes, x0-1, y0-1, x1+1, y1+1);
+    for (i = 0; i < nodes.length; i++) {
+      applyRep(nodes[i], REPULSION, THETA, DIST_MAX);
+    }
+
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST * Math.max(1, e.weight)) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      s.vx += fx; s.vy += fy;
+      t.vx -= fx; t.vy -= fy;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+      nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var showLabels = transform.scale >= 0.55;
+    var R = 6 / transform.scale;
+    var i, e, s, t, n, isSelected, dim, matched;
+    var q = searchQuery.trim().toLowerCase();
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i];
+      if (!filters[e.rel]) continue;
+      s = e.sourceNode; t = e.targetNode;
+      isSelected = (selected === e);
+      var adjEdgeDim = selectedNeighbors && !selectedNeighbors['e:' + e.source + '|' + e.target];
+      dim = q && s.slug.indexOf(q) < 0 && t.slug.indexOf(q) < 0 &&
+            t.title.toLowerCase().indexOf(q) < 0 && s.title.toLowerCase().indexOf(q) < 0;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = isSelected ? '#f59e0b' : (REL_COLORS[e.rel] || '#64748b');
+      ctx.lineWidth = isSelected ? 2.5 / transform.scale : Math.max(0.4, e.weight * 0.35) / transform.scale;
+      ctx.globalAlpha = isSelected ? 1.0 : (dim || adjEdgeDim ? 0.04 : 0.22);
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i]; isSelected = (selected === n);
+      matched = q && (n.slug.indexOf(q) >= 0 || n.title.toLowerCase().indexOf(q) >= 0);
+      var adjNodeDim = selectedNeighbors && !selectedNeighbors['n:' + n.slug];
+      dim = (q && !matched) || adjNodeDim;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, isSelected || matched ? R * 1.6 : R, 0, Math.PI * 2);
+      ctx.fillStyle = isSelected || matched ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.globalAlpha = dim ? 0.15 : 1.0;
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+      if (showLabels && !dim) {
+        ctx.fillStyle = matched ? '#f59e0b' : (isSelected ? '#f59e0b' : '#64748b');
+        ctx.font = (10 / transform.scale) + 'px sans-serif';
+        var label = n.slug.replace(/^\\d{4}-\\d{2}-\\d{2}-/, '').slice(0, 24);
+        ctx.fillText(label, n.x + R + 2, n.y + 3 / transform.scale);
+      }
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 48;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.05);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function hitEdge(wx, wy) {
+    var THRESH = 6 / transform.scale, i, e, s, t, dx, dy, len2, tp, px, py, cx, cy;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i];
+      if (!filters[e.rel]) continue;
+      s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y; len2 = dx * dx + dy * dy;
+      if (len2 < 1) continue;
+      tp = Math.max(0, Math.min(1, ((wx - s.x) * dx + (wy - s.y) * dy) / len2));
+      px = s.x + tp * dx; py = s.y + tp * dy;
+      cx = wx - px; cy = wy - py;
+      if (cx * cx + cy * cy < THRESH * THRESH) return e;
+    }
+    return null;
+  }
+
+  function esc(v) {
+    return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function showPanel(obj) {
+    selected = obj;
+    if (!obj) {
+      selectedNeighbors = null;
+      panel.innerHTML = '<p class="panel-hint">Click a node or edge to inspect. Drag to pan \xb7 Scroll or pinch to zoom.</p>';
+      redraw(); return;
+    }
+    if (obj.sourceNode) {
+      selectedNeighbors = null;
+      var srcNode = nodeMap[obj.source], tgtNode = nodeMap[obj.target];
+      panel.innerHTML =
+        '<div class="panel-row"><span class="panel-label">Relationship</span>' +
+        '<span class="panel-rel panel-rel-' + esc(obj.rel) + '">' + esc(obj.rel) + '</span></div>' +
+        '<div class="panel-row"><span class="panel-label">Evidence</span><code>' + esc(obj.evidence) + '</code></div>' +
+        '<div class="panel-row"><span class="panel-label">From</span>' +
+        '<a href="' + esc(srcNode ? srcNode.url : '#') + '">' + esc(obj.source) + '</a></div>' +
+        '<div class="panel-row"><span class="panel-label">To</span>' +
+        '<a href="' + esc(tgtNode ? tgtNode.url : '#') + '">' + esc(obj.target) + '</a></div>';
+    } else {
+      selectedNeighbors = {};
+      selectedNeighbors['n:' + obj.slug] = true;
+      edges.forEach(function(e) {
+        if (e.sourceNode === obj || e.targetNode === obj) {
+          selectedNeighbors['e:' + e.source + '|' + e.target] = true;
+          selectedNeighbors['n:' + e.source] = true;
+          selectedNeighbors['n:' + e.target] = true;
+        }
+      });
+      panel.innerHTML =
+        '<div class="panel-row"><span class="panel-label">Item</span>' +
+        '<a class="panel-item-link" href="' + esc(obj.url) + '">' + esc(obj.title) + ' →</a></div>' +
+        '<div class="panel-row"><span class="panel-label">Type</span>' + esc(obj.type) + '</div>' +
+        '<div class="panel-row"><span class="panel-label">Slug</span><code>' + esc(obj.slug) + '</code></div>';
+    }
+    redraw();
+  }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        canvas.style.cursor = hitNode(w.x, w.y) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.05, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        showPanel(hitNode(w.x, w.y) || hitEdge(w.x, w.y) || null);
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.05, Math.min(10, transform.scale * factor));
+    redraw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var rel = btn.dataset.rel;
+      filters[rel] = !filters[rel];
+      btn.classList.toggle('off', !filters[rel]);
+      redraw();
+    });
+  });
+
+  var fitBtn = document.getElementById('btn-fit');
+  if (fitBtn) fitBtn.addEventListener('click', fitToView);
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      searchQuery = searchInput.value;
+      redraw();
+    });
+  }
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      showPanel(null);
+      document.getElementById('graph-stats').textContent =
+        data.node_count + ' nodes \xb7 ' + data.edge_count + ' edges';
+      startAnim();
+    })
+    .catch(function() {
+      panel.innerHTML = '<p class="panel-hint">graph.json not found \u2014 run the site build to generate it.</p>';
+    });
+})();
+"""
+
+
+# ---------------------------------------------------------------------------
+# Mini ego-graph — shown at the bottom of each research-item page.
+# Plain string (not f-string) to avoid curly-brace escaping.
+# ---------------------------------------------------------------------------
+
+_MINI_GRAPH_CSS = """\
+<style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+"""
+
+_MINI_GRAPH_JS = """\
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\\d{4}-\\d{2}-\\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+"""
+
+
+def build_graph_page() -> str:
+    """Generate docs/graph.html — an interactive force-directed graph view.
+
+    Loads docs/data/graph.json (produced by build_graph_json) and renders
+    nodes and edges on an HTML5 canvas using a vanilla-JS force simulation.
+    No external JS library is required (see ADR-0016).
+    """
+    extra_css = textwrap.dedent("""\
+        <style>
+        .graph-wrap { display: flex; flex-direction: column; gap: 0.75rem; }
+        #graph-canvas { width: 100%; background: #0a0f18;
+          border: 1px solid var(--border); border-radius: 6px;
+          cursor: grab; display: block;
+          user-select: none; -webkit-tap-highlight-color: transparent; }
+        #graph-canvas:active { cursor: grabbing; }
+        .graph-controls { display: flex; flex-wrap: wrap; gap: 0.5rem;
+          align-items: center; padding: 0.5rem 0; }
+        .filter-btn { display: inline-flex; align-items: center; gap: 0.4rem;
+          padding: 0.25rem 0.65rem; border: 1px solid var(--border);
+          border-radius: 4px; background: var(--surface-2);
+          color: var(--text); font-family: inherit; font-size: var(--text-xs);
+          cursor: pointer; transition: opacity 0.15s; }
+        .filter-btn:hover { border-color: var(--text-muted); }
+        .filter-btn.off { opacity: 0.3; }
+        .filter-btn .fdot { width: 8px; height: 8px; border-radius: 50%;
+          display: inline-block; flex-shrink: 0; }
+        .fcount { color: var(--text-muted); }
+        .ctrl-sep { width: 1px; height: 1.4rem; background: var(--border); margin: 0 0.25rem; }
+        #btn-fit { padding: 0.25rem 0.65rem; border: 1px solid var(--border);
+          border-radius: 4px; background: var(--surface-2);
+          color: var(--text-muted); font-family: inherit;
+          font-size: var(--text-xs); cursor: pointer; }
+        #btn-fit:hover { color: var(--text); border-color: var(--text-muted); }
+        #node-search { padding: 0.25rem 0.6rem; border: 1px solid var(--border);
+          border-radius: 4px; background: var(--surface-2);
+          color: var(--text); font-family: inherit; font-size: var(--text-xs);
+          width: 14rem; }
+        #node-search::placeholder { color: var(--text-muted); }
+        #info-panel { background: var(--surface); border: 1px solid var(--border);
+          border-radius: 6px; padding: 1rem; min-height: 4.5rem;
+          font-size: var(--text-sm); }
+        .panel-hint { color: var(--text-muted); margin: 0; }
+        .panel-row { display: flex; gap: 0.75rem; padding: 0.3rem 0;
+          border-bottom: 1px solid var(--border); align-items: baseline; }
+        .panel-row:last-child { border-bottom: none; }
+        .panel-label { min-width: 6rem; color: var(--text-muted);
+          font-size: var(--text-xs); text-transform: uppercase;
+          letter-spacing: 0.05em; flex-shrink: 0; }
+        .panel-rel { font-weight: 600; }
+        .panel-rel-cites { color: #2dd4bf; }
+        .panel-rel-related { color: #a78bfa; }
+        .panel-rel-tag-overlap { color: #64748b; }
+        #graph-stats { font-size: var(--text-xs); color: var(--text-muted); }
+        #graph-canvas { touch-action: none; }
+        .panel-item-link { font-weight: 600; }
+        @media (max-width: 600px) {
+          .graph-controls { gap: 0.35rem; }
+          #node-search { width: 100%; }
+          .ctrl-sep { display: none; }
+        }
+        </style>
+        """)
+
+    controls_html = (
+        '<div class="graph-controls">'
+        '<button class="filter-btn" id="filter-cites" data-rel="cites">'
+        '<span class="fdot" style="background:#2dd4bf"></span>'
+        'cites <span class="fcount">…</span></button>'
+        '<button class="filter-btn" id="filter-related" data-rel="related">'
+        '<span class="fdot" style="background:#a78bfa"></span>'
+        'related <span class="fcount">…</span></button>'
+        '<button class="filter-btn" id="filter-tag" data-rel="tag-overlap">'
+        '<span class="fdot" style="background:#64748b"></span>'
+        'tag-overlap <span class="fcount">…</span></button>'
+        '<span class="ctrl-sep"></span>'
+        '<button id="btn-fit">fit</button>'
+        '<span class="ctrl-sep"></span>'
+        '<input id="node-search" type="search" placeholder="Search nodes…" />'
+        "</div>"
+    )
+
+    return (
+        html_head("Knowledge Graph", extra_head=extra_css)
+        + html_nav("graph")
+        + textwrap.dedent("""\
+            <div class="page-wrap">
+              <h1>Knowledge Graph</h1>
+              <p id="graph-stats">Loading&hellip;</p>
+            """)
+        + controls_html
+        + textwrap.dedent("""\
+              <div class="graph-wrap">
+                <canvas id="graph-canvas"></canvas>
+                <div id="info-panel"><p class="panel-hint">Loading graph&hellip;</p></div>
+              </div>
+            </div>
+            """)
+        + f"<script>\n{_GRAPH_JS}\n</script>\n"
+        + html_foot()
+    )
+
+
+def build_item_graph_section(slug: str) -> str:
+    """Return HTML + JS for the mini ego-graph section injected into item pages."""
+    return (
+        '<section id="mini-graph-section">\n'
+        "<h2>Connected items</h2>\n"
+        '<p class="mini-graph-meta" id="mini-graph-count">Loading\u2026</p>\n'
+        '<div class="mini-graph-wrap">\n'
+        '<canvas id="mini-graph-canvas"></canvas>\n'
+        "</div>\n"
+        '<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph \u2192</a>\n'
+        "</section>\n"
+        f'<script>window.GRAPH_FOCAL_SLUG = "{slug}";</script>\n'
+        f"<script>\n{_MINI_GRAPH_JS}\n</script>\n"
+    )
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -2996,10 +4033,20 @@ def main() -> None:
 
     # Ensure owned output directories are clean (removes stale pages)
     DOCS_DIR.mkdir(exist_ok=True)
+    GRAPH_DATA_DIR.mkdir(exist_ok=True)
     for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THREADS_DIR):
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
+
+    # Graph artifact — serialized after singleton-tag filter and slug_to_item are ready
+    print("Building graph.json…")
+    (GRAPH_DATA_DIR / "graph.json").write_text(
+        build_graph_json(all_items, links, slug_to_item), encoding="utf-8"
+    )
+
+    print("Building graph.html…")
+    (DOCS_DIR / "graph.html").write_text(build_graph_page(), encoding="utf-8")
 
     pages_written = 0
 

@@ -1368,9 +1368,9 @@ Once W-0069 (backfill) is done, every item has `ai_themes` set but the site rend
 
 ## W-0071
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1384,6 +1384,10 @@ Graph capability backlog is explicitly scoped and sequenced using existing compl
 6. **Refine backlog items** — split epics into small, testable slices with acceptance criteria and dependencies.
 7. **Review whole backlog and adjust sequencing** — ensure graph items are ordered relative to existing synthesis/theme work and that blocked relationships are explicit.
 
+### Notes
+
+Backlog construction completed: W-0072 (graph artifact), W-0073 (graph UI page), W-0074 (quality gates), W-0075 (edge weighting) were created and sequenced as implementation epics. Research files `2026-03-03-knowledge-linking-connected-corpus.md` and `2026-05-02-cross-item-synthesis-knowledge-map-architecture.md` informed the design. Dependencies: W-0073 blocked on W-0072; W-0074 blocked on W-0072+W-0073; W-0075 blocked on W-0072+W-0074.
+
 ### Context
 
 This item is the backlog-construction slice requested by the issue. It does **not** implement graph functionality; it defines and sequences the work so implementation can proceed with low rework risk.
@@ -1392,9 +1396,9 @@ This item is the backlog-construction slice requested by the issue. It does **no
 
 ## W-0072
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1417,15 +1421,17 @@ Current site generation computes relationship links for rendering but does not e
 - Tag-filtered items: `build_site.py` drops singleton tags before building links (line ~2960). The graph artifact must be serialized after this filter runs, or node metadata will be inconsistent with what the site renders.
 - `docs/` must not be staged or committed on the implementing branch. Run `git status` before every commit and confirm no `docs/` paths appear.
 
-Blocked on W-0071.
+### Notes
+
+Implemented `build_graph_json(all_items, links, slug_to_item)` in `scripts/build_site.py`. Added `GRAPH_DATA_DIR = DOCS_DIR / "data"` constant. Wired into `main()` after singleton-tag filter and `slug_to_item` are ready. Three edge types: `cites` (frontmatter), `related` (frontmatter), `tag-overlap` (from `load_links()`, deduplicated with canonical direction source < target). Schema 1.0: `schema_version`, `generated`, `node_count`, `edge_count`, `nodes`, `edges`. 21 tests added to `tests/test_build_site.py`. All pass; `make check` clean.
 
 ---
 
 ## W-0073
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1449,15 +1455,17 @@ The issue requires graph functionality to be traceable in the GitHub Pages user 
 - If vendoring the library produces binary or minified files in `docs/`, confirm they are handled by the `build_site.yml` workflow write path — not committed manually on the branch.
 - `docs/` must not be staged or committed on the implementing branch. Run `git status` before every commit and confirm no `docs/` paths appear.
 
-Blocked on W-0072.
+### Notes
+
+ADR-0016 written: vanilla-JS force-directed layout chosen (no external library — see ADR-0016). `build_graph_page()` added to `scripts/build_site.py`. Generates `docs/graph.html` with canvas, force simulation, pan/zoom, click-to-inspect provenance panel. `html_nav()` updated with "Graph" nav link. 8 tests in `tests/test_build_site.py`.
 
 ---
 
 ## W-0074
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1472,15 +1480,17 @@ Graph quality gates are enforced in code and tests:
 
 Traceability requirements are only reliable if schema and integrity checks fail fast during generation and test runs.
 
-Blocked on W-0072 and W-0073.
+### Notes
+
+`_validate_graph(graph) -> list[str]` added to `scripts/build_site.py`. Checks: node_count/edge_count match, all required edge fields present, all edge source/target slugs in node set. Called from `build_graph_json()` — raises `ValueError` on failure. 9 tests covering valid graphs, orphan edges, missing fields, count mismatches, and empty-graph case.
 
 ---
 
 ## W-0075
 
-status: open
+status: done
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-14
 
 ### Outcome
 
@@ -1494,5 +1504,9 @@ Edge-weighting evolves beyond the baseline `weight: 1` model:
 ### Context
 
 The issue explicitly requires weighted edges with an initial default of `1`, plus follow-on stories for a later weighting algorithm. This item is that follow-on phase.
+
+### Notes
+
+Weighting algorithm added to `build_graph_json()`: `cites`=4, `related`=3, `tag-overlap`=N (N = number of shared tags, min 1). Rationale documented in docstring table and ADR-0016. Schema backwards-compatible (weight remains a positive number). 6 new tests covering type ordering, tag-count scaling, determinism, schema validity, and positivity.
 
 Blocked on W-0072 and W-0074.

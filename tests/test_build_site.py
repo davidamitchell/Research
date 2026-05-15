@@ -10,14 +10,24 @@ import pytest
 
 # Make scripts/ importable
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+import json
+
 from build_site import (
+    _GRAPH_JS,
+    _MINI_GRAPH_CSS,
+    _MINI_GRAPH_JS,
     _cluster_overlap,
     _item_url,
+    _validate_graph,
     build_all_items_page,
+    build_graph_json,
+    build_graph_page,
+    build_item_page,
     build_knowledge_index_page,
     build_research_master_page,
     detect_concept_threads,
     detect_threads,
+    html_nav,
     load_knowledge_items,
     render_card,
     strip_evidence_labels,
@@ -868,3 +878,599 @@ def test_build_knowledge_index_page_with_items() -> None:
     assert "my-synthesis" in html
     assert "/Research/knowledge/my-synthesis.html" in html
     assert "No synthesis items yet" not in html
+
+
+# ---------------------------------------------------------------------------
+# build_graph_json
+# ---------------------------------------------------------------------------
+
+
+def _make_graph_item(
+    slug: str,
+    kind: str = "research",
+    cites: list[str] | None = None,
+    related: list[str] | None = None,
+    tags: list[str] | None = None,
+) -> dict:
+    """Minimal item dict with all fields required by build_graph_json."""
+    prefix = "knowledge" if kind == "knowledge" else "research"
+    return {
+        "slug": slug,
+        "title": f"Title for {slug}",
+        "item_type": "synthesis" if kind == "knowledge" else "primary",
+        "page_url": f"/Research/{prefix}/{slug}.html",
+        "cites": cites or [],
+        "related_slugs": related or [],
+        "tags": tags or [],
+        "added": datetime(2026, 1, 1, tzinfo=UTC),
+        "_kind": kind,
+    }
+
+
+def test_graph_json_returns_valid_json() -> None:
+    """build_graph_json returns parseable JSON."""
+    item = _make_graph_item("alpha")
+    result = build_graph_json([item], {}, {"alpha": item})
+    parsed = json.loads(result)
+    assert isinstance(parsed, dict)
+
+
+def test_graph_json_schema_fields_present() -> None:
+    """Top-level schema fields are present."""
+    item = _make_graph_item("alpha")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    for field in ("schema_version", "generated", "nodes", "edges", "node_count", "edge_count"):
+        assert field in parsed, f"missing field: {field}"
+
+
+def test_graph_json_schema_version() -> None:
+    """schema_version is '1.0'."""
+    item = _make_graph_item("alpha")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    assert parsed["schema_version"] == "1.0"
+
+
+def test_graph_json_node_required_fields() -> None:
+    """Every node has slug, title, type, and url."""
+    item = _make_graph_item("alpha")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    assert len(parsed["nodes"]) == 1
+    node = parsed["nodes"][0]
+    for field in ("slug", "title", "type", "url"):
+        assert field in node, f"node missing field: {field}"
+
+
+def test_graph_json_node_values() -> None:
+    """Node values map correctly from the item dict."""
+    item = _make_graph_item("alpha", kind="research")
+    parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
+    node = parsed["nodes"][0]
+    assert node["slug"] == "alpha"
+    assert node["title"] == "Title for alpha"
+    assert node["type"] == "primary"
+    assert node["url"] == "/Research/research/alpha.html"
+
+
+def test_graph_json_node_count_matches() -> None:
+    """node_count equals len(nodes)."""
+    items = [_make_graph_item(s) for s in ("a", "b", "c")]
+    parsed = json.loads(build_graph_json(items, {}, {i["slug"]: i for i in items}))
+    assert parsed["node_count"] == len(parsed["nodes"]) == 3
+
+
+def test_graph_json_edge_count_matches() -> None:
+    """edge_count equals len(edges)."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    assert parsed["edge_count"] == len(parsed["edges"])
+
+
+def test_graph_json_cites_edge_produced() -> None:
+    """A frontmatter cites entry produces a cites edge."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    cites_edges = [e for e in parsed["edges"] if e["rel"] == "cites"]
+    assert len(cites_edges) == 1
+    edge = cites_edges[0]
+    assert edge["source"] == "a"
+    assert edge["target"] == "b"
+
+
+def test_graph_json_edge_required_fields() -> None:
+    """Every edge has source, target, weight, rel, evidence, and provenance."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    for edge in parsed["edges"]:
+        for field in ("source", "target", "weight", "rel", "evidence", "provenance"):
+            assert field in edge, f"edge missing field: {field}"
+
+
+def test_graph_json_edge_weight_is_positive() -> None:
+    """All edges have a positive weight."""
+    item_a = _make_graph_item("a", cites=["b"], related=["c"])
+    item_b = _make_graph_item("b")
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    assert all(e["weight"] > 0 for e in parsed["edges"])
+
+
+def test_graph_json_related_edge_produced() -> None:
+    """A frontmatter related entry produces a related edge."""
+    item_a = _make_graph_item("a", related=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    related_edges = [e for e in parsed["edges"] if e["rel"] == "related"]
+    assert len(related_edges) == 1
+    assert related_edges[0]["source"] == "a"
+    assert related_edges[0]["target"] == "b"
+
+
+def test_graph_json_tag_overlap_edge_produced() -> None:
+    """Tag-overlap entries from links produce tag-overlap edges."""
+    item_a = _make_graph_item("a", tags=["ai", "llm"])
+    item_b = _make_graph_item("b", tags=["ai", "llm"])
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [{"item": item_b, "shared_tags": ["ai", "llm"], "rel": "related"}],
+        "b": [{"item": item_a, "shared_tags": ["ai", "llm"], "rel": "related"}],
+    }
+    parsed = json.loads(build_graph_json(items, links, slug_to))
+    tag_edges = [e for e in parsed["edges"] if e["rel"] == "tag-overlap"]
+    assert len(tag_edges) == 1  # deduplicated: only one canonical A-B edge
+
+
+def test_graph_json_tag_overlap_canonical_direction() -> None:
+    """Tag-overlap edge source < target (canonical direction, alphabetical)."""
+    item_a = _make_graph_item("alpha")
+    item_b = _make_graph_item("beta")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "beta": [{"item": item_a, "shared_tags": ["ai", "ml"], "rel": "related"}],
+    }
+    parsed = json.loads(build_graph_json(items, links, slug_to))
+    tag_edges = [e for e in parsed["edges"] if e["rel"] == "tag-overlap"]
+    assert len(tag_edges) == 1
+    assert tag_edges[0]["source"] == "alpha"
+    assert tag_edges[0]["target"] == "beta"
+
+
+def test_graph_json_orphan_cites_skipped() -> None:
+    """cites to a slug not in the node set is silently skipped."""
+    item_a = _make_graph_item("a", cites=["nonexistent"])
+    parsed = json.loads(build_graph_json([item_a], {}, {"a": item_a}))
+    assert len(parsed["edges"]) == 0
+
+
+def test_graph_json_deterministic() -> None:
+    """Identical inputs produce identical JSON output."""
+    item_a = _make_graph_item("a", cites=["b"], related=["c"])
+    item_b = _make_graph_item("b")
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    links: dict = {}
+    out1 = build_graph_json(items, links, slug_to)
+    out2 = build_graph_json(items, links, slug_to)
+    assert out1 == out2
+
+
+def test_graph_json_nodes_sorted_by_slug() -> None:
+    """Nodes appear in ascending slug order."""
+    items = [_make_graph_item(s) for s in ("zebra", "apple", "mango")]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    slugs = [n["slug"] for n in parsed["nodes"]]
+    assert slugs == sorted(slugs)
+
+
+def test_graph_json_edges_sorted() -> None:
+    """Edges are sorted by (source, target, rel)."""
+    item_a = _make_graph_item("a", cites=["c", "b"])
+    item_b = _make_graph_item("b")
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    keys = [(e["source"], e["target"], e["rel"]) for e in parsed["edges"]]
+    assert keys == sorted(keys)
+
+
+def test_graph_json_edge_provenance_is_declaring_item() -> None:
+    """Edge provenance is the slug of the item declaring the relationship."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    parsed = json.loads(build_graph_json(items, {}, slug_to))
+    edge = parsed["edges"][0]
+    assert edge["provenance"] == "a"
+
+
+def test_graph_json_empty_items() -> None:
+    """Empty items list produces a graph with no nodes and no edges."""
+    parsed = json.loads(build_graph_json([], {}, {}))
+    assert parsed["nodes"] == []
+    assert parsed["edges"] == []
+    assert parsed["node_count"] == 0
+    assert parsed["edge_count"] == 0
+
+
+# ---------------------------------------------------------------------------
+# build_graph_page (W-0073)
+# ---------------------------------------------------------------------------
+
+
+def test_graph_page_returns_html() -> None:
+    """build_graph_page returns a string that starts with <!doctype html>."""
+    html = build_graph_page()
+    assert html.strip().lower().startswith("<!doctype html")
+
+
+def test_graph_page_loads_graph_json() -> None:
+    """Page fetches /Research/data/graph.json."""
+    html = build_graph_page()
+    assert "/Research/data/graph.json" in html
+
+
+def test_graph_page_has_canvas() -> None:
+    """Page contains a canvas element for rendering."""
+    html = build_graph_page()
+    assert "<canvas" in html
+
+
+def test_graph_page_nav_link_present() -> None:
+    """Nav bar includes a Graph link for the graph page."""
+    nav = html_nav("graph")
+    assert "/Research/graph.html" in nav
+
+
+def test_graph_page_graph_nav_active() -> None:
+    """Graph nav link is marked active when active='graph'."""
+    nav = html_nav("graph")
+    assert 'class="active"' in nav
+
+
+def test_graph_page_provenance_panel() -> None:
+    """Page contains JS or HTML for a provenance/info panel."""
+    html = build_graph_page()
+    assert "provenance" in html.lower() or "panel" in html.lower()
+
+
+def test_graph_page_uses_graph_json_fields() -> None:
+    """Page JS references the expected graph.json field names."""
+    html = build_graph_page()
+    for field in ("nodes", "edges", "slug", "rel", "evidence"):
+        assert field in html, f"graph page missing reference to field: {field}"
+
+
+# ---------------------------------------------------------------------------
+# _validate_graph (W-0074)
+# ---------------------------------------------------------------------------
+
+
+def _make_valid_graph() -> dict:
+    """Minimal valid graph dict for validation tests."""
+    return {
+        "schema_version": "1.0",
+        "generated": "2026-05-14T00:00:00Z",
+        "node_count": 2,
+        "edge_count": 1,
+        "nodes": [
+            {"slug": "a", "title": "A", "type": "primary", "url": "/Research/research/a.html"},
+            {"slug": "b", "title": "B", "type": "primary", "url": "/Research/research/b.html"},
+        ],
+        "edges": [
+            {
+                "source": "a",
+                "target": "b",
+                "weight": 1,
+                "rel": "cites",
+                "evidence": "frontmatter:cites",
+                "provenance": "a",
+            }
+        ],
+    }
+
+
+def test_validate_graph_passes_valid_graph() -> None:
+    """A well-formed graph passes validation without error."""
+    errors = _validate_graph(_make_valid_graph())
+    assert errors == []
+
+
+def test_validate_graph_detects_orphan_edge_source() -> None:
+    """Edge whose source slug is not in nodes is flagged."""
+    graph = _make_valid_graph()
+    graph["edges"][0]["source"] = "nonexistent"
+    errors = _validate_graph(graph)
+    assert any("nonexistent" in e for e in errors)
+
+
+def test_validate_graph_detects_orphan_edge_target() -> None:
+    """Edge whose target slug is not in nodes is flagged."""
+    graph = _make_valid_graph()
+    graph["edges"][0]["target"] = "ghost"
+    errors = _validate_graph(graph)
+    assert any("ghost" in e for e in errors)
+
+
+def test_validate_graph_detects_missing_edge_weight() -> None:
+    """Edge without a weight field is flagged."""
+    graph = _make_valid_graph()
+    del graph["edges"][0]["weight"]
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_detects_missing_edge_provenance() -> None:
+    """Edge without a provenance field is flagged."""
+    graph = _make_valid_graph()
+    del graph["edges"][0]["provenance"]
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_detects_node_count_mismatch() -> None:
+    """node_count field not matching actual node list is flagged."""
+    graph = _make_valid_graph()
+    graph["node_count"] = 99
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_detects_edge_count_mismatch() -> None:
+    """edge_count field not matching actual edge list is flagged."""
+    graph = _make_valid_graph()
+    graph["edge_count"] = 99
+    errors = _validate_graph(graph)
+    assert errors
+
+
+def test_validate_graph_empty_graph_is_valid() -> None:
+    """Empty graph (no nodes, no edges) passes validation."""
+    graph = {
+        "schema_version": "1.0",
+        "generated": "2026-05-14T00:00:00Z",
+        "node_count": 0,
+        "edge_count": 0,
+        "nodes": [],
+        "edges": [],
+    }
+    assert _validate_graph(graph) == []
+
+
+def test_build_graph_json_produces_valid_graph() -> None:
+    """build_graph_json output passes _validate_graph with no errors."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    graph = json.loads(build_graph_json(items, {}, slug_to))
+    assert _validate_graph(graph) == []
+
+
+# ---------------------------------------------------------------------------
+# Edge weighting (W-0075)
+# ---------------------------------------------------------------------------
+
+
+def test_cites_edge_weight_exceeds_tag_overlap() -> None:
+    """cites edges are weighted higher than tag-overlap edges."""
+    item_a = _make_graph_item("a", cites=["b"], tags=["ai", "llm"])
+    item_b = _make_graph_item("b", tags=["ai", "llm"])
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [{"item": item_b, "shared_tags": ["ai", "llm"], "rel": "related"}],
+        "b": [{"item": item_a, "shared_tags": ["ai", "llm"], "rel": "related"}],
+    }
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    cites_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "cites")
+    tag_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "tag-overlap")
+    assert cites_w > tag_w
+
+
+def test_related_edge_weight_exceeds_tag_overlap() -> None:
+    """related edges are weighted higher than tag-overlap edges."""
+    item_a = _make_graph_item("a", related=["b"], tags=["ai", "llm"])
+    item_b = _make_graph_item("b", tags=["ai", "llm"])
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [{"item": item_b, "shared_tags": ["ai", "llm"], "rel": "related"}],
+        "b": [{"item": item_a, "shared_tags": ["ai", "llm"], "rel": "related"}],
+    }
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    related_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "related")
+    tag_w = next(e["weight"] for e in graph["edges"] if e["rel"] == "tag-overlap")
+    assert related_w > tag_w
+
+
+def test_tag_overlap_weight_scales_with_shared_count() -> None:
+    """tag-overlap weight increases with the number of shared tags."""
+    item_a = _make_graph_item("a", tags=["ai", "llm", "rag", "agents"])
+    item_b = _make_graph_item("b", tags=["ai", "llm", "rag", "agents"])
+    item_c = _make_graph_item("c", tags=["ai", "llm"])
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    links = {
+        "a": [
+            {"item": item_b, "shared_tags": ["ai", "llm", "rag", "agents"], "rel": "related"},
+            {"item": item_c, "shared_tags": ["ai", "llm"], "rel": "related"},
+        ],
+    }
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    tag_edges = {
+        frozenset([e["source"], e["target"]]): e["weight"]
+        for e in graph["edges"]
+        if e["rel"] == "tag-overlap"
+    }
+    w_ab = tag_edges[frozenset(["a", "b"])]
+    w_ac = tag_edges[frozenset(["a", "c"])]
+    assert w_ab > w_ac
+
+
+def test_weighting_output_is_deterministic() -> None:
+    """Weighted graph output is deterministic across two calls."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    out1 = build_graph_json(items, {}, slug_to)
+    out2 = build_graph_json(items, {}, slug_to)
+    parsed1 = json.loads(out1)
+    parsed2 = json.loads(out2)
+    assert [e["weight"] for e in parsed1["edges"]] == [e["weight"] for e in parsed2["edges"]]
+
+
+def test_weighting_schema_backwards_compatible() -> None:
+    """Weighted graph still passes _validate_graph (schema unchanged)."""
+    item_a = _make_graph_item("a", cites=["b"])
+    item_b = _make_graph_item("b")
+    items = [item_a, item_b]
+    slug_to = {i["slug"]: i for i in items}
+    graph = json.loads(build_graph_json(items, {}, slug_to))
+    assert _validate_graph(graph) == []
+
+
+def test_weighting_rationale_is_positive() -> None:
+    """All edge weights are positive numbers."""
+    item_a = _make_graph_item("a", cites=["b"], related=["c"], tags=["x", "y"])
+    item_b = _make_graph_item("b", tags=["x", "y"])
+    item_c = _make_graph_item("c")
+    items = [item_a, item_b, item_c]
+    slug_to = {i["slug"]: i for i in items}
+    links = {"a": [{"item": item_b, "shared_tags": ["x", "y"], "rel": "related"}]}
+    graph = json.loads(build_graph_json(items, links, slug_to))
+    assert all(e["weight"] > 0 for e in graph["edges"])
+
+
+# ---------------------------------------------------------------------------
+# Graph mobile + mini-graph tests
+# ---------------------------------------------------------------------------
+
+
+def _make_item_for_page(slug: str) -> dict:
+    """Minimal item dict sufficient for build_item_page."""
+    return {
+        "slug": slug,
+        "title": slug,
+        "display_title": slug,
+        "tags": ["ai"],
+        "added_str": "2026-01-01",
+        "sections": {},
+        "github_url": f"https://github.com/example/Research/blob/main/Research/{slug}.md",
+        "item_type": "primary",
+        "confidence": "medium",
+        "_sources_text": "",
+    }
+
+
+def test_graph_js_has_pointer_events_replacing_touch() -> None:
+    assert "pointerdown" in _GRAPH_JS
+    assert "pointermove" in _GRAPH_JS
+    assert "pointerup" in _GRAPH_JS
+
+
+def test_mini_graph_js_exists() -> None:
+    assert isinstance(_MINI_GRAPH_JS, str) and len(_MINI_GRAPH_JS) > 100
+
+
+def test_mini_graph_js_reads_focal_slug() -> None:
+    assert "GRAPH_FOCAL_SLUG" in _MINI_GRAPH_JS
+
+
+def test_mini_graph_js_navigates_on_click() -> None:
+    assert "window.location.href" in _MINI_GRAPH_JS
+
+
+def test_mini_graph_js_has_pointer_events_replacing_touch() -> None:
+    assert "pointerdown" in _MINI_GRAPH_JS
+    assert "pointerup" in _MINI_GRAPH_JS
+
+
+def test_item_page_has_mini_graph_canvas() -> None:
+    item = _make_item_for_page("2026-01-01-foo")
+    html = build_item_page(item, None, None)
+    assert "mini-graph-canvas" in html
+
+
+def test_item_page_has_focal_slug_script() -> None:
+    item = _make_item_for_page("2026-01-01-foo")
+    html = build_item_page(item, None, None)
+    assert "GRAPH_FOCAL_SLUG" in html
+
+
+def test_item_page_focal_slug_matches_item() -> None:
+    item = _make_item_for_page("2026-01-01-foo")
+    html = build_item_page(item, None, None)
+    assert '"2026-01-01-foo"' in html
+
+
+# ---------------------------------------------------------------------------
+# Graph mobile polish (items 1–10)
+# ---------------------------------------------------------------------------
+
+
+def test_graph_js_uses_device_pixel_ratio() -> None:
+    assert "devicePixelRatio" in _GRAPH_JS
+
+
+def test_mini_graph_js_uses_device_pixel_ratio() -> None:
+    assert "devicePixelRatio" in _MINI_GRAPH_JS
+
+
+def test_graph_js_has_distance_max() -> None:
+    assert "DIST_MAX" in _GRAPH_JS
+
+
+def test_graph_js_adaptive_rest_uses_canvas_size() -> None:
+    assert "Math.min(W, H)" in _GRAPH_JS or "Math.min(W,H)" in _GRAPH_JS
+
+
+def test_graph_js_hit_target_minimum_22px() -> None:
+    assert "22 / transform.scale" in _GRAPH_JS or "22/transform.scale" in _GRAPH_JS
+
+
+def test_graph_page_css_has_user_select_none() -> None:
+    html = build_graph_page()
+    assert "user-select: none" in html
+
+
+def test_graph_js_tag_overlap_off_by_default() -> None:
+    assert "'tag-overlap': false" in _GRAPH_JS
+
+
+def test_graph_js_has_neighbour_highlight() -> None:
+    assert "selectedNeighbors" in _GRAPH_JS
+
+
+def test_mini_graph_css_has_aspect_ratio() -> None:
+    assert "aspect-ratio" in _MINI_GRAPH_CSS
+
+
+def test_graph_js_uses_pointer_events() -> None:
+    assert "pointerdown" in _GRAPH_JS
+
+
+def test_mini_graph_js_uses_pointer_events() -> None:
+    assert "pointerdown" in _MINI_GRAPH_JS
+
+
+def test_graph_js_has_barnes_hut() -> None:
+    assert "makeBarnesHut" in _GRAPH_JS
