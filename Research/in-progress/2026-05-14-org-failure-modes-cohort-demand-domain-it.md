@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams"
 added: 2026-05-14T18:48:56+00:00
 status: reviewing
