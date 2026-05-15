@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 135d357a7e778ddce5d5123566a56507fbd7b4ec
+    changed: 2026-05-15
+    progress: progress/2026-05-15-endsley-model-situational-awareness-deep-dive.md
+    summary: "Initial completion"
 ---
 
 # Endsley Model of Situational Awareness deep dive
