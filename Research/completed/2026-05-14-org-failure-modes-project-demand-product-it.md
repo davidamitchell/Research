@@ -2,12 +2,12 @@
 review_count: 2
 title: "Organisational failure modes: project-based demand with product-based information technology (IT) teams"
 added: 2026-05-14T18:48:56+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [organisation, organisational-design, governance, product-management, project-management]
 started: 2026-05-15T03:08:37+00:00
-completed: ~
+completed: 2026-05-15T03:27:08+00:00
 output: []
 cites: [2026-05-14-org-failure-modes-accountability-gaps, 2026-05-14-org-failure-modes-cohort-demand-domain-it]
 related: [2026-04-22-enterprise-ai-platform-operating-models]
@@ -176,8 +176,6 @@ Mode: full.
 - [fact; source: https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/] The global media case supports one visible backlog for all work and explicit capacity awareness across features, incidents, and epics to avoid overload.
 - [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets; https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html; https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/] The strongest supported transition pattern keeps governance at the outcome and capacity-review level while leaving team-level prioritisation and backlog stewardship inside long-lived product teams.
 
-Search note: the seeded Project Management Institute (PMI) Pulse page returned 403 in this environment, so it is listed as identified but not consulted and is not used as evidence.
-
 ### §3 Reasoning
 
 - [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/; https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/] The strongest direct evidence comes from one survey-and-systems-data report and several public enterprise case studies that explicitly discuss funding-model friction during project-to-product transitions.
@@ -206,7 +204,7 @@ Search note: the seeded Project Management Institute (PMI) Pulse page returned 4
 
 Project-based demand governance is repeatedly associated with over-commitment, backlog fragmentation, weak product ownership, and slow feedback loops when the same work is delivered by long-lived product teams. [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://less.works/blog/2026/02/20/project-based-funding-in-product-development; https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/]
 
-The direct evidence is strongest for large-enterprise transition settings, where annual project budgets and project reporting survive after teams have been reorganised around products or value streams. [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/]
+The direct evidence is strongest for large-enterprise transition settings, where annual project budgets and project reporting survive after teams have been reorganised around products or long-lived work flows. [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/]
 
 The recurring mechanism is that project governance keeps budget, approval, and reporting attached to temporary initiatives, while product teams require stable capacity, one ranked backlog, and accountability for defects, risk, architecture, and operations over time. [inference; source: https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html; https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets; https://less.works/blog/2026/02/20/project-based-funding-in-product-development]
 
@@ -280,7 +278,7 @@ Rival remedies also exist, such as preserving project gates but staffing more pr
 
 Project-based demand governance is repeatedly associated with over-commitment, backlog fragmentation, weak product ownership, and slow feedback loops when the same work is delivered by long-lived product teams. [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://less.works/blog/2026/02/20/project-based-funding-in-product-development; https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/]
 
-The direct evidence is strongest in large-enterprise transitions where annual project budgets and project reporting survive after teams have been reorganised around products or value streams. [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/]
+The direct evidence is strongest in large-enterprise transitions where annual project budgets and project reporting survive after teams have been reorganised around products or long-lived work flows. [inference; source: https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf; https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/]
 
 The recurring mechanism is that project governance keeps budget, approval, and reporting attached to temporary initiatives, while product teams require stable capacity, one ranked backlog, and accountability for defects, risk, architecture, and operations over time. [inference; source: https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html; https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets; https://less.works/blog/2026/02/20/project-based-funding-in-product-development]
 
