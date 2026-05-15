@@ -2,12 +2,12 @@
 review_count: 2
 title: "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units"
 added: 2026-05-14T18:48:56+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [organisation, organisational-design, governance, risk-management, financial-governance]
 started: 2026-05-15T03:28:43+00:00
-completed: ~
+completed: 2026-05-15T03:51:07+00:00
 output: [knowledge]
 cites: [2026-05-14-org-failure-modes-accountability-gaps, 2026-05-14-org-failure-modes-project-demand-product-it]
 related: [2026-05-14-org-failure-modes-cohort-demand-domain-it, 2026-04-22-enterprise-ai-platform-operating-models]
