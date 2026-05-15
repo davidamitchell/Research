@@ -954,7 +954,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 63,
+    "item_count": 64,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1270,6 +1270,11 @@
         "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
         "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
         "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
       }
     ],
     "url": "/Research/threads/agentic-ai-governance-llm.html"
@@ -3130,6 +3135,151 @@
     "url": "/Research/threads/agentic-ai-observability-llm.html"
   },
   {
+    "slug": "organisation-governance-workflow",
+    "title": "organisation / governance / workflow",
+    "kind": "implicit",
+    "tag_cluster": [
+      "organisation",
+      "governance",
+      "workflow"
+    ],
+    "concept_cluster": [],
+    "item_count": 26,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
+        "title": "Alternative Continuous Integration and Continuous Delivery pipeline platforms for governing agents built with Microsoft Copilot Studio: Harness, Amazon Web Services CodeBuild and CodeDeploy, and Jenkins",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
+        "title": "Control deficiencies from bypassing designated workforce record platforms",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
+        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
+        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-data-product-ontology",
+        "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
+        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-rag-document-drift-agent-behavior",
+        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+        "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
+        "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-13-agent-process-reliability-architecture",
+        "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
+        "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
+        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
+      }
+    ],
+    "url": "/Research/threads/organisation-governance-workflow.html"
+  },
+  {
     "slug": "ai-governance-agentic-ai-low-code",
     "title": "ai-governance / agentic-ai / low-code",
     "kind": "implicit",
@@ -3410,131 +3560,6 @@
     "url": "/Research/threads/ai-governance-low-code-enterprise-governance.html"
   },
   {
-    "slug": "organisation-workflow-governance",
-    "title": "organisation / workflow / governance",
-    "kind": "implicit",
-    "tag_cluster": [
-      "organisation",
-      "workflow",
-      "governance"
-    ],
-    "concept_cluster": [],
-    "item_count": 22,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
-        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
-        "title": "Control deficiencies from bypassing designated workforce record platforms",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
-        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-12-data-product-ontology",
-        "title": "Data product ontology: definition, adoption, and current relevance",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
-        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-rag-document-drift-agent-behavior",
-        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-        "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-agent-process-reliability-architecture",
-        "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
-        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
-        "added": "2026-05-14"
-      }
-    ],
-    "url": "/Research/threads/organisation-workflow-governance.html"
-  },
-  {
     "slug": "agentic-ai-skills-workflow",
     "title": "agentic-ai / skills / workflow",
     "kind": "implicit",
@@ -3669,7 +3694,7 @@
       "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 19,
+    "item_count": 20,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -3765,6 +3790,11 @@
         "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
         "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
       }
     ],
     "url": "/Research/threads/governance-financial-services-citizen-development.html"
@@ -4075,6 +4105,96 @@
     "url": "/Research/threads/agentic-ai-rag-llm.html"
   },
   {
+    "slug": "organisation-governance-organisational-design",
+    "title": "organisation / governance / organisational-design",
+    "kind": "implicit",
+    "tag_cluster": [
+      "organisation",
+      "governance",
+      "organisational-design"
+    ],
+    "concept_cluster": [],
+    "item_count": 15,
+    "items": [
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-05-01-compound-error-accumulation-ai-codebases",
+        "title": "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-data-product-ontology",
+        "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
+        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
+        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+        "title": "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-accountability-gaps",
+        "title": "Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
+      }
+    ],
+    "url": "/Research/threads/organisation-governance-organisational-design.html"
+  },
+  {
     "slug": "low-code-enterprise-governance-ai-governance",
     "title": "low-code / enterprise-governance / ai-governance",
     "kind": "implicit",
@@ -4343,91 +4463,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-rag-llm.html"
-  },
-  {
-    "slug": "organisation-governance-organisational-design",
-    "title": "organisation / governance / organisational-design",
-    "kind": "implicit",
-    "tag_cluster": [
-      "organisation",
-      "governance",
-      "organisational-design"
-    ],
-    "concept_cluster": [],
-    "item_count": 14,
-    "items": [
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
-        "title": "Enterprise AI platform operating models: organisational structure and ownership",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-05-01-compound-error-accumulation-ai-codebases",
-        "title": "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-12-data-product-ontology",
-        "title": "Data product ontology: definition, adoption, and current relevance",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
-        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
-        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-        "title": "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-accountability-gaps",
-        "title": "Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers",
-        "added": "2026-05-14"
-      }
-    ],
-    "url": "/Research/threads/organisation-governance-organisational-design.html"
   },
   {
     "slug": "agentic-ai-organisational-design-strategy",
@@ -4940,6 +4975,86 @@
     "url": "/Research/threads/agentic-ai-financial-services-regulation.html"
   },
   {
+    "slug": "governance-organisation-knowledge-graph",
+    "title": "governance / organisation / knowledge-graph",
+    "kind": "implicit",
+    "tag_cluster": [
+      "governance",
+      "organisation",
+      "knowledge-graph"
+    ],
+    "concept_cluster": [],
+    "item_count": 13,
+    "items": [
+      {
+        "slug": "2026-03-02-agent-memory-management-context-injection",
+        "title": "Agent Memory Management and Context Injection",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
+        "title": "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-data-product-ontology",
+        "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+        "title": "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+        "title": "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
+        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-13-graph-db-landscape-tco-interoperability",
+        "title": "Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring",
+        "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
+        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
+      }
+    ],
+    "url": "/Research/threads/governance-organisation-knowledge-graph.html"
+  },
+  {
     "slug": "agentic-ai-pbac-prompt-injection",
     "title": "agentic-ai / pbac / prompt-injection",
     "kind": "implicit",
@@ -5098,81 +5213,6 @@
       }
     ],
     "url": "/Research/threads/financial-services-ai-governance-ai-strategy.html"
-  },
-  {
-    "slug": "governance-organisation-knowledge-graph",
-    "title": "governance / organisation / knowledge-graph",
-    "kind": "implicit",
-    "tag_cluster": [
-      "governance",
-      "organisation",
-      "knowledge-graph"
-    ],
-    "concept_cluster": [],
-    "item_count": 12,
-    "items": [
-      {
-        "slug": "2026-03-02-agent-memory-management-context-injection",
-        "title": "Agent Memory Management and Context Injection",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
-        "title": "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-12-data-product-ontology",
-        "title": "Data product ontology: definition, adoption, and current relevance",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-        "title": "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-        "title": "Open Digital Rights Language (ODRL) policies in Knowledge Graphs for software-agent access control and usage governance",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
-        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-13-graph-db-landscape-tco-interoperability",
-        "title": "Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
-        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
-        "added": "2026-05-14"
-      }
-    ],
-    "url": "/Research/threads/governance-organisation-knowledge-graph.html"
   },
   {
     "slug": "financial-services-ai-strategy-agentic-ai",
@@ -6920,13 +6960,13 @@
     "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-claude-code",
-    "title": "copilot coding / coding agent / claude code",
+    "slug": "coding-agent-copilot-coding-claude-code",
+    "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "claude code"
     ],
     "item_count": 5,
@@ -6957,7 +6997,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
     "slug": "cost-allocation-financial-services-tbm-council",
@@ -7000,14 +7040,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -7037,7 +7077,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7075,13 +7115,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -7107,7 +7147,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7290,13 +7330,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
+      "power platform",
       "direct publish"
     ],
     "item_count": 3,
@@ -7317,6 +7357,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   }
 ]

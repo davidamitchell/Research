@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-15T04:25:17Z",
+  "extracted_at": "2026-05-15T04:36:12Z",
   "items": {
     "2026-05-14-org-failure-modes-vendor-standards-gaps": {
       "named_concepts": [
@@ -473,6 +473,99 @@
             "https://www.isaca.org/resources/cobit",
             "https://teamtopologies.com/book",
             "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-citizen-development-rollout-empirical-evidence": {
+      "named_concepts": [
+        "collaboration mechanisms",
+        "adoption barriers",
+        "governance design",
+        "recurring failure",
+        "software quality",
+        "quality tools",
+        "tools outside",
+        "outside formal",
+        "visibility technical",
+        "technical debt",
+        "debt security",
+        "backlog reduction",
+        "enterprise rollout",
+        "local delivery",
+        "governed operating",
+        "strongest accessible",
+        "central standards",
+        "standards technical",
+        "substandard software",
+        "security strain"
+      ],
+      "source_urls": [
+        "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+        "https://www.fernuni-hagen.de/bima/forschung/publikationen/MISQE2024_CitizenDevelopLCNC.shtml",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+        "https://portal.fis.tum.de/en/publications/governing-citizen-development-to-address-low-code-platform-challe/",
+        "https://hdl.handle.net/10125/108890",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+        "https://colab.ws/articles/10.1109%2Faccess.2023.3258539",
+        "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+        "https://research.rtu.lv/en/publications/challenges-of-low-codeno-code-software-development-a-literature-r/",
+        "https://ortus.rtu.lv/science/en/publications/35615",
+        "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+        "https://www.mdpi.com/2076-3417/10/1/12",
+        "https://doi.org/10.1016/j.ifacol.2019.10.060",
+        "https://www.gartner.com/en/documents/3991199",
+        "https://www.forrester.com/report/why-lowcodeno-code-development-is-a-strategic-priority/RES176255"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest accessible empirical studies show that enterprise citizen-development programs succeed when organisations treat them as governed operating models, pairing maker enablement with central standards, technical support, and explicit design choices around security, compliance, and organisational change",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+            "https://hdl.handle.net/10125/108890"
+          ]
+        },
+        {
+          "text": "The available evidence supports faster local solution delivery and broader participation by non-IT staff, but the literature does not yet provide a robust cross-study enterprise effect size for productivity, software quality, backlog reduction, or cost savings",
+          "sources": [
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/"
+          ]
+        },
+        {
+          "text": "Recurring failure modes across the consulted studies include substandard software quality, tools outside formal IT visibility, technical debt, security and compliance strain, and adoption barriers whose severity depends on the surrounding organisational context rather than on the platform alone",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://research.rtu.lv/en/publications/challenges-of-low-codeno-code-software-development-a-literature-r/",
+            "https://colab.ws/articles/10.1109%2Faccess.2023.3258539"
+          ]
+        },
+        {
+          "text": "Successful rollout models repeatedly combine business-user autonomy with structured collaboration mechanisms, including training, ideation intake, coordinated scaling, project execution support, professional catalyst roles, and central review or repository controls",
+          "sources": [
+            "https://hdl.handle.net/10125/108890",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/"
+          ]
+        },
+        {
+          "text": "The best adjacent scale-up evidence indicates that pilot success does not generalize automatically, because enterprise rollout introduces coordination, review, and support burdens that require separate scaling phases and more expert involvement than early local experiments do",
+          "sources": [
+            "https://hdl.handle.net/10125/108890",
+            "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/"
+          ]
+        },
+        {
+          "text": "Taken together with prior completed repository items on governed low-code operating models and systems-capability debt, the empirical literature supports reading citizen-development outcomes as a capability-and-governance problem first and a tooling-choice problem second",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6"
           ]
         }
       ]
