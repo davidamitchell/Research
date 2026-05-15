@@ -1,0 +1,780 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Agent-to-Agent (A2A)-to-tool-calling unification — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Agent-to-Agent (A2A)-to-tool-calling unification</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Agent-to-Agent (A2A)-to-tool-calling unification</h1>
+  <p class="full-title-subtitle">Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems</p>
+  <div class="meta-bar">
+    <span>2026-05-13</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/agent-tooling.html">agent-tooling</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-13-a2a-tool-calling-orchestration-overhead.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-13-a2a-tool-calling-orchestration-overhead" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents">Learn (2025)</a><a class="claim-source-link" href="https://docs.langchain.com/oss/python/langchain/multi-agent" target="_blank" rel="noopener" title="https://docs.langchain.com/oss/python/langchain/multi-agent">LangChain (n.d.)</a><a class="claim-source-link" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank" rel="noopener" title="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview">Anthropic (n.d.)</a></span></li>
+<li>A2A carries protocol-native features that plain tool calling does not natively preserve, including Agent Card discovery, stateful task lifecycle, artifacts, modality negotiation, and async updates for opaque remote services<span class="claim-sources"><a class="claim-source-link" href="https://a2a-protocol.org/latest/specification/" target="_blank" rel="noopener" title="https://a2a-protocol.org/latest/specification/">Project (2025)</a><a class="claim-source-link" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener" title="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Blog (2025)</a></span></li>
+<li>MCP and vendor tool-calling patterns standardise how an Artificial Intelligence (AI) host discovers context primitives or emits callable schemas, but they still model capability access through a host-mediated tool loop rather than through a first-class remote agent contract<span class="claim-sources"><a class="claim-source-link" href="https://modelcontextprotocol.io/docs/concepts/architecture" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/docs/concepts/architecture">Model (n.d.)</a><a class="claim-source-link" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank" rel="noopener" title="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview">Anthropic (n.d.)</a><a class="claim-source-link" href="https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb" target="_blank" rel="noopener" title="https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb">Cookbook (2024)</a></span></li>
+<li>Available public benchmarks suggest that planning quality and coordination topology affect reasoning outcomes more visibly than invocation abstraction, but the absence of a direct A2A-versus-tool benchmark keeps that conclusion provisional<span class="claim-sources"><a class="claim-source-link" href="https://openreview.net/forum?id=Oljnxmf4pc" target="_blank" rel="noopener" title="https://openreview.net/forum?id=Oljnxmf4pc">OpenReview (2026)</a><a class="claim-source-link" href="https://aclanthology.org/2025.acl-long.421/" target="_blank" rel="noopener" title="https://aclanthology.org/2025.acl-long.421/">Zhu et al. (2025)</a></span></li>
+<li>Tool-mediated unification is most likely to preserve or modestly improve reasoning quality in bounded hierarchies because fewer handoffs reduce duplicated context, but it does not solve planner mistakes, poor decomposition, or weak coordination policy<span class="claim-sources"><a class="claim-source-link" href="https://openreview.net/forum?id=Oljnxmf4pc" target="_blank" rel="noopener" title="https://openreview.net/forum?id=Oljnxmf4pc">OpenReview (2026)</a><a class="claim-source-link" href="https://docs.langchain.com/oss/python/langchain/multi-agent" target="_blank" rel="noopener" title="https://docs.langchain.com/oss/python/langchain/multi-agent">LangChain (n.d.)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents">Learn (2025)</a></span></li>
+<li>A specialised A2A layer becomes justified when the system crosses security boundaries, spans independently managed teams or vendors, needs long-running asynchronous tasks, or must preserve remote-agent identity and negotiated capabilities as first-class objects<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents">Learn (2025)</a><a class="claim-source-link" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener" title="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Blog (2025)</a><a class="claim-source-link" href="https://a2a-protocol.org/latest/specification/" target="_blank" rel="noopener" title="https://a2a-protocol.org/latest/specification/">Project (2025)</a></span></li>
+<li>Wrapping remote agents as generic tools can reduce local friction while simultaneously weakening identity and audit visibility, unless machine identity, credential scoping, and delegation metadata are preserved outside the wrapper<span class="claim-sources"><a class="claim-source-link" href="https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx" target="_blank" rel="noopener" title="https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx">Specification (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">Mitchell (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026)</a></span></li>
+<li>The most defensible default is therefore a layered design in which internal specialist capabilities are exposed as tools, while truly independent remote agents keep an A2A boundary only when that boundary carries interoperability or governance value that tool calling would erase<span class="claim-sources"><a class="claim-source-link" href="https://a2a-protocol.org/latest/specification/" target="_blank" rel="noopener" title="https://a2a-protocol.org/latest/specification/">Project (2025)</a><a class="claim-source-link" href="https://docs.langchain.com/oss/python/langchain/multi-agent" target="_blank" rel="noopener" title="https://docs.langchain.com/oss/python/langchain/multi-agent">LangChain (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Mitchell (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>To what extent does unifying specialised Agent-to-Agent (A2A) protocols into a standardised tool-calling interface affect orchestration overhead and reasoning accuracy in hierarchical multi-agent systems?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Unifying specialised Agent-to-Agent (A2A) interactions into tool-calling interfaces usually reduces orchestration overhead for hierarchical multi-agent systems that operate inside one orchestrator and one trust boundary, because it removes extra handoff, lifecycle, and coordination layers while retaining only schema and tool-result costs. The current public benchmark base suggests, but does not directly prove, that planning quality and coordination topology matter more for reasoning outcomes than the specific invocation abstraction, because no consulted source isolates the same hierarchy implemented once with A2A and once with tool wrappers. A2A still earns its overhead when agents are remote, opaque, independently governed, long-running, or multi-modal, because those cases need first-class service discovery, task state, and identity boundaries that plain tool schemas do not preserve. The practical threshold is therefore to default to subagents-as-tools for bounded internal hierarchies and to keep a specialised A2A layer only where interoperability and governance surfaces matter more than minimum latency and token efficiency.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs.</strong></li>
+<li><strong>A2A carries protocol-native features that plain tool calling does not natively preserve, including Agent Card discovery, stateful task lifecycle, artifacts, modality negotiation, and async updates for opaque remote services.</strong></li>
+<li><strong>MCP and vendor tool-calling patterns standardise how an Artificial Intelligence (AI) host discovers context primitives or emits callable schemas, but they still model capability access through a host-mediated tool loop rather than through a first-class remote agent contract.</strong></li>
+<li><strong>Available public benchmarks suggest that planning quality and coordination topology affect reasoning outcomes more visibly than invocation abstraction, but the absence of a direct A2A-versus-tool benchmark keeps that conclusion provisional.</strong></li>
+<li><strong>Tool-mediated unification is most likely to preserve or modestly improve reasoning quality in bounded hierarchies because fewer handoffs reduce duplicated context, but it does not solve planner mistakes, poor decomposition, or weak coordination policy.</strong></li>
+<li><strong>A specialised A2A layer becomes justified when the system crosses security boundaries, spans independently managed teams or vendors, needs long-running asynchronous tasks, or must preserve remote-agent identity and negotiated capabilities as first-class objects.</strong></li>
+<li><strong>Wrapping remote agents as generic tools can reduce local friction while simultaneously weakening identity and audit visibility, unless machine identity, credential scoping, and delegation metadata are preserved outside the wrapper.</strong></li>
+<li><strong>The most defensible default is therefore a layered design in which internal specialist capabilities are exposed as tools, while truly independent remote agents keep an A2A boundary only when that boundary carries interoperability or governance value that tool calling would erase.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> No public source consulted here provides a direct head-to-head benchmark of the same hierarchy implemented once with A2A and once with tool wrappers. <strong>Justification:</strong> the available public evidence separates protocol capabilities and orchestration outcomes, but not in one controlled A2A-versus-tool study.</li>
+<li><strong>Assumption:</strong> Framework documentation is reliable enough to support directional overhead claims even though it is vendor-authored rather than independently benchmarked. <strong>Justification:</strong> the documents expose concrete execution patterns and quantified examples that align with each other on the direction of overhead effects.</li>
+<li><strong>Assumption:</strong> Vendor tool-calling semantics are close enough across OpenAI and Anthropic to support abstraction-level comparison. <strong>Justification:</strong> both document schema-driven call generation with client-side execution responsibility and separate tool-result return steps.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The strongest evidence does not support a blanket claim that A2A harms reasoning or that tool calling improves it automatically. Instead, the evidence supports a layered interpretation: A2A adds service-boundary semantics, while tool calling optimises invocation efficiency inside a host-controlled loop. That means the cost question is easier than the accuracy question, because public framework documentation consistently shows that extra handoffs and repeated context raise latency and token load, whereas accuracy improves only when the added structure produces better planning or better context isolation. A rival interpretation is that richer remote-agent autonomy could improve quality by preserving specialist context and ownership, and the A2A documents support that value proposition for cross-vendor and long-running work. The deciding factor is therefore boundary placement: if the remote-agent boundary encodes real interoperability, ownership, or governance requirements, keep it; if it only reproduces internal delegation that one orchestrator could express as a tool, the A2A layer is mostly overhead.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Public evidence still lacks a controlled benchmark that holds task set, planner, and specialist capabilities constant while swapping only A2A versus tool-calling transport.</li>
+<li>Some overhead evidence comes from framework documentation rather than peer-reviewed experiments, so the direction of the trade-off is well supported but the exact magnitude should be treated as implementation-specific.</li>
+<li>Governance claims are strongest for identity and authorization surfaces, but public sources do not yet quantify how much auditability is lost in production when remote agents are wrapped as tools.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Would a controlled benchmark that keeps the same planner and specialist models but swaps only A2A versus tool wrappers show a measurable reasoning difference beyond latency and token cost?</li>
+<li>Which telemetry schema best preserves delegation-chain evidence when an A2A service is intentionally exposed as a tool inside another orchestrator?</li>
+<li>At what point does async task state, human approval, or modality negotiation become frequent enough that an A2A boundary is cheaper than rebuilding those features ad hoc in tool wrappers?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Google Developers Blog (2025) A2A: A new era of agent interoperability</a></li>
+<li>[x] <a href="https://a2a-protocol.org/latest/specification/">A2A Project (2025) Agent2Agent Protocol Specification</a></li>
+<li>[x] <a href="https://www.anthropic.com/news/model-context-protocol">Anthropic (2024) Introducing the Model Context Protocol</a></li>
+<li>[x] <a href="https://modelcontextprotocol.io/introduction">Model Context Protocol Docs Introduction</a></li>
+<li>[x] <a href="https://modelcontextprotocol.io/docs/concepts/architecture">Model Context Protocol Docs Architecture</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx">Model Context Protocol Specification (2025) Authorization</a></li>
+<li>[x] <a href="https://www.rfc-editor.org/rfc/rfc9110">Internet Engineering Task Force (2022) Hypertext Transfer Protocol (HTTP) Semantics</a></li>
+<li>[x] <a href="https://www.jsonrpc.org/specification">JSON-RPC Working Group (2013) JavaScript Object Notation Remote Procedure Call (JSON-RPC) 2.0 Specification</a></li>
+<li>[ ] <a href="https://platform.openai.com/docs/guides/function-calling">OpenAI Platform Docs Function Calling</a></li>
+<li>[x] <a href="https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb">OpenAI Cookbook (2024) How to call functions with chat models</a></li>
+<li>[x] <a href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview">Anthropic Docs Tool Use Overview</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2308.08155">Wu et al. (2023) AutoGen: Enabling Next-Gen Large Language Model (LLM) Applications via Multi-Agent Conversation</a></li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents">Microsoft Learn (2025) Choosing Between Building a Single-Agent System or Multi-Agent System</a></li>
+<li>[x] <a href="https://docs.langchain.com/oss/python/langchain/multi-agent">LangChain Docs Multi-agent</a></li>
+<li>[x] <a href="https://aclanthology.org/2025.acl-long.421/">Zhu et al. (2025) MultiAgentBench: Evaluating the Collaboration and Competition of Large Language Model (LLM) agents</a></li>
+<li>[x] <a href="https://openreview.net/forum?id=Oljnxmf4pc">OpenReview (2026) OrchestrationBench: Large Language Model-Driven Agentic Planning and Tool Use in Multi-Domain Real-World Scenarios</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Mitchell (2026) Application Programming Interface Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">Mitchell (2026) How do Open Authorization (OAuth) 2.0, OpenID Connect, and Secure Production Identity Framework for Everyone (SPIFFE) token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">Mitchell (2026) What identity and access management model is required for Artificial Intelligence agents and low-code artefacts operating within enterprise systems?</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html">Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation</a> <span class="related-note">via agentic-ai, governance, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.html">How does STORM&#39;s perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?</a> <span class="related-note">via agent-tooling, agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html">What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?</a> <span class="related-note">via agent-tooling, agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-automated-claim-verification-academic-literature.html">What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?</a> <span class="related-note">via agent-tooling, agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-02-adversarial-review-methods-ai-research-quality.html">What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?</a> <span class="related-note">via agent-tooling, agentic-ai, llm, workflow</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-13-agent-process-reliability-architecture.html">Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html">Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-23-agent-orchestration-anvil-max.html">Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland&#39;s multi-model orchestration gist</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-14</td><td><a href="https://github.com/davidamitchell/Research/commit/7019685d5f3fd77d3ce46023e745d8d379eb1357" target="_blank" rel="noopener">7019685</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html">Graph database landscape</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-12-rag-document-drift-agent-behavior.html">When Retrieval-Augmented Generation source documents change after agent build…</a></div>
+  </div>
+</main>
+</body>
+</html>

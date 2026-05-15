@@ -1,6 +1,1249 @@
 {
-  "extracted_at": "2026-05-14T09:11:04Z",
+  "extracted_at": "2026-05-15T19:40:17Z",
   "items": {
+    "2026-05-14-promptql-definition-foundations-related-technologies": {
+      "named_concepts": [
+        "semantic metadata",
+        "metadata layer",
+        "materials describe",
+        "enterprise natural-language-to-sql",
+        "consulted public",
+        "public promptql",
+        "promptql materials",
+        "public design",
+        "query plans",
+        "reusable artifacts",
+        "messy enterprise",
+        "deterministic execution",
+        "plans artifacts",
+        "domain learning",
+        "technical priorities",
+        "promptql aligns",
+        "ambiguity schema",
+        "constrained plan-and-runtime",
+        "plan-and-runtime surface",
+        "layered context"
+      ],
+      "source_urls": [
+        "https://www.promptql.io/",
+        "https://promptql.io/docs/index/",
+        "https://promptql.io/docs/architecture/",
+        "https://promptql.io/docs/capabilities/",
+        "https://promptql.io/docs/quickstart/",
+        "https://promptql.io/docs/decision-making/",
+        "https://promptql.io/research",
+        "https://arxiv.org/abs/2210.03629",
+        "https://arxiv.org/abs/2109.05093",
+        "https://arxiv.org/abs/2304.08354",
+        "https://arxiv.org/abs/2408.05109",
+        "https://arxiv.org/abs/2406.01265",
+        "https://arxiv.org/abs/2506.01273",
+        "https://docs.langchain.com/oss/python/langchain/sql-agent",
+        "https://docs.langchain.com/oss/python/langgraph/sql-agent",
+        "https://docs.anthropic.com/en/docs/agents-and-tools/mcp",
+        "https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/",
+        "https://devblogs.microsoft.com/ise/llm-sql-query-generation/",
+        "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+        "https://arxiv.org/abs/2404.16130",
+        "https://blog.grayscale.vc/promptql-agenticsummitblr/",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-context-compression-rag-enterprise-knowledge.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-cross-item-synthesis-knowledge-map-architecture.html"
+      ],
+      "key_claims": [
+        {
+          "text": "PromptQL's official materials describe it as an AI platform for natural-language analysis and automation over enterprise data that uses semantic metadata, editable query plans, reusable artifacts, and deterministic execution outside the model",
+          "sources": [
+            "https://promptql.io/docs/index/",
+            "https://promptql.io/docs/architecture/",
+            "https://promptql.io/docs/capabilities/",
+            "https://promptql.io/docs/quickstart/",
+            "https://www.promptql.io/"
+          ]
+        },
+        {
+          "text": "PromptQL is presented with one surface for business users and another for builders, because the playground exposes plans, artifacts, and reliability signals while the platform is also offered through application programming interfaces and automations",
+          "sources": [
+            "https://promptql.io/docs/quickstart/",
+            "https://promptql.io/docs/decision-making/",
+            "https://www.promptql.io/"
+          ]
+        },
+        {
+          "text": "PromptQL's public research page names a continuously updated domain learning layer and a human-readable deterministic Domain-Specific Language, which supports the inference that semantic grounding and constrained execution are its main technical priorities",
+          "sources": [
+            "https://promptql.io/research"
+          ]
+        },
+        {
+          "text": "PromptQL aligns most closely with current text-to-SQL and natural-language-to-SQL research, because it inherits the same unresolved problems around ambiguity, schema mapping, domain context, validation, and production robustness documented in recent surveys and enterprise deployments",
+          "sources": [
+            "https://arxiv.org/abs/2408.05109",
+            "https://arxiv.org/abs/2406.01265",
+            "https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/",
+            "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+            "https://devblogs.microsoft.com/ise/llm-sql-query-generation/"
+          ]
+        },
+        {
+          "text": "PromptQL also fits the reasoning-plus-tool-use lineage represented by ReAct, tool-learning surveys, and interactive SQL exploration agents, but its public design narrows that lineage into a constrained plan-and-runtime surface instead of open-ended orchestration",
+          "sources": [
+            "https://arxiv.org/abs/2210.03629",
+            "https://arxiv.org/abs/2304.08354",
+            "https://arxiv.org/abs/2506.01273",
+            "https://promptql.io/docs/architecture/",
+            "https://promptql.io/research"
+          ]
+        },
+        {
+          "text": "PromptQL's semantic metadata layer also places it near graph-backed or layered context systems, because those approaches similarly help agents navigate relationships, business rules, and structure across multiple data sources",
+          "sources": [
+            "https://promptql.io/docs/architecture/",
+            "https://promptql.io/docs/capabilities/",
+            "https://arxiv.org/abs/2404.16130",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        },
+        {
+          "text": "PromptQL should be evaluated against four adjacent categories, generic SQL agents, enterprise natural-language-to-SQL stacks, Model Context Protocol tool-composition systems, and graph-backed Retrieval-Augmented Generation systems, because each one covers a different portion of PromptQL's claimed surface",
+          "sources": [
+            "https://docs.langchain.com/oss/python/langchain/sql-agent",
+            "https://docs.langchain.com/oss/python/langgraph/sql-agent",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/mcp",
+            "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+            "https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/",
+            "https://arxiv.org/abs/2404.16130"
+          ]
+        },
+        {
+          "text": "The consulted public PromptQL materials describe the architecture and research agenda, but they do not include independent benchmarks comparing that combined design against alternative systems on messy enterprise data",
+          "sources": [
+            "https://promptql.io/research",
+            "https://promptql.io/docs/index/",
+            "https://www.promptql.io/"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-org-failure-modes-vendor-standards-gaps": {
+      "named_concepts": [
+        "technical debt",
+        "shared-service programs",
+        "continuous compliance",
+        "skew toward",
+        "control failures",
+        "isolated delivery",
+        "accountability gaps",
+        "split incentives",
+        "vendor standards",
+        "standards fail",
+        "supplier lifecycle",
+        "common standards",
+        "controlled exit",
+        "weak enforcement",
+        "information-security noncompliance",
+        "morgan stanley",
+        "create technical",
+        "migration processes",
+        "supplier governance",
+        "outsourced maintenance"
+      ],
+      "source_urls": [
+        "https://www.gartner.com/en/information-technology/topics/vendor-risk-management",
+        "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final",
+        "https://www.pearson.com/en-us/subject-catalog/p/software-architecture-in-practice/P200000000537",
+        "https://www.nist.gov/publications/case-studies-cyber-supply-chain-risk-management-summary-findings-and-recommendations",
+        "https://www.nist.gov/news-events/news/2021/02/nist-shares-key-practices-cyber-supply-chain-risk-management-based",
+        "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-134.html",
+        "https://qa.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Auditors-Office/Audit-Services/Audit-Reports/Information-Technology-Vendor-Management",
+        "https://www.nao.org.uk/reports/government-shared-services/",
+        "https://www.gov.uk/government/publications/data-standards-authority-operational-model-and-processes/data-standards-authority-operational-model-and-processes",
+        "https://www.jmis-web.org/articles/1510",
+        "https://wjarr.com/content/third-party-vendor-risks-it-security-comprehensive-audit-review-and-mitigation-strategies",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Multi-vendor and shared-service programs without sufficiently specific common standards repeatedly fail to achieve process convergence, measured benefits, or reliable value-for-money outcomes",
+          "sources": [
+            "https://www.nao.org.uk/reports/government-shared-services/",
+            "https://www.gov.uk/government/publications/data-standards-authority-operational-model-and-processes/data-standards-authority-operational-model-and-processes"
+          ]
+        },
+        {
+          "text": "Vendor-management standards that are not operationalised into approved structure, security review, service-level monitoring, and separation procedures leave buyers unable to show continuous compliance or controlled exit activity",
+          "sources": [
+            "https://qa.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Auditors-Office/Audit-Services/Audit-Reports/Information-Technology-Vendor-Management",
+            "https://wjarr.com/content/third-party-vendor-risks-it-security-comprehensive-audit-review-and-mitigation-strategies"
+          ]
+        },
+        {
+          "text": "Weak enforcement of existing standards can escalate into explicit information-security noncompliance, as shown by Morgan Stanley's failed oversight of vendor-led decommissioning, deficient due diligence, and poor data inventory controls",
+          "sources": [
+            "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-134.html"
+          ]
+        },
+        {
+          "text": "In outsourced enterprise-systems maintenance, violations of established standards create technical debt that is empirically harder to remediate, especially when migration processes away from debt-laden platforms have not been defined",
+          "sources": [
+            "https://www.jmis-web.org/articles/1510"
+          ]
+        },
+        {
+          "text": "Supplier governance that stops at onboarding leaves organisations exposed during operation, incident response, and retirement, because the NIST-derived practice set used in this item requires monitoring throughout the supplier relationship and planning for the full life cycle",
+          "sources": [
+            "https://www.nist.gov/news-events/news/2021/02/nist-shares-key-practices-cyber-supply-chain-risk-management-based",
+            "https://www.nist.gov/publications/case-studies-cyber-supply-chain-risk-management-summary-findings-and-recommendations"
+          ]
+        },
+        {
+          "text": "The dominant symptom varies by engagement model: shared-service and Enterprise Resource Planning (ERP) programs skew toward integration and benefits failures, outsourced maintenance arrangements skew toward technical debt, and managed-service or decommissioning arrangements skew toward security and exit-control failures",
+          "sources": [
+            "https://www.nao.org.uk/reports/government-shared-services/",
+            "https://www.jmis-web.org/articles/1510",
+            "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-134.html"
+          ]
+        },
+        {
+          "text": "The remedy pattern supported across audits, standards bodies, and adjacent repository items is a governance stack of one accountable owner, explicit contractual requirements, continuous compliance evidence, and controlled vendor exit, rather than discretionary exception handling",
+          "sources": [
+            "https://qa.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Auditors-Office/Audit-Services/Audit-Reports/Information-Technology-Vendor-Management",
+            "https://www.nist.gov/news-events/news/2021/02/nist-shares-key-practices-cyber-supply-chain-risk-management-based",
+            "https://www.gov.uk/government/publications/data-standards-authority-operational-model-and-processes/data-standards-authority-operational-model-and-processes",
+            "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability": {
+      "named_concepts": [
+        "risk cost",
+        "split accountability",
+        "benefits ownership",
+        "one accountable",
+        "outcomes management",
+        "separate risk",
+        "benefit ownership",
+        "strongest supported",
+        "supported mitigation",
+        "accountability framework",
+        "risk operating",
+        "operating cost",
+        "close trade-offs",
+        "delayed commitments",
+        "delivery ownership",
+        "ownership produces",
+        "produces weak",
+        "local operators",
+        "cost shifting",
+        "liability transfer"
+      ],
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/0304405X7690026X",
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=20375",
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=9691",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+        "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf",
+        "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+        "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html",
+        "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "When risk, operating cost, and benefits are owned by different units, programmes repeatedly lose the one actor who can close trade-offs, so governance expands into duplicated boards, delayed commitments, and reversible decisions rather than decisive action",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf"
+          ]
+        },
+        {
+          "text": "Benefit ownership separated from cost and delivery ownership produces weak investment cases, because central sponsors keep benefits qualitative or unmeasured while local operators face specific budget, transition, and service burdens that are easier to see and harder to ignore",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Split accountability makes cost shifting and liability transfer normal operating behaviour, with central programmes omitting local transition costs and local units later inheriting onboarding, compatibility, support, or transfer obligations they did not fully price into the original decision",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Risk management weakens when the actor naming the risk does not control delivery and spend, which shows up empirically as ownerless risk-register items, persistent backlogs, continuing customisations, and slow corrective action even after the problem is well understood",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2022/11/government-shared-services.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Severity rises in multi-function or multi-organisation settings where one function can lag or opt out of standards, because the full-system benefit depends on the slowest function even when finance, technology, or another domain is already prepared to move",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf"
+          ]
+        },
+        {
+          "text": "Handover points are a distinctive failure surface under split accountability, because unresolved questions about benefits reporting, financial liability, technical standards, and service-transfer cost emerge exactly when operational responsibility changes hands",
+          "sources": [
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf"
+          ]
+        },
+        {
+          "text": "The best-supported mitigations converge on integrated decision rights, one accountable office, explicit outcomes management, and funded support for participating units, rather than on adding more oversight layers to the same fragmented structure",
+          "sources": [
+            "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://www.nao.org.uk/wp-content/uploads/2026/03/update-on-government-shared-services.pdf"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-org-failure-modes-project-demand-product-it": {
+      "named_concepts": [
+        "product teams",
+        "one backlog",
+        "project-based demand",
+        "weak product",
+        "annual project",
+        "build-and-run teams",
+        "outcome reviews",
+        "team capacity",
+        "product ownership",
+        "feedback loops",
+        "long-lived product",
+        "large-enterprise transitions",
+        "defects risk",
+        "strongest supported",
+        "supported mitigation",
+        "continuously funded",
+        "funded build-and-run",
+        "project budgeting",
+        "technical debt",
+        "business cases"
+      ],
+      "source_urls": [
+        "https://projecttoproduct.org/",
+        "https://teamtopologies.com/book",
+        "https://teamtopologies.com/key-concepts",
+        "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum",
+        "https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf",
+        "https://itrevolution.com/accelerate-book/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/",
+        "https://itrevolution.com/articles/project-to-product-transformation-case-study-fortune-100-retail-enterprise/",
+        "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+        "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+        "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+        "https://less.works/blog/2026/02/20/project-based-funding-in-product-development",
+        "https://www.infoq.com/news/2017/11/products-vs-projects/",
+        "https://www.pmi.org/learning/thought-leadership/pulse"
+      ],
+      "key_claims": [
+        {
+          "text": "Annual project budgeting creates a demand-capacity mismatch for product teams, because it approves work in large planned batches while stable teams can only absorb work through bounded ongoing capacity and re-prioritisation",
+          "sources": [
+            "https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf",
+            "https://itrevolution.com/articles/funding-model-the-seven-domains-of-transformation/",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets"
+          ]
+        },
+        {
+          "text": "When project identifiers remain attached to backlog items, the product backlog becomes a negotiated merge of project claims, incidents, and technical debt instead of a single ranked view of product value",
+          "sources": [
+            "https://less.works/blog/2026/02/20/project-based-funding-in-product-development",
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+            "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum"
+          ]
+        },
+        {
+          "text": "Project-governed product teams lose ownership quality because new-feature business cases crowd out defect fixing, incident reduction, risk work, and technical-debt reduction that long-lived product stewardship requires",
+          "sources": [
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+            "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum",
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html"
+          ]
+        },
+        {
+          "text": "Hybrid project and product rules recreate matrix-style decision conflict, because project sponsors, finance gates, and line managers continue competing to direct the same team capacity that the product team is supposed to own",
+          "sources": [
+            "https://less.works/blog/2026/02/20/project-based-funding-in-product-development",
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md"
+          ]
+        },
+        {
+          "text": "Release speed and customer feedback slow down under the mismatch, because project milestones and cross-team coordination preserve large-batch delivery and reduce the autonomy that high-performing product teams need",
+          "sources": [
+            "https://teamtopologies.com/news-blogs-newsletters/2024/10/18/shifting-from-projects-to-products-insights-from-our-open-forum",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-cohort-demand-domain-it.md"
+          ]
+        },
+        {
+          "text": "Team stability improves only partially when organisations rename teams as products, because project-based demand still encourages stop-start funding, role ambiguity, and pressure to reshape capacity around the next approved initiative",
+          "sources": [
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-fortune-100-retail-enterprise/"
+          ]
+        },
+        {
+          "text": "The strongest evidenced mitigation is to move governance up to outcome and capacity review, keep one visible backlog for all work, and continuously fund build-and-run teams instead of funding temporary project slices",
+          "sources": [
+            "https://info.planview.com/rs/456-QCH-520/images/Planview_2023-Project-to-Product-State-of-the-Industry-Report.pdf",
+            "https://itrevolution.com/articles/project-to-product-transformation-case-study-global-media-service-provider/",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+            "https://less.works/blog/2026/02/20/project-based-funding-in-product-development"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-org-failure-modes-cohort-demand-domain-it": {
+      "named_concepts": [
+        "customer cohorts",
+        "cohort initiative",
+        "domain teams",
+        "delivery teams",
+        "end-to-end ownership",
+        "best-supported mitigation",
+        "outcome ownership",
+        "value streams",
+        "service providers",
+        "every cohort",
+        "initiative becomes",
+        "dependency-managed integration",
+        "integration effort",
+        "queueing handoffs",
+        "consulted cases",
+        "percent waste",
+        "wait time",
+        "tightly coupled",
+        "coupled environments",
+        "lead times"
+      ],
+      "source_urls": [
+        "https://teamtopologies.com/book",
+        "https://teamtopologies.com/key-concepts",
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://itrevolution.com/accelerate-book/",
+        "https://aisel.aisnet.org/icis2020/is_development/is_development/5/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html",
+        "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/",
+        "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+        "https://www.mindtheproduct.com/how-we-transformed-ych-blue-digital-limited-structure-from-matrix-to-product-based/",
+        "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/",
+        "https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/"
+      ],
+      "key_claims": [
+        {
+          "text": "When customer-cohort demand is routed through separate identity, payments, product-data, or other domain teams, each cohort initiative becomes a dependency-managed integration effort rather than an end-to-end customer change, because the primary delivery teams do not own the whole flow",
+          "sources": [
+            "https://teamtopologies.com/key-concepts",
+            "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        },
+        {
+          "text": "Queueing, handoffs, and long wait states recur across the consulted cases, including one 42-team component-team transformation that reported 97 percent waste or wait time and DORA evidence that tightly coupled environments drive lead times measured in weeks or months",
+          "sources": [
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        },
+        {
+          "text": "Priority disputes and slow decisions emerge because customer-side managers optimise segment outcomes while domain or functional managers optimise local capacity and architecture, recreating matrix-style escalation patterns with ambiguous authority over the same work",
+          "sources": [
+            "https://www.mindtheproduct.com/how-we-transformed-ych-blue-digital-limited-structure-from-matrix-to-product-based/",
+            "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/",
+            "https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/"
+          ]
+        },
+        {
+          "text": "End-to-end ownership becomes blurred even when every component has an owner, because component ownership does not automatically supply a single accountable owner for the customer outcome that crosses those components",
+          "sources": [
+            "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md",
+            "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/"
+          ]
+        },
+        {
+          "text": "The mismatch hardens into the software and release process, so customer changes inherit architecture seams, integrated-test dependencies, and big-bang coordination costs instead of moving through an independently deployable value stream",
+          "sources": [
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        },
+        {
+          "text": "The pain increases with scale and requirement complexity, since the coordination value of feature teams rises in complex environments while larger organisations add more backlogs, interfaces, and service bottlenecks for each customer-facing change",
+          "sources": [
+            "https://aisel.aisnet.org/icis2020/is_development/is_development/5/",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/"
+          ]
+        },
+        {
+          "text": "The best-supported mitigation is to make customer cohorts or other value streams the primary ownership boundary, while domain teams act as platform or complicated-subsystem service providers with clear decision rights and explicit interfaces",
+          "sources": [
+            "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html",
+            "https://teamtopologies.com/key-concepts",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/",
+            "https://itrevolution.com/articles/team-topologies-five-years-of-transforming-organizations/"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-org-failure-modes-accountability-gaps": {
+      "named_concepts": [
+        "decision rights",
+        "consequential decision",
+        "team topologies",
+        "governance objectives",
+        "information technology",
+        "delivery layer",
+        "unresolved issues",
+        "backlog growth",
+        "strongest supported",
+        "supported remedy",
+        "outcome together",
+        "documented cross-party",
+        "cross-party roles",
+        "benefit ownership",
+        "accountability failure",
+        "failure appears",
+        "delay notices",
+        "legacy-system complexity",
+        "failure pattern",
+        "explicit accountable"
+      ],
+      "source_urls": [
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=20375",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://www.isaca.org/resources/cobit",
+        "https://teamtopologies.com/book",
+        "https://scielo.org.za/scielo.php?script=sci_arttext&pid=S1560-683X2019000100011",
+        "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+        "https://www.nao.org.uk/reports/the-national-programme-for-it-in-the-nhs-an-update-on-the-delivery-of-detailed-care-records-systems/",
+        "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+        "https://files.gao.gov/reports/GAO-25-107795/index.html",
+        "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf",
+        "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Where strategic accountability is overlapping or absent, organisations repeatedly lose decision speed and benefit ownership because no single senior actor can settle trade-offs across cost, scope, liability, and local implementation constraints",
+          "sources": [
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html"
+          ]
+        },
+        {
+          "text": "At the information technology delivery layer, accountability failure appears as concrete operational symptoms such as delay notices, unresolved open issues, backlog growth, and modernization work that cannot close cleanly",
+          "sources": [
+            "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+            "https://files.gao.gov/reports/GAO-25-107795/index.html",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Shared-service and outsourced operating models are especially vulnerable because authority, contractual control, operational work, and consequences are split across organisations unless hand-offs and escalation rights are deliberately specified",
+          "sources": [
+            "https://scielo.org.za/scielo.php?script=sci_arttext&pid=S1560-683X2019000100011",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "The most severe retrieved cases combine strategic-layer ambiguity with delivery-layer ambiguity alongside legacy-system complexity, contractual friction, or scope expansion, producing a coupled failure pattern in which programmes keep spending money while scope shrinks, liabilities stay unclear, and realised benefits lag far behind plan",
+          "sources": [
+            "https://www.nao.org.uk/reports/the-national-programme-for-it-in-the-nhs-an-update-on-the-delivery-of-detailed-care-records-systems/",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+            "https://www.canada.ca/content/dam/oag-bvg/audit-reports/documents/ag-202603-modernizing-pay-system.pdf"
+          ]
+        },
+        {
+          "text": "Finger-pointing and decision paralysis are structural consequences of duplicated authority or missing ownership, because each actor can rationally defer hard choices to another boundary",
+          "sources": [
+            "https://www.parliament.qld.gov.au/Work-of-the-Assembly/Tabled-Papers/docs/5413t3240/5413t3240.pdf",
+            "https://www.nao.org.uk/wp-content/uploads/2011/05/1012888.pdf",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        },
+        {
+          "text": "The strongest evidenced intervention is explicit accountable ownership for each consequential decision or outcome, together with documented cross-party roles, transition responsibilities, and escalation paths",
+          "sources": [
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://www.canada.ca/en/treasury-board-secretariat/corporate/reports/lessons-learned-transformation-pay-administration-initiative.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html"
+          ]
+        },
+        {
+          "text": "Control Objectives for Information and Related Technologies and Team Topologies provide usable vocabularies for naming governance objectives, role boundaries, and team interfaces after accountable owners have been defined",
+          "sources": [
+            "https://www.isaca.org/resources/cobit",
+            "https://teamtopologies.com/book",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-endsley-model-situational-awareness-deep-dive": {
+      "named_concepts": [
+        "situational awareness",
+        "highly automated",
+        "human factors",
+        "direct objective",
+        "endsley model",
+        "official oversight",
+        "enterprise oversight",
+        "three-level model",
+        "model remains",
+        "automation bias",
+        "single situational-awareness",
+        "situational-awareness score",
+        "verification behaviour",
+        "awareness improves",
+        "review quality",
+        "automated systems",
+        "accurate situational",
+        "sensor fusion",
+        "situational-awareness models",
+        "complex socio-technical"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1518/001872095779049543",
+        "https://bura.brunel.ac.uk/handle/2438/1422",
+        "https://pubmed.ncbi.nlm.nih.gov/31560575/",
+        "https://www.diva-portal.org/smash/record.jsf?pid=diva2:479674",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://link.springer.com/article/10.1007/s00146-025-02422-7",
+        "https://arxiv.org/abs/2308.16785",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10142809/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+      ],
+      "key_claims": [
+        {
+          "text": "The Endsley model still anchors human factors work because it decomposes situational awareness into perception, comprehension, and projection, and later reviews treat that three-level structure as the dominant conceptual basis for measurement and interface evaluation",
+          "sources": [
+            "https://bura.brunel.ac.uk/handle/2438/1422",
+            "https://pubmed.ncbi.nlm.nih.gov/31560575/"
+          ]
+        },
+        {
+          "text": "Human factors literature operationalises the model through several measurement families, especially SAGAT freeze probes, SPAM real-time probes, SART subjective ratings, and observer assessments, but review work recommends combining methods because no single measure captures complex team environments well enough on its own",
+          "sources": [
+            "https://bura.brunel.ac.uk/handle/2438/1422",
+            "https://pubmed.ncbi.nlm.nih.gov/31560575/"
+          ]
+        },
+        {
+          "text": "The strongest current direct-measure evidence appears to favour SAGAT, because Endsley's 2021 meta-analysis found it more sensitive than SPAM and free of several confounds that affect real-time probe methods, even though both predict performance",
+          "sources": [
+            "https://pubmed.ncbi.nlm.nih.gov/31560575/"
+          ]
+        },
+        {
+          "text": "Recent AI-assisted decision-support evidence suggests that situational awareness improves oversight quality only when the interface and workflow sustain active verification, since error briefings and less aggregated evidence improve review quality more reliably than generic reminders of reviewer responsibility",
+          "sources": [
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+            "https://link.springer.com/article/10.1007/s00146-025-02422-7"
+          ]
+        },
+        {
+          "text": "Highly automated systems still require accurate situational awareness for safe decisions, and the technical challenge rises because context is assembled through sensor fusion, model inference, and rapidly changing machine behaviour rather than through a stable human-observable operating picture",
+          "sources": [
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10142809/",
+            "https://arxiv.org/abs/2308.16785"
+          ]
+        },
+        {
+          "text": "The main theoretical limitation for oversight evaluation is that classical situational-awareness models are primarily individual-centred, while team and distributed-cognition critiques argue that effective oversight in complex socio-technical systems is distributed across people, artefacts, and coordination practices",
+          "sources": [
+            "https://www.diva-portal.org/smash/record.jsf?pid=diva2:479674",
+            "https://bura.brunel.ac.uk/handle/2438/1422",
+            "https://arxiv.org/abs/2308.16785"
+          ]
+        },
+        {
+          "text": "Official oversight guidance supports a limited-scope reading of the model, because regulators require understanding system limits and outputs while also requiring override rights, stop capability, competent staffing, monitoring, logs, independence, and manageable caseload",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "Compared with prior repository work, the evidence here suggests that queue pressure and weak governance often erode Level 2 comprehension and Level 3 projection before they eliminate nominal human sign-off",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full"
+          ]
+        }
+      ]
+    },
+    "2026-05-14-citizen-development-rollout-empirical-evidence": {
+      "named_concepts": [
+        "collaboration mechanisms",
+        "adoption barriers",
+        "governance design",
+        "recurring failure",
+        "software quality",
+        "quality tools",
+        "tools outside",
+        "outside formal",
+        "visibility technical",
+        "technical debt",
+        "debt security",
+        "backlog reduction",
+        "enterprise rollout",
+        "local delivery",
+        "governed operating",
+        "strongest accessible",
+        "central standards",
+        "standards technical",
+        "substandard software",
+        "security strain"
+      ],
+      "source_urls": [
+        "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+        "https://www.fernuni-hagen.de/bima/forschung/publikationen/MISQE2024_CitizenDevelopLCNC.shtml",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+        "https://portal.fis.tum.de/en/publications/governing-citizen-development-to-address-low-code-platform-challe/",
+        "https://hdl.handle.net/10125/108890",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+        "https://colab.ws/articles/10.1109%2Faccess.2023.3258539",
+        "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+        "https://research.rtu.lv/en/publications/challenges-of-low-codeno-code-software-development-a-literature-r/",
+        "https://ortus.rtu.lv/science/en/publications/35615",
+        "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+        "https://www.mdpi.com/2076-3417/10/1/12",
+        "https://doi.org/10.1016/j.ifacol.2019.10.060",
+        "https://www.gartner.com/en/documents/3991199",
+        "https://www.forrester.com/report/why-lowcodeno-code-development-is-a-strategic-priority/RES176255"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest accessible empirical studies show that enterprise citizen-development programs succeed when organisations treat them as governed operating models, pairing maker enablement with central standards, technical support, and explicit design choices around security, compliance, and organisational change",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+            "https://hdl.handle.net/10125/108890"
+          ]
+        },
+        {
+          "text": "The available evidence supports faster local solution delivery and broader participation by non-IT staff, but the literature does not yet provide a robust cross-study enterprise effect size for productivity, software quality, backlog reduction, or cost savings",
+          "sources": [
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/"
+          ]
+        },
+        {
+          "text": "Recurring failure modes across the consulted studies include substandard software quality, tools outside formal IT visibility, technical debt, security and compliance strain, and adoption barriers whose severity depends on the surrounding organisational context rather than on the platform alone",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://research.rtu.lv/en/publications/challenges-of-low-codeno-code-software-development-a-literature-r/",
+            "https://colab.ws/articles/10.1109%2Faccess.2023.3258539"
+          ]
+        },
+        {
+          "text": "Successful rollout models repeatedly combine business-user autonomy with structured collaboration mechanisms, including training, ideation intake, coordinated scaling, project execution support, professional catalyst roles, and central review or repository controls",
+          "sources": [
+            "https://hdl.handle.net/10125/108890",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/"
+          ]
+        },
+        {
+          "text": "The best adjacent scale-up evidence indicates that pilot success does not generalize automatically, because enterprise rollout introduces coordination, review, and support burdens that require separate scaling phases and more expert involvement than early local experiments do",
+          "sources": [
+            "https://hdl.handle.net/10125/108890",
+            "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/"
+          ]
+        },
+        {
+          "text": "Taken together with prior completed repository items on governed low-code operating models and systems-capability debt, the empirical literature supports reading citizen-development outcomes as a capability-and-governance problem first and a tooling-choice problem second",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6"
+          ]
+        }
+      ]
+    },
+    "2026-05-13-graph-db-landscape-tco-interoperability": {
+      "named_concepts": [
+        "neo4j auradb",
+        "aws-native dual-model",
+        "semantic interoperability",
+        "ecosystem depth",
+        "stardog cloud",
+        "amazon neptune",
+        "small-team total",
+        "total cost",
+        "accessible current",
+        "ontology reasoning",
+        "platform surface",
+        "higher operating",
+        "operating complexity",
+        "graphdb remains",
+        "less self-serve",
+        "cloud offers",
+        "managed hosting",
+        "commercial transparency",
+        "technically strong",
+        "current commercial"
+      ],
+      "source_urls": [
+        "https://neo4j.com/pricing/",
+        "https://neo4j.com/docs/aura/classic/auradb/importing-data/",
+        "https://neo4j.com/docs/python-manual/current/",
+        "https://neo4j.com/terms/support-terms/",
+        "https://graphacademy.neo4j.com/",
+        "https://graphacademy.neo4j.com/certifications/neo4j-certification/",
+        "https://neo4j.com/careers/",
+        "https://community.neo4j.com/",
+        "https://github.com/neo4j/neo4j",
+        "https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow",
+        "https://aws.amazon.com/neptune/pricing/",
+        "https://aws.amazon.com/neptune/sla/",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/feature-sparql-compliance.html",
+        "https://aws.amazon.com/premiumsupport/plans/",
+        "https://aws.amazon.com/training/",
+        "https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow",
+        "https://www.stardog.com/pricing/",
+        "https://www.stardog.com/stardog-cloud/",
+        "https://www.stardog.com/support/",
+        "https://www.stardog.com/platform/",
+        "https://docs.stardog.com/query-stardog",
+        "https://community.stardog.com/",
+        "https://www.stardog.com/company/careers/",
+        "https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow",
+        "https://memgraph.com/pricing",
+        "https://memgraph.com/docs/client-libraries",
+        "https://memgraph.com/docs/data-migration",
+        "https://github.com/memgraph/memgraph",
+        "https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow",
+        "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+        "https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow",
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Stardog Cloud offers the strongest overall balance for this repository's ontology-first use case because it combines managed hosting, a free learning tier, explicit semantic-web standards support, published enterprise support tiers, and a 99.9 percent uptime commitment in one coherent platform surface",
+          "sources": [
+            "https://www.stardog.com/stardog-cloud/",
+            "https://www.stardog.com/support/",
+            "https://docs.stardog.com/query-stardog",
+            "https://www.stardog.com/platform/"
+          ]
+        },
+        {
+          "text": "Neo4j AuraDB and Amazon Neptune provide the clearest public commercial transparency, but Neo4j's flat capacity pricing and low-friction import tooling make its small-team total cost of ownership easier to reason about than Neptune's instance, storage, input and output, backup, and surrounding-AWS billing model",
+          "sources": [
+            "https://neo4j.com/pricing/",
+            "https://neo4j.com/docs/aura/classic/auradb/importing-data/",
+            "https://aws.amazon.com/neptune/pricing/",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html"
+          ]
+        },
+        {
+          "text": "GraphDB remains a technically strong ontology-first alternative because it exposes RDF, SPARQL, SHACL, RDFS, OWL, and RDF4J-compatible REST surfaces, but its accessible current commercial path looks more like enterprise marketplace procurement than an easily self-serve pilot service",
+          "sources": [
+            "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html"
+          ]
+        },
+        {
+          "text": "Amazon Neptune is the best conditional choice when the project needs both property-graph and semantic-graph support inside Amazon Web Services, but its higher operational overhead and more complex billing structure make it a weaker default recommendation for this repository than Stardog or Neo4j",
+          "sources": [
+            "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html",
+            "https://aws.amazon.com/neptune/pricing/",
+            "https://aws.amazon.com/neptune/sla/"
+          ]
+        },
+        {
+          "text": "Neo4j has the strongest public community and hiring signal in the shortlist because it pairs formal certification, a large public forum, 23,056 Stack Overflow questions, and a public engineering surface, while the comparator evidence for Neptune, Stardog, Memgraph, and GraphDB is materially thinner or more specialized",
+          "sources": [
+            "https://graphacademy.neo4j.com/",
+            "https://graphacademy.neo4j.com/certifications/neo4j-certification/",
+            "https://community.neo4j.com/",
+            "https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow",
+            "https://github.com/neo4j/neo4j",
+            "https://aws.amazon.com/training/",
+            "https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow",
+            "https://community.stardog.com/",
+            "https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow",
+            "https://memgraph.com/docs/client-libraries",
+            "https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow",
+            "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+            "https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow"
+          ]
+        },
+        {
+          "text": "Memgraph Cloud is attractive for Cypher-compatible prototyping and migration-heavy work because it offers fully managed hosting, simple memory-based pricing logic, and broad import options, but the consulted evidence does not support choosing it over Stardog, GraphDB, or Neptune for ontology-first interoperability",
+          "sources": [
+            "https://memgraph.com/pricing",
+            "https://memgraph.com/docs/data-migration",
+            "https://memgraph.com/docs/client-libraries"
+          ]
+        },
+        {
+          "text": "Using a repository-weighted framework that prioritizes semantic interoperability over ecosystem depth, the recommended selection path is Stardog first, Neo4j AuraDB second as the non-semantic fallback, Neptune third for AWS-native dual-model requirements, GraphDB fourth as the procurement-heavier semantic alternative, and Memgraph fifth for this specific ontology-first decision",
+          "sources": [
+            "https://www.stardog.com/stardog-cloud/",
+            "https://docs.stardog.com/query-stardog",
+            "https://neo4j.com/pricing/",
+            "https://aws.amazon.com/neptune/pricing/",
+            "https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy",
+            "https://memgraph.com/pricing",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy": {
+      "named_concepts": [
+        "fluency model",
+        "nist oecd",
+        "collaborative harms",
+        "harms taxonomy",
+        "human practice",
+        "product process",
+        "ai systems",
+        "taking responsibility",
+        "agi levels",
+        "problem awareness",
+        "awareness platform",
+        "task delegation",
+        "automation augmentation",
+        "agency modes",
+        "specification layer",
+        "performance description",
+        "workflows-versus-agents guidance",
+        "agi framework",
+        "course assets",
+        "executive summary"
+      ],
+      "source_urls": [
+        "https://www.anthropic.com/ai-fluency",
+        "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf",
+        "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://doi.org/10.6028/NIST.AI.200-1",
+        "https://oecd.ai/en/classification",
+        "https://oecd.ai/en/wonk/documents/oecd-framework-for-classifying-ai-systems-two-page-overview",
+        "https://arxiv.org/html/2407.01294v2",
+        "https://arxiv.org/abs/2311.02462"
+      ],
+      "key_claims": [
+        {
+          "text": "Anthropic defines the 4D framework as four interconnected competencies necessary for AI interactions to remain effective, efficient, ethical, and safe, which makes it a fluency model for human practice rather than a classification scheme for AI systems themselves",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf"
+          ]
+        },
+        {
+          "text": "Delegation in Anthropic's materials means setting goals and deciding whether, when, and how to engage with AI, and the framework breaks that work into problem awareness, platform awareness, and task delegation across automation, augmentation, and agency modes",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf",
+            "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf"
+          ]
+        },
+        {
+          "text": "Description is the framework's specification layer because Anthropic divides it into product, process, and performance description that respectively define the desired output, the system's method, and the behaviour expected during collaboration",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf"
+          ]
+        },
+        {
+          "text": "Discernment and Diligence make the framework explicitly evaluative and accountability-oriented, since Anthropic asks users to assess product, process, and performance while also selecting systems carefully, disclosing AI use honestly, and taking responsibility for deployed outputs",
+          "sources": [
+            "https://www.anthropic.com/ai-fluency",
+            "https://www-cdn.anthropic.com/4286688a2f9d88c74d98f740778a9fc81fb18ba7.pdf"
+          ]
+        },
+        {
+          "text": "NIST's AI Use Taxonomy is broader and more operationally neutral than 4D because it classifies 16 human-AI activity types independent of technique or domain, whereas 4D focuses on competencies a person should apply in any interaction with AI",
+          "sources": [
+            "https://doi.org/10.6028/NIST.AI.200-1",
+            "https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf"
+          ]
+        },
+        {
+          "text": "The OECD framework and the collaborative harms taxonomy both cover governance surfaces that 4D leaves largely implicit, including stakeholders, economic context, data inputs, model properties, task outputs, and harms categories, so they are better suited to policy, registry, and risk mapping work",
+          "sources": [
+            "https://oecd.ai/en/classification",
+            "https://oecd.ai/en/wonk/documents/oecd-framework-for-classifying-ai-systems-two-page-overview",
+            "https://arxiv.org/html/2407.01294v2"
+          ]
+        },
+        {
+          "text": "Anthropic's separate workflows-versus-agents guidance complements 4D by supplying an architecture choice model that the fluency framework does not provide, which means teams can use 4D to structure human practice and use workflows-versus-agents to structure system design",
+          "sources": [
+            "https://www.anthropic.com/research/building-effective-agents",
+            "https://www.anthropic.com/ai-fluency"
+          ]
+        },
+        {
+          "text": "DeepMind's AGI framework shows that 4D sits on a different taxonomy axis from capability and autonomy taxonomies, because it explains collaboration quality while other frameworks explain what systems do, what risks they present, or how capable they are",
+          "sources": [
+            "https://arxiv.org/abs/2311.02462",
+            "https://doi.org/10.6028/NIST.AI.200-1",
+            "https://oecd.ai/en/classification",
+            "https://arxiv.org/html/2407.01294v2"
+          ]
+        }
+      ]
+    },
+    "2026-05-13-agent-process-reliability-architecture": {
+      "named_concepts": [
+        "behavioral traces",
+        "execution authority",
+        "pro-code runtimes",
+        "process knowledge",
+        "executable workflow",
+        "approval hooks",
+        "runtime dependency",
+        "process selection",
+        "unstructured process",
+        "process mining",
+        "ambiguous cases",
+        "side effects",
+        "stable steps",
+        "exception handling",
+        "document-based process",
+        "agent behavior",
+        "workflow systems",
+        "strongest available",
+        "available authority",
+        "process execution"
+      ],
+      "source_urls": [
+        "https://www.omg.org/spec/BPMN/2.0.2/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.langchain.com/oss/python/langgraph/persistence",
+        "https://docs.camunda.io/docs/components/modeler/bpmn/",
+        "https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/",
+        "https://docs.camunda.io/docs/components/concepts/job-workers/",
+        "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+        "https://arxiv.org/html/2601.01743v1",
+        "https://arxiv.org/abs/2401.13677",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Executable workflow systems are the strongest available authority for process execution in the reviewed evidence because they combine normative process definitions, explicit pause points, typed work units, and deterministic advancement rules in the runtime itself",
+          "sources": [
+            "https://www.omg.org/spec/BPMN/2.0.2/",
+            "https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/",
+            "https://docs.camunda.io/docs/components/concepts/job-workers/"
+          ]
+        },
+        {
+          "text": "Stateful pro-code runtimes become more reliable when they externalize execution state through checkpoints and approval hooks, because long-horizon agent behavior becomes more reproducible and restartable when the runtime can resume from a governed intermediate state",
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+            "https://arxiv.org/html/2601.01743v1"
+          ]
+        },
+        {
+          "text": "Semi-formal process knowledge from documents, knowledge bases, and other curated artifacts should be treated as a versioned runtime dependency rather than as a fixed truth source, because corpus drift can silently change process selection and downstream behavior after deployment",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html"
+          ]
+        },
+        {
+          "text": "Inference from unstructured or behavioral traces is valuable for process discovery and exception detection, but current evidence does not support using it as sole execution authority because confidence in unstructured process mining remains challenge-heavy and review-dependent",
+          "sources": [
+            "https://arxiv.org/abs/2401.13677",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop"
+          ]
+        },
+        {
+          "text": "Reliable process selection should apply an explicit authority hierarchy of formal model first, curated semi-formal guidance second, and tacit inference third, with mandatory escalation whenever those layers disagree on a consequential action",
+          "sources": [
+            "https://www.omg.org/spec/BPMN/2.0.2/",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://arxiv.org/abs/2401.13677",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "The strongest operating model is a workflow-engine or visual orchestration outer layer for stable paths, paired with a code-centric interpretive inner layer for ambiguous cases, because repeatable steps benefit from native auditability while exceptions require richer memory, retrieval, and checkpoint control",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+            "https://docs.camunda.io/docs/components/modeler/bpmn/user-tasks/",
+            "https://docs.langchain.com/oss/python/langgraph/persistence"
+          ]
+        },
+        {
+          "text": "Auditability depends on correlating source provenance, runtime checkpoint state, policy or approval decisions, and final side effects in one execution record, because none of those evidence streams is sufficient on its own to explain why a process path was chosen",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html",
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop"
+          ]
+        }
+      ]
+    },
+    "2026-05-13-a2a-tool-calling-orchestration-overhead": {
+      "named_concepts": [
+        "remote agents",
+        "tool calling",
+        "tool wrappers",
+        "invocation abstraction",
+        "task state",
+        "a2a layer",
+        "modality negotiation",
+        "a2a versus",
+        "framework documentation",
+        "orchestration overhead",
+        "one orchestrator",
+        "tool-result costs",
+        "planning quality",
+        "coordination topology",
+        "topology matter",
+        "reasoning outcomes",
+        "hierarchy implemented",
+        "discovery task",
+        "plain tool",
+        "internal hierarchies"
+      ],
+      "source_urls": [
+        "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "https://a2a-protocol.org/latest/specification/",
+        "https://www.anthropic.com/news/model-context-protocol",
+        "https://modelcontextprotocol.io/introduction",
+        "https://modelcontextprotocol.io/docs/concepts/architecture",
+        "https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx",
+        "https://www.rfc-editor.org/rfc/rfc9110",
+        "https://www.jsonrpc.org/specification",
+        "https://platform.openai.com/docs/guides/function-calling",
+        "https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb",
+        "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+        "https://arxiv.org/abs/2308.08155",
+        "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents",
+        "https://docs.langchain.com/oss/python/langchain/multi-agent",
+        "https://aclanthology.org/2025.acl-long.421/",
+        "https://openreview.net/forum?id=Oljnxmf4pc",
+        "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": [
+        {
+          "text": "In a hierarchical system that already has a central orchestrator, collapsing specialist agents into tool calls usually lowers net orchestration overhead because it removes at least one explicit coordination layer while preserving only tool-schema and tool-result costs",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents",
+            "https://docs.langchain.com/oss/python/langchain/multi-agent",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview"
+          ]
+        },
+        {
+          "text": "A2A carries protocol-native features that plain tool calling does not natively preserve, including Agent Card discovery, stateful task lifecycle, artifacts, modality negotiation, and async updates for opaque remote services",
+          "sources": [
+            "https://a2a-protocol.org/latest/specification/",
+            "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/"
+          ]
+        },
+        {
+          "text": "MCP and vendor tool-calling patterns standardise how an Artificial Intelligence (AI) host discovers context primitives or emits callable schemas, but they still model capability access through a host-mediated tool loop rather than through a first-class remote agent contract",
+          "sources": [
+            "https://modelcontextprotocol.io/docs/concepts/architecture",
+            "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
+            "https://raw.githubusercontent.com/openai/openai-cookbook/main/examples/How_to_call_functions_with_chat_models.ipynb"
+          ]
+        },
+        {
+          "text": "Available public benchmarks suggest that planning quality and coordination topology affect reasoning outcomes more visibly than invocation abstraction, but the absence of a direct A2A-versus-tool benchmark keeps that conclusion provisional",
+          "sources": [
+            "https://openreview.net/forum?id=Oljnxmf4pc",
+            "https://aclanthology.org/2025.acl-long.421/"
+          ]
+        },
+        {
+          "text": "Tool-mediated unification is most likely to preserve or modestly improve reasoning quality in bounded hierarchies because fewer handoffs reduce duplicated context, but it does not solve planner mistakes, poor decomposition, or weak coordination policy",
+          "sources": [
+            "https://openreview.net/forum?id=Oljnxmf4pc",
+            "https://docs.langchain.com/oss/python/langchain/multi-agent",
+            "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents"
+          ]
+        },
+        {
+          "text": "A specialised A2A layer becomes justified when the system crosses security boundaries, spans independently managed teams or vendors, needs long-running asynchronous tasks, or must preserve remote-agent identity and negotiated capabilities as first-class objects",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents",
+            "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+            "https://a2a-protocol.org/latest/specification/"
+          ]
+        },
+        {
+          "text": "Wrapping remote agents as generic tools can reduce local friction while simultaneously weakening identity and audit visibility, unless machine identity, credential scoping, and delegation metadata are preserved outside the wrapper",
+          "sources": [
+            "https://raw.githubusercontent.com/modelcontextprotocol/specification/main/docs/specification/2025-03-26/basic/authorization.mdx",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        },
+        {
+          "text": "The most defensible default is therefore a layered design in which internal specialist capabilities are exposed as tools, while truly independent remote agents keep an A2A boundary only when that boundary carries interoperability or governance value that tool calling would erase",
+          "sources": [
+            "https://a2a-protocol.org/latest/specification/",
+            "https://docs.langchain.com/oss/python/langchain/multi-agent",
+            "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html"
+          ]
+        }
+      ]
+    },
     "2026-05-12-web-ontologies-production-knowledge-graph-agentic": {
       "named_concepts": [
         "schema org",

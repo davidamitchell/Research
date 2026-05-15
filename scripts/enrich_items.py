@@ -33,6 +33,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 import yaml  # type: ignore[import-untyped]
@@ -87,6 +88,9 @@ _COMMIT_BATCH = 20
 
 # Default RPM for rate limiting (Gemini free-tier is 15 RPM).
 _DEFAULT_RPM = 15
+
+# Max retry attempts when RPM-limited (sleeps for the API-suggested delay between retries).
+_MAX_RPM_RETRIES = 4
 
 # Models that use thinking tokens — ThinkingConfig(thinking_budget=0) must be
 # sent to disable thinking and prevent it consuming max_output_tokens.
@@ -203,6 +207,19 @@ def _extract_summary(body: str, max_chars: int = 400) -> str:
     return clean[:max_chars]
 
 
+def _is_daily_quota_exhausted(exc_str: str) -> bool:
+    """Return True when a 429 contains a per-day quota violation (not just RPM)."""
+    return bool(re.search(r"PerDay", exc_str))
+
+
+def _retry_delay_from_error(exc_str: str, default: float = 65.0) -> float:
+    """Extract the API-suggested retry delay (seconds) from a Gemini error string."""
+    m = re.search(r"retry in ([\d.]+)s", exc_str, re.IGNORECASE)
+    if m:
+        return float(m.group(1)) + 3.0
+    return default
+
+
 def _generate_themes(
     client: object,
     cascade: _ModelCascade,
@@ -214,62 +231,101 @@ def _generate_themes(
 
     Returns (themes, model_used).  themes is None if the call failed or the
     response could not be parsed.
+
+    Error handling:
+    - 429 daily quota exhausted → advance cascade immediately
+    - 429 RPM rate limit only  → sleep for the API-suggested retry delay, retry same model
+    - 503 transient            → short sleep, retry same model
+    - 400 / 403 / other        → advance cascade (model incompatible or auth issue)
     """
     from google.genai import types  # noqa: PLC0415
 
-    cascade.wait()
-    try:
+    for attempt in range(_MAX_RPM_RETRIES):
+        cascade.wait()
+        if cascade.all_exhausted:
+            return None, "<exhausted>"
+
         model = cascade.model
         thinking_config = None
         if model in _THINKING_MODELS:
             # Thinking tokens consume max_output_tokens; disable to prevent
             # truncated JSON responses.
             thinking_config = types.ThinkingConfig(thinking_budget=0)
-        response = client.models.generate_content(  # type: ignore[union-attr]
-            model=model,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                max_output_tokens=max_output_tokens,
-                temperature=0.2,
-                thinking_config=thinking_config,
-            ),
-        )
-        model_used = model
-        raw = response.text or ""
-    except Exception as exc:
-        # Check for quota exhaustion and advance the cascade.
-        exc_module = type(exc).__module__
-        if exc_module.startswith("google.genai"):
-            is_quota = False
-            try:
-                from google.genai.errors import ClientError as _ClientError  # noqa: PLC0415
 
-                if isinstance(exc, _ClientError):
-                    status = getattr(exc, "status_code", None) or getattr(exc, "code", None)
-                    is_quota = status in (429, 403)
-            except ImportError:
-                pass
-            if is_quota:
-                failed_model = cascade.model
+        try:
+            response = client.models.generate_content(  # type: ignore[union-attr]
+                model=model,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    max_output_tokens=max_output_tokens,
+                    temperature=0.2,
+                    thinking_config=thinking_config,
+                ),
+            )
+            raw = response.text or ""
+        except Exception as exc:
+            exc_str = str(exc)
+            failed_model = cascade.model
+
+            status: int | None = None
+            if type(exc).__module__.startswith("google.genai"):
+                try:
+                    from google.genai.errors import ClientError as _ClientError  # noqa: PLC0415
+
+                    if isinstance(exc, _ClientError):
+                        status = getattr(exc, "status_code", None) or getattr(exc, "code", None)
+                except ImportError:
+                    pass
+
+            if status == 429:
+                if _is_daily_quota_exhausted(exc_str):
+                    logger.warning(
+                        "Quota/rate-limit error on %r — advancing cascade: %s",
+                        failed_model,
+                        exc,
+                    )
+                    cascade.advance()
+                    return None, failed_model
+                # RPM rate limit — wait for the suggested window and retry the same model.
+                wait = _retry_delay_from_error(exc_str)
                 logger.warning(
-                    "Quota/rate-limit error on %r — advancing cascade: %s",
+                    "RPM limit on %r — waiting %.0fs then retrying (attempt %d/%d)",
                     failed_model,
-                    exc,
+                    wait,
+                    attempt + 1,
+                    _MAX_RPM_RETRIES,
                 )
-                cascade.advance()
-                return None, failed_model
-        failed_model = cascade.model
-        logger.warning("Gemini call failed for model %r: %s", failed_model, exc)
-        cascade.advance()
-        return None, failed_model
+                time.sleep(wait)
+                continue
 
-    if cascade.check_daily_quota_header():
-        cascade.advance()
+            if status == 503:
+                # Transient load spike — back off and retry same model.
+                wait = 20.0 * (attempt + 1)
+                logger.warning(
+                    "Transient 503 on %r — waiting %.0fs then retrying (attempt %d/%d)",
+                    failed_model,
+                    wait,
+                    attempt + 1,
+                    _MAX_RPM_RETRIES,
+                )
+                time.sleep(wait)
+                continue
 
-    themes = _parse_themes(raw)
-    if themes is None:
-        logger.warning("Could not parse themes from response: %r", raw)
-    return themes, model_used
+            # 400, 403, or unrecognised — this model can't handle the request; skip it.
+            logger.warning("Gemini call failed for model %r: %s", failed_model, exc)
+            cascade.advance()
+            return None, failed_model
+
+        if cascade.check_daily_quota_header():
+            cascade.advance()
+
+        themes = _parse_themes(raw)
+        if themes is None:
+            logger.warning("Could not parse themes from response: %r", raw)
+        return themes, model
+
+    logger.warning("All %d retry attempts exhausted for model %r", _MAX_RPM_RETRIES, cascade.model)
+    return None, cascade.model
 
 
 def enrich_item(

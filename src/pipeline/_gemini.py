@@ -122,6 +122,9 @@ def build_model_cascade(api_key: str, fallback_hint: str) -> list[str]:
                 continue
             if "generateContent" not in methods:
                 continue
+            # Exclude TTS variants — audio-only, reject TEXT output with 400 INVALID_ARGUMENT.
+            if re.search(r"-tts\b", model_id):
+                continue
             model_ids.append(model_id)
 
         if not model_ids:

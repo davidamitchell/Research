@@ -133,6 +133,8 @@ src/
 ├── fetchers/
 │   ├── __init__.py     # Fetcher protocol and FetchedItem dataclass
 │   └── youtube.py      # YouTube transcript fetcher
+├── pipeline/
+│   └── _gemini.py      # Gemini client, adaptive rate limiter, model cascade
 ├── research/
 │   ├── __init__.py
 │   └── item.py         # ResearchItem dataclass and file I/O
@@ -141,6 +143,8 @@ src/
 
 scripts/
 ├── build_site.py       # Site generator — EDIT THIS to change the site
+├── canonicalise_tags.py  # Rewrite tags to canonical form (use docs/tag-vocabulary.md)
+├── enrich_items.py     # Add ai_themes to research items via Gemini
 └── extract_metadata.py # Pre-build metadata extraction
 
 config/
@@ -512,6 +516,34 @@ When executing the `research` skill or conducting a research item end-to-end:
 - Use **`git`** to inspect commit history when reviewing what has already been processed.
 - Use **`time`** to stamp `added`, `started`, and `completed` dates correctly.
 - Use **`github`** to read issue/PR context when a research item was spawned from an issue.
+
+---
+
+## Gemini API
+
+### Free-tier quota pools (per model, independent)
+
+Each model has its own daily quota. The cascade in `src/pipeline/_gemini.py` walks
+through models newest-first and advances when a model's daily quota is exhausted.
+Per-model RPM is set in `_MODEL_RATES`; never guess or use a single global default.
+
+Cascade priority order (highest capability → highest throughput):
+
+| Priority | Model | RPM | RPD | Notes |
+|---|---|---|---|---|
+| 1 | `gemini-3.1-pro` | — | — | Check aistudio.google.com |
+| 2 | `gemini-2.5-pro` | — | — | Check aistudio.google.com |
+| 3 | `gemini-3-flash` | — | — | Check aistudio.google.com |
+| 4 | `gemini-2.5-flash` | 5 | 20 | Confirmed from aistudio dashboard (2026-05-14); thinking model |
+| 5 | `gemini-3.1-flash-lite` | — | — | Check aistudio.google.com |
+| 6 | `gemini-2.5-flash-lite` | 10 | 1 500 | Confirmed free tier (2026-05-12) |
+
+Cascade advances on **daily quota exhaustion only**. RPM backoff is handled by
+the adaptive rate limiter — it reads `x-ratelimit-*` headers and waits for the
+reset window without advancing the cascade. Model IDs are discovered at runtime
+via `client.models.list()` — never hard-coded or guessed.
+
+Starting model is configured in `config/sources.yaml → gemini.gemini_model`.
 
 ---
 

@@ -1,0 +1,802 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Graph database landscape — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Graph database landscape</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Graph database landscape</h1>
+  <p class="full-title-subtitle">Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring</p>
+  <div class="meta-bar">
+    <span>2026-05-13</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/ai-platform.html">ai-platform</a> <a class="tag" href="/Research/tags/organisation.html">organisation</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-13-graph-db-landscape-tco-interoperability.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-13-graph-db-landscape-tco-interoperability" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Stardog Cloud offers the strongest overall balance for this repository&#39;s ontology-first use case because it combines managed hosting, a free learning tier, explicit semantic-web standards support, published enterprise support tiers, and a 99.9 percent uptime commitment in one coherent platform surface<span class="claim-sources"><a class="claim-source-link" href="https://www.stardog.com/stardog-cloud/" target="_blank" rel="noopener" title="https://www.stardog.com/stardog-cloud/">Stardog (n.d.)</a><a class="claim-source-link" href="https://www.stardog.com/support/" target="_blank" rel="noopener" title="https://www.stardog.com/support/">Stardog (n.d.)</a><a class="claim-source-link" href="https://docs.stardog.com/query-stardog" target="_blank" rel="noopener" title="https://docs.stardog.com/query-stardog">Stardog (n.d.)</a><a class="claim-source-link" href="https://www.stardog.com/platform/" target="_blank" rel="noopener" title="https://www.stardog.com/platform/">Stardog (n.d.)</a></span></li>
+<li>Neo4j AuraDB and Amazon Neptune provide the clearest public commercial transparency, but Neo4j&#39;s flat capacity pricing and low-friction import tooling make its small-team total cost of ownership easier to reason about than Neptune&#39;s instance, storage, input and output, backup, and surrounding-AWS billing model<span class="claim-sources"><a class="claim-source-link" href="https://neo4j.com/pricing/" target="_blank" rel="noopener" title="https://neo4j.com/pricing/">Neo4j (n.d.)</a><a class="claim-source-link" href="https://neo4j.com/docs/aura/classic/auradb/importing-data/" target="_blank" rel="noopener" title="https://neo4j.com/docs/aura/classic/auradb/importing-data/">Neo4j (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/neptune/pricing/" target="_blank" rel="noopener" title="https://aws.amazon.com/neptune/pricing/">Amazon (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html">Amazon (n.d.)</a></span></li>
+<li>GraphDB remains a technically strong ontology-first alternative because it exposes RDF, SPARQL, SHACL, RDFS, OWL, and RDF4J-compatible REST surfaces, but its accessible current commercial path looks more like enterprise marketplace procurement than an easily self-serve pilot service<span class="claim-sources"><a class="claim-source-link" href="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy" target="_blank" rel="noopener" title="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy">GraphDB (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Mitchell (2026)</a></span></li>
+<li>Amazon Neptune is the best conditional choice when the project needs both property-graph and semantic-graph support inside Amazon Web Services, but its higher operational overhead and more complex billing structure make it a weaker default recommendation for this repository than Stardog or Neo4j<span class="claim-sources"><a class="claim-source-link" href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html" target="_blank" rel="noopener" title="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html">Amazon (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/neptune/pricing/" target="_blank" rel="noopener" title="https://aws.amazon.com/neptune/pricing/">Amazon (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/neptune/sla/" target="_blank" rel="noopener" title="https://aws.amazon.com/neptune/sla/">Amazon (n.d.)</a></span></li>
+<li>Neo4j has the strongest public community and hiring signal in the shortlist because it pairs formal certification, a large public forum, 23,056 Stack Overflow questions, and a public engineering surface, while the comparator evidence for Neptune, Stardog, Memgraph, and GraphDB is materially thinner or more specialized<span class="claim-sources"><a class="claim-source-link" href="https://graphacademy.neo4j.com/" target="_blank" rel="noopener" title="https://graphacademy.neo4j.com/">Neo4j (n.d.)</a><a class="claim-source-link" href="https://graphacademy.neo4j.com/certifications/neo4j-certification/" target="_blank" rel="noopener" title="https://graphacademy.neo4j.com/certifications/neo4j-certification/">Neo4j (n.d.)</a><a class="claim-source-link" href="https://community.neo4j.com/" target="_blank" rel="noopener" title="https://community.neo4j.com/">Neo4j (n.d.)</a><a class="claim-source-link" href="https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow" target="_blank" rel="noopener" title="https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow">Stack (n.d.)</a><a class="claim-source-link" href="https://github.com/neo4j/neo4j" target="_blank" rel="noopener" title="https://github.com/neo4j/neo4j">Neo4j (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/training/" target="_blank" rel="noopener" title="https://aws.amazon.com/training/">AWS (n.d.)</a><a class="claim-source-link" href="https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow" target="_blank" rel="noopener" title="https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow">Stack (n.d.)</a><a class="claim-source-link" href="https://community.stardog.com/" target="_blank" rel="noopener" title="https://community.stardog.com/">Stardog (n.d.)</a><a class="claim-source-link" href="https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow" target="_blank" rel="noopener" title="https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow">Stack (n.d.)</a><a class="claim-source-link" href="https://memgraph.com/docs/client-libraries" target="_blank" rel="noopener" title="https://memgraph.com/docs/client-libraries">Memgraph (n.d.)</a><a class="claim-source-link" href="https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow" target="_blank" rel="noopener" title="https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow">Stack (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy" target="_blank" rel="noopener" title="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy">GraphDB (n.d.)</a><a class="claim-source-link" href="https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow" target="_blank" rel="noopener" title="https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow">Stack (n.d.)</a></span></li>
+<li>Memgraph Cloud is attractive for Cypher-compatible prototyping and migration-heavy work because it offers fully managed hosting, simple memory-based pricing logic, and broad import options, but the consulted evidence does not support choosing it over Stardog, GraphDB, or Neptune for ontology-first interoperability<span class="claim-sources"><a class="claim-source-link" href="https://memgraph.com/pricing" target="_blank" rel="noopener" title="https://memgraph.com/pricing">Memgraph (n.d.)</a><a class="claim-source-link" href="https://memgraph.com/docs/data-migration" target="_blank" rel="noopener" title="https://memgraph.com/docs/data-migration">Memgraph (n.d.)</a><a class="claim-source-link" href="https://memgraph.com/docs/client-libraries" target="_blank" rel="noopener" title="https://memgraph.com/docs/client-libraries">Memgraph (n.d.)</a></span></li>
+<li>Using a repository-weighted framework that prioritizes semantic interoperability over ecosystem depth, the recommended selection path is Stardog first, Neo4j AuraDB second as the non-semantic fallback, Neptune third for AWS-native dual-model requirements, GraphDB fourth as the procurement-heavier semantic alternative, and Memgraph fifth for this specific ontology-first decision<span class="claim-sources"><a class="claim-source-link" href="https://www.stardog.com/stardog-cloud/" target="_blank" rel="noopener" title="https://www.stardog.com/stardog-cloud/">Stardog (n.d.)</a><a class="claim-source-link" href="https://docs.stardog.com/query-stardog" target="_blank" rel="noopener" title="https://docs.stardog.com/query-stardog">Stardog (n.d.)</a><a class="claim-source-link" href="https://neo4j.com/pricing/" target="_blank" rel="noopener" title="https://neo4j.com/pricing/">Neo4j (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/neptune/pricing/" target="_blank" rel="noopener" title="https://aws.amazon.com/neptune/pricing/">Amazon (n.d.)</a><a class="claim-source-link" href="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy" target="_blank" rel="noopener" title="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy">GraphDB (n.d.)</a><a class="claim-source-link" href="https://memgraph.com/pricing" target="_blank" rel="noopener" title="https://memgraph.com/pricing">Memgraph (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html">Mitchell (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>For the hosted graph database platforms identified in the 2026 Software-as-a-Service (SaaS) knowledge-ontology research, Neo4j AuraDB, Amazon Neptune, <a href="https://www.stardog.com/stardog-cloud/">Stardog Cloud</a>, Ontotext GraphDB, and Memgraph Cloud, how do their pricing models, total cost of ownership (TCO), interoperability characteristics, support tiers, and community and hiring ecosystems compare, and how should these factors collectively inform a final platform selection decision?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p><a href="https://www.stardog.com/stardog-cloud/">Stardog Cloud</a> is the best overall fit in the consulted evidence if this repository still requires semantic-web interoperability, ontology reasoning, and a managed pilot path in the same platform surface.</p>
+<p>Neo4j AuraDB and Amazon Neptune are the most commercially transparent options, but they solve different problems: AuraDB is the low-friction property-graph choice, while Neptune is the AWS-native dual-model choice with higher operating complexity and less predictable small-team total cost of ownership.</p>
+<p>GraphDB remains technically credible for ontology-first work, but the accessible current evidence is more procurement-oriented and less self-serve than Stardog's, which weakens its ranking for a small repository pilot even though its standards support is strong.</p>
+<p>Neo4j has the clearest community and hiring advantage, so the final decision should be: choose Stardog if semantic interoperability is the real requirement, choose Neo4j AuraDB if that requirement softens, and choose Neptune only when AWS-native dual-model architecture is itself the governing constraint.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Stardog Cloud offers the strongest overall balance for this repository's ontology-first use case because it combines managed hosting, a free learning tier, explicit semantic-web standards support, published enterprise support tiers, and a 99.9 percent uptime commitment in one coherent platform surface.</strong></li>
+<li><strong>Neo4j AuraDB and Amazon Neptune provide the clearest public commercial transparency, but Neo4j's flat capacity pricing and low-friction import tooling make its small-team total cost of ownership easier to reason about than Neptune's instance, storage, input and output, backup, and surrounding-AWS billing model.</strong></li>
+<li><strong>GraphDB remains a technically strong ontology-first alternative because it exposes RDF, SPARQL, SHACL, RDFS, OWL, and RDF4J-compatible REST surfaces, but its accessible current commercial path looks more like enterprise marketplace procurement than an easily self-serve pilot service.</strong></li>
+<li><strong>Amazon Neptune is the best conditional choice when the project needs both property-graph and semantic-graph support inside Amazon Web Services, but its higher operational overhead and more complex billing structure make it a weaker default recommendation for this repository than Stardog or Neo4j.</strong></li>
+<li><strong>Neo4j has the strongest public community and hiring signal in the shortlist because it pairs formal certification, a large public forum, 23,056 Stack Overflow questions, and a public engineering surface, while the comparator evidence for Neptune, Stardog, Memgraph, and GraphDB is materially thinner or more specialized.</strong></li>
+<li><strong>Memgraph Cloud is attractive for Cypher-compatible prototyping and migration-heavy work because it offers fully managed hosting, simple memory-based pricing logic, and broad import options, but the consulted evidence does not support choosing it over Stardog, GraphDB, or Neptune for ontology-first interoperability.</strong></li>
+<li><strong>Using a repository-weighted framework that prioritizes semantic interoperability over ecosystem depth, the recommended selection path is Stardog first, Neo4j AuraDB second as the non-semantic fallback, Neptune third for AWS-native dual-model requirements, GraphDB fourth as the procurement-heavier semantic alternative, and Memgraph fifth for this specific ontology-first decision.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>The first production deployment remains small enough that procurement simplicity and operational burden matter more than extreme cluster scale.</li>
+<li>Standards-based semantic interoperability remains a real project requirement rather than a merely aspirational preference, because otherwise Neo4j AuraDB would score first once ecosystem depth and self-serve transparency are weighted more heavily.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The strongest rival explanation is that Neo4j AuraDB should win outright because commercial transparency, ecosystem depth, and hiring ease often dominate early adoption success for small teams. That explanation is credible and becomes decisive if ontology-first semantics stop being mandatory.</p>
+<p>Stardog still ranks first because the repository's own prior completed work makes semantic-web portability, ontology reasoning, and later interoperability with governance and metadata standards materially decision-relevant rather than optional.</p>
+<p>The weighting that produced the final order was 30 percent semantic interoperability, 25 percent commercial accessibility and spend predictability, 20 percent support and operational burden, 15 percent community and hiring depth, and 10 percent migration ease. Under those weights, Stardog beats Neo4j because semantic fit outweighs Neo4j's ecosystem advantage, while GraphDB loses to Stardog because its current commercial surface is less transparent.</p>
+<p>Neptune remains strategically important even though it ranks third, because it is the only clearly documented dual-model option in the consulted current evidence and therefore becomes the best path if the repository later insists on both SPARQL and property-graph workloads inside the same AWS-aligned platform.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>GraphDB's precise commercial ranking is less certain than the other platforms because the accessible current evidence in this session came mainly from its AWS Marketplace surface rather than from a fully detailed self-serve pricing and support matrix.</li>
+<li>The interoperability comparison for Java frameworks, Protégé, Apache Jena, LangChain, and LlamaIndex remains uneven because the consulted official materials did not document those adjacent-tool integrations symmetrically across all five platforms.</li>
+<li>The <code>graphdb</code> Stack Overflow tag is generic, so it is not a clean Ontotext-only ecosystem proxy in the way that <code>neo4j</code>, <code>amazon-neptune</code>, <code>stardog</code>, and <code>memgraph</code> are.</li>
+<li>Memgraph and GraphDB may offer stronger commercial or support terms in direct sales conversations than in the public material consulted here, so their public ranking could improve in a procurement process even though their current self-serve evaluation posture is weaker.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Would a short proof-of-concept expose enough semantic value to justify Stardog's smaller labor market over Neo4j AuraDB's much broader skill pool?</li>
+<li>Is materialized inference, rather than query-time reasoning, strategically valuable enough to justify a deeper GraphDB procurement path?</li>
+<li>If the repository later needs both property-graph and semantic-graph workloads, would a two-system architecture still be cheaper and simpler than adopting Neptune as the single platform?</li>
+<li>What do direct vendor quotes for Stardog, Memgraph Enterprise, and GraphDB Enterprise look like for a pilot-sized workload under realistic support requirements?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://neo4j.com/pricing/">Neo4j Pricing</a></li>
+<li>[x] <a href="https://neo4j.com/docs/aura/classic/auradb/importing-data/">Neo4j Aura Importing Data</a></li>
+<li>[x] <a href="https://neo4j.com/docs/python-manual/current/">Neo4j Python Driver Manual</a></li>
+<li>[x] <a href="https://neo4j.com/terms/support-terms/">Neo4j Support Terms</a></li>
+<li>[x] <a href="https://graphacademy.neo4j.com/">Neo4j GraphAcademy</a></li>
+<li>[x] <a href="https://graphacademy.neo4j.com/certifications/neo4j-certification/">Neo4j Certified Professional</a></li>
+<li>[x] <a href="https://neo4j.com/careers/">Neo4j Careers</a></li>
+<li>[x] <a href="https://community.neo4j.com/">Neo4j Community</a></li>
+<li>[x] <a href="https://github.com/neo4j/neo4j">Neo4j GitHub Repository</a></li>
+<li>[x] <a href="https://api.stackexchange.com/2.3/tags/neo4j/info?site=stackoverflow">Stack Exchange API tag info for neo4j</a></li>
+<li>[x] <a href="https://aws.amazon.com/neptune/pricing/">Amazon Neptune Pricing</a></li>
+<li>[x] <a href="https://aws.amazon.com/neptune/sla/">Amazon Neptune Service Level Agreement</a></li>
+<li>[x] <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html">Amazon Neptune openCypher Access</a></li>
+<li>[x] <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-sparql.html">Amazon Neptune SPARQL Access</a></li>
+<li>[x] <a href="https://docs.aws.amazon.com/neptune/latest/userguide/feature-sparql-compliance.html">Amazon Neptune SPARQL Compliance</a></li>
+<li>[x] <a href="https://aws.amazon.com/premiumsupport/plans/">AWS Support Plans</a></li>
+<li>[x] <a href="https://aws.amazon.com/training/">AWS Training and Certification</a></li>
+<li>[x] <a href="https://api.stackexchange.com/2.3/tags/amazon-neptune/info?site=stackoverflow">Stack Exchange API tag info for amazon-neptune</a></li>
+<li>[x] <a href="https://www.stardog.com/pricing/">Stardog Pricing</a></li>
+<li>[x] <a href="https://www.stardog.com/stardog-cloud/">Stardog Cloud</a></li>
+<li>[x] <a href="https://www.stardog.com/support/">Stardog Support Packages</a></li>
+<li>[x] <a href="https://www.stardog.com/platform/">Stardog Platform</a></li>
+<li>[x] <a href="https://docs.stardog.com/query-stardog">Stardog Query Documentation</a></li>
+<li>[x] <a href="https://community.stardog.com/">Stardog Community</a></li>
+<li>[x] <a href="https://www.stardog.com/company/careers/">Stardog Careers</a></li>
+<li>[x] <a href="https://api.stackexchange.com/2.3/tags/stardog/info?site=stackoverflow">Stack Exchange API tag info for stardog</a></li>
+<li>[x] <a href="https://memgraph.com/pricing">Memgraph Pricing</a></li>
+<li>[x] <a href="https://memgraph.com/docs/client-libraries">Memgraph Client Libraries</a></li>
+<li>[x] <a href="https://memgraph.com/docs/data-migration">Memgraph Data Migration</a></li>
+<li>[x] <a href="https://github.com/memgraph/memgraph">Memgraph GitHub Repository</a></li>
+<li>[x] <a href="https://api.stackexchange.com/2.3/tags/memgraph/info?site=stackoverflow">Stack Exchange API tag info for memgraph</a></li>
+<li>[x] <a href="https://aws.amazon.com/marketplace/pp/prodview-rceq2ciyjdipy">GraphDB Enterprise 12-Core Cluster on AWS Marketplace</a></li>
+<li>[x] <a href="https://api.stackexchange.com/2.3/tags/graphdb/info?site=stackoverflow">Stack Exchange API tag info for graphdb</a></li>
+<li>[x] <a href="https://www.w3.org/TR/rdf11-concepts/">W3C RDF 1.1 Concepts and Abstract Syntax</a></li>
+<li>[x] <a href="https://www.w3.org/TR/sparql11-query/">W3C SPARQL 1.1 Query Language</a></li>
+<li>[x] <a href="http://www.opencypher.org/">openCypher</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Mitchell (2026) Hosted Software-as-a-Service (SaaS) graph database options for knowledge ontology</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html">Mitchell (2026) What entity-relation schema and write-query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html">Mitchell (2026) What is the most current ontology or semantic schema candidate for data products and interoperability metadata?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Mitchell (2026) Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-12-knowledge-graph-data-product-agentic.html">Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies</a> <span class="related-note">via knowledge-graph, organisation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-12-data-product-ontology.html">Data product ontology: definition, adoption, and current relevance</a> <span class="related-note">via knowledge-graph, organisation</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Hosted Software-as-a-Service (SaaS) graph database options for knowledge ontology</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html">What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-data-product-ontology.html">Data product ontology: definition, adoption, and current relevance</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-14</td><td><a href="https://github.com/davidamitchell/Research/commit/343c37460b178626747c2fa8598d6fd9aa606b7e" target="_blank" rel="noopener">343c374</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-13-agent-process-reliability-architecture.html">Architectural patterns for reliable organizational process identification,…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-13-a2a-tool-calling-orchestration-overhead.html">Agent-to-Agent (A2A)-to-tool-calling unification</a></div>
+  </div>
+</main>
+</body>
+</html>
