@@ -70,7 +70,7 @@ What failure modes have been empirically observed when organisations prioritise 
 - [x] [Bain & Company (2009) Networked organizations: Making the matrix work](https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/)
 - [x] [Watkins (2024) Matrix organizations: solutions to 5 common challenges](https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/)
 - [x] [Research item (2026) Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md)
-- [x] [Research item (2026) Enterprise AI platform operating models](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md)
+- [x] [Research item (2026) Enterprise Artificial Intelligence (AI) platform operating models](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md)
 
 ---
 
@@ -140,7 +140,7 @@ Mode: full.
 - [fact; source: https://www.mindtheproduct.com/how-we-transformed-ych-blue-digital-limited-structure-from-matrix-to-product-based/] The same case says its product-based redesign increased decision speed, clarified responsibilities, and significantly reduced conflicts over priority setting.
 - [fact; source: https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/] Bain gives matrix examples in which managers needed three, four, or even five bosses to sign off on major decisions, product-design and marketing groups disagreed over feature authority, and a split between sales and manufacturing cut direct customer contact and made customers unhappy.
 - [fact; source: https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/] Bain describes matrix organisations as environments of multiple bosses and murky accountabilities that leave managers and employees unable to act effectively without hitting organisational obstacles.
-- [fact; source: https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/] IMD lists lack of role clarity, power struggles, lack of accountability, and inefficiency as common matrix challenges, and says decision protocols and escalation paths are needed to resolve trade-offs.
+- [fact; source: https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/] International Institute for Management Development (IMD) lists lack of role clarity, power struggles, lack of accountability, and inefficiency as common matrix challenges, and says decision protocols and escalation paths are needed to resolve trade-offs.
 - [inference; source: https://www.mindtheproduct.com/how-we-transformed-ych-blue-digital-limited-structure-from-matrix-to-product-based/; https://www.bain.com/insights/decision-insights-12-networked-organizations-making-the-matrix-work/; https://www.imd.org/ibyimd/brain-circuits/matrix-organizations-solutions-to-5-common-challenges/] When customer cohorts own demand while domain or functional managers control staff and specialist capacity, organisations recreate matrix failure modes: slow prioritisation, repeated escalation, and bargaining over who can commit scarce delivery capacity.
 
 #### 2.4 Technical and governance consequences
@@ -249,7 +249,7 @@ Mode: full.
 - Review result: pass
 - Claim-label audit: all claim-bearing lines in Research Skill Output use [fact], [inference], or [assumption]
 - Acronym audit: information technology (IT), DevOps Research and Assessment (DORA), and Amazon Web Services (AWS) are expanded on first use in prose
-- Cross-item sweep: the completed accountability-gap item is cited directly, and the completed enterprise AI platform operating-model item is retained as adjacent prior work
+- Cross-item sweep: the completed accountability-gap item is cited directly, and the completed enterprise Artificial Intelligence (AI) platform operating-model item is retained as adjacent prior work
 - Evidence audit: direct evidence is strongest on component-team and matrix analogues, so overall confidence remains medium
 
 ---
