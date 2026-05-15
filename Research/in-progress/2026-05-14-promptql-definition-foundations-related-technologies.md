@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "PromptQL definition, research foundations, and related technologies"
 added: 2026-05-14T18:26:20+00:00
 status: reviewing
