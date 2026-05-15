@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e6dd0a697b3a45a5dc5075ea7741ee5300f56e38
+    changed: 2026-05-15
+    progress: progress/2026-05-15-ontology-landscape-for-curated-enterprise-context.md
+    summary: Initial completion
 ---
 
 # Ontology landscape for curated lexical and structured enterprise context
