@@ -1,6 +1,121 @@
 {
-  "extracted_at": "2026-05-15T23:49:09Z",
+  "extracted_at": "2026-05-15T23:59:27Z",
   "items": {
+    "2026-05-15-ontology-landscape-for-curated-enterprise-context": {
+      "named_concepts": [
+        "graph retrieval",
+        "knowledge graph",
+        "operational graph",
+        "graph behavior",
+        "canonical semantic",
+        "sole operational",
+        "language model",
+        "semantic layer",
+        "owl profile",
+        "ingest-time ontology",
+        "ontology alignment",
+        "ontology-guided graphrag",
+        "temporal knowledge",
+        "hybrid deployment",
+        "deployment patterns",
+        "schema governance",
+        "edge metadata",
+        "ontology-aware graph",
+        "strong near-term",
+        "benchmark operational"
+      ],
+      "source_urls": [
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/owl2-overview/",
+        "https://www.w3.org/TR/owl2-profiles/",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.w3.org/TR/sparql11-overview/",
+        "https://www.w3.org/TR/vocab-dcat-3/",
+        "https://www.w3.org/groups/wg/rdf-star/",
+        "https://arxiv.org/abs/2003.02320",
+        "https://engineering.linkedin.com/blog/2016/10/building-the-linkedin-knowledge-graph",
+        "https://ceur-ws.org/Vol-2100/paper26.pdf",
+        "https://doi.org/10.1007/978-3-642-38721-0",
+        "https://www.semantic-web-journal.net/content/knowledge-graph-refinement-survey-approaches-and-evaluation-methods",
+        "https://arxiv.org/abs/2210.12714",
+        "https://arxiv.org/abs/2210.00105",
+        "https://arxiv.org/abs/2308.02457",
+        "https://arxiv.org/abs/2310.01061",
+        "https://arxiv.org/abs/2302.07200",
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2408.08921",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-data-product-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A mixed enterprise corpus needs ontology as its canonical semantic layer because RDF and OWL give interoperable typing and reasoning, but ontology alone is not the best sole operational structure for conflict-heavy, relationship-rich, time-sensitive corpus management",
+          "sources": [
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/owl2-profiles/",
+            "https://www.w3.org/TR/shacl/",
+            "https://ceur-ws.org/Vol-2100/paper26.pdf"
+          ]
+        },
+        {
+          "text": "Closed-world validation, version lineage, and temporal scoping are mandatory complements to ontology in this setting, because SHACL, DCAT 3, and temporal knowledge graph methods cover operational control surfaces that OWL does not solve on its own",
+          "sources": [
+            "https://www.w3.org/TR/shacl/",
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://arxiv.org/abs/2308.02457"
+          ]
+        },
+        {
+          "text": "Enterprise knowledge graph evidence supports hybrid deployment patterns, because authoritative surveys and industry practice both show extraction, alignment, and operational graph behavior sitting beside formal schema governance",
+          "sources": [
+            "https://arxiv.org/abs/2003.02320",
+            "https://engineering.linkedin.com/blog/2016/10/building-the-linkedin-knowledge-graph",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html"
+          ]
+        },
+        {
+          "text": "Ontology matching, generative graph construction, and graph refinement are mature enough to support first-pass corpus seeding, but they still require human review and structural validation before their outputs can be trusted for enterprise conflict resolution",
+          "sources": [
+            "https://doi.org/10.1007/978-3-642-38721-0",
+            "https://arxiv.org/abs/2210.12714",
+            "https://www.semantic-web-journal.net/content/knowledge-graph-refinement-survey-approaches-and-evaluation-methods"
+          ]
+        },
+        {
+          "text": "Property-graph techniques or RDF-star capable implementations remain important for practical edge metadata handling, because standard triples still impose awkward patterns for provenance, confidence, and effective-date annotations on relationships",
+          "sources": [
+            "https://ceur-ws.org/Vol-2100/paper26.pdf",
+            "https://www.w3.org/groups/wg/rdf-star/",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html"
+          ]
+        },
+        {
+          "text": "Ontology-aware graph retrieval is a strong near-term Large Language Model integration pattern for this corpus, because GraphRAG, graph-guided reasoning, and neuro-symbolic surveys all depend on typed relations and constraint-aware grounding to improve faithfulness",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130",
+            "https://arxiv.org/abs/2408.08921",
+            "https://arxiv.org/abs/2310.01061",
+            "https://arxiv.org/abs/2302.07200",
+            "https://arxiv.org/abs/2306.08302"
+          ]
+        },
+        {
+          "text": "The highest-value follow-up research should benchmark operational boundaries, especially around OWL profile choice, ingest-time alignment, temporal policy rules, RDF-star readiness, and ontology-guided GraphRAG performance",
+          "sources": [
+            "https://www.w3.org/TR/owl2-profiles/",
+            "https://doi.org/10.1007/978-3-642-38721-0",
+            "https://arxiv.org/abs/2308.02457",
+            "https://arxiv.org/abs/2408.08921",
+            "https://www.w3.org/groups/wg/rdf-star/"
+          ]
+        }
+      ]
+    },
     "2026-05-14-promptql-definition-foundations-related-technologies": {
       "named_concepts": [
         "semantic metadata",

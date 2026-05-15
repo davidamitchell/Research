@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-15T23:49:13Z",
-  "node_count": 326,
-  "edge_count": 1753,
+  "generated": "2026-05-15T23:59:31Z",
+  "node_count": 327,
+  "edge_count": 1765,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1955,6 +1955,12 @@
       "url": "/Research/research/2026-05-14-promptql-definition-foundations-related-technologies.html"
     },
     {
+      "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "title": "Ontology landscape for curated lexical and structured enterprise context",
+      "type": "primary",
+      "url": "/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html"
+    },
+    {
       "slug": "2026-05-15-organisational-failure-modes-structural-fragmentation",
       "title": "Organisational failure modes from structural fragmentation",
       "type": "synthesis",
@@ -2052,14 +2058,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2085,6 +2083,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -10188,14 +10194,6 @@
     },
     {
       "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
-      "target": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,workflow",
-      "provenance": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm"
-    },
-    {
-      "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
       "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "weight": 2,
       "rel": "tag-overlap",
@@ -10205,6 +10203,14 @@
     {
       "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,workflow",
+      "provenance": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm"
+    },
+    {
+      "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,workflow",
@@ -10297,6 +10303,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,llm,workflow",
       "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,llm,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
       "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
@@ -10436,14 +10450,6 @@
     },
     {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
-      "target": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,workflow",
-      "provenance": "2026-05-02-research-item-versioning-amendment-norms"
-    },
-    {
-      "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "weight": 2,
       "rel": "tag-overlap",
@@ -10453,6 +10459,14 @@
     {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,workflow",
+      "provenance": "2026-05-02-research-item-versioning-amendment-norms"
+    },
+    {
+      "source": "2026-05-02-research-item-versioning-amendment-norms",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,workflow",
@@ -10721,6 +10735,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,llm,workflow",
       "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,llm,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
       "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
@@ -13268,7 +13290,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13276,7 +13298,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13396,14 +13418,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13416,6 +13430,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -13980,7 +14002,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13988,7 +14010,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14108,7 +14130,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14116,7 +14138,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14348,10 +14370,10 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "governance,organisation",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
@@ -14380,22 +14402,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14420,14 +14426,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14440,6 +14438,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -14539,6 +14545,14 @@
       "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
     },
     {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -14597,6 +14611,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14708,14 +14730,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14728,6 +14742,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,organisation",
       "provenance": "2026-05-12-data-product-ontology"
     },
     {
@@ -15259,6 +15281,14 @@
       "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
     },
     {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "llm,organisation,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
       "source": "2026-05-12-regulated-ai-constraint-shift",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 4,
@@ -15500,19 +15530,19 @@
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
       "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "llm,organisation,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
@@ -15555,14 +15585,6 @@
       "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
     },
     {
-      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
-    },
-    {
       "source": "2026-05-13-graph-db-landscape-tco-interoperability",
       "target": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
       "weight": 4,
@@ -15592,6 +15614,14 @@
       "weight": 3,
       "rel": "related",
       "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,organisation",
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
     },
     {
@@ -15656,6 +15686,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -15945,6 +15983,70 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,llm,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-12-data-product-ontology",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-12-graph-db-saas-knowledge-ontology",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-12-knowledge-graph-data-product-agentic",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
       "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
