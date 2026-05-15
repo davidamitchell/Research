@@ -201,7 +201,7 @@ What is PromptQL, what active research areas are most closely related to it, wha
 
 #### G. Implications for future research
 
-- [fact] PromptQL's public materials do not publish benchmark results or controlled comparative evaluations on standard text-to-SQL datasets, even though the company publicly frames reliability as its core differentiator. Source: https://promptql.io/docs/index/; https://promptql.io/research; https://www.promptql.io/
+- [inference] The consulted public PromptQL materials do not publish benchmark results or controlled comparative evaluations on standard text-to-SQL datasets, even though the company publicly frames reliability as its core differentiator. Source: https://promptql.io/docs/index/; https://promptql.io/research; https://www.promptql.io/
 - [inference] The strongest next-step research questions are therefore not "what does PromptQL claim" but "how well do its semantic metadata, plan editability, and deterministic runtime hold up against enterprise ambiguity, schema messiness, and multi-source joins compared with adjacent systems?" Source: https://promptql.io/docs/architecture/; https://aws.amazon.com/blogs/machine-learning/enterprise-grade-natural-language-to-sql-generation-using-llms-balancing-accuracy-latency-and-scale/; https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql; https://devblogs.microsoft.com/ise/llm-sql-query-generation/
 - [inference] A second high-value research direction is whether PromptQL's semantic metadata behaves more like a semantic layer, a knowledge graph, or a lighter metadata index in practice, because those choices materially affect maintainability, freshness, and operational risk. Source: https://promptql.io/docs/architecture/; https://promptql.io/research; https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html
 
@@ -214,8 +214,8 @@ What is PromptQL, what active research areas are most closely related to it, wha
 
 ### §4 Consistency Check
 
-- [fact] The official PromptQL materials are internally consistent on the planning-versus-execution split: the LLM generates a query plan, while the runtime and distributed engine execute deterministically. Source: https://promptql.io/docs/architecture/; https://www.promptql.io/
-- [fact] The official PromptQL materials are also consistent on the semantic metadata layer, describing it as generated from connected sources and refined through user interaction. Source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/
+- [inference] The official PromptQL materials appear internally consistent on the planning-versus-execution split: the LLM generates a query plan, while the runtime and distributed engine execute deterministically. Source: https://promptql.io/docs/architecture/; https://www.promptql.io/
+- [inference] The official PromptQL materials also appear consistent on the semantic metadata layer, describing it as generated from connected sources and refined through user interaction. Source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/
 - [inference] No hard contradiction surfaced between the official PromptQL pages and the secondary Grayscale interpretation, but the secondary source adds evaluative claims about PromptQL outperforming adjacent patterns that the primary materials do not independently benchmark. Source: https://blog.grayscale.vc/promptql-agenticsummitblr/; https://promptql.io/docs/index/; https://promptql.io/research
 - [inference] Because no public benchmark or independent case study was located in the consulted material, comparative conclusions about PromptQL's superiority must remain medium-confidence and inferential rather than factual. Source: https://promptql.io/research; https://www.promptql.io/
 
@@ -281,7 +281,7 @@ That combination leads to a practical evaluation frame for future work: compare 
 **Risks, gaps, uncertainties:**
 
 - The consulted public material describes the architecture in detail, but it did not include an independently verified benchmark or detailed case study. [inference; source: https://promptql.io/research; https://www.promptql.io/]
-- The public material does not make it fully clear whether the semantic metadata layer is operationally closer to a knowledge graph, a semantic layer, or a lighter metadata index. [fact; source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/]
+- The public material does not make it fully clear whether the semantic metadata layer is operationally closer to a knowledge graph, a semantic layer, or a lighter metadata index. [inference; source: https://promptql.io/docs/architecture/; https://promptql.io/docs/capabilities/]
 - The strongest comparative claims about PromptQL outperforming other patterns come from secondary commentary rather than from PromptQL's own primary materials. [fact; source: https://blog.grayscale.vc/promptql-agenticsummitblr/; https://promptql.io/docs/index/]
 - The consulted official material focuses mainly on structured and semi-structured enterprise data workflows, so broader claims about open-world action-taking agents would be premature. [inference; source: https://promptql.io/docs/decision-making/; https://promptql.io/research]
 
