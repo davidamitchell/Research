@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-15T11:42:20Z",
-  "node_count": 313,
-  "edge_count": 1652,
+  "generated": "2026-05-15T22:33:26Z",
+  "node_count": 326,
+  "edge_count": 1753,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1881,6 +1881,84 @@
       "title": "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices",
       "type": "primary",
       "url": "/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html"
+    },
+    {
+      "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
+      "type": "primary",
+      "url": "/Research/research/2026-05-13-a2a-tool-calling-orchestration-overhead.html"
+    },
+    {
+      "slug": "2026-05-13-agent-process-reliability-architecture",
+      "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
+      "type": "primary",
+      "url": "/Research/research/2026-05-13-agent-process-reliability-architecture.html"
+    },
+    {
+      "slug": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "title": "What is Anthropic's '4D' framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-13-anthropic-4d-framework-ai-agent-taxonomy.html"
+    },
+    {
+      "slug": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "title": "Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring",
+      "type": "primary",
+      "url": "/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html"
+    },
+    {
+      "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html"
+    },
+    {
+      "slug": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "title": "Endsley Model of Situational Awareness deep dive",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-endsley-model-situational-awareness-deep-dive.html"
+    },
+    {
+      "slug": "2026-05-14-org-failure-modes-accountability-gaps",
+      "title": "Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html"
+    },
+    {
+      "slug": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "title": "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html"
+    },
+    {
+      "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-org-failure-modes-project-demand-product-it.html"
+    },
+    {
+      "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html"
+    },
+    {
+      "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-org-failure-modes-vendor-standards-gaps.html"
+    },
+    {
+      "slug": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "title": "PromptQL definition, research foundations, and related technologies",
+      "type": "primary",
+      "url": "/Research/research/2026-05-14-promptql-definition-foundations-related-technologies.html"
+    },
+    {
+      "slug": "2026-05-15-organisational-failure-modes-structural-fragmentation",
+      "title": "Organisational failure modes from structural fragmentation",
+      "type": "synthesis",
+      "url": "/Research/knowledge/2026-05-15-organisational-failure-modes-structural-fragmentation.html"
     }
   ],
   "edges": [
@@ -1974,22 +2052,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-09-policy-lsp-capability-debt-detection",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2007,6 +2069,22 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -2726,10 +2804,10 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
+      "evidence": "governance,organisational-design",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -2950,14 +3028,6 @@
     },
     {
       "source": "2026-03-03-knowledge-representation-agent-context",
-      "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph",
-      "provenance": "2026-03-03-knowledge-representation-agent-context"
-    },
-    {
-      "source": "2026-03-03-knowledge-representation-agent-context",
       "target": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2967,6 +3037,14 @@
     {
       "source": "2026-03-03-knowledge-representation-agent-context",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph",
+      "provenance": "2026-03-03-knowledge-representation-agent-context"
+    },
+    {
+      "source": "2026-03-03-knowledge-representation-agent-context",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph",
@@ -3062,31 +3140,31 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3670,31 +3748,31 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3830,31 +3908,31 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4038,14 +4116,6 @@
     },
     {
       "source": "2026-03-12-superpowers-integration-analysis",
-      "target": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,workflow",
-      "provenance": "2026-03-12-superpowers-integration-analysis"
-    },
-    {
-      "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4055,6 +4125,14 @@
     {
       "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,workflow",
+      "provenance": "2026-03-12-superpowers-integration-analysis"
+    },
+    {
+      "source": "2026-03-12-superpowers-integration-analysis",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,workflow",
@@ -4590,39 +4668,39 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4754,22 +4832,6 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,context-engineering,memory-system,workflow",
-      "provenance": "2026-04-29-knowledge-scaffolding-context-engineering"
-    },
-    {
-      "source": "2026-03-22-applied-context-engineering-agent-workflows",
-      "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
-      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
-    },
-    {
-      "source": "2026-03-22-applied-context-engineering-agent-workflows",
-      "target": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
       "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
     },
     {
@@ -4783,6 +4845,22 @@
     {
       "source": "2026-03-22-applied-context-engineering-agent-workflows",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,workflow",
+      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
+    },
+    {
+      "source": "2026-03-22-applied-context-engineering-agent-workflows",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,memory-system,workflow",
+      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
+    },
+    {
+      "source": "2026-03-22-applied-context-engineering-agent-workflows",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
@@ -4902,7 +4980,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4910,7 +4988,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4918,7 +4996,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5026,7 +5104,7 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "management,organisational-design",
-      "provenance": "2026-04-02-org-shape-software-cost-zero"
+      "provenance": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit"
     },
     {
       "source": "2026-03-26-cost-reduction-is-not-strategy",
@@ -5429,6 +5507,14 @@
       "provenance": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement"
     },
     {
+      "source": "2026-04-02-org-shape-software-cost-zero",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-design,product-management",
+      "provenance": "2026-04-02-org-shape-software-cost-zero"
+    },
+    {
       "source": "2026-04-03-ai-workflow-todo-digest",
       "target": "2026-04-29-knowledge-scaffolding-context-engineering",
       "weight": 3,
@@ -5454,10 +5540,10 @@
     },
     {
       "source": "2026-04-03-ai-workflow-todo-digest",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
+      "evidence": "agentic-ai,memory-system,workflow",
       "provenance": "2026-04-03-ai-workflow-todo-digest"
     },
     {
@@ -5558,34 +5644,34 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
-      "target": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "ai-platform,governance",
-      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
-    },
-    {
-      "source": "2026-04-22-enterprise-ai-platform-operating-models",
-      "target": "2026-05-07-ai-production-incidents-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "ai-platform,governance",
-      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
-    },
-    {
-      "source": "2026-04-22-enterprise-ai-platform-operating-models",
-      "target": "2026-05-07-ai-regulatory-guidance-update-gap-check",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "financial-services,governance",
-      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
-    },
-    {
-      "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "financial-services,governance",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisational-design",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisational-design",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisational-design",
       "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
     },
     {
@@ -5686,14 +5772,6 @@
     },
     {
       "source": "2026-04-24-business-led-low-code-agent-governance",
-      "target": "2026-04-27-uelgf-foundational-definitions-principles",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "citizen-development,governance",
-      "provenance": "2026-04-24-business-led-low-code-agent-governance"
-    },
-    {
-      "source": "2026-04-24-business-led-low-code-agent-governance",
       "target": "2026-04-27-uelgf-governed-golden-rails",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5706,7 +5784,15 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "citizen-development,governance",
-      "provenance": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents"
+      "provenance": "2026-04-24-business-led-low-code-agent-governance"
+    },
+    {
+      "source": "2026-04-24-business-led-low-code-agent-governance",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "citizen-development,governance",
+      "provenance": "2026-04-24-business-led-low-code-agent-governance"
     },
     {
       "source": "2026-04-26-access-control-amplification-agentic-operations",
@@ -6462,7 +6548,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6470,7 +6556,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -7101,6 +7187,14 @@
       "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
     },
     {
+      "source": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "citizen-development,governance",
+      "provenance": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents"
+    },
+    {
       "source": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints",
       "target": "2026-05-06-factscore-precision-scoring-atomic-claims",
       "weight": 2,
@@ -7310,14 +7404,6 @@
     },
     {
       "source": "2026-04-29-knowledge-scaffolding-context-engineering",
-      "target": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
-      "provenance": "2026-04-29-knowledge-scaffolding-context-engineering"
-    },
-    {
-      "source": "2026-04-29-knowledge-scaffolding-context-engineering",
       "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
       "weight": 4,
       "rel": "tag-overlap",
@@ -7331,6 +7417,22 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,workflow",
       "provenance": "2026-05-12-knowledge-graph-lifecycle-management-agentic"
+    },
+    {
+      "source": "2026-04-29-knowledge-scaffolding-context-engineering",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,memory-system,workflow",
+      "provenance": "2026-04-29-knowledge-scaffolding-context-engineering"
+    },
+    {
+      "source": "2026-04-29-knowledge-scaffolding-context-engineering",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
     },
     {
       "source": "2026-04-30-ai-code-entropy-quality-metrics",
@@ -7654,10 +7756,10 @@
     },
     {
       "source": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
-      "target": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "compliance,governance",
+      "evidence": "governance,risk-management",
       "provenance": "2026-04-30-deterministic-crr-mlr2017-risk-scoring"
     },
     {
@@ -8030,14 +8132,6 @@
     },
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-      "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm",
-      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
-    },
-    {
-      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
       "weight": 3,
       "rel": "tag-overlap",
@@ -8047,6 +8141,14 @@
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
+    },
+    {
+      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -8734,14 +8836,6 @@
     },
     {
       "source": "2026-05-01-coding-agent-context-management-transparency",
-      "target": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,agentic-coding,llm",
-      "provenance": "2026-05-01-coding-agent-context-management-transparency"
-    },
-    {
-      "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-05-02-adversarial-review-methods-ai-research-quality",
       "weight": 4,
       "rel": "tag-overlap",
@@ -8767,6 +8861,14 @@
     {
       "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-01-coding-agent-context-management-transparency"
+    },
+    {
+      "source": "2026-05-01-coding-agent-context-management-transparency",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm,workflow",
@@ -8942,7 +9044,7 @@
     },
     {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
-      "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm",
@@ -9086,26 +9188,26 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "weight": 2,
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
+      "evidence": "agentic-ai,governance,workflow",
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,workflow",
+      "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
+    },
+    {
+      "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
-      "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
-    },
-    {
-      "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
@@ -9462,7 +9564,15 @@
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
+      "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -9470,15 +9580,7 @@
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,evaluation,llm,workflow",
-      "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
-    },
-    {
-      "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -9662,14 +9764,6 @@
     },
     {
       "source": "2026-05-02-automated-claim-verification-academic-literature",
-      "target": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
-    },
-    {
-      "source": "2026-05-02-automated-claim-verification-academic-literature",
       "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
       "weight": 5,
       "rel": "tag-overlap",
@@ -9678,11 +9772,11 @@
     },
     {
       "source": "2026-05-02-automated-claim-verification-academic-literature",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
     },
     {
       "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
@@ -9758,14 +9852,6 @@
     },
     {
       "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-      "target": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
-      "provenance": "2026-05-02-cross-item-synthesis-knowledge-map-architecture"
-    },
-    {
-      "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
       "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
       "weight": 4,
       "rel": "tag-overlap",
@@ -9782,11 +9868,19 @@
     },
     {
       "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 3,
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
+      "evidence": "agentic-ai,llm,memory-system,workflow",
       "provenance": "2026-05-02-cross-item-synthesis-knowledge-map-architecture"
+    },
+    {
+      "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
     },
     {
       "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
@@ -10086,14 +10180,6 @@
     },
     {
       "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
-      "target": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,workflow",
-      "provenance": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm"
-    },
-    {
-      "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
       "target": "2026-05-02-research-item-versioning-amendment-norms",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10111,6 +10197,14 @@
     {
       "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
       "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,workflow",
+      "provenance": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm"
+    },
+    {
+      "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,workflow",
@@ -10166,30 +10260,6 @@
     },
     {
       "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "target": "2026-05-02-research-item-versioning-amendment-norms",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,workflow",
-      "provenance": "2026-05-02-research-item-versioning-amendment-norms"
-    },
-    {
-      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,llm,workflow",
-      "provenance": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp"
-    },
-    {
-      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "target": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
-      "provenance": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp"
-    },
-    {
-      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
       "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
       "weight": 5,
       "rel": "tag-overlap",
@@ -10203,6 +10273,30 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,workflow",
       "provenance": "2026-05-12-knowledge-graph-lifecycle-management-agentic"
+    },
+    {
+      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,memory-system,workflow",
+      "provenance": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp"
+    },
+    {
+      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
     },
     {
       "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
@@ -10357,6 +10451,14 @@
       "provenance": "2026-05-02-research-item-versioning-amendment-norms"
     },
     {
+      "source": "2026-05-02-research-item-versioning-amendment-norms",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,workflow",
+      "provenance": "2026-05-02-research-item-versioning-amendment-norms"
+    },
+    {
       "source": "2026-05-02-research-to-publication-authoring-workflow",
       "target": "2026-03-10-dikw-transformation-functions",
       "weight": 4,
@@ -10430,14 +10532,6 @@
     },
     {
       "source": "2026-05-02-research-to-publication-authoring-workflow",
-      "target": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
-    },
-    {
-      "source": "2026-05-02-research-to-publication-authoring-workflow",
       "target": "2026-05-06-loki-fact-checking-journalists-moderation",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10446,19 +10540,27 @@
     },
     {
       "source": "2026-05-02-research-to-publication-authoring-workflow",
-      "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,hallucinations,llm,workflow",
-      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
-    },
-    {
-      "source": "2026-05-02-research-to-publication-authoring-workflow",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
+    },
+    {
+      "source": "2026-05-02-research-to-publication-authoring-workflow",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
+    },
+    {
+      "source": "2026-05-02-research-to-publication-authoring-workflow",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
@@ -10486,19 +10588,35 @@
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,evaluation,llm,workflow",
-      "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
-    },
-    {
-      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
+      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
@@ -10579,6 +10697,30 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph,llm,workflow",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
     },
     {
       "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
@@ -11621,14 +11763,6 @@
       "provenance": "2026-05-06-aibom-runtime-capture-opentelemetry-practice"
     },
     {
-      "source": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-platform,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
       "source": "2026-05-06-aibom-runtime-generation-divergence-theory",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -11755,14 +11889,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,security,supply-chain",
       "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
-    },
-    {
-      "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
-      "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph,llm",
-      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
     },
     {
       "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
@@ -12022,14 +12148,6 @@
     },
     {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "target": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,llm,workflow",
-      "provenance": "2026-05-06-fact-checking-tools-research-quality-improvement"
-    },
-    {
-      "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
       "target": "2026-05-06-loki-fact-checking-journalists-moderation",
       "weight": 4,
       "rel": "cites",
@@ -12062,7 +12180,15 @@
     },
     {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,workflow",
+      "provenance": "2026-05-06-fact-checking-tools-research-quality-improvement"
+    },
+    {
+      "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,workflow",
@@ -12206,19 +12332,27 @@
     },
     {
       "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
-      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
     },
     {
       "source": "2026-05-06-it-system-legibility-measurement-frameworks",
@@ -12391,6 +12525,14 @@
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-07-ai-production-incidents-deep-dive"
+    },
+    {
+      "source": "2026-05-07-ai-production-incidents-deep-dive",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -13126,7 +13268,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13134,7 +13276,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13238,14 +13380,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-09-policy-lsp-capability-debt-detection",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "weight": 3,
       "rel": "tag-overlap",
@@ -13254,7 +13388,7 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13262,18 +13396,26 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -13486,14 +13628,6 @@
     },
     {
       "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-      "target": "2026-05-12-data-product-ontology",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
       "target": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "weight": 3,
       "rel": "tag-overlap",
@@ -13563,14 +13697,6 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-09-data-governance-standards-ai-agentic-applicability"
-    },
-    {
-      "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
-      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,llm",
-      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
       "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
@@ -13651,14 +13777,6 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-09-governance-policy-determinism-vs-stochastic-llm"
-    },
-    {
-      "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
-      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,llm",
-      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
       "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
@@ -13766,14 +13884,6 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,llm",
-      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
-    },
-    {
-      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
       "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -13790,7 +13900,31 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
@@ -13846,7 +13980,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13854,7 +13988,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13933,6 +14067,14 @@
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
+      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -13966,23 +14108,15 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+      "provenance": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts"
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14133,6 +14267,14 @@
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
     },
     {
+      "source": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
       "target": "2026-03-01-agent-lsp-policy-enforcement",
       "weight": 4,
@@ -14198,50 +14340,18 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "weight": 2,
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+      "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-12-data-product-ontology",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-12-knowledge-graph-data-product-agentic",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
-    },
-    {
-      "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
@@ -14286,10 +14396,50 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -14373,6 +14523,22 @@
       "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
     },
     {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -14415,6 +14581,22 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14477,14 +14659,6 @@
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
     },
     {
-      "source": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm",
-      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
-    },
-    {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-09-data-governance-standards-ai-agentic-applicability",
       "weight": 3,
@@ -14510,14 +14684,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,knowledge-graph",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "weight": 4,
       "rel": "cites",
@@ -14526,10 +14692,42 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-13-graph-db-landscape-tco-interoperability",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "governance,knowledge-graph",
+      "evidence": "knowledge-graph,organisation",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
       "provenance": "2026-05-12-data-product-ontology"
     },
     {
@@ -14621,6 +14819,30 @@
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
       "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -14702,11 +14924,19 @@
     },
     {
       "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,memory-system",
+      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
+    },
+    {
+      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,llm",
-      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
     },
     {
       "source": "2026-05-12-knowledge-graph-data-product-agentic",
@@ -14781,6 +15011,14 @@
       "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
     },
     {
+      "source": "2026-05-12-knowledge-graph-data-product-agentic",
+      "target": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-graph,organisation",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -14830,18 +15068,10 @@
     },
     {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
-      "target": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "weight": 2,
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph",
-      "provenance": "2026-05-12-odrl-policies-knowledge-graph-agentic-access"
-    },
-    {
-      "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
+      "evidence": "agentic-ai,knowledge-graph,workflow",
       "provenance": "2026-05-12-knowledge-graph-lifecycle-management-agentic"
     },
     {
@@ -14925,6 +15155,14 @@
       "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
     },
     {
+      "source": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph",
+      "provenance": "2026-05-12-odrl-policies-knowledge-graph-agentic-access"
+    },
+    {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
       "target": "2026-03-08-servicenow-ai-knowledge-rag-agents",
       "weight": 4,
@@ -14995,6 +15233,30 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation,workflow",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
     },
     {
       "source": "2026-05-12-regulated-ai-constraint-shift",
@@ -15099,6 +15361,630 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+    },
+    {
+      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+    },
+    {
+      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,knowledge-graph,llm",
+      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-03-18-api-context-hubs-rag-mcp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-03-23-agent-orchestration-anvil-max",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-06-aibom-identity-attribution-multiagent-practice",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-03-03-knowledge-representation-agent-context",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-03-02-integrative-framework-agent-decision-making",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-03-10-ai-concept-classification-taxonomy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-05-12-data-product-ontology",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-05-12-graph-db-saas-knowledge-ontology",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-04-24-business-led-low-code-agent-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-04-26-ai-lowcode-governance-maturity-model",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-04-28-uelgf-human-oversight-accountability-layer",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-01-human-oversight-ai-software-development",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-03-14-organisational-intent-formal-specification",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-04-22-enterprise-ai-platform-operating-models",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-04-22-enterprise-ai-platform-operating-models",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-04-22-enterprise-ai-platform-operating-models",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-03-03-knowledge-representation-agent-context",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-03-15-context-compression-rag-enterprise-knowledge",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+    },
+    {
+      "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-organisational-failure-modes-structural-fragmentation"
+    },
+    {
+      "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-organisational-failure-modes-structural-fragmentation"
+    },
+    {
+      "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-organisational-failure-modes-structural-fragmentation"
+    },
+    {
+      "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-organisational-failure-modes-structural-fragmentation"
+    },
+    {
+      "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-organisational-failure-modes-structural-fragmentation"
     }
   ]
 }
