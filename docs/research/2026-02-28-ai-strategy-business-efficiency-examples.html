@@ -868,7 +868,7 @@ main {
     });
     var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
     var n = localNodes.length;
-    var r = Math.min(W, H) * 0.35;
+    var r = Math.min(W, H) * 0.40;
     nodes = localNodes.map(function(nd, i) {
       var isFocal = nd.slug === FOCAL;
       var angle = (2 * Math.PI * i) / n;
@@ -894,7 +894,10 @@ main {
   }
 
   function tick() {
-    var REPULSION = 3000, DIST_MAX = 200, SPRING = 0.025, DAMP = 0.8;
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
     var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
     for (i = 0; i < nodes.length; i++) {
       for (j = i + 1; j < nodes.length; j++) {
@@ -1089,7 +1092,7 @@ main {
     e.preventDefault();
     var rect = canvas.getBoundingClientRect();
     var mx = e.clientX - rect.left, my = e.clientY - rect.top;
-    var factor = e.deltaY < 0 ? 1.12 : 0.89;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
     transform.x = mx - (mx - transform.x) * factor;
     transform.y = my - (my - transform.y) * factor;
     transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));

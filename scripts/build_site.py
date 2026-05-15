@@ -3127,7 +3127,7 @@ _GRAPH_JS = """(function () {
     var W = canvas.width / dpr, H = canvas.height / dpr;
     REST = Math.max(40, Math.min(W, H) / 5);
     var n = data.nodes.length;
-    var r = Math.min(W, H) * 0.38;
+    var r = Math.min(W, H) * 0.42;
     nodes = data.nodes.map(function(nd, i) {
       var angle = (2 * Math.PI * i) / n;
       return Object.assign({}, nd, {
@@ -3216,8 +3216,10 @@ _GRAPH_JS = """(function () {
   }
 
   function tick() {
+    var progress = ticks / MAX_TICKS;
     var REPULSION = 400, THETA = 0.9, DIST_MAX = 250;
-    var SPRING = 0.018, DAMP = 0.85;
+    var SPRING = 0.003 + 0.015 * progress;
+    var DAMP = 0.55 + 0.30 * progress;
     var i, j, dx, dy, d, f, fx, fy, e, s, t;
 
     var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
@@ -3250,9 +3252,10 @@ _GRAPH_JS = """(function () {
   var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b'};
 
   function draw() {
-    var W = canvas.width, H = canvas.height;
-    ctx.clearRect(0, 0, W, H);
+    var dpr = window.devicePixelRatio || 1;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
+    ctx.scale(dpr, dpr);
     ctx.translate(transform.x, transform.y);
     ctx.scale(transform.scale, transform.scale);
     var showLabels = transform.scale >= 0.55;
@@ -3264,20 +3267,22 @@ _GRAPH_JS = """(function () {
       if (!filters[e.rel]) continue;
       s = e.sourceNode; t = e.targetNode;
       isSelected = (selected === e);
+      var adjEdgeDim = selectedNeighbors && !selectedNeighbors['e:' + e.source + '|' + e.target];
       dim = q && s.slug.indexOf(q) < 0 && t.slug.indexOf(q) < 0 &&
             t.title.toLowerCase().indexOf(q) < 0 && s.title.toLowerCase().indexOf(q) < 0;
       ctx.beginPath();
       ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
       ctx.strokeStyle = isSelected ? '#f59e0b' : (REL_COLORS[e.rel] || '#64748b');
       ctx.lineWidth = isSelected ? 2.5 / transform.scale : Math.max(0.4, e.weight * 0.35) / transform.scale;
-      ctx.globalAlpha = isSelected ? 1.0 : (dim ? 0.06 : 0.38);
+      ctx.globalAlpha = isSelected ? 1.0 : (dim || adjEdgeDim ? 0.04 : 0.22);
       ctx.stroke();
       ctx.globalAlpha = 1.0;
     }
     for (i = 0; i < nodes.length; i++) {
       n = nodes[i]; isSelected = (selected === n);
       matched = q && (n.slug.indexOf(q) >= 0 || n.title.toLowerCase().indexOf(q) >= 0);
-      dim = q && !matched;
+      var adjNodeDim = selectedNeighbors && !selectedNeighbors['n:' + n.slug];
+      dim = (q && !matched) || adjNodeDim;
       ctx.beginPath();
       ctx.arc(n.x, n.y, isSelected || matched ? R * 1.6 : R, 0, Math.PI * 2);
       ctx.fillStyle = isSelected || matched ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
@@ -3320,7 +3325,8 @@ _GRAPH_JS = """(function () {
       if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
       if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
     });
-    var W = canvas.width, H = canvas.height, pad = 48;
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 48;
     var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
     transform.scale = Math.max(scale, 0.05);
     transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
@@ -3361,10 +3367,12 @@ _GRAPH_JS = """(function () {
   function showPanel(obj) {
     selected = obj;
     if (!obj) {
+      selectedNeighbors = null;
       panel.innerHTML = '<p class="panel-hint">Click a node or edge to inspect. Drag to pan \xb7 Scroll or pinch to zoom.</p>';
       redraw(); return;
     }
     if (obj.sourceNode) {
+      selectedNeighbors = null;
       var srcNode = nodeMap[obj.source], tgtNode = nodeMap[obj.target];
       panel.innerHTML =
         '<div class="panel-row"><span class="panel-label">Relationship</span>' +
@@ -3375,6 +3383,14 @@ _GRAPH_JS = """(function () {
         '<div class="panel-row"><span class="panel-label">To</span>' +
         '<a href="' + esc(tgtNode ? tgtNode.url : '#') + '">' + esc(obj.target) + '</a></div>';
     } else {
+      selectedNeighbors = {'n:' + obj.slug: true};
+      edges.forEach(function(e) {
+        if (e.sourceNode === obj || e.targetNode === obj) {
+          selectedNeighbors['e:' + e.source + '|' + e.target] = true;
+          selectedNeighbors['n:' + e.source] = true;
+          selectedNeighbors['n:' + e.target] = true;
+        }
+      });
       panel.innerHTML =
         '<div class="panel-row"><span class="panel-label">Item</span>' +
         '<a class="panel-item-link" href="' + esc(obj.url) + '">' + esc(obj.title) + ' →</a></div>' +
@@ -3429,7 +3445,7 @@ _GRAPH_JS = """(function () {
         var factor = newDist / oldDist;
         transform.x = mx - (mx - transform.x) * factor;
         transform.y = my - (my - transform.y) * factor;
-        transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
+        transform.scale = Math.max(0.05, Math.min(10, transform.scale * factor));
         redraw();
       }
     }
@@ -3465,10 +3481,10 @@ _GRAPH_JS = """(function () {
     e.preventDefault();
     var rect = canvas.getBoundingClientRect();
     var mx = e.clientX - rect.left, my = e.clientY - rect.top;
-    var factor = e.deltaY < 0 ? 1.12 : 0.89;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
     transform.x = mx - (mx - transform.x) * factor;
     transform.y = my - (my - transform.y) * factor;
-    transform.scale = Math.max(0.05, Math.min(20, transform.scale * factor));
+    transform.scale = Math.max(0.05, Math.min(10, transform.scale * factor));
     redraw();
   }, {passive: false});
 
@@ -3588,7 +3604,7 @@ _MINI_GRAPH_JS = """\
     });
     var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
     var n = localNodes.length;
-    var r = Math.min(W, H) * 0.35;
+    var r = Math.min(W, H) * 0.40;
     nodes = localNodes.map(function(nd, i) {
       var isFocal = nd.slug === FOCAL;
       var angle = (2 * Math.PI * i) / n;
@@ -3614,7 +3630,10 @@ _MINI_GRAPH_JS = """\
   }
 
   function tick() {
-    var REPULSION = 3000, DIST_MAX = 200, SPRING = 0.025, DAMP = 0.8;
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
     var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
     for (i = 0; i < nodes.length; i++) {
       for (j = i + 1; j < nodes.length; j++) {
@@ -3809,7 +3828,7 @@ _MINI_GRAPH_JS = """\
     e.preventDefault();
     var rect = canvas.getBoundingClientRect();
     var mx = e.clientX - rect.left, my = e.clientY - rect.top;
-    var factor = e.deltaY < 0 ? 1.12 : 0.89;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
     transform.x = mx - (mx - transform.x) * factor;
     transform.y = my - (my - transform.y) * factor;
     transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
