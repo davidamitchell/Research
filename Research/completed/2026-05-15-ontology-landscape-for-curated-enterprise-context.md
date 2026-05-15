@@ -2,12 +2,12 @@
 review_count: 2
 title: "Ontology landscape for curated lexical and structured enterprise context"
 added: 2026-05-15T19:57:36+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [knowledge-graph, llm, organisation, workflow]
 started: 2026-05-15T23:33:05+00:00
-completed: ~
+completed: 2026-05-15T23:58:23+00:00
 output: [knowledge]
 cites:
   - 2026-05-12-web-ontologies-production-knowledge-graph-agentic
