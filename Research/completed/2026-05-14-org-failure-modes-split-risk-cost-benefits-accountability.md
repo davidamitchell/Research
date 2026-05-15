@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "7cd9a8ac080202462a7383bfeea300a10626f0d6"
+    changed: 2026-05-15
+    progress: "progress/2026-05-15-org-failure-modes-split-risk-cost-benefits-accountability.md"
+    summary: "Initial completion"
 ---
 
 # Organisational failure modes: risk, operational cost, and benefits accountability in separate business units
