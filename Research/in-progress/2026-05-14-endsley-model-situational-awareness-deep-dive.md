@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Endsley Model of Situational Awareness deep dive"
 added: 2026-05-14T10:08:59+00:00
 status: reviewing
