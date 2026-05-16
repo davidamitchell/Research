@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T07:11:19Z",
-  "node_count": 330,
-  "edge_count": 1798,
+  "generated": "2026-05-16T07:20:27Z",
+  "node_count": 331,
+  "edge_count": 1812,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1983,6 +1983,12 @@
       "title": "Agent Operational Cost vs Gap Closure Cost",
       "type": "primary",
       "url": "/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html"
+    },
+    {
+      "slug": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "title": "Decommission Trigger Design for Temporary Bridge Agents",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html"
     }
   ],
   "edges": [
@@ -2076,14 +2082,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2109,6 +2107,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -4140,14 +4146,6 @@
     },
     {
       "source": "2026-03-12-superpowers-integration-analysis",
-      "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,workflow",
-      "provenance": "2026-03-12-superpowers-integration-analysis"
-    },
-    {
-      "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4157,6 +4155,14 @@
     {
       "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,workflow",
+      "provenance": "2026-03-12-superpowers-integration-analysis"
+    },
+    {
+      "source": "2026-03-12-superpowers-integration-analysis",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,workflow",
@@ -4692,14 +4698,6 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4725,6 +4723,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5004,14 +5010,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5021,6 +5019,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9268,7 +9274,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -10379,6 +10385,14 @@
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
+      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
       "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 4,
@@ -10697,6 +10711,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
@@ -13356,7 +13378,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13364,7 +13386,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13484,14 +13506,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13501,6 +13515,14 @@
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14092,7 +14114,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14100,7 +14122,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14220,7 +14242,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14228,7 +14250,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14468,7 +14490,7 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14524,14 +14546,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14541,6 +14555,14 @@
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14612,14 +14634,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-12-rag-document-drift-agent-behavior",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14645,6 +14659,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14717,6 +14739,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15395,6 +15425,14 @@
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
       "source": "2026-05-12-regulated-ai-constraint-shift",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 4,
@@ -15563,6 +15601,14 @@
       "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
     },
     {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
       "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 4,
@@ -15657,6 +15703,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,organisation",
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
@@ -15784,7 +15838,7 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
@@ -15805,6 +15859,14 @@
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -16369,6 +16431,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-04-27-uelgf-decommission-lifecycle",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-04-27-uelgf-runtime-feedback-loop",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     }
   ]
 }

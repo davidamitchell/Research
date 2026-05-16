@@ -1,6 +1,109 @@
 {
-  "extracted_at": "2026-05-16T07:11:15Z",
+  "extracted_at": "2026-05-16T07:20:23Z",
   "items": {
+    "2026-05-16-decommission-trigger-design-for-do-mode-agents": {
+      "named_concepts": [
+        "temporary bridge",
+        "bridge agent",
+        "replacement capability",
+        "automatic trigger",
+        "bridge agents",
+        "official lifecycle",
+        "lifecycle frameworks",
+        "dependency-aware deletion",
+        "official platform",
+        "power platform",
+        "inactivity checks",
+        "optional auto-delete",
+        "machine-initiated retirement",
+        "dependency checks",
+        "human approval",
+        "approval belongs",
+        "directly stated",
+        "sources expose",
+        "one universal",
+        "capability delivered"
+      ],
+      "source_urls": [
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://airc.nist.gov/airmf-resources/playbook/",
+        "https://www.isaca.org/resources/toolkits/governing-ai-across-its-lifecycle-a-framework-for-risk-practitioners",
+        "https://www.isaca.org/resources/news-and-trends/newsletters/atisaca/2020/volume-11/an-introduction-to-assessing-the-compliance-risk-of-rpa-enabled-processes",
+        "https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists",
+        "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+        "https://docs.uipath.com/automation-hub/automation-suite/2.2510/user-guide/customize-idea-flows",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+        "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+        "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/adoption/reactive-governance",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-orphan-components",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The strongest decommission pattern uses an expiring registration plus runtime evidence of supersession, because official platform controls already rely on inactivity, ownerless-state, approval-state, and dependency-state signals to decide when cleanup work should start",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data"
+          ]
+        },
+        {
+          "text": "Official lifecycle frameworks treat retirement as a first-class governance stage, so temporary bridge agents need documented trigger logic, retained evidence, and reviewable decommission records to satisfy that governance burden",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://airc.nist.gov/airmf-resources/playbook/",
+            "https://www.isaca.org/resources/toolkits/governing-ai-across-its-lifecycle-a-framework-for-risk-practitioners"
+          ]
+        },
+        {
+          "text": "Microsoft's Power Platform guidance demonstrates that scheduled inactivity checks, warning windows, reassignment flows, and optional auto-delete are already mature low-code patterns for machine-initiated retirement workflows",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-orphan-components"
+          ]
+        },
+        {
+          "text": "UiPath's delete and disable controls show that retirement should distinguish between stopping new intake, preserving history, and final removal, and that deletion must be blocked while explicit dependencies still exist",
+          "sources": [
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+            "https://docs.uipath.com/automation-hub/automation-suite/2.2510/user-guide/customize-idea-flows"
+          ]
+        },
+        {
+          "text": "A software release does not independently prove decommission readiness, because the replacement capability may be technically deployed while users, routes, or exceptions still rely on the old bridge in production",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html"
+          ]
+        },
+        {
+          "text": "The most defensible automatic trigger is a composite state change in which the replacement capability is registered as live, the temporary bridge agent shows sustained non-use or collapsing exception demand, and dependency checks show no remaining justified consumers",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/adoption/reactive-governance",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html"
+          ]
+        },
+        {
+          "text": "Human approval belongs in an exception, appeal, and high-consequence confirmation layer, because incentive pressure and volume-sensitive oversight failure make manual cleanup unreliable as the main retirement mechanism",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+            "https://www.isaca.org/resources/news-and-trends/newsletters/atisaca/2020/volume-11/an-introduction-to-assessing-the-compliance-risk-of-rpa-enabled-processes"
+          ]
+        }
+      ]
+    },
     "2026-05-16-agent-operational-cost-vs-gap-closure-cost": {
       "named_concepts": [
         "recurring agent",
