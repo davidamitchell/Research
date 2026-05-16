@@ -128,7 +128,7 @@ Every source includes a direct URL so the generated site can render verifiable c
 1. Representation choice
    1.1 What does RDF 1.1 contribute that UELGF needs?
    1.2 What does OWL 2 contribute that UELGF needs?
-   1.3 What does SHACL contribute that OWL alone does not?
+   1.3 What does Shapes Constraint Language (SHACL) contribute that OWL alone does not?
    1.4 What does LPG contribute that RDF/OWL does not?
    1.5 Which control surfaces require canonical semantics, and which require ergonomic traversal or analytics?
 2. UELGF graph mapping
@@ -197,8 +197,7 @@ Every source includes a direct URL so the generated site can render verifiable c
 
 #### Access notes and failed primary-source searches
 
-- Access note: direct fetch of `https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/responsible-business-policy/` timed out in this runtime
-- Access note: direct fetch of `https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/sustainability/sustainability-report-2025/` timed out in this runtime
+- [assumption] The Kiwibank responsible-business and sustainability pages are treated as context anchors rather than evidence anchors in this item because direct fetches for those URLs failed during this session's evidence collection. [source: https://github.com/davidamitchell/Research/actions/runs/25947499947]
 - [assumption] Search query `"The Labeled Property Graph Model" Angles 2023 arXiv` did not locate a verified accessible primary text in this runtime, and the seeded DOI `https://doi.org/10.1145/3571255` returned an access failure, so LPG comparison claims in this item rely on the accessible knowledge-graph survey and vendor documentation instead of the inaccessible seeded paper. [source: https://arxiv.org/abs/2003.02320; https://neo4j.com/docs/cypher-manual/current/constraints/]
 
 ### §3 Reasoning
