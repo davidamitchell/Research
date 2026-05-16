@@ -7205,14 +7205,14 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -7242,17 +7242,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
-      "github copilot"
+      "copilot coding",
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -7282,7 +7282,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7320,13 +7320,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -7352,7 +7352,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7505,14 +7505,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "native governance"
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -7532,6 +7532,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   }
 ]
