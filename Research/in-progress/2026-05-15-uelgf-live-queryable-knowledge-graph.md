@@ -196,7 +196,8 @@ Every source includes a direct URL so the generated site can render verifiable c
 
 #### Access notes and failed primary-source searches
 
-- Access note: direct fetches of `https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/responsible-business-policy/` and `https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/sustainability/sustainability-report-2025/` timed out in this runtime, so the Kiwibank entries remain context anchors rather than evidentiary anchors for architecture claims.
+- Access note: direct fetch of `https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/responsible-business-policy/` timed out in this runtime
+- Access note: direct fetch of `https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/sustainability/sustainability-report-2025/` timed out in this runtime
 - [assumption] Search query `"The Labeled Property Graph Model" Angles 2023 arXiv` did not locate a verified accessible primary text in this runtime, and the seeded DOI `https://doi.org/10.1145/3571255` returned an access failure, so LPG comparison claims in this item rely on the accessible knowledge-graph survey and vendor documentation instead of the inaccessible seeded paper. [source: https://arxiv.org/abs/2003.02320; https://neo4j.com/docs/cypher-manual/current/constraints/]
 
 ### §3 Reasoning
@@ -295,12 +296,8 @@ The main rival remedy would be to use pure RDF for every surface and avoid dual-
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: UELGF, CIA, RDF, OWL, LPG, SHACL, PROV-O, ODRL, W3C, AI, and PDF expanded or first introduced in an already expanded source title
-- Claim-label audit: complete
-- Findings and section-6 parity: aligned
-- Cross-item integration: complete
-- Failed primary-source-search record: complete
+- [fact] The first automated review pass flagged two defects in visible prose, unlabeled access-note text in section 2 and unlabeled review-metadata text in section 7, and both defects were corrected in this revision. [source: https://github.com/davidamitchell/Research/actions/runs/25947416586]
+- [inference] After those corrections, the remaining visible research prose, Findings, and mirrored section-6 synthesis are aligned on labels, sources, and substantive conclusions. [source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-15-uelgf-live-queryable-knowledge-graph.md]
 
 ---
 
