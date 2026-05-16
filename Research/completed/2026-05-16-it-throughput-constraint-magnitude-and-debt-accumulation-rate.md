@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "3eeea8ae104be467a7d876b27bcff2763d095a9b"
+    changed: 2026-05-16
+    progress: progress/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.md
+    summary: "Initial completion"
 ---
 
 # IT Throughput Constraint Magnitude and Debt Accumulation Rate
