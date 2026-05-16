@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Declaration of the Independence of Cyberspace: origins, impacts, and Artificial Intelligence-era implications"
 added: 2026-05-15T18:17:15+00:00
 status: reviewing
