@@ -609,7 +609,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 97,
+    "item_count": 98,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -1085,6 +1085,11 @@
         "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
         "title": "Ontology landscape for curated lexical and structured enterprise context",
         "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+        "title": "Temporary Automation Demand Persistence and Core Capability Investment Displacement",
+        "added": "2026-05-16"
       },
       {
         "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
@@ -1814,7 +1819,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 57,
+    "item_count": 58,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -2090,6 +2095,11 @@
         "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
         "title": "Ontology landscape for curated lexical and structured enterprise context",
         "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+        "title": "Temporary Automation Demand Persistence and Core Capability Investment Displacement",
+        "added": "2026-05-16"
       },
       {
         "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
@@ -3069,7 +3079,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 28,
+    "item_count": 29,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -3205,6 +3215,11 @@
         "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
         "title": "Ontology landscape for curated lexical and structured enterprise context",
         "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+        "title": "Temporary Automation Demand Persistence and Core Capability Investment Displacement",
+        "added": "2026-05-16"
       },
       {
         "slug": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
@@ -6370,13 +6385,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -6432,7 +6447,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "copilot-instructions-claude",
@@ -7200,14 +7215,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -7237,7 +7252,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7275,13 +7290,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -7307,7 +7322,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7460,14 +7475,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
-      "direct publish"
+      "power platform",
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7487,6 +7502,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   }
 ]

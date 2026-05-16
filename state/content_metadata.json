@@ -1,6 +1,125 @@
 {
-  "extracted_at": "2026-05-16T07:30:32Z",
+  "extracted_at": "2026-05-16T07:44:49Z",
   "items": {
+    "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement": {
+      "named_concepts": [
+        "temporary automation",
+        "information technology",
+        "reviewed public",
+        "capability gap",
+        "lifecycle controls",
+        "reliable cross-organisational",
+        "underlying capability",
+        "shadow artificial",
+        "artificial intelligence",
+        "core software-delivery",
+        "software-delivery demand",
+        "giving users",
+        "faster local",
+        "central information",
+        "technology delivery",
+        "sanctioned tools",
+        "tools cannot",
+        "cannot meet",
+        "persistence risk",
+        "automation platforms"
+      ],
+      "source_urls": [
+        "https://ieeexplore.ieee.org/document/10095722",
+        "https://irpaai.com/",
+        "https://www.deloitte.com/us/en/insights/topics/talent/intelligent-automation-2020-survey-results.html",
+        "https://store.hbr.org/product/harvard-business-review-may-2016/BR1605",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/3/",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/6/",
+        "https://hdl.handle.net/10125/108890",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+        "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+        "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+        "https://www.ibm.com/think/topics/shadow-ai",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+        "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+        "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-orphan-components",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/adoption/reactive-governance",
+        "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+        "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Temporary automation displaces core software-delivery demand primarily by giving users a faster local alternative when central Information Technology delivery or sanctioned tools cannot meet workflow needs with adequate speed or fit",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6/",
+            "https://www.deloitte.com/us/en/insights/topics/talent/intelligent-automation-2020-survey-results.html",
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://www.ibm.com/think/topics/shadow-ai"
+          ]
+        },
+        {
+          "text": "Automation adoption often scales ahead of enterprise strategy and Information Technology readiness, which supports the inference that local delivery can expand before the organisation closes the underlying capability gap in software",
+          "sources": [
+            "https://www.deloitte.com/us/en/insights/topics/talent/intelligent-automation-2020-survey-results.html",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3/"
+          ]
+        },
+        {
+          "text": "Post-rollout shadow Artificial Intelligence behaviour shows that sanctioned provision does not reliably eliminate workaround demand when users still perceive external tools as better, easier, or faster than approved enterprise options",
+          "sources": [
+            "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+            "https://www.ibm.com/think/topics/shadow-ai",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html"
+          ]
+        },
+        {
+          "text": "Robotic Process Automation and adjacent workaround programmes can create additive operating cost because bot support and upgrade effort persists while the cost of the underlying legacy system remains in place",
+          "sources": [
+            "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html"
+          ]
+        },
+        {
+          "text": "Major automation platforms have built retirement features around inactivity, ownerlessness, approvals, and dependency checks, which supports the inference that persistence of unused or obsolete workarounds is common enough to require explicit lifecycle controls",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data"
+          ]
+        },
+        {
+          "text": "The reviewed public evidence base does not yield a reliable cross-organisational persistence rate after the underlying capability gap has been closed, so the requested rate question remains unresolved rather than answered with confidence",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/automatic-environment-cleanup",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/"
+          ]
+        },
+        {
+          "text": "The evidence most consistently points to central repositories, code review, role-based access control, separate environments, business-Information Technology collaboration, and leadership-backed programme design as the governance bundle most likely to protect core build capacity",
+          "sources": [
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6/",
+            "https://hdl.handle.net/10125/108890"
+          ]
+        },
+        {
+          "text": "The most defensible operating model is to treat temporary automation as a governed bridge with explicit end-of-life conditions and observable replacement signals, not as a standing substitute for fixing the underlying system",
+          "sources": [
+            "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html"
+          ]
+        }
+      ]
+    },
     "2026-05-16-decommission-trigger-design-for-do-mode-agents": {
       "named_concepts": [
         "temporary bridge",
