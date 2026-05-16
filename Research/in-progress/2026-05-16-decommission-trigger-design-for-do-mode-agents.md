@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Decommission Trigger Design for Temporary Bridge Agents"
 added: 2026-05-16T05:29:48+00:00
 status: reviewing
