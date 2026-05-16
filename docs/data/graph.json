@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T00:31:16Z",
-  "node_count": 328,
-  "edge_count": 1778,
+  "generated": "2026-05-16T00:42:54Z",
+  "node_count": 329,
+  "edge_count": 1788,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1953,6 +1953,12 @@
       "title": "PromptQL definition, research foundations, and related technologies",
       "type": "primary",
       "url": "/Research/research/2026-05-14-promptql-definition-foundations-related-technologies.html"
+    },
+    {
+      "slug": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "title": "Declaration of the Independence of Cyberspace: origins, impacts, and Artificial Intelligence-era implications",
+      "type": "primary",
+      "url": "/Research/research/2026-05-15-declaration-independence-cyberspace-ai-risk.html"
     },
     {
       "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
@@ -5944,7 +5950,7 @@
     },
     {
       "source": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-      "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance",
@@ -13791,6 +13797,14 @@
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
     },
     {
+      "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
+      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
       "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -13869,6 +13883,14 @@
       "rel": "tag-overlap",
       "evidence": "ai-governance,compliance,governance,regulatory",
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
+    },
+    {
+      "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
@@ -13981,6 +14003,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
@@ -14125,6 +14155,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
       "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
@@ -14325,6 +14363,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm,workflow",
       "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
@@ -16021,6 +16067,46 @@
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,llm,workflow",
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-02-28-ai-strategy",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-04-30-explainable-ai-xai-regulation-governance",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-05-07-five-eyes-ai-risks-and-advice",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
       "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",

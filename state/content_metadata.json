@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-16T00:31:12Z",
+  "extracted_at": "2026-05-16T00:42:50Z",
   "items": {
     "2026-05-15-uelgf-live-queryable-knowledge-graph": {
       "named_concepts": [
@@ -236,6 +236,104 @@
             "https://arxiv.org/abs/2308.02457",
             "https://arxiv.org/abs/2408.08921",
             "https://www.w3.org/groups/wg/rdf-star/"
+          ]
+        }
+      ]
+    },
+    "2026-05-15-declaration-independence-cyberspace-ai-risk": {
+      "named_concepts": [
+        "artificial intelligence",
+        "risk management",
+        "intelligence governance",
+        "intelligence systems",
+        "territorial sovereignty",
+        "current artificial",
+        "outside territorial",
+        "governance frameworks",
+        "public governance",
+        "high-impact artificial",
+        "natural independence",
+        "digital self-governance",
+        "govern itself",
+        "ethics self-interest",
+        "social contract",
+        "durable settlement",
+        "online speech",
+        "human oversight",
+        "remain decentralised",
+        "barlow wrote"
+      ],
+      "source_urls": [
+        "https://www.eff.org/cyberspace-independence",
+        "https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996",
+        "https://www.eff.org/about",
+        "https://www.eff.org/about/history",
+        "https://www.law.cornell.edu/supct/html/96-511.ZS.html",
+        "https://www.eff.org/issues/cda230",
+        "https://www.firstmonday.org/ojs/index.php/fm/article/view/468",
+        "https://bidenwhitehouse.archives.gov/ostp/ai-bill-of-rights/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9",
+        "https://oecd.ai/en/ai-principles",
+        "https://www.un.org/techenvoy/ai-advisory-body",
+        "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-orthogonality-thesis-ai-alignment-interpretability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html"
+      ],
+      "key_claims": [
+        {
+          "text": "John Perry Barlow wrote the declaration at Davos on 8 February 1996 as a direct response to the Telecommunications Act and Communications Decency Act moment, which made it a political intervention against emerging online speech regulation rather than a neutral description of digital reality",
+          "sources": [
+            "https://www.eff.org/cyberspace-independence",
+            "https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996",
+            "https://www.law.cornell.edu/supct/html/96-511.ZS.html"
+          ]
+        },
+        {
+          "text": "The declaration's core claims are that cyberspace lies outside territorial sovereignty, that online order should arise from ethics and enlightened self-interest, and that distributed digital identities make physical coercion an illegitimate or ineffective governance mechanism",
+          "sources": [
+            "https://www.eff.org/cyberspace-independence",
+            "https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996"
+          ]
+        },
+        {
+          "text": "The available evidence suggests that the wider 1996 cyberlaw conversation shared Barlow's diagnosis that networked communication crossed borders, while contemporaneous legal scholarship still argued for new laws and institutions for cyberspace rather than for the complete absence of public governance",
+          "sources": [
+            "https://www.firstmonday.org/ojs/index.php/fm/article/view/468",
+            "https://www.eff.org/cyberspace-independence"
+          ]
+        },
+        {
+          "text": "The long-run governance architecture of the open internet did not validate full cyberspace independence, because it depended on court decisions and statutory protections such as *Reno* and Section 230 that embedded online openness inside state-created legal frameworks",
+          "sources": [
+            "https://www.law.cornell.edu/supct/html/96-511.ZS.html",
+            "https://www.eff.org/issues/cda230"
+          ]
+        },
+        {
+          "text": "Modern Artificial Intelligence governance frameworks explicitly reject the declaration's natural-independence premise by imposing documented risk management, transparency, rights protection, and human-oversight obligations on automated systems that affect people and institutions",
+          "sources": [
+            "https://bidenwhitehouse.archives.gov/ostp/ai-bill-of-rights/",
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9"
+          ]
+        },
+        {
+          "text": "Governance of General-Purpose AI models goes further still by targeting upstream model providers with transparency, copyright, and safety obligations, which treats foundational digital infrastructure as a legitimate object of public governance even when models are globally distributed",
+          "sources": [
+            "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+            "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+          ]
+        },
+        {
+          "text": "Barlow's declaration remains useful as a warning against overbroad censorship and enclosure, but it is a weak operating model for high-impact Artificial Intelligence because current alignment and governance work assumes opaque objectives, cross-border spillovers, and the need for auditable control surfaces",
+          "sources": [
+            "https://www.eff.org/cyberspace-independence",
+            "https://davidamitchell.github.io/Research/research/2026-04-30-orthogonality-thesis-ai-alignment-interpretability.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html",
+            "https://www.nist.gov/itl/ai-risk-management-framework"
           ]
         }
       ]
