@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: dea306a697047f4915c6f7804d279de3be834d60
+    changed: 2026-05-16
+    progress: progress/2026-05-16-agent-operational-cost-vs-gap-closure-cost.md
+    summary: Initial completion
 ---
 
 # Agent Operational Cost vs Gap Closure Cost
