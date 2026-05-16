@@ -2,12 +2,12 @@
 review_count: 2
 title: "Declaration of the Independence of Cyberspace: origins, impacts, and Artificial Intelligence-era implications"
 added: 2026-05-15T18:17:15+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [internet-governance, digital-sovereignty, agentic-ai, ai-governance, ai-safety]
 started: 2026-05-16T00:21:11+00:00
-completed: ~
+completed: 2026-05-16T00:41:38+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-30-orthogonality-thesis-ai-alignment-interpretability, 2026-05-06-aibom-regulatory-eu-ai-act-intersection]
 related: [2026-05-07-five-eyes-ai-risks-and-advice, 2026-02-28-ai-strategy, 2026-04-30-explainable-ai-xai-regulation-governance]
