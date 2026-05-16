@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 2b49c31b0a74f52c0d389665fd1f161ca3a0447e
+    changed: 2026-05-16
+    progress: progress/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.md
+    summary: "Initial completion"
 ---
 
 # Temporary Automation Demand Persistence and Core Capability Investment Displacement
