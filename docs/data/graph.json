@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T00:10:52Z",
-  "node_count": 327,
-  "edge_count": 1765,
+  "generated": "2026-05-16T00:20:33Z",
+  "node_count": 328,
+  "edge_count": 1778,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1965,6 +1965,12 @@
       "title": "Organisational failure modes from structural fragmentation",
       "type": "synthesis",
       "url": "/Research/knowledge/2026-05-15-organisational-failure-modes-structural-fragmentation.html"
+    },
+    {
+      "slug": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "title": "Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement",
+      "type": "primary",
+      "url": "/Research/research/2026-05-15-uelgf-live-queryable-knowledge-graph.html"
     }
   ],
   "edges": [
@@ -6382,7 +6388,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,citizen-development,regulated-banking",
-      "provenance": "2026-04-27-uelgf-entity-taxonomy-cia-classification"
+      "provenance": "2026-04-26-deployment-pipeline-citizen-development-governed-gate"
     },
     {
       "source": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
@@ -6986,14 +6992,6 @@
     },
     {
       "source": "2026-04-27-uelgf-decommission-lifecycle",
-      "target": "2026-04-27-uelgf-policy-architecture-8-layer-context",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "regulated-banking,uelgf",
-      "provenance": "2026-04-27-uelgf-decommission-lifecycle"
-    },
-    {
-      "source": "2026-04-27-uelgf-decommission-lifecycle",
       "target": "2026-04-27-uelgf-runtime-feedback-loop",
       "weight": 3,
       "rel": "tag-overlap",
@@ -7011,6 +7009,14 @@
     {
       "source": "2026-04-27-uelgf-decommission-lifecycle",
       "target": "2026-04-28-uelgf-human-oversight-accountability-layer",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "regulated-banking,uelgf",
+      "provenance": "2026-04-27-uelgf-decommission-lifecycle"
+    },
+    {
+      "source": "2026-04-27-uelgf-decommission-lifecycle",
+      "target": "2026-05-15-uelgf-live-queryable-knowledge-graph",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "regulated-banking,uelgf",
@@ -7039,6 +7045,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,regulated-banking,uelgf",
       "provenance": "2026-04-27-uelgf-entity-taxonomy-cia-classification"
+    },
+    {
+      "source": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+      "target": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "cia-classification,regulated-banking,uelgf",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
       "source": "2026-04-27-uelgf-foundational-definitions-principles",
@@ -7138,19 +7152,19 @@
     },
     {
       "source": "2026-04-27-uelgf-policy-architecture-8-layer-context",
-      "target": "2026-04-28-uelgf-human-oversight-accountability-layer",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "regulated-banking,uelgf",
-      "provenance": "2026-04-27-uelgf-policy-architecture-8-layer-context"
-    },
-    {
-      "source": "2026-04-27-uelgf-policy-architecture-8-layer-context",
       "target": "2026-04-28-uelgf-tooling-reference-architecture",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "opa,policy-as-code,uelgf",
       "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
+    },
+    {
+      "source": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+      "target": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "regulated-banking,uelgf",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
       "source": "2026-04-27-uelgf-runtime-feedback-loop",
@@ -7162,11 +7176,11 @@
     },
     {
       "source": "2026-04-27-uelgf-runtime-feedback-loop",
-      "target": "2026-04-28-uelgf-human-oversight-accountability-layer",
+      "target": "2026-05-15-uelgf-live-queryable-knowledge-graph",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "regulated-banking,uelgf",
-      "provenance": "2026-04-27-uelgf-runtime-feedback-loop"
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
       "source": "2026-04-27-uelgf-synthesis-complete-framework",
@@ -7191,6 +7205,14 @@
       "rel": "tag-overlap",
       "evidence": "governed-golden-rail,uelgf",
       "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
+    },
+    {
+      "source": "2026-04-27-uelgf-synthesis-complete-framework",
+      "target": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "regulated-banking,uelgf",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
       "source": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
@@ -7327,6 +7349,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,human-oversight",
       "provenance": "2026-04-28-uelgf-human-oversight-accountability-layer"
+    },
+    {
+      "source": "2026-04-28-uelgf-human-oversight-accountability-layer",
+      "target": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "regulated-banking,uelgf",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
       "source": "2026-04-29-knowledge-scaffolding-context-engineering",
@@ -16087,6 +16117,86 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-15-organisational-failure-modes-structural-fragmentation"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-04-27-uelgf-runtime-feedback-loop",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-04-27-uelgf-synthesis-complete-framework",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-04-28-uelgf-tooling-reference-architecture",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-05-12-data-product-ontology",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-05-12-graph-db-saas-knowledge-ontology",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     }
   ]
 }

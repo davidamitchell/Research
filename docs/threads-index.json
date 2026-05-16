@@ -964,7 +964,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 64,
+    "item_count": 65,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1285,6 +1285,11 @@
         "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
         "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
         "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement",
+        "added": "2026-05-15"
       }
     ],
     "url": "/Research/threads/agentic-ai-governance-llm.html"
@@ -3069,7 +3074,7 @@
       "rag"
     ],
     "concept_cluster": [],
-    "item_count": 33,
+    "item_count": 34,
     "items": [
       {
         "slug": "2026-02-27-information-synthesis-entropy",
@@ -3235,6 +3240,11 @@
         "slug": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
         "title": "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments",
         "added": "2026-05-10"
+      },
+      {
+        "slug": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement",
+        "added": "2026-05-15"
       }
     ],
     "url": "/Research/threads/agentic-ai-regulated-banking-rag.html"
@@ -4460,6 +4470,96 @@
     "url": "/Research/threads/organisation-governance-organisational-design.html"
   },
   {
+    "slug": "agentic-ai-uelgf-regulated-banking",
+    "title": "agentic-ai / uelgf / regulated-banking",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "uelgf",
+      "regulated-banking"
+    ],
+    "concept_cluster": [],
+    "item_count": 15,
+    "items": [
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-out-of-band-policy-invalidation-remediation",
+        "title": "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
+        "title": "Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-runtime-feedback-loop",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-decommission-lifecycle",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-tooling-reference-architecture",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement",
+        "added": "2026-05-15"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-uelgf-regulated-banking.html"
+  },
+  {
     "slug": "low-code-enterprise-governance-ai-governance",
     "title": "low-code / enterprise-governance / ai-governance",
     "kind": "implicit",
@@ -4898,91 +4998,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-organisational-design-strategy.html"
-  },
-  {
-    "slug": "agentic-ai-uelgf-regulated-banking",
-    "title": "agentic-ai / uelgf / regulated-banking",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "uelgf",
-      "regulated-banking"
-    ],
-    "concept_cluster": [],
-    "item_count": 14,
-    "items": [
-      {
-        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
-        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
-        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
-        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-out-of-band-policy-invalidation-remediation",
-        "title": "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
-        "title": "Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-runtime-feedback-loop",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-decommission-lifecycle",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-tooling-reference-architecture",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
-        "added": "2026-04-28"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-uelgf-regulated-banking.html"
   },
   {
     "slug": "agentic-ai-operational-risk-regulated-banking",
@@ -6965,14 +6980,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -7012,7 +7027,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -7260,14 +7275,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -7297,7 +7312,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7335,13 +7350,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -7367,7 +7382,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7550,14 +7565,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
-      "direct publish"
+      "copilot studio",
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7577,6 +7592,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]

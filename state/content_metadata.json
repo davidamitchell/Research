@@ -1,6 +1,130 @@
 {
-  "extracted_at": "2026-05-16T00:10:49Z",
+  "extracted_at": "2026-05-16T00:20:29Z",
   "items": {
+    "2026-05-15-uelgf-live-queryable-knowledge-graph": {
+      "named_concepts": [
+        "uelgf policy",
+        "owl profile",
+        "lpg projection",
+        "existing uelgf",
+        "truth conditions",
+        "named graphs",
+        "graphs plus",
+        "plus prov-o",
+        "human promotion",
+        "canonical semantic",
+        "explicit classes",
+        "hybrid architecture",
+        "model shacl",
+        "property graph",
+        "relationship confidence",
+        "annotation metadata",
+        "high-impact assertions",
+        "governance state",
+        "taxonomy structure",
+        "structure onto"
+      ],
+      "source_urls": [
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/owl2-overview/",
+        "https://www.w3.org/TR/owl2-profiles/",
+        "https://doi.org/10.1145/3571255",
+        "https://arxiv.org/abs/2003.02320",
+        "https://neo4j.com/docs/cypher-manual/current/constraints/",
+        "https://w3c-cg.github.io/rdf-star/cg-spec/2021-12-17.html",
+        "https://www.w3.org/groups/wg/rdf-star/",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.w3.org/TR/prov-o/",
+        "https://www.w3.org/TR/prov-primer/",
+        "https://www.w3.org/TR/vocab-dcat-3/",
+        "https://www.w3.org/TR/odrl-model/",
+        "https://www.w3.org/TR/odrl-vocab/",
+        "https://www.w3.org/TR/dwbp/",
+        "https://arxiv.org/html/2406.02962",
+        "https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/responsible-business-policy/",
+        "https://www.kiwibank.co.nz/about-us/who-we-are/our-purpose/sustainability/sustainability-report-2025/",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-uelgf-tooling-reference-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A hybrid architecture with RDF 1.1 and a bounded OWL 2 profile as the canonical semantic model, SHACL as the validation layer, and an LPG projection as the operational read model is the best fit for UELGF because it combines formal shared meaning with deterministic conformance checking and graph-application ergonomics",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/owl2-profiles/",
+            "https://www.w3.org/TR/shacl/",
+            "https://arxiv.org/abs/2003.02320"
+          ]
+        },
+        {
+          "text": "Pure LPG is not a sufficient canonical representation for UELGF because the framework's existing policy, taxonomy, and runtime items already rely on explicit precedence, globally interpretable semantics, and cross-system policy coherence that are stronger in RDF/OWL than in application-scoped property-graph conventions",
+          "sources": [
+            "https://neo4j.com/docs/cypher-manual/current/constraints/",
+            "https://arxiv.org/abs/2003.02320",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html"
+          ]
+        },
+        {
+          "text": "The UELGF graph should model the eight organisational context layers, entity families, CIA axis values, and named governance relations as explicit classes and predicates rather than only labels or free-form properties, because enforcement, conflict detection, and review routing depend on those distinctions being machine-checkable instead of merely descriptive",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/shacl/"
+          ]
+        },
+        {
+          "text": "Relationship confidence and extraction uncertainty should be represented as provenance-bearing annotation metadata, not as weighted normative edges, because UELGF policy enforcement must stay deterministic while extraction reliability still needs to be preserved for ranking, triage, and human review",
+          "sources": [
+            "https://www.w3.org/TR/prov-o/",
+            "https://www.w3.org/TR/prov-primer/",
+            "https://www.w3.org/TR/shacl/",
+            "https://w3c-cg.github.io/rdf-star/cg-spec/2021-12-17.html",
+            "https://www.w3.org/groups/wg/rdf-star/"
+          ]
+        },
+        {
+          "text": "Named graphs plus PROV-O are the safest baseline for statement-level provenance and change tracking, while RDF-star should remain optional until platform support and standard maturity are acceptable for the target deployment, because the RDF-star work is still a draft-track effort rather than a finished Recommendation",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/prov-o/",
+            "https://w3c-cg.github.io/rdf-star/cg-spec/2021-12-17.html",
+            "https://www.w3.org/groups/wg/rdf-star/"
+          ]
+        },
+        {
+          "text": "The ingestion pipeline should preserve immutable document versions, checksums, access metadata, extraction lineage, and promotion history from the beginning, because provenance and versioning are not optional extras in a regulated governance graph that may later justify suspension, escalation, or audit conclusions",
+          "sources": [
+            "https://www.w3.org/TR/vocab-dcat-3/",
+            "https://www.w3.org/TR/prov-o/",
+            "https://www.w3.org/TR/dwbp/"
+          ]
+        },
+        {
+          "text": "Internal policy, system-state, and domain-document ingestion should separate raw source objects, extracted candidate assertions, and promoted canonical assertions into distinct graph layers, because that separation contains contradiction risk and stops uncertain extraction from silently mutating the authoritative governance state",
+          "sources": [
+            "https://arxiv.org/html/2406.02962",
+            "https://www.w3.org/TR/prov-o/",
+            "https://www.w3.org/TR/shacl/",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html"
+          ]
+        },
+        {
+          "text": "The ontology-landscape item sharpened but did not block this decision, because this item's decisive work was mapping the existing UELGF policy and taxonomy structure onto standards-backed graph layers rather than only establishing that hybrid knowledge-graph architectures are generally common in enterprise settings",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html"
+          ]
+        }
+      ]
+    },
     "2026-05-15-ontology-landscape-for-curated-enterprise-context": {
       "named_concepts": [
         "graph retrieval",
