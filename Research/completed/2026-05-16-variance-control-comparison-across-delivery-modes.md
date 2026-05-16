@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: df295386b1ae812385ebdb03f7755d1ffa4bbf38
+    changed: 2026-05-16
+    progress: progress/2026-05-16-variance-control-comparison-across-delivery-modes.md
+    summary: Initial completion
 ---
 
 # Variance Control Comparison Across Delivery Modes
