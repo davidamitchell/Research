@@ -2,12 +2,12 @@
 review_count: 2
 title: "External Dependency Surface Taxonomy for Production LLM Agents"
 added: 2026-05-16T05:29:47+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, agent-tooling, workflow, evaluation]
 started: 2026-05-16T07:45:33+00:00
-completed: ~
+completed: 2026-05-16T08:08:41+00:00
 output: [knowledge]
 cites:
   - 2026-03-08-ai-coding-harnesses-agent-philosophy
