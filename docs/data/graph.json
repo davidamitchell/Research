@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T10:03:40Z",
-  "node_count": 335,
-  "edge_count": 1863,
+  "generated": "2026-05-16T10:14:15Z",
+  "node_count": 336,
+  "edge_count": 1871,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2007,6 +2007,12 @@
       "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
       "type": "primary",
       "url": "/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html"
+    },
+    {
+      "slug": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "title": "Reference architecture definition, framework landscape, and required detail level",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-reference-architecture-definition-frameworks-detail.html"
     },
     {
       "slug": "2026-05-16-variance-control-comparison-across-delivery-modes",
@@ -4823,6 +4829,14 @@
       "rel": "tag-overlap",
       "evidence": "enterprise-architecture,it-architecture",
       "provenance": "2026-03-21-technology-capability-models"
+    },
+    {
+      "source": "2026-03-21-technology-capability-models",
+      "target": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "enterprise-architecture,togaf",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
     },
     {
       "source": "2026-03-22-agents-as-finishers-and-synthesisers",
@@ -11217,6 +11231,14 @@
       "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
     },
     {
+      "source": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+      "target": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "capability-model,reference-architecture",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
       "source": "2026-05-06-aibom-declared-construction-practice",
       "target": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
       "weight": 5,
@@ -12863,6 +12885,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
+    },
+    {
+      "source": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+      "target": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "capability-model,reference-architecture",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
     },
     {
       "source": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
@@ -16855,6 +16885,46 @@
       "rel": "tag-overlap",
       "evidence": "agentic-coding,evaluation,workflow",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-03-21-technology-capability-models",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-04-22-enterprise-ai-capability-model",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-04-28-uelgf-tooling-reference-architecture",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
     },
     {
       "source": "2026-05-16-variance-control-comparison-across-delivery-modes",

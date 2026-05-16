@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-16T10:03:36Z",
+  "extracted_at": "2026-05-16T10:14:12Z",
   "items": {
     "2026-05-16-variance-control-comparison-across-delivery-modes": {
       "named_concepts": [
@@ -107,6 +107,116 @@
             "https://sre.google/sre-book/testing-reliability/",
             "https://genai.owasp.org/llm08-excessive-agency/",
             "https://www.bis.org/bcbs/publ/d516.htm"
+          ]
+        }
+      ]
+    },
+    "2026-05-16-reference-architecture-definition-frameworks-detail": {
+      "named_concepts": [
+        "reference architecture",
+        "architecture description",
+        "iso iec",
+        "iec ieee",
+        "detail ladder",
+        "stakeholder-oriented views",
+        "reference architectures",
+        "implementation architecture",
+        "practical reference",
+        "reusable architecture",
+        "express architecture",
+        "architecture logical",
+        "artifact shape",
+        "current togaf",
+        "views viewpoints",
+        "named components",
+        "conceptual reference",
+        "pattern reference",
+        "deployment architecture",
+        "common vocabulary"
+      ],
+      "source_urls": [
+        "https://www.opengroup.org/togaf",
+        "https://www.opengroup.org/architecture/togaf7-doc/arch/p4/views/vus_intro.htm",
+        "https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p2/ta/ta_views.htm",
+        "https://www.iso.org/standard/74393.html",
+        "https://learn.microsoft.com/en-us/azure/architecture/",
+        "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/",
+        "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+        "https://learn.microsoft.com/en-us/azure/architecture/framework/",
+        "https://aws.amazon.com/architecture/",
+        "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
+        "https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/key-components-of-an-aws-web-hosting-architecture.html",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/introduction.html",
+        "https://docs.aws.amazon.com/architecture-diagrams/latest/modern-data-analytics-on-aws/modern-data-analytics-on-aws.html",
+        "https://cloud.google.com/architecture",
+        "https://cloud.google.com/architecture/framework",
+        "https://docs.cloud.google.com/architecture/framework/operational-excellence",
+        "https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust",
+        "https://docs.cloud.google.com/architecture/framework/performance-optimization/promote-modular-design",
+        "https://davidamitchell.github.io/Research/research/2026-03-21-technology-capability-models.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A practical reference architecture should be treated as a reusable architecture description, the work product used to express architecture, that is organized through stakeholder-oriented views and viewpoints instead of being reduced to a single diagram or a list of products",
+          "sources": [
+            "https://www.iso.org/standard/74393.html",
+            "https://www.opengroup.org/architecture/togaf7-doc/arch/p4/views/vus_intro.htm"
+          ]
+        },
+        {
+          "text": "ISO/IEC/IEEE 42010 provides the structural grammar for architecture descriptions, while TOGAF adds more operational guidance on selecting viewpoints, reference models, and concrete views, so together they cover both expression and reuse of the architecture artifact in practice",
+          "sources": [
+            "https://www.iso.org/standard/74393.html",
+            "https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p2/ta/ta_views.htm",
+            "https://www.opengroup.org/togaf"
+          ]
+        },
+        {
+          "text": "Official cloud reference architectures commonly include a canonical diagram, a flow or workflow description, named components, and explicit quality or control considerations in the same artifact family",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "https://docs.aws.amazon.com/architecture-diagrams/latest/modern-data-analytics-on-aws/modern-data-analytics-on-aws.html",
+            "https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/introduction.html"
+          ]
+        },
+        {
+          "text": "The minimum viable detail level for a reference architecture is logical rather than deployment-specific: it should name stable building blocks, their responsibilities, the major interaction paths, and the constraints used to evaluate later implementations",
+          "sources": [
+            "https://www.iso.org/standard/74393.html",
+            "https://www.opengroup.org/architecture/togaf7-doc/arch/p4/views/vus_intro.htm",
+            "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app"
+          ]
+        },
+        {
+          "text": "Flow diagrams belong in a reference architecture when they show how requests, data, control actions, and trust boundaries move across components, because those flows determine whether the pattern is secure, operable, and scalable enough to reuse",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/key-components-of-an-aws-web-hosting-architecture.html",
+            "https://docs.cloud.google.com/architecture/framework/performance-optimization/promote-modular-design"
+          ]
+        },
+        {
+          "text": "Exact technology choices should usually remain optional or be expressed as bounded options in a reference architecture, because the official frameworks repeatedly pair reusable guidance with an explicit instruction to tailor the pattern to local environment, risk, and operating needs",
+          "sources": [
+            "https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/introduction.html",
+            "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "https://cloud.google.com/architecture/framework"
+          ]
+        },
+        {
+          "text": "Implementation architecture starts when the artifact commits to environment-specific topology, selected services or products, service tiers, operational procedures, resilience settings, and production control mechanisms instead of staying at the reusable-pattern level",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "https://learn.microsoft.com/en-us/azure/architecture/framework/",
+            "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+          ]
+        },
+        {
+          "text": "A useful detail ladder has three levels, conceptual or capability reference architecture, logical or pattern reference architecture, and implementation or deployment architecture, because official guidance separates reusable structure from environment-specific commitments and production controls",
+          "sources": [
+            "https://www.opengroup.org/architecture/togaf7-doc/arch/p4/views/vus_intro.htm",
+            "https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
+            "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
           ]
         }
       ]
