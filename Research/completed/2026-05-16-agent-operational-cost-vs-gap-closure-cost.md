@@ -2,12 +2,12 @@
 review_count: 2
 title: "Agent Operational Cost vs Gap Closure Cost"
 added: 2026-05-16T05:29:47+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, organisation, evaluation]
 started: 2026-05-16T06:27:49+00:00
-completed: ~
+completed: 2026-05-16T06:58:18+00:00
 output: [knowledge]
 cites:
   - 2026-05-13-agent-process-reliability-architecture
