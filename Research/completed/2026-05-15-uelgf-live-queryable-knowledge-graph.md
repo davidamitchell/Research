@@ -2,12 +2,12 @@
 review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement"
 added: 2026-05-15T19:59:47+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [uelgf, knowledge-graph, ontology, policy-coherence, cia-classification, regulated-banking]
 started: 2026-05-16T00:00:18+00:00
-completed: ~
+completed: 2026-05-16T00:19:20+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites:
   - 2026-04-27-uelgf-policy-architecture-8-layer-context
