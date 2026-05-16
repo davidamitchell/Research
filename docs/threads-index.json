@@ -9,7 +9,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 117,
+    "item_count": 118,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -595,6 +595,11 @@
         "slug": "2026-05-15-declaration-independence-cyberspace-ai-risk",
         "title": "Declaration of the Independence of Cyberspace: origins, impacts, and Artificial Intelligence-era implications",
         "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+        "title": "External Dependency Surface Taxonomy for Production LLM Agents",
+        "added": "2026-05-16"
       }
     ],
     "url": "/Research/threads/agentic-ai-llm-governance.html"
@@ -609,7 +614,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 98,
+    "item_count": 99,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -1085,6 +1090,11 @@
         "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
         "title": "Ontology landscape for curated lexical and structured enterprise context",
         "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+        "title": "External Dependency Surface Taxonomy for Production LLM Agents",
+        "added": "2026-05-16"
       },
       {
         "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
@@ -1819,7 +1829,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 58,
+    "item_count": 59,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -2095,6 +2105,11 @@
         "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
         "title": "Ontology landscape for curated lexical and structured enterprise context",
         "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+        "title": "External Dependency Surface Taxonomy for Production LLM Agents",
+        "added": "2026-05-16"
       },
       {
         "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
@@ -7000,14 +7015,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -7047,7 +7062,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -7215,14 +7230,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -7252,7 +7267,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7290,13 +7305,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -7322,7 +7337,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7475,14 +7490,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "power platform",
       "copilot studio",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7502,6 +7517,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]

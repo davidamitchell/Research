@@ -1,6 +1,132 @@
 {
-  "extracted_at": "2026-05-16T07:56:36Z",
+  "extracted_at": "2026-05-16T08:09:55Z",
   "items": {
+    "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents": {
+      "named_concepts": [
+        "production llm",
+        "least seven",
+        "dependency classes",
+        "tool api",
+        "blast radius",
+        "llm agent",
+        "seven external",
+        "dependencies mostly",
+        "mostly fail",
+        "context dependencies",
+        "deterministic components",
+        "nist ai",
+        "ai rmf",
+        "change governance",
+        "sre containment",
+        "external dependency",
+        "model lifecycle",
+        "contract identity",
+        "runtime context",
+        "provider availability"
+      ],
+      "source_urls": [
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/airmf-resources/playbook/",
+        "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom",
+        "https://www.ntia.gov/page/software-bill-materials",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://www.bis.org/fsi/fsisummaries/psmor.htm",
+        "https://sre.google/sre-book/addressing-cascading-failures/",
+        "https://developers.openai.com/api/docs/deprecations",
+        "https://developers.openai.com/api/docs/changelog",
+        "https://developers.openai.com/api/docs/assistants/migration",
+        "https://status.openai.com",
+        "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+        "https://platform.claude.com/docs/en/about-claude/models/migration-guide",
+        "https://status.claude.com",
+        "https://docs.langchain.com/oss/python/migrate/langchain-v1",
+        "https://api.slack.com/apis/rate-limits",
+        "https://developers.notion.com/reference/versioning",
+        "https://arxiv.org/abs/2005.11401",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation",
+        "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/"
+      ],
+      "key_claims": [
+        {
+          "text": "A production LLM agent has at least seven distinct external dependency classes, namely model service availability, model lifecycle and behavior, safety and policy controls, harness and orchestration framework, tool API contract, identity and delegated permissions, and runtime context and retrieval corpus",
+          "sources": [
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom",
+            "https://www.ntia.gov/page/software-bill-materials",
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-ai-concept-classification-taxonomy.md"
+          ]
+        },
+        {
+          "text": "Provider availability and infrastructure incidents can disable model-dependent workflows and adjacent integrations, as shown by repeated Anthropic model outages and an infrastructure change that broke GitHub-dependent Claude Code and plugin-sync workflows for customers using source-address allowlists",
+          "sources": [
+            "https://status.claude.com",
+            "https://status.openai.com"
+          ]
+        },
+        {
+          "text": "Model retirement, alias drift, and migration semantics should be treated as a separate failure class from outages, because OpenAI and Anthropic both document shut-down dates, replacement models, and behavior or parameter changes that can break prompts, tools, or orchestration even when application code stays unchanged",
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations",
+            "https://developers.openai.com/api/docs/changelog",
+            "https://developers.openai.com/api/docs/assistants/migration",
+            "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+            "https://platform.claude.com/docs/en/about-claude/models/migration-guide"
+          ]
+        },
+        {
+          "text": "Harness and orchestration frameworks are shared dependencies whose migrations can change import paths, state-schema rules, middleware hooks, and supported agent-building primitives across every workflow that uses the framework, not just one tool integration",
+          "sources": [
+            "https://docs.langchain.com/oss/python/migrate/langchain-v1",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md"
+          ]
+        },
+        {
+          "text": "Tool APIs mainly fail through contract drift, mandatory version headers, quota changes, and rate-limit enforcement, which usually creates narrower blast radius than provider outages but can still disable any workflow whose action path depends on one unredundant external service",
+          "sources": [
+            "https://developers.notion.com/reference/versioning",
+            "https://api.slack.com/apis/rate-limits",
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+          ]
+        },
+        {
+          "text": "Identity and delegated-permission surfaces are the highest-consequence dependency class per action, because zero-trust requirements, machine-speed execution, and shared or weakly bounded credentials can turn one reasoning or tool failure into unauthorized writes, data exposure, or untraceable actor chains",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/207/final",
+            "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-06-aibom-identity-attribution-multiagent-practice.md"
+          ]
+        },
+        {
+          "text": "Runtime context and Retrieval-Augmented Generation dependencies differ from package dependencies because document, index, and query-planning changes can silently alter grounding evidence and downstream decisions without any model release, which can make this class more drift-prone and less observable than ordinary software dependencies",
+          "sources": [
+            "https://arxiv.org/abs/2005.11401",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation",
+            "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-12-rag-document-drift-agent-behavior.md"
+          ]
+        },
+        {
+          "text": "The most useful governance answer is a layered stack rather than a single imported framework, with SBOM and SSDF practices covering deterministic components, NIST AI RMF and Basel operational-risk controls covering ownership and change governance, OWASP covering agent-specific failure classes, and SRE patterns containing runtime cascades",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/218/final",
+            "https://www.cisa.gov/topics/information-communications-technology-supply-chain-security/sbom",
+            "https://www.ntia.gov/page/software-bill-materials",
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://airc.nist.gov/airmf-resources/playbook/",
+            "https://www.bis.org/bcbs/publ/d515.htm",
+            "https://www.bis.org/fsi/fsisummaries/psmor.htm",
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+            "https://sre.google/sre-book/addressing-cascading-failures/"
+          ]
+        }
+      ]
+    },
     "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement": {
       "named_concepts": [
         "temporary automation",

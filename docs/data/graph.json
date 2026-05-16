@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T07:56:39Z",
-  "node_count": 332,
-  "edge_count": 1823,
+  "generated": "2026-05-16T08:09:59Z",
+  "node_count": 333,
+  "edge_count": 1840,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1995,6 +1995,12 @@
       "title": "Temporary Automation Demand Persistence and Core Capability Investment Displacement",
       "type": "primary",
       "url": "/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html"
+    },
+    {
+      "slug": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "title": "External Dependency Surface Taxonomy for Production LLM Agents",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html"
     }
   ],
   "edges": [
@@ -3176,14 +3182,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3201,6 +3199,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3784,14 +3790,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3809,6 +3807,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3944,14 +3950,6 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3969,6 +3967,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4152,14 +4158,6 @@
     },
     {
       "source": "2026-03-12-superpowers-integration-analysis",
-      "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,workflow",
-      "provenance": "2026-03-12-superpowers-integration-analysis"
-    },
-    {
-      "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4169,6 +4167,14 @@
     {
       "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,workflow",
+      "provenance": "2026-03-12-superpowers-integration-analysis"
+    },
+    {
+      "source": "2026-03-12-superpowers-integration-analysis",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,workflow",
@@ -4704,14 +4710,6 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4737,6 +4735,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4872,14 +4878,6 @@
     },
     {
       "source": "2026-03-22-applied-context-engineering-agent-workflows",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
-      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
-    },
-    {
-      "source": "2026-03-22-applied-context-engineering-agent-workflows",
       "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 4,
       "rel": "tag-overlap",
@@ -4897,6 +4895,14 @@
     {
       "source": "2026-03-22-applied-context-engineering-agent-workflows",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,workflow",
+      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
+    },
+    {
+      "source": "2026-03-22-applied-context-engineering-agent-workflows",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
@@ -5016,14 +5022,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5033,6 +5031,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -6584,7 +6590,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6592,7 +6598,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -8688,14 +8694,6 @@
     },
     {
       "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
-      "target": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
-      "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
-    },
-    {
-      "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
       "target": "2026-05-02-automated-claim-verification-academic-literature",
       "weight": 4,
       "rel": "tag-overlap",
@@ -8705,6 +8703,14 @@
     {
       "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
       "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
+    },
+    {
+      "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm",
@@ -8896,14 +8902,6 @@
     },
     {
       "source": "2026-05-01-coding-agent-context-management-transparency",
-      "target": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,llm,workflow",
-      "provenance": "2026-05-01-coding-agent-context-management-transparency"
-    },
-    {
-      "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-05-02-automated-claim-verification-academic-literature",
       "weight": 4,
       "rel": "tag-overlap",
@@ -8929,6 +8927,14 @@
     {
       "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-01-coding-agent-context-management-transparency"
+    },
+    {
+      "source": "2026-05-01-coding-agent-context-management-transparency",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm,workflow",
@@ -9112,7 +9118,7 @@
     },
     {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
-      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm",
@@ -9272,7 +9278,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9356,7 +9362,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,agentic-coding,llm",
-      "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
+      "provenance": "2026-05-01-self-modifying-agent-architectures"
     },
     {
       "source": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
@@ -9583,6 +9589,14 @@
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
+      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
+    },
+    {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
       "target": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
       "weight": 3,
@@ -9628,7 +9642,7 @@
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-02-automated-claim-verification-academic-literature"
+      "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
@@ -9637,14 +9651,6 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
-    },
-    {
-      "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,llm,workflow",
-      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
@@ -9661,6 +9667,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
+    },
+    {
+      "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
       "source": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
@@ -9853,6 +9867,14 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm,workflow",
       "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-02-automated-claim-verification-academic-literature",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
       "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
@@ -10360,14 +10382,6 @@
     },
     {
       "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,memory-system,workflow",
-      "provenance": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp"
-    },
-    {
-      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10381,6 +10395,14 @@
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,llm,workflow",
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp"
     },
     {
       "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
@@ -10624,14 +10646,6 @@
     },
     {
       "source": "2026-05-02-research-to-publication-authoring-workflow",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
-    },
-    {
-      "source": "2026-05-02-research-to-publication-authoring-workflow",
       "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10641,6 +10655,14 @@
     {
       "source": "2026-05-02-research-to-publication-authoring-workflow",
       "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
+    },
+    {
+      "source": "2026-05-02-research-to-publication-authoring-workflow",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -10664,14 +10686,6 @@
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
-    },
-    {
-      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10692,15 +10706,15 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+      "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 3,
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 5,
       "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,workflow",
-      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
@@ -10760,35 +10774,11 @@
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "target": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,hallucinations,llm,workflow",
-      "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
-    },
-    {
-      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
       "target": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,workflow",
       "provenance": "2026-05-12-knowledge-graph-lifecycle-management-agentic"
-    },
-    {
-      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
-    },
-    {
-      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-13-agent-process-reliability-architecture"
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
@@ -10813,6 +10803,14 @@
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,llm,workflow",
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
     },
     {
       "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
@@ -12272,7 +12270,7 @@
     },
     {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "target": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,workflow",
@@ -12280,7 +12278,7 @@
     },
     {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,workflow",
@@ -12447,6 +12445,14 @@
       "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
     },
     {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
+    },
+    {
       "source": "2026-05-06-it-system-legibility-measurement-frameworks",
       "target": "2026-03-15-tracking-work-across-systems",
       "weight": 3,
@@ -12575,6 +12581,14 @@
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
     },
     {
+      "source": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,evaluation,llm,workflow",
+      "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
+    },
+    {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
       "target": "2026-03-15-prompt-injection-threat-landscape",
       "weight": 4,
@@ -12605,14 +12619,6 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-07-ai-production-incidents-deep-dive"
-    },
-    {
-      "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-platform,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
@@ -14008,14 +14014,6 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
-    },
-    {
-      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
       "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 3,
       "rel": "tag-overlap",
@@ -14045,6 +14043,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance",
       "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
@@ -14967,6 +14973,14 @@
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
       "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -15048,18 +15062,18 @@
     },
     {
       "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,memory-system",
-      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
-    },
-    {
-      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,llm",
+      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
+    },
+    {
+      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm",
       "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
     },
     {
@@ -15376,14 +15390,6 @@
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
-      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-12-rag-document-drift-agent-behavior",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15413,6 +15419,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,organisation,workflow",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
     },
     {
       "source": "2026-05-12-regulated-ai-constraint-shift",
@@ -15591,6 +15605,14 @@
       "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
       "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 4,
@@ -15703,6 +15725,14 @@
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -15744,11 +15774,11 @@
     },
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "weight": 3,
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
-      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
       "source": "2026-05-13-graph-db-landscape-tco-interoperability",
@@ -15937,6 +15967,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -16189,6 +16227,14 @@
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,llm,workflow",
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-14-promptql-definition-foundations-related-technologies",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
     },
     {
       "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
@@ -16519,6 +16565,14 @@
       "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
       "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "target": "2026-03-07-run-build-it-allocation-implementation-how",
       "weight": 3,
@@ -16581,6 +16635,94 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+    },
+    {
+      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,workflow",
+      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-03-10-ai-concept-classification-taxonomy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-04-26-access-control-amplification-agentic-operations",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-06-aibom-identity-attribution-multiagent-practice",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-12-rag-document-drift-agent-behavior",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     }
   ]
 }
