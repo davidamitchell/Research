@@ -2,7 +2,7 @@
 title: "IT Throughput Constraint Magnitude and Debt Accumulation Rate"
 added: 2026-05-16T05:29:48+00:00
 status: reviewing
-review_count: 1
+review_count: 2
 priority: high
 blocks: []
 tags: [organisation, workflow, evaluation, agentic-coding]
