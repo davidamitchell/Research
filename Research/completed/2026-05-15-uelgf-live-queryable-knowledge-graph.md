@@ -25,7 +25,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this item replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: a286423330d5a36585baefd888acb7e57f006c55
+    changed: 2026-05-16
+    progress: progress/2026-05-16-uelgf-live-queryable-knowledge-graph.md
+    summary: Initial completion
 ---
 
 # Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement
