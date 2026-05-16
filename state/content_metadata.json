@@ -1,6 +1,116 @@
 {
-  "extracted_at": "2026-05-16T09:43:49Z",
+  "extracted_at": "2026-05-16T09:55:15Z",
   "items": {
+    "2026-05-16-variance-control-comparison-across-delivery-modes": {
+      "named_concepts": [
+        "build mode",
+        "ai-assisted code",
+        "many failures",
+        "static-analysis feedback",
+        "lower baseline",
+        "approval checkpoints",
+        "failure distribution",
+        "proxy comparison",
+        "business processes",
+        "review staged",
+        "staged release",
+        "elevated before-release",
+        "substantial share",
+        "multi-step tasks",
+        "gpt-4 success",
+        "success tau-bench",
+        "successful tasks",
+        "repeated retail",
+        "retail trials",
+        "regulated financial"
+      ],
+      "source_urls": [
+        "https://sre.google/sre-book/testing-reliability/",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+        "https://arxiv.org/abs/2310.02059",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://genai.owasp.org/llm08-excessive-agency/",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://arxiv.org/abs/2307.13854",
+        "https://arxiv.org/abs/2403.07718",
+        "https://arxiv.org/abs/2406.12045",
+        "https://arxiv.org/abs/2309.15817",
+        "https://arxiv.org/abs/2406.13352",
+        "https://arxiv.org/abs/2402.01817",
+        "https://artificialintelligenceact.eu/article/9/",
+        "https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416"
+      ],
+      "key_claims": [
+        {
+          "text": "No public source located for this item provides a task-complexity-normalised, post-pipeline, head-to-head production failure distribution that directly compares AI-assisted code changes with AI-agent-executed business-process actions",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/",
+            "https://arxiv.org/abs/2310.02059",
+            "https://arxiv.org/abs/2307.13854",
+            "https://arxiv.org/abs/2406.12045"
+          ]
+        },
+        {
+          "text": "Build-mode failure is most visibly measured as post-release intervention after release gates, while Site Reliability Engineering guidance supports the inference that equivalent failures can also be blocked before production by system-level tests",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics-four-keys/",
+            "https://sre.google/sre-book/testing-reliability/"
+          ]
+        },
+        {
+          "text": "Public evidence on AI-assisted coding shows elevated before-release security and defect risk, but it also shows that static-analysis feedback can eliminate a substantial share of those issues before release, which makes build-mode variance materially filterable before external effects occur",
+          "sources": [
+            "https://arxiv.org/abs/2310.02059",
+            "https://sre.google/sre-book/testing-reliability/"
+          ]
+        },
+        {
+          "text": "The 2024 DORA evidence shows local development gains alongside lower delivery stability and throughput, which supports the inference that AI assistance still requires small batches, robust tests, and disciplined review if teams want low escaped-failure rates",
+          "sources": [
+            "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "When compared with gated build-mode proxies, realistic do-mode benchmarks indicate materially lower baseline reliability, because WebArena reports 14.41% GPT-4 success, tau-bench reports fewer than 50% successful tasks and less than 25% reliability across repeated retail trials, and AgentDojo still reports many failures even without attacks",
+          "sources": [
+            "https://arxiv.org/abs/2307.13854",
+            "https://arxiv.org/abs/2406.12045",
+            "https://arxiv.org/abs/2406.13352",
+            "https://dora.dev/guides/dora-metrics-four-keys/",
+            "https://sre.google/sre-book/testing-reliability/"
+          ]
+        },
+        {
+          "text": "Do-mode failures are harder to catch before impact because many of them arise from live tool use, policy misapplication, excessive permissions, prompt injection, or wrong action selection, all of which often become fully visible only after an external step has already been taken",
+          "sources": [
+            "https://genai.owasp.org/llm08-excessive-agency/",
+            "https://arxiv.org/abs/2309.15817",
+            "https://arxiv.org/abs/2402.01817",
+            "https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416"
+          ]
+        },
+        {
+          "text": "The strongest public legal and regulatory material places autonomous process execution inside lifecycle risk-management and operational-resilience disciplines, which supports the inference that teams cannot govern it only as a conventional pre-release software-quality problem",
+          "sources": [
+            "https://artificialintelligenceact.eu/article/9/",
+            "https://www.bis.org/bcbs/publ/d516.htm",
+            "https://doi.org/10.6028/NIST.AI.100-1"
+          ]
+        },
+        {
+          "text": "The best-supported comparative conclusion is therefore that build mode is structurally more controllable than do mode, because the dominant control point in build mode is release gating before deployment while the dominant control point in do mode must remain a runtime control layer around live decisions and actions",
+          "sources": [
+            "https://www.anthropic.com/research/building-effective-agents",
+            "https://sre.google/sre-book/testing-reliability/",
+            "https://genai.owasp.org/llm08-excessive-agency/",
+            "https://www.bis.org/bcbs/publ/d516.htm"
+          ]
+        }
+      ]
+    },
     "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate": {
       "named_concepts": [
         "software delivery",

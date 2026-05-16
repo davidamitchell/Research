@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Research loop evaluation rubric — Research</title>
+          <title>Variance Control Comparison Across Delivery Modes — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -679,157 +679,129 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Research loop evaluation rubric</span>
+    <span>Variance Control Comparison Across Delivery Modes</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research loop evaluation rubric</h1>
-  <p class="full-title-subtitle">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</p>
-  <div class="meta-bar">
-    <span>2026-03-14</span>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Variance Control Comparison Across Delivery Modes</h1>
+    <div class="meta-bar">
+    <span>2026-05-16</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/ci.html">ci</a> 
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-research-loop-evaluation-rubric.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-variance-control-comparison-across-delivery-modes.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-research-loop-evaluation-rubric" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-16-variance-control-comparison-across-delivery-modes" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The only tooling approach satisfying this repository&#39;s no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high</li>
-<li>The research loop agent&#39;s three most structurally significant failure modes per the protocol specification — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high</li>
-<li>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high</li>
-<li>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high</li>
-<li>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single `OVERALL: PASS` or `OVERALL: FAIL` line, enabling CI parsing with a simple `grep` command — the same approach proven reliable in the existing `research-review.yml` workflow. Confidence: high</li>
-<li>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high</li>
-<li>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever `research-prompt.md` or `SKILL.md` changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium</li>
-<li>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>No public source located for this item provides a task-complexity-normalised, post-pipeline, head-to-head production failure distribution that directly compares AI-assisted code changes with AI-agent-executed business-process actions<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/research/2024/dora-report/" target="_blank" rel="noopener" title="https://dora.dev/research/2024/dora-report/">DevOps (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2310.02059" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.02059">Liang et al. (2025)</a><a class="claim-source-link" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener" title="https://arxiv.org/abs/2307.13854">Zhou et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.12045">Xiv (2024)</a></span></li>
+<li>Build-mode failure is most visibly measured as post-release intervention after release gates, while Site Reliability Engineering guidance supports the inference that equivalent failures can also be blocked before production by system-level tests<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/guides/dora-metrics-four-keys/" target="_blank" rel="noopener" title="https://dora.dev/guides/dora-metrics-four-keys/">Dora (n.d.)</a><a class="claim-source-link" href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener" title="https://sre.google/sre-book/testing-reliability/">Google (n.d.)</a></span></li>
+<li>Public evidence on AI-assisted coding shows elevated before-release security and defect risk, but it also shows that static-analysis feedback can eliminate a substantial share of those issues before release, which makes build-mode variance materially filterable before external effects occur<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2310.02059" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.02059">Liang et al. (2025)</a><a class="claim-source-link" href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener" title="https://sre.google/sre-book/testing-reliability/">Google (n.d.)</a></span></li>
+<li>The 2024 DORA evidence shows local development gains alongside lower delivery stability and throughput, which supports the inference that AI assistance still requires small batches, robust tests, and disciplined review if teams want low escaped-failure rates<span class="claim-sources"><a class="claim-source-link" href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report" target="_blank" rel="noopener" title="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report">Cloud (2024)</a><a class="claim-source-link" href="https://dora.dev/research/2024/dora-report/" target="_blank" rel="noopener" title="https://dora.dev/research/2024/dora-report/">DevOps (2024)</a></span></li>
+<li>When compared with gated build-mode proxies, realistic do-mode benchmarks indicate materially lower baseline reliability, because WebArena reports 14.41% GPT-4 success, tau-bench reports fewer than 50% successful tasks and less than 25% reliability across repeated retail trials, and AgentDojo still reports many failures even without attacks<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener" title="https://arxiv.org/abs/2307.13854">Zhou et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.12045">Xiv (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2406.13352" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.13352">Debenedetti et al. (2024)</a><a class="claim-source-link" href="https://dora.dev/guides/dora-metrics-four-keys/" target="_blank" rel="noopener" title="https://dora.dev/guides/dora-metrics-four-keys/">Dora (n.d.)</a><a class="claim-source-link" href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener" title="https://sre.google/sre-book/testing-reliability/">Google (n.d.)</a></span></li>
+<li>Do-mode failures are harder to catch before impact because many of them arise from live tool use, policy misapplication, excessive permissions, prompt injection, or wrong action selection, all of which often become fully visible only after an external step has already been taken<span class="claim-sources"><a class="claim-source-link" href="https://genai.owasp.org/llm08-excessive-agency/" target="_blank" rel="noopener" title="https://genai.owasp.org/llm08-excessive-agency/">Owasp (n.d.)</a><a class="claim-source-link" href="https://arxiv.org/abs/2309.15817" target="_blank" rel="noopener" title="https://arxiv.org/abs/2309.15817">Ruan et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2402.01817" target="_blank" rel="noopener" title="https://arxiv.org/abs/2402.01817">Kambhampati et al. (2024)</a><a class="claim-source-link" href="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416" target="_blank" rel="noopener" title="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416">News (2024)</a></span></li>
+<li>The strongest public legal and regulatory material places autonomous process execution inside lifecycle risk-management and operational-resilience disciplines, which supports the inference that teams cannot govern it only as a conventional pre-release software-quality problem<span class="claim-sources"><a class="claim-source-link" href="https://artificialintelligenceact.eu/article/9/" target="_blank" rel="noopener" title="https://artificialintelligenceact.eu/article/9/">Union (2024)</a><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d516.htm" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d516.htm">Supervision (2021)</a><a class="claim-source-link" href="https://doi.org/10.6028/NIST.AI.100-1" target="_blank" rel="noopener" title="https://doi.org/10.6028/NIST.AI.100-1">National (2023)</a></span></li>
+<li>The best-supported comparative conclusion is therefore that build mode is structurally more controllable than do mode, because the dominant control point in build mode is release gating before deployment while the dominant control point in do mode must remain a runtime control layer around live decisions and actions<span class="claim-sources"><a class="claim-source-link" href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener" title="https://www.anthropic.com/research/building-effective-agents">Anthropic (2024)</a><a class="claim-source-link" href="https://sre.google/sre-book/testing-reliability/" target="_blank" rel="noopener" title="https://sre.google/sre-book/testing-reliability/">Google (n.d.)</a><a class="claim-source-link" href="https://genai.owasp.org/llm08-excessive-agency/" target="_blank" rel="noopener" title="https://genai.owasp.org/llm08-excessive-agency/">Owasp (n.d.)</a><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d516.htm" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d516.htm">Supervision (2021)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>What structured rubric should be used to evaluate the outputs of this repository's research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval gate for that rubric look like? The rubric must be specific enough to produce reproducible Large Language Model (LLM)-as-judge scores, version-controlled alongside the agent prompt, and executable in CI without prohibitive cost.</p>
+<p>What is the empirical failure-rate distribution of Artificial Intelligence (AI)-assisted code that has passed a standard software delivery pipeline compared with AI-agent-executed business processes at comparable task complexity, and what proportion of failures in each mode is detectable before external effects occur?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
+<p>Public evidence does not currently provide a task-complexity-normalised head-to-head failure distribution, but the strongest available proxy comparison indicates that AI-assisted code that clears a standard gated delivery pipeline is more pre-effect-detectable than AI agents executing business processes directly, and it points toward, rather than directly proves, fewer externally realised failures.</p>
+<p>Build mode is buffered by structural controls, tests, review, staged release, and deployment blocking, so many failures are converted into pre-production findings; public AI-specific evidence shows elevated before-release defect and security risk but also shows that static-analysis feedback can remediate a substantial share of those issues before release.</p>
+<p>Do mode faces much lower baseline end-to-end reliability on realistic multi-step tasks, with WebArena reporting 14.41% GPT-4 success, tau-bench reporting fewer than 50% successful tasks and less than 25% reliability across repeated retail trials, and ToolEmu still finding severe failures 23.9% of the time even for the safest tested agent.</p>
+<p>For regulated financial services, this means build mode can usually be governed through existing release-management and incident processes, whereas do mode needs runtime least privilege, approval checkpoints, monitoring, rate limits, and kill switches because many failures are only visible after an external action or downstream reconciliation.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
-</li>
-<li>
-<p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
-</li>
-<li>
-<p>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high.</p>
-</li>
-<li>
-<p>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single <code>OVERALL: PASS</code> or <code>OVERALL: FAIL</code> line, enabling CI parsing with a simple <code>grep</code> command — the same approach proven reliable in the existing <code>research-review.yml</code> workflow. Confidence: high.</p>
-</li>
-<li>
-<p>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high.</p>
-</li>
-<li>
-<p>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever <code>research-prompt.md</code> or <code>SKILL.md</code> changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium.</p>
-</li>
-<li>
-<p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
-</li>
-<li>
-<p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
-</li>
+<li><strong>No public source located for this item provides a task-complexity-normalised, post-pipeline, head-to-head production failure distribution that directly compares AI-assisted code changes with AI-agent-executed business-process actions.</strong></li>
+<li><strong>Build-mode failure is most visibly measured as post-release intervention after release gates, while Site Reliability Engineering guidance supports the inference that equivalent failures can also be blocked before production by system-level tests.</strong></li>
+<li><strong>Public evidence on AI-assisted coding shows elevated before-release security and defect risk, but it also shows that static-analysis feedback can eliminate a substantial share of those issues before release, which makes build-mode variance materially filterable before external effects occur.</strong></li>
+<li><strong>The 2024 DORA evidence shows local development gains alongside lower delivery stability and throughput, which supports the inference that AI assistance still requires small batches, robust tests, and disciplined review if teams want low escaped-failure rates.</strong></li>
+<li><strong>When compared with gated build-mode proxies, realistic do-mode benchmarks indicate materially lower baseline reliability, because WebArena reports 14.41% GPT-4 success, tau-bench reports fewer than 50% successful tasks and less than 25% reliability across repeated retail trials, and AgentDojo still reports many failures even without attacks.</strong></li>
+<li><strong>Do-mode failures are harder to catch before impact because many of them arise from live tool use, policy misapplication, excessive permissions, prompt injection, or wrong action selection, all of which often become fully visible only after an external step has already been taken.</strong></li>
+<li><strong>The strongest public legal and regulatory material places autonomous process execution inside lifecycle risk-management and operational-resilience disciplines, which supports the inference that teams cannot govern it only as a conventional pre-release software-quality problem.</strong></li>
+<li><strong>The best-supported comparative conclusion is therefore that build mode is structurally more controllable than do mode, because the dominant control point in build mode is release gating before deployment while the dominant control point in do mode must remain a runtime control layer around live decisions and actions.</strong></li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-<th>Claim</th>
-<th>Source</th>
-<th>Confidence</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Custom Copilot CLI is only feasible approach</td>
-<td>AGENTS.md credentials table; DeepEval docs; Pydantic Evals docs; agentevals README</td>
-<td>high</td>
-<td>Credential constraint is explicit in AGENTS.md</td>
-</tr>
-<tr>
-<td>Acronym non-expansion is most frequent failure</td>
-<td>research-prompt.md Step 6 header (&quot;#1 cause of review failures&quot;)</td>
-<td>high</td>
-<td>Explicit statement in the protocol document</td>
-</tr>
-<tr>
-<td>Executive Summary first-sentence quality is diagnostic</td>
-<td>research-prompt.md Step 5 Executive Summary spec</td>
-<td>high</td>
-<td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>A1:</strong> The Copilot CLI can evaluate a 9-dimension rubric prompt for a 10,000-word research item within 5 minutes. Justification: the existing review workflow applies three separate skill checks on similarly sized items within the 30-minute timeout; a single rubric prompt of comparable length is unlikely to exceed 5 minutes.</li>
-<li><strong>A2:</strong> A gold dataset of 3–5 manually audited items is sufficient for an initial regression baseline. Justification: minimum viable approach for a single-agent system with a stable protocol; more items increase coverage but are not required to start.</li>
-<li><strong>A3:</strong> The owner will not approve OpenAI or Anthropic API credentials for this use case. Justification: the AGENTS.md constraint explicitly requires owner approval for new credentials, and the Copilot CLI approach provides equivalent functionality without new credentials.</li>
+<li><strong>Assumption:</strong> DORA instability metrics are the least misleading public proxy for post-pipeline build-mode failure because no accessible public dataset separates AI-assisted and human-authored changes after release. <strong>Justification:</strong> DORA explicitly measures interventions required after deployment, which matches the escaped-failure concept once tests and review have already run.</li>
+<li><strong>Assumption:</strong> Web and enterprise-agent benchmarks are the least misleading public proxy for AI-agent-executed business-process failure because public incident reporting for deployed agents is still sparse and not normalised by task type or detection timing. <strong>Justification:</strong> the retrieved benchmarks expose multi-step tasks with tools, policy constraints, and externally visible actions, which are the defining properties of the do-mode surface.</li>
 </ul>
 <h3>Analysis</h3>
-<p>The credential constraint is the binding design decision. All named evaluation frameworks require credentials beyond those available, so the tooling selection is deterministic given the constraints. The evaluation framework design question then becomes: how to maximise rubric quality using only the Copilot CLI?</p>
-<p>The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs [inference]. This makes them the most diagnostic indicators of incomplete protocol execution.</p>
+<p>The evidence weighs more strongly on control structure than on exact percentages, because the public literature does not yet publish a common denominator for &quot;released AI-assisted changes&quot; and &quot;production agent actions&quot; in the same dataset.</p>
+<p>Build mode is still risky, and the 2024 DORA findings show that AI adoption can reduce stability if teams allow larger or less disciplined changes through the pipeline, but the failure is still mediated by typed interfaces, tests, code review, staged release, and rollback.</p>
+<p>Do mode is different because the model is not only producing an artifact for later verification, it is selecting tools, interpreting policy, and causing state changes in a live environment, which means the same error can carry customer, operational, or compliance consequences immediately.</p>
+<p>The practical trade-off is therefore between front-loaded verification cost in build mode and runtime supervision cost in do mode.</p>
+<p>Part of the observed difference could still be explained by unmatched proxies and benchmark immaturity rather than by delivery mode alone, because public build-mode evidence is measured as escaped post-release failure while public do-mode evidence is measured as benchmark task success and severe-action frequency.</p>
+<p>For regulated financial services, the stronger recommendation is not &quot;never use do mode,&quot; but &quot;treat do mode as a runtime control problem from day one,&quot; with narrow permissions, approval checkpoints for high-impact actions, monitoring, incident playbooks, and reversible operations.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>Judge model drift:</strong> The Copilot CLI model may change without notice, causing score drift over time. Accepted risk; mitigated by versioning the rubric prompt and monitoring score distributions.</li>
-<li><strong>Rubric calibration:</strong> The 1–5 anchors need calibration against real items. If 80%+ of items score 4–5 on a given dimension, the anchors are too loose and should be tightened.</li>
-<li><strong>Copilot API availability:</strong> The eval gate has the same COPILOT_GITHUB_TOKEN dependency as the existing review workflow; if access changes, both fail. Accepted risk.</li>
-<li><strong>Gold set refresh discipline:</strong> The gold set refresh requirement is easy to forget when <code>research-prompt.md</code> is updated. A TODO comment in the research protocol or a <code>CODEOWNERS</code> rule linking protocol changes to gold set reviews would reduce this risk.</li>
+<li>Public evidence still lacks a common, task-complexity-normalised dataset that traces AI-assisted code from authoring through release and then compares its escaped-failure rate directly with autonomous business-process execution.</li>
+<li>Benchmark evidence for do mode is stronger than public production-incident evidence, so the exact relationship between benchmark failure rates and real production incident rates remains uncertain even though the directional signal is clear.</li>
+<li>The Air Canada case is a strong public example of post-action detection and liability, but it is a chatbot case rather than a fully autonomous multi-tool agent case.</li>
+<li>WorkArena confirms a considerable gap to full enterprise-task automation, but the abstract alone does not provide a single summary percentage for all ServiceNow tasks, which limits precision in the enterprise-task comparison.</li>
 </ul>
 <h3>Open Questions</h3>
-<ol>
-<li><strong>Rubric prompt text:</strong> Writing the exact prompt text (dimension definitions, scoring anchors, output format specification) is the primary implementation task and is out of scope for this research item. A separate task should produce <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>CI workflow YAML:</strong> The CI workflow design is specified here in prose; the YAML implementation is a separate backlog task.</li>
-<li><strong>Score history:</strong> Should dimension scores be persisted in a JavaScript Object Notation (JSON) file in the repository for trend tracking? This would enable automated detection of systematic quality degradation across items.</li>
-<li><strong>First three gold items:</strong> Which completed items in <code>Research/completed/</code> should be designated as the initial gold set? This requires a manual audit pass.</li>
-</ol>
-<h3>Output</h3>
 <ul>
-<li><strong>Type:</strong> knowledge, artefact</li>
-<li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>Key sources:</strong>
-<ol>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain evals guide</a></li>
-<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge">Pydantic LLM-as-a-Judge article</a></li>
-<li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>
-</ol>
-</li>
+<li>What released-change telemetry would be needed inside a real software-delivery organisation to measure post-pipeline failure separately for AI-assisted and human-authored changes?</li>
+<li>Which runtime controls, approval checkpoints, rate limits, and reversal mechanisms reduce do-mode incident rates most effectively in regulated operations without destroying the economic case for automation?</li>
+<li>How much of the current do-mode benchmark failure is due to model capability limits versus control-plane design limits such as poor scoping, inadequate verification, or overly broad permissions?</li>
 </ul>
+<hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <code>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code> — the framework that motivates this item</li>
-<li>[x] <a href="https://ai.pydantic.dev/evals/">Pydantic Evals documentation</a></li>
-<li>[x] <a href="https://pydantic.dev/articles/llm-as-a-judge">Pydantic LLM-as-a-Judge article</a></li>
-<li>[x] <a href="https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide">DeepEval agent evaluation guide</a></li>
-<li>[x] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain evals guide</a></li>
-<li>[x] <a href="https://github.com/langchain-ai/agentevals">langchain-ai/agentevals</a></li>
-<li>[ ] <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">Anthropic &quot;Writing effective tools for AI agents&quot;</a></li>
+<li>[x] <a href="https://sre.google/sre-book/testing-reliability/">Google Site Reliability Engineering (SRE) Book: Testing Reliability</a></li>
+<li>[x] <a href="https://dora.dev/research/2024/dora-report/">DevOps Research and Assessment (DORA) (2024) Accelerate State of DevOps Report 2024</a></li>
+<li>[x] <a href="https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report">Google Cloud (2024) Announcing the 2024 DORA report</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2310.02059">Liang et al. (2025) The Security of Large Language Model (LLM)-assisted Programming: An Empirical Study</a></li>
+<li>[x] <a href="https://www.anthropic.com/research/building-effective-agents">Anthropic (2024) Building effective agents</a></li>
+<li>[x] <a href="https://doi.org/10.6028/NIST.AI.100-1">National Institute of Standards and Technology (NIST) (2023) Artificial Intelligence Risk Management Framework (AI RMF 1.0)</a></li>
+<li>[x] <a href="https://genai.owasp.org/llm08-excessive-agency/">Open Worldwide Application Security Project (OWASP) (2025) Large Language Model (LLM) 08: Excessive Agency</a></li>
+<li>[x] <a href="https://www.bis.org/bcbs/publ/d516.htm">Basel Committee on Banking Supervision (2021) Principles for operational resilience</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2307.13854">Zhou et al. (2024) WebArena: A Realistic Web Environment for Building Autonomous Agents</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2403.07718">Drouin et al. (2024) WorkArena: How Capable Are Web Agents at Solving Common Knowledge Work Tasks?</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2406.12045">arXiv (2024) tau-bench: A benchmark for tool-agent-user interaction in real-world domains</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2309.15817">Ruan et al. (2024) ToolEmu: Identifying the Risks of Large Language Model (LLM) Agents with an LLM Emulator</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2406.13352">Debenedetti et al. (2024) AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2402.01817">Kambhampati et al. (2024) Large Language Models (LLMs) Can't Plan, But Can Help Planning in LLM-Modulo Frameworks</a></li>
+<li>[x] <a href="https://artificialintelligenceact.eu/article/9/">European Union (2024) Artificial Intelligence Act Article 9</a></li>
+<li>[x] <a href="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416">Canadian Broadcasting Corporation (CBC) News (2024) Air Canada ordered to pay over chatbot advice</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md">Mitchell (2026) Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.md">Mitchell (2026) Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md">Mitchell (2026) Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-human-in-the-loop-ai-automated-workflows.md">Mitchell (2026) When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?</a></li>
 </ul>
 <hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> <span class="related-note">via agentic-ai, evaluation, regression</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html">Variance Control Comparison Across Delivery Modes</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html">External Dependency Surface Taxonomy for Production LLM Agents</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html">Temporary Automation Demand Persistence and Core Capability Investment Displacement</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html">Agent Operational Cost vs Gap Closure Cost</a> <span class="related-note">via agentic-ai, evaluation</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html">Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation</a> <span class="related-note">via agentic-ai, agentic-coding, evaluation, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html">Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices</a> <span class="related-note">via agentic-ai, agentic-coding, evaluation, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html">IT Throughput Constraint Magnitude and Debt Accumulation Rate</a> <span class="related-note">via agentic-coding, evaluation, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html">External Dependency Surface Taxonomy for Production LLM Agents</a> <span class="related-note">via agentic-ai, evaluation, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html">Temporary Automation Demand Persistence and Core Capability Investment Displacement</a> <span class="related-note">via agentic-ai, evaluation, workflow</span></div>
 </div></div>
 
-  
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-sustainable-ai-software-development-synthesis.html">What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html">What does TerminalBench reveal about minimal toolsets and coding agent performance?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-self-modifying-agent-architectures.html">What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-13-anthropic-4d-framework-ai-agent-taxonomy.html">What is Anthropic&#39;s &#39;4D&#39; framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-16</td><td><a href="https://github.com/davidamitchell/Research/commit/df295386b1ae812385ebdb03f7755d1ffa4bbf38" target="_blank" rel="noopener">df29538</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html">IT Throughput Constraint Magnitude and Debt Accumulation Rate</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -840,7 +812,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-03-10-research-loop-evaluation-rubric";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-16-variance-control-comparison-across-delivery-modes";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;

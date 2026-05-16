@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T09:43:53Z",
-  "node_count": 334,
-  "edge_count": 1852,
+  "generated": "2026-05-16T09:55:19Z",
+  "node_count": 335,
+  "edge_count": 1863,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2007,6 +2007,12 @@
       "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
       "type": "primary",
       "url": "/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html"
+    },
+    {
+      "slug": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "title": "Variance Control Comparison Across Delivery Modes",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html"
     }
   ],
   "edges": [
@@ -3188,14 +3194,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3213,6 +3211,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3796,14 +3802,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3821,6 +3819,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3956,14 +3962,6 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3981,6 +3979,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4716,14 +4722,6 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4749,6 +4747,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4892,14 +4898,6 @@
     },
     {
       "source": "2026-03-22-applied-context-engineering-agent-workflows",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
-      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
-    },
-    {
-      "source": "2026-03-22-applied-context-engineering-agent-workflows",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "weight": 3,
       "rel": "tag-overlap",
@@ -4909,6 +4907,14 @@
     {
       "source": "2026-03-22-applied-context-engineering-agent-workflows",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,workflow",
+      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
+    },
+    {
+      "source": "2026-03-22-applied-context-engineering-agent-workflows",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
@@ -5036,7 +5042,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5044,7 +5050,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -7316,14 +7322,6 @@
     },
     {
       "source": "2026-04-28-software-demand-shift-ai-coding-era",
-      "target": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,agentic-coding",
-      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
-    },
-    {
-      "source": "2026-04-28-software-demand-shift-ai-coding-era",
       "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
       "weight": 2,
       "rel": "tag-overlap",
@@ -7333,6 +7331,14 @@
     {
       "source": "2026-04-28-software-demand-shift-ai-coding-era",
       "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding",
+      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
+    },
+    {
+      "source": "2026-04-28-software-demand-shift-ai-coding-era",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,agentic-coding",
@@ -8003,6 +8009,14 @@
       "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
     },
     {
+      "source": "2026-04-30-fundamentals-first-vs-specs-to-code",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding,evaluation,workflow",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
       "source": "2026-04-30-grill-me-ai-alignment-shared-design",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -8084,11 +8098,11 @@
     },
     {
       "source": "2026-04-30-grill-me-ai-alignment-shared-design",
-      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
-      "weight": 3,
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-coding,evaluation,workflow",
-      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+      "evidence": "agentic-ai,agentic-coding,evaluation,workflow",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
     },
     {
       "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
@@ -9284,7 +9298,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9585,14 +9599,6 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm",
       "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
-    },
-    {
-      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
-      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,agentic-coding,evaluation",
-      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
       "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
@@ -15700,14 +15706,6 @@
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
-      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16005,6 +16003,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -16539,6 +16545,14 @@
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
     },
     {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding,evaluation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 4,
@@ -16676,19 +16690,19 @@
     },
     {
       "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
-      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
-    },
-    {
-      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,organisation,workflow",
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,workflow",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
     },
     {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
@@ -16771,6 +16785,14 @@
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,workflow",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -16825,6 +16847,78 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-coding,evaluation,workflow",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-04-26-access-control-amplification-agentic-operations",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-01-self-modifying-agent-architectures",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-01-sustainable-ai-software-development-synthesis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
     }
   ]
 }
