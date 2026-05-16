@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5c1768e409247c54712d562d8a3956cf0c93db1e
+    changed: 2026-05-16
+    progress: progress/2026-05-16-decommission-trigger-design-for-do-mode-agents.md
+    summary: "Initial completion"
 ---
 
 # Decommission Trigger Design for Temporary Bridge Agents
