@@ -614,7 +614,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 99,
+    "item_count": 100,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -1104,6 +1104,11 @@
       {
         "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
         "title": "Agent Operational Cost vs Gap Closure Cost",
+        "added": "2026-05-16"
+      },
+      {
+        "slug": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+        "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
         "added": "2026-05-16"
       },
       {
@@ -1829,7 +1834,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 59,
+    "item_count": 60,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -2124,6 +2129,11 @@
       {
         "slug": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
         "title": "Decommission Trigger Design for Temporary Bridge Agents",
+        "added": "2026-05-16"
+      },
+      {
+        "slug": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+        "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
         "added": "2026-05-16"
       }
     ],
@@ -3094,7 +3104,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 29,
+    "item_count": 30,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -3234,6 +3244,11 @@
       {
         "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
         "title": "Temporary Automation Demand Persistence and Core Capability Investment Displacement",
+        "added": "2026-05-16"
+      },
+      {
+        "slug": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+        "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
         "added": "2026-05-16"
       },
       {
@@ -7015,14 +7030,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -7062,7 +7077,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -7190,14 +7205,14 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -7227,16 +7242,16 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "github copilot"
     ],
     "item_count": 5,
@@ -7267,7 +7282,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7490,14 +7505,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7517,6 +7532,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   }
 ]

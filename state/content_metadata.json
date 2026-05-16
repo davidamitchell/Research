@@ -1,6 +1,133 @@
 {
-  "extracted_at": "2026-05-16T08:22:09Z",
+  "extracted_at": "2026-05-16T08:32:50Z",
   "items": {
+    "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate": {
+      "named_concepts": [
+        "software delivery",
+        "workaround demand",
+        "centrally governed",
+        "governed software",
+        "unmet operational",
+        "operational capability",
+        "workaround automation",
+        "current workaround",
+        "automation demand",
+        "effect size",
+        "ai-assisted throughput",
+        "strong internal",
+        "internal platforms",
+        "throughput shortfall",
+        "queue growth",
+        "three-year closure",
+        "throughput uplift",
+        "lost throughput",
+        "stable already-digital",
+        "remains resistant"
+      ],
+      "source_urls": [
+        "https://research.google/pubs/dora-2025-state-of-ai-assisted-software-development-report/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://arxiv.org/abs/2302.06590",
+        "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://arxiv.org/abs/2507.09089",
+        "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+        "https://doi.org/10.5755/j01.itc.49.1.23801",
+        "https://link.springer.com/article/10.1007/s10257-020-00472-6",
+        "https://link.springer.com/article/10.1007/s12599-018-0542-4",
+        "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+        "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+        "https://hdl.handle.net/10125/108890",
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://teamtopologies.com/key-concepts",
+        "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-software-engineering-investment-case-llm.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html",
+        "https://www.tocinstitute.org/",
+        "https://www.gartner.com/en/information-technology/glossary/hyperautomation"
+      ],
+      "key_claims": [
+        {
+          "text": "Public evidence consistently shows that unmet central IT delivery speed or functional fit is a primary driver of shadow IT, business-managed IT, and citizen-development demand, so throughput shortfall is strongly associated with the accumulation of unmet operational capability needs even though the literature does not provide a universal elasticity coefficient",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s10257-020-00472-6",
+            "https://doi.org/10.5755/j01.itc.49.1.23801",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html"
+          ]
+        },
+        {
+          "text": "Throughput loss is driven as much by dependency topology as by raw staffing levels, because tightly coupled architectures and domain-queue handoffs convert customer or operational demand into long waits, release orchestration, and queue growth that central teams cannot clear quickly",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://teamtopologies.com/key-concepts",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+            "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html"
+          ]
+        },
+        {
+          "text": "Only a bounded subset of workaround automation demand is tractable for centrally governed software delivery, because the strongest automation evidence repeatedly limits durable automation to stable, already-digital, repetitive, and governable work while the long-tail residue remains human, uneconomic, or governance-constrained",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s12599-018-0542-4",
+            "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+            "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6"
+          ]
+        },
+        {
+          "text": "The empirical literature on citizen-development rollout supports faster local solution creation and broader participation, but it does not provide a strong cross-firm effect size for backlog reduction, which means any three-year closure estimate must remain a bounded inference rather than a measured enterprise benchmark",
+          "sources": [
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3",
+            "https://davidamitchell.github.io/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html"
+          ]
+        },
+        {
+          "text": "AI-assisted software delivery evidence is too mixed to justify an aggressive planning multiplier, because bounded laboratory tasks show large gains while realistic repository work can still slow experienced developers down and DORA reports that throughput gains are offset by stability losses in weaker systems",
+          "sources": [
+            "https://arxiv.org/abs/2302.06590",
+            "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+            "https://arxiv.org/abs/2507.09089",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report"
+          ]
+        },
+        {
+          "text": "A realistic planning bracket for end-to-end AI-assisted throughput uplift is approximately 0% to 30%, where 0% reflects net slowdown or rework drag, 15% reflects modest system-level gain, and 30% reflects strong but platform-dependent improvement rather than unconstrained coding speed",
+          "sources": [
+            "https://arxiv.org/abs/2302.06590",
+            "https://arxiv.org/abs/2507.09089",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://research.google/pubs/dora-2025-state-of-ai-assisted-software-development-report/"
+          ]
+        },
+        {
+          "text": "Combining the demand-suitability evidence with the realistic throughput bracket supports a cautious three-year closure range of roughly 25% to 50% of current workaround automation demand, with the lower half of the range more plausible in estates that still have high data debt, boundary friction, and governance drag",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s12599-018-0542-4",
+            "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+            "https://arxiv.org/abs/2302.06590",
+            "https://arxiv.org/abs/2507.09089",
+            "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        },
+        {
+          "text": "Results near the top of the range would likely require a workaround queue already dominated by tractable workflow automation plus strong internal platforms, dedicated platform teams, low dependency coupling, and fast feedback loops that let AI gains survive contact with production controls",
+          "sources": [
+            "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://teamtopologies.com/key-concepts",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        }
+      ]
+    },
     "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents": {
       "named_concepts": [
         "production llm",

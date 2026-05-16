@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T08:22:12Z",
-  "node_count": 333,
-  "edge_count": 1840,
+  "generated": "2026-05-16T08:32:54Z",
+  "node_count": 334,
+  "edge_count": 1852,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2001,6 +2001,12 @@
       "title": "External Dependency Surface Taxonomy for Production LLM Agents",
       "type": "primary",
       "url": "/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html"
+    },
+    {
+      "slug": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html"
     }
   ],
   "edges": [
@@ -2094,14 +2100,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2127,6 +2125,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -8077,6 +8083,14 @@
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
     },
     {
+      "source": "2026-04-30-grill-me-ai-alignment-shared-design",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-coding,evaluation,workflow",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
       "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
       "target": "2026-04-02-claude-mythos",
       "weight": 3,
@@ -9035,14 +9049,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,governance,llm",
       "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
-    },
-    {
-      "source": "2026-05-01-compound-error-accumulation-ai-codebases",
-      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,agentic-coding,evaluation",
-      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
@@ -13374,7 +13380,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13486,14 +13492,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13511,6 +13509,14 @@
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14110,7 +14116,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14238,7 +14244,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14478,7 +14484,7 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14506,14 +14512,6 @@
       "weight": 3,
       "rel": "related",
       "evidence": "frontmatter:related",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -14551,6 +14549,14 @@
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14622,14 +14628,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14655,6 +14653,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14702,14 +14708,6 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14735,6 +14733,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15429,6 +15435,14 @@
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
     },
     {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,organisation,workflow",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
       "source": "2026-05-12-regulated-ai-constraint-shift",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 4,
@@ -15733,6 +15747,14 @@
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,organisation,workflow",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -15882,7 +15904,7 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
@@ -15903,6 +15925,14 @@
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -16498,7 +16528,15 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,organisation",
-      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-coding,evaluation,organisation",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
     },
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
@@ -16645,6 +16683,14 @@
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
+      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,organisation,workflow",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 4,
@@ -16723,6 +16769,62 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-04-26-software-engineering-investment-case-llm",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
     }
   ]
 }
