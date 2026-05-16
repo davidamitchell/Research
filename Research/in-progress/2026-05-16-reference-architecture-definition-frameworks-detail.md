@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Reference architecture definition, framework landscape, and required detail level"
 added: 2026-05-16T04:50:59+00:00
 status: reviewing
