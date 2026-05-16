@@ -25,7 +25,7 @@ item_type: primary
 confidence: medium
 versions:
   - version: "1.0"
-    sha: 2b49c31b0a74f52c0d389665fd1f161ca3a0447e
+    sha: 5a509341a10f8bb599321975573509ec9d1baa60
     changed: 2026-05-16
     progress: progress/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.md
     summary: "Initial completion"
