@@ -25,7 +25,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "3a12d1e1be28a4dd437a69022242b61ac460d6ae"
+    changed: 2026-05-16
+    progress: "progress/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.md"
+    summary: "Initial completion"
 ---
 
 # External Dependency Surface Taxonomy for Production LLM Agents
