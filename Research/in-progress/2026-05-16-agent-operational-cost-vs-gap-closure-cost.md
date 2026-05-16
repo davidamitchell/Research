@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Agent Operational Cost vs Gap Closure Cost"
 added: 2026-05-16T05:29:47+00:00
 status: reviewing
