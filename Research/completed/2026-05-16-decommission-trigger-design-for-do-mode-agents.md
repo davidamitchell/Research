@@ -2,12 +2,12 @@
 review_count: 1
 title: "Decommission Trigger Design for Temporary Bridge Agents"
 added: 2026-05-16T05:29:48+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, workflow, organisation, agent-tooling, systems-capability-debt]
 started: 2026-05-16T06:59:18+00:00
-completed: ~
+completed: 2026-05-16T07:18:40+00:00
 output: [knowledge]
 cites:
   - 2026-04-27-uelgf-decommission-lifecycle
