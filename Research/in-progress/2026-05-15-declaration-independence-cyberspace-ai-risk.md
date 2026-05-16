@@ -223,8 +223,8 @@ The most important continuity is normative rather than institutional: Barlow's s
 
 **Risks, gaps, uncertainties**
 
-- Publicly accessible evidence is strong on the declaration's text and on current official governance frameworks, but thinner on direct causal evidence linking Barlow's manifesto to specific later statutes or platform rules. [fact; source: https://www.eff.org/cyberspace-independence; https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.eff.org/issues/cda230]
-- Part of the retrospective literature remains lower-confidence here because accessible summaries and abstracts are easier to obtain than full scholarly treatments of Barlow's long-term influence. [fact; source: https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.repository.law.indiana.edu/facpub/3074/; https://www.firstmonday.org/ojs/index.php/fm/article/view/468]
+- This item makes higher-confidence claims about the declaration's text and about current official governance frameworks than about the declaration's long-run influence on specific statutes or platform rules, because the cited record is stronger on the texts themselves than on later causal attribution. [inference; source: https://www.eff.org/cyberspace-independence; https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.eff.org/issues/cda230]
+- This item relies on summaries, abstracts, and official overviews for part of the retrospective comparison, so influence claims remain lower-confidence than claims grounded in the primary declaration or current governance documents. [inference; source: https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.repository.law.indiana.edu/facpub/3074/; https://www.firstmonday.org/ojs/index.php/fm/article/view/468]
 - The analogy from cyberspace autonomy to advanced Artificial Intelligence governance is strongest for distributed, high-impact, cross-border systems, and weaker for narrow or purely local automated tools. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://www.un.org/techenvoy/ai-advisory-body]
 
 **Open Questions**
@@ -237,9 +237,9 @@ The most important continuity is normative rather than institutional: Barlow's s
 ### §7 Recursive Review
 
 - Review result: pass
-- Acronym audit: Artificial Intelligence (AI), Electronic Frontier Foundation (EFF), National Institute of Standards and Technology (NIST), Organisation for Economic Co-operation and Development (OECD), United Nations (UN), and General-Purpose AI (GPAI) are expanded on first use in the document.
-- Claim audit: visible claims in `## Context`, `## Research Skill Output`, and `## Findings` are labelled and source-bound, with Evidence Map source cells carrying URL-backed citations.
-- Cross-item audit: adjacent completed items on orthogonality and Artificial Intelligence governance documentation are cited directly where this item's conclusions depend on them.
+- Acronym audit: completed
+- Claim audit: completed
+- Cross-item audit: completed
 
 ---
 
@@ -289,8 +289,8 @@ The most important continuity is normative rather than institutional: Barlow's s
 
 ### Risks, Gaps, and Uncertainties
 
-- Publicly accessible evidence is strong on the declaration's text and on current official governance frameworks, but thinner on direct causal evidence linking Barlow's manifesto to specific later statutes or platform rules. [fact; source: https://www.eff.org/cyberspace-independence; https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.eff.org/issues/cda230]
-- Part of the retrospective literature remains lower-confidence here because accessible summaries and abstracts are easier to obtain than full scholarly treatments of Barlow's long-term influence. [fact; source: https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.repository.law.indiana.edu/facpub/3074/; https://www.firstmonday.org/ojs/index.php/fm/article/view/468]
+- This item makes higher-confidence claims about the declaration's text and about current official governance frameworks than about the declaration's long-run influence on specific statutes or platform rules, because the cited record is stronger on the texts themselves than on later causal attribution. [inference; source: https://www.eff.org/cyberspace-independence; https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.eff.org/issues/cda230]
+- This item relies on summaries, abstracts, and official overviews for part of the retrospective comparison, so influence claims remain lower-confidence than claims grounded in the primary declaration or current governance documents. [inference; source: https://constitutioncenter.org/the-constitution/historic-document-library/detail/a-declaration-of-the-independence-of-cyberspace-1996; https://www.repository.law.indiana.edu/facpub/3074/; https://www.firstmonday.org/ojs/index.php/fm/article/view/468]
 - The analogy from cyberspace autonomy to advanced Artificial Intelligence governance is strongest for distributed, high-impact, cross-border systems, and weaker for narrow or purely local automated tools. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://www.un.org/techenvoy/ai-advisory-body]
 
 ### Open Questions
