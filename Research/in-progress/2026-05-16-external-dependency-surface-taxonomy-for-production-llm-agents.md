@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "External Dependency Surface Taxonomy for Production LLM Agents"
 added: 2026-05-16T05:29:47+00:00
 status: reviewing
