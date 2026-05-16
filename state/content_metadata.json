@@ -1,6 +1,119 @@
 {
-  "extracted_at": "2026-05-16T06:41:26Z",
+  "extracted_at": "2026-05-16T06:58:53Z",
   "items": {
+    "2026-05-16-agent-operational-cost-vs-gap-closure-cost": {
+      "named_concepts": [
+        "recurring agent",
+        "agent operation",
+        "recurring agent-workaround",
+        "five years",
+        "software-gap closure",
+        "recurring human",
+        "human review",
+        "agent-workaround cost",
+        "stable high-frequency",
+        "missing integration",
+        "integration capability",
+        "missing application",
+        "application functionality",
+        "missing governed",
+        "agent workarounds",
+        "three years",
+        "capability-gap effort",
+        "capability gap",
+        "operating model",
+        "review governance"
+      ],
+      "source_urls": [
+        "https://dora.dev/research/2024/dora-report/",
+        "https://dora.dev/research/2024/ai-preview/",
+        "https://cloud.google.com/resources/content/dora-impact-of-gen-ai-software-development",
+        "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+        "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+        "https://arxiv.org/abs/2302.06590",
+        "https://www.anthropic.com/pricing#api",
+        "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
+        "https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/kick-off-a-task",
+        "https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/copilot-code-review",
+        "https://www.bls.gov/oes/2023/may/oes151252.htm",
+        "https://www.bls.gov/news.release/ecec.t01.htm",
+        "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-early-2024",
+        "https://www.gartner.com/en/topics/generative-ai"
+      ],
+      "key_claims": [
+        {
+          "text": "Under the modeled medium-volume workload used in this item, published frontier-model prices imply that annual token, runtime, and search spend stays in the low-thousands of dollars, which leaves labor as the dominant operational cost driver",
+          "sources": [
+            "https://www.anthropic.com/pricing#api",
+            "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing"
+          ]
+        },
+        {
+          "text": "NIST governance requirements, low trust in generated code, and GitHub's documented review flow show that production agents retain recurring human oversight, approval, and monitoring cost even when the technical execution path is automated",
+          "sources": [
+            "https://doi.org/10.6028/NIST.AI.100-1",
+            "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+            "https://dora.dev/research/2024/ai-preview/",
+            "https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/kick-off-a-task",
+            "https://docs.github.com/en/copilot/how-tos/copilot-on-github/use-copilot-agents/copilot-code-review"
+          ]
+        },
+        {
+          "text": "Current software-engineering productivity evidence supports a planning multiplier band from about 1.02x at the organizational level to about 1.56x on bounded tasks, with about 1.26x as the strongest central estimate for real deployment economics",
+          "sources": [
+            "https://cloud.google.com/resources/content/dora-impact-of-gen-ai-software-development",
+            "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+            "https://arxiv.org/abs/2302.06590"
+          ]
+        },
+        {
+          "text": "Using the central 1.26x multiplier, representative three-year software-gap-closure totals are about $97,000 for a missing integration capability, $145,000 for missing application functionality, and $193,000 for missing governed data access, all materially below the standard $336,000 three-year recurring agent-workaround cost",
+          "sources": [
+            "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+            "https://www.bls.gov/oes/2023/may/oes151252.htm",
+            "https://www.bls.gov/news.release/ecec.t01.htm",
+            "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development"
+          ]
+        },
+        {
+          "text": "Under the modeled staffing range, software-gap closure breaks even against recurring agent workarounds at about 14.2 to 40.6 delivery-months over three years and about 20.2 to 58.0 delivery-months over five years, with the standard case centered at about 20.9 and 29.8 months",
+          "sources": [
+            "https://www.microsoft.com/en-us/research/publication/the-effects-of-generative-ai-on-high-skilled-work-evidence-from-three-field-experiments-with-software-developers/",
+            "https://www.bls.gov/oes/2023/may/oes151252.htm",
+            "https://www.bls.gov/news.release/ecec.t01.htm",
+            "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development",
+            "https://doi.org/10.6028/NIST.AI.100-1",
+            "https://dora.dev/research/2024/ai-preview/"
+          ]
+        },
+        {
+          "text": "Recurring agent operation keeps a positive return profile mainly when the closure effort is unusually large, the demand pattern is intermittent, or the operating design is explicitly temporary while the organization learns the workflow and validates the target state",
+          "sources": [
+            "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development",
+            "https://dora.dev/research/2024/dora-report/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-13-agent-process-reliability-architecture.md"
+          ]
+        },
+        {
+          "text": "For regulated or safety-relevant workflows, the required review and evidence burden shifts the economics further toward software-gap closure because stricter oversight raises recurring agent-workaround cost faster than it raises post-build maintenance cost",
+          "sources": [
+            "https://doi.org/10.6028/NIST.AI.100-1",
+            "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.md"
+          ]
+        },
+        {
+          "text": "The strategic role of recurring agent operation is therefore best understood as bridge capital for uncertain or rapidly changing work, not as the default steady-state operating model for stable high-frequency system gaps",
+          "sources": [
+            "https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-13-agent-process-reliability-architecture.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.md"
+          ]
+        }
+      ]
+    },
     "2026-05-15-uelgf-live-queryable-knowledge-graph": {
       "named_concepts": [
         "uelgf policy",

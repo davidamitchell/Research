@@ -600,6 +600,491 @@
     "url": "/Research/threads/agentic-ai-llm-governance.html"
   },
   {
+    "slug": "agentic-ai-llm-workflow",
+    "title": "agentic-ai / llm / workflow",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "llm",
+      "workflow"
+    ],
+    "concept_cluster": [],
+    "item_count": 94,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-05-general-agent-optimization-framework",
+        "title": "General Agent Optimization Framework",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-research-loop-evaluation-rubric",
+        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-14-reliable-software-llm-era",
+        "title": "Reliable Software in the LLM Era",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
+        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
+        "added": "2026-04-29"
+      },
+      {
+        "slug": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+        "title": "The orthogonality thesis in Artificial Intelligence (AI) alignment: intelligence, goals, and the limits of interpretability",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+        "title": "Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork: capability, pricing, experience, guardrails, and enterprise risk comparison",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
+        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-se-fundamentals-ai-code-synthesis",
+        "title": "Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
+        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-ai-code-entropy-quality-metrics",
+        "title": "Artificial Intelligence code entropy and complexity: does repeated AI code generation without architectural guardrails increase software entropy over time?",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-ai-coding-harness-quality-benchmarks",
+        "title": "Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+        "title": "What does TerminalBench reveal about minimal toolsets and coding agent performance?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-self-modifying-agent-architectures",
+        "title": "What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
+        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-extension-systems-ai-coding-agents",
+        "title": "What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-compound-error-accumulation-ai-codebases",
+        "title": "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-coding-agent-context-management-transparency",
+        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-appropriate-task-selection-coding-agents",
+        "title": "What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
+        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-research-to-publication-authoring-workflow",
+        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
+        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-automated-claim-verification-academic-literature",
+        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
+        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+        "title": "What does the 2026 Harvard Business Review trendslop study and related empirical research reveal about the reliability of Large Language Model strategic and advisory recommendations, and what countermeasures can practitioners apply?",
+        "added": "2026-05-03"
+      },
+      {
+        "slug": "2026-05-06-aibom-schema-design-standards-alignment",
+        "title": "What is the minimal viable schema for an Artificial Intelligence bill of materials for prompt, retrieval, memory, and tool-using AI systems, how should it align with CycloneDX and Software Package Data Exchange (SPDX) standards, and what new property types are required?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
+        "title": "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
+        "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
+        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-identity-attribution-multiagent-practice",
+        "title": "How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
+        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-declared-construction-practice",
+        "title": "How do you construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM) for a real tool-using, stateful Artificial Intelligence (AI) workload? A worked example using Amazon Web Services (AWS) Bedrock Agents and LangGraph",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
+        "title": "What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-loki-fact-checking-journalists-moderation",
+        "title": "What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+        "title": "How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-factscore-precision-scoring-atomic-claims",
+        "title": "How does Factual precision Scoring (FActScore) operationalise atomic-level factual precision scoring for Large Language Model (LLM) outputs, and what are its precision/recall trade-offs and cross-domain performance characteristics?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-fact-checking-tools-research-quality-improvement",
+        "title": "How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement research be synthesised into concrete improvements to the automated review process in this research repository?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+        "title": "What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+        "title": "Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-07-ai-production-incidents-deep-dive",
+        "title": "Production incidents linked to Artificial Intelligence systems",
+        "added": "2026-05-07"
+      },
+      {
+        "slug": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+        "title": "Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+        "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+        "title": "Orthogonality thesis under modern Large Language Model (LLM) training and post-training: implications for enterprise tool-using workload risk",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-llm-determinism-limits-temperature-zero",
+        "title": "Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+        "title": "Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-standards-ai-agentic-applicability",
+        "title": "Data Governance Standards and Regulations Applied to Artificial Intelligence (AI) Systems and Multi-Step Autonomous AI Deployments",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
+        "title": "Compliance Risks of Relying on Stochastic Large Language Model (LLM) Outputs for Governance, Privacy, and Regulatory Decisions",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
+        "title": "Control deficiencies from bypassing designated workforce record platforms",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
+        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
+        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
+        "title": "Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools Such as Microsoft 365 (M365) Copilot on Sensitive, Confidential, or Classified Data in Regulated Environments",
+        "added": "2026-05-10"
+      },
+      {
+        "slug": "2026-05-12-hardware-load-inference-performance",
+        "title": "Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+        "title": "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
+        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+        "title": "Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-rag-document-drift-agent-behavior",
+        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+        "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
+        "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-13-agent-process-reliability-architecture",
+        "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
+        "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+        "title": "What is Anthropic's '4D' framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?",
+        "added": "2026-05-13"
+      },
+      {
+        "slug": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+        "title": "Endsley Model of Situational Awareness deep dive",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-promptql-definition-foundations-related-technologies",
+        "title": "PromptQL definition, research foundations, and related technologies",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+        "title": "Ontology landscape for curated lexical and structured enterprise context",
+        "added": "2026-05-15"
+      },
+      {
+        "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+        "title": "Agent Operational Cost vs Gap Closure Cost",
+        "added": "2026-05-16"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-llm-workflow.html"
+  },
+  {
     "slug": "agentic-ai-governance-llm",
     "title": "agentic-ai / governance / llm",
     "kind": "implicit",
@@ -1595,296 +2080,6 @@
     "url": "/Research/threads/agentic-ai-ai-governance-security.html"
   },
   {
-    "slug": "agentic-ai-llm-workflow",
-    "title": "agentic-ai / llm / workflow",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "llm",
-      "workflow"
-    ],
-    "concept_cluster": [],
-    "item_count": 55,
-    "items": [
-      {
-        "slug": "2026-03-02-transaction-costs",
-        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-05-general-agent-optimization-framework",
-        "title": "General Agent Optimization Framework",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
-        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-research-loop-evaluation-rubric",
-        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      },
-      {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
-        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
-        "added": "2026-04-29"
-      },
-      {
-        "slug": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-        "title": "Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
-        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
-        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-se-fundamentals-ai-code-synthesis",
-        "title": "Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
-        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-01-ai-coding-harness-quality-benchmarks",
-        "title": "Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
-        "title": "What does TerminalBench reveal about minimal toolsets and coding agent performance?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-compound-error-accumulation-ai-codebases",
-        "title": "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-coding-agent-context-management-transparency",
-        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-01-appropriate-task-selection-coding-agents",
-        "title": "What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
-        "title": "How should human-in-the-loop (HITL) design be adapted when AI review volume makes human reviewers a bottleneck or causes rubber-stamping?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-research-to-publication-authoring-workflow",
-        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-automated-claim-verification-academic-literature",
-        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
-        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-        "title": "What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-loki-fact-checking-journalists-moderation",
-        "title": "What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-        "title": "How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-fact-checking-tools-research-quality-improvement",
-        "title": "How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement research be synthesised into concrete improvements to the automated review process in this research repository?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
-        "title": "Integrating 2026-05 security and supply chain findings into the enterprise Artificial Intelligence capability reference architecture",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
-        "title": "Updating the enterprise Artificial Intelligence ecosystem capability reference architecture using second-cycle 2026-05 completed items",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
-        "title": "What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-llm-determinism-limits-temperature-zero",
-        "title": "Practical Limits of Large Language Model (LLM) Determinism: Temperature Zero, Fixed Seeds, and Constrained Prompts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-12-hardware-load-inference-performance",
-        "title": "Hardware load and Large Language Model (LLM) inference performance: implications for agent reliability",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
-        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-        "title": "Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-rag-document-drift-agent-behavior",
-        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-        "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-agent-process-reliability-architecture",
-        "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-        "title": "What is Anthropic's '4D' framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-        "title": "Endsley Model of Situational Awareness deep dive",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-promptql-definition-foundations-related-technologies",
-        "title": "PromptQL definition, research foundations, and related technologies",
-        "added": "2026-05-14"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-llm-workflow.html"
-  },
-  {
     "slug": "agentic-ai-ai-governance-enterprise",
     "title": "agentic-ai / ai-governance / enterprise",
     "kind": "implicit",
@@ -2154,7 +2349,7 @@
       "software-engineering"
     ],
     "concept_cluster": [],
-    "item_count": 46,
+    "item_count": 47,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -2385,244 +2580,14 @@
         "slug": "2026-05-09-build-vs-improve-throughput-tradeoff",
         "title": "Build vs improve tradeoff: how should organisations allocate effort between feature delivery and throughput-improvement work, and what do theoretical models imply for velocity, quality, and Pareto-shaped outcomes?",
         "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+        "title": "Agent Operational Cost vs Gap Closure Cost",
+        "added": "2026-05-16"
       }
     ],
     "url": "/Research/threads/agentic-ai-agentic-coding-software-engineering.html"
-  },
-  {
-    "slug": "workflow-llm-agentic-ai",
-    "title": "workflow / llm / agentic-ai",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "llm",
-      "agentic-ai"
-    ],
-    "concept_cluster": [],
-    "item_count": 44,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-04-29-knowledge-scaffolding-context-engineering",
-        "title": "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?",
-        "added": "2026-04-29"
-      },
-      {
-        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
-        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
-        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
-        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
-        "added": "2026-04-30"
-      },
-      {
-        "slug": "2026-05-01-coding-agent-context-management-transparency",
-        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-02-systematic-review-methodology-ai-synthesis",
-        "title": "What systematic review methodologies and Artificial Intelligence (AI)-assisted synthesis tool architectures are most appropriate for cross-item synthesis of a growing file-based research corpus, and what design prevents hallucination and claim conflation across source items?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-        "title": "How does STORM's perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-research-to-publication-authoring-workflow",
-        "title": "What structured approaches and Artificial Intelligence (AI) agent workflow patterns best convert synthesised research findings into polished papers and practical frameworks, and what are the critical failure modes of research-to-publication pipelines?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-research-item-versioning-amendment-norms",
-        "title": "What are the established norms from academic pre-print repositories and Personal Knowledge Management (PKM) systems for versioning, correcting, and amending published research items, and does a YAML Ain't Markup Language (YAML) frontmatter `versions:` array with git history as the diff meet those standards?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-        "title": "What entity-relation schema and write/query patterns best support cross-session research provenance and concept reuse for an Artificial Intelligence (AI) agent using the Model Context Protocol (MCP) memory server?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
-        "title": "What structured knowledge-gap tracking and automatic backlog-promotion patterns exist in Personal Knowledge Management (PKM) and research systems, and which design is most suitable for a YAML Ain't Markup Language (YAML) frontmatter file-based corpus?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
-        "title": "What technical architecture best supports cross-item synthesis, knowledge mapping, and active insight generation for a file-based research corpus of ~200 items managed by Artificial Intelligence (AI) agents?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-automated-claim-verification-academic-literature",
-        "title": "What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-02-adversarial-review-methods-ai-research-quality",
-        "title": "What adversarial review and red-teaming methods are most effective for detecting shallow reasoning in Artificial Intelligence (AI)-generated research findings before finalisation, and how should they be implemented as prompt-only instructions?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
-        "title": "Why does Software Bill of Materials (SBOM) fail as a complete inventory model for agentic Artificial Intelligence (AI) workloads, and what new conceptual abstractions are required?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
-        "title": "What is the architecture and practical applicability of OpenFactCheck as an automated, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated content?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-loki-fact-checking-journalists-moderation",
-        "title": "What are the capabilities, architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool for journalists and content moderators?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-        "title": "How do open-weight policy enforcement reasoning models, exemplified by OpenAI's gpt-oss-safeguard, classify text against customizable policies, and what are their deployment trade-offs compared to rule-based and closed Application Programming Interface (API) guardrail approaches?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-fact-checking-tools-research-quality-improvement",
-        "title": "How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement research be synthesised into concrete improvements to the automated review process in this research repository?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-        "title": "Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
-        "title": "Control deficiencies from bypassing designated workforce record platforms",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
-        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-12-data-product-ontology",
-        "title": "Data product ontology: definition, adoption, and current relevance",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-        "title": "Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
-        "title": "Knowledge Graph lifecycle management for multi-step software agents: schema versioning, entity resolution, and knowledge freshness",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
-        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-        "title": "Knowledge Graph in the live execution path of multi-step Large Language Model (LLM) systems: architecture and failure modes",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-rag-document-drift-agent-behavior",
-        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-        "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-graph-db-landscape-tco-interoperability",
-        "title": "Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-agent-process-reliability-architecture",
-        "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-        "title": "What is Anthropic's '4D' framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-14-promptql-definition-foundations-related-technologies",
-        "title": "PromptQL definition, research foundations, and related technologies",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
-        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-        "title": "Ontology landscape for curated lexical and structured enterprise context",
-        "added": "2026-05-15"
-      }
-    ],
-    "url": "/Research/threads/workflow-llm-agentic-ai.html"
   },
   {
     "slug": "agentic-ai-llm-security",
@@ -3078,6 +3043,216 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-workflow-llm.html"
+  },
+  {
+    "slug": "agentic-ai-agentic-coding-llm",
+    "title": "agentic-ai / agentic-coding / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "agentic-coding",
+      "llm"
+    ],
+    "concept_cluster": [],
+    "item_count": 39,
+    "items": [
+      {
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-saas-banking-invariants",
+        "title": "Invariants in Software as a Service (SaaS) Banking Software",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
+        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-30-ubiquitous-language-ai-code-consistency",
+        "title": "Ubiquitous Language in Artificial Intelligence (AI)-augmented development: domain glossaries, naming consistency, and long-term codebase coherence",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+        "title": "Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-strategic-tactical-division-ai-teams",
+        "title": "Strategic versus tactical roles in Artificial Intelligence (AI)-augmented software teams: division of labour, daily design investment, and the cost of bad code at scale",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-se-fundamentals-ai-code-synthesis",
+        "title": "Software Engineering fundamentals and AI code generation: a synthesis of evidence, proposed insights, and follow-up research directions",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-grill-me-ai-alignment-shared-design",
+        "title": "Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-fundamentals-first-vs-specs-to-code",
+        "title": "Fundamentals-first versus specs-to-code: empirical patterns in Artificial Intelligence (AI)-augmented software projects and Return on Investment of Software Engineering practices",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-04-30-deep-modules-ai-augmented-codebases",
+        "title": "Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases",
+        "added": "2026-04-30"
+      },
+      {
+        "slug": "2026-05-01-ai-coding-harness-quality-benchmarks",
+        "title": "Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+        "title": "What does TerminalBench reveal about minimal toolsets and coding agent performance?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-sustainable-ai-software-development-synthesis",
+        "title": "What principles and governance practices enable sustainable, high-quality software development with Artificial Intelligence (AI) coding agents?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-self-modifying-agent-architectures",
+        "title": "What are the design tradeoffs of self-modifying, malleable Artificial Intelligence (AI) agent architectures versus fixed-architecture agents?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-human-oversight-ai-software-development",
+        "title": "What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-extension-systems-ai-coding-agents",
+        "title": "What design patterns govern effective extension and plugin systems for Artificial Intelligence (AI) coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-compound-error-accumulation-ai-codebases",
+        "title": "How do errors compound in Artificial Intelligence (AI)-agent-heavy codebases, and what review strategies can manage this risk?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-coding-agent-context-management-transparency",
+        "title": "What are best practices for transparent, user-controlled context management in Artificial Intelligence coding agent harnesses?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-01-appropriate-task-selection-coding-agents",
+        "title": "What criteria define tasks where Artificial Intelligence (AI) coding agents reliably add value versus where they introduce systemic risk?",
+        "added": "2026-05-01"
+      },
+      {
+        "slug": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+        "title": "Vendor-agnostic enterprise Artificial Intelligence (AI) capability model: Microsoft Copilot and GitHub families vs AWS Bedrock ecosystem",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+        "title": "What architectural capabilities and contractual conditions are required to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-generation-divergence-theory",
+        "title": "How can a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) be generated for an agentic Artificial Intelligence (AI) system, and how much does it diverge from the declared design-time AIBOM?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+        "title": "How do you capture a runtime-observed Artificial Intelligence Bill of Materials (AIBOM) in practice using OpenTelemetry tracing and platform-native observability tools?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-platform-observability-control-comparison",
+        "title": "What introspection, export, and control surfaces actually exist across production agentic Artificial Intelligence (AI) platforms: a comparative analysis of Amazon Web Services (AWS) Bedrock Agents, Microsoft 365 Copilot, Salesforce Agentforce, and ServiceNow Now Assist?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-identity-delegation-trust-theory",
+        "title": "How should identity, delegation chains, and permission scopes be formally modelled in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution across agentic Artificial Intelligence (AI) systems?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-identity-attribution-multiagent-practice",
+        "title": "How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real multi-agent pipelines, and where does end-to-end attribution break in practice?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
+        "title": "What security and governance risks can a declared and runtime-observed inventory of models, prompts, retrieval sources, tools, memory, and delegation artifacts realistically mitigate for tool-using, stateful Artificial Intelligence (AI) workloads, and where does it create false assurance?",
+        "added": "2026-05-06"
+      },
+      {
+        "slug": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+        "title": "What are the primary behavioural and structural drivers of unsanctioned AI adoption after official tool rollout, and how effective are current governance mechanisms at containing unsanctioned AI systems that can call tools or take multi-step actions compared to earlier shadow IT waves?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+        "title": "What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
+        "title": "To what degree does over-reliance on AI tools accelerate measurable skill decay in practitioners, and what interventions best preserve human capability without sacrificing productivity gains?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+        "title": "Agent Operational Cost vs Gap Closure Cost",
+        "added": "2026-05-16"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-agentic-coding-llm.html"
   },
   {
     "slug": "agentic-ai-regulated-banking-rag",
@@ -6495,13 +6670,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -6557,7 +6732,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "agentic-ai-failure-modes-intent-alignment",
@@ -7170,53 +7345,13 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "evaluation-research-loop-prompt-engineering",
-    "title": "evaluation / research-loop / prompt-engineering",
-    "kind": "implicit",
-    "tag_cluster": [
-      "evaluation",
-      "research-loop",
-      "prompt-engineering"
-    ],
-    "concept_cluster": [],
-    "item_count": 5,
-    "items": [
-      {
-        "slug": "2026-03-03-research-loop-quality-prompt-engineering",
-        "title": "Evaluating and improving autonomous research loop quality: prompt engineering and output assessment",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-03-05-general-agent-optimization-framework",
-        "title": "General Agent Optimization Framework",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-10-research-loop-evaluation-rubric",
-        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-05-06-fact-checking-tools-research-quality-improvement",
-        "title": "How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement research be synthesised into concrete improvements to the automated review process in this research repository?",
-        "added": "2026-05-06"
-      },
-      {
-        "slug": "2026-05-06-barnum-statements-ai-responses-theory-practice",
-        "title": "What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?",
-        "added": "2026-05-06"
-      }
-    ],
-    "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
-  },
-  {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -7247,17 +7382,17 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -7287,17 +7422,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "agents md"
+      "coding agent",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -7327,7 +7462,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -7365,13 +7500,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -7397,7 +7532,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7580,14 +7715,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "power-platform-copilot-studio-direct-publish",
-    "title": "power platform / copilot studio / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
-      "direct publish"
+      "power platform",
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7607,6 +7742,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   }
 ]

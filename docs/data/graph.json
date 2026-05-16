@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-16T06:41:30Z",
-  "node_count": 329,
-  "edge_count": 1788,
+  "generated": "2026-05-16T06:58:57Z",
+  "node_count": 330,
+  "edge_count": 1798,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -1977,6 +1977,12 @@
       "title": "Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model: evolution from static classification to a live, queryable knowledge graph for policy coherence and Confidentiality, Integrity, and Availability (CIA)-tiered enforcement",
       "type": "primary",
       "url": "/Research/research/2026-05-15-uelgf-live-queryable-knowledge-graph.html"
+    },
+    {
+      "slug": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "title": "Agent Operational Cost vs Gap Closure Cost",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html"
     }
   ],
   "edges": [
@@ -3158,14 +3164,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3183,6 +3181,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3766,14 +3772,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3791,6 +3789,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3926,14 +3932,6 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-12-rag-document-drift-agent-behavior",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-13-agent-process-reliability-architecture",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3951,6 +3949,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -7286,14 +7292,6 @@
     },
     {
       "source": "2026-04-28-software-demand-shift-ai-coding-era",
-      "target": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,agentic-coding",
-      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
-    },
-    {
-      "source": "2026-04-28-software-demand-shift-ai-coding-era",
       "target": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
       "weight": 2,
       "rel": "tag-overlap",
@@ -7306,6 +7304,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,observability",
+      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
+    },
+    {
+      "source": "2026-04-28-software-demand-shift-ai-coding-era",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding",
       "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
     },
     {
@@ -8789,6 +8795,14 @@
       "provenance": "2026-05-01-sustainable-ai-software-development-synthesis"
     },
     {
+      "source": "2026-05-01-appropriate-task-selection-coding-agents",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding,evaluation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -9011,6 +9025,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,governance,llm",
       "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
+    },
+    {
+      "source": "2026-05-01-compound-error-accumulation-ai-codebases",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding,evaluation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
@@ -9547,6 +9569,14 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm",
       "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
+    },
+    {
+      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,agentic-coding,evaluation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
@@ -14150,14 +14180,6 @@
     },
     {
       "source": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
       "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15365,6 +15387,14 @@
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,organisation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-12-regulated-ai-constraint-shift",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 4,
@@ -15621,6 +15651,14 @@
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,organisation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -15818,6 +15856,14 @@
       "weight": 4,
       "rel": "cites",
       "evidence": "frontmatter:cites",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
       "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
     },
     {
@@ -16283,6 +16329,46 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-02-28-ai-strategy-swe-focus",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-03-12-ai-team-size-strike-team-thesis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     }
   ]
 }
