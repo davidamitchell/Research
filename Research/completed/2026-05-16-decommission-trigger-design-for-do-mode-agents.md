@@ -24,7 +24,7 @@ item_type: primary
 confidence: medium
 versions:
   - version: "1.0"
-    sha: 5c1768e409247c54712d562d8a3956cf0c93db1e
+    sha: 401a52cc5930a43d3a78ee0f2621b15634f1eb96
     changed: 2026-05-16
     progress: progress/2026-05-16-decommission-trigger-design-for-do-mode-agents.md
     summary: "Initial completion"
