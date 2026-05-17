@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T00:50:35Z",
-  "node_count": 337,
-  "edge_count": 1878,
+  "generated": "2026-05-17T01:20:18Z",
+  "node_count": 338,
+  "edge_count": 1891,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2025,6 +2025,12 @@
       "title": "Variance Control Comparison Across Delivery Modes",
       "type": "primary",
       "url": "/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html"
+    },
+    {
+      "slug": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "title": "Systems Capability Debt Thesis Evidence Assessment",
+      "type": "synthesis",
+      "url": "/Research/knowledge/2026-05-17-systems-capability-debt-thesis-evidence-assessment.html"
     }
   ],
   "edges": [
@@ -17051,6 +17057,110 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
+    },
+    {
+      "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-systems-capability-debt-thesis-evidence-assessment"
     }
   ]
 }
