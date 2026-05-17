@@ -1,6 +1,116 @@
 {
-  "extracted_at": "2026-05-17T19:41:43Z",
+  "extracted_at": "2026-05-17T19:51:10Z",
   "items": {
+    "2026-05-17-servicenow-ai-control-tower-capabilities": {
+      "named_concepts": [
+        "ai control",
+        "control tower",
+        "model context",
+        "context protocol",
+        "deep runtime",
+        "external discovery",
+        "accessible public",
+        "ai agent",
+        "servicenow ai",
+        "governance layer",
+        "inventory lifecycle",
+        "runtime tracing",
+        "runtime observability",
+        "least-privilege identity",
+        "identity governance",
+        "compensating controls",
+        "external interoperability",
+        "accessible sources",
+        "local model",
+        "parallel tasking"
+      ],
+      "source_urls": [
+        "https://www.servicenow.com/products/ai-control-tower.html",
+        "https://www.servicenow.com/docs/r/intelligent-experiences/ai-control-tower/ai-control-tower-landing.html",
+        "https://www.nasdaq.com/press-release/servicenow-launches-ai-control-tower-centralized-command-center-govern-manage-secure",
+        "https://www.reworked.co/the-wire/servicenow-launches-ai-control-tower-at-knowledge-2025/",
+        "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+        "https://www.servicenow.com/community/now-assist-articles/part-2-the-architecture-of-control-building-the-ai-control-tower/ta-p/3344257",
+        "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104",
+        "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-knowledge-amp-troubleshooting-resources/ta-p/3392006",
+        "https://www.servicenow.com/community/grc-articles/servicenow-ai-control-tower-blueprint-for-iso-iec-42001-and-eu/ta-p/3326551",
+        "https://www.servicenow.com/community/now-assist-articles/enable-mcp-and-a2a-for-your-agentic-workflows-with-faqs-updated/ta-p/3373907",
+        "https://finance.yahoo.com/sectors/technology/articles/servicenow-expands-ai-control-tower-165800974.html",
+        "https://diginomica.com/servicenow-knowledge-2026-ai-control-tower-expands-autonomous-workforce-reaches-every-function-and",
+        "https://cio.economictimes.indiatimes.com/news/corporate-news/servicenow-expands-ai-control-tower-capabilities-with-new-features/130855542",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-platform-strategy.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html"
+      ],
+      "key_claims": [
+        {
+          "text": "ServiceNow AI Control Tower became a generally available product at Knowledge 2025, with an initial public capability set centered on centralized AI inventory, lifecycle governance, real-time reporting, and enterprise compliance management for ServiceNow and third-party AI assets",
+          "sources": [
+            "https://www.nasdaq.com/press-release/servicenow-launches-ai-control-tower-centralized-command-center-govern-manage-secure",
+            "https://www.reworked.co/the-wire/servicenow-launches-ai-control-tower-at-knowledge-2025/",
+            "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-knowledge-amp-troubleshooting-resources/ta-p/3392006"
+          ]
+        },
+        {
+          "text": "The publicly described 2025 monitoring surface emphasized dashboards, drift alerts, fairness or bias checks, explainability, audit trails, and workflow-triggered remediation, which means the first release looked more like a governance cockpit than a deep runtime tracing system",
+          "sources": [
+            "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+            "https://www.servicenow.com/community/product-launch-forum/using-the-ai-control-tower-in-servicenow-for-enterprise-wide-ai/m-p/3421753",
+            "https://www.servicenow.com/community/now-assist-articles/part-2-the-architecture-of-control-building-the-ai-control-tower/ta-p/3344257"
+          ]
+        },
+        {
+          "text": "Public source material shows AI Control Tower governing through intake, shared review, risk classification, human oversight, escalation paths, and lifecycle tracking inside ServiceNow workspaces and workflows, which makes its control model operationally workflow-centric",
+          "sources": [
+            "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104",
+            "https://www.servicenow.com/community/now-assist-articles/part-2-the-architecture-of-control-building-the-ai-control-tower/ta-p/3344257",
+            "https://www.servicenow.com/community/grc-articles/servicenow-ai-control-tower-blueprint-for-iso-iec-42001-and-eu/ta-p/3326551"
+          ]
+        },
+        {
+          "text": "Cross-platform integration is presented across AI Control Tower, AI Agent Fabric, AI Agent Studio, and interoperability features such as Model Context Protocol and Agent2Agent, so the public architecture reads as a multi-component stack rather than as a single-product control surface",
+          "sources": [
+            "https://www.nasdaq.com/press-release/servicenow-launches-ai-control-tower-centralized-command-center-govern-manage-secure",
+            "https://www.reworked.co/the-wire/servicenow-launches-ai-control-tower-at-knowledge-2025/",
+            "https://www.servicenow.com/community/now-assist-articles/enable-mcp-and-a2a-for-your-agentic-workflows-with-faqs-updated/ta-p/3373907"
+          ]
+        },
+        {
+          "text": "The 2026 expansion materially changes the product's posture by adding external discovery connectors, Traceloop-based runtime observability, Veza-based least-privilege identity governance, kill-switch controls, and cost dashboards, but accessible public evidence does not yet prove universal general availability for every named subfeature",
+          "sources": [
+            "https://finance.yahoo.com/sectors/technology/articles/servicenow-expands-ai-control-tower-165800974.html",
+            "https://diginomica.com/servicenow-knowledge-2026-ai-control-tower-expands-autonomous-workforce-reaches-every-function-and",
+            "https://cio.economictimes.indiatimes.com/news/corporate-news/servicenow-expands-ai-control-tower-capabilities-with-new-features/130855542"
+          ]
+        },
+        {
+          "text": "For regulated industries, the product's strongest native value is its ability to link AI assets to risks, policies, reviews, audit trails, and named compliance frameworks, which supports accountability and evidence production better than a raw model-management tool would",
+          "sources": [
+            "https://www.servicenow.com/community/grc-articles/servicenow-ai-control-tower-blueprint-for-iso-iec-42001-and-eu/ta-p/3326551",
+            "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-an-executive-view-on-ai-governance/ta-p/3378104",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "Public packaging and access information remains incomplete, because accessible sources confirm store activation and release-family dependence but do not expose a simple public stock-keeping unit matrix or exact entitlements for each workstream such as inventory, compliance, and value measurement",
+          "sources": [
+            "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+            "https://www.servicenow.com/community/now-assist-articles/ai-control-tower-knowledge-amp-troubleshooting-resources/ta-p/3392006"
+          ]
+        },
+        {
+          "text": "ServiceNow's current external interoperability surface still has explicit functional gaps, including remote-only Model Context Protocol server support, no local Model Context Protocol servers, no Agent2Agent parallel tasking, and several roadmap-only items, which implies that heterogeneous agent estates may still need compensating controls outside the product",
+          "sources": [
+            "https://www.servicenow.com/community/now-assist-articles/enable-mcp-and-a2a-for-your-agentic-workflows-with-faqs-updated/ta-p/3373907",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html"
+          ]
+        }
+      ]
+    },
     "2026-05-17-policy-enforcement-formal-verification-energy-functions": {
       "named_concepts": [
         "canonical state",
