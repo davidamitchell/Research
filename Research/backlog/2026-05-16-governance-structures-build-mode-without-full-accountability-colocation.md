@@ -31,6 +31,7 @@ Under what governance conditions can build-mode investment decisions be made rel
 - Outcome-based funding models and product-team ownership models with explicit benefits-realisation mandates
 - Evidence from regulated financial services where risk ownership is structurally separate from delivery ownership
 - Minimum authority grant required for a central accountable office to function as an effective integrator
+- Authority dimensions to evaluate explicitly: budget approval rights, risk sign-off authority, benefits-reporting mandate, and veto or escalation rights over do-mode deployments that displace build-mode investment
 
 **Out of scope:**
 - Treating National Audit Office (NAO) shared-services evidence as the primary base for private-sector conclusions
@@ -43,14 +44,15 @@ Under what governance conditions can build-mode investment decisions be made rel
 - Prioritise private-sector and financial-services evidence where available
 - Expand acronyms on first use throughout (for example: Information Technology (IT), Profit and Loss (P&L))
 - Every source listed must include a verifiable URL
+- If primary texts are inaccessible, record the access failure explicitly, continue with best-available independent primary or high-quality secondary evidence, and treat the item as blocked only if no credible evidence exists for a core sub-question
 
 ## Context
 
-The current do-mode versus build-mode thesis claims that split accountability must be resolved before build-mode investment strategy can execute, but this prerequisite is too strong for many organisations unless evidence shows whether lighter governance interventions can close the same decision-rights gap without full structural co-location.
+This item closes the unresolved gap of whether build-mode investment trade-offs can be reliably closed without full structural co-location by defining and testing the minimum viable authority bundle for an integrating accountable office.
 
 ## Approach
 
-1. Review MIT Center for Information Systems Research (MIT CISR) and Jeanne W. Ross / Peter Weill decision-rights literature to extract the minimum decision-rights bundle needed to close cross-functional technology trade-offs.
+1. Review MIT Center for Information Systems Research (MIT CISR) and Jeanne W. Ross / Peter Weill decision-rights literature to extract the minimum decision-rights bundle needed to close cross-functional technology trade-offs; if primary texts are inaccessible, log the failure and proceed with traceable substitute sources while marking confidence impacts.
 2. Identify private-sector cases of product-based Information Technology (IT) funding (persistent team budgets, team-level P&L, or equivalent) and assess whether these structures resolve missing-integrator failure modes without full accountability co-location.
 3. Identify regulated financial-services evidence where risk ownership remains in a separate risk function and evaluate compensating governance mechanisms used to make build-mode investment decisions.
 4. Identify outcome-based funding mechanisms where central delivery funding is contractually tied to business-unit benefits realisation, and evaluate whether these mechanisms substitute effectively for structural co-location.
