@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [formal-methods, intent-alignment, reward-hacking, agentic-ai, programming-languages, type-theory, out-of-the-tar-pit]
+ai_themes: [agentic-ai, formal-methods, intent-alignment, programming-languages]
 started: 2026-03-10T17:02:39+00:00
 completed: 2026-03-10T17:02:39+00:00
 output: [knowledge]

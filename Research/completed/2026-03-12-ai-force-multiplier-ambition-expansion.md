@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [force-multiplier, ambition, organisational-design, ai-native, strategy, headcount, revenue-per-employee, cannot-do-now, capacity-expansion]
+ai_themes: [force-multiplier, organizational-design, strategy, workforce-skills, cost-performance]
 started: 2026-03-14T09:13:24+00:00
 completed: 2026-03-14T09:13:24+00:00
 output: [knowledge]

@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [swat, prompting-techniques, agentic-ai, rag, web-search, hallucinations, context-window, loop-reliability, grounding]
+ai_themes: [agentic-ai, rag-retrieval, memory-context, tools-infrastructure]
 started: 2026-03-14T23:57:17+00:00
 completed: 2026-03-14T23:57:17+00:00
 output: [knowledge]

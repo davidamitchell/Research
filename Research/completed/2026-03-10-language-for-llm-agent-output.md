@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, programming-languages, dsl, failure-modes, intent-alignment, reward-hacking, formal-methods, output-language, llm-code-generation, structured-output]
+ai_themes: [agentic-ai, tools-infrastructure, ai-architecture, structured-output-generation]
 started: 2026-03-11T07:54:09+00:00
 completed: 2026-03-11T07:54:09+00:00
 output: []

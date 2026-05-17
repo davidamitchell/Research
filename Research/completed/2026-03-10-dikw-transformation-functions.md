@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [dikw, knowledge-management, epistemology, information-theory, wisdom, cognition, organisation, learning]
+ai_themes: [knowledge-management, consciousness-cognition, knowledge-graphs]
 started: 2026-03-10T19:50:15+00:00
 completed: 2026-03-10T19:50:15+00:00
 output: [knowledge]

@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, evaluation, benchmarking, cross-repo-analysis, pattern-analysis, metrics, regression, effectiveness, taxonomy]
+ai_themes: [agentic-ai, benchmarks-eval, ai-architecture, cross-repo-analysis]
 started: 2026-03-10T19:40:42+00:00
 completed: 2026-03-10T19:40:42+00:00
 output: [knowledge, backlog-item]

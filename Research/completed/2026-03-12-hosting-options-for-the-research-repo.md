@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [hosting, static-site, search, vector-db, infrastructure, free-tier]
+ai_themes: [tools-infrastructure, cost-performance, mlops-deployment]
 started: 2026-03-14T18:46:23+00:00
 completed: 2026-03-14T18:46:23+00:00
 output: [knowledge, backlog-item]

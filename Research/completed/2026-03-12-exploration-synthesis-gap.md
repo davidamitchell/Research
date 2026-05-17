@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [cognition, exploration, synthesis, knowledge-sharing, incentives, ego, agentic-ai, organisational-behaviour, psychology]
+ai_themes: [agentic-ai, consciousness-cognition, knowledge-management, exploration-synthesis-gap]
 started: 2026-03-14T10:39:16+00:00
 completed: 2026-03-14T10:39:16+00:00
 output: [knowledge]

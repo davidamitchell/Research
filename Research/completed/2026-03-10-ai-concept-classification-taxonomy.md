@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: [2026-03-10-agent-evaluation-cross-repo-analysis]
 tags: [taxonomy, classification, prompt-engineering, context-engineering, intent-engineering, memory, failure-modes, guardrails, skills, tools, agentic-ai]
+ai_themes: [agentic-ai, memory-context, governance-policy, ai-architecture]
 started: 2026-03-10T19:22:14+00:00
 completed: 2026-03-10T19:22:14+00:00
 output: [knowledge]

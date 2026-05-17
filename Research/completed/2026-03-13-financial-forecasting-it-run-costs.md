@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [financial-forecasting, it-run-costs, uncertainty-modelling, regulatory, error-bars, infrastructure-costing, assumptions]
+ai_themes: [financial-forecasting, uncertainty-modelling, governance-policy, cost-performance, tools-infrastructure]
 started: 2026-03-14T18:32:46+00:00
 completed: 2026-03-14T18:32:46+00:00
 output: [knowledge]
