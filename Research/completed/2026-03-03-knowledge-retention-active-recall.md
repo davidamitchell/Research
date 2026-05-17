@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [retention, recall, spaced-repetition, knowledge-decay, application, active-recall, knowledge-management]
+ai_themes: [memory-context, knowledge-management, tools-infrastructure, cognitive-persistence]
 started: 2026-03-03T10:05:15+00:00
 completed: 2026-03-03T10:05:15+00:00
 output: [knowledge, tool, backlog-item]

@@ -6,6 +6,7 @@ review_count: 2
 priority: high
 blocks: []
 tags: [organisation, workflow, evaluation, agentic-coding]
+ai_themes: [agentic-ai, tools-infrastructure, cost-performance, workforce-skills, technical-debt-management]
 started: 2026-05-16T08:10:47+00:00
 completed: 2026-05-16T08:31:34+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [organisation, organisational-design, governance, risk-management, financial-governance, product-management]
+ai_themes: [governance-policy, security-risk, cost-performance, organisational-design]
 started: 2026-05-17T00:25:09+00:00
 completed: 2026-05-17T00:49:22+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
