@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "ServiceNow Artificial Intelligence (AI) Control Tower: full feature and capability survey"
 added: 2026-05-17T10:17:56+00:00
 status: reviewing
