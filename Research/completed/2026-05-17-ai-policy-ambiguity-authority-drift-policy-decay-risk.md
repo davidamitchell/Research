@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 234d73f0072a5b94f59fd4ce168105a83f1d44bd
+    changed: 2026-05-17
+    progress: progress/2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk.md
+    summary: "Initial completion"
 ---
 
 # Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation
