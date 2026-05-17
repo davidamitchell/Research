@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Policy enforcement and formal verification as Energy-Based Model (EBM) optimization signals"
 added: 2026-05-17T11:18:46+00:00
 status: reviewing
