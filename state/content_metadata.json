@@ -1,6 +1,155 @@
 {
-  "extracted_at": "2026-05-17T14:15:45Z",
+  "extracted_at": "2026-05-17T14:29:55Z",
   "items": {
+    "2026-05-17-ms-azure-ai-foundry-capabilities": {
+      "named_concepts": [
+        "microsoft foundry",
+        "azure openai",
+        "azure ai",
+        "control plane",
+        "ai application",
+        "azure ml",
+        "connected azure",
+        "prompt flow",
+        "application factory",
+        "governance plane",
+        "paths still",
+        "foundry iq",
+        "complete enterprise",
+        "enterprise ai",
+        "deployment flexibility",
+        "regulated enterprises",
+        "tenant administration",
+        "microsoft agent",
+        "agent framework",
+        "strong azure-native"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/azure/foundry/what-is-ai-foundry",
+        "https://azure.microsoft.com/en-us/products/ai-foundry",
+        "https://learn.microsoft.com/en-us/azure/foundry/",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/architecture",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/model-benchmarks",
+        "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/deployments-overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+        "https://learn.microsoft.com/en-us/azure/foundry/reference/region-support",
+        "https://arxiv.org/abs/2106.09685",
+        "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/manage-costs",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog",
+        "https://modelcontextprotocol.io/introduction",
+        "https://a2aprotocol.org/docs/specification",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds",
+        "https://learn.microsoft.com/en-us/azure/foundry-classic/concepts/prompt-flow",
+        "https://learn.microsoft.com/en-us/azure/foundry-classic/how-to/how-to-migrate-prompt-flow-to-agent-framework",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability",
+        "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent",
+        "https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept",
+        "https://opentelemetry.io/docs/what-is-opentelemetry/",
+        "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard",
+        "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/authentication-authorization-foundry",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link",
+        "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/guardrails/task-adherence",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/connections-add",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/bring-your-own-azure-storage-foundry",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/upgrade-azure-openai",
+        "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/endpoints",
+        "https://learn.microsoft.com/en-us/azure/machine-learning/foundry-models-overview?view=azureml-api-2",
+        "https://learn.microsoft.com/en-us/fabric/onelake/onelake-foundry-knowledge",
+        "https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-onelake",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Microsoft Foundry consolidates the former Azure AI Studio and Azure AI Foundry experience into a single resource and project model, and Microsoft can upgrade Azure OpenAI resources in place without changing existing Azure OpenAI endpoints, keys, or saved state",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/foundry/what-is-ai-foundry",
+            "https://learn.microsoft.com/en-us/azure/foundry/how-to/upgrade-azure-openai",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/architecture"
+          ]
+        },
+        {
+          "text": "The model catalogue is broad and practically useful, because Microsoft documents more than 1,900 models, side-by-side comparison, public-benchmark leaderboards, model cards, deployment tabs, and filterable deployment and licence metadata within the same discovery surface",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/model-benchmarks",
+            "https://learn.microsoft.com/en-us/azure/machine-learning/foundry-models-overview?view=azureml-api-2"
+          ]
+        },
+        {
+          "text": "Microsoft Foundry supports meaningful native model customisation, especially Low-Rank Adaptation (LoRA) based fine-tuning and selected optimization methods, but customization support is narrower than catalogue support and some partner or open-model paths still depend on managed compute or classic-era deployment patterns",
+          "sources": [
+            "https://arxiv.org/abs/2106.09685",
+            "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/deployments-overview",
+            "https://learn.microsoft.com/en-us/azure/machine-learning/foundry-models-overview?view=azureml-api-2"
+          ]
+        },
+        {
+          "text": "The development stack is now decisively agent-centric, combining prompt agents, workflow agents, hosted agents, tool catalogues, memory, Foundry IQ, Microsoft's managed knowledge layer, unified SDKs, and playgrounds, while Prompt Flow remains only as a legacy classic feature with retirement and migration guidance already published",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/foundry/agents/overview",
+            "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow",
+            "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog",
+            "https://learn.microsoft.com/en-us/azure/foundry-classic/concepts/prompt-flow",
+            "https://learn.microsoft.com/en-us/azure/foundry-classic/how-to/how-to-migrate-prompt-flow-to-agent-framework"
+          ]
+        },
+        {
+          "text": "Evaluation and observability are first-class platform features, because Microsoft documents lifecycle evaluation from benchmark-driven model selection through agent testing, continuous evaluation, dashboard monitoring, OpenTelemetry tracing, and automated red-teaming, even though some runtime-inspection paths remain preview",
+          "sources": [
+            "https://opentelemetry.io/docs/what-is-opentelemetry/",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability",
+            "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent",
+            "https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept",
+            "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard"
+          ]
+        },
+        {
+          "text": "Deployment and serving flexibility are broad for a managed platform, because Microsoft Foundry supports standard, provisioned, batch, data-zone, regional, and managed-compute serving patterns, but that same flexibility pushes architects to make explicit data-residency, quota, and cost-governance decisions",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/deployments-overview",
+            "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+            "https://learn.microsoft.com/en-us/azure/foundry/reference/region-support",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/manage-costs"
+          ]
+        },
+        {
+          "text": "Microsoft Foundry has serious enterprise-governance machinery, including Microsoft Entra identity, Foundry RBAC roles, Private Link, bring-your-own-storage, guardrails, task-adherence checks, and Control Plane fleet views, but those controls remain distributed across Foundry, connected Azure resources, and several preview-only surfaces",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/authentication-authorization-foundry",
+            "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry",
+            "https://learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link",
+            "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+            "https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview"
+          ]
+        },
+        {
+          "text": "Microsoft Foundry integrates well with Azure OpenAI, Azure Machine Learning (Azure ML), Azure AI Search, OneLake, and Microsoft Copilot surfaces, but those integrations make the platform more useful as a developer-side AI application factory than as a complete enterprise governance plane in its own right",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/foundry/how-to/upgrade-azure-openai",
+            "https://learn.microsoft.com/en-us/azure/machine-learning/foundry-models-overview?view=azureml-api-2",
+            "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+            "https://learn.microsoft.com/en-us/fabric/onelake/onelake-foundry-knowledge",
+            "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot"
+          ]
+        }
+      ]
+    },
     "2026-05-17-layered-reasoning-state-abstraction-interfaces": {
       "named_concepts": [
         "syntax tree",
