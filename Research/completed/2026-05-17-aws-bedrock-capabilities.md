@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 2ebb0fa472f4104575976624270b58573c309a42
+    changed: 2026-05-17
+    progress: progress/2026-05-17-aws-bedrock-capabilities.md
+    summary: Initial completion
 ---
 
 # AWS Bedrock: full feature and capability survey
