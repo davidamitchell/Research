@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation"
 added: 2026-05-17T20:33:05+00:00
 status: reviewing
