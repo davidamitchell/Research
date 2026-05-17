@@ -279,11 +279,11 @@ Mode: full.
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR), Basel Committee on Banking Supervision (BCBS), European Banking Authority (EBA), Financial Conduct Authority (FCA), and Technology Modernization Fund (TMF) expanded on first use
-- Claim audit: every visible claim in Research Skill Output labeled as [fact], [inference], or [assumption]
-- Source audit: all consulted sources in Findings are URL-backed and listed in Sources
-- Parity audit: section 6 and Findings aligned at substantive-claim level
+result: pass
+acronyms_checked: Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR); Basel Committee on Banking Supervision (BCBS); European Banking Authority (EBA); Financial Conduct Authority (FCA); Technology Modernization Fund (TMF)
+claim_labels: complete
+source_links: URL-backed
+parity: aligned
 
 ---
 
@@ -306,7 +306,7 @@ If the central office lacks budget leverage and explicit escalation rights, it r
 ### Key Findings
 
 1. **Banking-governance rules allow business-line delivery ownership and independent risk ownership to remain separate, but they require clear responsibilities, direct challenge paths, and management-body oversight so that no material trade-off is left ownerless.** ([fact]; high confidence; source: https://www.bis.org/bcbs/publ/d328.pdf; https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf)
-2. **Decision-rights research shows that any substitute for structural co-location must assign named owners for prioritisation of spend, choice of what versus how, and exception handling, because those are the decisions that otherwise fall into cross-functional gaps.** ([fact]; medium confidence; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth)
+2. **Decision-rights research shows that any substitute for structural co-location must assign named owners for prioritisation of spend, choice of what versus how, and exception handling.** ([fact]; medium confidence; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth)
 3. **The Senior Managers and Certification Regime shows one concrete way a separated structure can document answerability, because it requires named responsibility documents and responsibility maps for senior-manager roles.** ([inference]; medium confidence; source: https://www.fca.org.uk/firms/senior-managers-certification-regime; https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf)
 4. **Product and value-stream funding models reduce the cost-benefit split only when standing teams receive stable funding and backlog authority inside an approved envelope while central governance retains strategic reallocation rights at regular review points.** ([inference]; medium confidence; source: https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html; https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets; https://scaledagileframework.com/lean-budgets/)
 5. **Milestone-based central funding can enforce measurable progress and capital discipline when strong central investment governance exists, and this mechanism can partially substitute for structural co-location while still requiring a named owner for milestones and repayment conditions.** ([inference]; medium confidence; source: https://tmf.cio.gov/; https://tmf.cio.gov/board/; https://fiscal.treasury.gov/system/files/files/ussgl/approved_scenarios/technology-modernization-fund-accounting-guide-%28gsa%29-fiscal-2023.pdf)
