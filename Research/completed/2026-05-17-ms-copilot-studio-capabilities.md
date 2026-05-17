@@ -2,12 +2,12 @@
 review_count: 2
 title: "Microsoft Copilot Studio: full feature and capability survey"
 added: 2026-05-17T10:17:56+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [microsoft, copilot-studio, agentic-ai, ai-platform, enterprise, ai-governance, llm, workflow, regulated-enterprise]
 started: 2026-05-17T14:30:24+00:00
-completed: ~
+completed: 2026-05-17T14:50:31+00:00
 output: [knowledge]
 cites: [2026-04-28-alternative-pipeline-platforms-copilot-studio-agents, 2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model, 2026-04-24-business-led-low-code-agent-governance, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-04-26-ai-lowcode-observability-telemetry-governance]
 related: [2026-04-26-ms-copilot-cowork, 2026-04-26-vendor-platform-governance-constraints-compensating-controls, 2026-04-26-deployment-pipeline-citizen-development-governed-gate]
