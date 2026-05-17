@@ -33,7 +33,12 @@ cites:
   - 2026-05-16-decommission-trigger-design-for-do-mode-agents
   - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "f1e6dd60bb8b9d033ef96ca660f6875387d4f660"
+    changed: 2026-05-17
+    progress: "progress/2026-05-17-systems-capability-debt-thesis-evidence-assessment.md"
+    summary: "Initial draft completion"
 ---
 
 # Systems Capability Debt Thesis Evidence Assessment
