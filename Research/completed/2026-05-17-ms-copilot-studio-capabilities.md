@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b1aa742ce08a59abfa1b7d4cbe5d7588e46bb137
+    changed: 2026-05-17
+    progress: progress/2026-05-17-ms-copilot-studio-capabilities.md
+    summary: "Initial completion"
 ---
 
 # Microsoft Copilot Studio: full feature and capability survey
