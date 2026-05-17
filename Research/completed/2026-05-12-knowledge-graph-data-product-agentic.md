@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [knowledge-graph, agentic-ai, governance, organisation]
+ai_themes: [knowledge-graphs, agentic-ai, governance-policy, ai-architecture, data-management]
 started: 2026-05-13T09:37:27+00:00
 completed: 2026-05-13T10:00:14+00:00
 output: [knowledge]

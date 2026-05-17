@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [knowledge-graph, agentic-ai, governance, ricardian-contracts]
+ai_themes: [knowledge-graphs, agentic-ai, governance-policy, access-control]
 started: 2026-05-13T10:02:08+00:00
 completed: 2026-05-13T10:28:16+00:00
 output: [knowledge]

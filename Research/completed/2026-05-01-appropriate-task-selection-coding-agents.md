@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, software-engineering, governance, llm, evaluation]
+ai_themes: [agentic-ai, governance-policy, benchmarks-eval, security-risk, software-reliability]
 started: 2026-05-01T20:52:31+00:00
 completed: 2026-05-01T21:09:30+00:00
 output: [knowledge]

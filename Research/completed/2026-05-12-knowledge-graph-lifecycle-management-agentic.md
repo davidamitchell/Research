@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [knowledge-graph, agentic-ai, workflow]
+ai_themes: [knowledge-graphs, agentic-ai, knowledge-management, ai-architecture]
 started: 2026-05-12T10:35:05+00:00
 completed: 2026-05-12T10:58:55+00:00
 output: [knowledge]

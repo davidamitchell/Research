@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-lecun-critique-citizen-development-enterprise-risk, 2026-04-26-software-engineering-investment-case-llm]
 tags: [llm, large-language-models, verifiability, code-generation, formal-verification, external-verifiers, regulated-financial-services, deployment-boundary, agentic-ai, consequential-actions]
+ai_themes: [agentic-ai, governance-policy, security-risk, mlops-deployment, formal-verification]
 started: 2026-04-27T02:27:03+00:00
 completed: 2026-04-27T02:46:06+00:00
 output: [knowledge]

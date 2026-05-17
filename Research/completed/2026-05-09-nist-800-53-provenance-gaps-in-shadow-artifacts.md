@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, operational-risk]
+ai_themes: [governance-policy, security-risk, workforce-skills, operational-risk, data-provenance]
 started: 2026-05-11T10:54:44+00:00
 completed: 2026-05-11T11:13:53+00:00
 output: [knowledge]

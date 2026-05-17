@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [governance, llm, agentic-ai, ai-governance, regulatory, compliance]
+ai_themes: [governance-policy, agentic-ai, regulatory-compliance, llm-governance]
 started: 2026-05-10T20:12:32+00:00
 completed: 2026-05-10T20:37:24+00:00
 output: [knowledge]

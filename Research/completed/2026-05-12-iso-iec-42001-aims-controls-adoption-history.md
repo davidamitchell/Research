@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [governance, compliance, ai-governance, regulatory]
+ai_themes: [governance-policy, security-risk, ai-standards, regulatory-compliance]
 started: 2026-05-12T19:35:51+00:00
 completed: 2026-05-12T20:02:55+00:00
 output: [knowledge]

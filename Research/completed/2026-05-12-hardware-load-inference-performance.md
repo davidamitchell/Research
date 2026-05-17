@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [llm, agentic-ai, evaluation, ai-platform]
+ai_themes: [agentic-ai, cost-performance, benchmarks-eval, tools-infrastructure, llm-inference]
 started: 2026-05-12T18:38:07+00:00
 completed: 2026-05-12T19:00:37+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

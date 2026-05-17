@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, workflow, organisation, evaluation, llm, memory-system]
+ai_themes: [agentic-ai, ai-architecture, workflow, organisation]
 started: 2026-05-14T09:01:14+00:00
 completed: 2026-05-14T09:26:34+00:00
 output: []

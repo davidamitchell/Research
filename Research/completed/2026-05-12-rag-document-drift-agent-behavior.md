@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, evaluation, workflow, organisation]
+ai_themes: [agentic-ai, rag-retrieval, governance-policy, benchmarks-eval, mlops-deployment]
 started: 2026-05-12T19:03:28+00:00
 completed: 2026-05-12T19:33:35+00:00
 output: []

@@ -6,6 +6,7 @@ review_count: 2
 priority: high
 blocks: []
 tags: [knowledge-graph, agentic-ai, governance, llm]
+ai_themes: [knowledge-graphs, agentic-ai, knowledge-management, ai-architecture]
 started: 2026-05-12T11:04:03+00:00
 completed: 2026-05-12T11:25:01+00:00
 output: [knowledge]

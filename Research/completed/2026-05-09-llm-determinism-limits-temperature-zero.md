@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [llm, governance, agentic-ai, evaluation, ai-governance]
+ai_themes: [llm-reasoning, benchmarks-eval, cost-performance, ai-governance]
 started: 2026-05-11T10:30:26+00:00
 completed: 2026-05-11T10:52:15+00:00
 output: [knowledge]
