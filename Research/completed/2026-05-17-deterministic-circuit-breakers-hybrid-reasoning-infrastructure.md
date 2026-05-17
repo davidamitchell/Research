@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    changed: 2026-05-17
+    sha: c21ecd3e5cc7a85e226d36e89b450c289e12ec02
+    progress: progress/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.md
+    summary: Initial completion
 ---
 
 # Deterministic circuit-breakers and real-time infrastructure constraints for hybrid reasoning stacks
