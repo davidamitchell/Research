@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [philosophy, physics, general-relativity, zen-buddhism, epistemology]
+ai_themes: [consciousness-cognition, knowledge-management, epistemological-foundations]
 started: 2026-03-30T08:51:59+00:00
 completed: 2026-03-30T08:51:59+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item

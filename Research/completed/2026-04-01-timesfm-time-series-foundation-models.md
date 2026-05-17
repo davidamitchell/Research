@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [machine-learning, time-series, forecasting, foundation-models, google, transformers]
+ai_themes: [ai-architecture, benchmarks-eval, cost-performance, time-series-foundation-models]
 started: 2026-04-01T00:48:47+00:00
 completed: 2026-04-01T00:48:47+00:00
 output: [knowledge]

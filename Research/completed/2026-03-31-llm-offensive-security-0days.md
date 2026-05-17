@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [llm, security, offensive-security, zero-day, vulnerability-discovery, nicholas-carlini, anthropic, ctf, red-team, arms-race]
+ai_themes: [agentic-ai, llm-reasoning, security-risk, offensive-cybersecurity]
 started: 2026-03-31T13:07:11+00:00
 completed: 2026-03-31T13:07:11+00:00
 output: [knowledge]

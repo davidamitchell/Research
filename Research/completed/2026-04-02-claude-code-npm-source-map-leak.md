@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [security, npm, release-engineering, intellectual-property, anthropic, claude]
+ai_themes: [security-risk, tools-infrastructure, mlops-deployment, supply-chain-security]
 started: 2026-04-02T08:49:50+00:00
 completed: 2026-04-02T08:49:50+00:00
 output: [knowledge]

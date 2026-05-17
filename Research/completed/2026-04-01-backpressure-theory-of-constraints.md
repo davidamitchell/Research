@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [theory-of-constraints, backpressure, systems-thinking, operations, lean]
+ai_themes: [ai-architecture, tools-infrastructure, mlops-deployment, cost-performance, systems-engineering]
 started: 2026-04-01T12:03:49+00:00
 completed: 2026-04-01T12:03:49+00:00
 output: []

@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [organisation, organisational-design, governance, vendor-management, technical-debt]
+ai_themes: [governance-policy, security-risk, tools-infrastructure, vendor-oversight, technical-debt-management]
 started: 2026-05-15T03:53:08+00:00
 completed: 2026-05-15T04:13:25+00:00
 output: [knowledge]

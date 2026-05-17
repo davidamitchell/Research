@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [trends, forecasting, technology, history, strategy]
+ai_themes: [governance-policy, workforce-skills, ai-architecture, technology-forecasting]
 started: 2026-04-20T00:04:09+00:00
 completed: 2026-04-20T00:04:09+00:00
 output: []

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-03-28-environment-setup-consistency]
 tags: [copilot, claude, ios, agents-md, skills, instructions, github-issues]
+ai_themes: [agentic-ai, memory-context, tools-infrastructure, knowledge-management, developer-experience]
 started: 2026-03-29T00:57:03+00:00
 completed: 2026-03-29T00:57:03+00:00
 output: [knowledge, backlog-item]

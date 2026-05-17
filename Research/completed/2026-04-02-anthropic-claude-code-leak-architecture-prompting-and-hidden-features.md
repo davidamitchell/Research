@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agentic-ai, npm, typescript, memory, tools]
+ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, security-risk, prompt-engineering]
 started: 2026-04-02T09:05:22+00:00
 completed: 2026-04-02T09:05:22+00:00
 output: [knowledge]

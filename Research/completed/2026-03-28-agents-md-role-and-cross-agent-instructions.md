@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [agents-md, copilot, claude, instructions, cross-agent, consistency]
+ai_themes: [agentic-ai, memory-context, ai-architecture, knowledge-management, prompt-engineering]
 started: 2026-03-29T11:12:49+00:00
 completed: 2026-03-29T11:12:49+00:00
 output: [knowledge, backlog-item]
