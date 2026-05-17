@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [intent, software-engineering, tdd, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
+ai_themes: [agentic-ai, memory-context, ai-architecture, tools-infrastructure, intent-driven-development]
 started: 2026-03-20T04:03:13+00:00
 completed: 2026-03-20T04:03:13+00:00
 output: [knowledge]

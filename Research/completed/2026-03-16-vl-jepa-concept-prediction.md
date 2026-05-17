@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [machine-learning, vision-language, jepa, meta, lecun, concept-prediction, frontier-models, github-copilot, claude-code, agentic-coding, ai-architecture]
+ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, vision-language-models]
 started: 2026-03-20T04:32:09+00:00
 completed: 2026-03-20T04:32:09+00:00
 output: [knowledge]

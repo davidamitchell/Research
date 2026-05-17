@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, agentic-coding, organisation, evaluation]
+ai_themes: [agentic-ai, benchmarks-eval, cost-performance, decision-making]
 started: 2026-05-16T06:27:49+00:00
 completed: 2026-05-16T06:58:18+00:00
 output: [knowledge]

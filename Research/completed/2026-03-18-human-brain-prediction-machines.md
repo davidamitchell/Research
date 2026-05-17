@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [neuroscience, cognitive-science, llm, predictive-processing, predictive-coding, next-token-prediction, world-models, consciousness, free-energy-principle]
+ai_themes: [consciousness-cognition, ai-architecture, predictive-modeling, neuro-symbolic-ai]
 started: 2026-03-22T11:41:58+00:00
 completed: 2026-03-22T11:41:58+00:00
 output: [knowledge]

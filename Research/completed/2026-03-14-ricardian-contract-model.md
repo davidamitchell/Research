@@ -5,6 +5,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [contracts, legal-technology, cryptography, blockchain, smart-contracts, fintech, ian-grigg, ricardian-contracts]
+ai_themes: [tools-infrastructure, governance-policy, knowledge-management, legal-technology]
 started: 2026-03-15T05:22:51+00:00
 completed: 2026-03-15T05:22:51+00:00
 output: [knowledge]

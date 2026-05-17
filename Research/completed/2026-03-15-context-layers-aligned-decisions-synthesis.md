@@ -5,6 +5,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [context-architecture, alignment, decision-making, enterprise-ai, rag, knowledge-management, organisational-strategy, synthesis]
+ai_themes: [agentic-ai, memory-context, rag-retrieval, ai-architecture, knowledge-management]
 started: 2026-03-17T08:46:45+00:00
 completed: 2026-03-17T08:46:45+00:00
 output: [knowledge]
