@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols"
 added: 2026-05-17T11:18:46+00:00
 status: reviewing
