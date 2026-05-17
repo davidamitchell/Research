@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [mobile, slack, bot, capture, retrieval, memory-system]
+ai_themes: [memory-context, rag-retrieval, tools-infrastructure, knowledge-management, human-computer-interaction]
 started: 2026-03-10T07:51:38+00:00
 completed: 2026-03-10T07:51:38+00:00
 output: [knowledge]

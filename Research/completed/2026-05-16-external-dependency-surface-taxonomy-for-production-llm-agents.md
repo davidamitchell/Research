@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, agent-tooling, workflow, evaluation]
+ai_themes: [agentic-ai, tools-infrastructure, security-risk, mlops-deployment, dependency-management]
 started: 2026-05-16T07:45:33+00:00
 completed: 2026-05-16T08:08:41+00:00
 output: [knowledge]

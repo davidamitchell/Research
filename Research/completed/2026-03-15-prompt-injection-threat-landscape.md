@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [prompt-injection, security, llm, agentic-ai, adversarial, owasp, mitre-atlas, red-team, ai-governance]
+ai_themes: [agentic-ai, security-risk, governance-policy, benchmarks-eval, adversarial-robustness]
 started: 2026-03-19T06:58:09+00:00
 completed: 2026-03-19T06:58:09+00:00
 output: [knowledge]

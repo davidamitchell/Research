@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [mcp, self-hosted, infrastructure, mobile, memory-system, cloudflare, serverless]
+ai_themes: [ai-architecture, tools-infrastructure, mlops-deployment, mobile-integration]
 started: 2026-03-09T08:16:41+00:00
 completed: 2026-03-09T08:16:41+00:00
 output: [knowledge, backlog-item, adr]

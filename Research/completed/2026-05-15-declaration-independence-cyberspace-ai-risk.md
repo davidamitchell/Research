@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [internet-governance, digital-sovereignty, agentic-ai, ai-governance, ai-safety]
+ai_themes: [agentic-ai, governance-policy, security-risk, digital-sovereignty]
 started: 2026-05-16T00:21:11+00:00
 completed: 2026-05-16T00:41:38+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

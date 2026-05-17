@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [failure-modes, agentic-ai, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
+ai_themes: [agentic-ai, memory-context, ai-architecture, mlops-deployment, state-resilience]
 started: 2026-03-20T07:26:32+00:00
 completed: 2026-03-20T07:26:32+00:00
 output: [knowledge]

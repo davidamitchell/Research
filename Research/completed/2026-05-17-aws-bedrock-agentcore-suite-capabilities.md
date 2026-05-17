@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-05-17-aws-bedrock-capabilities]
 tags: [aws, agentic-ai, ai-platform, enterprise, agent-tooling, ai-governance, regulated-enterprise, identity, memory-system, observability, control-plane]
+ai_themes: [agentic-ai, tools-infrastructure, governance-policy, memory-context, mlops-deployment]
 started: 2026-05-17T12:32:18+00:00
 completed: 2026-05-17T12:53:38+00:00
 output: [knowledge]

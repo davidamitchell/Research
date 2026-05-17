@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, organisation, workflow, evaluation]
+ai_themes: [agentic-ai, workforce-skills, cost-performance, knowledge-management, automation-economics]
 started: 2026-05-16T07:21:27+00:00
 completed: 2026-05-16T07:44:06+00:00
 output: [knowledge]
