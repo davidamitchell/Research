@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T20:58:43Z",
-  "node_count": 346,
-  "edge_count": 1991,
+  "generated": "2026-05-17T21:11:58Z",
+  "node_count": 347,
+  "edge_count": 2003,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2027,6 +2027,12 @@
       "url": "/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html"
     },
     {
+      "slug": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "title": "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html"
+    },
+    {
       "slug": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "title": "Amazon Bedrock AgentCore and related suite: full feature and capability survey",
       "type": "primary",
@@ -2172,14 +2178,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2205,6 +2203,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -4828,7 +4834,7 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5140,7 +5146,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5148,7 +5154,7 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -6716,7 +6722,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6724,7 +6730,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -9412,7 +9418,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -10545,14 +10551,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,knowledge-graph,llm,workflow",
       "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
-    },
-    {
-      "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,llm,workflow",
-      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
       "source": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
@@ -13628,7 +13626,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13636,7 +13634,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13756,14 +13754,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13773,6 +13763,14 @@
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14236,18 +14234,18 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-17-aws-bedrock-capabilities",
-      "weight": 4,
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,llm,workflow",
+      "evidence": "agentic-ai,llm,workflow",
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-      "weight": 3,
+      "target": "2026-05-17-aws-bedrock-capabilities",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
+      "evidence": "agentic-ai,ai-governance,llm,workflow",
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
@@ -14316,7 +14314,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14324,7 +14322,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14436,7 +14434,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14444,7 +14442,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14692,10 +14690,10 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "governance,organisation",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
@@ -14732,14 +14730,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14749,6 +14739,14 @@
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14820,14 +14818,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14853,6 +14843,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14900,14 +14898,6 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14933,6 +14923,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15612,14 +15610,6 @@
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
-    },
-    {
-      "source": "2026-05-12-rag-document-drift-agent-behavior",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "weight": 4,
       "rel": "tag-overlap",
@@ -15641,6 +15631,14 @@
       "rel": "tag-overlap",
       "evidence": "evaluation,organisation,workflow",
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
@@ -15980,6 +15978,14 @@
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-05-17-aws-bedrock-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
@@ -16164,14 +16170,6 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16181,6 +16179,14 @@
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -16564,11 +16570,11 @@
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
     },
     {
       "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
@@ -16704,6 +16710,14 @@
       "weight": 3,
       "rel": "related",
       "evidence": "frontmatter:related",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "llm,organisation,workflow",
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
@@ -16963,6 +16977,14 @@
       "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
       "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "target": "2026-03-07-run-build-it-allocation-implementation-how",
       "weight": 3,
@@ -17036,10 +17058,10 @@
     },
     {
       "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
+      "evidence": "agentic-ai,organisation,workflow",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
@@ -17377,6 +17399,86 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",

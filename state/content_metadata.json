@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-17T20:58:39Z",
+  "extracted_at": "2026-05-17T21:11:54Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -965,6 +965,122 @@
             "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
             "https://aws.amazon.com/bedrock/agentcore/pricing/",
             "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-ai-policy-ambiguity-accountability-governance-risk": {
+      "named_concepts": [
+        "artificial intelligence",
+        "verification intensity",
+        "resulting decision",
+        "automated advice",
+        "human review",
+        "ambiguous cases",
+        "official governance",
+        "governance texts",
+        "proposal layer",
+        "explicit escalation",
+        "escalation triggers",
+        "override authority",
+        "model output",
+        "layered governance",
+        "final judgment",
+        "human owner",
+        "intelligence second",
+        "second opinions",
+        "improve escalation",
+        "lower verification"
+      ],
+      "source_urls": [
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://oecd.ai/en/ai-principles",
+        "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+        "https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243",
+        "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes",
+        "https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Official governance frameworks require named roles, executive responsibility, trained oversight, and documented lines of accountability across the Artificial Intelligence lifecycle, which leaves no compliant basis for treating LLM-assisted policy interpretation as ownerless advice",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://oecd.ai/en/ai-principles",
+            "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng"
+          ]
+        },
+        {
+          "text": "Under the European Union Artificial Intelligence Act, deployers remain responsible for assigning competent overseers, monitoring operation, retaining logs, and suspending risky use, which means managerial and governance owners retain material responsibility for how the tool is used even when frontline employees interact with it directly",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+          ]
+        },
+        {
+          "text": "The best accessible behavioural evidence indicates that Artificial Intelligence second opinions can reduce escalation of ambiguous cases by lowering verification intensity and anchoring human judgment when automated advice is shown before the reviewer forms an independent view",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+            "https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243"
+          ]
+        },
+        {
+          "text": "Meaningful human review requires active, documented challenge by reviewers who have competence, independence, manageable caseloads, override authority, and recorded reasons when they reverse or sustain Artificial Intelligence output",
+          "sources": [
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        },
+        {
+          "text": "An organisation is better positioned to justify the resulting decision in audit or review when it retains reconstructable evidence of system use, human review, and final reasoning, because the strongest regulatory texts emphasize automatic event logging, retained deployer logs, contestability, and structured review records rather than polished model explanations",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+            "https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/"
+          ]
+        },
+        {
+          "text": "An LLM-generated legal or policy narrative should not be treated on its own as sufficient evidence for later review, because open guidance and enforcement material show that such systems can fabricate authorities, distort holdings, and be marketed as professional substitutes without adequate testing",
+          "sources": [
+            "https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations",
+            "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+          ]
+        },
+        {
+          "text": "The hardest remaining governance problem is decision ownership, because a human can remain formally in the loop while adopting a model's framing so completely that the final interpretation is no longer clearly attributable or answerable as that human's own judgment",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/"
+          ]
+        },
+        {
+          "text": "This repository's prior work and the external evidence align on one operating model: use the LLM as a proposal layer behind named owners, explicit escalation triggers, and deterministic review artifacts, because that structure best preserves accountability and the organisation's ability to justify the resulting decision in audit or review under ambiguity",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
           ]
         }
       ]
