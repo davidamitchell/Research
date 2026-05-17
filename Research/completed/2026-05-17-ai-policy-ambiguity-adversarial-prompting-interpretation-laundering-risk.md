@@ -2,12 +2,12 @@
 review_count: 2
 title: "Adversarial prompting risks in policy assistants: coercing restrictive policy into permissive interpretations"
 added: 2026-05-17T20:33:05+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, evaluation]
 started: 2026-05-17T21:12:28+00:00
-completed: ~
+completed: 2026-05-17T21:33:30+00:00
 output: [knowledge]
 cites:
   - 2026-03-15-prompt-injection-threat-landscape
