@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "49573db72d0f085ad0d22f95ded8b9bdc91e1a73"
+    changed: 2026-05-17
+    progress: "progress/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.md"
+    summary: "Initial completion"
 ---
 
 # Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation
