@@ -1,0 +1,332 @@
+---
+title: "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation"
+added: 2026-05-17T20:33:05+00:00
+status: reviewing
+priority: high
+blocks: []
+tags: [agentic-ai, llm, organisation, workflow]
+started: 2026-05-17T20:49:51+00:00
+completed: ~
+output: [knowledge]
+cites:
+  - 2026-04-26-ai-lowcode-decision-rights-accountability-liability
+  - 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates
+  - 2026-05-09-compliance-risks-stochastic-llm-governance-decisions
+  - 2026-05-14-org-failure-modes-accountability-gaps
+related:
+  - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
+  - 2026-05-09-governance-policy-determinism-vs-stochastic-llm
+  - 2026-04-26-human-in-the-loop-ai-automated-workflows
+superseded_by: ~
+supersedes: ~
+item_type: primary
+confidence: medium
+versions: []
+---
+
+# Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation
+
+## Research Question
+
+How does integration of Large Language Models (LLMs) into policy-ambiguity resolution change liability allocation, escalation behaviour, and audit defensibility in organisations?
+
+## Scope
+
+**In scope:**
+- Map how AI-assisted interpretation shifts practical accountability between employees, managers, compliance teams, and tool owners
+- Assess whether AI second-opinion availability reduces escalation of ambiguous cases to risk or compliance functions
+- Identify audit-narrative patterns used to justify AI-mediated decisions versus peer-consultation decisions
+
+**Out of scope:**
+- Implementing production policy-assistant software
+- Entity-specific legal advice
+- Exhaustive jurisdiction-by-jurisdiction legal analysis
+
+**Constraints:** Use publicly available sources, distinguish demonstrated evidence from inference, and prioritise sources with explicit governance or empirical grounding.
+
+## Context
+
+This item isolates one logical risk boundary from the broader multiple-research-questions issue so investigation can be executed as a focused, independently answerable backlog item. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+## Approach
+
+1. Map how AI-assisted interpretation shifts practical accountability between employees, managers, compliance teams, and tool owners.
+2. Assess whether AI second-opinion availability reduces escalation of ambiguous cases to risk or compliance functions.
+3. Identify audit-narrative patterns used to justify AI-mediated decisions versus peer-consultation decisions.
+
+## Sources
+
+- [x] [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - governance, accountability structures, monitoring, and critical-thinking expectations
+- [x] [European Union (2024) Artificial Intelligence Act, Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) - legal baseline for human-centric and trustworthy Artificial Intelligence governance
+- [x] [European Union (2024) AI Act Service Desk Article 12](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12) - logging and traceability duties for high-risk systems
+- [x] [European Union (2024) AI Act Service Desk Article 14](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14) - human-oversight duties, automation-bias awareness, and override authority
+- [x] [European Union (2024) AI Act Service Desk Article 26](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26) - deployer obligations, monitoring, suspension, and log-retention duties
+- [x] [Organisation for Economic Co-operation and Development AI Principles](https://oecd.ai/en/ai-principles) - international accountability, transparency, and explainability baseline
+- [x] [European Commission Restrictions on Automated Decision-Making](https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en) - safeguards for significant decisions, human intervention, and contestability
+- [x] [Information Commissioner's Office Human review](https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/) - meaningful human review, override logs, sampling, and caseload guidance
+- [x] [Schubert et al. (2023) Check the box! How to deal with automation bias in AI-based personnel selection](https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/) - experiment on verification intensity, system-error briefing, and decision quality
+- [x] [Vicente and Matute (2023) The impact of AI errors in a human-in-the-loop process](https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/) - experiments on timing effects, anchoring, and reduced accuracy under early Artificial Intelligence support
+- [x] [Umea University (2024) Automation Bias in Public Sector Decision Making: a Systematic Review](https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243) - review of automation-bias evidence and moderators in public-sector decision support
+- [x] [Federal Trade Commission (2024) FTC Announces Crackdown on Deceptive AI Claims and Schemes](https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes) - enforcement signal on unsupported claims that Artificial Intelligence substitutes for professional judgment
+- [x] [National Center for State Courts A Legal Practitioner's Guide to AI and Hallucinations](https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations) - risks of fabricated citations, distorted holdings, and false procedural information
+- [x] [Zeiser (2024) Owning Decisions: AI Decision-Support and the Attributability-Gap](https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/) - responsibility analysis focused on decision ownership and rubber-stamping risk
+- [x] [Mitchell (2026) How should decision rights, accountability, and liability be structured for Artificial Intelligence systems and low-code applications in enterprise environments?](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html) - prior repository synthesis on decision rights, escalation, and layered ownership
+- [x] [Mitchell (2026) What tiered human oversight models maintain meaningful human-in-the-loop control at scale under high-volume multi-step Artificial Intelligence adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators?](https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html) - prior repository synthesis on oversight degradation, reviewer caseload, and challenge culture
+- [x] [Mitchell (2026) Compliance Risks of Relying on Stochastic Large Language Model Outputs for Governance, Privacy, and Regulatory Decisions](https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html) - prior repository synthesis on auditability, legal hallucinations, and proposal-versus-authority boundaries
+- [x] [Mitchell (2026) Organisational failure modes: overlapping and absent accountability at strategic and information technology layers](https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html) - prior repository synthesis on duplicated or missing accountability and delayed correction
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill, retained verbatim in the completed item. Sections 0 to 5 are the investigation, and Section 6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- Question: how LLM-assisted resolution of ambiguous policy cases changes liability allocation, escalation behaviour, and audit defensibility in organisations.
+- Scope: accountability allocation across frontline users, managers, compliance, and tool owners; behavioural effects on escalation; and documentation patterns that make an Artificial Intelligence-mediated interpretation defensible or weak in audit.
+- Constraints: public sources only, direct governance texts and empirical evidence preferred, demonstrated findings separated from inference.
+- Output: knowledge, full mode.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html] Prior completed items in this repository already show that clear decision-right allocation, meaningful human oversight, and deterministic control boundaries are the strongest adjacent governance patterns, so this item tests how those patterns change when ambiguous policy interpretation is first mediated by an LLM.
+
+### §1 Question Decomposition
+
+- **Root question:** what changes when an organisation uses an LLM as a first interpreter of ambiguous policy text instead of escalating directly to another human?
+- **A. Governance and liability baseline**
+  - A1. Which official sources require named roles, lines of accountability, and trained oversight for Artificial Intelligence-assisted decisions?
+  - A2. Do those sources assign one owner, or a layered allocation of responsibility across executives, deployers, reviewers, and system providers?
+  - A3. Which duties stay with the deploying organisation even when a tool owner or vendor provides the model?
+- **B. Escalation behaviour**
+  - B1. What evidence exists that automated advice can suppress independent verification or escalation?
+  - B2. Which design conditions increase or reduce that suppression?
+  - B3. Is there direct evidence on ambiguous policy-escalation volume, or only close behavioural proxies?
+- **C. Audit defensibility**
+  - C1. Which sources define the logging, monitoring, and explanation artifacts needed for defensible review?
+  - C2. What failure modes make an Artificial Intelligence-mediated explanation weak in audit or legal scrutiny?
+  - C3. How does policy interpretation with Artificial Intelligence affect decision ownership, answerability, and reconstructability?
+- **D. Synthesis**
+  - D1. How does responsibility redistribute across employees, managers, compliance teams, and tool owners?
+  - D2. Does Artificial Intelligence second-opinion availability tend to reduce escalation of ambiguous cases?
+  - D3. What operating model best preserves defensibility?
+
+### §2 Investigation
+
+#### 2.1 Working definitions and explicit evidence gaps
+
+- [assumption; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/] Working definition: audit defensibility means that the organisation can reconstruct who used the model, what output it produced, what human reviewed or overrode it, and what reasons supported the final interpretation. Justification: the reviewed sources specify logging, override, and human-review requirements, but no single source defines this exact phrase.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243] Search note: no accessible primary study was found that directly counts internal policy-escalation volume before and after LLM adoption, so the escalation thread relies on close behavioural proxies, especially verification intensity, timing effects, and override or compliance patterns.
+
+#### 2.2 Governance baseline and liability allocation
+
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The National Institute of Standards and Technology Artificial Intelligence Risk Management Framework (AI RMF) states that governance is a cross-cutting function, requires ongoing monitoring and periodic review, requires clear organisational roles and responsibilities, and says executive leadership takes responsibility for decisions about Artificial Intelligence system development and deployment.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The same framework also requires policies that differentiate roles and responsibilities for human and Artificial Intelligence configurations, foster a critical-thinking and safety-first mindset, and document risks and impacts.
+- [fact; source: https://oecd.ai/en/ai-principles] The Organisation for Economic Co-operation and Development frames accountability, transparency and explainability as core principles for trustworthy Artificial Intelligence and defines Artificial Intelligence systems as systems producing predictions, content, recommendations, or decisions that influence environments.
+- [fact; source: https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng] The European Union Artificial Intelligence Act states that its purpose is to promote human-centric and trustworthy Artificial Intelligence while protecting health, safety, and fundamental rights through uniform obligations on operators.
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] Article 26 places operational duties on deployers, including assigning human oversight to persons with competence, training, authority, and support, monitoring operation, suspending use when risk appears, and retaining logs under their control.
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14] Article 14 requires high-risk systems to be effectively overseen by natural persons who can understand limitations, detect anomalies, interpret outputs, disregard or reverse outputs, and stop the system safely.
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://oecd.ai/en/ai-principles] LLM-assisted policy interpretation therefore redistributes accountability into a layered structure rather than outsourcing it: executives own governance posture, deployers and managers own competent oversight and monitoring, reviewers own bounded case judgment, and tool owners or vendors remain relevant for system design and instructions but do not absorb the organisation's deployer duties.
+
+#### 2.3 Escalation behaviour under Artificial Intelligence second-opinion use
+
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14] Article 14 explicitly requires overseers to remain aware of the tendency to rely automatically or over-rely on high-risk system output, which names automation bias as a governance-relevant failure mode for recommendation systems.
+- [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The Information Commissioner's Office says non-meaningful human review is caused by automation bias or lack of interpretability, and recommends override logs, documented sampling, manageable caseloads, reviewer independence, fallback options, and hybrid or manual modes when quality drops.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/] Schubert et al. found that lower automation bias, measured through higher verification intensity, correlated with higher objective decision quality, and that informing users about potential system errors increased verification intensity more effectively than merely reminding them of responsibility.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/] The same study found that less aggregated information encouraged more systematic processing, which the authors interpret as a way to reduce thoughtless acceptance of Artificial Intelligence-based recommendations.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/] Vicente and Matute found in two experiments that incorrect Artificial Intelligence support reduced human accuracy more strongly when it was presented before participants formed their own judgment, which indicates anchoring and excessive compliance effects.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/] The same paper notes that real public-sector human-in-the-loop flows commonly present system support first and then ask the human to validate or modify it, which structurally favors compliance over independent reasoning.
+- [fact; source: https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243] Danelid's systematic review found mixed evidence for automation bias in public-sector automated decision support, but concluded that even low levels can matter because the decisions affect citizens' everyday life and because moderators such as system design and decision context shape the effect.
+- [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243] Where an LLM is used as a seemingly helpful second opinion on ambiguous policy text, the more likely behavioural pressure is reduced escalation to risk or compliance specialists, not increased escalation, unless the process deliberately forces independent review, exposes uncertainty, and records overrides.
+
+#### 2.4 Audit defensibility and explanation quality
+
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12] Article 12 requires automatic recording of events over the lifetime of high-risk systems to enable traceability, post-market monitoring, and monitoring of operation.
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] Article 26 requires deployers to keep logs under their control for at least six months, monitor operation, suspend risky use, and cooperate with authorities.
+- [fact; source: https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en] European Commission guidance says individuals should not be subject to solely automated decisions that are legally binding or similarly significant, and that safeguards include information about the logic involved, human intervention, potential consequences, and the ability to contest the decision.
+- [fact; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The Information Commissioner's Office requires structured test plans, documented tolerances, override logs with reasons, reporting to senior management, reviewer competence, and reviewer independence.
+- [fact; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations] The National Center for State Courts warns that legal Artificial Intelligence tools can generate fabricated case citations, distorted holdings, unsupported propositions of law, false procedural information, and blended legal standards that appear authentic.
+- [fact; source: https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes] The Federal Trade Commission alleged that DoNotPay marketed an Artificial Intelligence service as substituting for a human lawyer without testing whether output matched human-lawyer quality and without retaining attorneys, and the proposed order bars unsupported claims of professional substitution.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/] The attributability-gap paper argues that decision-support tools create a problem of decision ownership because humans can remain formal decision makers while merely rubber-stamping quasi-automated judgments that no longer express their own value judgments.
+- [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/] Audit defensibility improves only when the model output is one logged input into a human decision record; it weakens when the model's explanation becomes the de facto justification, because fabricated authorities, missing override reasons, and blurred decision ownership make the final interpretation harder to defend.
+
+#### 2.5 Prior-work integration
+
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html] Adjacent completed items in this repository already established that layered ownership, meaningful human review, and deterministic control boundaries are more governable than stochastic final authority, and that weak accountability structures delay correction once problems surface.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html] This item sharpens that earlier work at the ambiguity-resolution boundary by showing that the main new risk is not complete automation of policy judgment, but a softer failure mode in which an LLM recommendation suppresses escalation while still leaving the organisation formally responsible.
+
+### §3 Reasoning
+
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://oecd.ai/en/ai-principles] The direct governance sources consistently require named roles, trained oversight, monitoring, logging, and executive or deployer responsibility.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243] The behavioural literature does not directly count policy-escalation tickets, but it repeatedly shows lower verification quality and lower accuracy when automated advice arrives early or is accepted heuristically.
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes] The audit-defensibility sources consistently privilege traceability, human intervention, and documented review over polished model output alone.
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] Because ambiguous policy cases are exactly the situations where independent judgment and escalation matter most, the automation-bias findings are a reasonable behavioural proxy for likely escalation suppression.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] The analysis treats decision ownership and answerability as part of audit defensibility because an audit trail that cannot identify who actually exercised judgment is weak even if logs exist.
+
+### §4 Consistency Check
+
+- [fact; source: https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/] No direct contradiction appears between the behavioural sources: one reports mixed evidence at system level and the other shows stronger effects under specific timing conditions, which is consistent with a moderated rather than universal automation-bias claim.
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en] The regulatory sources align on the need for meaningful human intervention, authority to override, and safeguards against solely automated consequential decisions.
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes] The strongest unresolved uncertainty is not whether logs and oversight are required, but how often organisations will preserve genuine decision ownership in practice once a fluent model explanation is available.
+
+### §5 Depth and Breadth Expansion
+
+- [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] **Technical lens:** the strongest concrete control surface is not better prompt phrasing but better system instrumentation, especially automatic event logging, retained review records, and safe suspension paths.
+- [fact; source: https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://oecd.ai/en/ai-principles] **Regulatory lens:** public governance texts consistently frame consequential Artificial Intelligence use around human-centric accountability, contestability, transparency, and proper role allocation rather than around model accuracy alone.
+- [inference; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/] **Behavioural lens:** ambiguous cases are especially vulnerable to silent de-skilling because users under time pressure can treat the model as a confidence substitute for expert escalation.
+- [inference; source: https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/] **Economic and operational lens:** organisations may experience short-term queue relief when LLMs absorb routine questions, but the liability surface shifts upward because unsupported professional-substitution claims and weak decision ownership become governance exposure.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html] **Organisational lens:** if policy interpretation is operationally framed as a productivity tool rather than a controlled judgment task, existing accountability gaps and review overload patterns are likely to intensify rather than disappear.
+
+### §6 Synthesis
+
+**Executive summary:**
+
+Large Language Model assistance in policy-ambiguity resolution tends to shift responsibility into a layered governance model and weaken defensibility when the model's interpretation becomes the practical final judgment rather than a logged proposal reviewed by a trained human owner. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/]
+
+Available evidence does not support the claim that Artificial Intelligence second opinions reliably improve escalation of ambiguous cases; the closest empirical studies instead show timing and automation-bias effects that lower verification intensity and reduce human accuracy when automated advice arrives early. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+
+Liability also does not move cleanly to the tool owner, because official governance texts keep deployers and managers responsible for assigning competent oversight, monitoring use, retaining logs, and suspending risky operation. [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/]
+
+The most defensible pattern is therefore to treat the LLM as a proposal layer with explicit escalation triggers, override authority, recorded reasons, and reconstructable logs, not as a final resolver of policy ambiguity. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+**Key findings:**
+
+1. **Official governance frameworks do not permit an organisation to treat LLM-assisted policy interpretation as ownerless advice, because they require named roles, executive responsibility, trained oversight, and documented lines of accountability across the Artificial Intelligence lifecycle.** ([fact]; high confidence; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://oecd.ai/en/ai-principles; https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
+2. **Under the European Union Artificial Intelligence Act, deployers remain responsible for assigning competent overseers, monitoring operation, retaining logs, and suspending risky use, so liability shifts upward toward managers and governance owners rather than disappearing into the model or staying only with frontline employees.** ([fact]; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14)
+3. **The best accessible behavioural evidence indicates that Artificial Intelligence second opinions can reduce escalation of ambiguous cases by lowering verification intensity and anchoring human judgment when automated advice is shown before the reviewer forms an independent view.** ([inference]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243)
+4. **Meaningful human review is a substantive control, not a ceremonial sign-off, because authoritative guidance requires reviewer competence, independence, manageable caseloads, override authority, and documented reasons when human reviewers reverse or sustain Artificial Intelligence output.** ([fact]; high confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14)
+5. **Audit defensibility depends on reconstructable evidence of system use, human review, and final reasoning, because the strongest regulatory texts emphasize automatic event logging, retained deployer logs, contestability, and structured review records rather than polished model explanations.** ([fact]; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/)
+6. **Treating an LLM-generated legal or policy narrative as sufficient audit evidence is unsafe, because open guidance and enforcement material show that such systems can fabricate authorities, distort holdings, and be marketed as professional substitutes without adequate testing.** ([fact]; medium confidence; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes)
+7. **The hardest remaining governance problem is decision ownership, because a human can remain formally in the loop while adopting a model's framing so completely that the final interpretation is no longer clearly attributable or answerable as that human's own judgment.** ([inference]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/)
+8. **This repository's prior work and the external evidence align on one operating model: use the LLM as a proposal layer behind named owners, explicit escalation triggers, and deterministic review artifacts, because that structure best preserves accountability and audit defensibility under ambiguity.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Layered governance texts require named roles, executive responsibility, and accountability structures. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://oecd.ai/en/ai-principles; https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng | high | governance baseline |
+| [fact] Deployer duties keep liability with managers and governance owners for oversight, monitoring, and suspension. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14 | high | operational duties |
+| [inference] Early Artificial Intelligence advice can suppress escalation by reducing verification intensity and anchoring judgment. | https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243 | medium | proxy evidence |
+| [fact] Meaningful human review requires competence, independence, caseload control, override authority, and documented reasons. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14 | high | review quality |
+| [fact] Defensible review depends on reconstructable logs, contestability, and retained oversight records. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/ | high | traceability |
+| [fact] Artificial Intelligence-generated legal or policy narratives can be fabricated or unsupported, so explanation text alone is weak audit evidence. | https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes | medium | quality risk |
+| [inference] Decision ownership weakens when humans rubber-stamp model framing without independent reasons. | https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/ | medium | attributability |
+| [inference] Proposal-layer use with named owners and escalation triggers is the most defensible operating model under ambiguity. | https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ | medium | cross-item synthesis |
+
+**Assumptions:**
+
+- **Assumption:** Audit defensibility means reconstructable ownership, review, and rationale records, not merely stored model output. **Justification:** The reviewed governance texts specify logs, override reasons, and review records rather than a single canonical definition of the phrase. [assumption; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/]
+- **Assumption:** Reduced escalation can be inferred from lower verification intensity and earlier anchoring even when direct escalation-count datasets are absent. **Justification:** The strongest accessible studies measure compliance, override, and accuracy effects rather than escalation tickets, but those measures are the closest behavioural proxies for whether users seek further human challenge. [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+
+**Analysis:**
+
+The official governance sources were weighted most heavily for liability allocation because they directly assign duties to executives, deployers, and overseers rather than merely describing best practice. [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://oecd.ai/en/ai-principles]
+
+The escalation conclusion is more inferential because direct before-and-after operational datasets on ambiguous policy routing were not located, so the analysis relies on stronger evidence about verification intensity, timing, and compliance with automated advice. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+
+That inference is still decision-useful because ambiguous policy cases are precisely the cases where independent judgment, uncertainty recognition, and escalation matter, and the behavioural studies show those capacities degrade when automated advice is presented as a ready-made answer. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14]
+
+Competing interpretations were considered, including the possibility that an LLM second opinion could improve escalation by surfacing uncertainty or helping users frame questions better, but the accessible evidence supports that outcome only when the process already exposes error risk, constrains workload, and forces independent review rather than when the model output is presented as a convenient answer. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+
+The strongest overall synthesis is therefore not anti-LLM, but anti-unowned interpretation: the risk comes from turning stochastic assistance into a quasi-authoritative policy reading without a named human owner, explicit escalation rule, and audit trail that can survive challenge. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+**Risks, gaps, uncertainties:**
+
+- Direct empirical evidence on internal policy-escalation volume after LLM rollout was not found in accessible public literature, so the escalation conclusion is based on close behavioural proxies rather than on operational queue data. [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+- The most specific legal duties in the evidence base focus on high-risk systems and significant automated decisions, so lower-risk internal policy-assistance use cases still require judgment when mapping these duties into one organisation's control design. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26]
+- The behavioural evidence comes from personnel selection, judicial decision support, and public-sector review contexts rather than from enterprise compliance desks, which lowers certainty about effect size even though the underlying over-reliance mechanism is relevant. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+- Audit defensibility also depends on local record-keeping, legal-privilege, and policy-management practices that the public sources do not specify in organisation-by-organisation detail. [assumption; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12]
+
+**Open questions:**
+
+- Which interface patterns most reliably increase escalation of ambiguous cases rather than suppress it?
+- What quantitative threshold of override rate, reviewer caseload, or uncertainty score should trigger mandatory escalation to compliance specialists?
+- How should organisations separate responsibility between internal tool owners and external model vendors when the model's explanation is wrong but the deployer accepted it?
+- Which logging pattern best balances audit defensibility with privacy and legal-privilege constraints in internal policy workflows?
+
+### §7 Recursive Review
+
+- Review mode: full.
+- Acronym audit: pass, with Artificial Intelligence (AI), Large Language Model (LLM), and other abbreviations expanded on first use in the document.
+- Claim-label audit: pass, with factual and inferential claims in the Research Skill Output labeled and source-bound.
+- Cross-item audit: pass, with directly cited completed items listed in `cites:` and supporting repository links included in Sources.
+- Logic audit: pass, with the escalation conclusion kept inferential because direct policy-routing data was not located.
+- Remaining uncertainty: the escalation thread is decision-useful but not high confidence because the behavioural evidence is proximate rather than direct.
+
+---
+
+## Findings
+
+### Executive Summary
+
+Large Language Model assistance in policy-ambiguity resolution tends to shift responsibility into a layered governance model and weaken defensibility when the model's interpretation becomes the practical final judgment rather than a logged proposal reviewed by a trained human owner. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/]
+
+Available evidence does not support the claim that Artificial Intelligence second opinions reliably improve escalation of ambiguous cases; the closest empirical studies instead show timing and automation-bias effects that lower verification intensity and reduce human accuracy when automated advice arrives early. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+
+Liability also does not move cleanly to the tool owner, because official governance texts keep deployers and managers responsible for assigning competent oversight, monitoring use, retaining logs, and suspending risky operation. [fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/]
+
+The most defensible pattern is therefore to treat the LLM as a proposal layer with explicit escalation triggers, override authority, recorded reasons, and reconstructable logs, not as a final resolver of policy ambiguity. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+### Key Findings
+
+1. **Official governance frameworks do not permit an organisation to treat LLM-assisted policy interpretation as ownerless advice, because they require named roles, executive responsibility, trained oversight, and documented lines of accountability across the Artificial Intelligence lifecycle.** ([fact]; high confidence; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://oecd.ai/en/ai-principles; https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
+2. **Under the European Union Artificial Intelligence Act, deployers remain responsible for assigning competent overseers, monitoring operation, retaining logs, and suspending risky use, so liability shifts upward toward managers and governance owners rather than disappearing into the model or staying only with frontline employees.** ([fact]; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14)
+3. **The best accessible behavioural evidence indicates that Artificial Intelligence second opinions can reduce escalation of ambiguous cases by lowering verification intensity and anchoring human judgment when automated advice is shown before the reviewer forms an independent view.** ([inference]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243)
+4. **Meaningful human review is a substantive control, not a ceremonial sign-off, because authoritative guidance requires reviewer competence, independence, manageable caseloads, override authority, and documented reasons when human reviewers reverse or sustain Artificial Intelligence output.** ([fact]; high confidence; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14)
+5. **Audit defensibility depends on reconstructable evidence of system use, human review, and final reasoning, because the strongest regulatory texts emphasize automatic event logging, retained deployer logs, contestability, and structured review records rather than polished model explanations.** ([fact]; high confidence; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/)
+6. **Treating an LLM-generated legal or policy narrative as sufficient audit evidence is unsafe, because open guidance and enforcement material show that such systems can fabricate authorities, distort holdings, and be marketed as professional substitutes without adequate testing.** ([fact]; medium confidence; source: https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes)
+7. **The hardest remaining governance problem is decision ownership, because a human can remain formally in the loop while adopting a model's framing so completely that the final interpretation is no longer clearly attributable or answerable as that human's own judgment.** ([inference]; medium confidence; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/)
+8. **This repository's prior work and the external evidence align on one operating model: use the LLM as a proposal layer behind named owners, explicit escalation triggers, and deterministic review artifacts, because that structure best preserves accountability and audit defensibility under ambiguity.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Layered governance texts require named roles, executive responsibility, and accountability structures. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://oecd.ai/en/ai-principles; https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng | high | governance baseline |
+| [fact] Deployer duties keep liability with managers and governance owners for oversight, monitoring, and suspension. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14 | high | operational duties |
+| [inference] Early Artificial Intelligence advice can suppress escalation by reducing verification intensity and anchoring judgment. | https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243 | medium | proxy evidence |
+| [fact] Meaningful human review requires competence, independence, caseload control, override authority, and documented reasons. | https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14 | high | review quality |
+| [fact] Defensible review depends on reconstructable logs, contestability, and retained oversight records. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/ | high | traceability |
+| [fact] Artificial Intelligence-generated legal or policy narratives can be fabricated or unsupported, so explanation text alone is weak audit evidence. | https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes | medium | quality risk |
+| [inference] Decision ownership weakens when humans rubber-stamp model framing without independent reasons. | https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/ | medium | attributability |
+| [inference] Proposal-layer use with named owners and escalation triggers is the most defensible operating model under ambiguity. | https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html; https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ | medium | cross-item synthesis |
+
+### Assumptions
+
+- **Assumption:** Audit defensibility means reconstructable ownership, review, and rationale records, not merely stored model output. **Justification:** The reviewed governance texts specify logs, override reasons, and review records rather than a single canonical definition of the phrase. [assumption; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/]
+- **Assumption:** Reduced escalation can be inferred from lower verification intensity and earlier anchoring even when direct escalation-count datasets are absent. **Justification:** The strongest accessible studies measure compliance, override, and accuracy effects rather than escalation tickets, but those measures are the closest behavioural proxies for whether users seek further human challenge. [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+
+### Analysis
+
+The official governance sources were weighted most heavily for liability allocation because they directly assign duties to executives, deployers, and overseers rather than merely describing best practice. [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://oecd.ai/en/ai-principles]
+
+The escalation conclusion is more inferential because direct before-and-after operational datasets on ambiguous policy routing were not located, so the analysis relies on stronger evidence about verification intensity, timing, and compliance with automated advice. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+
+That inference is still decision-useful because ambiguous policy cases are precisely the cases where independent judgment, uncertainty recognition, and escalation matter, and the behavioural studies show those capacities degrade when automated advice is presented as a ready-made answer. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14]
+
+Competing interpretations were considered, including the possibility that an LLM second opinion could improve escalation by surfacing uncertainty or helping users frame questions better, but the accessible evidence supports that outcome only when the process already exposes error risk, constrains workload, and forces independent review rather than when the model output is presented as a convenient answer. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+
+The strongest overall synthesis is therefore not anti-LLM, but anti-unowned interpretation: the risk comes from turning stochastic assistance into a quasi-authoritative policy reading without a named human owner, explicit escalation rule, and audit trail that can survive challenge. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11189344/; https://www.ncsc.org/resources-courts/legal-practitioners-guide-ai-hallucinations; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html]
+
+### Risks, Gaps, and Uncertainties
+
+- Direct empirical evidence on internal policy-escalation volume after LLM rollout was not found in accessible public literature, so the escalation conclusion is based on close behavioural proxies rather than on operational queue data. [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+- The most specific legal duties in the evidence base focus on high-risk systems and significant automated decisions, so lower-risk internal policy-assistance use cases still require judgment when mapping these duties into one organisation's control design. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26]
+- The behavioural evidence comes from personnel selection, judicial decision support, and public-sector review contexts rather than from enterprise compliance desks, which lowers certainty about effect size even though the underlying over-reliance mechanism is relevant. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/; https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://umu.diva-portal.org/smash/record.jsf?pid=diva2:1870243]
+- Audit defensibility also depends on local record-keeping, legal-privilege, and policy-management practices that the public sources do not specify in organisation-by-organisation detail. [assumption; source: https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12]
+
+### Open Questions
+
+- Which interface patterns most reliably increase escalation of ambiguous cases rather than suppress it?
+- What quantitative threshold of override rate, reviewer caseload, or uncertainty score should trigger mandatory escalation to compliance specialists?
+- How should organisations separate responsibility between internal tool owners and external model vendors when the model's explanation is wrong but the deployer accepted it?
+- Which logging pattern best balances audit defensibility with privacy and legal-privilege constraints in internal policy workflows?
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: This item produces a governance synthesis showing that LLMs are most defensible as proposal tools for ambiguous policy cases only when organisations keep named human owners, explicit escalation triggers, override authority, and reconstructable audit logs. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+- Links:
+  - https://airc.nist.gov/airmf-resources/airmf/5-sec-core/
+  - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14
+  - https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/
