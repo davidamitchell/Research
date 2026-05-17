@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [artificial-intelligence, governance, low-code, citizen-development, regulated-environments, operating-model, platform-governance]
+ai_themes: [agentic-ai, governance-policy, security-risk, workforce-skills, low-code-platforms]
 started: 2026-04-24T09:28:16+00:00
 completed: 2026-04-24T09:28:16+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

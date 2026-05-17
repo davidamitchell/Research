@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]
 tags: [culture, incentives, governance-behaviour, shadow-it, ai-governance, low-code, organisational-behaviour, compliance, human-factors]
+ai_themes: [governance-policy, security-risk, workforce-skills, organisational-culture]
 started: 2026-04-27T12:29:22+00:00
 completed: 2026-04-27T13:05:09+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [enterprise-ai, technology-adoption, organisational-change, governance, operating-model, financial-services]
+ai_themes: [governance-policy, workforce-skills, ai-architecture, enterprise-adoption-strategy, organizational-change-management]
 started: 2026-04-24T08:45:11+00:00
 completed: 2026-04-24T08:45:11+00:00
 output: [knowledge]

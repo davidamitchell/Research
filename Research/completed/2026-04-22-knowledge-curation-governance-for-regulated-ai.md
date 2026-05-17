@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [ai-governance, financial-services, knowledge-management, auditability]
+ai_themes: [governance-policy, knowledge-management, rag-retrieval, security-risk, regulatory-compliance]
 started: 2026-04-22T21:59:10+00:00
 completed: 2026-04-22T21:59:10+00:00
 output: [knowledge]

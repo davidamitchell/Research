@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agent-tooling, copilot, claude-code, codex, opencode, prompts, instructions, skills, tools, best-practices]
+ai_themes: [agentic-ai, tools-infrastructure, knowledge-management, prompt-engineering]
 started: 2026-04-20T22:14:19+00:00
 completed: 2026-04-20T22:14:19+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

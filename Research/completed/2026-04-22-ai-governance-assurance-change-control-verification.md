@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [ai-governance, compliance, change-control, delivery-pipeline]
+ai_themes: [governance-policy, mlops-deployment, tools-infrastructure, ai-assurance]
 started: 2026-04-22T20:49:35+00:00
 completed: 2026-04-22T20:49:35+00:00
 output: [knowledge]

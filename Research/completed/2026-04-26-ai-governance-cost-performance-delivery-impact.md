@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]
 tags: [governance-cost, delivery-performance, ai-governance, low-code, economic-model, developer-friction, centralised-governance, federated-governance, enterprise-governance]
+ai_themes: [governance-policy, cost-performance, tools-infrastructure, low-code-governance]
 started: 2026-04-27T11:54:45+00:00
 completed: 2026-04-27T12:25:39+00:00
 output: [knowledge]

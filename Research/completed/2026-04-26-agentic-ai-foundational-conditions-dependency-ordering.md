@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, dependency-ordering, foundational-conditions, access-control, rag, policy-coherence, deployment-pipeline, synthesis, regulated-banking, operational-risk, regulatory-compliance]
+ai_themes: [agentic-ai, governance-policy, security-risk, mlops-deployment, dependency-ordering]
 started: 2026-04-27T08:03:08+00:00
 completed: 2026-04-27T08:22:39+00:00
 output: [knowledge]
