@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "AWS Bedrock: full feature and capability survey"
 added: 2026-05-17T10:17:56+00:00
 status: reviewing
