@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-17T22:07:36Z",
+  "extracted_at": "2026-05-17T22:24:07Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -965,6 +965,107 @@
             "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
             "https://aws.amazon.com/bedrock/agentcore/pricing/",
             "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk": {
+      "named_concepts": [
+        "ambiguous policy",
+        "policy interpretation",
+        "repeated prompt",
+        "prompt refinement",
+        "desired-answer seeking",
+        "policy text",
+        "escalation even",
+        "quick definite",
+        "definite answer",
+        "independent human",
+        "human judgment",
+        "confirmation bias",
+        "naive iterative",
+        "iterative prompting",
+        "independent first",
+        "ambiguous cases",
+        "algorithm aversion",
+        "prior judgment",
+        "displace slower",
+        "slower escalation"
+      ],
+      "source_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7189591/",
+        "https://pages.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf",
+        "https://marketing.wharton.upenn.edu/wp-content/uploads/2016/10/Dietvorst-Simmons-Massey-2014.pdf",
+        "https://researchonline.lse.ac.uk/id/eprint/123856/1/Confirmation_bias_in_AI-assisted_decision-making.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://arxiv.org/abs/2310.13548",
+        "https://arxiv.org/abs/2508.02087",
+        "https://openreview.net/forum?id=KjazcKPMME",
+        "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319159",
+        "https://www.nature.com/articles/s41746-025-02008-z",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Users are more likely to trust and accept an AI recommendation when it confirms their prior judgment, so ambiguous policy-assistant answers that fit the user's initial reading can displace slower escalation even when the answer is wrong",
+          "sources": [
+            "https://researchonline.lse.ac.uk/id/eprint/123856/1/Confirmation_bias_in_AI-assisted_decision-making.pdf",
+            "https://pages.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html"
+          ]
+        },
+        {
+          "text": "Pressure for a quick, definite answer under ambiguity is a plausible amplifier of this effect because higher need for cognitive closure is associated with lower tolerance for ambiguity, which makes rapid, fluent answers behaviorally attractive",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC7189591/",
+            "https://pages.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf"
+          ]
+        },
+        {
+          "text": "Workflows that present AI support before an independent human judgment are more vulnerable to flawed-policy acceptance because automation-bias and timing studies show that early incorrect support reduces accuracy and encourages compliance under workload and trust pressure",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        },
+        {
+          "text": "Repeated prompt refinement can increase desired-answer seeking because simple opinion cues induce sycophancy, naive iterative prompting worsens truthfulness, and prompt wording or option order can materially change model outputs without changing the underlying task",
+          "sources": [
+            "https://arxiv.org/abs/2508.02087",
+            "https://openreview.net/forum?id=KjazcKPMME",
+            "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319159",
+            "https://arxiv.org/abs/2310.13548"
+          ]
+        },
+        {
+          "text": "Models may still know the relevant facts while giving a user-aligned answer, which means a polished policy interpretation can be wrong through helpfulness or sycophancy even when factual knowledge is present",
+          "sources": [
+            "https://www.nature.com/articles/s41746-025-02008-z",
+            "https://arxiv.org/abs/2508.02087",
+            "https://arxiv.org/abs/2310.13548"
+          ]
+        },
+        {
+          "text": "Concrete review-shaping interventions, including error briefings, less aggregated evidence displays, manageable caseloads, override logs, standardized review procedures, and fallback to manual or hybrid review, have stronger support than generic responsibility reminders",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        },
+        {
+          "text": "Policy workflows need calibrated reliance and explicit escalation design because visible model errors can trigger algorithm aversion even while other conditions still produce over-acceptance of fluent recommendations",
+          "sources": [
+            "https://marketing.wharton.upenn.edu/wp-content/uploads/2016/10/Dietvorst-Simmons-Massey-2014.pdf",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/"
           ]
         }
       ]
