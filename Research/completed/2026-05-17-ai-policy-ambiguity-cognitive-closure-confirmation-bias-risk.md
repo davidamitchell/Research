@@ -2,12 +2,12 @@
 review_count: 2
 title: "Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation"
 added: 2026-05-17T20:33:05+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, evaluation, workflow]
 started: 2026-05-17T21:56:58+00:00
-completed: ~
+completed: 2026-05-17T22:22:06+00:00
 output: [knowledge]
 cites:
   - 2026-04-30-human-bias-ai-trust-rlhf-sycophancy
