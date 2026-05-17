@@ -1,6 +1,136 @@
 {
-  "extracted_at": "2026-05-17T14:38:56Z",
+  "extracted_at": "2026-05-17T14:51:16Z",
   "items": {
+    "2026-05-17-ms-copilot-studio-capabilities": {
+      "named_concepts": [
+        "copilot studio",
+        "connected agents",
+        "microsoft copilot",
+        "regulated production",
+        "compensating controls",
+        "conversational tool-using",
+        "agent flows",
+        "activity maps",
+        "already exposes",
+        "microsoft estate",
+        "controls around",
+        "around identity",
+        "product now",
+        "topics instructions",
+        "generative orchestration",
+        "covers conversational",
+        "knowledge layer",
+        "documents sharepoint",
+        "web search",
+        "tools agent"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+        "https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-instructions",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-connectors",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-connections",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-copilot-studio-agent",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/multi-agent-patterns",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-trigger-event",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-improve-agent-health",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-review-activity",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-licensing",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-add-bot-to-microsoft-teams",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-certification",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase5",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Microsoft Copilot Studio combines low-code canvas authoring, natural-language setup, authored topics, instructions, agent flows, workflows, and both classic and generative orchestration, so one product now covers conversational, tool-using, and event-triggered agent patterns",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-trigger-event"
+          ]
+        },
+        {
+          "text": "Copilot Studio's knowledge layer supports public websites, uploaded documents, SharePoint and OneDrive, Dataverse, enterprise data through Microsoft Search connectors, optional Web Search, and Work IQ semantic search, but generative orchestration still excludes some classic sources such as custom data and Bing Custom Search",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+          ]
+        },
+        {
+          "text": "The extensibility surface includes prebuilt and custom connectors, connection-managed tools, agent flows, Model Context Protocol resources, child agents, connected agents, and multiple deployment channels from within the same platform",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-connectors",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-connections",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents"
+          ]
+        },
+        {
+          "text": "For regulated tenants, Copilot Studio's native governance includes real-time Data Loss Prevention policies that can block unauthenticated chat, specific knowledge types, connectors, Hypertext Transfer Protocol calls, skills, channels, and event triggers",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+          ]
+        },
+        {
+          "text": "Monitoring spans built-in analytics, activity maps, Microsoft Purview audit, Microsoft Sentinel alerting, and Application Insights telemetry, so operators must combine multiple surfaces to assemble the operational and compliance evidence chain described in Microsoft's documentation",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-overview",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-improve-agent-health",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-review-activity",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase5"
+          ]
+        },
+        {
+          "text": "Multi-agent and autonomous features are genuine production-relevant capabilities, and they likely increase governance complexity because connected agents add orchestration hops and separate transcripts, some external-agent patterns remain preview, and every event trigger executes under the maker's credentials unless bounded by design and policy",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-copilot-studio-agent",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/multi-agent-patterns",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-trigger-event"
+          ]
+        },
+        {
+          "text": "The commercial model mixes maker licensing and tenant capacity management, because Copilot Studio requires tenant and user access paths, pools Copilot Credits across the tenant, zero-rates classic answers, generative answers, and Microsoft Graph tenant grounding for Microsoft 365 Copilot licensed users in Microsoft 365 contexts, and can technically disable custom agents after sustained prepaid overage",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-licensing",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+          ]
+        },
+        {
+          "text": "Copilot Studio is capable enough for serious enterprise internal deployment inside the Microsoft estate, but regulated production use still needs compensating controls around machine identity, publication approval, lifecycle separation, and content-bearing telemetry because several high-power behaviors are optional, preview-scoped, or maker-credentialed",
+          "sources": [
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about",
+            "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2",
+            "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        }
+      ]
+    },
     "2026-05-17-ms-azure-ai-foundry-capabilities": {
       "named_concepts": [
         "microsoft foundry",

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T14:39:00Z",
-  "node_count": 342,
-  "edge_count": 1947,
+  "generated": "2026-05-17T14:51:20Z",
+  "node_count": 343,
+  "edge_count": 1960,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2049,6 +2049,12 @@
       "title": "Microsoft Foundry (formerly Azure Artificial Intelligence (AI) Foundry): full feature and capability survey",
       "type": "primary",
       "url": "/Research/research/2026-05-17-ms-azure-ai-foundry-capabilities.html"
+    },
+    {
+      "slug": "2026-05-17-ms-copilot-studio-capabilities",
+      "title": "Microsoft Copilot Studio: full feature and capability survey",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-ms-copilot-studio-capabilities.html"
     },
     {
       "slug": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
@@ -4612,14 +4618,6 @@
     },
     {
       "source": "2026-03-16-gitagent-declarative-agent-definition",
-      "target": "2026-05-12-hardware-load-inference-performance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-platform",
-      "provenance": "2026-03-16-gitagent-declarative-agent-definition"
-    },
-    {
-      "source": "2026-03-16-gitagent-declarative-agent-definition",
       "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "weight": 3,
       "rel": "tag-overlap",
@@ -4637,6 +4635,14 @@
     {
       "source": "2026-03-16-gitagent-declarative-agent-definition",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-platform",
+      "provenance": "2026-03-16-gitagent-declarative-agent-definition"
+    },
+    {
+      "source": "2026-03-16-gitagent-declarative-agent-definition",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform",
@@ -4772,14 +4778,6 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4805,6 +4803,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5092,14 +5098,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-17-aws-bedrock-capabilities",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5109,6 +5107,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5732,7 +5738,7 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-capability-model",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,enterprise",
@@ -5740,7 +5746,7 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-capability-model",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,enterprise",
@@ -6460,7 +6466,7 @@
     },
     {
       "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "ai-governance,regulated-enterprise",
@@ -6468,7 +6474,7 @@
     },
     {
       "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "ai-governance,regulated-enterprise",
@@ -6668,7 +6674,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6681,14 +6687,6 @@
       "rel": "tag-overlap",
       "evidence": "copilot,cowork,enterprise,governance,microsoft",
       "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
-    },
-    {
-      "source": "2026-04-26-ms-copilot-cowork",
-      "target": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "enterprise,shadow-it",
-      "provenance": "2026-04-26-ms-copilot-cowork"
     },
     {
       "source": "2026-04-26-ms-copilot-cowork",
@@ -6715,6 +6713,14 @@
       "provenance": "2026-04-26-ms-copilot-cowork"
     },
     {
+      "source": "2026-04-26-ms-copilot-cowork",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "enterprise,microsoft",
+      "provenance": "2026-04-26-ms-copilot-cowork"
+    },
+    {
       "source": "2026-04-26-multi-ai-provider-control-planes",
       "target": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
       "weight": 7,
@@ -6728,7 +6734,7 @@
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "ai-governance,aws,control-plane,finops,microsoft",
-      "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
+      "provenance": "2026-04-26-multi-ai-provider-control-planes"
     },
     {
       "source": "2026-04-26-multi-ai-provider-control-planes",
@@ -6748,7 +6754,7 @@
     },
     {
       "source": "2026-04-26-multi-ai-provider-control-planes",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "ai-governance,microsoft",
@@ -7732,14 +7738,6 @@
     },
     {
       "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
-      "target": "2026-05-06-aibom-schema-design-standards-alignment",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm,security",
-      "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
-    },
-    {
-      "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
       "target": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
       "weight": 6,
       "rel": "tag-overlap",
@@ -7749,6 +7747,14 @@
     {
       "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,enterprise,llm,microsoft",
+      "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
+    },
+    {
+      "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,enterprise,llm,microsoft",
@@ -9364,7 +9370,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -10196,14 +10202,6 @@
     },
     {
       "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
-      "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
-      "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
-    },
-    {
-      "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
       "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10216,7 +10214,7 @@
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise,workflow",
-      "provenance": "2026-05-17-aws-bedrock-capabilities"
+      "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
     },
     {
       "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
@@ -10224,7 +10222,15 @@
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise,workflow",
-      "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+      "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
+    },
+    {
+      "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise,workflow",
+      "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
     },
     {
       "source": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
@@ -10628,15 +10634,15 @@
     },
     {
       "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "weight": 5,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,aws,enterprise,regulated-enterprise",
+      "evidence": "agentic-ai,ai-governance,enterprise,microsoft,regulated-enterprise",
       "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
     },
     {
       "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,microsoft,regulated-enterprise",
@@ -11041,6 +11047,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,ai-platform,enterprise,microsoft,regulated-enterprise",
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+    },
+    {
+      "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 6,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,ai-platform,enterprise,microsoft,regulated-enterprise",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
     },
     {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
@@ -12748,7 +12762,7 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform,llm",
@@ -12756,7 +12770,7 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform,llm",
@@ -13160,7 +13174,7 @@
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,measurement,regulated-enterprise",
-      "provenance": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates"
+      "provenance": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification"
     },
     {
       "source": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
@@ -13180,7 +13194,7 @@
     },
     {
       "source": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
@@ -13435,6 +13449,14 @@
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
     },
     {
+      "source": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise,workflow",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
       "source": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -13496,7 +13518,7 @@
       "weight": 5,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,observability,regulated-enterprise",
-      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+      "provenance": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness"
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
@@ -14156,14 +14178,6 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
-    },
-    {
-      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
       "target": "2026-05-17-aws-bedrock-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
@@ -14181,6 +14195,14 @@
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,llm,workflow",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,llm,workflow",
@@ -14305,14 +14327,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,governance,llm",
       "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
-    },
-    {
-      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance",
-      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
       "source": "2026-05-09-llm-determinism-limits-temperature-zero",
@@ -14444,14 +14458,6 @@
     },
     {
       "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
-      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,enterprise",
-      "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
-    },
-    {
-      "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "target": "2026-05-17-aws-bedrock-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
@@ -14461,6 +14467,14 @@
     {
       "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,llm",
+      "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
+    },
+    {
+      "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,llm",
@@ -15084,14 +15098,6 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-13-agent-process-reliability-architecture",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
-      "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15120,6 +15126,14 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-platform,llm",
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
@@ -15964,14 +15978,6 @@
     },
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
-    },
-    {
-      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "weight": 4,
       "rel": "tag-overlap",
@@ -16557,6 +16563,14 @@
     {
       "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
       "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance",
@@ -17363,6 +17377,14 @@
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
     },
     {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,ai-platform,enterprise,regulated-enterprise",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
       "source": "2026-05-17-aws-bedrock-capabilities",
       "target": "2026-04-26-access-control-amplification-agentic-operations",
       "weight": 3,
@@ -17417,6 +17439,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,ai-platform,enterprise,evaluation,llm,regulated-enterprise,workflow",
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 7,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,ai-platform,enterprise,llm,regulated-enterprise,workflow",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
     },
     {
       "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
@@ -17483,6 +17513,14 @@
       "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
       "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
       "weight": 4,
@@ -17529,6 +17567,78 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "weight": 8,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,ai-platform,enterprise,llm,microsoft,regulated-enterprise,workflow",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-24-business-led-low-code-agent-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-26-ms-copilot-cowork",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
     },
     {
       "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
