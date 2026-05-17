@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [context-engineering, agent-skills, workflow, best-practices, multi-agent, memory-system, tool-design, project-development, evaluation, production-agents, agentic-ai]
+ai_themes: [agentic-ai, memory-context, multi-agent, tools-infrastructure, mlops-deployment]
 started: 2026-03-22T08:08:06+00:00
 completed: 2026-03-22T08:08:06+00:00
 output: [knowledge]

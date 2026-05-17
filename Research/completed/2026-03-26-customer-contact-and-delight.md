@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [customer-service, strategy, behavioral-economics, agentic-ai, self-service, customer-delight, rory-sutherland]
+ai_themes: [agentic-ai, knowledge-management, workforce-skills, customer-experience-strategy]
 started: 2026-03-27T08:57:15+00:00
 completed: 2026-03-27T08:57:15+00:00
 output: [knowledge]

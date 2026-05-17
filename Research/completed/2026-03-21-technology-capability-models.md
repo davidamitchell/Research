@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [capability-modelling, enterprise-architecture, togaf, sabsa, bian, tmf, csdm, business-capability-model, technical-capability-model, dependency-map, maturity-assessment, it-architecture, it-strategy]
+ai_themes: [ai-architecture, knowledge-management, governance-policy, enterprise-capability-mapping]
 started: 2026-03-22T07:06:52+00:00
 completed: 2026-03-22T07:06:52+00:00
 output: [knowledge]

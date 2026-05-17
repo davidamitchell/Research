@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agentic-ai, human-ai-collaboration, productivity, finishing, synthesis, orchestration, cognitive-styles]
+ai_themes: [agentic-ai, human-ai-collaboration, workforce-skills, cognitive-augmentation]
 started: 2026-03-23T08:27:40+00:00
 completed: 2026-03-23T08:27:40+00:00
 output: [knowledge, backlog-item]

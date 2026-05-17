@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [bureaucracy, demographics, baby-boomers, HR, organisational-theory, management, workforce]
+ai_themes: [governance-policy, workforce-skills, knowledge-management, organisational-dynamics]
 started: 2026-03-26T22:04:26+00:00
 completed: 2026-03-26T22:04:26+00:00
 output: [knowledge]

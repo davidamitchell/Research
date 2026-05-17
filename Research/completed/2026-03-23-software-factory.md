@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [software-factory, ai-native, organisation, theory-of-constraints, banking, cost-of-software]
+ai_themes: [tools-infrastructure, workforce-skills, cost-performance, ai-architecture, organisational-design]
 started: 2026-03-24T22:49:09+00:00
 completed: 2026-03-24T22:49:09+00:00
 output: [knowledge]

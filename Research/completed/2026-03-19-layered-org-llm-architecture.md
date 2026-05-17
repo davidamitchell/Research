@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [llm, rag, fine-tuning, enterprise-ai, knowledge-management, organisational-context, architecture, feasibility, concept-generation, customisation, layered-llm, retrieval-augmented-generation, parameter-efficient-fine-tuning]
+ai_themes: [ai-architecture, knowledge-management, rag-retrieval, enterprise-customisation]
 started: 2026-03-22T04:40:58+00:00
 completed: 2026-03-22T04:40:58+00:00
 output: [knowledge]

@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management, rory-sutherland, behavioral-economics]
+ai_themes: [governance-policy, workforce-skills, knowledge-management, organisational-design]
 started: 2026-03-26T22:07:08+00:00
 completed: 2026-03-26T22:07:08+00:00
 output: [knowledge]

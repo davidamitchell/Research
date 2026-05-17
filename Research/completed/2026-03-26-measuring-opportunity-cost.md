@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [strategy, opportunity-cost, measurement, finance, behavioral-economics, rory-sutherland]
+ai_themes: [cost-performance, workforce-skills, knowledge-management, decision-science]
 started: 2026-03-27T11:35:08+00:00
 completed: 2026-03-27T11:35:08+00:00
 output: [knowledge]

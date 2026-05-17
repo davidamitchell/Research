@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [github-actions, policy-as-code, compliance, codeql, ghas, dotnet, kubernetes, eventing, rest-api, graph-api, python, react, airflow, dbt, snowflake, rds, golang, terraform, ansible]
+ai_themes: [governance-policy, security-risk, tools-infrastructure, devsecops]
 started: 2026-03-22T08:33:48+00:00
 completed: 2026-03-22T08:33:48+00:00
 output: [knowledge, backlog-item]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
+ai_themes: [agentic-ai, governance-policy, security-risk, public-perception]
 started: 2026-03-24T23:08:35+00:00
 completed: 2026-03-24T23:08:35+00:00
 output: [knowledge]

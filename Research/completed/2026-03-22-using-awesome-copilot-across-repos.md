@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [github-copilot, awesome-copilot, instructions, skills, agentic-ai, workflow, tooling, repo-setup]
+ai_themes: [agentic-ai, tools-infrastructure, workforce-skills, knowledge-management, developer-workflow]
 started: 2026-03-22T11:22:52+00:00
 completed: 2026-03-22T11:22:52+00:00
 output: [knowledge, backlog-item]

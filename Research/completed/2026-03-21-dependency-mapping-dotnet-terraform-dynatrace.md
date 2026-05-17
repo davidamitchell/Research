@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agentic-ai, observability, infrastructure-as-code]
+ai_themes: [agentic-ai, knowledge-graphs, tools-infrastructure, knowledge-management, observability-engineering]
 started: 2026-03-22T05:04:25+00:00
 completed: 2026-03-22T05:04:25+00:00
 output: [knowledge]
