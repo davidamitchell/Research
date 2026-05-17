@@ -4,6 +4,7 @@ added: 2026-03-07T01:10:16+00:00
 status: completed
 priority: medium
 tags: [rbnz, ai-strategy, financial-services, prudential-regulation, model-risk, nz-specific]
+ai_themes: [governance-policy, security-risk, mlops-deployment, regulatory-compliance]
 started: 2026-03-07T01:10:16+00:00
 completed: 2026-03-07T01:10:16+00:00
 output: [knowledge]

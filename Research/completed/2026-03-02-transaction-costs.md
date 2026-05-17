@@ -4,6 +4,7 @@ added: 2026-03-02T20:00:58+00:00
 status: completed
 priority: high
 tags: [transaction-costs, institutional-economics, coase, williamson, north, ostrom, munger, swe, agentic-ai, knowledge-management, context-engineering]
+ai_themes: [agentic-ai, knowledge-management, governance-policy, transaction-cost-economics, context-engineering]
 started: 2026-03-02T20:00:58+00:00
 completed: 2026-03-02T20:00:58+00:00
 output: [knowledge]

@@ -4,6 +4,7 @@ added: 2026-02-28T04:05:16+00:00
 status: completed
 priority: high
 tags: [youtube, consciousness, predictive-processing, anil-seth, perception, interoception, beast-machine, free-energy, entropy]
+ai_themes: [consciousness-cognition, ai-architecture, predictive-processing]
 started: 2026-02-28T04:05:16+00:00
 completed: 2026-02-28T04:05:16+00:00
 output: [knowledge, backlog-item]

@@ -4,6 +4,7 @@ added: 2026-03-08T01:26:37+00:00
 status: completed
 priority: medium
 tags: [ios, shortcuts, mobile, capture, interface, delivery, siri]
+ai_themes: [tools-infrastructure, knowledge-management, rag-retrieval, mobile-ux]
 started: 2026-03-08T01:26:37+00:00
 completed: 2026-03-08T01:26:37+00:00
 output: [knowledge, backlog-item]

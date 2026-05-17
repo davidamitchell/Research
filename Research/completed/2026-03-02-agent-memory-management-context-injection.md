@@ -4,6 +4,7 @@ added: 2026-03-02T18:41:43+00:00
 status: completed
 priority: high
 tags: [memory, context-injection, rag, agentic-ai, knowledge-management, architecture, governance, dikw, obsidian, pkm, knowledge-graph, embeddings, graph-of-thoughts, portability]
+ai_themes: [agentic-ai, memory-context, rag-retrieval, knowledge-graphs, ai-architecture]
 started: 2026-03-02T18:41:43+00:00
 completed: 2026-03-02T18:41:43+00:00
 output: [knowledge]

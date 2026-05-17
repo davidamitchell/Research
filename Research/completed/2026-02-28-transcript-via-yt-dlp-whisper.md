@@ -4,6 +4,7 @@ added: 2026-03-07T01:23:10+00:00
 status: completed
 priority: medium
 tags: [youtube, transcripts, whisper, yt-dlp, tooling, automation]
+ai_themes: [tools-infrastructure, knowledge-management, data-ingestion]
 started: 2026-03-07T01:23:10+00:00
 completed: 2026-03-07T01:23:10+00:00
 output: [tool]

@@ -4,6 +4,7 @@ added: 2026-03-08T01:10:55+00:00
 status: completed
 priority: medium
 tags: [chat, conversational-interface, mcp, rag, search, interface, delivery, copilot-extension]
+ai_themes: [rag-retrieval, tools-infrastructure, knowledge-management, conversational-ux]
 started: 2026-03-08T01:10:55+00:00
 completed: 2026-03-08T01:10:55+00:00
 output: [knowledge, tool, backlog-item]
