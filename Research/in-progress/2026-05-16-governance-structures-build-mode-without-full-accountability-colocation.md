@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits"
 added: 2026-05-16T18:40:17+00:00
 status: reviewing
