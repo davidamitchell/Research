@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 1d5f973e4efc927bb2dc7d5c7baa299d79dfda2d
+    changed: 2026-05-17
+    progress: progress/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md
+    summary: "Initial completion"
 ---
 
 # Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation
