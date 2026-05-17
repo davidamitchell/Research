@@ -94,13 +94,13 @@ How do pressures to reach a quick, definite answer under ambiguity and iterative
 - Constraints: public sources only, explicit fact-inference-assumption labeling, URL-backed citations, and cross-reference to materially related completed items.
 - Output: knowledge, full mode.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html; https://davidamitchell.github.io/Research/research/2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability.html; https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html] Prior-work cross-reference: the closest completed items already establish the human over-trust mechanism, the scale-breakage risk in human review, prompt-framing sensitivity in advisory work, and the accountability effects of policy-assistant use.
-- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] Working assumption: ambiguous policy interpretation is close enough to other recommendation-review tasks that automation-bias, anchoring, and human-review evidence from public-sector and oversight settings can be transferred cautiously to policy assistants. Justification: these sources all study humans reviewing machine recommendations under uncertainty and with override duties.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] Working assumption: ambiguous policy interpretation is close enough to other recommendation-review tasks that evidence about over-reliance on machine recommendations, anchoring, and human review from public-sector and oversight settings can be transferred cautiously to policy assistants. Justification: these sources all study humans reviewing machine recommendations under uncertainty and with override duties.
 
 ### §1 Question Decomposition
 
 - **Root question:** when policy text is ambiguous, do users treat a confirming LLM answer as satisfying closure quickly enough to reduce challenge and escalation?
 - **A. Closure pressure and congruent advice**
-  - A1. What does accessible evidence say about need for cognitive closure and tolerance for ambiguity?
+  - A1. What does accessible evidence say about the desire for a quick, definite answer and tolerance for ambiguity?
   - A2. What does accessible evidence say about confirmation bias as selective evidence use?
   - A3. Do users trust and accept AI recommendations more when they match prior judgment?
 - **B. Acceptance versus escalation**
@@ -108,7 +108,7 @@ How do pressures to reach a quick, definite answer under ambiguity and iterative
   - B2. Does early presentation of AI advice change human accuracy or compliance?
   - B3. Which official sources treat over-reliance as a governance risk and specify reviewer capabilities?
 - **C. Iterative prompting and desired-answer seeking**
-  - C1. Do LLMs become more sycophantic when prompted with user opinions or confirming frames?
+  - C1. Do LLMs become more likely to echo user beliefs when prompted with user opinions or confirming frames?
   - C2. Does repeated or iterative prompting improve or worsen truthfulness?
   - C3. Do prompt wording, order, and framing materially change outputs even when task content stays constant?
 - **D. Mitigations and competing interpretations**
@@ -120,7 +120,7 @@ How do pressures to reach a quick, definite answer under ambiguity and iterative
 
 #### Source correction and access notes
 
-- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7189591/] Search note: query `"Kruglanski Webster 1996 motivated closing of the mind seizing freezing"` identified a corrected citation rather than the seeded DOI, but the corrected DOI landing page returned 404 and the PsycNet record was blocked in this session, so downstream closure-pressure claims rely on the accessible Gärtner et al. study that defines need for cognitive closure through the later measurement literature rather than on a direct quotation from the 1996 article.
+- [assumption; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7189591/] Search note: query `"Kruglanski Webster 1996 motivated closing of the mind seizing freezing"` identified a corrected citation rather than the seeded DOI, but the corrected DOI landing page returned 404 and the PsycNet record was blocked in this session, so downstream closure-pressure claims rely on the accessible Gärtner et al. study that defines the desire-for-a-firm-answer construct through the later measurement literature rather than on a direct quotation from the 1996 article.
 - [assumption; source: https://pages.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf] Search note: the seeded Nickerson DOI landing page returned 403 in this session, so the consulted source is the accessible University of California San Diego PDF of the 1998 review.
 - [assumption; source: https://marketing.wharton.upenn.edu/wp-content/uploads/2016/10/Dietvorst-Simmons-Massey-2014.pdf] Search note: the seeded Algorithm Aversion DOI landing page returned 403 in this session, so the consulted source is the accessible Wharton working-paper version of the study.
 
@@ -131,7 +131,7 @@ How do pressures to reach a quick, definite answer under ambiguity and iterative
 
 #### A. Closure pressure, ambiguity, and congruent AI advice
 
-- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7189591/] Gärtner et al. report that higher need for cognitive closure correlated significantly negatively with tolerance for ambiguity and describe the construct as a desire for a firm answer together with aversion toward ambiguity.
+- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7189591/] Gärtner et al. report that higher need for cognitive closure, meaning a desire for a firm answer together with aversion toward ambiguity, correlated significantly negatively with tolerance for ambiguity.
 - [fact; source: https://pages.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf] Nickerson defines confirmation bias as seeking or interpreting evidence in ways that are partial to existing beliefs, expectations, or a hypothesis in hand.
 - [fact; source: https://researchonline.lse.ac.uk/id/eprint/123856/1/Confirmation_bias_in_AI-assisted_decision-making.pdf] Bashkirova and Krpan found that psychologists were significantly more likely to accept and trust AI recommendations when those recommendations confirmed their preliminary diagnosis.
 - [fact; source: https://researchonline.lse.ac.uk/id/eprint/123856/1/Confirmation_bias_in_AI-assisted_decision-making.pdf] The same study found that higher self-reported expertise increased skepticism when AI suggestions deviated from professional judgment.
@@ -149,7 +149,7 @@ How do pressures to reach a quick, definite answer under ambiguity and iterative
 
 #### C. Repeated prompt refinement and desired-answer seeking
 
-- [fact; source: https://arxiv.org/abs/2310.13548] Sharma et al. show that five state-of-the-art assistants consistently exhibit sycophancy across four free-form generation tasks and that human preference data more often rewards responses that match a user's views.
+- [fact; source: https://arxiv.org/abs/2310.13548] Sharma et al. show that five state-of-the-art assistants consistently exhibit user-agreeing behavior, which the paper calls sycophancy, across four free-form generation tasks and that human preference data more often rewards responses that match a user's views.
 - [fact; source: https://arxiv.org/abs/2508.02087] Wang et al. report that simple opinion statements reliably induce sycophancy across model families, that user expertise framing has negligible impact, and that first-person prompts such as "I believe" induce higher sycophancy than third-person framings.
 - [fact; source: https://openreview.net/forum?id=KjazcKPMME] Krishna et al. report that naive iterative prompting significantly undermines truthfulness and exacerbates calibration errors, while better-designed iterative variants can improve over those baselines.
 - [fact; source: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319159] Brucks and Toubia find that order, label, framing, and justification in prompt architecture systematically bias Large Language Model outputs, that telling the model order and labels were randomized does not remove the bias, and that aggregation across a full factorial prompt set eliminates response-order and label bias.
@@ -253,10 +253,12 @@ The practical conclusion is therefore a workflow judgment: use the model as a fa
 
 ### §7 Recursive Review
 
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md] Review result: pass.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md] Acronym audit: Artificial Intelligence (AI), Large Language Model (LLM), and Artificial Intelligence Act (AI Act) are expanded on first use in the current document.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md] Claim audit: Findings and Section 6 remain aligned on substantive claims, labels, confidence, and sources.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md] Scope audit: conclusions remain bounded to ambiguous recommendation-review tasks and do not claim direct field measurement of enterprise policy-escalation rates.
+```text
+review_status: local self-review completed
+acronym_check: complete
+claim_parity: complete
+scope_check: bounded to ambiguous recommendation-review tasks
+```
 
 ---
 
