@@ -2,12 +2,12 @@
 review_count: 2
 title: "Microsoft Foundry (formerly Azure Artificial Intelligence (AI) Foundry): full feature and capability survey"
 added: 2026-05-17T10:17:56+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [microsoft, agentic-ai, ai-platform, enterprise, llm, evaluation, ai-governance, regulated-enterprise, workflow]
 started: 2026-05-17T14:02:48+00:00
-completed: ~
+completed: 2026-05-17T14:26:51+00:00
 output: [knowledge]
 cites: [2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model, 2026-04-28-alternative-pipeline-platforms-copilot-studio-agents, 2026-04-26-ai-agent-identity-access-management-enterprise]
 related: [2026-05-06-aibom-platform-observability-control-comparison, 2026-05-10-m365-copilot-sensitive-data-security-governance-risks, 2026-04-26-ms-copilot-cowork]
