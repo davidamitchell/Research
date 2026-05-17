@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T21:22:39Z",
-  "node_count": 347,
-  "edge_count": 2003,
+  "generated": "2026-05-17T21:34:49Z",
+  "node_count": 348,
+  "edge_count": 2011,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2033,6 +2033,12 @@
       "url": "/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html"
     },
     {
+      "slug": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "title": "Adversarial prompting risks in policy assistants: coercing restrictive policy into permissive interpretations",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk.html"
+    },
+    {
       "slug": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "title": "Amazon Bedrock AgentCore and related suite: full feature and capability survey",
       "type": "primary",
@@ -3266,7 +3272,7 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3274,7 +3280,7 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3882,7 +3888,7 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3890,7 +3896,7 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4042,7 +4048,7 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4050,7 +4056,7 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -6730,7 +6736,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -15146,7 +15152,7 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
@@ -15154,7 +15160,7 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
@@ -15602,27 +15608,11 @@
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
-      "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,organisation",
-      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
-    },
-    {
-      "source": "2026-05-12-rag-document-drift-agent-behavior",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,organisation,workflow",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
-    },
-    {
-      "source": "2026-05-12-rag-document-drift-agent-behavior",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
@@ -15639,6 +15629,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,organisation,workflow",
       "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
@@ -15962,14 +15960,6 @@
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-13-agent-process-reliability-architecture"
-    },
-    {
-      "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15983,6 +15973,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,organisation,workflow",
       "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
@@ -16242,14 +16240,6 @@
     },
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16259,6 +16249,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -16905,6 +16903,14 @@
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,organisation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 4,
@@ -17066,10 +17072,10 @@
     },
     {
       "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,workflow",
+      "evidence": "agentic-ai,evaluation,organisation",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
@@ -17458,15 +17464,15 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+      "evidence": "agentic-ai,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
@@ -17479,6 +17485,70 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
       "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-03-15-prompt-injection-threat-landscape",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-04-26-access-control-amplification-agentic-operations",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-17-aws-bedrock-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
