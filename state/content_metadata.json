@@ -1,6 +1,146 @@
 {
-  "extracted_at": "2026-05-17T13:10:02Z",
+  "extracted_at": "2026-05-17T13:22:15Z",
   "items": {
+    "2026-05-17-aws-bedrock-capabilities": {
+      "named_concepts": [
+        "knowledge bases",
+        "automated reasoning",
+        "continued pre-training",
+        "evaluation logging",
+        "enterprise governance",
+        "one managed",
+        "reasoning checks",
+        "launch material",
+        "older launch",
+        "governance plane",
+        "amazon bedrock",
+        "governance still",
+        "still depends",
+        "native primitives",
+        "model access",
+        "prompt caching",
+        "feature-level pricing",
+        "amazon anthropic",
+        "anthropic ai21",
+        "ai21 labs"
+      ],
+      "source_urls": [
+        "https://docs.aws.amazon.com/bedrock/",
+        "https://aws.amazon.com/bedrock/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-use.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning-checks.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-enforcements.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html",
+        "https://aws.amazon.com/blogs/aws/customize-models-in-amazon-bedrock-with-your-own-data-using-fine-tuning-and-continued-pre-training/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-how-it-works.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+        "https://aws.amazon.com/about-aws/whats-new/2025/04/amazon-bedrock-general-availability-prompt-caching/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html",
+        "https://aws.amazon.com/about-aws/whats-new/2024/08/amazon-bedrock-fms-batch-inference-50-price/",
+        "https://aws.amazon.com/bedrock/security-compliance/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/security.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/data-encryption.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/compliance-validation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Amazon Bedrock documents access to 100+ foundation models from Amazon, Anthropic, AI21 Labs, Cohere, DeepSeek, Luma AI, Meta, Mistral AI, poolside, Stability AI, and Writer, plus separate on-demand, cross-region, provisioned, and batch serving paths that let enterprises tune throughput, routing, and commitment levels for different workloads",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html"
+          ]
+        },
+        {
+          "text": "Bedrock Agents provide a managed orchestration surface with action groups, knowledge-base integration, prompt customization, traces, aliases, and hierarchical multi-agent collaboration, which places substantial orchestration capability inside the Bedrock service boundary instead of leaving it entirely to customer-built code",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html"
+          ]
+        },
+        {
+          "text": "Knowledge Bases combine retrieval, citation, structured-data access, customer-managed vector databases for embedding storage, document chunking modes that split source text before indexing, reranking models that reorder retrieved results, query decomposition that breaks complex questions into sub-queries, and metadata-aware search inside one managed Bedrock feature family for enterprise information retrieval",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/rerank-use.html"
+          ]
+        },
+        {
+          "text": "Bedrock Guardrails cover moderation, sensitive-data handling, grounding, and logic-based verification, and the centrally enforceable organization-level guardrail surface stops short of Automated Reasoning checks",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning-checks.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-enforcements.html"
+          ]
+        },
+        {
+          "text": "Bedrock's current customization story is strongest for supervised fine-tuning, reinforcement fine-tuning, and distillation, while continued pre-training is clearly evidenced in AWS launch material but is less prominent in the current public custom-model documentation, so it should be treated as date-sensitive rather than as a stable headline capability",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html",
+            "https://aws.amazon.com/blogs/aws/customize-models-in-amazon-bedrock-with-your-own-data-using-fine-tuning-and-continued-pre-training/"
+          ]
+        },
+        {
+          "text": "Flows and Bedrock Data Automation extend Bedrock beyond direct model invocation by adding native workflow logic, service integrations, and multimodal extraction surfaces that customers can use in place of some custom orchestration code",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/flows.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/flows-nodes.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-how-it-works.html"
+          ]
+        },
+        {
+          "text": "Bedrock includes meaningful built-in evaluation, logging, and cost-management primitives, including automatic and human evaluations, invocation logging, prompt caching, inference-profile tagging, and feature-level pricing, and those controls become governance evidence only after the customer enables and joins them operationally",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles.html",
+            "https://aws.amazon.com/bedrock/pricing/"
+          ]
+        },
+        {
+          "text": "For regulated enterprises, Bedrock fits best as a strong AWS-native AI runtime and control surface, while enterprise governance still depends on customer-built identity, network, region, and audit architecture above Bedrock's native capabilities",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/security.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-interface-endpoints.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/data-encryption.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html"
+          ]
+        }
+      ]
+    },
     "2026-05-17-aws-bedrock-agentcore-suite-capabilities": {
       "named_concepts": [
         "bedrock agents",
