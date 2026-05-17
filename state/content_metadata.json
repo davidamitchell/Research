@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-17T22:39:32Z",
+  "extracted_at": "2026-05-17T22:46:44Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -965,6 +965,120 @@
             "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
             "https://aws.amazon.com/bedrock/agentcore/pricing/",
             "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk": {
+      "named_concepts": [
+        "policy interpretation",
+        "language model",
+        "wrong rule",
+        "model synthesis",
+        "synthesis adds",
+        "appears first",
+        "human accuracy",
+        "official assurance",
+        "assurance guidance",
+        "policy assistants",
+        "wrong applicability",
+        "wrong level",
+        "models hallucinate",
+        "hallucinate legal",
+        "legal authority",
+        "weakly retrieved",
+        "controlling internal",
+        "incoherent policy",
+        "automated enforcement",
+        "adds another"
+      ],
+      "source_urls": [
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+        "https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance",
+        "https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques",
+        "https://www.gov.uk/government/publications/guidance-to-civil-servants-on-use-of-generative-ai/guidance-to-civil-servants-on-use-of-generative-ai",
+        "https://www.gov.uk/government/publications/generative-ai-framework-for-hmg",
+        "https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/",
+        "https://arxiv.org/abs/2303.08774",
+        "https://arxiv.org/abs/2401.01301",
+        "https://hai.stanford.edu/news/hallucinating-law-legal-mistakes-large-language-models-are-pervasive",
+        "https://arxiv.org/abs/2302.00093",
+        "https://arxiv.org/abs/2307.03172",
+        "https://aclanthology.org/2023.findings-emnlp.1036/",
+        "https://arxiv.org/abs/2505.02151",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857587/"
+      ],
+      "key_claims": [
+        {
+          "text": "General-purpose Large Language Models already show a strong tendency to generate legally plausible but factually wrong answers, to accept false legal premises, and to remain overconfident about those answers, which means policy assistants start from a baseline risk of fabricated or misapplied authority before any local-document problem is added",
+          "sources": [
+            "https://arxiv.org/abs/2401.01301",
+            "https://hai.stanford.edu/news/hallucinating-law-legal-mistakes-large-language-models-are-pervasive",
+            "https://arxiv.org/abs/2303.08774"
+          ]
+        },
+        {
+          "text": "Organisation-specific policy interpretation is especially exposed when the controlling clause is long, exception-heavy, noisy, or poorly placed in context, because models are distractible by irrelevant material, weaker on information in the middle of long context, and still limited at reasoning over retrieved statements even when retrieval is partly successful",
+          "sources": [
+            "https://arxiv.org/abs/2302.00093",
+            "https://arxiv.org/abs/2307.03172",
+            "https://aclanthology.org/2023.findings-emnlp.1036/",
+            "https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/"
+          ]
+        },
+        {
+          "text": "The most important policy-assistant failure mode is wrong applicability, where the model blends public legal priors, retrieved fragments, and local policy into a coherent answer that sounds authoritative while applying the wrong rule or the wrong level of authority",
+          "sources": [
+            "https://arxiv.org/abs/2401.01301",
+            "https://arxiv.org/abs/2302.00093",
+            "https://arxiv.org/abs/2307.03172",
+            "https://aclanthology.org/2023.findings-emnlp.1036/",
+            "https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/"
+          ]
+        },
+        {
+          "text": "Contradictory or stale policy corpora are a separate but interacting source of failure, because policy-coherence work in this repository shows that incoherent policy estates already create unsafe conditions for automated enforcement before Large Language Model synthesis adds another error channel",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md"
+          ]
+        },
+        {
+          "text": "User review is an unreliable backstop once the model answer appears first, because incorrect Artificial Intelligence support shown before independent judgment lowers human accuracy, participants follow algorithmic recommendations more closely than equally accurate human ones, and even larger recommendation errors are often insufficient to trigger intervention",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857587/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.md"
+          ]
+        },
+        {
+          "text": "Policy-assistant outputs can become more dangerous when they increase user confidence rather than raw correctness, because Large Language Model input can more than double human overconfidence and institutionally trusted interfaces can lead users to discount known inaccuracy risks",
+          "sources": [
+            "https://arxiv.org/abs/2505.02151",
+            "https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md"
+          ]
+        },
+        {
+          "text": "Official assurance guidance does not support generic trust in benchmarked model capability as proof of policy safety, because NIST and United Kingdom guidance both frame generative Artificial Intelligence assurance as context-specific evaluation against regulation, standards, limitations, organisational values, and lifecycle monitoring duties",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+            "https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance",
+            "https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques"
+          ]
+        },
+        {
+          "text": "The safest architecture for consequential policy interpretation is to use the model only to draft or suggest an interpretation, require citations to the controlling local source, abstain when applicability is not established from authorised documents, and route ambiguous cases into deterministic rules or human escalation rather than letting the model own the final interpretation",
+          "sources": [
+            "https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques",
+            "https://www.gov.uk/government/publications/guidance-to-civil-servants-on-use-of-generative-ai/guidance-to-civil-servants-on-use-of-generative-ai",
+            "https://www.gov.uk/government/publications/generative-ai-framework-for-hmg",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-governance-policy-determinism-vs-stochastic-llm.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.md"
           ]
         }
       ]

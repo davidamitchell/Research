@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Research loop evaluation rubric — Research</title>
+          <title>AI policy interpretation — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -679,157 +679,131 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Research loop evaluation rubric</span>
+    <span>AI policy interpretation</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research loop evaluation rubric</h1>
-  <p class="full-title-subtitle">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI policy interpretation</h1>
+  <p class="full-title-subtitle">Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation</p>
   <div class="meta-bar">
-    <span>2026-03-14</span>
+    <span>2026-05-17</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/ci.html">ci</a> 
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/organisation.html">organisation</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/hallucinations.html">hallucinations</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-research-loop-evaluation-rubric.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-research-loop-evaluation-rubric" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The only tooling approach satisfying this repository&#39;s no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high</li>
-<li>The research loop agent&#39;s three most structurally significant failure modes per the protocol specification — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high</li>
-<li>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high</li>
-<li>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high</li>
-<li>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single `OVERALL: PASS` or `OVERALL: FAIL` line, enabling CI parsing with a simple `grep` command — the same approach proven reliable in the existing `research-review.yml` workflow. Confidence: high</li>
-<li>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high</li>
-<li>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever `research-prompt.md` or `SKILL.md` changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium</li>
-<li>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>General-purpose Large Language Models already show a strong tendency to generate legally plausible but factually wrong answers, to accept false legal premises, and to remain overconfident about those answers, which means policy assistants start from a baseline risk of fabricated or misapplied authority before any local-document problem is added<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2401.01301" target="_blank" rel="noopener" title="https://arxiv.org/abs/2401.01301">Dahl et al. (2024)</a><a class="claim-source-link" href="https://hai.stanford.edu/news/hallucinating-law-legal-mistakes-large-language-models-are-pervasive" target="_blank" rel="noopener" title="https://hai.stanford.edu/news/hallucinating-law-legal-mistakes-large-language-models-are-pervasive">Intelligence (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener" title="https://arxiv.org/abs/2303.08774">OpenAI et al. (2024)</a></span></li>
+<li>Organisation-specific policy interpretation is especially exposed when the controlling clause is long, exception-heavy, noisy, or poorly placed in context, because models are distractible by irrelevant material, weaker on information in the middle of long context, and still limited at reasoning over retrieved statements even when retrieval is partly successful<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2302.00093" target="_blank" rel="noopener" title="https://arxiv.org/abs/2302.00093">Chen et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener" title="https://arxiv.org/abs/2307.03172">Liu et al. (2023)</a><a class="claim-source-link" href="https://aclanthology.org/2023.findings-emnlp.1036/" target="_blank" rel="noopener" title="https://aclanthology.org/2023.findings-emnlp.1036/">BehnamGhader et al. (2023)</a><a class="claim-source-link" href="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/" target="_blank" rel="noopener" title="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/">Service (2024)</a></span></li>
+<li>The most important policy-assistant failure mode is wrong applicability, where the model blends public legal priors, retrieved fragments, and local policy into a coherent answer that sounds authoritative while applying the wrong rule or the wrong level of authority<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2401.01301" target="_blank" rel="noopener" title="https://arxiv.org/abs/2401.01301">Dahl et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2302.00093" target="_blank" rel="noopener" title="https://arxiv.org/abs/2302.00093">Chen et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener" title="https://arxiv.org/abs/2307.03172">Liu et al. (2023)</a><a class="claim-source-link" href="https://aclanthology.org/2023.findings-emnlp.1036/" target="_blank" rel="noopener" title="https://aclanthology.org/2023.findings-emnlp.1036/">BehnamGhader et al. (2023)</a><a class="claim-source-link" href="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/" target="_blank" rel="noopener" title="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/">Service (2024)</a></span></li>
+<li>Contradictory or stale policy corpora are a separate but interacting source of failure, because policy-coherence work in this repository shows that incoherent policy estates already create unsafe conditions for automated enforcement before Large Language Model synthesis adds another error channel<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md">Mitchell (2026)</a></span></li>
+<li>User review is an unreliable backstop once the model answer appears first, because incorrect Artificial Intelligence support shown before independent judgment lowers human accuracy, participants follow algorithmic recommendations more closely than equally accurate human ones, and even larger recommendation errors are often insufficient to trigger intervention<span class="claim-sources"><a class="claim-source-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/" target="_blank" rel="noopener" title="https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/">Matute (2024)</a><a class="claim-source-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10857587/" target="_blank" rel="noopener" title="https://pmc.ncbi.nlm.nih.gov/articles/PMC10857587/">Jussupow et al. (2024)</a><a class="claim-source-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/" target="_blank" rel="noopener" title="https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/">Goddard et al. (2012)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.md">Github (n.d.)</a></span></li>
+<li>Policy-assistant outputs can become more dangerous when they increase user confidence rather than raw correctness, because Large Language Model input can more than double human overconfidence and institutionally trusted interfaces can lead users to discount known inaccuracy risks<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2505.02151" target="_blank" rel="noopener" title="https://arxiv.org/abs/2505.02151">Li et al. (2025)</a><a class="claim-source-link" href="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/" target="_blank" rel="noopener" title="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/">Service (2024)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md">Mitchell (2026)</a></span></li>
+<li>Official assurance guidance does not support generic trust in benchmarked model capability as proof of policy safety, because NIST and United Kingdom guidance both frame generative Artificial Intelligence assurance as context-specific evaluation against regulation, standards, limitations, organisational values, and lifecycle monitoring duties<span class="claim-sources"><a class="claim-source-link" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener" title="https://www.nist.gov/itl/ai-risk-management-framework">National (n.d.)</a><a class="claim-source-link" href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener" title="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence">Autio et al. (2024)</a><a class="claim-source-link" href="https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance" target="_blank" rel="noopener" title="https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance">United (n.d.)</a><a class="claim-source-link" href="https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques" target="_blank" rel="noopener" title="https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques">United (n.d.)</a></span></li>
+<li>The safest architecture for consequential policy interpretation is to use the model only to draft or suggest an interpretation, require citations to the controlling local source, abstain when applicability is not established from authorised documents, and route ambiguous cases into deterministic rules or human escalation rather than letting the model own the final interpretation<span class="claim-sources"><a class="claim-source-link" href="https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques" target="_blank" rel="noopener" title="https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques">United (n.d.)</a><a class="claim-source-link" href="https://www.gov.uk/government/publications/guidance-to-civil-servants-on-use-of-generative-ai/guidance-to-civil-servants-on-use-of-generative-ai" target="_blank" rel="noopener" title="https://www.gov.uk/government/publications/guidance-to-civil-servants-on-use-of-generative-ai/guidance-to-civil-servants-on-use-of-generative-ai">United (n.d.)</a><a class="claim-source-link" href="https://www.gov.uk/government/publications/generative-ai-framework-for-hmg" target="_blank" rel="noopener" title="https://www.gov.uk/government/publications/generative-ai-framework-for-hmg">United (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-governance-policy-determinism-vs-stochastic-llm.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-governance-policy-determinism-vs-stochastic-llm.md">Mitchell (2026)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.md">Mitchell (2026)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>What structured rubric should be used to evaluate the outputs of this repository's research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval gate for that rubric look like? The rubric must be specific enough to produce reproducible Large Language Model (LLM)-as-judge scores, version-controlled alongside the agent prompt, and executable in CI without prohibitive cost.</p>
+<p>What failure modes emerge when Large Language Models (LLMs) combine generic public legal knowledge with proprietary organisational policy in compliance interpretation tasks?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
+<p>In policy interpretation, a Large Language Model can return an authoritative answer that applies the wrong rule or the wrong level of authority.</p>
+<p>This risk grows when general-purpose models hallucinate legal authority and when long or weakly retrieved local context gives them multiple ways to miss the controlling internal rule.</p>
+<p>This risk also grows when the underlying policy estate is contradictory or stale, because prior repository research shows that incoherent policy sets are already unsafe for automated enforcement before model synthesis adds another error source.</p>
+<p>Users are then poorly positioned to catch the mismatch if the model answer appears first, because automation-bias evidence shows that early machine advice reduces human accuracy, human-in-the-loop designs can increase uptake while lowering decision quality, and model input can amplify reviewer overconfidence.</p>
+<p>Official assurance guidance therefore supports treating policy assistants as proposal systems that must be tested against local authority boundaries, checked against organisational values and compliance requirements, and paired with explicit abstention and escalation paths for ambiguous cases.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
-</li>
-<li>
-<p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
-</li>
-<li>
-<p>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high.</p>
-</li>
-<li>
-<p>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single <code>OVERALL: PASS</code> or <code>OVERALL: FAIL</code> line, enabling CI parsing with a simple <code>grep</code> command — the same approach proven reliable in the existing <code>research-review.yml</code> workflow. Confidence: high.</p>
-</li>
-<li>
-<p>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high.</p>
-</li>
-<li>
-<p>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever <code>research-prompt.md</code> or <code>SKILL.md</code> changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium.</p>
-</li>
-<li>
-<p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
-</li>
-<li>
-<p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
-</li>
+<li><strong>General-purpose Large Language Models already show a strong tendency to generate legally plausible but factually wrong answers, to accept false legal premises, and to remain overconfident about those answers, which means policy assistants start from a baseline risk of fabricated or misapplied authority before any local-document problem is added.</strong></li>
+<li><strong>Organisation-specific policy interpretation is especially exposed when the controlling clause is long, exception-heavy, noisy, or poorly placed in context, because models are distractible by irrelevant material, weaker on information in the middle of long context, and still limited at reasoning over retrieved statements even when retrieval is partly successful.</strong></li>
+<li><strong>The most important policy-assistant failure mode is wrong applicability, where the model blends public legal priors, retrieved fragments, and local policy into a coherent answer that sounds authoritative while applying the wrong rule or the wrong level of authority.</strong></li>
+<li><strong>Contradictory or stale policy corpora are a separate but interacting source of failure, because policy-coherence work in this repository shows that incoherent policy estates already create unsafe conditions for automated enforcement before Large Language Model synthesis adds another error channel.</strong></li>
+<li><strong>User review is an unreliable backstop once the model answer appears first, because incorrect Artificial Intelligence support shown before independent judgment lowers human accuracy, participants follow algorithmic recommendations more closely than equally accurate human ones, and even larger recommendation errors are often insufficient to trigger intervention.</strong></li>
+<li><strong>Policy-assistant outputs can become more dangerous when they increase user confidence rather than raw correctness, because Large Language Model input can more than double human overconfidence and institutionally trusted interfaces can lead users to discount known inaccuracy risks.</strong></li>
+<li><strong>Official assurance guidance does not support generic trust in benchmarked model capability as proof of policy safety, because NIST and United Kingdom guidance both frame generative Artificial Intelligence assurance as context-specific evaluation against regulation, standards, limitations, organisational values, and lifecycle monitoring duties.</strong></li>
+<li><strong>The safest architecture for consequential policy interpretation is to use the model only to draft or suggest an interpretation, require citations to the controlling local source, abstain when applicability is not established from authorised documents, and route ambiguous cases into deterministic rules or human escalation rather than letting the model own the final interpretation.</strong></li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-<th>Claim</th>
-<th>Source</th>
-<th>Confidence</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Custom Copilot CLI is only feasible approach</td>
-<td>AGENTS.md credentials table; DeepEval docs; Pydantic Evals docs; agentevals README</td>
-<td>high</td>
-<td>Credential constraint is explicit in AGENTS.md</td>
-</tr>
-<tr>
-<td>Acronym non-expansion is most frequent failure</td>
-<td>research-prompt.md Step 6 header (&quot;#1 cause of review failures&quot;)</td>
-<td>high</td>
-<td>Explicit statement in the protocol document</td>
-</tr>
-<tr>
-<td>Executive Summary first-sentence quality is diagnostic</td>
-<td>research-prompt.md Step 5 Executive Summary spec</td>
-<td>high</td>
-<td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>A1:</strong> The Copilot CLI can evaluate a 9-dimension rubric prompt for a 10,000-word research item within 5 minutes. Justification: the existing review workflow applies three separate skill checks on similarly sized items within the 30-minute timeout; a single rubric prompt of comparable length is unlikely to exceed 5 minutes.</li>
-<li><strong>A2:</strong> A gold dataset of 3–5 manually audited items is sufficient for an initial regression baseline. Justification: minimum viable approach for a single-agent system with a stable protocol; more items increase coverage but are not required to start.</li>
-<li><strong>A3:</strong> The owner will not approve OpenAI or Anthropic API credentials for this use case. Justification: the AGENTS.md constraint explicitly requires owner approval for new credentials, and the Copilot CLI approach provides equivalent functionality without new credentials.</li>
+<li>Legal-question answering and grounded public-information chat are used as proxies for enterprise policy assistants because both require selecting the controlling authority from a broader textual environment, but they are not direct measurements of internal corporate policy use.</li>
+<li>Human-review findings from judicial, prediction, and clinical decision-support settings are treated as behavioural proxies for compliance review because the underlying task is evaluation of a machine recommendation under uncertainty.</li>
 </ul>
 <h3>Analysis</h3>
-<p>The credential constraint is the binding design decision. All named evaluation frameworks require credentials beyond those available, so the tooling selection is deterministic given the constraints. The evaluation framework design question then becomes: how to maximise rubric quality using only the Copilot CLI?</p>
-<p>The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs [inference]. This makes them the most diagnostic indicators of incomplete protocol execution.</p>
+<p>The strongest direct evidence is the combination of legal-domain hallucination studies with context-use studies, because together they explain both why the model can state a wrong rule and why the local controlling rule can fail to displace that error.</p>
+<p>One competing explanation is that retrieval quality alone causes the problem. The retriever-augmented reasoning paper and long-context papers make that explanation too narrow, because they show weaknesses both in getting the right evidence and in using it correctly once present.</p>
+<p>Another competing explanation is that the policy source itself is incoherent, contradictory, or stale. The policy-coherence item in this repository supports that qualification, and it narrows the central claim here: wrong applicability can arise from weak local policy design alone, and model-plus-context synthesis adds a second error channel on top of that pre-existing condition.</p>
+<p>The behavioural evidence matters because an enterprise might otherwise conclude that ordinary reviewer sign-off closes the risk, yet the reviewed studies show the opposite pattern: first-presented machine output can lower human accuracy, and human-in-the-loop workflows can still drift toward rubber-stamping.</p>
+<p>For that reason, the evidence weighs in favour of workflow and assurance controls rather than prompt-only fixes, because official guidance repeatedly frames safe use as a matter of context-specific testing, compliance audit, and documented review responsibilities.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>Judge model drift:</strong> The Copilot CLI model may change without notice, causing score drift over time. Accepted risk; mitigated by versioning the rubric prompt and monitoring score distributions.</li>
-<li><strong>Rubric calibration:</strong> The 1–5 anchors need calibration against real items. If 80%+ of items score 4–5 on a given dimension, the anchors are too loose and should be tightened.</li>
-<li><strong>Copilot API availability:</strong> The eval gate has the same COPILOT_GITHUB_TOKEN dependency as the existing review workflow; if access changes, both fail. Accepted risk.</li>
-<li><strong>Gold set refresh discipline:</strong> The gold set refresh requirement is easy to forget when <code>research-prompt.md</code> is updated. A TODO comment in the research protocol or a <code>CODEOWNERS</code> rule linking protocol changes to gold set reviews would reduce this risk.</li>
+<li>Direct public evidence on proprietary internal-policy assistants remains limited, so this synthesis rests on legal-question answering, public-sector policy chat, and broader human-review studies rather than on a large benchmark of enterprise compliance deployments.</li>
+<li>The evidence is stronger on failure mechanisms than on measured mitigation effect sizes for enterprise policy work, because official guidance specifies the control types to use but rarely publishes controlled before-and-after outcome data for organisational deployments.</li>
+<li>The legal-hallucination evidence is strongest for public legal authorities, not for internal corporate standards, so the claim about local-policy applicability remains inferential even though the context-use evidence makes the transfer plausible.</li>
+<li>This item does not quantify which user-interface changes best improve detection of inapplicable answers, because the available sources support independent-first review and verification intensity broadly more strongly than any single interface pattern.</li>
 </ul>
 <h3>Open Questions</h3>
-<ol>
-<li><strong>Rubric prompt text:</strong> Writing the exact prompt text (dimension definitions, scoring anchors, output format specification) is the primary implementation task and is out of scope for this research item. A separate task should produce <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>CI workflow YAML:</strong> The CI workflow design is specified here in prose; the YAML implementation is a separate backlog task.</li>
-<li><strong>Score history:</strong> Should dimension scores be persisted in a JavaScript Object Notation (JSON) file in the repository for trend tracking? This would enable automated detection of systematic quality degradation across items.</li>
-<li><strong>First three gold items:</strong> Which completed items in <code>Research/completed/</code> should be designated as the initial gold set? This requires a manual audit pass.</li>
-</ol>
-<h3>Output</h3>
 <ul>
-<li><strong>Type:</strong> knowledge, artefact</li>
-<li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>Key sources:</strong>
-<ol>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain evals guide</a></li>
-<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge">Pydantic LLM-as-a-Judge article</a></li>
-<li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>
-</ol>
-</li>
-</ul>
-
-<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
-<ul>
-<li>[x] <code>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code> — the framework that motivates this item</li>
-<li>[x] <a href="https://ai.pydantic.dev/evals/">Pydantic Evals documentation</a></li>
-<li>[x] <a href="https://pydantic.dev/articles/llm-as-a-judge">Pydantic LLM-as-a-Judge article</a></li>
-<li>[x] <a href="https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide">DeepEval agent evaluation guide</a></li>
-<li>[x] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain evals guide</a></li>
-<li>[x] <a href="https://github.com/langchain-ai/agentevals">langchain-ai/agentevals</a></li>
-<li>[ ] <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">Anthropic &quot;Writing effective tools for AI agents&quot;</a></li>
+<li>What benchmark best measures local-policy applicability rather than generic legal correctness?</li>
+<li>How much does mandatory citation of the controlling internal clause improve reviewer detection of context mismatch?</li>
+<li>Which abstention threshold is most practical before a policy assistant should escalate to a deterministic rule or a human specialist?</li>
+<li>How much does chunking or document-layout design change error rates on long policy manuals with exceptions and appendices?</li>
 </ul>
 <hr />
 
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework">National Institute of Standards and Technology (NIST) AI Risk Management Framework</a></li>
+<li>[x] <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence">Autio et al. (2024) Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</a></li>
+<li>[x] <a href="https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance">United Kingdom (UK) Government Introduction to Artificial Intelligence Assurance</a></li>
+<li>[x] <a href="https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques">United Kingdom (UK) Government Portfolio of Artificial Intelligence Assurance Techniques</a></li>
+<li>[x] <a href="https://www.gov.uk/government/publications/guidance-to-civil-servants-on-use-of-generative-ai/guidance-to-civil-servants-on-use-of-generative-ai">United Kingdom (UK) Government Guidance to Civil Servants on Use of Generative Artificial Intelligence</a></li>
+<li>[x] <a href="https://www.gov.uk/government/publications/generative-ai-framework-for-hmg">United Kingdom (UK) Government Generative Artificial Intelligence Framework for His Majesty's Government (HMG)</a></li>
+<li>[x] <a href="https://insidegovuk.blog.gov.uk/2024/01/18/the-findings-of-our-first-generative-ai-experiment-gov-uk-chat/">Government Digital Service (2024) The findings of our first generative Artificial Intelligence experiment: GOV.UK Chat</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2303.08774">OpenAI et al. (2024) Generative Pre-trained Transformer 4 (GPT-4) Technical Report</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2401.01301">Dahl et al. (2024) Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models</a></li>
+<li>[x] <a href="https://hai.stanford.edu/news/hallucinating-law-legal-mistakes-large-language-models-are-pervasive">Stanford Human-Centered Artificial Intelligence (2024) Hallucinating Law: Legal Mistakes with Large Language Models are Pervasive</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2302.00093">Chen et al. (2023) Large Language Models Can Be Easily Distracted by Irrelevant Context</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2307.03172">Liu et al. (2023) Lost in the Middle: How Language Models Use Long Contexts</a></li>
+<li>[x] <a href="https://aclanthology.org/2023.findings-emnlp.1036/">BehnamGhader et al. (2023) Can Retriever-Augmented Language Models Reason? The Blame Game Between the Retriever and the Language Model</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2505.02151">Li et al. (2025) Large Language Models are overconfident and amplify human bias</a></li>
+<li>[x] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/">Goddard et al. (2012) Automation bias: a systematic review of frequency, effect mediators, and mitigators</a></li>
+<li>[x] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/">Vicente and Matute (2024) The impact of Artificial Intelligence errors in a human-in-the-loop process</a></li>
+<li>[x] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10857587/">Jussupow et al. (2024) Putting a human in the loop: Increasing uptake, but decreasing accuracy of automated decision-making</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.md">Mitchell (2026) Accountability and governance risks in Artificial Intelligence-assisted policy interpretation</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md">Mitchell (2026) Pressure for quick closure and confirmation-bias risks in Artificial Intelligence policy interpretation</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-governance-policy-determinism-vs-stochastic-llm.md">Mitchell (2026) Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model Elements</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md">Mitchell (2026) Human cognitive bias toward Artificial Intelligence correctness and explainability</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md">Mitchell (2026) Policy coherence as a machine-checkable prerequisite</a></li>
+</ul>
+
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> <span class="related-note">via agentic-ai, evaluation, regression</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.html">Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html">Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk.html">Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk.html">Adversarial prompting risks in policy assistants: coercing restrictive policy into permissive interpretations</a> <span class="related-note">via agentic-ai, evaluation</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html">Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation</a> <span class="related-note">via agentic-ai, evaluation, llm, organisation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk.html">Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation</a> <span class="related-note">via agentic-ai, evaluation, llm, organisation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk.html">Adversarial prompting risks in policy assistants: coercing restrictive policy into permissive interpretations</a> <span class="related-note">via agentic-ai, evaluation, llm, organisation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-13-agent-process-reliability-architecture.html">Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems</a> <span class="related-note">via agentic-ai, evaluation, llm, organisation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-12-rag-document-drift-agent-behavior.html">When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?</a> <span class="related-note">via agentic-ai, evaluation, llm, organisation</span></div>
 </div></div>
 
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html">Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html">Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html">Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html">Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html">Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html">What tiered human oversight models maintain meaningful human-in-the-loop (HITL) control at scale under high-volume multi-step Artificial Intelligence (AI) adoption, and how should organisations measure oversight quality when productivity mandates exist without explicit quality Key Performance Indicators (KPIs)?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html">Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)</a></div>
+</div>
+
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html">AI policy interpretation</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -840,7 +814,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-03-10-research-loop-evaluation-rubric";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;
