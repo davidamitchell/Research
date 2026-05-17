@@ -2,12 +2,12 @@
 review_count: 2
 title: "Policy enforcement and formal verification as Energy-Based Model (EBM) optimization signals"
 added: 2026-05-17T11:18:46+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [policy, formal-methods, verification, governance, agentic-ai]
 started: 2026-05-17T19:04:41+00:00
-completed: ~
+completed: 2026-05-17T19:29:33+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-policy-as-code-guardrails-regulatory-ai-governance
