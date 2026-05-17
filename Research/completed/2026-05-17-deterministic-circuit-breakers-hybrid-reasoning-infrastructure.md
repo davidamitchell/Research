@@ -2,12 +2,12 @@
 review_count: 1
 title: "Deterministic circuit-breakers and real-time infrastructure constraints for hybrid reasoning stacks"
 added: 2026-05-17T11:18:46+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, observability, workflow, invariants]
 started: 2026-05-17T13:22:35+00:00
-completed: ~
+completed: 2026-05-17T13:38:41+00:00
 output: []
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
