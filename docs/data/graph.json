@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T00:37:25Z",
-  "node_count": 336,
-  "edge_count": 1871,
+  "generated": "2026-05-17T00:50:35Z",
+  "node_count": 337,
+  "edge_count": 1878,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2003,6 +2003,12 @@
       "url": "/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html"
     },
     {
+      "slug": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "title": "Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits",
+      "type": "primary",
+      "url": "/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html"
+    },
+    {
       "slug": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
       "type": "primary",
@@ -2864,7 +2870,7 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisational-design",
@@ -5544,14 +5550,6 @@
     },
     {
       "source": "2026-04-02-org-shape-software-cost-zero",
-      "target": "2026-04-03-ai-workflow-todo-digest",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,automation",
-      "provenance": "2026-04-02-org-shape-software-cost-zero"
-    },
-    {
-      "source": "2026-04-02-org-shape-software-cost-zero",
       "target": "2026-04-28-software-demand-shift-ai-coding-era",
       "weight": 3,
       "rel": "tag-overlap",
@@ -5577,6 +5575,14 @@
     {
       "source": "2026-04-02-org-shape-software-cost-zero",
       "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-design,product-management",
+      "provenance": "2026-04-02-org-shape-software-cost-zero"
+    },
+    {
+      "source": "2026-04-02-org-shape-software-cost-zero",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisational-design,product-management",
@@ -5712,14 +5718,6 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
-      "target": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "financial-services,governance",
-      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
-    },
-    {
-      "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-14-org-failure-modes-project-demand-product-it",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5737,6 +5735,14 @@
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisational-design",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisational-design",
@@ -7848,7 +7854,7 @@
     },
     {
       "source": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,risk-management",
@@ -13528,14 +13534,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13548,6 +13546,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -14520,10 +14526,10 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
+      "evidence": "governance,organisation",
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
@@ -14552,30 +14558,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-14-org-failure-modes-accountability-gaps",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14588,6 +14570,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -14888,14 +14878,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14908,6 +14890,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
       "provenance": "2026-05-12-data-product-ontology"
     },
     {
@@ -15936,14 +15926,6 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15957,6 +15939,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
@@ -16084,7 +16074,7 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
@@ -16092,7 +16082,7 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
@@ -16100,7 +16090,15 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
@@ -16143,6 +16141,14 @@
       "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
     },
     {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-project-demand-product-it",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -16181,6 +16187,14 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design,product-management",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
       "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
@@ -16223,6 +16237,14 @@
       "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
     },
     {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "financial-governance,governance,organisation,organisational-design,risk-management",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "target": "2026-05-14-org-failure-modes-accountability-gaps",
       "weight": 4,
@@ -16253,6 +16275,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
@@ -16821,6 +16851,38 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-04-22-enterprise-ai-platform-operating-models",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-14-org-failure-modes-accountability-gaps",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",

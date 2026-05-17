@@ -1,0 +1,1159 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Governance structures that support investment in delivery capability without… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+          <style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Governance structures that support investment in delivery capability without…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Governance structures that support investment in delivery capability without…</h1>
+  <p class="full-title-subtitle">Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits</p>
+  <div class="meta-bar">
+    <span>2026-05-16</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/organisation.html">organisation</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/risk-management.html">risk-management</a> <a class="tag" href="/Research/tags/financial-governance.html">financial-governance</a> <a class="tag" href="/Research/tags/product-management.html">product-management</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Banking-governance rules allow business-line delivery ownership and independent risk ownership to remain separate, but they require clear responsibilities, direct challenge paths, and management-body oversight so that no material trade-off is left ownerless<span class="claim-sources"><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d328.pdf" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d328.pdf">Basel (2015)</a><a class="claim-source-link" href="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf" target="_blank" rel="noopener" title="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf">European (2021)</a></span></li>
+<li>Decision-rights research shows that any substitute for structural co-location must assign named owners for prioritisation of spend, choice of what versus how, and exception handling<span class="claim-sources"><a class="claim-source-link" href="https://cisr.mit.edu/content/classic-topics-decision-rights" target="_blank" rel="noopener" title="https://cisr.mit.edu/content/classic-topics-decision-rights">MIT (n.d.)</a><a class="claim-source-link" href="https://cisr.mit.edu/content/simplifying-decision-rights-growth" target="_blank" rel="noopener" title="https://cisr.mit.edu/content/simplifying-decision-rights-growth">MIT (2023)</a></span></li>
+<li>The Senior Managers and Certification Regime shows one concrete way a separated structure can document answerability, because it requires named responsibility documents and responsibility maps for senior-manager roles<span class="claim-sources"><a class="claim-source-link" href="https://www.fca.org.uk/firms/senior-managers-certification-regime" target="_blank" rel="noopener" title="https://www.fca.org.uk/firms/senior-managers-certification-regime">Financial (n.d.)</a><a class="claim-source-link" href="https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf" target="_blank" rel="noopener" title="https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf">Financial (2019)</a></span></li>
+<li>Product and value-stream funding models reduce the cost-benefit split only when standing teams receive stable funding and backlog authority inside an approved envelope while central governance retains strategic reallocation rights at regular review points<span class="claim-sources"><a class="claim-source-link" href="https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html" target="_blank" rel="noopener" title="https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html">Miller (2021)</a><a class="claim-source-link" href="https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets" target="_blank" rel="noopener" title="https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets">Thoughtworks (2025)</a><a class="claim-source-link" href="https://scaledagileframework.com/lean-budgets/" target="_blank" rel="noopener" title="https://scaledagileframework.com/lean-budgets/">Scaled (n.d.)</a></span></li>
+<li>Milestone-based central funding can enforce measurable progress and capital discipline when strong central investment governance exists, and this mechanism can partially substitute for structural co-location while still requiring a named owner for milestones and repayment conditions<span class="claim-sources"><a class="claim-source-link" href="https://tmf.cio.gov/" target="_blank" rel="noopener" title="https://tmf.cio.gov/">Technology (n.d.)</a><a class="claim-source-link" href="https://tmf.cio.gov/board/" target="_blank" rel="noopener" title="https://tmf.cio.gov/board/">Technology (n.d.)</a><a class="claim-source-link" href="https://fiscal.treasury.gov/system/files/files/ussgl/approved_scenarios/technology-modernization-fund-accounting-guide-%28gsa%29-fiscal-2023.pdf" target="_blank" rel="noopener" title="https://fiscal.treasury.gov/system/files/files/ussgl/approved_scenarios/technology-modernization-fund-accounting-guide-%28gsa%29-fiscal-2023.pdf">Service (2023)</a></span></li>
+<li>The best-supported integrator bundle in this evidence base includes budget-gating or budget-recommendation rights, a benefits-reporting mandate, mandatory convening of finance and risk for binding review, and veto or escalation rights when other demands would consume protected delivery-capability capacity<span class="claim-sources"><a class="claim-source-link" href="https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html" target="_blank" rel="noopener" title="https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html">Miller (2021)</a><a class="claim-source-link" href="https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets" target="_blank" rel="noopener" title="https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets">Thoughtworks (2025)</a><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d328.pdf" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d328.pdf">Basel (2015)</a><a class="claim-source-link" href="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf" target="_blank" rel="noopener" title="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf">European (2021)</a></span></li>
+<li>The integrator office does not need to own independent risk sign-off itself, because regulated-governance sources keep second-line challenge separate; the key requirement is guaranteed participation and escalation so that risk objections cannot be bypassed<span class="claim-sources"><a class="claim-source-link" href="https://www.bis.org/bcbs/publ/d328.pdf" target="_blank" rel="noopener" title="https://www.bis.org/bcbs/publ/d328.pdf">Basel (2015)</a><a class="claim-source-link" href="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf" target="_blank" rel="noopener" title="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf">European (2021)</a><a class="claim-source-link" href="https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf" target="_blank" rel="noopener" title="https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf">Financial (2019)</a></span></li>
+<li>If the central office lacks budget leverage and documented decision rights, it remains only a coordinator and is likely to reproduce the same missing-integrator, queue-fragmentation, and cost-shifting failures already identified in adjacent completed repository items<span class="claim-sources"><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.md">Research (2026)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md">Research (2026)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-project-demand-product-it.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-project-demand-product-it.md">Research (2026)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Under what governance conditions can investment in building durable delivery capability be made reliably without placing risk, cost, and benefits accountability under one owner, and what minimum authority grant is required for an accountable office to function as an integrator without structural reorganisation?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Investment in delivery capability can be governed reliably without putting risk, cost, and benefits under one owner only when the organisation substitutes structural co-location with an explicit authority bundle: one named first-line integrator owns the business case, prioritisation, and benefits reporting, while independent risk retains challenge and escalation rights.</p>
+<p>The minimum viable authority grant is not full risk ownership but enough formal power to gate or recommend allocation within an approved funding envelope, require outcome reporting, convene binding cross-functional review, and stop or escalate conflicting demands that would displace protected delivery-capability investment.</p>
+<p>Milestone-based central funding can strengthen this design by tying capital release to progress and measurable return.</p>
+<p>Named accountability documents and escalation rights still need to come from the governance layer rather than from the funding mechanism itself.</p>
+<p>If the central office lacks budget leverage and explicit escalation rights, it remains a coordinator and is likely to reproduce the same missing-integrator and queue-fragmentation failures already observed in adjacent completed items.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Banking-governance rules allow business-line delivery ownership and independent risk ownership to remain separate, but they require clear responsibilities, direct challenge paths, and management-body oversight so that no material trade-off is left ownerless.</strong></li>
+<li><strong>Decision-rights research shows that any substitute for structural co-location must assign named owners for prioritisation of spend, choice of what versus how, and exception handling.</strong></li>
+<li><strong>The Senior Managers and Certification Regime shows one concrete way a separated structure can document answerability, because it requires named responsibility documents and responsibility maps for senior-manager roles.</strong></li>
+<li><strong>Product and value-stream funding models reduce the cost-benefit split only when standing teams receive stable funding and backlog authority inside an approved envelope while central governance retains strategic reallocation rights at regular review points.</strong></li>
+<li><strong>Milestone-based central funding can enforce measurable progress and capital discipline when strong central investment governance exists, and this mechanism can partially substitute for structural co-location while still requiring a named owner for milestones and repayment conditions.</strong></li>
+<li><strong>The best-supported integrator bundle in this evidence base includes budget-gating or budget-recommendation rights, a benefits-reporting mandate, mandatory convening of finance and risk for binding review, and veto or escalation rights when other demands would consume protected delivery-capability capacity.</strong></li>
+<li><strong>The integrator office does not need to own independent risk sign-off itself, because regulated-governance sources keep second-line challenge separate; the key requirement is guaranteed participation and escalation so that risk objections cannot be bypassed.</strong></li>
+<li><strong>If the central office lacks budget leverage and documented decision rights, it remains only a coordinator and is likely to reproduce the same missing-integrator, queue-fragmentation, and cost-shifting failures already identified in adjacent completed repository items.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> &quot;Investment in delivery capability&quot; means durable product, platform, backlog, and technical-capability investment rather than one-off project spend. <strong>Justification:</strong> The consulted product-funding literature consistently distinguishes standing-team and lifecycle investment from fixed-scope project funding.</li>
+<li><strong>Assumption:</strong> The minimum authority bundle is synthesised from regulatory-governance principles plus cross-sector product-funding evidence because public regulated-bank documents rarely expose the exact internal committee charters used to arbitrate product-funding conflicts. <strong>Justification:</strong> Accessible financial-services sources in this session were strong on governance principles and weaker on internal portfolio-operating detail.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence weighs against a simple choice between total co-location and hopeless fragmentation.</p>
+<p>The stronger distinction is between separated structures with explicit closure rights and separated structures with only consultative coordination.</p>
+<p>Banking-governance sources are especially valuable because they show that regulated firms already accept structural separation between first-line delivery and second-line risk, but only when the accountability map and escalation architecture are concrete.</p>
+<p>Product-funding and milestone-funding sources add the missing investment-governance mechanics: standing-team envelopes, periodic portfolio reallocation, outcome tracking, and staged capital release.</p>
+<p>The strongest supported recommendation is to give one office enough first-line investment authority and enough cross-functional escalation leverage that risk, cost, and benefit trade-offs cannot remain unresolved.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>The empirical evidence on product-funding mechanics is stronger in cross-sector transformation literature than in public regulated-bank case studies, so the funding portion of the conclusion remains medium rather than high confidence.</p>
+<p>Regulatory sources define governance principles and control-function independence clearly, but they do not specify the exact portfolio-veto thresholds or capacity-protection rules an integrating office should use in practice.</p>
+<p>The inaccessible full text of Weill and Ross and the unparsed seeded PS18/14 PDF did not block the conclusion because accessible official replacements covered the accountability and decision-rights requirements used in the synthesis, but direct quotation from those seeded sources remains unavailable in this session.</p>
+<h3>Open Questions</h3>
+<p>What quantitative threshold should trigger the integrator office's veto or mandatory escalation when live-operating demand begins to erode protected delivery-capability investment?</p>
+<p>In regulated banks, which committee structure best resolves conflicts between independent risk objections and product-value arguments when both sides have formally valid grounds?</p>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p>Starting points - papers, articles, videos, repos, docs.
+<strong>Every source must include a URL.</strong> Use the display name formats below - they feed the <code>Author (Year)</code> citation labels shown on the generated site:</p>
+<ul>
+<li>
+<p><code>[<a href="https://url">Smith et al. (YYYY) Title of paper</a>](<a href="https://url">Organisation Title</a></code> - for papers with named authors</p>
+</li>
+<li>
+<p><code>[<a href="https://url">Organisation Title</a>](<a href="https://url">Organisation Title</a></code> - for documentation, standards, or pages without a named author</p>
+</li>
+<li>
+<p>[x] <a href="https://cisr.mit.edu/content/classic-topics-decision-rights">MIT Center for Information Systems Research (MIT CISR) (n.d.) Classic Topics: Decision Rights</a> - consulted for the governance baseline that defines governance as the allocation of decision rights and accountabilities.</p>
+</li>
+<li>
+<p>[x] <a href="https://cisr.mit.edu/content/simplifying-decision-rights-growth">MIT Center for Information Systems Research (MIT CISR) (2023) Simplifying decision rights for growth</a> - consulted for the practical decision categories that matter most in digital transformation.</p>
+</li>
+<li>
+<p>[ ] <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=20375">Weill and Ross (2004) IT Governance: How Top Performers Manage IT Decision Rights for Superior Results</a> - seeded primary source checked; the accessible page was retrieved but the full primary text was not available in this session.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.bis.org/bcbs/publ/d328.pdf">Basel Committee on Banking Supervision (BCBS) (2015) Corporate governance principles for banks</a> - consulted for board responsibility, three lines of defence, and separation of business-line and risk-function duties.</p>
+</li>
+<li>
+<p>[ ] <a href="https://www.fca.org.uk/publication/policy/ps18-14.pdf">Financial Conduct Authority (FCA) (2018) Optimising the Senior Managers and Certification Regime and feedback to CP17/25 (PS18/14)</a> - seeded policy Portable Document Format (PDF) checked; accessible official replacement sources below were used for the operative accountability-documentation requirements.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.fca.org.uk/firms/senior-managers-certification-regime">Financial Conduct Authority (FCA) (n.d.) Senior Managers and Certification Regime</a> - consulted for the regime purpose and the requirement that firms can show who does what.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf">Financial Conduct Authority (FCA) (2019) FG19/2 Senior Managers and Certification Regime: Guidance on statements of responsibilities and Responsibilities Maps for FCA firms</a> - consulted for named-accountability documents and responsibility maps.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-internal-governance-under-crd">European Banking Authority (EBA) (2021) Guidelines on internal governance under Capital Requirements Directive (CRD)</a> - consulted as the current official guidance page replacing the moved seeded URL.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf">European Banking Authority (EBA) (2021) Final report on Guidelines on internal governance under Capital Requirements Directive (CRD)</a> - consulted for management-body responsibility, lines of responsibility, and risk-function independence.</p>
+</li>
+<li>
+<p>[x] <a href="https://itrevolution.com/product/project-to-product/">Kersten (2018) Project to Product</a> - consulted for the project-to-product framing used as background context on product-oriented investment.</p>
+</li>
+<li>
+<p>[x] <a href="https://scaledagileframework.com/lean-budgets/">Scaled Agile, Inc. (n.d.) Lean Budgets</a> - consulted as a secondary description of funding long-lived flows of value, sometimes called value-stream funding, inside approved budget envelopes.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets">Thoughtworks (2025) Funding agility: Moving beyond project budgets</a> - consulted for stable base investment, quarterly governance, and product-owner authority within approved funding.</p>
+</li>
+<li>
+<p>[x] <a href="https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html">Boyd and Miller (2021) Creating a new funding model for product-based Information Technology (IT)</a> - consulted for perpetual funding, lifecycle accountability, and quarterly or annual reallocation logic.</p>
+</li>
+<li>
+<p>[x] <a href="https://tmf.cio.gov/">Technology Modernization Fund (TMF) (n.d.) Homepage</a> - consulted for milestone-based unlocks, measurable return on investment, and repayment flexibility.</p>
+</li>
+<li>
+<p>[x] <a href="https://tmf.cio.gov/board/">Technology Modernization Fund (TMF) (n.d.) Board</a> - consulted for the board's investment and performance-monitoring role.</p>
+</li>
+<li>
+<p>[x] <a href="https://fiscal.treasury.gov/system/files/files/ussgl/approved_scenarios/technology-modernization-fund-accounting-guide-%28gsa%29-fiscal-2023.pdf">Fiscal Service (2023) Technology Modernization Fund accounting guide</a> - consulted for the incremental-funding and repayment mechanics attached to TMF milestones.</p>
+</li>
+<li>
+<p>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.md">Research item (2026) Organisational failure modes: risk, operational cost, and benefits accountability in separate business units</a> - consulted as the precursor evidence on the missing-integrator problem.</p>
+</li>
+<li>
+<p>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md">Research item (2026) Organisational failure modes: overlapping and absent accountability at strategic and Information Technology (IT) layers</a> - consulted as adjacent evidence on missing or duplicated decision owners.</p>
+</li>
+<li>
+<p>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-project-demand-product-it.md">Research item (2026) Organisational failure modes: project-based demand with product-based Information Technology (IT) teams</a> - consulted as adjacent evidence on the consequences of separating funding logic from persistent delivery ownership.</p>
+</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html">Organisational failure modes: risk, operational cost, and benefits accountability in separate business units</a> <span class="related-note">via financial-governance, governance, organisation, organisational-design, risk-management</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-14-org-failure-modes-project-demand-product-it.html">Organisational failure modes: project-based demand with product-based information technology (IT) teams</a> <span class="related-note">via governance, organisation, organisational-design, product-management</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-14-org-failure-modes-vendor-standards-gaps.html">Organisational failure modes: vendor non-compliance with or absence of implementation standards</a> <span class="related-note">via governance, organisation, organisational-design</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html">Empirical evidence on rollout of organisation-wide low-code and no-code programs</a> <span class="related-note">via governance, organisation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html">Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams</a> <span class="related-note">via organisation, organisational-design</span></div>
+</div></div>
+
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html">Organisational failure modes: risk, operational cost, and benefits accountability in separate business units</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-14-org-failure-modes-accountability-gaps.html">Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-14-org-failure-modes-project-demand-product-it.html">Organisational failure modes: project-based demand with product-based information technology (IT) teams</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html">Enterprise AI platform operating models: organisational structure and ownership</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-17</td><td><a href="https://github.com/davidamitchell/Research/commit/a5ab747c2335063295f1b6c1a54ffc87536e2fee" target="_blank" rel="noopener">a5ab747</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html">Variance Control Comparison Across Delivery Modes</a></div>
+  </div>
+</main>
+<section id="mini-graph-section">
+<h2>Connected items</h2>
+<p class="mini-graph-meta" id="mini-graph-count">Loading…</p>
+<div class="mini-graph-wrap">
+<canvas id="mini-graph-canvas"></canvas>
+</div>
+<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
+</section>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation";</script>
+<script>
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+
+</script>
+</body>
+</html>

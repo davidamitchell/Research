@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-17T00:37:21Z",
+  "extracted_at": "2026-05-17T00:50:32Z",
   "items": {
     "2026-05-16-variance-control-comparison-across-delivery-modes": {
       "named_concepts": [
@@ -344,6 +344,113 @@
             "https://dora.dev/capabilities/loosely-coupled-teams/",
             "https://teamtopologies.com/key-concepts",
             "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        }
+      ]
+    },
+    "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation": {
+      "named_concepts": [
+        "independent risk",
+        "structural co-location",
+        "escalation rights",
+        "authority bundle",
+        "risk ownership",
+        "protected delivery-capability",
+        "milestone-based central",
+        "central funding",
+        "budget leverage",
+        "integrator office",
+        "delivery capability",
+        "risk cost",
+        "delivery-capability investment",
+        "capital release",
+        "central office",
+        "office lacks",
+        "lacks budget",
+        "failures already",
+        "adjacent completed",
+        "banking-governance rules"
+      ],
+      "source_urls": [
+        "https://url",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://www.hbs.edu/faculty/Pages/item.aspx?num=20375",
+        "https://www.bis.org/bcbs/publ/d328.pdf",
+        "https://www.fca.org.uk/publication/policy/ps18-14.pdf",
+        "https://www.fca.org.uk/firms/senior-managers-certification-regime",
+        "https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf",
+        "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-internal-governance-under-crd",
+        "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf",
+        "https://itrevolution.com/product/project-to-product/",
+        "https://scaledagileframework.com/lean-budgets/",
+        "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+        "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+        "https://tmf.cio.gov/",
+        "https://tmf.cio.gov/board/",
+        "https://fiscal.treasury.gov/system/files/files/ussgl/approved_scenarios/technology-modernization-fund-accounting-guide-%28gsa%29-fiscal-2023.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Banking-governance rules allow business-line delivery ownership and independent risk ownership to remain separate, but they require clear responsibilities, direct challenge paths, and management-body oversight so that no material trade-off is left ownerless",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf"
+          ]
+        },
+        {
+          "text": "Decision-rights research shows that any substitute for structural co-location must assign named owners for prioritisation of spend, choice of what versus how, and exception handling",
+          "sources": [
+            "https://cisr.mit.edu/content/classic-topics-decision-rights",
+            "https://cisr.mit.edu/content/simplifying-decision-rights-growth"
+          ]
+        },
+        {
+          "text": "The Senior Managers and Certification Regime shows one concrete way a separated structure can document answerability, because it requires named responsibility documents and responsibility maps for senior-manager roles",
+          "sources": [
+            "https://www.fca.org.uk/firms/senior-managers-certification-regime",
+            "https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf"
+          ]
+        },
+        {
+          "text": "Product and value-stream funding models reduce the cost-benefit split only when standing teams receive stable funding and backlog authority inside an approved envelope while central governance retains strategic reallocation rights at regular review points",
+          "sources": [
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+            "https://scaledagileframework.com/lean-budgets/"
+          ]
+        },
+        {
+          "text": "Milestone-based central funding can enforce measurable progress and capital discipline when strong central investment governance exists, and this mechanism can partially substitute for structural co-location while still requiring a named owner for milestones and repayment conditions",
+          "sources": [
+            "https://tmf.cio.gov/",
+            "https://tmf.cio.gov/board/",
+            "https://fiscal.treasury.gov/system/files/files/ussgl/approved_scenarios/technology-modernization-fund-accounting-guide-%28gsa%29-fiscal-2023.pdf"
+          ]
+        },
+        {
+          "text": "The best-supported integrator bundle in this evidence base includes budget-gating or budget-recommendation rights, a benefits-reporting mandate, mandatory convening of finance and risk for binding review, and veto or escalation rights when other demands would consume protected delivery-capability capacity",
+          "sources": [
+            "https://www.cio.com/article/196208/creating-a-new-funding-model-for-product-based-it.html",
+            "https://www.thoughtworks.com/insights/blog/leadership/funding-agility-moving-beyond-project-budgets",
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf"
+          ]
+        },
+        {
+          "text": "The integrator office does not need to own independent risk sign-off itself, because regulated-governance sources keep second-line challenge separate; the key requirement is guaranteed participation and escalation so that risk objections cannot be bypassed",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf",
+            "https://www.fca.org.uk/publication/finalised-guidance/fg19-02.pdf"
+          ]
+        },
+        {
+          "text": "If the central office lacks budget leverage and documented decision rights, it remains only a coordinator and is likely to reproduce the same missing-integrator, queue-fragmentation, and cost-shifting failures already identified in adjacent completed repository items",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-project-demand-product-it.md"
           ]
         }
       ]
