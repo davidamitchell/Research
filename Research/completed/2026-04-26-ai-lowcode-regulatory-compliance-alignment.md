@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-decision-rights-accountability-liability, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-lowcode-governance-maturity-model]
 tags: [regulatory-compliance, ai-governance, low-code, privacy, financial-regulation, audit, enterprise-governance, eu-ai-act, gdpr, apra, dora]
+ai_themes: [governance-policy, security-risk, tools-infrastructure, regulatory-compliance-frameworks]
 started: 2026-04-26T21:55:53+00:00
 completed: 2026-04-26T22:13:28+00:00
 output: [knowledge]

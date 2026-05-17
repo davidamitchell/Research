@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [knowledge-graph, ai-platform, organisation]
+ai_themes: [knowledge-graphs, tools-infrastructure, workforce-skills, cost-performance, knowledge-management]
 started: 2026-05-14T10:22:59+00:00
 completed: 2026-05-14T10:48:14+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, llm, ai-platform, governance]
+ai_themes: [agentic-ai, governance-policy, security-risk, mlops-deployment, incident-management]
 started: 2026-05-07T12:57:33+00:00
 completed: 2026-05-07T13:29:29+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item

@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [maturity-model, ai-governance, low-code, enterprise-governance, capability-model, benchmarks, progression, assessment, regulated-enterprise]
+ai_themes: [governance-policy, security-risk, ai-architecture, enterprise-maturity]
 started: 2026-04-27T13:44:41+00:00
 completed: 2026-04-27T14:14:19+00:00
 output: [knowledge]

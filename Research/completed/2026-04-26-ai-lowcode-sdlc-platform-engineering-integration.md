@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-ai-governance-cost-performance-delivery-impact, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 tags: [sdlc, platform-engineering, ci-cd, devops, ai-governance, low-code, testing, release-management, infrastructure-as-code, enterprise-engineering]
+ai_themes: [governance-policy, ai-architecture, tools-infrastructure, mlops-deployment, software-delivery-lifecycle]
 started: 2026-04-26T22:30:44+00:00
 completed: 2026-04-26T22:48:30+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 tags: [failure-modes, ai-governance, low-code, risk, data-leakage, adversarial-analysis, enterprise-governance, operational-risk, incident-scenarios]
+ai_themes: [governance-policy, security-risk, mlops-deployment, enterprise-risk-management]
 started: 2026-04-26T18:34:06+00:00
 completed: 2026-04-26T18:56:39+00:00
 output: [knowledge]

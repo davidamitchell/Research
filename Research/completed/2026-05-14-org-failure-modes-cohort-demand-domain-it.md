@@ -6,6 +6,7 @@ status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [organisation, organisational-design, organisational-theory]
+ai_themes: [governance-policy, workforce-skills, knowledge-management, organisational-design]
 started: 2026-05-15T02:36:52+00:00
 completed: 2026-05-15T03:05:27+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [citizen-development, organisation, governance, workflow]
+ai_themes: [governance-policy, workforce-skills, tools-infrastructure, citizen-development-strategy]
 started: 2026-05-15T04:15:01+00:00
 completed: 2026-05-15T04:34:30+00:00
 output: []

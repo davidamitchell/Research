@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-05-06-fact-checking-tools-research-quality-improvement]
 tags: [llm, evaluation, workflow, agentic-ai]
+ai_themes: [llm-reasoning, governance-policy, security-risk, mlops-deployment, cost-performance]
 started: 2026-05-06T12:26:01+00:00
 completed: 2026-05-06T12:54:39+00:00
 output: [knowledge]

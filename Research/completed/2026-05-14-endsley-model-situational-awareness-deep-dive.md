@@ -6,6 +6,7 @@ status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [agentic-ai, evaluation]
+ai_themes: [agentic-ai, benchmarks-eval, consciousness-cognition, human-factors-engineering]
 started: 2026-05-15T09:40:32+00:00
 completed: 2026-05-15T10:05:17+00:00
 output: [knowledge]

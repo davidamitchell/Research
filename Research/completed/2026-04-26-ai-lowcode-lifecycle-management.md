@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-sdlc-platform-engineering-integration, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 tags: [lifecycle-management, ai-models, prompts, low-code, versioning, deployment-controls, rollback, decommissioning, change-management, enterprise-governance]
+ai_themes: [governance-policy, ai-architecture, tools-infrastructure, mlops-deployment, lifecycle-governance]
 started: 2026-04-26T19:26:11+00:00
 completed: 2026-04-26T19:45:16+00:00
 output: [knowledge]
