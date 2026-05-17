@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 36d7d418d4cfbfd02342844d975519598e9f3c05
+    changed: 2026-05-17
+    progress: progress/2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk.md
+    summary: "Initial completion"
 ---
 
 # Adversarial prompting risks in policy assistants: coercing restrictive policy into permissive interpretations
