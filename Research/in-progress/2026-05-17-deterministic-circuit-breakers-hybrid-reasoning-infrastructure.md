@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Deterministic circuit-breakers and real-time infrastructure constraints for hybrid reasoning stacks"
 added: 2026-05-17T11:18:46+00:00
 status: reviewing
