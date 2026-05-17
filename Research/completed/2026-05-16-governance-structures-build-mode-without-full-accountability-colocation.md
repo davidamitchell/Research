@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a5ab747c2335063295f1b6c1a54ffc87536e2fee
+    changed: 2026-05-17
+    progress: progress/2026-05-17-governance-structures-build-mode-without-full-accountability-colocation.md
+    summary: Initial completion
 ---
 
 # Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits
