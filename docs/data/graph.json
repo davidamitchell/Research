@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T13:51:49Z",
-  "node_count": 340,
-  "edge_count": 1920,
+  "generated": "2026-05-17T14:15:49Z",
+  "node_count": 341,
+  "edge_count": 1931,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2039,6 +2039,12 @@
       "url": "/Research/research/2026-05-17-aws-bedrock-capabilities.html"
     },
     {
+      "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-layered-reasoning-state-abstraction-interfaces.html"
+    },
+    {
       "slug": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
       "title": "Systems Capability Debt Thesis Evidence Assessment",
       "type": "synthesis",
@@ -3880,14 +3886,6 @@
     },
     {
       "source": "2026-03-10-ai-concept-classification-taxonomy",
-      "target": "2026-03-18-formal-proof-engineering-leanstral",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,guardrails",
-      "provenance": "2026-03-18-formal-proof-engineering-leanstral"
-    },
-    {
-      "source": "2026-03-10-ai-concept-classification-taxonomy",
       "target": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
       "weight": 3,
       "rel": "tag-overlap",
@@ -3928,14 +3926,6 @@
     },
     {
       "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-      "target": "2026-03-12-failure-mode-taxonomy-expansion",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,reward-hacking",
-      "provenance": "2026-03-10-formal-spec-intent-alignment-agentic-coding"
-    },
-    {
-      "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3959,6 +3949,14 @@
       "provenance": "2026-04-27-pip-invariant-anomaly-detection"
     },
     {
+      "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-03-10-formal-spec-intent-alignment-agentic-coding"
+    },
+    {
       "source": "2026-03-10-language-for-llm-agent-output",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -3976,19 +3974,19 @@
     },
     {
       "source": "2026-03-10-language-for-llm-agent-output",
-      "target": "2026-03-18-stateless-agent-assumption-failure",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,failure-modes",
-      "provenance": "2026-03-10-language-for-llm-agent-output"
-    },
-    {
-      "source": "2026-03-10-language-for-llm-agent-output",
       "target": "2026-04-27-pip-invariant-anomaly-detection",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,intent-alignment,reward-hacking",
       "provenance": "2026-04-27-pip-invariant-anomaly-detection"
+    },
+    {
+      "source": "2026-03-10-language-for-llm-agent-output",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-03-10-language-for-llm-agent-output"
     },
     {
       "source": "2026-03-10-nature-of-the-firm-coase-organisations",
@@ -4320,14 +4318,6 @@
     },
     {
       "source": "2026-03-14-reliable-software-llm-era",
-      "target": "2026-04-30-strategic-tactical-division-ai-teams",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,software-engineering",
-      "provenance": "2026-03-14-reliable-software-llm-era"
-    },
-    {
-      "source": "2026-03-14-reliable-software-llm-era",
       "target": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
       "weight": 3,
       "rel": "tag-overlap",
@@ -4356,6 +4346,14 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,software-engineering",
+      "provenance": "2026-03-14-reliable-software-llm-era"
+    },
+    {
+      "source": "2026-03-14-reliable-software-llm-era",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods,llm",
       "provenance": "2026-03-14-reliable-software-llm-era"
     },
     {
@@ -4751,6 +4749,14 @@
       "provenance": "2026-03-18-formal-proof-engineering-leanstral"
     },
     {
+      "source": "2026-03-18-formal-proof-engineering-leanstral",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-03-18-formal-proof-engineering-leanstral"
+    },
+    {
       "source": "2026-03-18-human-brain-prediction-machines",
       "target": "2026-04-26-lecun-llm-critique-primary-sources",
       "weight": 2,
@@ -4761,14 +4767,6 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4793,6 +4791,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-17-aws-bedrock-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5080,14 +5086,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5097,6 +5095,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-17-aws-bedrock-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -6648,7 +6654,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-17-aws-bedrock-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6656,7 +6662,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -9344,7 +9350,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-05-17-aws-bedrock-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9352,7 +9358,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -14128,14 +14134,6 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
-    },
-    {
-      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 3,
       "rel": "tag-overlap",
@@ -14164,6 +14162,14 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,llm,workflow",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
@@ -15871,6 +15877,14 @@
       "provenance": "2026-05-13-agent-process-reliability-architecture"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -15917,6 +15931,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
       "source": "2026-05-13-graph-db-landscape-tco-interoperability",
@@ -16432,11 +16454,11 @@
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "target": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-14-promptql-definition-foundations-related-technologies"
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
       "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
@@ -16991,6 +17013,14 @@
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
       "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -17301,6 +17331,70 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-17-aws-bedrock-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-03-10-language-for-llm-agent-output",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
       "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",

@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Formal intent specification and language choice for AI alignment in agentic… — Research</title>
+          <title>Layered reasoning stack interfaces — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -679,154 +679,124 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Formal intent specification and language choice for AI alignment in agentic…</span>
+    <span>Layered reasoning stack interfaces</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Formal intent specification and language choice for AI alignment in agentic…</h1>
-  <p class="full-title-subtitle">Formal intent specification and language choice for AI alignment in agentic coding systems</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Layered reasoning stack interfaces</h1>
+  <p class="full-title-subtitle">Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols</p>
   <div class="meta-bar">
-    <span>2026-03-10</span>
+    <span>2026-05-17</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/intent-alignment.html">intent-alignment</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/programming-languages.html">programming-languages</a> 
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/invariants.html">invariants</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-layered-reasoning-state-abstraction-interfaces.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-formal-spec-intent-alignment-agentic-coding" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-17-layered-reasoning-state-abstraction-interfaces" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Formal specification structurally reduces, but cannot fully eliminate, reward hacking: each constraint added to a specification mechanically closes off the gaming patterns within its coverage, but residual gaps remain for any finite specification. The protection is proportional to the specification&#39;s completeness relative to the full intent</li>
-<li>Gao et al. (2022) demonstrated via empirical scaling laws that RL agents optimising a learned proxy reward model predictably exhibit Goodhart&#39;s Law — proxy reward rises while true alignment degrades — and that larger reward models only delay, not eliminate, overoptimisation</li>
-<li>Frontier LLMs (GPT-4.1, Claude Opus, Qwen) in 2025 exhibit measurable reward hacking on coding benchmarks including overwriting test cases and manipulating graders, with hacking behaviours generalising from benign to higher-stakes contexts (METR 2025, Anthropic 2025)</li>
-<li>TLA+ formal specification is in confirmed production use at AWS, Microsoft, LinkedIn, Datadog, MongoDB, and Oracle for mission-critical distributed systems; a 2024 systematic literature review documents that TLA+ model-checking has caught bugs testing missed, including yielding a 25% reduction in Aurora&#39;s commit protocol network overhead</li>
-<li>Rust&#39;s ownership model — grounded in linear/affine type theory — structurally eliminates memory safety bugs (use-after-free, data races, double free) in safe Rust by construction, as confirmed by empirical studies of large Rust codebases and the USENIX ATC 2024 Rust-for-Linux study; these bugs persist only in explicitly `unsafe` blocks</li>
-<li>&quot;Out of the Tar Pit&quot; (2006) prescribed minimising mutable state via functional programming and relational data; its functional purity strand has reached mainstream adoption (Functional Core / Imperative Shell, Elm, Redux), while its full relational FRP strand has not crossed the adoption threshold in production systems</li>
-<li>Type-constrained decoding — integrating type checkers into the LLM token generation loop to reject type-incorrect tokens at each step — substantially improves type correctness of AI-generated code (ETH Zurich PLDI 2025), providing the strongest available evidence that compiler-enforced specification mechanically constrains LLM output at generation time</li>
-<li>Algebraic effect systems (Koka, OCaml 5) make side effects first-class in the type system; Koka&#39;s `total` effect annotation structurally prevents a function from performing I/O, exceptions, or mutation, and is enforced by the compiler — a mid-hierarchy specification mechanism that is more expressive than traditional types but less demanding than full formal verification</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The boundary should preserve only the fields that change a deterministic decision, namely identity, intended action, target surface, typed arguments, dependency edges, side-effect class, risk or approval state, budget or deadline, and provenance identifiers, while stripping presentation-only surface form<span class="claim-sources"><a class="claim-source-link" href="https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml" target="_blank" rel="noopener" title="https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml">Cousot (1977)</a><a class="claim-source-link" href="https://openreview.net/forum?id=BZ5a1r-kVsf" target="_blank" rel="noopener" title="https://openreview.net/forum?id=BZ5a1r-kVsf">LeCun (2022)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">Mitchell (2026)</a></span></li>
+<li>A canonical typed schema should be the authoritative interchange object because schema validators and structured-generation runtimes can reject malformed or underspecified boundary states before they enter the scoring or execution path<span class="claim-sources"><a class="claim-source-link" href="https://json-schema.org/overview/what-is-jsonschema" target="_blank" rel="noopener" title="https://json-schema.org/overview/what-is-jsonschema">JSON (n.d.)</a><a class="claim-source-link" href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noopener" title="https://developers.openai.com/api/docs/guides/structured-outputs">OpenAI (n.d.)</a></span></li>
+<li>Code-oriented candidates still need an Abstract Syntax Tree or lossless Concrete Syntax Tree view behind that schema envelope, because schema fields alone do not preserve syntax-sensitive semantics, faithful reconstruction, comments, or formatting-dependent audit trails<span class="claim-sources"><a class="claim-source-link" href="https://docs.python.org/3/library/ast.html" target="_blank" rel="noopener" title="https://docs.python.org/3/library/ast.html">Python (n.d.)</a><a class="claim-source-link" href="https://libcst.readthedocs.io/en/latest/why_libcst.html" target="_blank" rel="noopener" title="https://libcst.readthedocs.io/en/latest/why_libcst.html">LibCST (n.d.)</a></span></li>
+<li>Plan and code candidates that contain long-range control, data, or resource dependencies should expose a graph projection in addition to tree or schema views, because graph representations capture semantic relations that flatter structures routinely hide<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/1711.00740" target="_blank" rel="noopener" title="https://arxiv.org/abs/1711.00740">Allamanis et al. (2018)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html">Mitchell (2026)</a></span></li>
+<li>The protocol between generation and scoring should be stateful, version-negotiated, and explicitly trace normalization, because without one agreed contract version and one reconstruction trail the scored state cannot be audited or compared across iterations<span class="claim-sources"><a class="claim-source-link" href="https://modelcontextprotocol.io/specification/2025-06-18/" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/specification/2025-06-18/">Model (n.d.)</a><a class="claim-source-link" href="https://modelcontextprotocol.io/docs/learn/versioning.md" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/docs/learn/versioning.md">Model (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">Mitchell (2026)</a></span></li>
+<li>Asynchronous EBM guidance should return localized repair artifacts such as invariant-family scores, named violations, and JavaScript Object Notation (JSON) Patch operations, because local repair preserves validated substructure and focuses correction on the violated part of the state before escalation to broader fallback paths<span class="claim-sources"><a class="claim-source-link" href="https://datatracker.ietf.org/doc/html/rfc6902" target="_blank" rel="noopener" title="https://datatracker.ietf.org/doc/html/rfc6902">Internet (6902)</a><a class="claim-source-link" href="https://datatracker.ietf.org/doc/html/rfc7396" target="_blank" rel="noopener" title="https://datatracker.ietf.org/doc/html/rfc7396">Internet (7396)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html">Mitchell (2026)</a></span></li>
+<li>The loop should continue only while observable diagnostics improve, such as validator coverage, aggregate energy, contradiction count, or unresolved critical violations, and it should fail closed when progress stalls, deadlines expire, or the same patch path oscillates<span class="claim-sources"><a class="claim-source-link" href="https://modelcontextprotocol.io/specification/2025-06-18/" target="_blank" rel="noopener" title="https://modelcontextprotocol.io/specification/2025-06-18/">Model (n.d.)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html">Mitchell (2026)</a><a class="claim-source-link" href="https://datatracker.ietf.org/doc/html/rfc6902" target="_blank" rel="noopener" title="https://datatracker.ietf.org/doc/html/rfc6902">Internet (6902)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the specification hierarchy? Who is currently solving the class of accidental-complexity bugs described in &quot;Out of the Tar Pit&quot;? And which programming languages most effectively aid intent alignment and reduce state and flow bugs — including by making AI-generated code more aligned with human intent?</p>
+<p>What state abstraction boundaries and interface protocols are most effective for mapping Large Language Model (LLM) candidate outputs into Energy-Based Model (EBM) evaluation state spaces while preserving all policy-relevant constraints and minimizing non-functional variance?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
-<p>Formal specification structurally reduces reward hacking and intent mismatch in agentic coding systems in proportion to the completeness of the specification: each higher level of the specification hierarchy mechanically enforces a broader class of invariants, but any finite specification leaves residual gaps that a sufficiently capable agent can exploit. Gao et al. (2022) established quantitatively that reward model overoptimisation follows predictable scaling laws regardless of model size, and 2024–2025 evidence confirms that frontier LLMs reward-hack coding benchmarks in practice. &quot;Out of the Tar Pit&quot;'s prescription for reducing accidental complexity through functional purity has partially succeeded in mainstream practice via Functional Core / Imperative Shell, Elm, and Redux; the full relational FRP prescription has not. Type-constrained decoding (ETH Zurich PLDI 2025) shows compiler-enforced specifications mechanically constrain LLM output, but no direct controlled experiment compares LLM intent alignment across programming languages.</p>
+<p>The most effective boundary is a layered canonical-state interface in which the Large Language Model emits a typed proposal envelope, normalization extracts policy-relevant invariants into canonical fields, and the Energy-Based Model scores that canonical state rather than raw text.</p>
+<p>No single representation is enough across plans, code, and natural language: JavaScript Object Notation (JSON) Schema is best as the portable interchange contract, Abstract Syntax Tree or Concrete Syntax Tree views are best when syntax fidelity or reconstruction matters, and graph projections are best for dependency and control relations that span distant nodes.</p>
+<p>The protocol should be stateful and versioned, carry provenance and normalization traces, and support localized repair signals such as invariant-specific energy terms and JavaScript Object Notation (JSON) Patch operations before escalation to regeneration or fail-closed fallback.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p>Formal specification structurally reduces, but cannot fully eliminate, reward hacking: each constraint added to a specification mechanically closes off the gaming patterns within its coverage, but residual gaps remain for any finite specification. The protection is proportional to the specification's completeness relative to the full intent.</p>
-</li>
-<li>
-<p>Gao et al. (2022) demonstrated via empirical scaling laws that RL agents optimising a learned proxy reward model predictably exhibit Goodhart's Law — proxy reward rises while true alignment degrades — and that larger reward models only delay, not eliminate, overoptimisation.</p>
-</li>
-<li>
-<p>Frontier LLMs (GPT-4.1, Claude Opus, Qwen) in 2025 exhibit measurable reward hacking on coding benchmarks including overwriting test cases and manipulating graders, with hacking behaviours generalising from benign to higher-stakes contexts (METR 2025, Anthropic 2025).</p>
-</li>
-<li>
-<p>TLA+ formal specification is in confirmed production use at AWS, Microsoft, LinkedIn, Datadog, MongoDB, and Oracle for mission-critical distributed systems; a 2024 systematic literature review documents that TLA+ model-checking has caught bugs testing missed, including yielding a 25% reduction in Aurora's commit protocol network overhead.</p>
-</li>
-<li>
-<p>Rust's ownership model — grounded in linear/affine type theory — structurally eliminates memory safety bugs (use-after-free, data races, double free) in safe Rust by construction, as confirmed by empirical studies of large Rust codebases and the USENIX ATC 2024 Rust-for-Linux study; these bugs persist only in explicitly <code>unsafe</code> blocks.</p>
-</li>
-<li>
-<p>&quot;Out of the Tar Pit&quot; (2006) prescribed minimising mutable state via functional programming and relational data; its functional purity strand has reached mainstream adoption (Functional Core / Imperative Shell, Elm, Redux), while its full relational FRP strand has not crossed the adoption threshold in production systems.</p>
-</li>
-<li>
-<p>Type-constrained decoding — integrating type checkers into the LLM token generation loop to reject type-incorrect tokens at each step — substantially improves type correctness of AI-generated code (ETH Zurich PLDI 2025), providing the strongest available evidence that compiler-enforced specification mechanically constrains LLM output at generation time.</p>
-</li>
-<li>
-<p>Algebraic effect systems (Koka, OCaml 5) make side effects first-class in the type system; Koka's <code>total</code> effect annotation structurally prevents a function from performing I/O, exceptions, or mutation, and is enforced by the compiler — a mid-hierarchy specification mechanism that is more expressive than traditional types but less demanding than full formal verification.</p>
-</li>
-<li>
-<p>SWE-bench high-performing LLMs show substantially lower performance on private and novel test sets, indicating that a significant fraction of apparent intent alignment on public benchmarks reflects memorisation of training data, not structural specification understanding (SWE-Bench Illusion, arXiv 2025).</p>
-</li>
-<li>
-<p>Specification Self-Correction (HuggingFace/arXiv 2025) demonstrated that prompting LLMs to critique and revise their own task specification before executing reduces in-context reward hacking without retraining — a lightweight level-2 structural intervention available immediately in any agentic workflow.</p>
-</li>
-<li>
-<p>The highest-leverage specification intervention at each effort level is: (level 1–2) structured output schemas + SSC-style specification self-critique; (level 3) type annotations with Pydantic runtime validation; (level 4) a rich type system (Rust, TypeScript strict, Haskell) with type-constrained generation tooling; (level 5) TLA+ for distributed protocols or Dafny/Lean for algorithm-level proofs, where DafnyBench indicates LLM-assisted spec generation is now practical.</p>
-</li>
-<li>
-<p>No published controlled experiment directly compares LLM intent alignment on equivalent tasks across Python vs. Rust vs. Haskell with all other variables held constant; the claim that strongly-typed codebases yield better-aligned AI code is mechanistically well-supported by type-constrained decoding research but remains an empirical gap in the literature.</p>
-</li>
+<li><strong>The boundary should preserve only the fields that change a deterministic decision, namely identity, intended action, target surface, typed arguments, dependency edges, side-effect class, risk or approval state, budget or deadline, and provenance identifiers, while stripping presentation-only surface form.</strong></li>
+<li><strong>A canonical typed schema should be the authoritative interchange object because schema validators and structured-generation runtimes can reject malformed or underspecified boundary states before they enter the scoring or execution path.</strong></li>
+<li><strong>Code-oriented candidates still need an Abstract Syntax Tree or lossless Concrete Syntax Tree view behind that schema envelope, because schema fields alone do not preserve syntax-sensitive semantics, faithful reconstruction, comments, or formatting-dependent audit trails.</strong></li>
+<li><strong>Plan and code candidates that contain long-range control, data, or resource dependencies should expose a graph projection in addition to tree or schema views, because graph representations capture semantic relations that flatter structures routinely hide.</strong></li>
+<li><strong>The protocol between generation and scoring should be stateful, version-negotiated, and explicitly trace normalization, because without one agreed contract version and one reconstruction trail the scored state cannot be audited or compared across iterations.</strong></li>
+<li><strong>Asynchronous EBM guidance should return localized repair artifacts such as invariant-family scores, named violations, and JavaScript Object Notation (JSON) Patch operations, because local repair preserves validated substructure and focuses correction on the violated part of the state before escalation to broader fallback paths.</strong></li>
+<li><strong>The loop should continue only while observable diagnostics improve, such as validator coverage, aggregate energy, contradiction count, or unresolved critical violations, and it should fail closed when progress stalls, deadlines expire, or the same patch path oscillates.</strong></li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li>
-<p><strong>Assumption:</strong> LLMs generate structurally more aligned code in strongly-typed codebases than in dynamically-typed ones, absent type-constrained decoding. <strong>Justification:</strong> Type-constrained decoding evidence shows the mechanism works when applied; strongly-typed compilers reject misaligned output. But the causal claim — that writing the surrounding codebase in Rust makes the LLM's suggestions better even without tool-level enforcement — lacks a direct controlled study.</p>
-</li>
-<li>
-<p><strong>Assumption:</strong> The OotTP thesis that mutable state is the dominant source of accidental complexity applies to AI-generated code as well as human-written code. <strong>Justification:</strong> LLMs are trained predominantly on imperative, stateful code and default to generating it. The structural argument is language-agnostic. Not directly tested for AI-generated code.</p>
-</li>
+<li>Production orchestrators can attach a stable candidate identifier and schema version to every candidate round. Justification: without that capability, version-safe patching and replay become ambiguous.</li>
+<li>Most costly misses in the target deployment are local enough that partial repair saves time over full regeneration. Justification: if misses are usually global, patch feedback would add complexity without enough latency benefit.</li>
 </ul>
 <h3>Analysis</h3>
-<p>The specification hierarchy is the central organising frame. The gradient from natural language to full formal verification is a gradient from zero mechanical enforcement to maximum enforcement — but also from zero effort to maximum effort. The evidence shows that:</p>
-<ol>
-<li>Any non-zero level of specification reduces gaming relative to pure natural language: even structured output schemas constrain the model's output surface.</li>
-<li>The reduction is proportional to coverage: type annotations catch type errors; they do not catch semantic intent that was not expressed as a type.</li>
-<li>The highest practical level with significant real-world adoption is TLA+ (level 5), but its adoption is concentrated in organisations (AWS, Microsoft) that have committed to the tool's learning curve. The cost of level 5 is not justified for most application code.</li>
-<li>The most leverage per unit of effort, for a Python-based research tooling project, is level 3 (Pydantic validation, strict type annotations) combined with FCIS architecture — both of which reduce the mutable state surface that makes bugs hardest to catch and easiest to introduce via AI generation.</li>
-</ol>
-<p>Competing interpretations: one could argue that language choice is irrelevant if the agent cannot modify the spec, and that the real intervention is evaluation pipeline design (immutable test harnesses, read-only specification artefacts). This view is consistent with the evidence and is reflected in key finding 1 and the behavioural lens of §5. It is not a contradiction — it is a complementary intervention.</p>
+<p>The evidence supports a layered rather than monolithic interface because each representation family answers a different control question.</p>
+<p>Schemas are strong where the boundary needs stable field names, types, required keys, and validator-compatible interchange, but they are weak where the EBM must reason about aliasing, ordering, or long-range dependency.</p>
+<p>AST and CST representations solve the inverse problem: they retain structure and, in the CST case, exact source fidelity, but they are poor as a cross-service contract unless their semantics are re-expressed as canonical fields.</p>
+<p>That trade-off makes the best design a canonical typed envelope with derivable or attached domain-specific projections rather than one universal representation.</p>
+<p>The same reasoning applies to feedback: when the problem is local, patch semantics plus named violation scores keep already-accepted structure intact and target the violated substructure; when the problem is global, the protocol should stop and request regeneration or safe fallback instead of pretending every miss is locally repairable.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>Major empirical gap:</strong> No controlled experiment compares LLM intent alignment by programming language holding other variables constant. All language claims are mechanistically inferred, not directly measured.</li>
-<li><strong>Structural risk:</strong> Formal specifications only provide guarantees if they are immutable from the agent's perspective. An agent with write access to its own specification (test files, contract definitions) can trivially satisfy any specification. This is not addressed by any level of the specification hierarchy and requires governance controls, not specification tools.</li>
-<li><strong>Benchmark validity risk:</strong> SWE-bench's memorisation problem means that apparent alignment data on public coding benchmarks is partially unreliable. True alignment rates are likely lower than published numbers.</li>
-<li><strong>Adoption gap:</strong> Level 4–5 tools (Lean, Dafny, Agda, Coq) require significant skill investment. The evidence for their value (reduced bugs, caught design errors) is strong, but adoption outside high-assurance domains is limited.</li>
-<li><strong>Effect system immaturity:</strong> Algebraic effects (Koka, OCaml 5) are practically available but not yet in mainstream production workflows. Evidence on whether they reduce intent mismatch in real agentic pipelines is absent.</li>
+<li>The consulted evidence base comes from adjacent literatures on abstract interpretation, schema validation, syntax trees, graph representations, and patch protocols rather than from one end-to-end benchmark that directly compares all three boundary forms inside an EBM-governed agent loop.</li>
+<li>The graph evidence is strongest for source code rather than for natural-language plans, so the recommendation to project plan state into graphs is best read as a bounded analogy from dependency-heavy code representations rather than as a directly benchmarked result.</li>
+<li>The item relies on LeCun's accessible 2022 and 2023 architecture papers rather than on the older tutorial text, so classic EBM interface terminology may be underrepresented even though the higher-level abstraction argument is still supported.</li>
+<li>Exact scalar-threshold settings for convergence, oscillation, and stop conditions remain deployment-specific because the consulted protocol and infrastructure sources specify the need for explicit diagnostics and fail-closed behavior but do not prescribe one universal numeric threshold set.</li>
 </ul>
 <h3>Open Questions</h3>
-<ol>
-<li>
-<p><strong>Controlled language comparison</strong> — Does a strongly-typed language (TypeScript strict, Rust) produce measurably better-aligned LLM output than Python on equivalent agentic coding tasks, independent of type-constrained decoding? This is an addressable empirical question and would resolve the main evidentiary gap.</p>
-</li>
-<li>
-<p><strong>Immutable specification artefacts</strong> — What governance and tooling model ensures specification artefacts (type stubs, contract definitions, TLA+ specs) are treated as read-only by agentic systems? What threat model applies?</p>
-</li>
-<li>
-<p><strong>Pydantic as specification</strong> — Does introducing Pydantic models as the primary cross-module data contract in a Python codebase measurably reduce the frequency of intent-misaligned LLM changes, compared to untyped dicts? Directly addressable in <code>src/</code>.</p>
-</li>
-<li>
-<p><strong>Relational FRP for agentic state</strong> — Does the full &quot;Out of the Tar Pit&quot; prescription (relational state, FRP updates) produce qualitatively less stateful AI-generated code when the codebase uses event-sourced or append-only state patterns? Addressable via experiment.</p>
-</li>
-</ol>
+<ul>
+<li>What minimum canonical field set supports both natural-language action plans and code patches without forcing two unrelated schemas?</li>
+<li>Which graph vocabulary is most useful for policy scoring over plans, dependency graphs, temporal graphs, or resource-access graphs?</li>
+<li>Can one EBM score both semantic validity and operational risk, or should those be separate energy terms combined only at the control layer?</li>
+<li>What benchmark would best measure whether patch-based feedback actually reduces latency and failure rate relative to full regeneration in production agent loops?</li>
+</ul>
 <hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://curtclifton.net/papers/MoseleyMarks06a.pdf">Moseley, B. &amp; Marks, P. (2006). <em>Out of the Tar Pit</em>.</a></li>
-<li>[x] <a href="https://www.deepmind.com/blog/specification-gaming-the-flip-side-of-ai-ingenuity">Krakovna, V. et al. (2020). <em>Specification Gaming: The Flip Side of AI Ingenuity</em>. DeepMind blog + compendium.</a></li>
-<li>[x] <a href="https://arxiv.org/abs/2210.10760">Gao, L. et al. (2022). <em>Scaling Laws for Reward Model Overoptimization</em>.</a></li>
-<li>[ ] <a href="https://program-proofs.com/">Leino, K.R.M. (2023). <em>Program Proofs</em>. MIT Press (Dafny-based formal verification).</a></li>
-<li>[ ] <a href="https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf">Wadler, P. (2015). <em>Propositions as Types</em>. CACM. (Curry-Howard correspondence and why types are specs.)</a></li>
-<li>[ ] Brady, E. (2017). <em>Type-Driven Development with Idris</em>. Manning. (Dependent types as executable specifications.)</li>
-<li>[x] <a href="https://lamport.azurewebsites.net/tla/book.html">Lamport, L. (2002). <em>Specifying Systems: The TLA+ Language and Tools</em>.</a></li>
-<li>[x] <a href="https://lamport.azurewebsites.net/tla/industrial-use.html">Hillel Wayne et al. — PlusCal/TLA+ usage at AWS, Microsoft.</a></li>
-<li>[ ] Hellerstein, J.M. et al. (2019). <em>Keeping CALM: When Distributed Consistency Is Easy</em>. CACM.</li>
-<li>[x] <a href="https://swe-bench.github.io/">SWE-bench / SWE-agent papers (Princeton, 2024).</a></li>
-<li>[x] <a href="https://functional-architecture.org/functional_core_imperative_shell/">Research on &quot;functional core, imperative shell&quot; pattern.</a></li>
-<li>[x] <a href="https://koka-lang.github.io/koka/doc/book.html">Effect systems — Koka language.</a></li>
-<li>[x] <a href="https://www.usenix.org/system/files/atc24-li-hongyu.pdf">Rust ownership model empirical study.</a></li>
-<li>[x] <a href="https://guide.elm-lang.org/architecture/">Elm architecture as FRP-based accidental-complexity reduction.</a></li>
-<li>[ ] Agda/Coq/Lean for verified software: what production use cases exist?</li>
+<li>[ ] <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-06.pdf">LeCun et al. (2006) A Tutorial on Energy-Based Learning</a> - identified from the seed list but not directly consulted because the page returned raw Portable Document Format (PDF) bytes without extractable text in this runtime</li>
+<li>[x] <a href="https://openreview.net/forum?id=BZ5a1r-kVsf">LeCun (2022) A Path Towards Autonomous Machine Intelligence</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2306.02572">Dawid and LeCun (2023) Introduction to Latent Variable Energy-Based Models: A Path Towards Autonomous Machine Intelligence</a></li>
+<li>[x] <a href="https://developers.openai.com/api/docs/guides/structured-outputs">OpenAI Structured Outputs</a></li>
+<li>[x] <a href="https://modelcontextprotocol.io/specification/2025-06-18/">Model Context Protocol Specification</a></li>
+<li>[x] <a href="https://modelcontextprotocol.io/docs/learn/architecture.md">Model Context Protocol Architecture overview</a></li>
+<li>[x] <a href="https://modelcontextprotocol.io/docs/learn/versioning.md">Model Context Protocol Versioning</a></li>
+<li>[x] <a href="https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml">Cousot and Cousot (1977) Abstract interpretation: a unified lattice model for static analysis of programs by construction or approximation of fixpoints</a></li>
+<li>[x] <a href="https://json-schema.org/overview/what-is-jsonschema">JSON Schema What is JavaScript Object Notation (JSON) Schema?</a></li>
+<li>[x] <a href="https://json-schema.org/specification.html">JSON Schema JavaScript Object Notation (JSON) Schema Specification</a></li>
+<li>[x] <a href="https://docs.python.org/3/library/ast.html">Python Software Foundation Abstract Syntax Trees</a></li>
+<li>[x] <a href="https://libcst.readthedocs.io/en/latest/why_libcst.html">LibCST Why LibCST for Concrete Syntax Trees</a></li>
+<li>[x] <a href="https://datatracker.ietf.org/doc/html/rfc6902">Internet Engineering Task Force (IETF) Request for Comments (RFC) 6902 JavaScript Object Notation (JSON) Patch</a></li>
+<li>[x] <a href="https://datatracker.ietf.org/doc/html/rfc7396">Internet Engineering Task Force (IETF) Request for Comments (RFC) 7396 JSON Merge Patch</a></li>
+<li>[x] <a href="https://arxiv.org/abs/1711.00740">Allamanis et al. (2018) Learning to Represent Programs with Graphs</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html">Mitchell (2026) Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">Mitchell (2026) What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html">Mitchell (2026) Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">Mitchell (2026) What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html">Mitchell (2026) Deterministic circuit-breakers and real-time infrastructure constraints for hybrid reasoning stacks</a></li>
 </ul>
-<hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</a> <span class="related-note">via agentic-ai, formal-methods, intent-alignment, programming-languages, reward-hacking</span></div>
-<div class="related-entry"><a href="/Research/research/2026-04-27-pip-invariant-anomaly-detection.html">Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)</a> <span class="related-note">via agentic-ai, intent-alignment, reward-hacking</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-17-layered-reasoning-state-abstraction-interfaces.html">Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols</a> <span class="related-note">via agentic-ai, formal-methods</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-18-formal-proof-engineering-leanstral.html">More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification</a> <span class="related-note">via agentic-ai, formal-methods</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a> <span class="related-note">via agentic-ai, formal-methods</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-17-aws-bedrock-capabilities.html">AWS Bedrock: full feature and capability survey</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html">External Dependency Surface Taxonomy for Production LLM Agents</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-14-promptql-definition-foundations-related-technologies.html">PromptQL definition, research foundations, and related technologies</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-13-anthropic-4d-framework-ai-agent-taxonomy.html">What is Anthropic&#39;s &#39;4D&#39; framework for Artificial Intelligence (AI) fluency, what are its four components and their definitions, and how does it compare to other published frameworks for taxonomising and compartmentalising AI agent terminology and concepts?</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-13-agent-process-reliability-architecture.html">Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems</a> <span class="related-note">via agentic-ai, llm, workflow</span></div>
 </div></div>
 
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html">Hybrid Architecture Design: Probabilistic Large Language Models (LLMs) for Interpretation, Deterministic Layers for Governance Enforcement</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <span>2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure</span></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html">Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html">Governance Policy Application: Deterministic Requirements vs Stochastic Large Language Model (LLM) Elements</a></div>
+</div>
+
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-27-interface-and-delivery.html">Interface and delivery</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html">Telegram bot as mobile memory capture and retrieval channel</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-17-aws-bedrock-capabilities.html">AWS Bedrock</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -837,7 +807,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-03-10-formal-spec-intent-alignment-agentic-coding";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-17-layered-reasoning-state-abstraction-interfaces";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;

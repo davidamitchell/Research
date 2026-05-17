@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-17T13:51:45Z",
+  "extracted_at": "2026-05-17T14:15:45Z",
   "items": {
+    "2026-05-17-layered-reasoning-state-abstraction-interfaces": {
+      "named_concepts": [
+        "syntax tree",
+        "javascript object",
+        "object notation",
+        "notation json",
+        "localized repair",
+        "json patch",
+        "canonical fields",
+        "interchange contract",
+        "abstract syntax",
+        "concrete syntax",
+        "syntax fidelity",
+        "graph projections",
+        "energy terms",
+        "patch operations",
+        "canonical typed",
+        "typed schema",
+        "authoritative interchange",
+        "graph representations",
+        "one agreed",
+        "one reconstruction"
+      ],
+      "source_urls": [
+        "https://openreview.net/forum?id=BZ5a1r-kVsf",
+        "https://arxiv.org/abs/2306.02572",
+        "https://developers.openai.com/api/docs/guides/structured-outputs",
+        "https://modelcontextprotocol.io/specification/2025-06-18/",
+        "https://modelcontextprotocol.io/docs/learn/architecture.md",
+        "https://modelcontextprotocol.io/docs/learn/versioning.md",
+        "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+        "https://json-schema.org/overview/what-is-jsonschema",
+        "https://json-schema.org/specification.html",
+        "https://docs.python.org/3/library/ast.html",
+        "https://libcst.readthedocs.io/en/latest/why_libcst.html",
+        "https://datatracker.ietf.org/doc/html/rfc6902",
+        "https://datatracker.ietf.org/doc/html/rfc7396",
+        "https://arxiv.org/abs/1711.00740",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The boundary should preserve only the fields that change a deterministic decision, namely identity, intended action, target surface, typed arguments, dependency edges, side-effect class, risk or approval state, budget or deadline, and provenance identifiers, while stripping presentation-only surface form",
+          "sources": [
+            "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+            "https://openreview.net/forum?id=BZ5a1r-kVsf",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html"
+          ]
+        },
+        {
+          "text": "A canonical typed schema should be the authoritative interchange object because schema validators and structured-generation runtimes can reject malformed or underspecified boundary states before they enter the scoring or execution path",
+          "sources": [
+            "https://json-schema.org/overview/what-is-jsonschema",
+            "https://developers.openai.com/api/docs/guides/structured-outputs"
+          ]
+        },
+        {
+          "text": "Code-oriented candidates still need an Abstract Syntax Tree or lossless Concrete Syntax Tree view behind that schema envelope, because schema fields alone do not preserve syntax-sensitive semantics, faithful reconstruction, comments, or formatting-dependent audit trails",
+          "sources": [
+            "https://docs.python.org/3/library/ast.html",
+            "https://libcst.readthedocs.io/en/latest/why_libcst.html"
+          ]
+        },
+        {
+          "text": "Plan and code candidates that contain long-range control, data, or resource dependencies should expose a graph projection in addition to tree or schema views, because graph representations capture semantic relations that flatter structures routinely hide",
+          "sources": [
+            "https://arxiv.org/abs/1711.00740",
+            "https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html"
+          ]
+        },
+        {
+          "text": "The protocol between generation and scoring should be stateful, version-negotiated, and explicitly trace normalization, because without one agreed contract version and one reconstruction trail the scored state cannot be audited or compared across iterations",
+          "sources": [
+            "https://modelcontextprotocol.io/specification/2025-06-18/",
+            "https://modelcontextprotocol.io/docs/learn/versioning.md",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html"
+          ]
+        },
+        {
+          "text": "Asynchronous EBM guidance should return localized repair artifacts such as invariant-family scores, named violations, and JavaScript Object Notation (JSON) Patch operations, because local repair preserves validated substructure and focuses correction on the violated part of the state before escalation to broader fallback paths",
+          "sources": [
+            "https://datatracker.ietf.org/doc/html/rfc6902",
+            "https://datatracker.ietf.org/doc/html/rfc7396",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html"
+          ]
+        },
+        {
+          "text": "The loop should continue only while observable diagnostics improve, such as validator coverage, aggregate energy, contradiction count, or unresolved critical violations, and it should fail closed when progress stalls, deadlines expire, or the same patch path oscillates",
+          "sources": [
+            "https://modelcontextprotocol.io/specification/2025-06-18/",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html",
+            "https://datatracker.ietf.org/doc/html/rfc6902"
+          ]
+        }
+      ]
+    },
     "2026-05-17-aws-bedrock-capabilities": {
       "named_concepts": [
         "knowledge bases",
