@@ -2,12 +2,12 @@
 review_count: 1
 title: "Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation"
 added: 2026-05-17T20:33:05+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, evaluation, hallucinations]
 started: 2026-05-17T22:24:35+00:00
-completed: ~
+completed: 2026-05-17T22:45:49+00:00
 output: [knowledge]
 cites:
   - 2026-05-17-ai-policy-ambiguity-accountability-governance-risk
