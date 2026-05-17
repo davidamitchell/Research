@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: f5464c79c21398a8fbaccbd65ecc7b65c7914cc7
+    changed: 2026-05-17
+    progress: progress/2026-05-17-aws-bedrock-agentcore-suite-capabilities.md
+    summary: "Initial completion"
 ---
 
 # Amazon Bedrock AgentCore and related suite: full feature and capability survey
