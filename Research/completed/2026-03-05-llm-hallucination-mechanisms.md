@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: [2026-03-05-h-neurons-in-llms]
 tags: [llm, hallucinations, reliability, alignment, grounding, mechanistic-interpretability]
+ai_themes: [rag-retrieval, benchmarks-eval, security-risk, hallucination-mitigation, model-reliability]
 started: 2026-03-05T20:01:40+00:00
 completed: 2026-03-05T20:01:40+00:00
 output: [knowledge]

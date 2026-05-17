@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [research-agenda, prioritisation, coverage, curation, strategy, backlog-management, research-drift]
+ai_themes: [knowledge-management, benchmarks-eval, research-strategy]
 started: 2026-03-03T10:13:26+00:00
 completed: 2026-03-03T10:13:26+00:00
 output: [knowledge, tool, backlog-item]

@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: [2026-03-05-h-neurons-synthesis]
 tags: [llm, hallucinations, h-neurons, over-compliance, sycophancy, interventions, alignment, reliability, mechanistic-interpretability]
+ai_themes: [security-risk, ai-architecture, mechanistic-interpretability, alignment-safety]
 started: 2026-03-06T07:48:52+00:00
 completed: 2026-03-06T07:48:52+00:00
 output: [knowledge]

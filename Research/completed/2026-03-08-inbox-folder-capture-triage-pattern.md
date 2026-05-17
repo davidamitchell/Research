@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [capture, ux, memory-system, triage, agent-automation]
+ai_themes: [memory-context, knowledge-management, tools-infrastructure, human-computer-interaction]
 started: 2026-03-08T07:48:43+00:00
 completed: 2026-03-08T07:48:43+00:00
 output: [knowledge, backlog-item]

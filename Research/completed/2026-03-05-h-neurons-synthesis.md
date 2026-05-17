@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [llm, hallucinations, h-neurons, mechanistic-interpretability, over-compliance, pre-training, alignment, reliability, synthesis]
+ai_themes: [ai-architecture, security-risk, mechanistic-interpretability, llm-reliability]
 started: 2026-03-05T20:41:22+00:00
 completed: 2026-03-05T20:41:22+00:00
 output: [knowledge, backlog-item]

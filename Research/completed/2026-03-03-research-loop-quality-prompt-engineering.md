@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [research-loop, prompt-engineering, quality, autonomous-research, evaluation, research-prompt, github-actions]
+ai_themes: [agentic-ai, benchmarks-eval, tools-infrastructure, prompt-engineering]
 started: 2026-03-03T17:59:54+00:00
 completed: 2026-03-03T17:59:54+00:00
 output: [knowledge, tool, backlog-item]

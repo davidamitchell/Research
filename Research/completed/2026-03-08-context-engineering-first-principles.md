@@ -5,6 +5,7 @@ status: completed
 priority: high
 blocks: []
 tags: [context-engineering, prompt-engineering, llm, token-prediction, first-principles, steering, goal-alignment, rag, agent-instructions, compliance]
+ai_themes: [memory-context, rag-retrieval, ai-architecture, prompt-engineering-methodology]
 started: 2026-03-09T08:08:08+00:00
 completed: 2026-03-09T08:08:08+00:00
 output: [knowledge]

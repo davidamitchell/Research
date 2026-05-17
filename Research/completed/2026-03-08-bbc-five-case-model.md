@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [business-case, bbc, five-case-model, public-sector, strategy, economics, procurement]
+ai_themes: [governance-policy, workforce-skills, knowledge-management, strategic-planning]
 started: 2026-03-10T07:43:43+00:00
 completed: 2026-03-10T07:43:43+00:00
 output: [knowledge, skill]

@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [it-finance, run-build, cost-allocation, application-portfolio, change-management, organisational-design, tbm]
+ai_themes: [governance-policy, cost-performance, tools-infrastructure, it-financial-management]
 started: 2026-03-08T03:35:47+00:00
 completed: 2026-03-08T03:35:47+00:00
 output: [knowledge]

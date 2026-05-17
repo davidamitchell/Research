@@ -5,6 +5,7 @@ status: completed
 priority: medium
 blocks: [2026-03-07-run-build-it-allocation-implementation-how]
 tags: [it-finance, run-build, cost-allocation, gartner, activity-based-costing, flow-metrics, tbc-framework]
+ai_themes: [cost-performance, tools-infrastructure, workforce-skills, it-financial-management]
 started: 2026-03-08T03:05:39+00:00
 completed: 2026-03-08T03:05:39+00:00
 output: [knowledge]
