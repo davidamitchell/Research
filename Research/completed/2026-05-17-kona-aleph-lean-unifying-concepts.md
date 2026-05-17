@@ -18,7 +18,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 0b5f7e9339b6db1c892b7014b64fd85727aba2e5
+    changed: 2026-05-17
+    progress: progress/2026-05-17-complete-kona-aleph-lean-unifying-concepts.md
+    summary: "Initial completion"
 ---
 
 # Kona and Aleph at their core, with Lean and unifying concepts
