@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "f19ee25d36ec4217b0ed1df67d047e362f424f08"
+    changed: 2026-05-17
+    progress: "progress/2026-05-17-policy-enforcement-formal-verification-energy-functions.md"
+    summary: "Initial completion"
 ---
 
 # Policy enforcement and formal verification as Energy-Based Model (EBM) optimization signals
