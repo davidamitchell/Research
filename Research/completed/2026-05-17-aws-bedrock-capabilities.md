@@ -2,12 +2,12 @@
 review_count: 2
 title: "AWS Bedrock: full feature and capability survey"
 added: 2026-05-17T10:17:56+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [aws, agentic-ai, ai-platform, enterprise, llm, rag, ai-governance, regulated-enterprise, evaluation, workflow]
 started: 2026-05-17T12:58:58+00:00
-completed: ~
+completed: 2026-05-17T13:20:19+00:00
 output: [knowledge]
 cites: [2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model, 2026-04-26-multi-ai-provider-control-planes, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 related: [2026-04-26-access-control-amplification-agentic-operations, 2026-05-09-policy-as-code-guardrails-regulatory-ai-governance]
