@@ -2,12 +2,12 @@
 review_count: 2
 title: "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols"
 added: 2026-05-17T11:18:46+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, invariants, workflow, formal-methods]
 started: 2026-05-17T13:41:59+00:00
-completed: ~
+completed: 2026-05-17T14:00:49+00:00
 output: [knowledge]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
