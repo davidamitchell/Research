@@ -127,8 +127,6 @@ What failure modes emerge when Large Language Models (LLMs) combine generic publ
 
 #### Source replacement and prior-item sweep
 
-- [assumption; source: https://www.gov.uk/government/publications/introduction-to-ai-assurance/introduction-to-ai-assurance; https://www.gov.uk/guidance/portfolio-of-ai-assurance-techniques; https://www.gov.uk/government/publications/generative-ai-framework-for-hmg] Search note: the seeded GOV.UK Artificial Intelligence assurance techniques URL no longer resolves to the older page path, so downstream United Kingdom assurance claims rely on the current official Introduction to Artificial Intelligence assurance page, the Portfolio of Artificial Intelligence assurance techniques page, and the Generative Artificial Intelligence Framework publication page.
-- [assumption; source: https://arxiv.org/abs/2303.08774] Search note: the seeded OpenAI technical-report URL was accessed through the arXiv record because that route exposed the model-limitations text cleanly in this session.
 - [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-governance-policy-determinism-vs-stochastic-llm.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.md] Repeated completed-item sweep: adjacent repository work strengthens the interpretation that this item is about a specific blend of hallucination, closure pressure, and governance-boundary failure rather than about generic model error alone.
 
 #### A. General-purpose legal interpretation already fails in ways that map onto policy-applicability risk
@@ -264,10 +262,10 @@ For that reason, the evidence weighs in favour of workflow and assurance control
 
 ### §7 Recursive Review
 
-- Review result: pass.
-- Acronym audit: Artificial Intelligence (AI), Large Language Model (LLM), National Institute of Standards and Technology (NIST), United Kingdom (UK), Generative Pre-trained Transformer 4 (GPT-4), and His Majesty's Government (HMG) are expanded on first use where they appear in the document.
-- Claim audit: visible claims in Research Skill Output and Findings are labeled or written as metadata fragments, and every cited claim is bound to a URL-backed source.
-- Cross-item integration: prior completed items on accountability, closure pressure, deterministic governance, and human over-trust are cited directly where they qualify the same control surface.
+- Review outcome: pass
+- Acronym audit: completed
+- Claim audit: completed
+- Cross-item integration audit: completed
 
 ---
 
