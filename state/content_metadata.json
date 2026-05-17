@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-17T21:43:59Z",
+  "extracted_at": "2026-05-17T21:56:26Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -965,6 +965,102 @@
             "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
             "https://aws.amazon.com/bedrock/agentcore/pricing/",
             "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk": {
+      "named_concepts": [
+        "formal policy",
+        "policy interpretation",
+        "llm interpretation",
+        "model-assisted policy",
+        "policy assistants",
+        "unverified llm",
+        "de facto",
+        "facto policy",
+        "automation bias",
+        "policy text",
+        "oversight monitoring",
+        "rising interpretation",
+        "interpretation exposure",
+        "exposure falling",
+        "falling verification",
+        "unofficial prompt",
+        "policy repository",
+        "repeated model-assisted",
+        "single personnel-selection",
+        "personnel-selection study"
+      ],
+      "source_urls": [
+        "https://www.coso.org/guidance-on-ic",
+        "https://www.theiia.org/en/content/communications/2020/july/20-july-2020-iia-issues-important-update-to-three-lines-model/",
+        "https://www.theiia.org/en/content/articles/global-perspectives-and-insights/2020/the-three-lines-model--an-important-tool-for-the-success-of-every-organization/",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://ncua.gov/newsroom/press-release/2022/ncua-board-approves-risk-appetite-statement-briefed-central-liquidity-facility-and-cybersecurity",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10983371/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9748542/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5649044/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3799168/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7893618/",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-swat-technique-loop-fresh-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Public evidence supports a threshold view of drift rather than a calendar view, because de facto policy starts when an unverified LLM interpretation is reused as precedent, not only when management formally adopts it or edits the source policy text",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3799168/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC7893618/"
+          ]
+        },
+        {
+          "text": "The retrieved automation-bias evidence implies that repeated model-assisted policy interpretation is risky when users stop verifying recommendations, but that conclusion is an inferential transfer from a single personnel-selection study rather than a direct enterprise policy study",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/"
+          ]
+        },
+        {
+          "text": "Alert and prompt overload appear to accelerate authority drift because cumulative exposure reduces responsiveness, which means staff may become less likely to stop, challenge, or independently reason through a model-assisted policy interpretation once the surrounding signal volume becomes routine",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10983371/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC9748542/"
+          ]
+        },
+        {
+          "text": "Unofficial parallel policy frameworks persist when local work-arounds become routine practices, because repeated exception handling can hide deficiencies, undermine standardization, and move day-to-day behaviour away from the formal rule without any visible policy rewrite",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3799168/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC5649044/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC7893618/"
+          ]
+        },
+        {
+          "text": "The retrieved governance frameworks all imply that LLM interpretation must be governed as an operating control surface, because board oversight, risk-appetite translation, monitoring, and independent assurance are explicit responsibilities rather than optional quality checks",
+          "sources": [
+            "https://www.coso.org/guidance-on-ic",
+            "https://www.theiia.org/en/content/communications/2020/july/20-july-2020-iia-issues-important-update-to-three-lines-model/",
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://ncua.gov/newsroom/press-release/2022/ncua-board-approves-risk-appetite-statement-briefed-central-liquidity-facility-and-cybersecurity"
+          ]
+        },
+        {
+          "text": "The best-supported leading indicators of material policy decay are rising interpretation exposure, falling verification behaviour, and accumulating unofficial prompt or exception artefacts outside the formal policy repository",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC9748542/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC5649044/"
+          ]
+        },
+        {
+          "text": "Prior completed repository work strengthens the conclusion by showing that blind-acceptance loops, narrative translation gaps, and undocumented local process variants already create drift-friendly conditions even before an organisation adds a dedicated policy assistant",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-03-12-swat-technique-loop-fresh-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.html"
           ]
         }
       ]
