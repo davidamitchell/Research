@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5aa00262ec603ac71652f02f717e23691a1f529d
+    changed: 2026-05-17
+    progress: progress/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.md
+    summary: Initial completion
 ---
 
 # Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation
