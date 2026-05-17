@@ -4,6 +4,7 @@ added: 2026-02-28T09:06:25+00:00
 status: completed
 priority: high
 tags: [indexing, tracking, database, organisation]
+ai_themes: [knowledge-management, rag-retrieval, tools-infrastructure, knowledge-graphs]
 started: 2026-02-28T09:06:25+00:00
 completed: 2026-02-28T09:06:25+00:00
 output: [knowledge, backlog-item]
