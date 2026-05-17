@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "490615e2efaae4fc017bd8fc7ddc407285731863"
+    changed: 2026-05-17
+    progress: "progress/2026-05-17-servicenow-ai-control-tower-capabilities.md"
+    summary: "Initial completion"
 ---
 
 # ServiceNow Artificial Intelligence (AI) Control Tower: full feature and capability survey
