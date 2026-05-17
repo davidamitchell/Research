@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T20:01:53Z",
-  "node_count": 345,
-  "edge_count": 1985,
+  "generated": "2026-05-17T20:15:16Z",
+  "node_count": 346,
+  "edge_count": 1991,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2039,6 +2039,12 @@
       "url": "/Research/research/2026-05-17-aws-bedrock-capabilities.html"
     },
     {
+      "slug": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "title": "Kona and Aleph at their core, with Lean and unifying concepts",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-kona-aleph-lean-unifying-concepts.html"
+    },
+    {
       "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
       "type": "primary",
@@ -3950,19 +3956,19 @@
     },
     {
       "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-      "target": "2026-03-18-formal-proof-engineering-leanstral",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,formal-methods",
-      "provenance": "2026-03-10-formal-spec-intent-alignment-agentic-coding"
-    },
-    {
-      "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "target": "2026-04-27-pip-invariant-anomaly-detection",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,intent-alignment,reward-hacking",
       "provenance": "2026-04-27-pip-invariant-anomaly-detection"
+    },
+    {
+      "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+      "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-03-10-formal-spec-intent-alignment-agentic-coding"
     },
     {
       "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
@@ -3995,6 +4001,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,intent-alignment,reward-hacking",
       "provenance": "2026-04-27-pip-invariant-anomaly-detection"
+    },
+    {
+      "source": "2026-03-10-language-for-llm-agent-output",
+      "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
     },
     {
       "source": "2026-03-10-language-for-llm-agent-output",
@@ -4382,6 +4396,14 @@
     },
     {
       "source": "2026-03-14-reliable-software-llm-era",
+      "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
+      "source": "2026-03-14-reliable-software-llm-era",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 3,
       "rel": "tag-overlap",
@@ -4766,19 +4788,19 @@
     },
     {
       "source": "2026-03-18-formal-proof-engineering-leanstral",
-      "target": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,formal-verification",
-      "provenance": "2026-03-18-formal-proof-engineering-leanstral"
-    },
-    {
-      "source": "2026-03-18-formal-proof-engineering-leanstral",
       "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,guardrails",
       "provenance": "2026-03-18-formal-proof-engineering-leanstral"
+    },
+    {
+      "source": "2026-03-18-formal-proof-engineering-leanstral",
+      "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods,lean",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
     },
     {
       "source": "2026-03-18-formal-proof-engineering-leanstral",
@@ -15341,14 +15363,6 @@
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
     },
     {
-      "source": "2026-05-12-knowledge-graph-data-product-agentic",
-      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
-      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
-    },
-    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -17523,6 +17537,46 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,ai-platform,enterprise",
       "provenance": "2026-05-17-servicenow-ai-control-tower-capabilities"
+    },
+    {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-03-18-formal-proof-engineering-leanstral",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
       "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",

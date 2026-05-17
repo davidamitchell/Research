@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-17T20:01:49Z",
+  "extracted_at": "2026-05-17T20:15:12Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -600,6 +600,100 @@
             "https://modelcontextprotocol.io/specification/2025-06-18/",
             "https://davidamitchell.github.io/Research/research/2026-05-17-deterministic-circuit-breakers-hybrid-reasoning-infrastructure.html",
             "https://datatracker.ietf.org/doc/html/rfc6902"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-kona-aleph-lean-unifying-concepts": {
+      "named_concepts": [
+        "hosted automation",
+        "lean-based automation",
+        "lean itself",
+        "proof search",
+        "search tactic",
+        "automation layer",
+        "lean repositories",
+        "automation tools",
+        "formal environment",
+        "system underneath",
+        "programming language",
+        "formal proof",
+        "proof environment",
+        "kernel-checked trust",
+        "pull requests",
+        "unifying concepts",
+        "kernel-checked verification",
+        "github app",
+        "workflow pattern",
+        "existing lean"
+      ],
+      "source_urls": [
+        "https://lean-lang.org/",
+        "https://lean-lang.org/learn/",
+        "https://lean-lang.org/theorem_proving_in_lean4/",
+        "https://doi.org/10.1007/978-3-030-79876-5_37",
+        "https://leanprover-community.github.io/",
+        "https://github.com/leanprover-community/mathlib4",
+        "https://github.com/apps/aleph-prover",
+        "https://pypi.org/project/alephprover/",
+        "https://github.com/logical-intelligence/proofs",
+        "https://leandojo.org/leandojo.html",
+        "https://github.com/lean-dojo/ReProver",
+        "https://arxiv.org/abs/2404.12534",
+        "https://davidamitchell.github.io/Research/research/2026-03-18-formal-proof-engineering-leanstral.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html",
+        "https://openai.com/research/",
+        "https://arxiv.org/list/cs.LO/recent"
+      ],
+      "key_claims": [
+        {
+          "text": "Lean is the foundational system in this comparison because it combines a formal proof environment, a functional programming language, and a kernel-checked verification model that all higher-level automation layers must ultimately satisfy",
+          "sources": [
+            "https://lean-lang.org/",
+            "https://doi.org/10.1007/978-3-030-79876-5_37",
+            "https://leanprover-community.github.io/"
+          ]
+        },
+        {
+          "text": "Aleph Prover is not a replacement for Lean itself but a hosted automation layer for Lean 4 repositories, exposing repository cloning, proof generation, and patch or pull-request delivery through GitHub App and CLI interfaces",
+          "sources": [
+            "https://github.com/apps/aleph-prover",
+            "https://pypi.org/project/alephprover/"
+          ]
+        },
+        {
+          "text": "Across Aleph and other Lean-based automation tools, the recurring workflow pattern is orchestration around an existing Lean project plus model-generated candidate steps that count only when Lean itself verifies the result",
+          "sources": [
+            "https://github.com/apps/aleph-prover",
+            "https://pypi.org/project/alephprover/",
+            "https://github.com/lean-dojo/LeanCopilot"
+          ]
+        },
+        {
+          "text": "Aleph, Lean Copilot, LeanDojo, and ReProver all participate in the same broad AI-assisted theorem-proving space, but they occupy different operating positions across hosted service automation, in-editor assistance, and research infrastructure",
+          "sources": [
+            "https://github.com/apps/aleph-prover",
+            "https://arxiv.org/abs/2404.12534",
+            "https://leandojo.org/leandojo.html",
+            "https://github.com/lean-dojo/ReProver"
+          ]
+        },
+        {
+          "text": "The deepest common trust mechanism across Lean-based automation tools is still Lean's own checking pipeline, which means model-generated tactics or whole proofs matter only when they elaborate and verify inside Lean's formal environment",
+          "sources": [
+            "https://lean-lang.org/",
+            "https://doi.org/10.1007/978-3-030-79876-5_37",
+            "https://github.com/apps/aleph-prover",
+            "https://github.com/lean-dojo/LeanCopilot"
+          ]
+        },
+        {
+          "text": "The most decision-useful unifying concepts for follow-up research are proof search, tactic sequencing, premise retrieval, repository workflow integration, and human review placement, because those concepts explain most of the observed overlap and most of the practical differences",
+          "sources": [
+            "https://lean-lang.org/theorem_proving_in_lean4/",
+            "https://leandojo.org/leandojo.html",
+            "https://arxiv.org/abs/2404.12534",
+            "https://github.com/apps/aleph-prover"
           ]
         }
       ]
