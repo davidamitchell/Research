@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "8ed859d4849ace3f85b8e6c81ecf5264cf63e002"
+    changed: 2026-05-17
+    progress: progress/2026-05-17-ms-azure-ai-foundry-capabilities.md
+    summary: "Initial completion"
 ---
 
 # Microsoft Foundry (formerly Azure Artificial Intelligence (AI) Foundry): full feature and capability survey
