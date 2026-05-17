@@ -1,6 +1,137 @@
 {
-  "extracted_at": "2026-05-17T12:42:24Z",
+  "extracted_at": "2026-05-17T12:58:33Z",
   "items": {
+    "2026-05-17-aws-bedrock-agentcore-suite-capabilities": {
+      "named_concepts": [
+        "bedrock agents",
+        "amazon bedrock",
+        "registry optimization",
+        "optimization recommendations",
+        "managed session",
+        "session storage",
+        "aws documents",
+        "agents memory",
+        "runtime isolation",
+        "arbitrary agent",
+        "agent code",
+        "observability browser",
+        "code interpreter",
+        "current public",
+        "managed orchestration",
+        "bedrock agentcore",
+        "platform layer",
+        "machine identity",
+        "around arbitrary",
+        "storage remain"
+      ],
+      "source_urls": [
+        "https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/",
+        "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-fine-grained-access-control.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-types.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-organization.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/storage-encryption.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/key-features-and-benefits.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-authentication.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-data-protection.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-service-provided.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html",
+        "https://aws.amazon.com/bedrock/agentcore/pricing/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-memory.html",
+        "https://modelcontextprotocol.io/",
+        "https://a2aproject.github.io/A2A/latest/",
+        "https://firecracker-microvm.github.io/",
+        "https://docs.cedarpolicy.com/",
+        "https://github.com/strands-agents/sdk-python",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+        "https://www.youtube.com/user/AmazonWebServices"
+      ],
+      "key_claims": [
+        {
+          "text": "Amazon Bedrock AgentCore is best understood as an execution and control-plane layer for arbitrary agent code, because Runtime hosts any framework and model while Amazon Bedrock Agents remains a narrower managed orchestration abstraction",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html"
+          ]
+        },
+        {
+          "text": "AgentCore Runtime provides lightweight virtual machine (microVM) session isolation, eight-hour execution windows, protocol support for MCP and A2A, persistent storage options, streaming, and built-in auth hooks for hosted agent workloads",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html",
+            "https://firecracker-microvm.github.io/"
+          ]
+        },
+        {
+          "text": "Gateway plus Policy function as the suite's tool-governance surface, because AWS documents target translation, semantic tool discovery, interceptor-based authorization, and Cedar, a language for writing authorization policies, as the pre-execution policy layer at the agent-to-tool boundary",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-fine-grained-access-control.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+            "https://docs.cedarpolicy.com/"
+          ]
+        },
+        {
+          "text": "AWS documents AgentCore Memory as short-term event memory plus long-term extracted records, not as an explicit semantic, episodic, and procedural taxonomy, and that design is still more operationally explicit than Bedrock Agents memory because it separates event capture, extraction strategy, namespace scoping, retrieval, and encryption choices",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-types.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-organization.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/storage-encryption.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-memory.html"
+          ]
+        },
+        {
+          "text": "AgentCore Identity gives agents first-class workload identities, supports both user-delegated and autonomous OAuth 2.0 patterns, and automatically manages refresh-token reuse, which makes it the suite capability most directly aligned with regulated-enterprise machine-identity requirements",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/key-features-and-benefits.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-authentication.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+          ]
+        },
+        {
+          "text": "Observability, Browser, and Code Interpreter move AgentCore beyond pure orchestration into managed operational infrastructure, because AWS couples trace and metric collection with isolated browser automation and sandboxed code execution under the same control stack",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-service-provided.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html"
+          ]
+        },
+        {
+          "text": "Strands Agents is optional rather than mandatory, and its open-source authoring model pairs naturally with AgentCore because AWS positions AgentCore as a runtime and governance substrate for Strands and other frameworks alike",
+          "sources": [
+            "https://github.com/strands-agents/sdk-python",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html"
+          ]
+        },
+        {
+          "text": "The current GA boundary covers the core service family but not every adjacent surface, because AWS documents core AgentCore as GA while still marking Registry, Optimization recommendations, and managed session storage as preview",
+          "sources": [
+            "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
+            "https://aws.amazon.com/bedrock/agentcore/pricing/",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
     "2026-05-16-variance-control-comparison-across-delivery-modes": {
       "named_concepts": [
         "build mode",

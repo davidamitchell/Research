@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-17T12:42:28Z",
-  "node_count": 338,
-  "edge_count": 1891,
+  "generated": "2026-05-17T12:58:36Z",
+  "node_count": 339,
+  "edge_count": 1903,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2027,6 +2027,12 @@
       "url": "/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html"
     },
     {
+      "slug": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "title": "Amazon Bedrock AgentCore and related suite: full feature and capability survey",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-aws-bedrock-agentcore-suite-capabilities.html"
+    },
+    {
       "slug": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
       "title": "Systems Capability Debt Thesis Evidence Assessment",
       "type": "synthesis",
@@ -2876,10 +2882,10 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "governance,organisational-design",
+      "evidence": "agentic-ai,identity",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -4588,14 +4594,6 @@
     },
     {
       "source": "2026-03-16-gitagent-declarative-agent-definition",
-      "target": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-platform",
-      "provenance": "2026-03-16-gitagent-declarative-agent-definition"
-    },
-    {
-      "source": "2026-03-16-gitagent-declarative-agent-definition",
       "target": "2026-05-07-ai-production-incidents-deep-dive",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4616,6 +4614,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform",
+      "provenance": "2026-03-16-gitagent-declarative-agent-definition"
+    },
+    {
+      "source": "2026-03-16-gitagent-declarative-agent-definition",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-platform,aws",
       "provenance": "2026-03-16-gitagent-declarative-agent-definition"
     },
     {
@@ -4796,14 +4802,6 @@
     },
     {
       "source": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-      "target": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,observability",
-      "provenance": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace"
-    },
-    {
-      "source": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
       "target": "2026-05-06-aibom-platform-observability-control-comparison",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4829,6 +4827,14 @@
     {
       "source": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
       "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,observability",
+      "provenance": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace"
+    },
+    {
+      "source": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,observability",
@@ -5700,7 +5706,7 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-capability-model",
-      "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+      "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,enterprise",
@@ -5708,7 +5714,7 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-capability-model",
-      "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,enterprise",
@@ -6012,19 +6018,11 @@
     },
     {
       "source": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
-      "weight": 2,
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance",
+      "evidence": "agentic-ai,ai-governance,control-plane",
       "provenance": "2026-04-26-ai-agent-control-plane-architecture-enterprise"
-    },
-    {
-      "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
-      "target": "2026-04-28-software-demand-shift-ai-coding-era",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,identity",
-      "provenance": "2026-04-26-ai-agent-identity-access-management-enterprise"
     },
     {
       "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
@@ -6057,6 +6055,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,attribution,delegation,identity",
       "provenance": "2026-05-06-aibom-identity-delegation-trust-theory"
+    },
+    {
+      "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,identity",
+      "provenance": "2026-04-26-ai-agent-identity-access-management-enterprise"
     },
     {
       "source": "2026-04-26-ai-governance-cost-performance-delivery-impact",
@@ -6420,14 +6426,6 @@
     },
     {
       "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-      "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "ai-governance,regulated-enterprise",
-      "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
-    },
-    {
-      "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
       "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
       "weight": 2,
       "rel": "tag-overlap",
@@ -6440,6 +6438,14 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "access-control,data-classification,sensitive-data",
+      "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
+    },
+    {
+      "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "ai-governance,regulated-enterprise",
       "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
     },
     {
@@ -6708,18 +6714,18 @@
     },
     {
       "source": "2026-04-26-multi-ai-provider-control-planes",
-      "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "ai-governance,observability",
-      "provenance": "2026-04-26-multi-ai-provider-control-planes"
-    },
-    {
-      "source": "2026-04-26-multi-ai-provider-control-planes",
       "target": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "microsoft,security",
+      "provenance": "2026-04-26-multi-ai-provider-control-planes"
+    },
+    {
+      "source": "2026-04-26-multi-ai-provider-control-planes",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "ai-governance,aws,control-plane,observability",
       "provenance": "2026-04-26-multi-ai-provider-control-planes"
     },
     {
@@ -7348,14 +7354,6 @@
     },
     {
       "source": "2026-04-28-software-demand-shift-ai-coding-era",
-      "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,observability",
-      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
-    },
-    {
-      "source": "2026-04-28-software-demand-shift-ai-coding-era",
       "target": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "weight": 2,
       "rel": "tag-overlap",
@@ -7368,6 +7366,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,agentic-coding",
+      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
+    },
+    {
+      "source": "2026-04-28-software-demand-shift-ai-coding-era",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,identity,observability",
       "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
     },
     {
@@ -10163,6 +10169,14 @@
       "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
     },
     {
+      "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
+      "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
+    },
+    {
       "source": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 4,
@@ -10555,6 +10569,14 @@
       "provenance": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness"
     },
     {
+      "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 8,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,aws,control-plane,enterprise,identity,observability,regulated-enterprise",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 4,
@@ -10932,14 +10954,6 @@
     },
     {
       "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
-      "target": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
-      "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
-    },
-    {
-      "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
       "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10953,6 +10967,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
       "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
+    },
+    {
+      "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 8,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,ai-platform,aws,control-plane,enterprise,identity,regulated-enterprise",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
     },
     {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
@@ -12968,7 +12990,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,enterprise,human-factors",
-      "provenance": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness"
+      "provenance": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions"
     },
     {
       "source": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
@@ -13081,6 +13103,14 @@
       "rel": "tag-overlap",
       "evidence": "measurement,technical-debt",
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
+    },
+    {
+      "source": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
     },
     {
       "source": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
@@ -13232,7 +13262,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,enterprise,governance-behaviour,measurement",
-      "provenance": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates"
+      "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
     },
     {
       "source": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
@@ -13315,6 +13345,14 @@
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
     },
     {
+      "source": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,regulated-enterprise",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
       "source": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -13369,6 +13407,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness"
+    },
+    {
+      "source": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise,observability,regulated-enterprise",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
@@ -13891,14 +13937,6 @@
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
     },
     {
-      "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
-      "target": "2026-05-15-declaration-independence-cyberspace-ai-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance",
-      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
-    },
-    {
       "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -14049,14 +14087,6 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
-    },
-    {
-      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,llm",
-      "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
@@ -14368,6 +14398,14 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,llm",
+      "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
+    },
+    {
+      "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance,enterprise",
       "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
     },
     {
@@ -15100,18 +15138,18 @@
     },
     {
       "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,knowledge-graph,llm",
-      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
-    },
-    {
-      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm",
+      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
+    },
+    {
+      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,memory-system",
       "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
     },
     {
@@ -16379,6 +16417,14 @@
       "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,ai-governance",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
       "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "target": "2026-05-12-data-product-ontology",
       "weight": 4,
@@ -17057,6 +17103,62 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-04-22-enterprise-ai-capability-model",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-04-22-enterprise-ai-platform-operating-models",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-04-26-multi-ai-provider-control-planes",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
     },
     {
       "source": "2026-05-17-systems-capability-debt-thesis-evidence-assessment",
