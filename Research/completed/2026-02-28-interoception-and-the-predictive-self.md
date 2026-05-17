@@ -4,6 +4,7 @@ added: 2026-03-06T08:07:16+00:00
 status: completed
 priority: medium
 tags: [interoception, self, consciousness, embodied-cognition, anil-seth, predictive-processing]
+ai_themes: [consciousness-cognition, embodied-ai, predictive-processing]
 started: 2026-03-06T08:07:16+00:00
 completed: 2026-03-06T08:07:16+00:00
 output: [knowledge]

@@ -4,6 +4,7 @@ added: 2026-03-05T08:03:16+00:00
 status: completed
 priority: medium
 tags: [consciousness, hard-problem, philosophy-of-mind, anil-seth, chalmers, phenomenology]
+ai_themes: [consciousness-cognition, ai-architecture, philosophy-of-mind]
 started: 2026-03-05T08:03:16+00:00
 completed: 2026-03-05T08:03:16+00:00
 output: [knowledge]

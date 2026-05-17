@@ -4,6 +4,7 @@ added: 2026-02-28T17:24:37+00:00
 status: completed
 priority: high
 tags: [ai-strategy, policy, regulation, new-zealand, rbnz, dia, mbie, dora, use-cases, agentic-ai]
+ai_themes: [governance-policy, agentic-ai, security-risk, national-ai-strategy]
 started: 2026-02-28T17:24:37+00:00
 completed: 2026-02-28T17:24:37+00:00
 output: [knowledge, backlog-item]

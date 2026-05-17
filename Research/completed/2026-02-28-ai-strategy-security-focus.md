@@ -4,6 +4,7 @@ added: 2026-03-05T06:49:02+00:00
 status: completed
 priority: medium
 tags: [ai-strategy, security, cybersecurity, threat-detection, adversarial-ai, ai-governance]
+ai_themes: [security-risk, governance-policy, adversarial-defense]
 started: 2026-03-05T06:49:02+00:00
 completed: 2026-03-05T06:49:02+00:00
 output: [knowledge]

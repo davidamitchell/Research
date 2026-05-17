@@ -4,6 +4,7 @@ added: 2026-03-05T07:55:34+00:00
 status: completed
 priority: medium
 tags: [free-energy-principle, entropy, predictive-processing, active-inference, karl-friston, anil-seth, consciousness, thermodynamics, life]
+ai_themes: [consciousness-cognition, ai-architecture, agentic-ai, theoretical-neuroscience, thermodynamics-of-intelligence]
 spawned-from: Research/completed/2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items

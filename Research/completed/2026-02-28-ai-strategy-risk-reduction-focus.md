@@ -4,6 +4,7 @@ added: 2026-03-03T07:52:49+00:00
 status: completed
 priority: high
 tags: [ai-strategy, risk-management, operational-risk, model-risk, ai-governance, financial-services]
+ai_themes: [governance-policy, security-risk, benchmarks-eval, operational-resilience]
 started: 2026-03-03T07:52:49+00:00
 completed: 2026-03-03T07:52:49+00:00
 output: [knowledge]

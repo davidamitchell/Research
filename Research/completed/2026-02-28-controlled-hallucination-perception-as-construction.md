@@ -4,6 +4,7 @@ added: 2026-03-05T07:04:47+00:00
 status: completed
 priority: medium
 tags: [consciousness, perception, controlled-hallucination, anil-seth, neuroscience]
+ai_themes: [consciousness-cognition, ai-architecture, neuro-inspired-ai]
 started: 2026-03-05T07:04:47+00:00
 completed: 2026-03-05T07:04:47+00:00
 output: [knowledge]

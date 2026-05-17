@@ -4,6 +4,7 @@ added: 2026-03-03T02:26:48+00:00
 status: completed
 priority: high
 tags: [ai-strategy, grc, control-testing, compliance-automation, internal-audit, risk-management, financial-services]
+ai_themes: [agentic-ai, rag-retrieval, governance-policy, security-risk, compliance-automation]
 started: 2026-03-03T02:26:48+00:00
 completed: 2026-03-03T02:26:48+00:00
 output: [knowledge]

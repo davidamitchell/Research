@@ -4,6 +4,7 @@ added: 2026-03-05T06:36:16+00:00
 status: completed
 priority: medium
 tags: [sources, discovery, rss, youtube, arxiv]
+ai_themes: [knowledge-management, tools-infrastructure, research-discovery]
 started: 2026-03-05T06:36:16+00:00
 completed: 2026-03-05T06:36:16+00:00
 output: [knowledge, backlog-item]

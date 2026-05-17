@@ -4,6 +4,7 @@ added: 2026-03-03T06:16:53+00:00
 status: completed
 priority: high
 tags: [ai-strategy, risk-agents, line-1, line-2, three-lines-model, agentic-ai, financial-services, risk-management]
+ai_themes: [agentic-ai, governance-policy, security-risk, financial-risk-management]
 started: 2026-03-03T06:16:53+00:00
 completed: 2026-03-03T06:16:53+00:00
 output: [knowledge]

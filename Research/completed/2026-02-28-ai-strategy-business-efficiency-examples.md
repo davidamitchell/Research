@@ -4,6 +4,7 @@ added: 2026-03-03T07:47:23+00:00
 status: completed
 priority: high
 tags: [ai-strategy, business-efficiency, productivity, operations, case-studies, financial-services]
+ai_themes: [governance-policy, tools-infrastructure, workforce-skills, cost-performance, business-transformation]
 started: 2026-03-03T07:47:23+00:00
 completed: 2026-03-03T07:47:23+00:00
 output: [knowledge]

@@ -4,6 +4,7 @@ added: 2026-03-02T08:23:20+00:00
 status: completed
 priority: high
 tags: [process, workflow, tooling]
+ai_themes: [tools-infrastructure, knowledge-management, research-operations]
 started: 2026-03-02T08:23:20+00:00
 completed: 2026-03-02T08:23:20+00:00
 output: [tool, knowledge]

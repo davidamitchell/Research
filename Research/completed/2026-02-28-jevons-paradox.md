@@ -4,6 +4,7 @@ added: 2026-02-28T09:33:14+00:00
 status: completed
 priority: high
 tags: [jevons-paradox, rebound-effect, economics, software-engineering, agentic-coding, technology-forecasting]
+ai_themes: [agentic-ai, cost-performance, workforce-skills, economic-impact, software-productivity]
 started: 2026-02-28T09:33:14+00:00
 completed: 2026-02-28T09:33:14+00:00
 output: [knowledge]

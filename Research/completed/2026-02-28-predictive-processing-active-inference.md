@@ -4,6 +4,7 @@ added: 2026-02-28T09:33:14+00:00
 status: completed
 priority: high
 tags: [predictive-processing, active-inference, free-energy-principle, karl-friston, neuroscience]
+ai_themes: [agentic-ai, consciousness-cognition, ai-architecture, neuro-symbolic-ai]
 started: 2026-02-28T09:33:14+00:00
 completed: 2026-02-28T09:33:14+00:00
 output: [knowledge]

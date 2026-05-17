@@ -4,6 +4,7 @@ added: 2026-03-03T02:21:31+00:00
 status: completed
 priority: high
 tags: [youtube, transcripts, fetching, tooling]
+ai_themes: [tools-infrastructure, knowledge-management, data-acquisition]
 started: 2026-03-03T02:21:31+00:00
 completed: 2026-03-03T02:21:31+00:00
 output: [tool, backlog-item]
