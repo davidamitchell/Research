@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-software-engineering-investment-case-llm]
 tags: [lecun, llm, large-language-models, citizen-development, systems-capability-debt, enterprise-risk, regulated-financial-services, agentic-ai, causal-reasoning, governance-architecture, risk-framework]
+ai_themes: [agentic-ai, governance-policy, ai-architecture, enterprise-risk-management, systems-capability-debt]
 started: 2026-04-27T01:39:14+00:00
 completed: 2026-04-27T02:02:44+00:00
 output: [knowledge]

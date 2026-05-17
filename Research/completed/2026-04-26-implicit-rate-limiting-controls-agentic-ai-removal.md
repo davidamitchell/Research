@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 tags: [operational-risk, automation-risk, agentic-ai, blast-radius, implicit-controls, citizen-development, rate-limiting, regulated-banking]
+ai_themes: [agentic-ai, security-risk, governance-policy, operational-resilience, automation-governance]
 started: 2026-04-26T08:31:49+00:00
 completed: 2026-04-26T08:31:49+00:00
 output: [knowledge]

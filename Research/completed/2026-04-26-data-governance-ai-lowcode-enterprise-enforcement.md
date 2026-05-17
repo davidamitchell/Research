@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-26-ai-lowcode-lifecycle-management, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 tags: [data-governance, ai-governance, low-code, data-classification, lineage, access-control, sensitive-data, enterprise-data, regulated-enterprise]
+ai_themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, low-code-governance]
 started: 2026-04-26T22:49:47+00:00
 completed: 2026-04-26T23:07:57+00:00
 output: [knowledge]
