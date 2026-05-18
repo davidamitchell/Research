@@ -2,12 +2,12 @@
 review_count: 2
 title: "Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution"
 added: 2026-05-17T20:33:05+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, workflow, evaluation]
 started: 2026-05-18T10:16:53+00:00
-completed: ~
+completed: 2026-05-18T10:42:07+00:00
 output: [knowledge]
 cites:
   - 2026-02-28-ai-line-1-line-2-risk-agents
