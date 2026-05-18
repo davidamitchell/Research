@@ -675,16 +675,16 @@
     "url": "/Research/threads/agentic-ai-llm-governance.html"
   },
   {
-    "slug": "agentic-ai-llm-evaluation",
-    "title": "agentic-ai / llm / evaluation",
+    "slug": "agentic-ai-llm-workflow",
+    "title": "agentic-ai / llm / workflow",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "llm",
-      "evaluation"
+      "workflow"
     ],
     "concept_cluster": [],
-    "item_count": 130,
+    "item_count": 131,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1332,12 +1332,17 @@
         "added": "2026-05-17"
       },
       {
+        "slug": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+        "title": "Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation",
+        "added": "2026-05-17"
+      },
+      {
         "slug": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
         "title": "Longitudinal persistence rates after gap closure for low-code applications, bots, and agents",
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/agentic-ai-llm-evaluation.html"
+    "url": "/Research/threads/agentic-ai-llm-workflow.html"
   },
   {
     "slug": "agentic-ai-governance-llm",
@@ -2060,16 +2065,16 @@
     "url": "/Research/threads/agentic-ai-governance-llm.html"
   },
   {
-    "slug": "workflow-llm-agentic-ai",
-    "title": "workflow / llm / agentic-ai",
+    "slug": "workflow-agentic-ai-llm",
+    "title": "workflow / agentic-ai / llm",
     "kind": "implicit",
     "tag_cluster": [
       "workflow",
-      "llm",
-      "agentic-ai"
+      "agentic-ai",
+      "llm"
     ],
     "concept_cluster": [],
-    "item_count": 63,
+    "item_count": 64,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -2372,6 +2377,11 @@
         "added": "2026-05-17"
       },
       {
+        "slug": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+        "title": "Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation",
+        "added": "2026-05-17"
+      },
+      {
         "slug": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
         "title": "Longitudinal persistence rates after gap closure for low-code applications, bots, and agents",
         "added": "2026-05-17"
@@ -2387,7 +2397,7 @@
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/workflow-llm-agentic-ai.html"
+    "url": "/Research/threads/workflow-agentic-ai-llm.html"
   },
   {
     "slug": "agentic-ai-llm-security",
@@ -2843,216 +2853,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-agentic-coding-llm.html"
-  },
-  {
-    "slug": "organisation-workflow-governance",
-    "title": "organisation / workflow / governance",
-    "kind": "implicit",
-    "tag_cluster": [
-      "organisation",
-      "workflow",
-      "governance"
-    ],
-    "concept_cluster": [],
-    "item_count": 39,
-    "items": [
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-04-24-business-led-low-code-agent-governance",
-        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
-        "title": "Alternative Continuous Integration and Continuous Delivery pipeline platforms for governing agents built with Microsoft Copilot Studio: Harness, Amazon Web Services CodeBuild and CodeDeploy, and Jenkins",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-05-01-oss-sustainability-ai-generated-contributions",
-        "title": "What strategies are effective for open-source software maintainers dealing with Artificial Intelligence (AI)-generated low-quality contributions at scale?",
-        "added": "2026-05-01"
-      },
-      {
-        "slug": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-        "title": "Implementation Patterns for Regulatory Compliance in Artificial Intelligence-Driven Data Governance: Policy-as-Code, Guardrails, and Output Validation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-system-of-record-bypass-control-deficiencies",
-        "title": "Control deficiencies from bypassing designated workforce record platforms",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-        "title": "Taxonomy criteria: process inefficiency versus hidden control and dependency risk in workforce workflows",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
-        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-        "title": "National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53: provenance gaps in workforce shadow artifacts",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-key-person-dependency-basel-risk-linkage",
-        "title": "Key-person dependency and Basel execution, delivery, and process-management risk linkage",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-        "title": "Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO), and National Institute of Standards and Technology (NIST): classifying shadow workforce-system risk",
-        "added": "2026-05-09"
-      },
-      {
-        "slug": "2026-05-12-data-product-ontology",
-        "title": "Data product ontology: definition, adoption, and current relevance",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
-        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-12-rag-document-drift-agent-behavior",
-        "title": "When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?",
-        "added": "2026-05-12"
-      },
-      {
-        "slug": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-        "title": "Agent-to-Agent (A2A)-to-tool-calling unification: impact on orchestration overhead and reasoning accuracy in hierarchical multi-agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-13-agent-process-reliability-architecture",
-        "title": "Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems",
-        "added": "2026-05-13"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
-        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
-        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
-        "added": "2026-05-14"
-      },
-      {
-        "slug": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-        "title": "Ontology landscape for curated lexical and structured enterprise context",
-        "added": "2026-05-15"
-      },
-      {
-        "slug": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-        "title": "Temporary Automation Demand Persistence and Core Capability Investment Displacement",
-        "added": "2026-05-16"
-      },
-      {
-        "slug": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
-        "title": "IT Throughput Constraint Magnitude and Debt Accumulation Rate",
-        "added": "2026-05-16"
-      },
-      {
-        "slug": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-        "title": "Decommission Trigger Design for Temporary Bridge Agents",
-        "added": "2026-05-16"
-      },
-      {
-        "slug": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
-        "title": "Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits",
-        "added": "2026-05-16"
-      },
-      {
-        "slug": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-        "title": "Institutional knowledge and social-friction risks in Artificial Intelligence (AI)-first policy clarification",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-        "title": "Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
-        "title": "Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-        "title": "Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-        "title": "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
-        "title": "Longitudinal persistence rates after gap closure for low-code applications, bots, and agents",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-        "title": "Datasets for measuring conversion from demand for local workaround tools to central Information Technology backlog items",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-        "title": "Matched denominator for comparing post-pipeline release-based failures with production live-runtime incidents",
-        "added": "2026-05-17"
-      }
-    ],
-    "url": "/Research/threads/organisation-workflow-governance.html"
   },
   {
     "slug": "agentic-ai-regulated-banking-rag",
@@ -6460,13 +6260,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -6522,7 +6322,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "copilot-instructions-claude",
@@ -7185,14 +6985,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "github copilot"
+      "coding agent",
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -7222,7 +7022,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "reference-architecture-capability-model-enterprise-architecture",
@@ -7330,13 +7130,13 @@
     "url": "/Research/threads/workflow-tooling-process.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -7362,7 +7162,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7515,14 +7315,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "copilot-studio-power-platform-native-governance",
+    "title": "copilot studio / power platform / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot studio",
       "power platform",
-      "direct publish"
+      "native governance"
     ],
     "item_count": 3,
     "items": [
@@ -7542,6 +7342,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
   }
 ]

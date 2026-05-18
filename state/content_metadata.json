@@ -1,6 +1,126 @@
 {
-  "extracted_at": "2026-05-18T12:45:06Z",
+  "extracted_at": "2026-05-18T12:59:59Z",
   "items": {
+    "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes": {
+      "named_concepts": [
+        "internally governed",
+        "operational automation",
+        "temporary operational",
+        "governed automation",
+        "exit outcomes",
+        "vendor-supplied automation",
+        "accessible public",
+        "vendor-supplied temporary",
+        "expose direct",
+        "materially worse",
+        "worse visibility",
+        "standards sources",
+        "sources consistently",
+        "outsourced automation",
+        "supplier inventories",
+        "audit access",
+        "current microsoft",
+        "dependency-aware deletion",
+        "morgan stanley",
+        "official rpa"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/161/r1/final",
+        "https://www.fca.org.uk/firms/outsourcing-and-operational-resilience",
+        "https://www.fca.org.uk/publications/policy-statements/ps21-3-building-operational-resilience",
+        "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements",
+        "https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf",
+        "https://cloudsecurityalliance.org/download/security-guidance-v4/",
+        "https://www.nist.gov/news-events/news/2021/02/nist-shares-key-practices-cyber-supply-chain-risk-management-based",
+        "https://www.nist.gov/publications/case-studies-cyber-supply-chain-risk-management-summary-findings-and-recommendations",
+        "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-134.html",
+        "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+        "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+        "https://docs.uipath.com/automation-ops/automation-cloud/latest/user-guide/about-automation-ops",
+        "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+        "https://docs.uipath.com/automation-hub/automation-suite/2.2510/user-guide/customize-idea-flows",
+        "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-vendor-lock-in-portability-multi-platform-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html"
+      ],
+      "key_claims": [
+        {
+          "text": "No accessible public source consulted in this item publishes a matched denominator or stable percentage rate for how often vendor-supplied temporary operational automation produces worse visibility or exit outcomes than internally governed automation",
+          "sources": [
+            "https://www.nist.gov/publications/case-studies-cyber-supply-chain-risk-management-summary-findings-and-recommendations",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-post-gap-closure-persistence-low-code-bots-agents.html"
+          ]
+        },
+        {
+          "text": "Financial regulator and standards sources consistently require extra mapping, audit, monitoring, termination, and exit controls for outsourced or third-party services, which supports the inference that vendor-supplied automation starts with weaker default visibility and reversibility than comparable internally governed automation",
+          "sources": [
+            "https://www.fca.org.uk/firms/outsourcing-and-operational-resilience",
+            "https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf",
+            "https://csrc.nist.gov/pubs/sp/800/161/r1/final",
+            "https://www.nist.gov/news-events/news/2021/02/nist-shares-key-practices-cyber-supply-chain-risk-management-based"
+          ]
+        },
+        {
+          "text": "NIST supply chain guidance identifies current supplier inventories and platform-independent applications as compensating controls for external dependence, which supports the inference that portability and supplier visibility must be designed rather than assumed in vendor-supplied temporary operational automation",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/161/r1/final",
+            "https://www.nist.gov/news-events/news/2021/02/nist-shares-key-practices-cyber-supply-chain-risk-management-based"
+          ]
+        },
+        {
+          "text": "Microsoft Power Platform and UiPath documentation show that internally governed automation can expose direct asset inventory, ownership, usage, dependency, disablement, and deletion controls inside the enterprise operating surface, making stale or risky automations more directly observable and more directly retireable",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://docs.uipath.com/automation-ops/automation-cloud/latest/user-guide/about-automation-ops",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+            "https://docs.uipath.com/automation-hub/automation-suite/2.2510/user-guide/customize-idea-flows"
+          ]
+        },
+        {
+          "text": "The Morgan Stanley enforcement action demonstrates that outsourced decommissioning can fail precisely on the visibility and exit surfaces regulators emphasize, including vendor due diligence, subcontracting risk, performance monitoring, and inventory of stored customer data",
+          "sources": [
+            "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-134.html"
+          ]
+        },
+        {
+          "text": "Official RPA lifecycle guidance indicates that exit outcomes improve when automations have explicit end-of-life plans, overlap analysis, and migration paths into more durable interfaces or platforms, but those safeguards are governance additions rather than automatic vendor outcomes",
+          "sources": [
+            "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html"
+          ]
+        },
+        {
+          "text": "The best-supported comparative answer is therefore directional: vendor-supplied temporary operational automation is more often materially worse when direct telemetry, enforceable audit access, tested transition support, or portability architecture are missing, but the accessible evidence base cannot justify a numeric prevalence claim",
+          "sources": [
+            "https://www.fca.org.uk/firms/outsourcing-and-operational-resilience",
+            "https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf",
+            "https://csrc.nist.gov/pubs/sp/800/161/r1/final",
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data"
+          ]
+        },
+        {
+          "text": "Internally governed automation can still lose visibility when telemetry is not enabled or historical state is not preserved, but the enterprise can remediate those control failures directly without waiting for supplier cooperation",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi",
+            "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        }
+      ]
+    },
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
         "ai control",
