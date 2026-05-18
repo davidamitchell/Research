@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 8dc7a01be2910f82b0b1e5581924fb64ed711846
+    changed: 2026-05-18
+    progress: progress/2026-05-18-build-mode-failure-vs-do-mode-incident-comparison-denominator.md
+    summary: "Initial completion"
 ---
 
 # Matched denominator for comparing post-pipeline release-based failures with production live-runtime incidents
