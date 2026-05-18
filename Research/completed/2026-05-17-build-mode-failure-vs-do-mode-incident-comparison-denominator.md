@@ -2,12 +2,12 @@
 review_count: 2
 title: "Matched denominator for comparing post-pipeline release-based failures with production live-runtime incidents"
 added: 2026-05-17T20:40:49+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, analytics]
 started: 2026-05-18T11:09:21+00:00
-completed: ~
+completed: 2026-05-18T11:39:12+00:00
 output: []
 cites: [2026-05-16-variance-control-comparison-across-delivery-modes]
 related: [2026-05-07-ai-production-incidents-deep-dive, 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates]
