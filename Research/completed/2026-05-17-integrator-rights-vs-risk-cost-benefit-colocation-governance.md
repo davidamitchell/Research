@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 8dc82584df63922eb94b961f382165f04202cde0
+    changed: 2026-05-18
+    progress: progress/2026-05-18-integrator-rights-vs-risk-cost-benefit-colocation-governance.md
+    summary: "Initial completion"
 ---
 
 # Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits
