@@ -1,0 +1,321 @@
+---
+title: "Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits"
+added: 2026-05-17T20:40:49+00:00
+status: reviewing
+priority: medium
+blocks: []
+tags: [organisation, governance, organisational-design, workflow]
+started: 2026-05-18T13:00:39+00:00
+completed: ~
+output: [knowledge]
+cites:
+  - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
+  - 2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes
+related:
+  - 2026-04-22-enterprise-ai-platform-operating-models
+  - 2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator
+superseded_by: ~
+supersedes: ~
+item_type: primary
+confidence: medium
+versions: []
+---
+
+# Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits
+
+## Research Question
+
+Under which governance designs do explicit integrator rights fully substitute for structural co-location of risk, cost, and benefits, and under which conditions do these designs fail?
+
+## Scope
+
+**In scope:**
+- Governance design patterns that allocate decision rights to integrators without moving full profit and loss ownership
+- Failure modes where rights are insufficient because incentives, accountability, or information symmetry remain misaligned
+- Evidence from enterprise operating models, shared services, and platform governance regimes
+
+**Out of scope:**
+- Organisation-chart redesign recommendations for any specific enterprise
+- Legal analysis of jurisdiction-specific labour or corporate law beyond practical governance implications
+
+**Constraints:** Prioritise comparative evidence with explicit governance mechanisms, accountability structures, and measurable outcome impacts.
+
+## Context
+
+Organisations need to know whether they can solve cross-unit coordination problems with explicit authority, reporting, and escalation instead of moving ownership into one unit, because governance quality depends on how decision rights and accountabilities are allocated and on whether those roles can see and challenge execution directly. [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf; https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html]
+
+## Approach
+
+1. Identify governance archetypes that rely on explicit integrator rights rather than full structural co-location.
+2. Compare accountability, incentive, and visibility mechanisms across successful and failed implementations.
+3. Derive boundary conditions that predict when rights-based substitution is sufficient versus brittle.
+
+## Sources
+
+- [ ] [Institute of Internal Auditors (IIA) (2020) Three Lines Model landing page](https://www.theiia.org/en/content/guidance/standards-and-guidance/ippf/three-lines-model/) - seeded landing page retained for provenance; the consulted source is the official Portable Document Format (PDF) below.
+- [x] [Institute of Internal Auditors (IIA) (2020) The IIA's Three Lines Model](https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf) - governance accountability, management delegation, independent assurance, and alignment requirements.
+- [ ] [Organisation for Economic Co-operation and Development (OECD) (2023) Principles of Corporate Governance landing page](https://www.oecd.org/corporate/principles-corporate-governance/) - seeded landing page retained for provenance; the consulted source is the official OECD Legal Instruments PDF below.
+- [x] [Organisation for Economic Co-operation and Development (OECD) (2025) Recommendation of the Council on Principles of Corporate Governance](https://legalinstruments.oecd.org/public/doc/322/322.en.pdf) - governance relationships, information, incentives, and accountability within checks and balances.
+- [x] [ISACA (n.d.) COBIT resources](https://www.isaca.org/resources/cobit) - high-level evidence that COBIT treats governance over information and technology as a configurable enterprise system.
+- [ ] [Harvard Business Review (2006) Who Has the D? How Clear Decision Roles Enhance Organizational Performance](https://hbr.org/2006/01/who-has-the-d-how-clear-decision-roles-enhance-organizational-performance) - seeded preview checked; downstream role-definition claims rely on Bain's accessible pages below.
+- [x] [Bain & Company (n.d.) RAPID Decision Making Framework](https://www.bain.com/insights/rapid-decision-making/) - role definitions for Recommend, Agree, Perform, Input, and Decide.
+- [x] [Bain & Company (2011) Decisions: Who does what?](https://www.bain.com/insights/decisions-who-does-what/) - single-decision-owner design, narrow veto roles, and cross-unit trade-off example.
+- [x] [Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR) (n.d.) Classic Topics: Decision Rights](https://cisr.mit.edu/content/classic-topics-decision-rights) - governance as the allocation of decision rights and accountabilities.
+- [x] [Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR) (2023) Simplifying decision rights for growth](https://cisr.mit.edu/content/simplifying-decision-rights-growth) - core decision categories: what versus how, investment prioritisation, and exception handling.
+- [x] [Basel Committee on Banking Supervision (BCBS) (2015) Corporate governance principles for banks](https://www.bis.org/bcbs/publ/d328.pdf) - board accountability, independent risk challenge, and line-of-defence separation.
+- [x] [European Banking Authority (EBA) (2019) Guidelines on outsourcing arrangements](https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf) - management responsibility, audit rights, monitoring, termination rights, and exit strategies for outsourced functions.
+- [x] [Burns and Yeaton (2008) Success Factors for Implementing Shared Services in Government](https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf) - governance structure, stakeholder support, metrics, and failure patterns in shared services.
+- [x] [United States General Services Administration (2026) Governance ecosystem](https://ussm.gsa.gov/governance/) - shared-services governance roles, escalation paths, and senior accountable points of contact.
+- [x] [United States General Services Administration (2024) Shared Services Governance Board Charter](https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf) - cross-functional governance board responsibilities, investment-plan review, funding advice, and adjudication rights.
+- [x] [Team Topologies (2026) Key concepts](https://teamtopologies.com/key-concepts) - platform teams as internal products and X-as-a-Service boundaries.
+- [x] [Team Topologies (2024) Revisiting Team Topologies: Misuses of Platform Teams](https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams) - consultation failures, firefighting mode, and siloed platform-team failure modes.
+- [x] [Amazon Web Services (AWS) (2025) Empower your teams with modern architecture governance](https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/) - preapproved blueprints, distributed governance, automated controls, and exception-path design.
+- [x] [Deloitte (2024) Shift from back office to center office](https://www.deloitte.com/us/en/insights/topics/business-strategy-growth/evolution-of-shared-services.html) - cross-functional service delivery and shared capability provision across silos.
+- [x] [Mitchell (2026) Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits](https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html) - prior completed item on the authority bundle needed when accountability is not co-located.
+- [x] [Mitchell (2026) Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation](https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html) - prior completed item on direct telemetry versus contract-right substitutes for visibility and exit.
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill - retained verbatim in the completed item. Sections 0-5 are the investigation, and section 6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- Question: under which governance designs do explicit integrator rights fully substitute for structural co-location of risk, cost, and benefits, and under which conditions do those rights fail?
+- Scope: compare decision-rights substitutes across shared services, platform governance, and outsourced or third-party governance regimes, then identify the failure conditions where rights remain weaker than structural co-location.
+- Constraints: prefer accessible primary and official sources, keep every source URL-backed, record seeded-source replacements explicitly, and separate facts from inferential synthesis.
+- Output: knowledge, full mode, with executive summary, key findings, evidence map, assumptions, analysis, risks and gaps, open questions, and output details.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html] Prior completed-item sweep found directly relevant repository work on minimum authority bundles for non-co-located accountability, contract-right substitutes for visibility and exit, and central-platform-versus-spoke operating models.
+- [assumption; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://www.bain.com/insights/rapid-decision-making/] In this item, explicit integrator rights means named authority over prioritisation, investment recommendation, exception handling, and escalation without transferring all economic ownership into the same formal unit.
+- [assumption; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf] In this item, structural co-location means one unit or leader holds the dominant delivery choices together with most of the associated downside, upside, and accountability consequences.
+
+### §1 Question Decomposition
+
+- **Root question:** when can explicit rights replace structural co-location strongly enough to integrate risk, cost, and benefit trade-offs?
+  - **A. Governance baseline**
+    - A1. What do authoritative governance sources say rights-based governance must allocate explicitly?
+    - A2. What role does a single decider play in cross-functional trade-offs?
+    - A3. What information, incentive, and accountability conditions must surround those rights?
+  - **B. Shared-services operating models**
+    - B1. What formal roles or boards link shared-service providers to users?
+    - B2. What evidence shows governance succeeds or fails when those roles are unclear?
+  - **C. Platform governance**
+    - C1. What should a platform team own centrally and what should stay with stream-aligned delivery teams?
+    - C2. What failure modes appear when platform teams lack consultation, boundaries, or exception handling?
+  - **D. Outsourced and third-party governance**
+    - D1. Which contractual or regulatory rights recreate visibility and challenge when work is external?
+    - D2. What remains impossible to substitute through rights alone when visibility is indirect?
+  - **E. Boundary conditions**
+    - E1. Under what conditions are rights sufficient for full substitution?
+    - E2. Under what conditions do rights degrade into coordination without real integration?
+
+### §2 Investigation
+
+- **Source audit and access notes**
+  - [assumption; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf] The seeded Institute of Internal Auditors landing page did not expose the required text in this session, so the official 2020 Three Lines Model PDF was used as the consulted source.
+  - [assumption; source: https://legalinstruments.oecd.org/public/doc/322/322.en.pdf] The seeded OECD landing page returned 403 in this runtime, so the consulted source for OECD claims is the official OECD Legal Instruments PDF.
+  - [assumption; source: https://www.bain.com/insights/rapid-decision-making/; https://www.bain.com/insights/decisions-who-does-what/] The seeded Harvard Business Review article exposed only a short preview in this session, so explicit role-definition claims are drawn from Bain's accessible RAPID pages.
+
+- **A. Governance baseline: what rights-based substitution must allocate**
+  - [fact; source: https://cisr.mit.edu/content/classic-topics-decision-rights] MIT CISR defines governance as a company's allocation of decision rights and accountabilities and says clear specification of both is key to coherent digital transformation.
+  - [fact; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth] MIT CISR identifies three digital-transformation decision categories that matter most: who decides what is done versus how it is done, how much is invested and how spending is prioritised, and who handles exceptions.
+  - [fact; source: https://www.bain.com/insights/rapid-decision-making/; https://www.bain.com/insights/decisions-who-does-what/] Bain's RAPID model assigns one Decide role for each decision to preserve single-point accountability, while Agree roles are used sparingly and typically cover mandatory legal or regulatory constraints.
+  - [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/rapid-decision-making/] Rights-based substitution therefore requires more than a consultation forum: it needs one named cross-unit decider, explicit ownership of investment prioritisation and exception handling, and narrowly scoped veto holders.
+
+- **B. Governing-body accountability, information, and incentives**
+  - [fact; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf] The Institute of Internal Auditors states that governance requires accountability by a governing body, actions by management to achieve objectives, and independent assurance from internal audit.
+  - [fact; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf] The same model says the governing body delegates responsibility and provides resources to management while ensuring legal, regulatory, and ethical expectations are met.
+  - [fact; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf] The Three Lines Model says effective governance depends on alignment through communication, cooperation, and collaboration so that reliable and transparent information exists for risk-based decision making.
+  - [fact; source: https://legalinstruments.oecd.org/public/doc/322/322.en.pdf] The OECD says corporate governance provides stakeholders, board members, executives, intermediaries, and service providers with the right information and incentives to perform their roles and ensure accountability within checks and balances.
+  - [inference; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf] Explicit rights do not substitute fully when they are not backed by delegated resources, transparent reporting, and incentive structures that make the affected units act on the integrator's decisions.
+
+- **C. Shared-services governance shows the strongest recurring rights-based substitute**
+  - [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] Burns and Yeaton report that successful shared-services transitions depend on strong project management, senior-level support, effective communication, change management, and phased implementation.
+  - [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] The same report says shared-services implementations need an unambiguous governance structure with assigned responsibilities so individuals can be held accountable for necessary tasks.
+  - [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] Burns and Yeaton also state that the right governance strategy links an efficient provider to a responsible user, puts metrics and benchmarks in place, gives both sides accountability, and provides a means to resolve problems.
+  - [fact; source: https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf] The United States shared-services governance model uses a cross-functional Shared Services Governance Board that acts as an escalation point, reviews investment action plans, advises on funding opportunities, and adjudicates cross-service, cross-provider, and cross-customer issues.
+  - [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf] Shared services show that explicit integrator rights can substitute for structural co-location when the provider-user interface is recurring, performance is measurable, and a neutral escalation body can force resolution across customer and service-owner boundaries.
+
+- **D. Platform governance works when central standards and local execution are separated deliberately**
+  - [fact; source: https://teamtopologies.com/key-concepts] Team Topologies defines a platform team as an internal product that accelerates stream-aligned teams, meaning teams aligned to a flow of work, with X-as-a-Service as the normal low-friction interaction mode.
+  - [fact; source: https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams] Team Topologies warns that platform teams fail when they operate reactively, choose tools without consultation, assume they know what other teams need, or become siloed around cross-cutting concerns such as security or compliance.
+  - [fact; source: https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] AWS says traditional central architecture signoffs remove decision authority from implementation teams and create false assurance, while modern architecture governance relies on preapproved blueprints, distributed governance, automated control validation, and exception handling for non-standard cases.
+  - [fact; source: https://www.deloitte.com/us/en/insights/topics/business-strategy-growth/evolution-of-shared-services.html] Deloitte's center-office model describes cross-functional teams that deliver end-to-end services and common capabilities such as automation, analytics, and continuous improvement across enterprise silos.
+  - [inference; source: https://teamtopologies.com/key-concepts; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://www.deloitte.com/us/en/insights/topics/business-strategy-growth/evolution-of-shared-services.html] Platform governance substitutes successfully when central teams own standards, reusable services, and exception frameworks, while the teams closest to the work retain execution authority and enough context to make local trade-offs quickly.
+
+- **E. Outsourced and vendor-mediated governance is the hardest place for rights to substitute**
+  - [fact; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The European Banking Authority says the management body's responsibility can never be outsourced and outsourcing must not create an empty shell or impair effective oversight.
+  - [fact; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] The same guidelines require effective control and challenge over outsourced functions plus contractual rights to information, inspection, access, audit, termination, and exit strategies.
+  - [fact; source: https://www.bis.org/bcbs/publ/d328.pdf] BCBS says the board has overall responsibility for the bank, while business lines own first-line risk and independent risk-management and compliance functions operate as second-line challenge functions.
+  - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] A directly adjacent completed item in this repository found that vendor-supplied temporary automation usually recreates visibility and reversibility through registers, audit rights, monitoring, and transition support rather than through direct telemetry and direct deletion authority.
+  - [inference; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://www.bis.org/bcbs/publ/d328.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] When the integrator depends on third parties, explicit rights substitute only if contracts recreate direct enough access, challenge, and exit rights to approximate the visibility that internal operating models can get from direct system telemetry.
+
+- **F. Boundary conditions and failure mechanisms**
+  - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html] The closest prior completed item in this repository concluded that non-co-located accountability works only with an explicit authority bundle and fails if the central office lacks budget leverage and escalation rights.
+  - [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] Burns and Yeaton report that resistance to change, weak governance, and missing stakeholder support are common shared-services failure patterns.
+  - [fact; source: https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams] Team Topologies identifies firefighting mode, lack of consultation, and siloed platform operations as common failure modes when central teams become overloaded or detached from user reality.
+  - [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams] Integrator rights fail when the integrator cannot move resources, cannot see the operative data directly enough to challenge performance, or cannot impose consequences on units that continue optimising for local incentives.
+  - [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] Rights-based substitution is therefore strongest for bounded, recurring coordination problems with standard interfaces and explicit exception paths, and weakest for ambiguous, one-off, or politically contested trade-offs where benefits are delayed and observability is indirect.
+
+### §3 Reasoning
+
+- [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://www.bain.com/insights/rapid-decision-making/] The central analytical move is to test not whether decision rights help, but whether they close all of the missing-integrator gaps that structural co-location would otherwise close by default.
+- [inference; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf] Governing-body accountability and checks-and-balances requirements imply that rights only count as a substitute when the surrounding information and incentive system makes those rights operable in practice.
+- [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf] Shared-services evidence is the clearest example of successful substitution because it already assumes provider and user separation and therefore documents the minimum governance machinery needed to keep that separation workable.
+- [inference; source: https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] Platform-governance evidence shows that rights are strongest when central teams govern reusable standards and exception paths, but not when they absorb all downstream execution decisions.
+- [inference; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] Outsourced settings remain the hardest test because contract rights can recreate audit and exit but cannot eliminate the information lag and mediation that come with external ownership of execution surfaces.
+
+### §4 Consistency Check
+
+- [fact; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf; https://www.bis.org/bcbs/publ/d328.pdf] The governance baseline is internally consistent across Institute of Internal Auditors, OECD, and BCBS sources: a governing body remains accountable, management receives delegated execution authority, and independent challenge functions retain oversight roles.
+- [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] Shared-services and platform-governance sources agree that unclear roles, weak consultation, and missing escalation paths degrade performance even when formal central teams exist.
+- [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/rapid-decision-making/; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] No source says rights alone are sufficient without accompanying resource leverage, metrics, and exception handling, so the claim that rights fail without those complements remains a low-uncertainty inference rather than a direct quoted fact.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] Adjacent repository items sharpen the same boundary conditions and do not contradict the external-source picture.
+
+### §5 Depth and Breadth Expansion
+
+- [inference; source: https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://teamtopologies.com/key-concepts] Technical lens: rights substitute more effectively when telemetry, blueprints, and service interfaces standardise what the integrator can observe and constrain.
+- [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf] Economic lens: rights become durable when the governance body can shape funding, approve investment actions, or attach metrics and benchmarks to provider and user behaviour.
+- [inference; source: https://www.bis.org/bcbs/publ/d328.pdf; https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf] Regulatory lens: the more a regime requires independent challenge, auditability, and documented exit or exception handling, the less plausible purely informal coordination becomes.
+- [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams] Behavioural lens: resistance, distrust, and local optimisation are recurring reasons that nominal rights collapse into ineffective coordination.
+- [inference; source: https://www.deloitte.com/us/en/insights/topics/business-strategy-growth/evolution-of-shared-services.html; https://ussm.gsa.gov/governance/; https://teamtopologies.com/key-concepts] Historical and operating-model lens: rights-based substitutes mature first in recurring service-delivery regimes, such as shared services and platforms, because those regimes make service boundaries, customers, and escalation surfaces explicit.
+
+### §6 Synthesis
+
+**Executive summary:**
+
+Explicit integrator rights fully substitute for structural co-location only when governance gives one cross-unit decider enforceable authority over prioritisation and exceptions, direct enough information to judge execution, and consequence mechanisms through budget, standards, or escalation. [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/rapid-decision-making/; https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf]
+Shared-services boards and platform-governance models come closest to satisfying that condition because they formalise provider-user interfaces, performance metrics, reusable standards, and dispute-resolution paths. [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
+Rights weaken when the integrator cannot move resources, when affected units still optimise for local incentives, or when visibility is mediated through external providers rather than direct telemetry. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html]
+The best-supported boundary condition is therefore that rights-based substitution works for bounded, recurring coordination problems with explicit service interfaces and exception routes, but it does not fully replace structural co-location for opaque, delayed, or politically contested cost-benefit-risk trade-offs. [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
+
+**Key findings:**
+
+1. **Explicit integrator rights only become a true substitute for structural co-location when one named decision owner can resolve what-versus-how, investment-prioritisation, and exception trade-offs without committee ambiguity or diffuse veto power.** ([inference]; high confidence; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/rapid-decision-making/; https://www.bain.com/insights/decisions-who-does-what/)
+2. **Rights-based substitution also requires governing-body accountability, delegated resources, and transparent reporting, because authoritative governance sources treat rights as operable only inside a broader system of checks, balances, and independent assurance.** ([inference]; high confidence; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf; https://www.bis.org/bcbs/publ/d328.pdf)
+3. **Shared-services governance can substitute for structural co-location when a neutral board or equivalent body links provider and user through metrics, benchmarks, investment review, and escalation, making recurring cross-unit disputes governable without a reorganisation.** ([inference]; medium confidence; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf)
+4. **Platform-governance regimes substitute successfully when central teams own reusable standards and preapproved blueprints while local delivery teams retain execution authority, but they fail when the platform team becomes a reactive bottleneck or imposes tools without consultation.** ([inference]; high confidence; source: https://teamtopologies.com/key-concepts; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/)
+5. **Vendor-mediated or outsourced governance rarely supports full substitution unless contracts recreate direct enough access, audit, monitoring, termination, and exit rights to approximate the visibility that internal governance gets from direct operational control.** ([inference]; high confidence; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://www.bis.org/bcbs/publ/d328.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html)
+6. **Rights fail in practice when the nominal integrator cannot shift funding, enforce standards, or trigger consequences, because local units then keep optimising for their own incentives while the integrator remains a coordinator without real leverage.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://cisr.mit.edu/content/classic-topics-decision-rights)
+7. **The strongest evidence therefore supports full substitution only for bounded and repeatable coordination problems with explicit interfaces, while delayed-benefit capability investments and opaque multi-party trade-offs still favour structural co-location or a materially stronger authority bundle.** ([inference]; medium confidence; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html)
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Rights-based substitution needs one named decision owner over prioritisation and exceptions. | https://cisr.mit.edu/content/simplifying-decision-rights-growth ; https://www.bain.com/insights/rapid-decision-making/ ; https://www.bain.com/insights/decisions-who-does-what/ | high | Single decider and narrow veto roles |
+| [fact] Rights only operate inside a wider system of governing-body accountability, delegated resources, transparent reporting, and independent challenge. | https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf ; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf ; https://www.bis.org/bcbs/publ/d328.pdf | high | Checks and balances |
+| [fact] Shared-services governance works best when provider and user are linked by metrics, benchmarks, investment review, and escalation. | https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf ; https://ussm.gsa.gov/governance/ ; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf | medium | Neutral board and recurring service interface |
+| [fact] Platform governance succeeds when central teams own reusable standards and local teams retain execution context, and fails when platform teams become siloed bottlenecks. | https://teamtopologies.com/key-concepts ; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams ; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/ | high | Central standards, local execution |
+| [fact] Outsourced governance requires access, audit, monitoring, termination, and exit rights because management responsibility and effective oversight cannot be outsourced away. | https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf ; https://www.bis.org/bcbs/publ/d328.pdf ; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html | high | Contract rights recreate partial control |
+| [inference] An integrator without budget, standards, or consequence leverage remains a coordinator and does not fully substitute for structural co-location. | https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html ; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf ; https://cisr.mit.edu/content/classic-topics-decision-rights | medium | Authority bundle requirement |
+| [inference] Full substitution is strongest for bounded recurring coordination problems and weakest for delayed or politically contested trade-offs with indirect observability. | https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf ; https://teamtopologies.com/key-concepts ; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/ ; https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html | medium | Boundary condition synthesis |
+
+**Assumptions:**
+
+- [assumption; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://www.bain.com/insights/rapid-decision-making/] Explicit integrator rights are treated as the combined authority to prioritise, recommend investment, handle exceptions, and escalate unresolved trade-offs, even though different sources distribute those actions across different named roles.
+- [assumption; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] Shared services and platform governance are treated as comparable substitute cases because both intentionally separate central standards from local execution and therefore expose the same coordination problem in a repeatable form.
+- [assumption; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] Contract rights in outsourced settings are treated as a functional substitute for direct control only to the extent that they recreate comparable visibility, challenge, and exit surfaces.
+
+**Analysis:**
+
+The evidence weighs most strongly toward governance patterns that make the integrator's authority concrete at the decision point rather than symbolic at the committee level. [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/decisions-who-does-what/]
+Shared services provide the clearest substitution case because they formalise provider-user separation and then add boards, metrics, funding advice, and escalation to make that separation governable. [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf]
+Platform governance reaches a similar result, but only when the central team limits itself to standards, reusable products, and exception frameworks rather than reclaiming every downstream execution decision. [inference; source: https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
+The outsourced case is materially weaker because even strong contracts recreate visibility imperfectly, and the underlying economic and informational surfaces remain mediated by the provider. [inference; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html]
+That pattern explains why explicit rights are a credible substitute for recurring service-governance interfaces but a weaker substitute for delayed, investment-heavy, or politically contested trade-offs where only structural co-location or a much stronger authority bundle can reliably align incentives. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams]
+
+**Risks, gaps, uncertainties:**
+
+- [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] The shared-services evidence base is rich on governance mechanics and failure patterns but light on matched quantitative outcome comparisons against structurally co-located alternatives.
+- [fact; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] Regulatory outsourcing guidance is strong on required rights and safeguards, but it does not quantify how often those rights fully overcome information asymmetry in practice.
+- [inference; source: https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] Platform-governance sources are operationally useful but still rely partly on practitioner guidance rather than controlled comparative studies.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] The final boundary condition is therefore well supported directionally, but not by a single cross-sector dataset that ranks substitution strength across all governance regimes.
+
+**Open questions:**
+
+- Which observable metrics best distinguish a real integrator from a coordinator without leverage before a governance failure becomes visible?
+- How often do shared-services customer councils or equivalent boards actually overrule large internal customers, and what escalation design makes that credible?
+- Which contract clauses most reliably recreate operational visibility in vendor-mediated automation without excessive monitoring cost?
+- Are there published enterprise cases where explicit integrator rights outperformed structural co-location on long-horizon capability investment rather than recurring service delivery?
+
+### §7 Recursive Review
+
+- Review result: pass
+- Acronym audit: Institute of Internal Auditors (IIA), Organisation for Economic Co-operation and Development (OECD), Control Objectives for Information and Related Technologies (COBIT), Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR), Basel Committee on Banking Supervision (BCBS), Portable Document Format (PDF), and Amazon Web Services (AWS) are expanded on first use in the document.
+- Claim audit: all visible claims in Research Skill Output are labelled as fact, inference, or assumption and bind to URL-backed sources.
+- Cross-item audit: adjacent completed items on authority bundles, vendor visibility and exit, and platform operating models are integrated where they sharpen the same governance surfaces.
+- Confidence result: medium, because the substitution pattern is strongly supported directionally across multiple governance families, but comparative outcome evidence remains more architectural and regulatory than statistical.
+
+---
+
+## Findings
+
+### Executive Summary
+
+Explicit integrator rights fully substitute for structural co-location only when governance gives one cross-unit decider enforceable authority over prioritisation and exceptions, direct enough information to judge execution, and consequence mechanisms through budget, standards, or escalation. [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/rapid-decision-making/; https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf]
+Shared-services boards and platform-governance models come closest to satisfying that condition because they formalise provider-user interfaces, performance metrics, reusable standards, and dispute-resolution paths. [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
+Rights weaken when the integrator cannot move resources, when affected units still optimise for local incentives, or when visibility is mediated through external providers rather than direct telemetry. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html]
+The best-supported boundary condition is therefore that rights-based substitution works for bounded, recurring coordination problems with explicit service interfaces and exception routes, but it does not fully replace structural co-location for opaque, delayed, or politically contested cost-benefit-risk trade-offs. [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
+
+### Key Findings
+
+1. **Explicit integrator rights only become a true substitute for structural co-location when one named decision owner can resolve what-versus-how, investment-prioritisation, and exception trade-offs without committee ambiguity or diffuse veto power.** ([inference]; high confidence; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/rapid-decision-making/; https://www.bain.com/insights/decisions-who-does-what/)
+2. **Rights-based substitution also requires governing-body accountability, delegated resources, and transparent reporting, because authoritative governance sources treat rights as operable only inside a broader system of checks, balances, and independent assurance.** ([inference]; high confidence; source: https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf; https://www.bis.org/bcbs/publ/d328.pdf)
+3. **Shared-services governance can substitute for structural co-location when a neutral board or equivalent body links provider and user through metrics, benchmarks, investment review, and escalation, making recurring cross-unit disputes governable without a reorganisation.** ([inference]; medium confidence; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf)
+4. **Platform-governance regimes substitute successfully when central teams own reusable standards and preapproved blueprints while local delivery teams retain execution authority, but they fail when the platform team becomes a reactive bottleneck or imposes tools without consultation.** ([inference]; high confidence; source: https://teamtopologies.com/key-concepts; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/)
+5. **Vendor-mediated or outsourced governance rarely supports full substitution unless contracts recreate direct enough access, audit, monitoring, termination, and exit rights to approximate the visibility that internal governance gets from direct operational control.** ([inference]; high confidence; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://www.bis.org/bcbs/publ/d328.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html)
+6. **Rights fail in practice when the nominal integrator cannot shift funding, enforce standards, or trigger consequences, because local units then keep optimising for their own incentives while the integrator remains a coordinator without real leverage.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://cisr.mit.edu/content/classic-topics-decision-rights)
+7. **The strongest evidence therefore supports full substitution only for bounded and repeatable coordination problems with explicit interfaces, while delayed-benefit capability investments and opaque multi-party trade-offs still favour structural co-location or a materially stronger authority bundle.** ([inference]; medium confidence; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Rights-based substitution needs one named decision owner over prioritisation and exceptions. | https://cisr.mit.edu/content/simplifying-decision-rights-growth ; https://www.bain.com/insights/rapid-decision-making/ ; https://www.bain.com/insights/decisions-who-does-what/ | high | Single decider and narrow veto roles |
+| [fact] Rights only operate inside a wider system of governing-body accountability, delegated resources, transparent reporting, and independent challenge. | https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf ; https://legalinstruments.oecd.org/public/doc/322/322.en.pdf ; https://www.bis.org/bcbs/publ/d328.pdf | high | Checks and balances |
+| [fact] Shared-services governance works best when provider and user are linked by metrics, benchmarks, investment review, and escalation. | https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf ; https://ussm.gsa.gov/governance/ ; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf | medium | Neutral board and recurring service interface |
+| [fact] Platform governance succeeds when central teams own reusable standards and local teams retain execution context, and fails when platform teams become siloed bottlenecks. | https://teamtopologies.com/key-concepts ; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams ; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/ | high | Central standards, local execution |
+| [fact] Outsourced governance requires access, audit, monitoring, termination, and exit rights because management responsibility and effective oversight cannot be outsourced away. | https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf ; https://www.bis.org/bcbs/publ/d328.pdf ; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html | high | Contract rights recreate partial control |
+| [inference] An integrator without budget, standards, or consequence leverage remains a coordinator and does not fully substitute for structural co-location. | https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html ; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf ; https://cisr.mit.edu/content/classic-topics-decision-rights | medium | Authority bundle requirement |
+| [inference] Full substitution is strongest for bounded recurring coordination problems and weakest for delayed or politically contested trade-offs with indirect observability. | https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf ; https://teamtopologies.com/key-concepts ; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/ ; https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html | medium | Boundary condition synthesis |
+
+### Assumptions
+
+- [assumption; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://www.bain.com/insights/rapid-decision-making/] Explicit integrator rights are treated as the combined authority to prioritise, recommend investment, handle exceptions, and escalate unresolved trade-offs, even though different sources distribute those actions across different named roles.
+- [assumption; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] Shared services and platform governance are treated as comparable substitute cases because both intentionally separate central standards from local execution and therefore expose the same coordination problem in a repeatable form.
+- [assumption; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] Contract rights in outsourced settings are treated as a functional substitute for direct control only to the extent that they recreate comparable visibility, challenge, and exit surfaces.
+
+### Analysis
+
+The evidence weighs most strongly toward governance patterns that make the integrator's authority concrete at the decision point rather than symbolic at the committee level. [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.bain.com/insights/decisions-who-does-what/]
+Shared services provide the clearest substitution case because they formalise provider-user separation and then add boards, metrics, funding advice, and escalation to make that separation governable. [inference; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://ussm.gsa.gov/governance/; https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf]
+Platform governance reaches a similar result, but only when the central team limits itself to standards, reusable products, and exception frameworks rather than reclaiming every downstream execution decision. [inference; source: https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
+The outsourced case is materially weaker because even strong contracts recreate visibility imperfectly, and the underlying economic and informational surfaces remain mediated by the provider. [inference; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html]
+That pattern explains why explicit rights are a credible substitute for recurring service-governance interfaces but a weaker substitute for delayed, investment-heavy, or politically contested trade-offs where only structural co-location or a much stronger authority bundle can reliably align incentives. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams]
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf] The shared-services evidence base is rich on governance mechanics and failure patterns but light on matched quantitative outcome comparisons against structurally co-located alternatives.
+- [fact; source: https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf] Regulatory outsourcing guidance is strong on required rights and safeguards, but it does not quantify how often those rights fully overcome information asymmetry in practice.
+- [inference; source: https://teamtopologies.com/key-concepts; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/] Platform-governance sources are operationally useful but still rely partly on practitioner guidance rather than controlled comparative studies.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html; https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html] The final boundary condition is therefore well supported directionally, but not by a single cross-sector dataset that ranks substitution strength across all governance regimes.
+
+### Open Questions
+
+- Which observable metrics best distinguish a real integrator from a coordinator without leverage before a governance failure becomes visible?
+- How often do shared-services customer councils or equivalent boards actually overrule large internal customers, and what escalation design makes that credible?
+- Which contract clauses most reliably recreate operational visibility in vendor-mediated automation without excessive monitoring cost?
+- Are there published enterprise cases where explicit integrator rights outperformed structural co-location on long-horizon capability investment rather than recurring service delivery?
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: Comparative research item explaining when explicit integrator rights can replace structural co-location of risk, cost, and benefits, and identifying the boundary conditions where those rights collapse into low-leverage coordination instead. [inference; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf; https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf]
+- Links:
+  - https://cisr.mit.edu/content/simplifying-decision-rights-growth
+  - https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf
+  - https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf
