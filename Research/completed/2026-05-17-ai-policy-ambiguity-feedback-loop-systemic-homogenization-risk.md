@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 96a7ea2006a761ec0e9ff04aee942ca2952b1f1c
+    changed: 2026-05-18
+    progress: progress/2026-05-18-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.md
+    summary: "Initial completion"
 ---
 
 # Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution
