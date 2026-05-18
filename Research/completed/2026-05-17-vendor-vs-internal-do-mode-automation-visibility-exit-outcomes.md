@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 14e2f7f66312cb40f10a350e3bb82eb376d1bf8b
+    changed: 2026-05-18
+    progress: progress/2026-05-18-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.md
+    summary: Initial completion
 ---
 
 # Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation
