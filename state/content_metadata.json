@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-18T12:13:46Z",
+  "extracted_at": "2026-05-18T12:30:12Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -107,6 +107,118 @@
             "https://www.servicenow.com/community/now-assist-articles/enable-mcp-and-a2a-for-your-agentic-workflows-with-faqs-updated/ta-p/3373907",
             "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
             "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-post-gap-closure-persistence-low-code-bots-agents": {
+      "named_concepts": [
+        "accessible public",
+        "original gap",
+        "persistence rate",
+        "gap closure",
+        "governance maturity",
+        "month windows",
+        "low-code applications",
+        "applications bots",
+        "still exist",
+        "maintenance burden",
+        "reusable persistence",
+        "platform documentation",
+        "enterprise low-code",
+        "proprietary analyst",
+        "analyst reports",
+        "enterprise-internal datasets",
+        "strongest accessible",
+        "burden conditions",
+        "platform telemetry",
+        "lifecycle controls"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit",
+        "https://docs.uipath.com/automation-ops/automation-cloud/latest/user-guide/about-automation-ops",
+        "https://www.forrester.com/report/the-forrester-wave-low-code-development-platforms-for-professional-developers-q2-2023/RES177705",
+        "https://www.computer.org/technical-committees/software-engineering/resources/software-evolution",
+        "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+        "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+        "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+        "https://docs.uipath.com/automation-hub/automation-suite/2.2510/user-guide/customize-idea-flows",
+        "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/3/",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/6/",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets.html"
+      ],
+      "key_claims": [
+        {
+          "text": "No accessible public empirical source consulted in this item publishes a reusable persistence or survival rate after the original gap is closed for enterprise low-code applications, bots, or agents, although relevant evidence could still exist in proprietary analyst reports or enterprise-internal datasets",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/3/",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6/",
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://www.forrester.com/report/the-forrester-wave-low-code-development-platforms-for-professional-developers-q2-2023/RES177705",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets.html"
+          ]
+        },
+        {
+          "text": "The accessible low-code research base is longitudinally weak on retirement rates but consistently strong on the recurring governance, unofficial asset, and maintenance burden conditions that make persistence likely",
+          "sources": [
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6/",
+            "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6/",
+            "https://davidamitchell.github.io/Research/research/2026-05-14-citizen-development-rollout-empirical-evidence.html"
+          ]
+        },
+        {
+          "text": "Microsoft Power Platform documents inventory, timestamp, owner, and usage telemetry that can support internal persistence-window analysis for applications, flows, and agents if historical records are retained",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi"
+          ]
+        },
+        {
+          "text": "Microsoft explicitly documents a six-month inactivity workflow for apps and flows, which provides one concrete persistence checkpoint but should be treated as an operational review trigger rather than as a public benchmark norm",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components"
+          ]
+        },
+        {
+          "text": "UiPath's accessible official documentation shows centralized governance, intake shutdown, and dependency-aware deletion controls, while the consulted UiPath material does not itself provide public retirement or abandonment rates for automations",
+          "sources": [
+            "https://docs.uipath.com/automation-ops/automation-cloud/latest/user-guide/about-automation-ops",
+            "https://docs.uipath.com/automation-hub/automation-suite/2.2510/user-guide/customize-idea-flows",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data"
+          ]
+        },
+        {
+          "text": "The strongest accessible bot-retirement guidance supports end-of-life planning and overlap removal as good practice, but it still stops short of reporting measured post-replacement survival percentages",
+          "sources": [
+            "https://community.pega.com/blog/when-it-time-retire-your-rpa-bots",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-decommission-trigger-design-for-do-mode-agents.html"
+          ]
+        },
+        {
+          "text": "Governance maturity changes the observability of persistence more clearly than it changes any publicly provable persistence rate, because mature estates capture owners, dependencies, usage, and exit events while weakly governed estates do not",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+            "https://docs.uipath.com/automation-hub/automation-cloud/latest/user-guide/deleting-data",
+            "https://aisel.aisnet.org/misqe/vol23/iss3/6/"
+          ]
+        },
+        {
+          "text": "A practical internal measurement design is to use three, six, twelve, and twenty-four month windows as early decay, first inactivity, medium-term stabilisation, and long-tail persistence checkpoints, while treating those windows as operational conventions rather than public standards",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-archive-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets.html"
           ]
         }
       ]
