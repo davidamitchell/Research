@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c473819bbe68d52bc0784add41f819fc60ddd612
+    changed: 2026-05-18
+    progress: progress/2026-05-18-manual-workaround-to-central-it-backlog-conversion-datasets.md
+    summary: "Initial completion"
 ---
 
 # Datasets for measuring conversion from demand for local workaround tools to central Information Technology backlog items
