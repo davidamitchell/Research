@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-18T13:11:39Z",
+  "extracted_at": "2026-05-18T13:25:09Z",
   "items": {
     "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes": {
       "named_concepts": [
@@ -1036,6 +1036,112 @@
             "https://leandojo.org/leandojo.html",
             "https://arxiv.org/abs/2404.12534",
             "https://github.com/apps/aleph-prover"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance": {
+      "named_concepts": [
+        "structural co-location",
+        "explicit integrator",
+        "integrator rights",
+        "full substitution",
+        "reusable standards",
+        "boundary condition",
+        "rights-based substitution",
+        "coordination problems",
+        "politically contested",
+        "contracts recreate",
+        "authority bundle",
+        "platform governance",
+        "rights fully",
+        "fully substitute",
+        "direct enough",
+        "budget standards",
+        "formalise provider-user",
+        "integrator cannot",
+        "bounded recurring",
+        "recurring coordination"
+      ],
+      "source_urls": [
+        "https://www.theiia.org/en/content/guidance/standards-and-guidance/ippf/three-lines-model/",
+        "https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf",
+        "https://www.oecd.org/corporate/principles-corporate-governance/",
+        "https://legalinstruments.oecd.org/public/doc/322/322.en.pdf",
+        "https://www.isaca.org/resources/cobit",
+        "https://hbr.org/2006/01/who-has-the-d-how-clear-decision-roles-enhance-organizational-performance",
+        "https://www.bain.com/insights/rapid-decision-making/",
+        "https://www.bain.com/insights/decisions-who-does-what/",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://www.bis.org/bcbs/publ/d328.pdf",
+        "https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf",
+        "https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf",
+        "https://ussm.gsa.gov/governance/",
+        "https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf",
+        "https://teamtopologies.com/key-concepts",
+        "https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams",
+        "https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/",
+        "https://www.deloitte.com/us/en/insights/topics/business-strategy-growth/evolution-of-shared-services.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Explicit integrator rights only become a true substitute for structural co-location when one named decision owner can resolve what-versus-how, investment-prioritisation, and exception trade-offs without committee ambiguity or diffuse veto power",
+          "sources": [
+            "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+            "https://www.bain.com/insights/rapid-decision-making/",
+            "https://www.bain.com/insights/decisions-who-does-what/"
+          ]
+        },
+        {
+          "text": "Rights-based substitution also requires governing-body accountability, delegated resources, and transparent reporting, because authoritative governance sources treat rights as operable only inside a broader system of checks, balances, and independent assurance",
+          "sources": [
+            "https://www.theiia.org/globalassets/site/about-us/advocacy/three-lines-model-updated.pdf",
+            "https://legalinstruments.oecd.org/public/doc/322/322.en.pdf",
+            "https://www.bis.org/bcbs/publ/d328.pdf"
+          ]
+        },
+        {
+          "text": "Shared-services governance can substitute for structural co-location when a neutral board or equivalent body links provider and user through metrics, benchmarks, investment review, and escalation, making recurring cross-unit disputes governable without a reorganisation",
+          "sources": [
+            "https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf",
+            "https://ussm.gsa.gov/governance/",
+            "https://ussm.gsa.gov/assets/files/SSGB-Charter-August2024.pdf"
+          ]
+        },
+        {
+          "text": "Platform-governance regimes substitute successfully when central teams own reusable standards and preapproved blueprints while local delivery teams retain execution authority, but they fail when the platform team becomes a reactive bottleneck or imposes tools without consultation",
+          "sources": [
+            "https://teamtopologies.com/key-concepts",
+            "https://teamtopologies.com/news-blogs-newsletters/2024/11/24/revisiting-team-topologies-misuses-of-platform-teams",
+            "https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/"
+          ]
+        },
+        {
+          "text": "Vendor-mediated or outsourced governance supports full substitution only when contracts recreate direct enough access, audit, monitoring, termination, and exit rights to approximate the visibility that internal governance gets from direct operational control",
+          "sources": [
+            "https://www.eba.europa.eu/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf",
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html"
+          ]
+        },
+        {
+          "text": "Rights fail in practice when the nominal integrator cannot shift funding, enforce standards, or trigger consequences, because local units then keep optimising for their own incentives while the integrator remains a coordinator without real leverage",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html",
+            "https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf",
+            "https://cisr.mit.edu/content/classic-topics-decision-rights"
+          ]
+        },
+        {
+          "text": "The strongest evidence therefore supports full substitution only for bounded and repeatable coordination problems with explicit interfaces, while delayed-benefit capability investments and opaque multi-party trade-offs still favour structural co-location or a materially stronger authority bundle",
+          "sources": [
+            "https://www.businessofgovernment.org/sites/default/files/BurnsYeatonReport.pdf",
+            "https://teamtopologies.com/key-concepts",
+            "https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html"
           ]
         }
       ]

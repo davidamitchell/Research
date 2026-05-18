@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-18T13:11:43Z",
-  "node_count": 358,
-  "edge_count": 2117,
+  "generated": "2026-05-18T13:25:13Z",
+  "node_count": 359,
+  "edge_count": 2125,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2093,6 +2093,12 @@
       "url": "/Research/research/2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator.html"
     },
     {
+      "slug": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "title": "Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html"
+    },
+    {
       "slug": "2026-05-17-kona-aleph-lean-unifying-concepts",
       "title": "Kona and Aleph at their core, with Lean and unifying concepts",
       "type": "primary",
@@ -2244,7 +2250,7 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -2252,7 +2258,7 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -2996,10 +3002,10 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
+      "evidence": "governance,organisational-design",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -5884,14 +5890,6 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisational-design",
-      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
-    },
-    {
-      "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5909,6 +5907,14 @@
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisational-design",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisational-design",
@@ -13820,10 +13826,10 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "weight": 2,
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
+      "evidence": "organisation,organisational-design,workflow",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -14764,10 +14770,10 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
+      "evidence": "governance,organisation,workflow",
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
@@ -14796,10 +14802,10 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "weight": 2,
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
+      "evidence": "organisation,organisational-design,workflow",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -14892,7 +14898,7 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14900,7 +14906,7 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14972,7 +14978,7 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14980,7 +14986,7 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15116,14 +15122,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15133,6 +15131,14 @@
     {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
@@ -16204,11 +16210,11 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "weight": 2,
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+      "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
@@ -16356,14 +16362,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-accountability-gaps",
       "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16381,6 +16379,14 @@
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
@@ -16404,19 +16410,11 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
       "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
@@ -16424,7 +16422,7 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
@@ -16432,7 +16430,15 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
     },
     {
       "source": "2026-05-14-org-failure-modes-project-demand-product-it",
@@ -16483,6 +16489,14 @@
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -16531,6 +16545,14 @@
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "target": "2026-05-14-org-failure-modes-accountability-gaps",
       "weight": 4,
@@ -16569,6 +16591,14 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
@@ -17305,6 +17335,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
@@ -18116,27 +18154,11 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
       "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
@@ -18428,6 +18450,14 @@
     },
     {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "weight": 3,
       "rel": "tag-overlap",
@@ -18449,6 +18479,46 @@
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
       "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-04-22-enterprise-ai-platform-operating-models",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
       "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
