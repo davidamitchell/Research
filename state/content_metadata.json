@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-18T11:21:43Z",
+  "extracted_at": "2026-05-18T11:40:50Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -694,6 +694,99 @@
             "https://leandojo.org/leandojo.html",
             "https://arxiv.org/abs/2404.12534",
             "https://github.com/apps/aleph-prover"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator": {
+      "named_concepts": [
+        "production workflow",
+        "live-runtime incidents",
+        "duration multiplied",
+        "workflow throughput",
+        "deployment denominator",
+        "common denominator",
+        "executed demand",
+        "demand units",
+        "post-pipeline build",
+        "deployment count",
+        "shared denominator",
+        "build-versus-do comparison",
+        "incident duration",
+        "consequence threshold",
+        "production workflows",
+        "shared unit",
+        "judging release-process",
+        "release-process stability",
+        "dora explicitly",
+        "explicitly warns"
+      ],
+      "source_urls": [
+        "https://dora.dev/guides/dora-metrics/",
+        "https://sre.google/sre-book/service-level-objectives/",
+        "https://sre.google/sre-book/tracking-outages/",
+        "https://sre.google/sre-book/testing-reliability/",
+        "https://sre.google/sre-book/release-engineering/",
+        "https://sre.google/resources/practices-and-processes/measuring-reliability/",
+        "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil4-practices-incident-management-3684",
+        "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "DORA defines post-deployment build instability on a deployment denominator, because change fail rate and deployment rework rate are ratios of problematic deployments to total deployments rather than ratios of failed live transactions to all live transactions",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/"
+          ]
+        },
+        {
+          "text": "SRE defines live-service reliability on executed demand units, because the core measures are request error fraction, yield over well-formed requests, throughput, and end-to-end completion for pipeline-like systems, all of which normalise failure against actual production execution",
+          "sources": [
+            "https://sre.google/sre-book/service-level-objectives/",
+            "https://sre.google/resources/practices-and-processes/measuring-reliability/"
+          ]
+        },
+        {
+          "text": "Deployment count cannot be the shared denominator for direct build-versus-do comparison, because live-runtime incidents can accumulate without new deployments and DORA explicitly warns that metrics become misleading when contexts or applications are not matched",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/"
+          ]
+        },
+        {
+          "text": "Calendar-time incident counts, such as incidents per month or alerts per incident, are useful for operational review but cannot support matched reliability comparison when the same production workflow has materially different execution volumes or burst patterns",
+          "sources": [
+            "https://sre.google/sre-book/tracking-outages/",
+            "https://sre.google/resources/practices-and-processes/measuring-reliability/"
+          ]
+        },
+        {
+          "text": "The strongest common denominator is the count of executions of the same production workflow, instantiated as requests, business transactions, application programming interface calls, job runs, or stage completions depending on the service type",
+          "sources": [
+            "https://sre.google/sre-book/service-level-objectives/",
+            "https://sre.google/resources/practices-and-processes/measuring-reliability/",
+            "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf"
+          ]
+        },
+        {
+          "text": "A matched comparison should count post-pipeline build failures as degraded or failed executions caused by a released change, and should count live-runtime incidents as degraded or failed live executions in the same production workflow, so that both numerators sit on the same exposure base",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://sre.google/sre-book/testing-reliability/",
+            "https://sre.google/sre-book/service-level-objectives/"
+          ]
+        },
+        {
+          "text": "When execution-level incident tagging is missing, estimating affected executions from incident duration multiplied by baseline workflow throughput is a defensible fallback, but the confidence should be downgraded because the estimate assumes stable demand during the impact window",
+          "sources": [
+            "https://sre.google/sre-book/service-level-objectives/",
+            "https://sre.google/sre-book/tracking-outages/"
+          ]
+        },
+        {
+          "text": "The denominator choice is only decision-useful when the same production workflow is explicitly matched by objective, trigger, success condition, and consequence threshold, because otherwise severity mix and blended traffic will distort the apparent reliability difference between release-based delivery and live runtime execution",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://sre.google/resources/practices-and-processes/measuring-reliability/",
+            "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf"
           ]
         }
       ]
