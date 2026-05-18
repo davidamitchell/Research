@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits"
 added: 2026-05-17T20:40:49+00:00
 status: reviewing
