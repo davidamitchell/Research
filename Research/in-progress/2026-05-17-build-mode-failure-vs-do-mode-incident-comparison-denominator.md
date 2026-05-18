@@ -21,13 +21,13 @@ versions: []
 
 ## Research Question
 
-What common denominator enables direct matched comparison between post-pipeline build-mode failure rates and production do-mode incident rates for equivalent workflow classes?
+What common denominator enables direct matched comparison between post-pipeline build-mode failure rates and production do-mode incident rates for the same production workflow?
 
 ## Scope
 
 **In scope:**
 - Candidate denominator definitions for build and run reliability comparison (for example workflow execution unit, deployment unit, and business-process transaction unit)
-- Matching strategies for equivalent workflow classes across delivery and production operations
+- Matching strategies for the same production workflow across delivery and production operations
 - Bias and observability limitations in cross-phase failure and incident comparison
 
 **Out of scope:**
@@ -44,7 +44,7 @@ Teams cannot make defensible control or investment decisions when build failures
 
 1. Identify denominator options used in software delivery performance and operational reliability literature.
 2. Evaluate which denominator can be computed consistently for both post-pipeline failures and production incidents.
-3. Define a matched comparison protocol and known distortion risks for workflow-class equivalence.
+3. Define a matched comparison protocol and known distortion risks for comparing the same production workflow across modes.
 
 ## Sources
 
@@ -62,17 +62,17 @@ Teams cannot make defensible control or investment decisions when build failures
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill, retained verbatim in the completed item. §§0-5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
-- Question: What common denominator enables direct matched comparison between post-pipeline build-mode failure rates and production do-mode incident rates for equivalent workflow classes?
-- Scope: denominator choice, workflow-class matching, and distortion risks for cross-phase comparison
+- Question: What common denominator enables direct matched comparison between post-pipeline build-mode failure rates and production do-mode incident rates for the same production workflow?
+- Scope: denominator choice, matching the same production workflow, and distortion risks for cross-phase comparison
 - Constraints: prefer metrics that can be computed from standard release, logging, tracing, queue, and incident telemetry without proprietary vendor schemas
 - Output: full structured synthesis with executive summary, key findings, evidence map, assumptions, analysis, risks, and open questions
 - Mode: full
-- [fact] Prior completed repository work already established that build mode is usually observed through escaped-release proxies while do mode is observed through live task-execution proxies; this item narrows the question to the denominator that can compare equivalent workflow classes directly. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-variance-control-comparison-across-delivery-modes.md]
-- [assumption] In this item, an equivalent workflow class means a bounded family of production executions with the same task objective, trigger, success condition, and user-visible consequence, because SRE guidance says reliability measures must answer a specific operational question and warns that mixed request groups can hide meaningful differences. [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://sre.google/sre-book/service-level-objectives/]
+- [fact] Prior completed repository work already established that build mode is usually observed through escaped-release proxies while do mode is observed through live task-execution proxies; this item narrows the question to the denominator that can compare the same production workflow directly. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-variance-control-comparison-across-delivery-modes.md]
+- [assumption] In this item, the comparison is restricted to a bounded family of production executions with the same task objective, trigger, success condition, and user-visible consequence, because SRE guidance says reliability measures must answer a specific operational question and warns that mixed request groups can hide meaningful differences. [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://sre.google/sre-book/service-level-objectives/]
 
 ### §1 Question Decomposition
 
@@ -85,13 +85,13 @@ Teams cannot make defensible control or investment decisions when build failures
   - Q2.1. Can deployment count serve as the shared denominator?
   - Q2.2. Can calendar time or raw incident count serve as the shared denominator?
   - Q2.3. Can production workflow execution or business transaction count serve as the shared denominator?
-- Q3. What protocol is needed to compare equivalent workflow classes rather than incomparable systems?
-  - Q3.1. How should workflow classes be matched?
+- Q3. What protocol is needed to compare the same production workflow rather than incomparable systems?
+  - Q3.1. How should the same production workflow be matched?
   - Q3.2. How should build-mode and do-mode numerators be mapped onto the same denominator?
   - Q3.3. What fallback is least misleading when incident systems do not record affected executions directly?
 - Q4. What bias and observability risks remain after the denominator is chosen?
   - Q4.1. What happens when requests or transactions are not equally consequential?
-  - Q4.2. What happens when incidents span multiple workflow classes?
+  - Q4.2. What happens when incidents span multiple production workflows?
   - Q4.3. What happens when low-volume workflows lack enough executions for stable rates?
 
 ### §2 Investigation
@@ -126,7 +126,7 @@ Teams cannot make defensible control or investment decisions when build failures
   - [inference] Deployment count cannot serve as the shared denominator because do-mode incidents can recur many times without any new deployment, while DORA explicitly scopes deployment-based instability to software-delivery performance for a single application or service. [inference; source: https://dora.dev/guides/dora-metrics/]
 
 - **Q2.2 Candidate denominator: calendar time or incident count**
-  - [inference] Calendar-time denominators such as incidents per month are useful for operational trend review, but they cannot support matched comparison across workflow classes because the same incident count can arise from very different execution volumes. [inference; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+  - [inference] Calendar-time denominators such as incidents per month are useful for operational trend review, but they cannot support matched comparison across production workflows because the same incident count can arise from very different execution volumes. [inference; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 - **Q2.3 Candidate denominator: production workflow execution**
   - [inference] Production workflow execution is the strongest shared denominator because both build-mode escaped failures and do-mode incidents are only realised when an actual production execution attempt is degraded, fails, or produces the wrong outcome. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
@@ -137,14 +137,14 @@ Teams cannot make defensible control or investment decisions when build failures
 
 - **Q3.2 Numerator mapping**
   - [inference] For build mode, the numerator should be the count of failed or materially degraded executions attributable to a released change after it passed pipeline gates, not all failed builds and not all deployments. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/testing-reliability/; https://sre.google/sre-book/release-engineering/]
-  - [inference] For do mode, the numerator should be the count of failed or materially degraded live executions in the same workflow class, or the subset of executions affected during an incident window when the system cannot tag each failed execution directly. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/]
+  - [inference] For do mode, the numerator should be the count of failed or materially degraded live executions in the same production workflow, or the subset of executions affected during an incident window when the system cannot tag each failed execution directly. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/]
 
 - **Q3.3 Fallback when affected executions are not recorded directly**
-  - [assumption] When incident systems capture only start time, end time, and affected class, multiplying the affected window by baseline class throughput is the least misleading fallback estimate of affected executions, because it preserves the execution denominator instead of reverting to deployments or calendar time. [assumption; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+  - [assumption] When incident systems capture only start time, end time, and the affected production workflow, multiplying the affected window by baseline workflow throughput is the least misleading fallback estimate of affected executions, because it preserves the execution denominator instead of reverting to deployments or calendar time. [assumption; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 - **Q4 Distortion and observability risks**
   - [fact] Google's measuring-reliability guidance says SLIs assume all requests are equal and that aggregation can hide severe problems experienced by a subset of users or request types. [fact; source: https://sre.google/resources/practices-and-processes/measuring-reliability/]
-  - [inference] Severity mix, shared incidents that span multiple workflow classes, poor class tagging, and low-volume workflows can all distort execution-based comparison unless the class definition and consequence threshold are explicit. [inference; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+  - [inference] Severity mix, shared incidents that span multiple production workflows, poor workflow tagging, and low-volume workflows can all distort execution-based comparison unless the workflow definition and consequence threshold are explicit. [inference; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
   - [inference] Latent build defects with no production exposure will be invisible to an execution denominator until traffic reaches the affected path, but this is acceptable for this item because the question is about post-pipeline failures actually realised in production. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/testing-reliability/]
 
 ### §3 Reasoning
@@ -161,7 +161,7 @@ Teams cannot make defensible control or investment decisions when build failures
 - [inference] That difference is not a contradiction. It is the reason deployments cannot be the shared denominator for direct build-versus-do comparison. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/]
 - [fact] SRE warns that not all requests are equal and DORA warns against disparate comparisons, so both literatures reject blind aggregation across materially different work types. [fact; source: https://dora.dev/guides/dora-metrics/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 - [inference] These warnings are jointly resolved by class-specific execution denominators, not by service-wide or organisation-wide incident counts. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
-- [fact] NIST's quantifiable, repeatable, comparable, and decision-useful measurement criteria are more naturally met by execution counts from logs and tracing data than by subjective severity-only incident labels. [fact; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+- [inference] NIST's quantifiable, repeatable, comparable, and decision-useful measurement criteria fit execution counts from logs and tracing data better than subjective severity-only incident labels. [inference; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 ### §5 Depth and Breadth Expansion
 
@@ -174,24 +174,24 @@ Teams cannot make defensible control or investment decisions when build failures
 
 #### Executive summary
 
-The most defensible common denominator is the count of production workflow executions within a matched workflow class, not deployments and not calendar time. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+The most defensible common denominator is the count of executions of the same production workflow, not deployments and not calendar time. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
 
 DORA's deployment denominator is valid for delivery-process instability, but it cannot support direct comparison with do-mode incidents because do-mode failures can recur many times without a new deployment and DORA itself warns against disparate comparisons across unlike systems. [inference; source: https://dora.dev/guides/dora-metrics/]
 
-SRE reliability practice already measures live behavior on executed demand units such as requests, yield, throughput, and end-to-end pipeline completions, which means build-mode escapes and do-mode incidents can be translated onto the same execution unit once the workflow class is matched. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+SRE reliability practice already measures live behavior on executed demand units such as requests, yield, throughput, and end-to-end pipeline completions, which means build-mode escapes and do-mode incidents can be translated onto the same execution unit once the same production workflow is matched. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
-The practical comparison protocol is to attribute both post-pipeline build defects and do-mode incidents to failed or materially degraded executions in the same workflow class, using incident-window duration multiplied by class throughput only as a lower-confidence fallback when direct per-execution tagging is absent. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+The practical comparison protocol is to attribute both post-pipeline build defects and do-mode incidents to failed or materially degraded executions in the same production workflow, using incident-window duration multiplied by workflow throughput only as a lower-confidence fallback when direct per-execution tagging is absent. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
 
 #### Key findings
 
 1. **DORA defines post-deployment build instability on a deployment denominator, because change fail rate and deployment rework rate are both expressed as ratios of problematic deployments to total deployments.** ([fact]; medium confidence; source: https://dora.dev/guides/dora-metrics/)
 2. **SRE defines live-service reliability on executed demand units, because the core service measures are request error fraction, request latency, yield over well-formed requests, throughput, and end-to-end completion for pipeline-like systems.** ([fact]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/)
 3. **Deployment count cannot be the shared denominator for direct build-versus-do comparison, because do-mode incidents can accumulate without new releases and DORA explicitly warns that cross-context comparisons between unlike applications are misleading.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/)
-4. **Calendar-time incident counts, such as incidents per month or alerts per incident, are useful for operational review but cannot support matched reliability comparison when workflow classes have very different execution volumes.** ([inference]; medium confidence; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/)
-5. **The strongest common denominator is therefore the count of production workflow executions in a matched workflow class, instantiated as requests, business transactions, application programming interface calls, job runs, or stage completions depending on the service type.** ([inference]; high confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
-6. **A matched comparison should count post-pipeline build failures as degraded or failed executions caused by a released change, and should count do-mode incidents as degraded or failed live executions in the same workflow class, so that both numerators sit on the same exposure base.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/testing-reliability/; https://sre.google/sre-book/service-level-objectives/)
-7. **When execution-level incident tagging is missing, estimating affected executions from incident duration multiplied by baseline class throughput is a defensible fallback, but the confidence should be downgraded because the estimate assumes stable demand during the impact window.** ([assumption]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/)
-8. **The denominator choice is only decision-useful when workflow classes are explicitly matched by objective, trigger, success condition, and consequence threshold, because otherwise severity mix and blended traffic will distort the apparent reliability difference between build mode and do mode.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
+4. **Calendar-time incident counts, such as incidents per month or alerts per incident, are useful for operational review but cannot support matched reliability comparison when the same production workflow has very different execution volumes over time.** ([inference]; medium confidence; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/)
+5. **The strongest common denominator is therefore the count of executions of the same production workflow, instantiated as requests, business transactions, application programming interface calls, job runs, or stage completions depending on the service type.** ([inference]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
+6. **A matched comparison should count post-pipeline build failures as degraded or failed executions caused by a released change, and should count do-mode incidents as degraded or failed live executions in the same production workflow, so that both numerators sit on the same exposure base.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/testing-reliability/; https://sre.google/sre-book/service-level-objectives/)
+7. **When execution-level incident tagging is missing, estimating affected executions from incident duration multiplied by baseline workflow throughput is a defensible fallback, but the confidence should be downgraded because the estimate assumes stable demand during the impact window.** ([assumption]; low confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/)
+8. **The denominator choice is only decision-useful when the same production workflow is explicitly matched by objective, trigger, success condition, and consequence threshold, because otherwise severity mix and blended traffic will distort the apparent reliability difference between build mode and do mode.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
 
 #### Evidence map
 
@@ -201,15 +201,15 @@ The practical comparison protocol is to attribute both post-pipeline build defec
 | [fact] SRE defines live reliability on executed demand units such as requests, yield, throughput, and end-to-end completions. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ | medium | Native live denominator |
 | [inference] Deployment count cannot be the shared denominator for build-versus-do comparison. | https://dora.dev/guides/dora-metrics/ | medium | Asymmetric change cadence |
 | [inference] Calendar-time incident counts are secondary views, not matched exposure denominators. | https://sre.google/sre-book/tracking-outages/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ | medium | Volume-distortion risk |
-| [inference] Production workflow execution is the strongest common denominator across both modes. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | high | Core synthesis claim |
-| [inference] Both numerators should be mapped to failed or degraded executions in the same workflow class. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/sre-book/testing-reliability/ ; https://sre.google/sre-book/service-level-objectives/ | medium | Numerator-alignment rule |
-| [assumption] Incident duration multiplied by class throughput is the least misleading fallback when affected executions are not logged directly. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/sre-book/tracking-outages/ | medium | Estimation fallback |
-| [inference] Explicit workflow-class matching is required to keep the denominator decision-useful. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | medium | Scope-control rule |
+| [inference] Execution count for the same production workflow is the strongest common denominator across both modes. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | medium | Core synthesis claim |
+| [inference] Both numerators should be mapped to failed or degraded executions in the same production workflow. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/sre-book/testing-reliability/ ; https://sre.google/sre-book/service-level-objectives/ | medium | Numerator-alignment rule |
+| [assumption] Incident duration multiplied by workflow throughput is the least misleading fallback when affected executions are not logged directly. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/sre-book/tracking-outages/ | low | Estimation fallback |
+| [inference] Explicit matching of the same production workflow is required to keep the denominator decision-useful. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | medium | Scope-control rule |
 
 #### Assumptions
 
-- [assumption] Workflow classes can be bounded operationally by objective, trigger, success condition, and consequence threshold strongly enough to support rate comparison, even when the underlying implementation differs between build and do mode. [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://sre.google/sre-book/service-level-objectives/]
-- [assumption] Incident duration multiplied by baseline class throughput is an acceptable fallback only when the service does not expose direct affected-execution counts and demand is not highly bursty within the incident window. [assumption; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/]
+- [assumption] The same production workflow can be bounded operationally by objective, trigger, success condition, and consequence threshold strongly enough to support rate comparison, even when the underlying implementation differs between build and do mode. [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://sre.google/sre-book/service-level-objectives/]
+- [assumption] Incident duration multiplied by baseline workflow throughput is an acceptable fallback only when the service does not expose direct affected-execution counts and demand is not highly bursty within the incident window. [assumption; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/]
 
 #### Analysis
 
@@ -219,7 +219,7 @@ DORA's deployment denominator is the right unit for judging release-process stab
 
 SRE reliability practice supplies the bridge because it already treats production reliability as a property of executed requests, transactions, or pipeline completions, and that same unit can absorb failures from either a released defect or a live do-mode execution. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
-This produces a clearer investment question than either native denominator alone: for a given workflow class, which delivery mode causes more failed or degraded production executions per execution opportunity? [inference; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+This produces a clearer investment question than either native denominator alone: for a given production workflow, which delivery mode causes more failed or degraded production executions per execution opportunity? [inference; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 Plausible rival denominator choices exist. Deployment count preserves delivery-process accountability, and monthly incident count preserves operations review simplicity, but neither survives translation across both control surfaces without conflating exposure with process cadence. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/tracking-outages/]
 
@@ -228,15 +228,15 @@ This conclusion extends the earlier repository item on variance control across d
 #### Risks, gaps, uncertainties
 
 - Among the sources reviewed for this item, no located public source publishes a ready-made, shared denominator for direct comparison of post-pipeline build escapes and do-mode incidents, so the final answer is a synthesis across DORA, SRE, ITIL practice framing, and NIST measurement criteria rather than a single quoted formula. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil4-practices-incident-management-3684; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
-- Some organisations do not tag incidents to a single workflow class or record affected execution counts, which forces throughput-based estimation and lowers precision. [inference; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
-- Execution-denominator rates can still hide severity differences unless the class definition includes a consequence threshold or separate severity slices. [inference; source: https://sre.google/resources/practices-and-processes/measuring-reliability/]
+- Some organisations do not tag incidents to a single production workflow or record affected execution counts, which forces throughput-based estimation and lowers precision. [inference; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+- Execution-denominator rates can still hide severity differences unless the workflow definition includes a consequence threshold or separate severity slices. [inference; source: https://sre.google/resources/practices-and-processes/measuring-reliability/]
 - Low-volume workflows may require longer observation windows or statistical smoothing before the rates are stable enough for investment decisions. [assumption; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 #### Open questions
 
-- What minimum incident-logging fields are needed to compute affected-execution counts directly for low-volume or highly bursty workflow classes? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
-- How should severity weighting be added without destroying the denominator's comparability across workflow classes? [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
-- When a single incident spans multiple workflow classes, what attribution rule best prevents double counting while preserving decision usefulness? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+- What minimum incident-logging fields are needed to compute affected-execution counts directly for low-volume or highly bursty production workflows? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+- How should severity weighting be added without destroying the denominator's comparability across production workflows? [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+- When a single incident spans multiple production workflows, what attribution rule best prevents double counting while preserving decision usefulness? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 ### §7 Recursive Review
 
@@ -253,24 +253,24 @@ This conclusion extends the earlier repository item on variance control across d
 
 ### Executive Summary
 
-DORA's deployment denominator is not the right shared unit for this question, because the most defensible common denominator is the count of production workflow executions within a matched workflow class. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+DORA's deployment denominator is not the right shared unit for this question, because the most defensible common denominator is the count of executions of the same production workflow. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
 
 Deployment-based change-failure rates remain useful for judging release-process stability, but they do not compare directly with do-mode incidents because do-mode failures can recur many times without a new release and DORA explicitly warns against disparate cross-context comparisons. [inference; source: https://dora.dev/guides/dora-metrics/]
 
-SRE reliability guidance already measures live quality on executed demand units such as requests, yield, throughput, and end-to-end completions, so build-mode escapes and do-mode incidents can be translated onto the same execution unit once the workflow class is matched. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+SRE reliability guidance already measures live quality on executed demand units such as requests, yield, throughput, and end-to-end completions, so build-mode escapes and do-mode incidents can be translated onto the same execution unit once the same production workflow is matched. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
-The practical rule is to count both post-pipeline build defects and do-mode incidents as failed or materially degraded executions in the same workflow class, and to use incident-window duration multiplied by class throughput only as a lower-confidence fallback when direct execution tagging is unavailable. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+The practical rule is to count both post-pipeline build defects and do-mode incidents as failed or materially degraded executions in the same production workflow, and to use incident-window duration multiplied by workflow throughput only as a lower-confidence fallback when direct execution tagging is unavailable. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
 
 ### Key Findings
 
 1. **DORA defines post-deployment build instability on a deployment denominator, because change fail rate and deployment rework rate are ratios of problematic deployments to total deployments rather than ratios of failed live transactions to all live transactions.** ([fact]; medium confidence; source: https://dora.dev/guides/dora-metrics/)
 2. **SRE defines live-service reliability on executed demand units, because the core measures are request error fraction, yield over well-formed requests, throughput, and end-to-end completion for pipeline-like systems, all of which normalise failure against actual production execution.** ([fact]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/)
 3. **Deployment count cannot be the shared denominator for direct build-versus-do comparison, because do-mode incidents can accumulate without new deployments and DORA explicitly warns that metrics become misleading when contexts or applications are not matched.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/)
-4. **Calendar-time incident counts, such as incidents per month or alerts per incident, are useful for operational review but cannot support matched reliability comparison when workflow classes have materially different execution volumes or burst patterns.** ([inference]; medium confidence; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/)
-5. **The strongest common denominator is the count of production workflow executions in a matched workflow class, instantiated as requests, business transactions, application programming interface calls, job runs, or stage completions depending on the service type.** ([inference]; high confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
-6. **A matched comparison should count post-pipeline build failures as degraded or failed executions caused by a released change, and should count do-mode incidents as degraded or failed live executions in the same workflow class, so that both numerators sit on the same exposure base.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/testing-reliability/; https://sre.google/sre-book/service-level-objectives/)
-7. **When execution-level incident tagging is missing, estimating affected executions from incident duration multiplied by baseline class throughput is a defensible fallback, but the confidence should be downgraded because the estimate assumes stable demand during the impact window.** ([assumption]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/)
-8. **The denominator choice is only decision-useful when workflow classes are explicitly matched by objective, trigger, success condition, and consequence threshold, because otherwise severity mix and blended traffic will distort the apparent reliability difference between build mode and do mode.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
+4. **Calendar-time incident counts, such as incidents per month or alerts per incident, are useful for operational review but cannot support matched reliability comparison when the same production workflow has materially different execution volumes or burst patterns.** ([inference]; medium confidence; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/)
+5. **The strongest common denominator is the count of executions of the same production workflow, instantiated as requests, business transactions, application programming interface calls, job runs, or stage completions depending on the service type.** ([inference]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
+6. **A matched comparison should count post-pipeline build failures as degraded or failed executions caused by a released change, and should count do-mode incidents as degraded or failed live executions in the same production workflow, so that both numerators sit on the same exposure base.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/testing-reliability/; https://sre.google/sre-book/service-level-objectives/)
+7. **When execution-level incident tagging is missing, estimating affected executions from incident duration multiplied by baseline workflow throughput is a defensible fallback, but the confidence should be downgraded because the estimate assumes stable demand during the impact window.** ([assumption]; low confidence; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/)
+8. **The denominator choice is only decision-useful when the same production workflow is explicitly matched by objective, trigger, success condition, and consequence threshold, because otherwise severity mix and blended traffic will distort the apparent reliability difference between build mode and do mode.** ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf)
 
 ### Evidence Map
 
@@ -280,15 +280,15 @@ The practical rule is to count both post-pipeline build defects and do-mode inci
 | [fact] SRE defines live reliability on executed demand units such as requests, yield, throughput, and end-to-end completions. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ | medium | Native live denominator |
 | [inference] Deployment count cannot be the shared denominator for build-versus-do comparison. | https://dora.dev/guides/dora-metrics/ | medium | Asymmetric change cadence |
 | [inference] Calendar-time incident counts are secondary views, not matched exposure denominators. | https://sre.google/sre-book/tracking-outages/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ | medium | Volume-distortion risk |
-| [inference] Production workflow execution is the strongest common denominator across both modes. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | high | Core synthesis claim |
-| [inference] Both numerators should be mapped to failed or degraded executions in the same workflow class. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/sre-book/testing-reliability/ ; https://sre.google/sre-book/service-level-objectives/ | medium | Numerator-alignment rule |
-| [assumption] Incident duration multiplied by class throughput is the least misleading fallback when affected executions are not logged directly. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/sre-book/tracking-outages/ | medium | Estimation fallback |
-| [inference] Explicit workflow-class matching is required to keep the denominator decision-useful. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | medium | Scope-control rule |
+| [inference] Execution count for the same production workflow is the strongest common denominator across both modes. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | medium | Core synthesis claim |
+| [inference] Both numerators should be mapped to failed or degraded executions in the same production workflow. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/sre-book/testing-reliability/ ; https://sre.google/sre-book/service-level-objectives/ | medium | Numerator-alignment rule |
+| [assumption] Incident duration multiplied by workflow throughput is the least misleading fallback when affected executions are not logged directly. | https://sre.google/sre-book/service-level-objectives/ ; https://sre.google/sre-book/tracking-outages/ | low | Estimation fallback |
+| [inference] Explicit matching of the same production workflow is required to keep the denominator decision-useful. | https://dora.dev/guides/dora-metrics/ ; https://sre.google/resources/practices-and-processes/measuring-reliability/ ; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf | medium | Scope-control rule |
 
 ### Assumptions
 
-- Workflow classes can be bounded operationally by objective, trigger, success condition, and consequence threshold strongly enough to support rate comparison, even when the underlying implementation differs between build and do mode. [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://sre.google/sre-book/service-level-objectives/]
-- Incident duration multiplied by baseline class throughput is an acceptable fallback only when the service does not expose direct affected-execution counts and demand is not highly bursty within the incident window. [assumption; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/]
+- The same production workflow can be bounded operationally by objective, trigger, success condition, and consequence threshold strongly enough to support rate comparison, even when the underlying implementation differs between build and do mode. [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://sre.google/sre-book/service-level-objectives/]
+- Incident duration multiplied by baseline workflow throughput is an acceptable fallback only when the service does not expose direct affected-execution counts and demand is not highly bursty within the incident window. [assumption; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/sre-book/tracking-outages/]
 
 ### Analysis
 
@@ -298,7 +298,7 @@ DORA's deployment denominator is the right unit for judging release-process stab
 
 SRE reliability practice supplies the bridge because it already treats production reliability as a property of executed requests, transactions, or pipeline completions, and that same unit can absorb failures from either a released defect or a live do-mode execution. [inference; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
-This produces a clearer investment question than either native denominator alone: for a given workflow class, which delivery mode causes more failed or degraded production executions per execution opportunity? [inference; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+This produces a clearer investment question than either native denominator alone: for a given production workflow, which delivery mode causes more failed or degraded production executions per execution opportunity? [inference; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 Plausible rival denominator choices exist. Deployment count preserves delivery-process accountability, and monthly incident count preserves operations review simplicity, but neither survives translation across both control surfaces without conflating exposure with process cadence. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/tracking-outages/]
 
@@ -307,22 +307,22 @@ This conclusion extends the earlier repository item on variance control across d
 ### Risks, Gaps, and Uncertainties
 
 - Among the sources reviewed for this item, no located public source publishes a ready-made, shared denominator for direct comparison of post-pipeline build escapes and do-mode incidents, so the final answer is a synthesis across DORA, SRE, ITIL practice framing, and NIST measurement criteria rather than a single quoted formula. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil4-practices-incident-management-3684; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
-- Some organisations do not tag incidents to a single workflow class or record affected execution counts, which forces throughput-based estimation and lowers precision. [inference; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
-- Execution-denominator rates can still hide severity differences unless the class definition includes a consequence threshold or separate severity slices. [inference; source: https://sre.google/resources/practices-and-processes/measuring-reliability/]
+- Some organisations do not tag incidents to a single production workflow or record affected execution counts, which forces throughput-based estimation and lowers precision. [inference; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+- Execution-denominator rates can still hide severity differences unless the workflow definition includes a consequence threshold or separate severity slices. [inference; source: https://sre.google/resources/practices-and-processes/measuring-reliability/]
 - Low-volume workflows may require longer observation windows or statistical smoothing before the rates are stable enough for investment decisions. [assumption; source: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 ### Open Questions
 
-- What minimum incident-logging fields are needed to compute affected-execution counts directly for low-volume or highly bursty workflow classes? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
-- How should severity weighting be added without destroying the denominator's comparability across workflow classes? [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
-- When a single incident spans multiple workflow classes, what attribution rule best prevents double counting while preserving decision usefulness? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
+- What minimum incident-logging fields are needed to compute affected-execution counts directly for low-volume or highly bursty production workflows? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+- How should severity weighting be added without destroying the denominator's comparability across production workflows? [assumption; source: https://sre.google/resources/practices-and-processes/measuring-reliability/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+- When a single incident spans multiple production workflows, what attribution rule best prevents double counting while preserving decision usefulness? [assumption; source: https://sre.google/sre-book/tracking-outages/; https://sre.google/resources/practices-and-processes/measuring-reliability/]
 
 ---
 
 ## Output
 
 - Type: knowledge
-- Description: This item produces a denominator-selection rule for direct build-versus-do reliability comparison: measure both modes as failed or degraded production workflow executions within the same matched workflow class, and keep deployments and calendar-time incident counts as secondary diagnostic views rather than the shared denominator. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
+- Description: This item produces a denominator-selection rule for direct build-versus-do reliability comparison: measure both modes as failed or degraded executions of the same production workflow, and keep deployments and calendar-time incident counts as secondary diagnostic views rather than the shared denominator. [inference; source: https://dora.dev/guides/dora-metrics/; https://sre.google/sre-book/service-level-objectives/; https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-55r1.pdf]
 - Links:
   - https://dora.dev/guides/dora-metrics/
   - https://sre.google/sre-book/service-level-objectives/
