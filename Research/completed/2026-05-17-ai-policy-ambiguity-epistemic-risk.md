@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a2bee7186528a2560ebe2344223b7673563b2f4f
+    changed: 2026-05-18
+    progress: progress/2026-05-18-ai-policy-ambiguity-epistemic-risk.md
+    summary: Initial completion
 ---
 
 # Interpretation risks from ambiguous Artificial Intelligence (AI) policy guidance
