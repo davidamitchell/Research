@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-18T10:01:54Z",
+  "extracted_at": "2026-05-18T10:16:28Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -965,6 +965,99 @@
             "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
             "https://aws.amazon.com/bedrock/agentcore/pricing/",
             "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-ai-policy-ambiguity-epistemic-risk": {
+      "named_concepts": [
+        "actual correctness",
+        "stated confidence",
+        "policy interpretation",
+        "natural-language uncertainty",
+        "uncertainty expressions",
+        "increase acceptance",
+        "enterprise policy",
+        "compliance assistants",
+        "task stakes",
+        "direct quotation",
+        "user reliance",
+        "subjective confidence",
+        "confidence independently",
+        "factual truth",
+        "current llms",
+        "frequent hallucinations",
+        "interpretation risk",
+        "ambiguity datasets",
+        "explanations increased",
+        "increased acceptance"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2006.14779",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1390182/full",
+        "https://colab.ws/articles/10.1037/xge0000033",
+        "https://www.microsoft.com/en-us/research/publication/im-not-sure-but-examining-the-impact-of-large-language-models-uncertainty-expression-on-user-reliance-and-trust/",
+        "https://arxiv.org/abs/2306.13063",
+        "https://aclanthology.org/2024.trustnlp-1.13/",
+        "https://aclanthology.org/2024.findings-eacl.62/",
+        "https://arxiv.org/html/2401.01301v1",
+        "https://arxiv.org/abs/2404.04332",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+        "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229132",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11143013/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://doi.org/10.1207/S15327051HCI1812_19"
+      ],
+      "key_claims": [
+        {
+          "text": "Natural-language uncertainty expressions can materially improve whether user reliance matches answer reliability, because participants exposed to first-person LLM hedging relied on the system less blindly and answered medical questions more accurately than participants shown more assertive wording",
+          "sources": [
+            "https://www.microsoft.com/en-us/research/publication/im-not-sure-but-examining-the-impact-of-large-language-models-uncertainty-expression-on-user-reliance-and-trust/"
+          ]
+        },
+        {
+          "text": "Explanations and polished answer structures do not automatically create better human-AI decisions, and multiple studies show they can increase acceptance of recommendations even when the underlying recommendation quality does not improve",
+          "sources": [
+            "https://arxiv.org/abs/2006.14779",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/"
+          ]
+        },
+        {
+          "text": "Information that is easier to process because it is repeated or smoothly presented can raise subjective confidence independently of factual truth, which means a polished policy explanation can feel more reliable than it is before any substantive validation occurs",
+          "sources": [
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11143013/"
+          ]
+        },
+        {
+          "text": "Current LLMs are not dependable narrators of their own certainty, because recent benchmark studies find persistent overconfidence and large gaps between stated confidence and actual correctness even when prompt engineering and consistency checks improve performance somewhat",
+          "sources": [
+            "https://arxiv.org/abs/2306.13063",
+            "https://aclanthology.org/2024.trustnlp-1.13/"
+          ]
+        },
+        {
+          "text": "On legal-style questions that resemble policy interpretation more closely than general trivia does, state-of-the-art LLMs still produce frequent hallucinations, fail to correct false premises reliably, and often need extra probing before their uncertainty becomes visible",
+          "sources": [
+            "https://arxiv.org/html/2401.01301v1",
+            "https://aclanthology.org/2024.findings-eacl.62/"
+          ]
+        },
+        {
+          "text": "Ambiguity handling skill does not eliminate interpretation risk, because Kamath et al. report over 90% accuracy in some ambiguity datasets while other studies still show weak matching between stated confidence and actual correctness, plus frequent legal-task hallucinations in real user-facing settings",
+          "sources": [
+            "https://arxiv.org/abs/2404.04332",
+            "https://arxiv.org/html/2401.01301v1",
+            "https://arxiv.org/abs/2306.13063"
+          ]
+        },
+        {
+          "text": "For policy and compliance assistants, the main governance control should be preserving the user's motivation to verify or escalate, not merely improving prose quality, because wording, aggregation, queue pressure, and the risk of under-reliance all affect whether human review remains meaningful",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://colab.ws/articles/10.1037/xge0000033"
           ]
         }
       ]

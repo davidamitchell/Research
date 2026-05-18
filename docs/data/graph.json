@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-18T10:01:58Z",
-  "node_count": 351,
-  "edge_count": 2043,
+  "generated": "2026-05-18T10:16:32Z",
+  "node_count": 352,
+  "edge_count": 2056,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2055,6 +2055,12 @@
       "title": "Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation",
       "type": "primary",
       "url": "/Research/research/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.html"
+    },
+    {
+      "slug": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "title": "Interpretation risks from ambiguous Artificial Intelligence (AI) policy guidance",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-ai-policy-ambiguity-epistemic-risk.html"
     },
     {
       "slug": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
@@ -15977,6 +15983,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -17625,6 +17639,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -17687,6 +17709,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,organisation",
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
@@ -17762,6 +17792,14 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 3,
       "rel": "tag-overlap",
@@ -17831,6 +17869,78 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-04-28-uelgf-human-oversight-accountability-layer",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-04-30-explainable-ai-xai-regulation-governance",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
