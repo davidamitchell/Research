@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution"
 added: 2026-05-17T20:33:05+00:00
 status: reviewing
