@@ -117,8 +117,8 @@ Leadership cannot prioritize remediation of workaround-heavy operating areas wit
 ### §2 Investigation
 
 - **Source-access notes**
-  - Access note, Google Cloud seed page: localization shell only; not used downstream.
-  - Access note, ServiceNow docs pages: application-shell responses only; downstream ServiceNow claims rely on the readable community quick-start page and the official documentation URLs surfaced by search.
+  - Google Cloud seed page -> localization shell only -> excluded from evidence set
+  - ServiceNow docs pages -> application shell only -> evidence set uses the readable community quick-start page plus official documentation URLs surfaced by search
 
 - **A. Public benchmark landscape**
   - [fact; source: https://dora.dev/guides/dora-metrics/] DORA says its software-delivery metrics are best suited to measuring one application or service at a time and warns that comparing metrics across very different applications can be misleading.
