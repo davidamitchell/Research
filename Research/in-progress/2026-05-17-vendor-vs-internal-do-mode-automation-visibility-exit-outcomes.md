@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation"
 added: 2026-05-17T20:40:49+00:00
 status: reviewing
