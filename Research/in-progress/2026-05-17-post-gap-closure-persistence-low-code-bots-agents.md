@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Longitudinal persistence rates after gap closure for low-code applications, bots, and agents"
 added: 2026-05-17T20:40:49+00:00
 status: reviewing
