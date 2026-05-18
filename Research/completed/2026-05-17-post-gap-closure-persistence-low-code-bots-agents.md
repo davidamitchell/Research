@@ -2,12 +2,12 @@
 review_count: 2
 title: "Longitudinal persistence rates after gap closure for low-code applications, bots, and agents"
 added: 2026-05-17T20:40:49+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, analytics, agentic-ai]
 started: 2026-05-18T12:06:11+00:00
-completed: ~
+completed: 2026-05-18T12:28:45+00:00
 output: [knowledge]
 cites:
   - 2026-05-16-do-mode-demand-persistence-and-build-mode-displacement
