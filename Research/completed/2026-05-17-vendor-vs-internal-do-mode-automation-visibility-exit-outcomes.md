@@ -2,12 +2,12 @@
 review_count: 1
 title: "Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation"
 added: 2026-05-17T20:40:49+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, agentic-ai]
 started: 2026-05-18T12:30:56+00:00
-completed: ~
+completed: 2026-05-18T12:56:10+00:00
 output: [knowledge]
 cites:
   - 2026-05-02-vendor-lock-in-portability-multi-platform-ai
