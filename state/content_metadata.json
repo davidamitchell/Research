@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-18T11:51:02Z",
+  "extracted_at": "2026-05-18T12:05:31Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -500,6 +500,116 @@
             "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
             "https://learn.microsoft.com/en-us/fabric/onelake/onelake-foundry-knowledge",
             "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets": {
+      "named_concepts": [
+        "workaround demand",
+        "power platform",
+        "servicenow demand",
+        "demand management",
+        "workflow class",
+        "consulted public",
+        "public benchmark",
+        "benchmark dataset",
+        "dataset directly",
+        "governance datasets",
+        "distinct workaround",
+        "workaround signals",
+        "platform governance",
+        "manual workaround",
+        "formal central",
+        "central information",
+        "information technology",
+        "technology backlog",
+        "governed backlog",
+        "durable origin"
+      ],
+      "source_urls": [
+        "https://cloud.google.com/architecture/devops/devops-measurement-metrics",
+        "https://dora.dev/guides/dora-metrics/",
+        "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/",
+        "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/",
+        "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-fields/",
+        "https://docs.github.com/en/rest/issues/issues",
+        "https://docs.github.com/en/rest/issues/timeline",
+        "https://docs.github.com/en/rest/using-the-rest-api/issue-event-types",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-core-components",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+        "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+        "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema",
+        "https://learn.microsoft.com/en-us/power-platform/admin/inventory-api",
+        "https://www.servicenow.com/community/spm-blog/quick-start-guide-for-demand-management/ba-p/2722545",
+        "https://csrc.nist.gov/publications/detail/sp/800-55/rev-1/final"
+      ],
+      "key_claims": [
+        {
+          "text": "No consulted public benchmark dataset directly publishes enterprise manual-workaround signals linked to formal central Information Technology backlog outcomes, so external sources in scope are mainly useful for metric design, field discovery, and method testing rather than for direct rate benchmarking",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/",
+            "https://docs.github.com/en/rest/issues/issues"
+          ]
+        },
+        {
+          "text": "Jira can support conversion measurement when organisations search the candidate issue set with Jira Query Language, preserve custom fields for workaround origin, and use bulk changelog histories instead of current issue status alone to reconstruct backlog entry and completion timing",
+          "sources": [
+            "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/",
+            "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/",
+            "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-fields/"
+          ]
+        },
+        {
+          "text": "GitHub issue datasets can support the same measurement pattern through state, labels, milestones, timestamps, and timeline events, and public repositories make GitHub the strongest public surrogate dataset in scope for testing conversion logic before applying it to private enterprise data",
+          "sources": [
+            "https://docs.github.com/en/rest/issues/issues",
+            "https://docs.github.com/en/rest/issues/timeline",
+            "https://docs.github.com/en/rest/using-the-rest-api/issue-event-types"
+          ]
+        },
+        {
+          "text": "Power Platform governance datasets provide strong demand-side coverage because inventory records expose owners, environments, and timestamps, audit-log flows add launches and unique-user telemetry, and governance components capture business justification, impact, dependencies, and mitigation details for locally built solutions",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-core-components",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/setup-auditlog-http-graphapi",
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+            "https://learn.microsoft.com/en-us/power-platform/admin/inventory-schema"
+          ]
+        },
+        {
+          "text": "ServiceNow Demand Management is explicitly designed to capture, centralize, assess, and prioritize business and operational demands before promotion into formal delivery work, which makes it a credible target-side dataset when that module is implemented",
+          "sources": [
+            "https://www.servicenow.com/community/spm-blog/quick-start-guide-for-demand-management/ba-p/2722545"
+          ]
+        },
+        {
+          "text": "The defensible conversion denominator is distinct workaround signals within one application, service, environment, or workflow class, because both metric-design guidance and prior repository work show that mixed units and blended populations make comparison misleading",
+          "sources": [
+            "https://csrc.nist.gov/publications/detail/sp/800-55/rev-1/final",
+            "https://dora.dev/guides/dora-metrics/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator.md"
+          ]
+        },
+        {
+          "text": "Month-over-month conversion tracking is invalid without retained history or periodic snapshots, because current-state tables hide deleted, closed, merged, or reclassified records and therefore bias the numerator and denominator toward whatever records still survive later",
+          "sources": [
+            "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/",
+            "https://docs.github.com/en/rest/issues/timeline",
+            "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-inventory",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-system-of-record-bypass-control-deficiencies.md"
+          ]
+        },
+        {
+          "text": "The highest-risk failure mode is weak origin linkage between local workaround artifacts and governed backlog records, because text-only matching and late manual linkage can make conversion appear stronger or weaker than it actually is without proving a true escalation pathway",
+          "sources": [
+            "https://learn.microsoft.com/en-us/power-platform/guidance/coe/governance-components",
+            "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-fields/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-system-of-record-bypass-control-deficiencies.md"
           ]
         }
       ]
