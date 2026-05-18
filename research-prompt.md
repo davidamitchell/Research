@@ -491,6 +491,16 @@ easily-detectable issues.
     describe the evidence base used in the item, or mark it as `[assumption]`
     or `[inference]` instead of `[fact]`.
 
+2g3. **Analogy-to-operations check** -- if a sentence converts apprenticeship,
+    mentoring, coaching, organisational-learning, tacit-knowledge, or other
+    analogical evidence into a claim about direct workplace behaviour, for
+    example reduced peer consultation, lost institutional memory transfer, or
+    mentoring-path displacement after AI adoption, default that sentence to
+    `[inference]` unless you have a direct before-and-after behavioural study or
+    another source that explicitly measures the same operational outcome. Do
+    not let one analogue source carry both the mechanism and the realised
+    organisational effect as `[fact]`.
+
 2gb. **Management-jargon synthesis check** -- if a sentence uses management or
     strategy labels such as "balanced scorecard", "fast lane", "operating
     model", "control tower", or similar packaging terms, either (a) rewrite the
