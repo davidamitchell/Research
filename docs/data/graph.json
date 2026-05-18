@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-18T10:27:35Z",
-  "node_count": 352,
-  "edge_count": 2056,
+  "generated": "2026-05-18T10:43:28Z",
+  "node_count": 353,
+  "edge_count": 2067,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2063,6 +2063,12 @@
       "url": "/Research/research/2026-05-17-ai-policy-ambiguity-epistemic-risk.html"
     },
     {
+      "slug": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "title": "Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution",
+      "type": "primary",
+      "url": "/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html"
+    },
+    {
       "slug": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "title": "Amazon Bedrock AgentCore and related suite: full feature and capability survey",
       "type": "primary",
@@ -2208,14 +2214,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2241,6 +2239,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -3296,14 +3302,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3321,6 +3319,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3912,14 +3918,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3937,6 +3935,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4072,14 +4078,6 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4097,6 +4095,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4888,7 +4894,7 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -4896,7 +4902,7 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5064,7 +5070,7 @@
     },
     {
       "source": "2026-03-22-applied-context-engineering-agent-workflows",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
@@ -5176,14 +5182,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5193,6 +5191,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -6752,7 +6758,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6760,7 +6766,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -9448,7 +9454,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9456,7 +9462,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9832,7 +9838,7 @@
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -9840,7 +9846,7 @@
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -10856,14 +10862,6 @@
     },
     {
       "source": "2026-05-02-research-to-publication-authoring-workflow",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
-    },
-    {
-      "source": "2026-05-02-research-to-publication-authoring-workflow",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10876,6 +10874,14 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,hallucinations,llm",
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
+    },
+    {
+      "source": "2026-05-02-research-to-publication-authoring-workflow",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-02-research-to-publication-authoring-workflow"
     },
     {
@@ -10912,7 +10918,7 @@
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -10920,7 +10926,7 @@
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -10992,14 +10998,6 @@
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
-    },
-    {
-      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 4,
       "rel": "tag-overlap",
@@ -11012,6 +11010,14 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,hallucinations,llm",
+      "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
     },
     {
@@ -12488,7 +12494,7 @@
     },
     {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,workflow",
@@ -12496,7 +12502,7 @@
     },
     {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,workflow",
@@ -12648,14 +12654,6 @@
     },
     {
       "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
-    },
-    {
-      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 4,
       "rel": "tag-overlap",
@@ -12665,6 +12663,14 @@
     {
       "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
+    },
+    {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -13664,7 +13670,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13672,7 +13678,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13784,14 +13790,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13809,6 +13807,14 @@
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14272,7 +14278,7 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
@@ -14352,7 +14358,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14360,7 +14366,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14472,7 +14478,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14480,7 +14486,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14728,7 +14734,7 @@
     },
     {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14760,14 +14766,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14785,6 +14783,14 @@
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14856,14 +14862,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14889,6 +14887,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14936,14 +14942,6 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14969,6 +14967,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15184,14 +15190,6 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
-      "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15201,6 +15199,14 @@
     {
       "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
@@ -15640,14 +15646,6 @@
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
-      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,organisation",
-      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
-    },
-    {
-      "source": "2026-05-12-rag-document-drift-agent-behavior",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 5,
       "rel": "tag-overlap",
@@ -15668,7 +15666,15 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,organisation",
-      "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
+      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
     },
     {
       "source": "2026-05-12-regulated-ai-constraint-shift",
@@ -15928,14 +15934,6 @@
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "llm,organisation,workflow",
-      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
-    },
-    {
-      "source": "2026-05-13-agent-process-reliability-architecture",
       "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
       "weight": 4,
       "rel": "tag-overlap",
@@ -15984,11 +15982,11 @@
     },
     {
       "source": "2026-05-13-agent-process-reliability-architecture",
-      "target": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
-      "weight": 3,
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 5,
       "rel": "tag-overlap",
-      "evidence": "evaluation,llm,organisation",
-      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+      "evidence": "agentic-ai,evaluation,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
     },
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
@@ -16024,14 +16022,6 @@
     },
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
-    },
-    {
-      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 4,
       "rel": "tag-overlap",
@@ -16041,6 +16031,14 @@
     {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,workflow",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -16199,6 +16197,14 @@
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 4,
@@ -16280,7 +16286,7 @@
     },
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -16576,7 +16582,7 @@
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
@@ -16737,6 +16743,14 @@
     {
       "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "llm,organisation,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "llm,organisation,workflow",
@@ -16904,22 +16918,6 @@
     },
     {
       "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
-      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-coding,evaluation,organisation",
-      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
-    },
-    {
-      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
-      "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,agentic-coding,evaluation",
-      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
-    },
-    {
-      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16945,6 +16943,14 @@
     {
       "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,organisation",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,organisation",
@@ -17008,14 +17014,6 @@
     },
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "target": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
-    },
-    {
-      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "weight": 3,
       "rel": "tag-overlap",
@@ -17041,6 +17039,14 @@
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
@@ -17136,10 +17142,10 @@
     },
     {
       "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
-      "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
-      "weight": 3,
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,organisation",
+      "evidence": "agentic-ai,evaluation,organisation,workflow",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
@@ -17224,7 +17230,7 @@
     },
     {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -17232,7 +17238,7 @@
     },
     {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -17345,6 +17351,14 @@
     {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,organisation,workflow",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,organisation,workflow",
@@ -17472,7 +17486,7 @@
     },
     {
       "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,workflow",
@@ -17552,10 +17566,10 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-      "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
-      "weight": 3,
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,organisation",
+      "evidence": "agentic-ai,llm,organisation,workflow",
       "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
     },
     {
@@ -17620,7 +17634,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,organisation",
-      "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
@@ -17628,7 +17642,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,organisation",
-      "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
@@ -17645,6 +17659,14 @@
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,organisation",
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
@@ -17717,6 +17739,14 @@
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,organisation",
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
@@ -17800,6 +17830,14 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 3,
       "rel": "tag-overlap",
@@ -17879,6 +17917,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -17941,6 +17987,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,organisation",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-02-28-ai-control-testing-and-assurance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-02-28-ai-line-1-line-2-risk-agents",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-02-28-rbnz-ai-supervisory-expectations",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
@@ -18188,14 +18290,6 @@
       "weight": 4,
       "rel": "cites",
       "evidence": "frontmatter:cites",
-      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
-    },
-    {
-      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
       "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {

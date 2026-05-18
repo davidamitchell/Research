@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-18T10:27:30Z",
+  "extracted_at": "2026-05-18T10:43:23Z",
   "items": {
     "2026-05-17-servicenow-ai-control-tower-capabilities": {
       "named_concepts": [
@@ -965,6 +965,98 @@
             "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/",
             "https://aws.amazon.com/bedrock/agentcore/pricing/",
             "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk": {
+      "named_concepts": [
+        "iterative retrieval",
+        "repeated drafting",
+        "blind spots",
+        "lifecycle risk",
+        "repeated policy",
+        "policy redrafting",
+        "language model",
+        "degradation rate",
+        "enterprise policy",
+        "retrieval lose",
+        "lose dispersed",
+        "policy convergence",
+        "happen even",
+        "shared models",
+        "organisations respond",
+        "legal prudential",
+        "standards requirements",
+        "shared tooling",
+        "provider concentration",
+        "artificial intelligence"
+      ],
+      "source_urls": [
+        "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+        "https://www.bis.org/publ/arpdf/ar2024e3.htm",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook",
+        "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/",
+        "https://doi.org/10.48550/arXiv.2305.17493",
+        "https://doi.org/10.48550/arXiv.2311.16822",
+        "https://doi.org/10.48550/arXiv.2310.10570",
+        "https://doi.org/10.48550/arXiv.2410.21012",
+        "https://doi.org/10.48550/arXiv.2211.03540",
+        "https://doi.org/10.48550/arXiv.2509.08514",
+        "https://doi.org/10.48550/arXiv.2407.06798",
+        "https://doi.org/10.1177/154193120404801303"
+      ],
+      "key_claims": [
+        {
+          "text": "Public evidence does not support a policy-specific numeric degradation rate, but it does show that repeated model-mediated rewriting and self-consuming loops reduce diversity and drop less salient information, so repeated policy redrafting should be treated as a compounding fidelity-loss process rather than a neutral translation step",
+          "sources": [
+            "https://doi.org/10.48550/arXiv.2305.17493",
+            "https://doi.org/10.48550/arXiv.2311.16822",
+            "https://doi.org/10.48550/arXiv.2310.10570",
+            "https://doi.org/10.48550/arXiv.2410.21012"
+          ]
+        },
+        {
+          "text": "Long policy texts are especially exposed because Large Language Model summarization and iterative retrieval studies show positional and lost-in-the-middle failures, which means exceptions, edge cases, and middle sections are more likely to be dropped than headline principles during repeated drafting loops",
+          "sources": [
+            "https://doi.org/10.48550/arXiv.2310.10570",
+            "https://doi.org/10.48550/arXiv.2410.21012"
+          ]
+        },
+        {
+          "text": "Some policy convergence would happen even without shared models because organisations respond to common legal and prudential requirements, but shared foundation-model providers or policy-assistant vendors can add blind-spot risk by narrowing which interpretations and omissions recur across institutions",
+          "sources": [
+            "https://www.bis.org/publ/arpdf/ar2024e3.htm",
+            "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/",
+            "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md"
+          ]
+        },
+        {
+          "text": "Human review can improve outcomes but is not a failsafe, because experiments show both that human-AI collaboration can outperform humans or models alone and that poorly designed review workflows can increase acceptance of incorrect Artificial Intelligence suggestions",
+          "sources": [
+            "https://doi.org/10.48550/arXiv.2211.03540",
+            "https://doi.org/10.48550/arXiv.2509.08514",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-line-1-line-2-risk-agents.md"
+          ]
+        },
+        {
+          "text": "Governance frameworks do not specify policy-drafting-loop controls directly, but they support the same inferred control pattern: continuous lifecycle risk management, anomaly detection, documentation, empowered human override, and explicit guardrails against automation bias",
+          "sources": [
+            "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md"
+          ]
+        },
+        {
+          "text": "A candidate early-warning set for repeated policy-drafting homogenization includes rising similarity between versions, declining use of fresh external sources, repeated omission of exception clauses, minimal reviewer edits, and concentration of drafting on one model family or vendor stack",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook",
+            "https://doi.org/10.48550/arXiv.2509.08514",
+            "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/"
           ]
         }
       ]
