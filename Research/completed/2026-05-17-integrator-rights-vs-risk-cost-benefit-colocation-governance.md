@@ -2,12 +2,12 @@
 review_count: 2
 title: "Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits"
 added: 2026-05-17T20:40:49+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [organisation, governance, organisational-design, workflow]
 started: 2026-05-18T13:00:39+00:00
-completed: ~
+completed: 2026-05-18T13:22:39+00:00
 output: [knowledge]
 cites:
   - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
@@ -59,7 +59,7 @@ Organisations need to know whether they can solve cross-unit coordination proble
 - [x] [Organisation for Economic Co-operation and Development (OECD) (2025) Recommendation of the Council on Principles of Corporate Governance](https://legalinstruments.oecd.org/public/doc/322/322.en.pdf) - governance relationships, information, incentives, and accountability within checks and balances.
 - [x] [ISACA (n.d.) COBIT resources](https://www.isaca.org/resources/cobit) - high-level evidence that COBIT treats governance over information and technology as a configurable enterprise system.
 - [ ] [Harvard Business Review (2006) Who Has the D? How Clear Decision Roles Enhance Organizational Performance](https://hbr.org/2006/01/who-has-the-d-how-clear-decision-roles-enhance-organizational-performance) - seeded preview checked; downstream role-definition claims rely on Bain's accessible pages below.
-- [x] [Bain & Company (n.d.) RAPID Decision Making Framework](https://www.bain.com/insights/rapid-decision-making/) - role definitions for Recommend, Agree, Perform, Input, and Decide.
+- [x] [Bain & Company (n.d.) Recommend, Agree, Perform, Input, Decide (RAPID) Decision Making Framework](https://www.bain.com/insights/rapid-decision-making/) - role definitions for Recommend, Agree, Perform, Input, and Decide.
 - [x] [Bain & Company (2011) Decisions: Who does what?](https://www.bain.com/insights/decisions-who-does-what/) - single-decision-owner design, narrow veto roles, and cross-unit trade-off example.
 - [x] [Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR) (n.d.) Classic Topics: Decision Rights](https://cisr.mit.edu/content/classic-topics-decision-rights) - governance as the allocation of decision rights and accountabilities.
 - [x] [Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR) (2023) Simplifying decision rights for growth](https://cisr.mit.edu/content/simplifying-decision-rights-growth) - core decision categories: what versus how, investment prioritisation, and exception handling.
@@ -246,11 +246,9 @@ That pattern explains why explicit rights are a credible substitute for recurrin
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: Institute of Internal Auditors (IIA), Organisation for Economic Co-operation and Development (OECD), Control Objectives for Information and Related Technologies (COBIT), Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR), Basel Committee on Banking Supervision (BCBS), Portable Document Format (PDF), and Amazon Web Services (AWS) are expanded on first use in the document.
-- Claim audit: all visible claims in Research Skill Output are labelled as fact, inference, or assumption and bind to URL-backed sources.
-- Cross-item audit: adjacent completed items on authority bundles, vendor visibility and exit, and platform operating models are integrated where they sharpen the same governance surfaces.
-- Confidence result: medium, because the substitution pattern is strongly supported directionally across multiple governance families, but comparative outcome evidence remains more architectural and regulatory than statistical.
+- Review status: second-pass review completed
+- Review metadata: review_count 2 recorded in frontmatter
+- Confidence result: medium
 
 ---
 
