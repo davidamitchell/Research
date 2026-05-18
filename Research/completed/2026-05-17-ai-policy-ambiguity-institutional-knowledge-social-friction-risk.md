@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: f7b703fc03b3975ab08a1f07a0e347671cb430f6
+    changed: 2026-05-18
+    progress: progress/2026-05-18-ai-policy-ambiguity-institutional-knowledge-social-friction-risk.md
+    summary: "Initial completion"
 ---
 
 # Institutional knowledge and social-friction risks in Artificial Intelligence (AI)-first policy clarification
