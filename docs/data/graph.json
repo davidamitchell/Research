@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T19:50:42Z",
-  "node_count": 374,
-  "edge_count": 2243,
+  "generated": "2026-05-19T20:02:08Z",
+  "node_count": 375,
+  "edge_count": 2251,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2243,6 +2243,12 @@
       "url": "/Research/research/2026-05-18-rq4-3-ood-generalization-agentic.html"
     },
     {
+      "slug": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "title": "RQ 5.1: Stochastic versus Deterministic Failure Modes on Identical Unvalidated Inputs",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html"
+    },
+    {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
       "title": "Human-AI Cognitive Divergence Risk",
       "type": "synthesis",
@@ -3428,14 +3434,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3453,6 +3451,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4044,14 +4050,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4069,6 +4067,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4132,14 +4138,6 @@
     },
     {
       "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-      "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,formal-methods",
-      "provenance": "2026-03-10-formal-spec-intent-alignment-agentic-coding"
-    },
-    {
-      "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4149,6 +4147,14 @@
     {
       "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-03-10-formal-spec-intent-alignment-agentic-coding"
+    },
+    {
+      "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,formal-methods",
@@ -4172,15 +4178,7 @@
     },
     {
       "source": "2026-03-10-language-for-llm-agent-output",
-      "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,formal-methods",
-      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
-    },
-    {
-      "source": "2026-03-10-language-for-llm-agent-output",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,formal-methods",
@@ -4188,7 +4186,7 @@
     },
     {
       "source": "2026-03-10-language-for-llm-agent-output",
-      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,formal-methods",
@@ -4201,14 +4199,6 @@
       "rel": "tag-overlap",
       "evidence": "coase,institutional-economics",
       "provenance": "2026-03-15-adam-smith-org-design-desire-paths-ai"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
@@ -4229,6 +4219,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4532,14 +4530,6 @@
     },
     {
       "source": "2026-03-14-reliable-software-llm-era",
-      "target": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,software-engineering",
-      "provenance": "2026-03-14-reliable-software-llm-era"
-    },
-    {
-      "source": "2026-03-14-reliable-software-llm-era",
       "target": "2026-04-30-ubiquitous-language-ai-code-consistency",
       "weight": 3,
       "rel": "tag-overlap",
@@ -4573,6 +4563,14 @@
     {
       "source": "2026-03-14-reliable-software-llm-era",
       "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods,llm",
+      "provenance": "2026-03-14-reliable-software-llm-era"
+    },
+    {
+      "source": "2026-03-14-reliable-software-llm-era",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,formal-methods,llm",
@@ -4956,14 +4954,6 @@
     },
     {
       "source": "2026-03-18-formal-proof-engineering-leanstral",
-      "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,guardrails",
-      "provenance": "2026-03-18-formal-proof-engineering-leanstral"
-    },
-    {
-      "source": "2026-03-18-formal-proof-engineering-leanstral",
       "target": "2026-05-17-kona-aleph-lean-unifying-concepts",
       "weight": 3,
       "rel": "tag-overlap",
@@ -4981,6 +4971,14 @@
     {
       "source": "2026-03-18-formal-proof-engineering-leanstral",
       "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-03-18-formal-proof-engineering-leanstral"
+    },
+    {
+      "source": "2026-03-18-formal-proof-engineering-leanstral",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,formal-methods",
@@ -6884,7 +6882,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-18-rq4-2-adversarial-error-propagation",
+      "target": "2026-05-18-rq4-3-ood-generalization-agentic",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6892,7 +6890,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -15348,14 +15346,6 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
-      "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-18-rq4-2-adversarial-error-propagation",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15365,6 +15355,14 @@
     {
       "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
@@ -15932,14 +15930,6 @@
     },
     {
       "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
-      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
-    },
-    {
-      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16404,14 +16394,6 @@
     },
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16437,6 +16419,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -17940,14 +17930,6 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 3,
       "rel": "tag-overlap",
@@ -18137,22 +18119,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,organisation",
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
-      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,hallucinations,llm",
-      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
-      "target": "2026-05-18-rq4-2-adversarial-error-propagation",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-18-rq4-2-adversarial-error-propagation"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
@@ -18691,6 +18657,14 @@
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
       "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "target": "2026-03-10-language-for-llm-agent-output",
       "weight": 4,
@@ -18760,6 +18734,14 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,invariants,llm",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods,llm",
       "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
@@ -19024,6 +19006,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,formal-methods",
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
@@ -19364,7 +19354,7 @@
     },
     {
       "source": "2026-05-18-agentic-explainability-vs-traditional",
-      "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
@@ -19827,14 +19817,6 @@
       "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
     },
     {
-      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
-      "target": "2026-05-18-rq4-3-ood-generalization-agentic",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "invariants,llm,machine-learning",
-      "provenance": "2026-05-18-rq4-3-ood-generalization-agentic"
-    },
-    {
       "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 4,
@@ -19891,6 +19873,14 @@
       "provenance": "2026-05-18-rq4-3-ood-generalization-agentic"
     },
     {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,machine-learning",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 3,
@@ -19940,19 +19930,19 @@
     },
     {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
-      "target": "2026-05-18-rq4-2-adversarial-error-propagation",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,llm",
-      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
-    },
-    {
-      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-05-18-rq4-3-ood-generalization-agentic",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,llm,machine-learning",
       "provenance": "2026-05-18-rq4-3-ood-generalization-agentic"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,llm,machine-learning",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
     },
     {
       "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
@@ -20027,6 +20017,14 @@
       "provenance": "2026-05-18-rq4-3-ood-generalization-agentic"
     },
     {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
       "source": "2026-05-18-rq4-2-adversarial-error-propagation",
       "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
       "weight": 3,
@@ -20073,6 +20071,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
       "provenance": "2026-05-18-rq4-3-ood-generalization-agentic"
+    },
+    {
+      "source": "2026-05-18-rq4-2-adversarial-error-propagation",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
     },
     {
       "source": "2026-05-18-rq4-3-ood-generalization-agentic",
@@ -20129,6 +20135,70 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq4-3-ood-generalization-agentic"
+    },
+    {
+      "source": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm,machine-learning",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-13-agent-process-reliability-architecture",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-18-rq4-2-adversarial-error-propagation",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-18-rq4-3-ood-generalization-agentic",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

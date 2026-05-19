@@ -1,6 +1,109 @@
 {
-  "extracted_at": "2026-05-19T19:50:38Z",
+  "extracted_at": "2026-05-19T20:02:04Z",
   "items": {
+    "2026-05-18-rq5-1-stochastic-vs-deterministic-failures": {
+      "named_concepts": [
+        "language model",
+        "stochastic systems",
+        "deterministic coded",
+        "coded systems",
+        "model serving",
+        "deterministic systems",
+        "local replayability",
+        "wrong task",
+        "task state",
+        "become globally",
+        "bogus-input failures",
+        "richer observability",
+        "failure mechanisms",
+        "execution boundary",
+        "failure path",
+        "stochastic agent",
+        "stochastic multi-step",
+        "unvalidated input",
+        "plausible context",
+        "semantically wrong"
+      ],
+      "source_urls": [
+        "https://ieeexplore.ieee.org/document/1335465/",
+        "https://sre.google/sre-book/monitoring-distributed-systems/",
+        "https://www.anthropic.com/research/trustworthy-agents",
+        "https://arxiv.org/abs/2302.12173",
+        "https://arxiv.org/abs/2312.14197",
+        "https://arxiv.org/abs/2310.01798",
+        "https://arxiv.org/abs/2408.04667",
+        "https://arxiv.org/abs/2502.20747",
+        "https://arxiv.org/abs/2503.00563",
+        "https://arxiv.org/abs/2411.05285",
+        "https://cloudintelligenceworkshop.org/papers/aiops26-Ranganathan.pdf",
+        "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-3-ood-generalization-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+        "https://dl.acm.org/doi/10.1145/74580.74582",
+        "https://www.computer.org/csdl/magazine/co/1988/02/r2037/13rRUxly90j"
+      ],
+      "key_claims": [
+        {
+          "text": "Stochastic multi-step Large Language Model systems are more likely than deterministic coded systems to continue operating after an invalid or attacker-shaped input while silently shifting toward a semantically wrong task state, because external text can be reinterpreted as instructions instead of rejected as malformed input",
+          "sources": [
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2312.14197",
+            "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks"
+          ]
+        },
+        {
+          "text": "Deterministic coded systems usually expose the same bogus-input failure through explicit reject, exception, timeout, or replayable wrong-state behavior, which makes the local failure path easier to reproduce and inspect even when the wider service graph is complex",
+          "sources": [
+            "https://ieeexplore.ieee.org/document/1335465/",
+            "https://sre.google/sre-book/monitoring-distributed-systems/",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
+          ]
+        },
+        {
+          "text": "Repeated-run evidence shows that supposedly deterministic Large Language Model settings still produce materially different outputs and assessment paths on identical prompts, which weakens exact replay of one invalid-input failure path relative to deterministic software",
+          "sources": [
+            "https://arxiv.org/abs/2408.04667",
+            "https://arxiv.org/abs/2502.20747",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html"
+          ]
+        },
+        {
+          "text": "The most distinctive agent-only failure mechanisms in the reviewed evidence are semantic drift, same-model verifier collapse, and tool or memory-mediated error propagation, because the system can keep acting on a corrupted latent task representation instead of stopping at the original boundary violation",
+          "sources": [
+            "https://arxiv.org/abs/2310.01798",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html",
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2312.14197"
+          ]
+        },
+        {
+          "text": "Production incident evidence from Large Language Model serving and recent agent-observability research together support an inferential conclusion that stochastic systems need richer observability than conventional service monitoring alone",
+          "sources": [
+            "https://cloudintelligenceworkshop.org/papers/aiops26-Ranganathan.pdf",
+            "https://arxiv.org/abs/2411.05285"
+          ]
+        },
+        {
+          "text": "Both deterministic and stochastic systems fit the same abstract fault, error, and failure chain, but the practical asymmetry is where failure becomes visible: deterministic systems more often fail at the execution boundary, while stochastic systems more often fail later at the semantic interpretation layer",
+          "sources": [
+            "https://ieeexplore.ieee.org/document/1335465/",
+            "https://arxiv.org/abs/2503.00563",
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2312.14197"
+          ]
+        },
+        {
+          "text": "Large deterministic systems can still become globally opaque at scale, but current evidence does not support collapsing the two classes into the same failure model, because local replayability remains stronger on the deterministic side even when global explanation remains hard",
+          "sources": [
+            "https://sre.google/sre-book/monitoring-distributed-systems/",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq4-3-ood-generalization-agentic": {
       "named_concepts": [
         "language model",
