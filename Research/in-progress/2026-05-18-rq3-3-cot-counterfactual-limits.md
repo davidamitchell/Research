@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
