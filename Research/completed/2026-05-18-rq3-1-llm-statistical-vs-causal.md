@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e5e657155f303c282654bfc384f2110a16a1d5b0
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq3-1-llm-statistical-vs-causal.md
+    summary: "Initial completion"
 ---
 
 # RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality
