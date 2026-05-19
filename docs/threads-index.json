@@ -6980,6 +6980,56 @@
     "url": "/Research/threads/rory-sutherland-behavioral-economics-strategy.html"
   },
   {
+    "slug": "machine-learning-invariants-epistemology",
+    "title": "machine-learning / invariants / epistemology",
+    "kind": "implicit",
+    "tag_cluster": [
+      "machine-learning",
+      "invariants",
+      "epistemology"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
+        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
+        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-1-popper-falsifiability",
+        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
+        "added": "2026-05-18"
+      }
+    ],
+    "url": "/Research/threads/machine-learning-invariants-epistemology.html"
+  },
+  {
     "slug": "predictive-processing-consciousness-anil-seth",
     "title": "predictive-processing / consciousness / anil-seth",
     "kind": "implicit",
@@ -7130,51 +7180,6 @@
     "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
-    "slug": "epistemology-machine-learning-invariants",
-    "title": "epistemology / machine-learning / invariants",
-    "kind": "implicit",
-    "tag_cluster": [
-      "epistemology",
-      "machine-learning",
-      "invariants"
-    ],
-    "concept_cluster": [],
-    "item_count": 6,
-    "items": [
-      {
-        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
-        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
-        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
-        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-1-popper-falsifiability",
-        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
-        "added": "2026-05-18"
-      }
-    ],
-    "url": "/Research/threads/epistemology-machine-learning-invariants.html"
-  },
-  {
     "slug": "policy-as-code-compliance-agentic-ai",
     "title": "policy-as-code / compliance / agentic-ai",
     "kind": "implicit",
@@ -7300,14 +7305,14 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -7337,17 +7342,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot coding",
       "coding agent",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -7377,7 +7382,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "reference-architecture-capability-model-enterprise-architecture",
@@ -7485,13 +7490,13 @@
     "url": "/Research/threads/workflow-tooling-process.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -7517,7 +7522,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7670,14 +7675,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
-      "native governance"
+      "copilot studio",
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -7697,6 +7702,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   }
 ]

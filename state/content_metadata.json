@@ -1,6 +1,97 @@
 {
-  "extracted_at": "2026-05-19T09:17:44Z",
+  "extracted_at": "2026-05-19T09:32:26Z",
   "items": {
+    "2026-05-18-rq2-3-predictive-model-fragility": {
+      "named_concepts": [
+        "structural stability",
+        "shortcut learning",
+        "poor optimisation",
+        "strong held-out",
+        "invariant risk",
+        "risk minimisation",
+        "mechanistic model",
+        "purely predictive",
+        "qualitative orbit",
+        "unstable contextual",
+        "contextual cues",
+        "held-out validation",
+        "shift robustness",
+        "full mechanistic",
+        "predictive fit",
+        "physics-constrained learning",
+        "dynamical systems",
+        "andronov-pontryagin criterion",
+        "saddle connections",
+        "underspecification shortcut"
+      ],
+      "source_urls": [
+        "https://archive.org/details/structuralstabil0000thom",
+        "https://www.hachettebookgroup.com/titles/steven-h-strogatz/nonlinear-dynamics-and-chaos/9780813349107/",
+        "https://doi.org/10.7551/mitpress/9780262017091.001.0001",
+        "https://arxiv.org/abs/1907.02893",
+        "https://arxiv.org/abs/2004.07780",
+        "https://www.jmlr.org/papers/v23/20-1335.html",
+        "https://openreview.net/forum?id=VCnuSuDSHv",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499849/",
+        "https://arxiv.org/abs/2410.19575",
+        "https://arxiv.org/abs/2504.12675"
+      ],
+      "key_claims": [
+        {
+          "text": "Structural stability is a property of the governing dynamical system, not of one observed trajectory, because it asks whether nearby vector fields preserve the same qualitative orbit structure after a continuous one-to-one remapping of trajectories",
+          "sources": [
+            "http://www.scholarpedia.org/article/Structural_stability"
+          ]
+        },
+        {
+          "text": "The planar Andronov-Pontryagin criterion ties that stability to equilibria whose linearized eigenvalues have nonzero real parts and to the absence of trajectories that connect saddle points, which are exactly the conditions that block qualitative phase-portrait change under small perturbations",
+          "sources": [
+            "http://www.scholarpedia.org/article/Structural_stability"
+          ]
+        },
+        {
+          "text": "Purely predictive machine-learning pipelines are often underspecified, meaning they can produce multiple models with equally strong held-out performance that nevertheless diverge in deployment",
+          "sources": [
+            "https://www.jmlr.org/papers/v23/20-1335.html"
+          ]
+        },
+        {
+          "text": "Shortcut learning and simplicity bias explain one route to that divergence, because models can adopt simple contextual cues that work on the training regime but fail under harder or shifted testing conditions",
+          "sources": [
+            "https://arxiv.org/abs/2004.07780",
+            "https://openreview.net/forum?id=VCnuSuDSHv"
+          ]
+        },
+        {
+          "text": "Empirical deployment studies show that ordinary data shifts, such as temporal coding changes or demographic differences, can materially degrade predictive performance when the learned relation is not stable across environments",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499849/",
+            "https://arxiv.org/abs/2410.19575"
+          ]
+        },
+        {
+          "text": "A structurally stable mechanistic model is stronger than a high-accuracy interpolator because it encodes a reason that local perturbations should preserve behavior, whereas the interpolator only encodes that one observed regime was fitted",
+          "sources": [
+            "http://www.scholarpedia.org/article/Structural_stability",
+            "https://www.jmlr.org/papers/v23/20-1335.html"
+          ]
+        },
+        {
+          "text": "Physics-constrained learning offers a concrete example of that contrast, because adding governing constraints can outperform existing data-driven estimators while explicitly tying the model to underlying system dynamics",
+          "sources": [
+            "https://arxiv.org/abs/2504.12675"
+          ]
+        },
+        {
+          "text": "Poor optimisation or small sample size can aggravate predictive fragility, but they do not fully explain it because deployment-divergent behaviour can persist even after strong held-out validation when the selected rule depends on unstable context",
+          "sources": [
+            "https://www.jmlr.org/papers/v23/20-1335.html",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10499849/",
+            "https://arxiv.org/abs/2410.19575"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq2-2-duhem-quine-underdetermination": {
       "named_concepts": [
         "mechanism-bearing parameters",
