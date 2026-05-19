@@ -2,13 +2,13 @@
 review_count: 2
 title: "Research Question 5.2: Flexibility vs. Predictability, How the Agentic Tradeoff Affects Auditability and Formal Verification in Production Pipelines"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-agentic-production-tradeoffs
 tags: [agentic-ai, llm, formal-methods, workflow]
 started: 2026-05-19T20:02:20+00:00
-completed: ~
+completed: 2026-05-19T20:29:09+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq5-1-stochastic-vs-deterministic-failures
