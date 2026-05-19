@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T01:27:43Z",
-  "node_count": 360,
-  "edge_count": 2135,
+  "generated": "2026-05-19T01:37:11Z",
+  "node_count": 361,
+  "edge_count": 2139,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2163,6 +2163,12 @@
       "title": "Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable Than Equivalently Scoped Deterministic Software Systems?",
       "type": "synthesis",
       "url": "/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
+    },
+    {
+      "slug": "2026-05-18-rq1-1-popper-falsifiability",
+      "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq1-1-popper-falsifiability.html"
     }
   ],
   "edges": [
@@ -19245,6 +19251,38 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-02-27-information-synthesis-entropy",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-02-28-free-energy-entropy-and-life",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-02-28-predictive-processing-active-inference",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
     }
   ]
 }

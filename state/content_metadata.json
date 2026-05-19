@@ -1,6 +1,110 @@
 {
-  "extracted_at": "2026-05-19T01:27:39Z",
+  "extracted_at": "2026-05-19T01:37:07Z",
   "items": {
+    "2026-05-18-rq1-1-popper-falsifiability": {
+      "named_concepts": [
+        "description length",
+        "minimum description",
+        "logical content",
+        "deep networks",
+        "kolmogorov complexity",
+        "vapnik-chervonenkis theory",
+        "vapnik-chervonenkis dimension",
+        "causal structure",
+        "finite-sample logical",
+        "finite-sample count",
+        "explanation length",
+        "model families",
+        "popperian falsifiability",
+        "labeling space",
+        "binary labelings",
+        "dimension measures",
+        "expressive freedom",
+        "model code",
+        "code plus",
+        "plus residual"
+      ],
+      "source_urls": [
+        "https://archive.org/details/logicofscientifi0000popp",
+        "https://archive.org/details/natureofstatisti0037vapn",
+        "https://iep.utm.edu/pop-sci/",
+        "https://plato.stanford.edu/entries/popper/",
+        "https://www.routledge.com/The-Logic-of-Scientific-Discovery/Popper/p/book/9780415278447",
+        "https://research.ibm.com/publications/modeling-by-shortest-data-description",
+        "https://arxiv.org/abs/math/0406077",
+        "https://doi.org/10.1007/978-0-387-49820-1",
+        "https://www.cs.princeton.edu/~rlivni/cos511/lectures/lect3.pdf",
+        "https://homes.cs.washington.edu/~sham/courses/stat928/lectures/lecture24.pdf",
+        "https://mathworld.wolfram.com/Vapnik-ChervonenkisDimension.html",
+        "https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_dimension",
+        "https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_theory",
+        "https://en.wikipedia.org/wiki/Minimum_description_length",
+        "https://en.wikipedia.org/wiki/Kolmogorov_complexity",
+        "https://research.google/pubs/understanding-deep-learning-requires-rethinking-generalization/",
+        "https://arxiv.org/abs/1812.11118",
+        "https://openreview.net/forum?id=B1g5sA4twr",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/",
+        "https://arxiv.org/abs/1907.06374"
+      ],
+      "key_claims": [
+        {
+          "text": "Finite-sample Popperian falsifiability can be formalised as the amount of labeling space a hypothesis class excludes, because a class that realizes only `m_H(n)` of the `2^n` binary labelings on `n` points rules out the remaining possibilities and therefore makes riskier predictions",
+          "sources": [
+            "https://plato.stanford.edu/entries/popper/",
+            "https://iep.utm.edu/pop-sci/",
+            "https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_theory"
+          ]
+        },
+        {
+          "text": "Vapnik-Chervonenkis dimension measures finite-sample expressive freedom rather than explanatory truth, so higher capacity weakens Popperian severity of test at a fixed sample size unless independent constraints shrink the realized growth function",
+          "sources": [
+            "https://mathworld.wolfram.com/Vapnik-ChervonenkisDimension.html",
+            "https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_dimension",
+            "https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_theory"
+          ]
+        },
+        {
+          "text": "Minimum Description Length operationalises Occam's Razor by selecting the hypothesis that minimises model code plus residual code, and Kolmogorov complexity supplies the ideal limiting notion of the shortest generative explanation",
+          "sources": [
+            "https://research.ibm.com/publications/modeling-by-shortest-data-description",
+            "https://arxiv.org/abs/math/0406077",
+            "https://doi.org/10.1007/978-0-387-49820-1"
+          ]
+        },
+        {
+          "text": "Mechanistic models differ from interpolators because they encode interpretable causal structure that travels beyond the fitted sample, whereas flexible machine-learning models can achieve strong prediction without exposing the underlying mechanism",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/",
+            "https://arxiv.org/abs/1907.06374"
+          ]
+        },
+        {
+          "text": "Modern deep networks show that interpolation and generalization can coexist, because overparameterized models can fit random labels or cross the interpolation threshold, the point at which training data can be fit exactly, and still recover lower test error afterward",
+          "sources": [
+            "https://research.google/pubs/understanding-deep-learning-requires-rethinking-generalization/",
+            "https://arxiv.org/abs/1812.11118",
+            "https://openreview.net/forum?id=B1g5sA4twr"
+          ]
+        },
+        {
+          "text": "A workable criterion between mechanism and interpolation is therefore conjunctive rather than binary-by-capacity: a model earns mechanistic status only when non-trivial logical content, short description length, and successful novelty testing all point in the same direction",
+          "sources": [
+            "https://plato.stanford.edu/entries/popper/",
+            "https://arxiv.org/abs/math/0406077",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/"
+          ]
+        },
+        {
+          "text": "Under this criterion, unconstrained deep-learning models trained only for predictive accuracy should be treated as predictive tools rather than mechanism-level explanations unless architecture, symmetries, governing equations, or prior assumptions about causal structure sharply reduce effective freedom and explanation length",
+          "sources": [
+            "https://arxiv.org/abs/1812.11118",
+            "https://openreview.net/forum?id=B1g5sA4twr",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/",
+            "https://arxiv.org/abs/1907.06374"
+          ]
+        }
+      ]
+    },
     "2026-05-18-agentic-explainability-vs-traditional": {
       "named_concepts": [
         "internal transparency",
