@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-05-19T02:40:06Z",
+  "extracted_at": "2026-05-19T02:52:57Z",
   "items": {
+    "2026-05-18-rq2-1-erm-causal-blindness": {
+      "named_concepts": [
+        "formal correction",
+        "pac guarantee",
+        "pooled erm",
+        "spurious feature",
+        "invariant feature",
+        "one formal",
+        "gradient-descent simplicity",
+        "simplicity bias",
+        "risk minimisation",
+        "causally blind",
+        "causal robustness",
+        "training error",
+        "error even",
+        "noisier invariant",
+        "environment shift",
+        "optimal classifier",
+        "training environments",
+        "correction proposed",
+        "erm solutions",
+        "causal structure"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/1907.02893",
+        "https://arxiv.org/abs/2102.11107",
+        "https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf",
+        "https://doi.org/10.1017/CBO9781107298019",
+        "https://arxiv.org/abs/2004.07780",
+        "https://doi.org/10.1038/s42256-020-00257-z",
+        "https://openreview.net/forum?id=VCnuSuDSHv",
+        "https://arxiv.org/abs/1801.04016",
+        "https://arxiv.org/abs/1501.01332"
+      ],
+      "key_claims": [
+        {
+          "text": "ERM's formal PAC guarantee is distribution-conditional, because it bounds error only for hypotheses trained and evaluated on independent and identically distributed draws from the same underlying distribution rather than across environment changes",
+          "sources": [
+            "https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf",
+            "https://doi.org/10.1017/CBO9781107298019"
+          ]
+        },
+        {
+          "text": "That guarantee leaves causal structure unidentified, because a low-risk hypothesis may fit observational regularities without answering intervention or counterfactual questions about which feature actually generates the label",
+          "sources": [
+            "https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf",
+            "https://arxiv.org/abs/1801.04016",
+            "https://arxiv.org/abs/1501.01332"
+          ]
+        },
+        {
+          "text": "A formal multi-environment counterexample shows that pooled ERM can rationally choose a spurious feature with lower average training error even when only the invariant feature retains low risk after the environment shifts",
+          "sources": [
+            "https://arxiv.org/abs/1907.02893",
+            "https://arxiv.org/abs/2102.11107"
+          ]
+        },
+        {
+          "text": "Spurious correlation is the mechanism of causal blindness under ERM, because minimizing empirical error rewards whichever cue predicts well on the observed sample whether that cue is structural or merely contextual",
+          "sources": [
+            "https://arxiv.org/abs/1907.02893",
+            "https://arxiv.org/abs/2004.07780"
+          ]
+        },
+        {
+          "text": "IRM is one formal correction proposed for ERM's blind spot because it searches for representations whose optimal classifier is invariant across training environments, which ties the learning objective more closely to stable causal structure",
+          "sources": [
+            "https://arxiv.org/abs/1907.02893",
+            "https://arxiv.org/abs/2102.11107",
+            "https://arxiv.org/abs/1501.01332"
+          ]
+        },
+        {
+          "text": "Shortcut-learning evidence shows that benchmark-strong systems often solve tasks through background, context, or collection artifacts, so observed accuracy can coexist with a failure to learn the intended object-level rule",
+          "sources": [
+            "https://arxiv.org/abs/2004.07780",
+            "https://doi.org/10.1038/s42256-020-00257-z"
+          ]
+        },
+        {
+          "text": "Gradient-descent simplicity bias plausibly makes causally blind ERM solutions more likely in practice because optimisation can lock onto simple spurious features before it has to represent more complex invariant features",
+          "sources": [
+            "https://openreview.net/forum?id=VCnuSuDSHv"
+          ]
+        },
+        {
+          "text": "This item therefore sharpens Research Question 1.3's instrumentalism critique by showing that prediction-first success is not merely philosophically incomplete but mathematically silent about whether the learned rule will travel beyond the observed regime",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md",
+            "https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf",
+            "https://arxiv.org/abs/1907.02893"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq1-3-instrumentalism-failure-modes": {
       "named_concepts": [
         "predictive fruitfulness",
