@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T10:18:25Z",
-  "node_count": 367,
-  "edge_count": 2180,
+  "generated": "2026-05-19T10:31:43Z",
+  "node_count": 368,
+  "edge_count": 2188,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2205,6 +2205,12 @@
       "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
       "type": "synthesis",
       "url": "/Research/research/2026-05-18-rq2-4-causal-hierarchy-formal-limits.html"
+    },
+    {
+      "slug": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html"
     }
   ],
   "edges": [
@@ -19390,15 +19396,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "epistemology,invariants,machine-learning,philosophy-of-science",
-      "provenance": "2026-05-18-rq1-3-instrumentalism-failure-modes"
-    },
-    {
-      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
-      "target": "2026-05-18-rq2-1-erm-causal-blindness",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "epistemology,invariants,machine-learning",
-      "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
+      "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
     },
     {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
@@ -19406,7 +19404,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "epistemology,invariants,machine-learning,philosophy-of-science",
-      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+      "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
     },
     {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
@@ -19414,7 +19412,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,invariants,machine-learning",
-      "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
+      "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
     },
     {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
@@ -19422,7 +19420,7 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,invariants,machine-learning",
-      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+      "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
     },
     {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
@@ -19473,6 +19471,14 @@
       "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
     },
     {
+      "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
       "source": "2026-05-18-rq2-1-erm-causal-blindness",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -19511,6 +19517,14 @@
       "rel": "tag-overlap",
       "evidence": "causal-inference,epistemology,invariants,machine-learning",
       "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-1-erm-causal-blindness",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
       "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
@@ -19567,6 +19581,14 @@
       "rel": "tag-overlap",
       "evidence": "causal-inference,epistemology,invariants,machine-learning",
       "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
@@ -19609,6 +19631,14 @@
       "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
     },
     {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
       "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 3,
@@ -19647,6 +19677,46 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq2-1-erm-causal-blindness",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     }
   ]
 }

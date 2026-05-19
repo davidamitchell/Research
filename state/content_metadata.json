@@ -1,6 +1,107 @@
 {
-  "extracted_at": "2026-05-19T10:18:21Z",
+  "extracted_at": "2026-05-19T10:31:39Z",
   "items": {
+    "2026-05-18-rq3-1-llm-statistical-vs-causal": {
+      "named_concepts": [
+        "language models",
+        "invariant causal",
+        "explicit causal",
+        "causal competence",
+        "causal benchmarks",
+        "causal arguments",
+        "causal constraints",
+        "causal hierarchy",
+        "language model",
+        "token distributions",
+        "causal models",
+        "observational ceiling",
+        "current causal",
+        "harder intervention",
+        "counterfactual settings",
+        "text metadata",
+        "partial abstraction",
+        "causal world",
+        "world models",
+        "level systems"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1145/3442188.3445922",
+        "https://archive.org/details/papersinlinguist0000jrfi",
+        "https://arxiv.org/abs/2005.14165",
+        "https://web.stanford.edu/~jurafsky/slp3/ed3book.pdf",
+        "https://arxiv.org/abs/2205.07750",
+        "https://arxiv.org/abs/2404.14082",
+        "https://arxiv.org/abs/2301.05217",
+        "https://arxiv.org/abs/2403.04121",
+        "https://arxiv.org/abs/2407.08029",
+        "https://aclanthology.org/2024.sighan-1.17/",
+        "https://arxiv.org/abs/2405.00622",
+        "https://opencausalab.github.io/CaLM",
+        "https://openreview.net/forum?id=mqoxLkX210",
+        "https://www.microsoft.com/en-us/research/publication/causal-reasoning-and-large-language-models-opening-a-new-frontier-for-causality/",
+        "https://aclanthology.org/2024.emnlp-main.381/"
+      ],
+      "key_claims": [
+        {
+          "text": "Large Language Model pre-training is defined by autoregressive next-token prediction over observed text sequences, so the base optimisation target is predictive compression of token distributions rather than direct estimation of intervention-stable mechanisms",
+          "sources": [
+            "https://arxiv.org/abs/2005.14165",
+            "https://web.stanford.edu/~jurafsky/slp3/ed3book.pdf"
+          ]
+        },
+        {
+          "text": "Firthian distributional semantics, the view that words derive meaning from surrounding context, gives this training regime dense associational signal from co-occurrence and context, but that signal remains observational because text records patterns in language use rather than controlled interventions on the world",
+          "sources": [
+            "https://web.stanford.edu/~jurafsky/slp3/ed3book.pdf",
+            "https://arxiv.org/abs/2205.07750"
+          ]
+        },
+        {
+          "text": "Phase 2's Empirical Risk Minimisation and Pearl's causal hierarchy results imply that a model trained only on observational text cannot be assumed to recover Level 2 intervention semantics or Level 3 counterfactual structure merely by scaling the same observational objective",
+          "sources": [
+            "https://causalai.net/r60.pdf",
+            "https://arxiv.org/abs/1801.04016",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md"
+          ]
+        },
+        {
+          "text": "Linear probes and other observational interpretability tools can show that causal or world-structured information is decodable from activations, but current reviews do not treat that as sufficient proof that the model is causally relying on an invariant internal world model",
+          "sources": [
+            "https://arxiv.org/abs/2404.14082",
+            "https://arxiv.org/abs/2301.05217"
+          ]
+        },
+        {
+          "text": "Current causal benchmarks repeatedly show that Large Language Model performance degrades as tasks move from simpler causal association or familiar textual patterns toward harder intervention and counterfactual settings, which is the pattern expected from systems strongest at Level 1",
+          "sources": [
+            "https://arxiv.org/abs/2405.00622",
+            "https://opencausalab.github.io/CaLM",
+            "https://aclanthology.org/2024.sighan-1.17/"
+          ]
+        },
+        {
+          "text": "Benchmark success on causal tasks cannot be taken at face value as proof of causal modelling because recent reviews argue that many tasks remain solvable through domain-knowledge retrieval or lexical regularities rather than through genuine intervention-grounded reasoning",
+          "sources": [
+            "https://arxiv.org/abs/2407.08029",
+            "https://aclanthology.org/2024.sighan-1.17/"
+          ]
+        },
+        {
+          "text": "The best evidence for partial causal competence is that Generative Pre-trained Transformer family models can generate strong causal arguments on some tasks and generalise beyond training-cutoff datasets, but those same studies report unpredictable failure modes and explicitly recommend combining Large Language Models with external causal methods",
+          "sources": [
+            "https://openreview.net/forum?id=mqoxLkX210",
+            "https://www.microsoft.com/en-us/research/publication/causal-reasoning-and-large-language-models-opening-a-new-frontier-for-causality/"
+          ]
+        },
+        {
+          "text": "Evidence that explicit causal constraints and sparsely interacting modules improve out-of-distribution performance suggests that default next-token language modelling does not already provide the invariant causal mechanisms that stronger causal robustness would require",
+          "sources": [
+            "https://aclanthology.org/2024.emnlp-main.381/"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq2-4-causal-hierarchy-formal-limits": {
       "named_concepts": [
         "causal hierarchy",
