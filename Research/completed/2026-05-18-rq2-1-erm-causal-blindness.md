@@ -2,14 +2,14 @@
 review_count: 2
 title: "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq2-2-duhem-quine-underdetermination
   - 2026-05-18-rq2-3-predictive-model-fragility
 tags: [machine-learning, causal-inference, invariants, epistemology]
 started: 2026-05-19T02:31:18+00:00
-completed: ~
+completed: 2026-05-19T02:52:03+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq1-1-popper-falsifiability
@@ -47,7 +47,7 @@ How does the framework of Empirical Risk Minimisation (ERM) mathematically guara
 
 Phase 1 established the epistemological distinction between mechanistic explanation and interpolation. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md]
 
-Phase 2 now asks how that distinction appears inside machine-learning theory, where ERM is the dominant training rule for modern systems including deep learning and Large Language Models (LLMs). [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
+Phase 2 now asks how that distinction appears inside machine-learning theory, where ERM is the standard training rule for supervised learning and a core reference point for modern deep-learning analysis. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
 
 This item is the mathematical hinge for later Phase 2 questions because it asks whether in-distribution success is already enough for explanation, or whether the guarantee itself is structurally narrower than that. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md; https://arxiv.org/abs/1907.02893]
 
@@ -187,13 +187,13 @@ This item is the mathematical hinge for later Phase 2 questions because it asks 
 
 **Executive summary:**
 
-Empirical Risk Minimisation (ERM) guarantees low error only for fresh examples drawn from the same distribution as the training sample, under the assumptions built into Probably Approximately Correct (PAC) learning; it does not identify the stable cause-and-effect structure needed to remain reliable after the data-generating environment changes. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
+Empirical Risk Minimisation (ERM), the rule that chooses a model by minimising sample error, guarantees low error only for fresh examples drawn from the same distribution as the training sample under Probably Approximately Correct (PAC) learning, the framework that studies how sample performance transfers to new draws from that same distribution. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf]
 
 This is why ERM can be mathematically correct and still causally blind: the guarantee controls in-distribution risk, while causal robustness depends on whether the predictor tracks an invariant mechanism rather than a contingent correlation. [inference; source: https://arxiv.org/abs/1501.01332; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1907.02893]
 
 A formal counterexample shows that pooled ERM can prefer a spurious feature with lower training error even when only the noisier invariant feature survives environment shift. [inference; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107]
 
-Invariant Risk Minimisation (IRM) is one formal correction proposed in this literature, because it seeks representations whose optimal classifier is stable across environments, and gradient-descent simplicity bias helps explain why shortcut ERM solutions are often found first in practice. [inference; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://openreview.net/forum?id=VCnuSuDSHv]
+Invariant Risk Minimisation (IRM), a multi-environment objective that requires the same optimal classifier across training environments, is one formal correction proposed in this literature, and gradient-descent simplicity bias helps explain why shortcut ERM solutions are often found first in practice. [inference; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://openreview.net/forum?id=VCnuSuDSHv]
 
 **Key findings:**
 
@@ -258,13 +258,13 @@ Invariant Risk Minimisation (IRM) is one formal correction proposed in this lite
 
 ### Executive Summary
 
-Empirical Risk Minimisation (ERM) guarantees low error only for fresh examples drawn from the same distribution as the training sample, under the assumptions built into Probably Approximately Correct (PAC) learning; it does not identify the stable cause-and-effect structure needed to remain reliable after the data-generating environment changes. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
+Empirical Risk Minimisation (ERM), the rule that chooses a model by minimising sample error, guarantees low error only for fresh examples drawn from the same distribution as the training sample under Probably Approximately Correct (PAC) learning, the framework that studies how sample performance transfers to new draws from that same distribution. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf]
 
 This is why ERM can be mathematically correct and still causally blind: the guarantee controls in-distribution risk, while causal robustness depends on whether the predictor tracks an invariant mechanism rather than a contingent correlation. [inference; source: https://arxiv.org/abs/1501.01332; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1907.02893]
 
 A formal counterexample shows that pooled ERM can prefer a spurious feature with lower training error even when only the noisier invariant feature survives environment shift. [inference; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107]
 
-Invariant Risk Minimisation (IRM) is one formal correction proposed in this literature, because it seeks representations whose optimal classifier is stable across environments, and gradient-descent simplicity bias helps explain why shortcut ERM solutions are often found first in practice. [inference; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://openreview.net/forum?id=VCnuSuDSHv]
+Invariant Risk Minimisation (IRM), a multi-environment objective that requires the same optimal classifier across training environments, is one formal correction proposed in this literature, and gradient-descent simplicity bias helps explain why shortcut ERM solutions are often found first in practice. [inference; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://openreview.net/forum?id=VCnuSuDSHv]
 
 ### Key Findings
 

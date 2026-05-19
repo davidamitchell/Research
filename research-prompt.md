@@ -339,6 +339,12 @@ easily-detectable issues.
     the first use to at least one authoritative external source that defines or
     operationalises the concept, then add repository items as supporting
     synthesis sources if needed.
+    **Run this check explicitly on the first sentence of `§6 Synthesis` and the
+    first sentence of the Findings Executive Summary.** If those sentences use
+    central theoretical terms such as ERM, PAC learning, IRM, causal mechanism,
+    invariant structure, or out-of-distribution generalisation, either define
+    the term in plain language inside the sentence itself or bind it to an
+    authoritative definition source at that first use.
 
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or

@@ -601,3 +601,16 @@ The OpenFactCheck item adds a framework-surface corollary: even a benchmark-rich
 - `Research/completed/2026-05-16-reference-architecture-definition-frameworks-detail.md` — adds the architecture-artifact layer: ISO/IEC/IEEE 42010, TOGAF, and cloud reference-architecture examples classify different design objects and levels of commitment, so "reference architecture" needs explicit decomposition into conceptual, logical, and implementation layers
 
 **Open thread:** What is the smallest layered vocabulary that stays usable across training, architecture review, evaluation, and audit without forcing teams to learn multiple disconnected taxonomies?
+
+---
+
+## Thread 21 — Prediction-only guarantees are distribution-bound; portability requires invariant structure
+
+**The learning:** Formal learning guarantees and explanatory portability are different objects. Research Question 1.1 established that predictive fit alone does not separate mechanism from interpolation, because multiple model classes can agree on seen data while differing in what they actually rule out. Research Question 1.3 extended that into operations, showing that prediction-first evaluation breaks under distribution shift because historical scorekeeping does not identify what should remain stable when the environment changes. Research Question 2.1 closes the loop mathematically: Empirical Risk Minimisation (ERM) with Probably Approximately Correct (PAC) learning guarantees low error only on new draws from the same distribution, while causal and invariance results explain portability only when the predictor tracks a stable mechanism rather than a contingent correlation. The practical consequence is that teams should stop treating benchmark or in-distribution performance as evidence of portable understanding. Once deployment includes environment change, intervention, or context drift, the design target shifts from better fit on one distribution to identifying and protecting invariant structure.
+
+**Evidence:**
+- `Research/completed/2026-05-18-rq1-1-popper-falsifiability.md` — shows that mechanism and interpolation cannot be separated by predictive fit alone
+- `Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md` — shows that prediction-first evaluation fails operationally under distribution shift because causal or invariant structure, not historical score alone, determines robustness
+- `Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md` — shows mathematically that ERM and PAC guarantees are distribution-conditional by design, and that spurious but non-portable solutions can still be optimal for the ERM objective
+
+**Open thread:** What is the minimal operational test suite that can distinguish a merely resilient shortcut from a genuinely invariant predictor before full deployment?
