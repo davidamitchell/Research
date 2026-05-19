@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T01:03:05Z",
-  "node_count": 359,
-  "edge_count": 2125,
+  "generated": "2026-05-19T01:16:02Z",
+  "node_count": 360,
+  "edge_count": 2135,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2157,6 +2157,12 @@
       "title": "Visibility and exit outcomes: vendor-supplied versus internally governed temporary operational automation",
       "type": "primary",
       "url": "/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html"
+    },
+    {
+      "slug": "2026-05-18-agentic-explainability-vs-traditional",
+      "title": "Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable Than Equivalently Scoped Deterministic Software Systems?",
+      "type": "synthesis",
+      "url": "/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
     }
   ],
   "edges": [
@@ -3002,10 +3008,10 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "governance,organisational-design",
+      "evidence": "agentic-ai,governance",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -3338,14 +3344,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3363,6 +3361,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -3954,14 +3960,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3979,6 +3977,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4114,14 +4120,6 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4139,6 +4137,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -6794,7 +6800,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6802,7 +6808,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -8346,14 +8352,6 @@
     },
     {
       "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
-      "target": "2026-05-01-appropriate-task-selection-coding-agents",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,governance,llm",
-      "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
-    },
-    {
-      "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
       "target": "2026-05-01-compound-error-accumulation-ai-codebases",
       "weight": 4,
       "rel": "tag-overlap",
@@ -8375,6 +8373,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,governance,llm",
       "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
+    },
+    {
+      "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,governance,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
@@ -8426,14 +8432,6 @@
     },
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-      "target": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm",
-      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
-    },
-    {
-      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "weight": 3,
       "rel": "tag-overlap",
@@ -8443,6 +8441,14 @@
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
+    },
+    {
+      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -8719,14 +8725,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,agentic-coding,evaluation,llm,software-engineering",
       "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
-    },
-    {
-      "source": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
-      "target": "2026-05-01-compound-error-accumulation-ai-codebases",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,agentic-coding,evaluation,llm",
-      "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
     },
     {
       "source": "2026-04-30-ubiquitous-language-ai-code-consistency",
@@ -9041,6 +9039,14 @@
       "provenance": "2026-05-01-sustainable-ai-software-development-synthesis"
     },
     {
+      "source": "2026-05-01-appropriate-task-selection-coding-agents",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,governance,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
       "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -9263,6 +9269,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,governance,llm",
       "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
+    },
+    {
+      "source": "2026-05-01-compound-error-accumulation-ai-codebases",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,governance,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
@@ -9490,7 +9504,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
+      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9498,10 +9512,10 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
+      "evidence": "agentic-ai,governance",
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
@@ -12898,7 +12912,7 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-05-17-ms-copilot-studio-capabilities",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform,llm",
@@ -12906,10 +12920,10 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-platform,llm",
+      "evidence": "agentic-ai,governance,llm",
       "provenance": "2026-05-07-ai-production-incidents-deep-dive"
     },
     {
@@ -14122,14 +14136,6 @@
     },
     {
       "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
-      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-governance,governance,llm",
-      "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
-    },
-    {
-      "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
       "target": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
       "weight": 4,
       "rel": "cites",
@@ -14479,6 +14485,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-governance,evaluation,llm",
       "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
+    },
+    {
+      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,governance,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
@@ -15226,14 +15240,6 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
-      "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15262,6 +15268,14 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,ai-platform,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
@@ -15430,7 +15444,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,knowledge-graph",
-      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
     },
     {
       "source": "2026-05-12-knowledge-graph-data-product-agentic",
@@ -15578,11 +15592,11 @@
     },
     {
       "source": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
-      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+      "provenance": "2026-05-12-odrl-policies-knowledge-graph-agentic-access"
     },
     {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
@@ -15831,6 +15845,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
+      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
     },
     {
       "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
@@ -16290,14 +16312,6 @@
     },
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16323,6 +16337,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -18177,6 +18199,14 @@
       "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
       "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
       "weight": 3,
@@ -18881,6 +18911,14 @@
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
       "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "target": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
       "weight": 3,
@@ -19159,6 +19197,54 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-04-30-explainable-ai-xai-regulation-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     }
   ]
 }

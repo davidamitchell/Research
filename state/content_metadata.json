@@ -1,6 +1,110 @@
 {
-  "extracted_at": "2026-05-19T01:03:01Z",
+  "extracted_at": "2026-05-19T01:15:59Z",
   "items": {
+    "2026-05-18-agentic-explainability-vs-traditional": {
+      "named_concepts": [
+        "internal transparency",
+        "full internal",
+        "deterministic software",
+        "deterministic systems",
+        "post hoc",
+        "deterministic distributed",
+        "equivalently scoped",
+        "local replayability",
+        "language model",
+        "local explainability",
+        "explainability deficit",
+        "llm-based systems",
+        "scoped deterministic",
+        "hoc reconstruction",
+        "systems keep",
+        "explanation surface",
+        "boundary artefact",
+        "logs rules",
+        "rules traces",
+        "one property"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/1702.08608",
+        "https://arxiv.org/abs/1606.03490",
+        "https://arxiv.org/abs/1711.00399",
+        "https://www.nist.gov/publications/four-principles-explainable-artificial-intelligence",
+        "https://doi.org/10.1007/s11229-008-9435-2",
+        "https://www.routledge.com/Drift-into-Failure/Dekker/p/book/9781409422211",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+        "https://arxiv.org/abs/2408.04667",
+        "https://arxiv.org/abs/2502.20747",
+        "https://sre.google/sre-book/monitoring-distributed-systems/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Explainability in the reviewed literature is multi-dimensional rather than unitary, because formal sources distinguish meaningful explanation, explanation accuracy, transparency, post hoc explanation, and contrastive usefulness instead of treating explainability as one property",
+          "sources": [
+            "https://arxiv.org/abs/1702.08608",
+            "https://arxiv.org/abs/1606.03490",
+            "https://arxiv.org/abs/1711.00399",
+            "https://www.nist.gov/publications/four-principles-explainable-artificial-intelligence"
+          ]
+        },
+        {
+          "text": "Present-day Large Language Model systems should be treated as having a local explainability deficit even before scaling, because repeated calls can diverge under fixed settings and exact replay of one decision path is not guaranteed",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+            "https://arxiv.org/abs/2408.04667",
+            "https://arxiv.org/abs/2502.20747"
+          ]
+        },
+        {
+          "text": "Equivalently scoped deterministic software usually offers better local replayability and clearer bounded causal inspection than a Large Language Model system, because explicit rules, code paths, and logged state can often be rerun and inspected when dependencies are controlled",
+          "sources": [
+            "https://sre.google/sre-book/monitoring-distributed-systems/",
+            "https://doi.org/10.1007/s11229-008-9435-2",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html"
+          ]
+        },
+        {
+          "text": "Production-scale deterministic distributed systems are not globally transparent, because engineers depend on monitoring, white-box telemetry, and post hoc analysis precisely when direct understanding of the whole dependency graph fails",
+          "sources": [
+            "https://sre.google/sre-book/monitoring-distributed-systems/",
+            "https://doi.org/10.1007/s11229-008-9435-2"
+          ]
+        },
+        {
+          "text": "Useful outcome-level explanation does not always require full internal transparency, because counterfactual explanation can identify what would need to change for a different result without exposing the entire internal mechanism",
+          "sources": [
+            "https://arxiv.org/abs/1711.00399",
+            "https://www.nist.gov/publications/four-principles-explainable-artificial-intelligence"
+          ]
+        },
+        {
+          "text": "The explainability gap therefore converges but does not disappear at scale, because deterministic architectures lose global transparency while Large Language Model systems keep additional opacity from learned representations and residual non-determinism",
+          "sources": [
+            "https://arxiv.org/abs/1606.03490",
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+            "https://arxiv.org/abs/2408.04667",
+            "https://arxiv.org/abs/2502.20747",
+            "https://doi.org/10.1007/s11229-008-9435-2",
+            "https://sre.google/sre-book/monitoring-distributed-systems/"
+          ]
+        },
+        {
+          "text": "For governance and audit use cases, the most decision-useful explanation surface in both classes is usually the boundary artefact, logs, rules, traces, approvals, and counterfactual outcome conditions, rather than a full internal causal narrative",
+          "sources": [
+            "https://arxiv.org/abs/1711.00399",
+            "https://www.nist.gov/publications/four-principles-explainable-artificial-intelligence",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html"
+          ]
+        }
+      ]
+    },
     "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes": {
       "named_concepts": [
         "internally governed",
