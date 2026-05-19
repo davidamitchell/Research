@@ -2,13 +2,13 @@
 review_count: 2
 title: "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq1-3-instrumentalism-failure-modes
 tags: [epistemology, philosophy-of-science, machine-learning, formal-methods, invariants]
 started: 2026-05-19T01:38:17+00:00
-completed: ~
+completed: 2026-05-19T01:59:55+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq1-1-popper-falsifiability
