@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
