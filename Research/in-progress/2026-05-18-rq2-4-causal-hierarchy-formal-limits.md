@@ -36,7 +36,7 @@ What are the formal information-theoretic boundaries that prevent a model traine
 - Pearl's Ladder of Causation: Association (Level 1), Intervention (Level 2), Counterfactuals (Level 3)
 - The Causal Hierarchy Theorem and its formal proof
 - Information-theoretic lower bounds on what observational data can determine
-- Observational vs. interventional distributions and the do-calculus
+- Observational vs. interventional distributions and Pearl's three-rule intervention calculus
 - Confounding bias as a mechanism preventing Level 1 to Level 2 inference
 
 **Out of scope:**
@@ -58,7 +58,7 @@ This item therefore asks for the theorem-level synthesis of Phase 2: whether pas
 1. Formally define all three levels of Pearl's Ladder of Causation: `P(Y | X)`, `P(Y | do(X))`, and counterfactual quantities such as `P(Y_x | X', Y')`.
 2. State the Causal Hierarchy Theorem and identify what it proves about observational underdetermination of interventional and counterfactual distributions.
 3. Characterise confounding bias as a concrete mechanism by which observational conditioning can mislead intervention prediction.
-4. Formalise do-calculus, Pearl's three-rule system for converting intervention queries into observational ones when the graph makes that possible.
+4. Formalise Pearl's three-rule intervention calculus for converting intervention queries into observational ones when the graph makes that possible.
 5. Apply the theorem to modern machine learning by locating passive ERM training at Level 1 and showing why higher-level answers require extra structure or extra data.
 
 ## Sources
@@ -66,7 +66,7 @@ This item therefore asks for the theorem-level synthesis of Phase 2: whether pas
 - [x] [Bareinboim et al. (2022) On Pearl's Hierarchy and the Foundations of Causal Inference](https://causalai.net/r60.pdf) - primary source for the hierarchy definitions, the Causal Hierarchy Theorem, and the Markovian special case.
 - [x] [Pearl (n.d.) The Three Layer Causal Hierarchy](https://web.cs.ucla.edu/~kaoru/3-layer-causal-hierarchy.pdf) - concise official table of Level 1, Level 2, and Level 3 query forms.
 - [x] [Pearl (2018) Theoretical Impediments to Machine Learning With Seven Sparks from the Causal Revolution](https://arxiv.org/abs/1801.04016) - primary source on the limits of model-free learning for intervention and retrospection.
-- [x] [Huang and Valtorta (2006) Pearl's Calculus of Intervention Is Complete](https://arxiv.org/pdf/1206.6831v1) - primary source proving the completeness of do-calculus for identifiable causal effects.
+- [x] [Huang and Valtorta (2006) Pearl's Calculus of Intervention Is Complete](https://arxiv.org/pdf/1206.6831v1) - primary source proving the completeness of Pearl's three-rule intervention calculus for identifiable causal effects.
 - [x] [Peters, Janzing, and Scholkopf (2017) Elements of Causal Inference](https://library.oapen.org/bitstream/id/056a11be-ce3a-44b9-8987-a6c68fce8d9b/11283.pdf) - open-access book used for intervention semantics and independent mechanisms.
 - [x] [Research repo (2026-05-19) Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md) - prior repository item on ERM, invariance, and observational training limits.
 - [x] [Research repo (2026-05-19) Research Question 2.2: The Duhem-Quine Thesis and Underdetermination, Quantifying When a Model Has Matched the True Mechanism](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-2-duhem-quine-underdetermination.md) - prior repository item on observational equivalence and identifiability.
@@ -79,7 +79,7 @@ This item therefore asks for the theorem-level synthesis of Phase 2: whether pas
 ### §0 Initialise
 
 - Question: What formal boundary separates observational learning from valid reasoning about interventions and counterfactuals?
-- Scope: Pearl's three-layer hierarchy, the Causal Hierarchy Theorem, confounding, do-calculus, and the implication for passive machine learning.
+- Scope: Pearl's three-layer hierarchy, the Causal Hierarchy Theorem, confounding, Pearl's three-rule intervention calculus, and the implication for passive machine learning.
 - Constraints: full mode; this item must synthesise Research Questions 2.1, 2.2, and 2.3; every cited claim must have a URL-backed source.
 - Output: executive summary, key findings, evidence map, assumptions, analysis, risks, gaps, uncertainties, and open questions.
 - Prior completed items consulted: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-2-duhem-quine-underdetermination.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-3-predictive-model-fragility.md
@@ -100,8 +100,8 @@ This item therefore asks for the theorem-level synthesis of Phase 2: whether pas
    3.2 What role does unobserved confounding play in that difference?
    3.3 When does observational information become sufficient after all?
 4. Cross-layer bridge
-   4.1 What is do-calculus?
-   4.2 What does it mean for do-calculus to be complete?
+   4.1 What is Pearl's three-rule intervention calculus?
+   4.2 What does it mean for that calculus to be complete?
    4.3 What does completeness imply about the limits of pure observational data?
 5. Phase 2 synthesis
    5.1 How does this theorem subsume Research Question 2.1 on ERM?
@@ -134,7 +134,7 @@ This item therefore asks for the theorem-level synthesis of Phase 2: whether pas
 #### C. Confounding and the observational/interventional gap
 
 - [fact] Bareinboim et al. show in their treatment example that observational and interventional effects can differ in sign: `P(Y = 1 | X = 1) - P(Y = 1 | X = 0)` is positive while `P(Y = 1 | do(X = 1)) - P(Y = 1 | do(X = 0))` is negative. [source: https://causalai.net/r60.pdf]
-- [fact] Pearl states that confounding, the presence of unobserved common causes, is the main obstacle to drawing causal conclusions from data, and that back-door adjustment and do-calculus are the tools for controlling it when the graph permits. [source: https://arxiv.org/abs/1801.04016]
+- [fact] Pearl states that confounding, the presence of unobserved common causes, is the main obstacle to drawing causal conclusions from data, and that back-door adjustment, the graphical criterion for blocking non-causal paths through common causes, together with do-calculus, Pearl's three-rule algebra for transforming intervention formulas, are the tools for controlling it when the graph permits. [source: https://arxiv.org/abs/1801.04016; https://arxiv.org/pdf/1206.6831v1]
 - [fact] Bareinboim et al. prove that in Markovian models, meaning models without unobserved confounding, any interventional distribution is identifiable from Level 1 quantities through truncated factorization. [source: https://causalai.net/r60.pdf]
 - [inference] Confounding is therefore not a peripheral nuisance around the hierarchy; it is the standard reason why ordinary observational conditioning fails to recover intervention effects. [source: https://causalai.net/r60.pdf; https://arxiv.org/abs/1801.04016]
 - [inference] The no-unobserved-confounding case is a structured exception to the general theorem rather than a refutation of it, because it adds exactly the extra structural information the theorem says lower-layer data need. [source: https://causalai.net/r60.pdf]
@@ -201,9 +201,9 @@ This item therefore asks for the theorem-level synthesis of Phase 2: whether pas
 5. [fact] Medium confidence: unobserved confounding can make observational conditioning disagree with intervention effects, including reversing the apparent sign of treatment benefit in the worked example given by Bareinboim et al. [source: https://causalai.net/r60.pdf]
 6. [fact] Medium confidence: do-calculus is complete for identifiable causal effects, meaning every successful reduction of an intervention query to observational quantities can be derived by Pearl's three rules together with standard probability manipulations. [source: https://arxiv.org/pdf/1206.6831v1]
 7. [inference] Medium confidence: passive machine-learning systems trained only on logged observations are normally confined to Level 1 unless they are given extra structural assumptions, intervention data, or sufficiently rich environment variation. [source: https://arxiv.org/abs/1801.04016; https://library.oapen.org/bitstream/id/056a11be-ce3a-44b9-8987-a6c68fce8d9b/11283.pdf; https://arxiv.org/pdf/1206.6831v1]
-8. [inference] Medium confidence: Research Question 2.1's result on ERM follows as the learning-theoretic face of the theorem, because observational risk control does not identify intervention-sensitive structure. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md; https://causalai.net/r60.pdf]
-9. [inference] Medium confidence: Research Question 2.2's underdetermination result follows as the epistemic face of the theorem, because observational equivalence classes persist whenever higher-layer facts are not identified. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-2-duhem-quine-underdetermination.md; https://causalai.net/r60.pdf]
-10. [inference] Medium confidence: Research Question 2.3's fragility result follows as the dynamical face of the theorem, because rules chosen from Level 1 information alone can remain observationally adequate while failing once interventions or perturbations expose the missing mechanism. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-3-predictive-model-fragility.md; https://causalai.net/r60.pdf]
+8. [inference] Medium confidence: Research Question 2.1 becomes the learning-theory corollary of the theorem, because ERM can control observational risk without identifying the intervention-sensitive structure required after environment change. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md; https://causalai.net/r60.pdf]
+9. [inference] Medium confidence: Research Question 2.2 becomes the epistemic corollary of the theorem, because multiple rival mechanisms remain live whenever Level 1 evidence does not identify the higher-layer facts that would break observational equivalence. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-2-duhem-quine-underdetermination.md; https://causalai.net/r60.pdf]
+10. [inference] Medium confidence: Research Question 2.3 becomes the deployment corollary of the theorem, because a predictor chosen from Level 1 information alone can look adequate on seen data and still fail once perturbations expose the mechanism it never had enough information to recover. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-3-predictive-model-fragility.md; https://causalai.net/r60.pdf]
 
 **Evidence map:**
 
@@ -276,9 +276,9 @@ This theorem unifies Research Questions 2.1, 2.2, and 2.3 because ERM's causal b
 5. **Unobserved confounding can make observational conditioning disagree with intervention effects, including reversing the apparent sign of treatment benefit in Bareinboim et al.'s worked example, which shows that `P(Y|X)` and `P(Y|do(X))` are not interchangeable objects.** ([fact]; medium confidence; source: https://causalai.net/r60.pdf)
 6. **Do-calculus is complete for identifiable causal effects, meaning every successful reduction of an intervention query to observational quantities can be derived by Pearl's three rules together with standard probability manipulations, so identifiability depends on structure rather than on ad hoc algebraic tricks.** ([fact]; medium confidence; source: https://arxiv.org/pdf/1206.6831v1)
 7. **Passive machine-learning systems trained only on logged observations are normally confined to Level 1 unless they are given extra structural assumptions, intervention data, or sufficiently rich environment variation, because passive fitting does not itself supply mechanism-replacement semantics or counterfactual world comparisons.** ([inference]; medium confidence; source: https://arxiv.org/abs/1801.04016; https://library.oapen.org/bitstream/id/056a11be-ce3a-44b9-8987-a6c68fce8d9b/11283.pdf; https://arxiv.org/pdf/1206.6831v1)
-8. **Research Question 2.1's result on ERM follows as the learning-theoretic face of the theorem, because controlling observational risk under one distribution does not identify the intervention-sensitive structure needed to remain correct when the environment changes.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md; https://causalai.net/r60.pdf)
-9. **Research Question 2.2's underdetermination result follows as the epistemic face of the theorem, because observational equivalence classes persist whenever higher-layer facts are not identified and several mechanisms remain compatible with the same traces.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-2-duhem-quine-underdetermination.md; https://causalai.net/r60.pdf)
-10. **Research Question 2.3's fragility result follows as the dynamical face of the theorem, because rules chosen from Level 1 information alone can remain observationally adequate while failing once interventions or perturbations expose the missing mechanism that the learner never had enough information to recover.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-3-predictive-model-fragility.md; https://causalai.net/r60.pdf)
+8. **Research Question 2.1 becomes the learning-theory corollary of the theorem, because ERM can control observational risk under one distribution without identifying the intervention-sensitive structure needed to remain correct when the environment changes.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md; https://causalai.net/r60.pdf)
+9. **Research Question 2.2 becomes the epistemic corollary of the theorem, because multiple rival mechanisms remain live whenever Level 1 evidence does not identify the higher-layer facts that would otherwise break observational equivalence among those mechanisms.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-2-duhem-quine-underdetermination.md; https://causalai.net/r60.pdf)
+10. **Research Question 2.3 becomes the deployment corollary of the theorem, because a predictor chosen from Level 1 information alone can look adequate on seen data and still fail once perturbations expose the mechanism that the learner never had enough information to recover.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-3-predictive-model-fragility.md; https://causalai.net/r60.pdf)
 
 ### Evidence Map
 
