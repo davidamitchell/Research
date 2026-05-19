@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 12d08faafc19bbd73b0a200316fc1870b369a64f
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq2-4-causal-hierarchy-formal-limits.md
+    summary: "Initial completion"
 ---
 
 # Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning
