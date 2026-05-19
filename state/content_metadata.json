@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-05-19T08:49:57Z",
+  "extracted_at": "2026-05-19T09:05:50Z",
   "items": {
+    "2026-05-18-rq2-2-duhem-quine-underdetermination": {
+      "named_concepts": [
+        "mechanism-bearing parameters",
+        "et al",
+        "equivalence classes",
+        "true mechanism",
+        "structural identifiability",
+        "identifiability asks",
+        "asks whether",
+        "practical identifiability",
+        "confidence regions",
+        "structurally identifiable",
+        "observationally equivalent",
+        "mechanism matching",
+        "observational risk",
+        "candidate dynamical",
+        "dynamical models",
+        "redundant parameterisations",
+        "observational fit",
+        "standard deep",
+        "deep neural",
+        "neural networks"
+      ],
+      "source_urls": [
+        "https://www.theologie.uzh.ch/dam/jcr:ffffffff-fbd6-1538-0000-000070cf64bc/Quine51.pdf",
+        "https://plato.stanford.edu/entries/scientific-underdetermination/",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1891254/",
+        "https://opus.bibliothek.uni-augsburg.de/opus4/files/113236/113236.pdf",
+        "https://arxiv.org/abs/1501.01332",
+        "https://arxiv.org/abs/1801.04016",
+        "https://arxiv.org/abs/2102.11107",
+        "https://arxiv.org/abs/2112.12982",
+        "https://proceedings.mlr.press/v235/shen24a.html",
+        "https://maxjensen.github.io/Computational_Methods_lecture_notes/4.1_interpolation.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The Duhem-Quine thesis maps directly onto model selection because finite evidence constrains a web of hypotheses rather than selecting a unique mechanism, so several rival theories can remain compatible with exactly the same observations",
+          "sources": [
+            "https://www.theologie.uzh.ch/dam/jcr:ffffffff-fbd6-1538-0000-000070cf64bc/Quine51.pdf",
+            "https://plato.stanford.edu/entries/scientific-underdetermination/"
+          ]
+        },
+        {
+          "text": "Polynomial interpolation is unique only inside a restricted hypothesis class, degree at most `n` polynomials for `n+1` nodes, which shows that uniqueness comes from model-class assumptions rather than from the observations alone",
+          "sources": [
+            "https://maxjensen.github.io/Computational_Methods_lecture_notes/4.1_interpolation.html"
+          ]
+        },
+        {
+          "text": "Bongard and Lipson's active-probing framework shows that candidate dynamical models can fit the same current observations and only become distinguishable after new perturbations or broader observability reveal divergent predictions",
+          "sources": [
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1891254/"
+          ]
+        },
+        {
+          "text": "Raue et al. provide a quantitative test by defining structural non-identifiability as unchanged observables under redundant parameterisations and practical non-identifiability as unbounded likelihood-based confidence regions caused by insufficient data",
+          "sources": [
+            "https://opus.bibliothek.uni-augsburg.de/opus4/files/113236/113236.pdf"
+          ]
+        },
+        {
+          "text": "A model has matched the true mechanism only if mechanism-bearing parameters are structurally identifiable and practically bounded, and if interventions or environment changes fail to expose a rival predictor with the same observational fit",
+          "sources": [
+            "https://opus.bibliothek.uni-augsburg.de/opus4/files/113236/113236.pdf",
+            "https://arxiv.org/abs/1501.01332",
+            "https://arxiv.org/abs/1801.04016"
+          ]
+        },
+        {
+          "text": "Causal-invariance results explain why low observational risk is insufficient, because predictors built on non-causal associations can match training data while breaking under interventions or distribution shift",
+          "sources": [
+            "https://arxiv.org/abs/1501.01332",
+            "https://arxiv.org/abs/1801.04016",
+            "https://arxiv.org/abs/2102.11107"
+          ]
+        },
+        {
+          "text": "Standard deep neural networks do not by themselves guarantee mechanism recovery because multiple parameterisations can implement the same function and the available identifiability results are explicitly architecture-specific and symmetry-bounded",
+          "sources": [
+            "https://arxiv.org/abs/2112.12982",
+            "https://proceedings.mlr.press/v235/shen24a.html"
+          ]
+        },
+        {
+          "text": "Deep learning can approach mechanism identification only when passive fitting is supplemented by restrictive architecture, sufficient excitation of relevant inputs, and multi-environment or interventional evidence that breaks proxy equivalence classes",
+          "sources": [
+            "https://arxiv.org/abs/2112.12982",
+            "https://arxiv.org/abs/1501.01332",
+            "https://arxiv.org/abs/2102.11107",
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1891254/"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq2-1-erm-causal-blindness": {
       "named_concepts": [
         "formal correction",

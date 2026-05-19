@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T08:50:01Z",
-  "node_count": 364,
-  "edge_count": 2153,
+  "generated": "2026-05-19T09:05:54Z",
+  "node_count": 365,
+  "edge_count": 2160,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2187,6 +2187,12 @@
       "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq2-1-erm-causal-blindness.html"
+    },
+    {
+      "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq2-2-duhem-quine-underdetermination.html"
     }
   ],
   "edges": [
@@ -19335,6 +19341,14 @@
       "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
     },
     {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,machine-learning,philosophy-of-science",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -19375,6 +19389,14 @@
       "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
     },
     {
+      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,invariants,machine-learning,philosophy-of-science",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -19399,6 +19421,14 @@
       "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
     },
     {
+      "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning,philosophy-of-science",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
       "source": "2026-05-18-rq2-1-erm-causal-blindness",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -19413,6 +19443,38 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
+    },
+    {
+      "source": "2026-05-18-rq2-1-erm-causal-blindness",
+      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq1-1-popper-falsifiability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq2-1-erm-causal-blindness",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
     }
   ]
 }
