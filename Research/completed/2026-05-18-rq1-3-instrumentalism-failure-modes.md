@@ -18,7 +18,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 4b9e57d5c242fe31793971a6d2d0777572ab37c2
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq1-3-instrumentalism-failure-modes.md
+    summary: "Initial completion"
 ---
 
 # Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift
