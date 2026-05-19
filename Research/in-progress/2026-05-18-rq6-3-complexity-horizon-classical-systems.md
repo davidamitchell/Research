@@ -273,13 +273,15 @@ The resulting comparison with neural-network or Large Language Model opacity is 
   - https://principlesofchaos.org/
 ### §7 Recursive Review
 
+```yaml
 review_result: pass
-acronym_audit: passed after expanding Large Language Model and Site Reliability Engineering on first use and avoiding unexplained new abbreviations in prose
-domain_term_audit: passed, with near-decomposability and Complexity Horizon defined in the item's own cited framing
-claim_label_audit: passed, all claim-bearing prose in Research Skill Output is marked as fact, inference, or assumption
+acronym_audit: pass
+domain_term_audit: pass
+claim_label_audit: pass
 synthesis_findings_parity: aligned
-unresolved_contradictions: none material
+unresolved_contradictions: none_material
 confidence_setting: medium
+```
 
 ---
 
