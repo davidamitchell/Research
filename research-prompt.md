@@ -345,6 +345,12 @@ easily-detectable issues.
     invariant structure, or out-of-distribution generalisation, either define
     the term in plain language inside the sentence itself or bind it to an
     authoritative definition source at that first use.
+    **Apply the same rule to causal-hierarchy vocabulary in Findings and in
+    `§2 Investigation` scope-defining prose.** If terms such as intervention,
+    do-operator, counterfactual, or alternate-world reasoning first appear in
+    Findings or in a `§2.B`-style definition sentence, bind that sentence to an
+    authoritative causal-hierarchy source rather than relying only on prior
+    repository items or benchmark papers.
 
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
