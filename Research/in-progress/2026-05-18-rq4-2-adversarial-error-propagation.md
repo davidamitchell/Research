@@ -169,20 +169,20 @@ Prompt injection is the most concrete empirical case because it shows how text t
 
 ### §3 Reasoning
 
-- [fact] The most direct evidence supports three grounded subclaims: multi-step tool-using systems are recurrent plan-act-observe loops, prompt injection exploits data-versus-instruction ambiguity, and intrinsic self-correction without external feedback is weak. [source: https://www.anthropic.com/research/trustworthy-agents; https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798]
+- [inference] The most direct evidence in this item concerns three grounded subclaims: multi-step tool-using systems are recurrent plan-act-observe loops, prompt injection exploits data-versus-instruction ambiguity, and intrinsic self-correction without external feedback is weak. [source: https://www.anthropic.com/research/trustworthy-agents; https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798]
 - [inference] Combining those subclaims supports the central conclusion that a verification phase implemented as another free-form model judgment is usually a continuation of the same reasoning process rather than an independent check on it. [source: https://www.anthropic.com/research/trustworthy-agents; https://arxiv.org/abs/2310.01798; https://arxiv.org/abs/2312.14197]
 - [inference] The formal propagation equation is a structural synthesis rather than a measured universal law, so the coefficients should be read as parameters that vary by architecture, tool surface, and correction channel. [source: https://arxiv.org/abs/1606.06565; https://arxiv.org/abs/2205.01663; https://arxiv.org/abs/2302.12173]
 - [assumption] Cross-session memory poisoning is not required for the main conclusion, but it is treated as a valid upper-bound example of what happens when a local semantic error is allowed to persist into future orchestration prompts. [justification: the core argument only needs cross-step propagation, while the memory case shows the same mechanism over a longer horizon; source: https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]
 
 ### §4 Consistency Check
 
-- [fact] No reviewed source claims that prompt injection or intrinsic self-correction automatically ceases to matter once tools or reflection are added. [source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798]
+- [inference] The reviewed prompt-injection and self-correction sources all continue to treat tools, reflection, and memory as live risk surfaces rather than as automatic cures for the underlying failure modes. [source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798]
 - [inference] The strongest apparent tension is between Huang et al., who show generic self-correction limits, and Wu et al., who show gains from key-condition verification, but the tension resolves because Wu et al. add a more structured verification procedure rather than validating naive self-assessment. [source: https://arxiv.org/abs/2310.01798; https://aclanthology.org/2024.emnlp-main.714/]
 - [inference] No contradiction remains between adversarial-input papers and distributional-shift papers once both are treated as cases where high-likelihood observations fail to preserve the task's real semantics. [source: https://arxiv.org/abs/1412.6572; https://arxiv.org/abs/1606.06565; https://arxiv.org/abs/2302.12173]
 
 ### §5 Depth and Breadth Expansion
 
-- [fact] Technically, the riskiest architectures are those that let contaminated context influence not only one output but also tool permissions, memory summaries, or future orchestration prompts. [source: https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.anthropic.com/research/trustworthy-agents]
+- [inference] Technically, architectures are especially exposed when contaminated context can influence not only one output but also tool permissions, memory summaries, or future orchestration prompts. [source: https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.anthropic.com/research/trustworthy-agents]
 - [inference] Behaviourally, human reviewers can overestimate the value of a "verification" step when it is only another model-generated opinion, because the loop presents coherent plans and rationales even when no independent evidence channel has been added. [source: https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html; https://arxiv.org/abs/2310.01798]
 - [fact] Governance guidance from Anthropic, Microsoft, and the Cybersecurity and Infrastructure Security Agency (CISA) converges on keeping humans in control, constraining tool permissions, and adding external controls around agent behavior. [source: https://www.anthropic.com/research/trustworthy-agents; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-ai-services]
 - [inference] Operationally, propagation risk grows with action breadth and persistence, because the same initial semantic error can touch more systems, survive longer, and remain undetected until a costly contradiction appears. [source: https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html]
@@ -195,7 +195,7 @@ Adversarial inputs and environmental shifts propagate through multi-step tool-us
 
 When verification is implemented as another free-form judgment from the same model on the same context, it is usually not an independent check and cannot reliably detect blind-spot-consistent errors. [inference; source: https://arxiv.org/abs/2310.01798; https://aclanthology.org/2024.emnlp-main.714/; https://arxiv.org/abs/2312.14197]
 
-Prompt injection is the clearest empirical example because attacker text can be ingested as data, reinterpreted as instructions, and then propagated through tool calls, memory summaries, or future plans. [fact; source: https://arxiv.org/abs/2302.12173; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]
+Prompt injection is the clearest empirical example in this item because attacker text can be ingested as data, reinterpreted as instructions, and then propagated through tool calls, memory summaries, or future plans. [inference; source: https://arxiv.org/abs/2302.12173; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]
 
 The best-supported formal picture is an amplification process in which error grows whenever path dependence and persistence outpace independent correction, which means agent loops without external verifiers mostly redistribute and sometimes magnify causal ignorance rather than curing it. [inference; source: https://arxiv.org/abs/2310.01798; https://arxiv.org/abs/2302.12173; https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html]
 
@@ -229,7 +229,7 @@ The best-supported formal picture is an amplification process in which error gro
 
 **Analysis:**
 
-The strongest evidence is on indirect prompt injection and intrinsic self-correction, because those claims rest on direct primary studies and official security guidance rather than on analogy alone. [fact; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
+The strongest evidence in this item is on indirect prompt injection and intrinsic self-correction, because those claims rest on direct primary studies and official security guidance rather than on analogy alone. [inference; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
 
 The weakest element is the cross-domain bridge from classical adversarial examples to language-model agent loops, so Goodfellow et al. is used here to motivate the adversarial-input framing rather than as direct evidence about tool-using Large Language Model applications. [inference; source: https://arxiv.org/abs/1412.6572; https://arxiv.org/abs/2302.12173]
 
@@ -242,7 +242,7 @@ The formal propagation model is therefore best read as a structural synthesis: a
 **Risks, gaps, uncertainties:**
 
 - No cited source directly estimates one shared numeric amplification coefficient across full plan-act-verify loops, so the formal equation is structural rather than benchmark-calibrated. [inference; source: https://arxiv.org/abs/2310.01798; https://arxiv.org/abs/2312.14197]
-- Cross-session memory poisoning is supported here by a proof of concept and vendor guidance, not yet by a broad independent benchmark across many agent platforms. [fact; source: https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
+- The cited evidence on cross-session memory poisoning in this item comes from a proof of concept and vendor guidance rather than from a multi-platform benchmark study. [fact; source: https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
 - The environmental-shift argument is strongest at the structural level and weaker at the level of one shared empirical benchmark that jointly measures shift, tool use, and verification failure in the same loop. [inference; source: https://arxiv.org/abs/1606.06565; https://arxiv.org/abs/2205.01663]
 
 **Open questions:**
@@ -270,7 +270,7 @@ Adversarial inputs and environmental shifts propagate through multi-step tool-us
 
 When verification is implemented as another free-form judgment from the same model on the same context, it is usually not an independent check and cannot reliably detect blind-spot-consistent errors. [inference; source: https://arxiv.org/abs/2310.01798; https://aclanthology.org/2024.emnlp-main.714/; https://arxiv.org/abs/2312.14197]
 
-Prompt injection is the clearest empirical example because attacker text can be ingested as data, reinterpreted as instructions, and then propagated through tool calls, memory summaries, or future plans. [fact; source: https://arxiv.org/abs/2302.12173; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]
+Prompt injection is the clearest empirical example in this item because attacker text can be ingested as data, reinterpreted as instructions, and then propagated through tool calls, memory summaries, or future plans. [inference; source: https://arxiv.org/abs/2302.12173; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks; https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]
 
 The best-supported formal picture is an amplification process in which error grows whenever path dependence and persistence outpace independent correction, which means agent loops without external verifiers mostly redistribute and sometimes magnify causal ignorance rather than curing it. [inference; source: https://arxiv.org/abs/2310.01798; https://arxiv.org/abs/2302.12173; https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html]
 
@@ -304,7 +304,7 @@ The best-supported formal picture is an amplification process in which error gro
 
 ### Analysis
 
-The strongest evidence is on indirect prompt injection and intrinsic self-correction, because those claims rest on direct primary studies and official security guidance rather than on analogy alone. [fact; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
+The strongest evidence in this item is on indirect prompt injection and intrinsic self-correction, because those claims rest on direct primary studies and official security guidance rather than on analogy alone. [inference; source: https://arxiv.org/abs/2302.12173; https://arxiv.org/abs/2312.14197; https://arxiv.org/abs/2310.01798; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
 
 The weakest element is the cross-domain bridge from classical adversarial examples to language-model agent loops, so Goodfellow et al. is used here to motivate the adversarial-input framing rather than as direct evidence about tool-using Large Language Model applications. [inference; source: https://arxiv.org/abs/1412.6572; https://arxiv.org/abs/2302.12173]
 
@@ -317,7 +317,7 @@ The formal propagation model is therefore best read as a structural synthesis: a
 ### Risks, Gaps, and Uncertainties
 
 - No cited source directly estimates one shared numeric amplification coefficient across full plan-act-verify loops, so the formal equation is structural rather than benchmark-calibrated. [inference; source: https://arxiv.org/abs/2310.01798; https://arxiv.org/abs/2312.14197]
-- Cross-session memory poisoning is supported here by a proof of concept and vendor guidance, not yet by a broad independent benchmark across many agent platforms. [fact; source: https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
+- The cited evidence on cross-session memory poisoning in this item comes from a proof of concept and vendor guidance rather than from a multi-platform benchmark study. [fact; source: https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/; https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]
 - The environmental-shift argument is strongest at the structural level and weaker at the level of one shared empirical benchmark that jointly measures shift, tool use, and verification failure in the same loop. [inference; source: https://arxiv.org/abs/1606.06565; https://arxiv.org/abs/2205.01663]
 
 ### Open Questions
