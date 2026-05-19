@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, evaluation, hallucinations]
+ai_themes: [llm-reasoning, memory-context, governance-policy, security-risk]
 started: 2026-05-17T22:24:35+00:00
 completed: 2026-05-17T22:45:49+00:00
 output: [knowledge]

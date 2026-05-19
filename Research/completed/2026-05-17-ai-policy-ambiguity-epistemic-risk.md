@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [llm, organisation, evaluation]
+ai_themes: [governance-policy, security-risk, benchmarks-eval]
 started: 2026-05-18T09:51:20+00:00
 completed: 2026-05-18T10:13:58+00:00
 output: [knowledge]

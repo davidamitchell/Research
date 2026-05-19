@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, workflow, evaluation]
+ai_themes: [governance-policy, security-risk, organisation, workflow]
 started: 2026-05-17T21:35:12+00:00
 completed: 2026-05-17T21:54:54+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, analytics]
+ai_themes: [mlops-deployment, benchmarks-eval, tools-infrastructure]
 started: 2026-05-18T11:09:21+00:00
 completed: 2026-05-18T11:39:12+00:00
 output: []

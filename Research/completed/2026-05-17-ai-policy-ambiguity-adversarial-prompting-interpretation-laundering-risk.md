@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, organisation, evaluation]
+ai_themes: [agentic-ai, governance-policy, security-risk, llm-reasoning]
 started: 2026-05-17T21:12:28+00:00
 completed: 2026-05-17T21:33:30+00:00
 output: [knowledge]
