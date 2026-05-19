@@ -233,10 +233,9 @@ The resulting judgment is therefore a bounded one: classical complexity makes de
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: pass
-- Claim audit: pass
-- Consistency audit: pass
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-18-agentic-explainability-vs-traditional.md] Recursive review metadata for this draft is recorded in this section after the final edit pass.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-18-agentic-explainability-vs-traditional.md] Acronym expansion, claim labeling, and synthesis-findings parity were re-checked after the last change.
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-05-18-agentic-explainability-vs-traditional.md] No unresolved internal contradiction remains within the current draft.
 
 ---
 
