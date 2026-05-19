@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "409587bac3917ecdac7bb596851f55640b2ba1f1"
+    changed: 2026-05-19
+    progress: "progress/2026-05-19-rq6-1-halting-problem-static-analysis.md"
+    summary: "Initial completion"
 ---
 
 # RQ 6.1: The Halting Problem and Rice's Theorem, the Absolute Boundary of Static Analysis for Coded Systems
