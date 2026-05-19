@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T11:17:06Z",
-  "node_count": 370,
-  "edge_count": 2205,
+  "generated": "2026-05-19T11:31:43Z",
+  "node_count": 371,
+  "edge_count": 2216,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2217,6 +2217,12 @@
       "title": "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq3-2-stochastic-parrot-ood.html"
+    },
+    {
+      "slug": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "title": "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq3-3-cot-counterfactual-limits.html"
     },
     {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -12672,7 +12678,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,hallucinations,llm",
-      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+      "provenance": "2026-05-06-factscore-precision-scoring-atomic-claims"
     },
     {
       "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
@@ -19627,6 +19633,14 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,machine-learning",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "weight": 4,
@@ -19673,6 +19687,14 @@
       "rel": "tag-overlap",
       "evidence": "causal-inference,epistemology,invariants,machine-learning",
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,machine-learning",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
     },
     {
       "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
@@ -19723,6 +19745,14 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,machine-learning",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
       "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
       "target": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "weight": 3,
@@ -19771,6 +19801,22 @@
       "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,llm,machine-learning",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
       "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 4,
@@ -19801,6 +19847,54 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,evaluation,llm,machine-learning",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq2-1-erm-causal-blindness",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq2-3-predictive-model-fragility",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

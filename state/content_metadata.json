@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-05-19T11:17:02Z",
+  "extracted_at": "2026-05-19T11:31:39Z",
   "items": {
+    "2026-05-18-rq3-3-cot-counterfactual-limits": {
+      "named_concepts": [
+        "causal benchmarks",
+        "controlled icl",
+        "cot explanations",
+        "level reasoning",
+        "counterfactual tasks",
+        "icl mechanism",
+        "mechanism papers",
+        "causal reasoning",
+        "inner algorithms",
+        "gradient descent",
+        "descent ridge",
+        "ridge regression",
+        "approximate bayesian",
+        "bayesian updating",
+        "general causal-mechanism",
+        "defensible conclusion",
+        "higher-level reasoning",
+        "reasoning patterns",
+        "icl papers",
+        "recover prompt-time"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2201.11903",
+        "https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/",
+        "https://arxiv.org/abs/2211.15661",
+        "https://doi.org/10.1007/978-3-319-10590-1_53",
+        "https://arxiv.org/abs/2111.02080",
+        "https://arxiv.org/abs/2212.07677",
+        "https://arxiv.org/abs/2203.11171",
+        "https://openreview.net/forum?id=5Xc1ecxO1h",
+        "https://arxiv.org/abs/2305.04388",
+        "https://arxiv.org/abs/2307.13702",
+        "https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning",
+        "https://arxiv.org/abs/2407.08029",
+        "https://arxiv.org/abs/2404.06349",
+        "https://aclanthology.org/2024.sighan-1.17/",
+        "https://arxiv.org/abs/2405.00622",
+        "https://opencausalab.github.io/CaLM"
+      ],
+      "key_claims": [
+        {
+          "text": "Controlled ICL papers show that transformers can recover prompt-time learning procedures such as gradient descent, ridge regression, and approximate Bayesian updating, but those results are demonstrated in narrow synthetic regimes rather than as general causal-mechanism reasoning",
+          "sources": [
+            "https://arxiv.org/abs/2111.02080",
+            "https://arxiv.org/abs/2211.15661",
+            "https://arxiv.org/abs/2212.07677"
+          ]
+        },
+        {
+          "text": "CoT improves arithmetic, commonsense, and symbolic benchmark performance by eliciting longer intermediate-text traces from the same predictive model, which increases inference-time search without changing the model's underlying observational training objective",
+          "sources": [
+            "https://arxiv.org/abs/2201.11903",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-1-llm-statistical-vs-causal.md"
+          ]
+        },
+        {
+          "text": "Faithfulness studies show that CoT explanations can be misleading or weakly coupled to the actual answer process, so a plausible chain is not reliable evidence that the model followed a valid causal path",
+          "sources": [
+            "https://arxiv.org/abs/2305.04388",
+            "https://arxiv.org/abs/2307.13702"
+          ]
+        },
+        {
+          "text": "Single-path CoT is structurally brittle because each new step conditions on previous generated text, so end-to-end reliability degrades with chain length unless the system adds aggregation, branching, or backtracking",
+          "sources": [
+            "https://arxiv.org/abs/2203.11171",
+            "https://openreview.net/forum?id=5Xc1ecxO1h",
+            "https://arxiv.org/abs/2201.11903"
+          ]
+        },
+        {
+          "text": "Current causal benchmarks show that LLMs perform better on simple or chain-structured causal tasks than on larger-network, unseen, common-effect-heavy, or more complex intervention and counterfactual tasks",
+          "sources": [
+            "https://arxiv.org/abs/2404.06349",
+            "https://aclanthology.org/2024.sighan-1.17/",
+            "https://opencausalab.github.io/CaLM"
+          ]
+        },
+        {
+          "text": "The fact that CaLM recommends manual CoT for counterfactual scenarios is best read as evidence that prompt scaffolding can help organise serial search, not as evidence that prompting alone crosses Pearl's hierarchy",
+          "sources": [
+            "https://opencausalab.github.io/CaLM",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md"
+          ]
+        },
+        {
+          "text": "Across ICL mechanism papers, CoT faithfulness papers, and causal benchmarks, the most defensible conclusion is that CoT remains an extended Level 1 procedure that can mimic some higher-level reasoning patterns without reliably acquiring Level 2 or Level 3 causal reach",
+          "sources": [
+            "https://arxiv.org/abs/2211.15661",
+            "https://arxiv.org/abs/2305.04388",
+            "https://arxiv.org/abs/2407.08029",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-2-stochastic-parrot-ood.md"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq3-2-stochastic-parrot-ood": {
       "named_concepts": [
         "language models",
