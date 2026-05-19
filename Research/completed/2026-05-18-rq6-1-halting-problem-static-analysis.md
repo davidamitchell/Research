@@ -22,7 +22,7 @@ item_type: primary
 confidence: medium
 versions:
   - version: "1.0"
-    sha: "409587bac3917ecdac7bb596851f55640b2ba1f1"
+    sha: "6c8408720ab35ce4d6a94cee8d1280fb9d02e7ba"
     changed: 2026-05-19
     progress: "progress/2026-05-19-rq6-1-halting-problem-static-analysis.md"
     summary: "Initial completion"
