@@ -1,6 +1,110 @@
 {
-  "extracted_at": "2026-05-19T10:51:03Z",
+  "extracted_at": "2026-05-19T11:03:09Z",
   "items": {
+    "2026-05-18-rq3-2-stochastic-parrot-ood": {
+      "named_concepts": [
+        "language models",
+        "algorithmic generalisation",
+        "et al",
+        "neural networks",
+        "partial abstraction",
+        "models trained",
+        "counterfactual reasoning",
+        "stochastic parrot",
+        "complexity rises",
+        "al report",
+        "narrow synthetic",
+        "webb et",
+        "analogy performance",
+        "distribution learners",
+        "language model",
+        "regime directly",
+        "high-capacity neural",
+        "benchmark success",
+        "success alone",
+        "possibility proof"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/1611.03530",
+        "https://arxiv.org/abs/2201.02177",
+        "https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.002/AI-fabrications-related-articles/20210201-StochasticParrots-Proc2021ACM.pdf",
+        "https://arxiv.org/abs/2212.09196",
+        "https://arxiv.org/abs/1711.00350",
+        "https://aclanthology.org/2024.naacl-srw.3/",
+        "https://arxiv.org/abs/2407.15720",
+        "https://arxiv.org/abs/2410.05229",
+        "https://arxiv.org/abs/2312.11720",
+        "https://arxiv.org/abs/2407.08029",
+        "https://arxiv.org/abs/2404.06349",
+        "https://arxiv.org/abs/2405.00622",
+        "https://aclanthology.org/2024.sighan-1.17/",
+        "https://opencausalab.github.io/CaLM",
+        "https://web.cs.ucla.edu/~kaoru/3-layer-causal-hierarchy.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Standard Large Language Model training optimises prediction over observed token sequences, so prompts that require intervention semantics defined by do-operator queries or counterfactual structure defined by alternate-world queries push the model beyond the regime directly supervised by that training objective",
+          "sources": [
+            "https://web.cs.ucla.edu/~kaoru/3-layer-causal-hierarchy.pdf",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-1-llm-statistical-vs-causal.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md"
+          ]
+        },
+        {
+          "text": "Evidence from deep learning generalisation theory shows that high-capacity neural networks can fit arbitrary labels and noise, so raw benchmark success alone does not establish portable algorithmic generalisation",
+          "sources": [
+            "https://arxiv.org/abs/1611.03530"
+          ]
+        },
+        {
+          "text": "Grokking demonstrates that neural networks can eventually reach genuine algorithmic generalisation on small synthetic tasks, but that result is a possibility proof under narrow conditions rather than evidence that broad language-model pre-training has solved OOD reasoning",
+          "sources": [
+            "https://arxiv.org/abs/2201.02177",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-1-llm-statistical-vs-causal.md"
+          ]
+        },
+        {
+          "text": "Compositional-generalisation studies repeatedly show that models trained on simple or nearby patterns do not reliably generalise to structurally richer combinations",
+          "sources": [
+            "https://arxiv.org/abs/1711.00350",
+            "https://aclanthology.org/2024.naacl-srw.3/",
+            "https://arxiv.org/abs/2407.15720"
+          ]
+        },
+        {
+          "text": "Arithmetic robustness studies show that changing only numerical values or inserting an irrelevant but plausible clause can sharply degrade performance under modest OOD perturbation",
+          "sources": [
+            "https://arxiv.org/abs/2410.05229"
+          ]
+        },
+        {
+          "text": "Causal benchmark evidence shows that Large Language Models perform better on simpler or semantically familiar causal tasks than on intervention-heavy, counterfactual, or larger-structure settings, and they still lag specialised causal algorithms on harder cases",
+          "sources": [
+            "https://arxiv.org/abs/2404.06349",
+            "https://arxiv.org/abs/2405.00622",
+            "https://opencausalab.github.io/CaLM",
+            "https://aclanthology.org/2024.sighan-1.17/"
+          ]
+        },
+        {
+          "text": "The strongest counterevidence comes from analogical-reasoning results showing that scale can induce non-trivial abstract pattern induction, but that evidence narrows the Stochastic Parrot thesis more than it overturns the broader OOD failure record",
+          "sources": [
+            "https://arxiv.org/abs/2212.09196",
+            "https://arxiv.org/abs/2410.05229",
+            "https://opencausalab.github.io/CaLM"
+          ]
+        },
+        {
+          "text": "The most defensible synthesis is a hybrid one in which current Large Language Models possess some partial abstractions, yet still behave mainly as high-capacity distribution learners when prompts demand genuinely novel compositions or structural interventions",
+          "sources": [
+            "https://arxiv.org/abs/2212.09196",
+            "https://arxiv.org/abs/2407.15720",
+            "https://arxiv.org/abs/2410.05229",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-1-llm-statistical-vs-causal.md"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq3-1-llm-statistical-vs-causal": {
       "named_concepts": [
         "language models",

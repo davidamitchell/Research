@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T10:51:08Z",
-  "node_count": 369,
-  "edge_count": 2196,
+  "generated": "2026-05-19T11:03:13Z",
+  "node_count": 370,
+  "edge_count": 2205,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2211,6 +2211,12 @@
       "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html"
+    },
+    {
+      "slug": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "title": "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq3-2-stochastic-parrot-ood.html"
     },
     {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -11262,14 +11268,6 @@
     },
     {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
-      "target": "2026-05-06-factscore-precision-scoring-atomic-claims",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,hallucinations,llm",
-      "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
-    },
-    {
-      "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
       "target": "2026-05-06-loki-fact-checking-journalists-moderation",
       "weight": 3,
       "rel": "tag-overlap",
@@ -11287,6 +11285,14 @@
     {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,hallucinations,llm",
+      "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
+    },
+    {
+      "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,hallucinations,llm",
@@ -12454,14 +12460,6 @@
     },
     {
       "source": "2026-05-06-barnum-statements-ai-responses-theory-practice",
-      "target": "2026-05-06-fact-checking-tools-research-quality-improvement",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,llm,research-methodology",
-      "provenance": "2026-05-06-barnum-statements-ai-responses-theory-practice"
-    },
-    {
-      "source": "2026-05-06-barnum-statements-ai-responses-theory-practice",
       "target": "2026-05-06-factscore-precision-scoring-atomic-claims",
       "weight": 4,
       "rel": "tag-overlap",
@@ -12487,6 +12485,14 @@
     {
       "source": "2026-05-06-barnum-statements-ai-responses-theory-practice",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,hallucinations,llm",
+      "provenance": "2026-05-06-barnum-statements-ai-responses-theory-practice"
+    },
+    {
+      "source": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,hallucinations,llm",
@@ -12662,11 +12668,11 @@
     },
     {
       "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
-      "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "evaluation,hallucinations,llm",
-      "provenance": "2026-05-06-factscore-precision-scoring-atomic-claims"
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
       "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
@@ -12877,6 +12883,14 @@
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
     },
     {
+      "source": "2026-05-06-loki-fact-checking-journalists-moderation",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,hallucinations,llm",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
       "source": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 3,
@@ -12931,6 +12945,14 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,evaluation,llm,workflow",
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
+    },
+    {
+      "source": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,hallucinations,llm",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
@@ -18109,6 +18131,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "evaluation,hallucinations,llm",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -19723,6 +19753,54 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,llm,machine-learning",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq2-1-erm-causal-blindness",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq2-3-predictive-model-fragility",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",
