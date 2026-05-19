@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e0edcc98af0e15b0d3ad4f28bd48779f9477db28
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq4-1-agentic-loop-explanatory-reach.md
+    summary: "Initial completion"
 ---
 
 # RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?
