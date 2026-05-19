@@ -169,7 +169,7 @@ This item asks for the complementary pre-empirical screen: whether the explanati
 ### §6 Synthesis
 
 **Executive summary:**
-- [inference] Deutsch's hard-to-vary criterion can be formalised as a joint test of cross-environment consistency, interaction-dominated sensitivity, and small explanation-preserving parameter volume, rather than as raw parameter count or raw predictive sensitivity alone. [source: https://arxiv.org/abs/2009.00329; https://publications.jrc.ec.europa.eu/repository/handle/JRC52955; https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/]
+- [inference] Deutsch's hard-to-vary criterion can be formalised as a joint test of cross-environment consistency, interaction-dominated sensitivity, and small explanation-preserving parameter volume, rather than as any single metric taken in isolation. [source: https://arxiv.org/abs/2009.00329; https://publications.jrc.ec.europa.eu/repository/handle/JRC52955; https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/]
 - [inference] An explanation is hard to vary when the same minimum or mechanism recurs across environments, when most component influence is carried by interactions with other components, and when only a small region of plausible parameter space preserves explanatory coherence. [source: https://arxiv.org/abs/2009.00329; https://pmc.ncbi.nlm.nih.gov/articles/PMC5473177/; https://arxiv.org/abs/1608.05679]
 - [inference] Varying those internal constraints exposes structural fragility before new empirical testing because low consistency reveals patchwork solutions, low interaction dominance reveals independently tunable parts, and large admissible variation regions reveal many compensating rewrites that leave current fit intact. [source: https://arxiv.org/abs/2009.00329; https://publications.jrc.ec.europa.eu/repository/handle/JRC52955; https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/]
 - [inference] This criterion complements rather than replaces the Popperian filter in RQ 1.1: Popper still decides the post-empirical standing of a theory, while the hard-to-vary score decides whether the explanation is internally constrained enough to justify serious empirical investment. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md; https://plato.stanford.edu/entries/popper/; https://arxiv.org/abs/2009.00329]
@@ -218,12 +218,12 @@ This item asks for the complementary pre-empirical screen: whether the explanati
 
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: pass, with first use expanded for Invariant Learning Consistency (ILC) and scientific machine learning.
-- Claim audit: pass, with every claim in `## Research Skill Output` labeled as `[fact]`, `[inference]`, or `[assumption]`.
-- Citation audit: pass, with all visible sources URL-backed and the cross-item dependency on RQ 1.1 linked directly.
-- Parity audit: pass, with the substantive content of Section 6 mirrored in `## Findings`.
-- Remaining uncertainty: practical calibration of `HTV` still depends on task-specific output definitions and approximation choices for admissible-volume estimation.
+- Metadata:
+  - acronym expansion checked, including Invariant Learning Consistency (ILC)
+  - claim labels checked in `## Research Skill Output`
+  - citation URLs checked
+  - synthesis and findings parity checked
+  - remaining uncertainty: task-specific output definitions; admissible-volume approximation choices
 
 ---
 
@@ -233,7 +233,7 @@ This item asks for the complementary pre-empirical screen: whether the explanati
 
 ### Executive Summary
 
-Deutsch's hard-to-vary criterion can be formalised as a joint test of cross-environment consistency, interaction-dominated sensitivity, and small explanation-preserving parameter volume, rather than as raw parameter count or raw predictive sensitivity alone. [inference; source: https://arxiv.org/abs/2009.00329; https://publications.jrc.ec.europa.eu/repository/handle/JRC52955; https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/]
+Deutsch's hard-to-vary criterion can be formalised as a joint test of cross-environment consistency, interaction-dominated sensitivity, and small explanation-preserving parameter volume, rather than as any single metric taken in isolation. [inference; source: https://arxiv.org/abs/2009.00329; https://publications.jrc.ec.europa.eu/repository/handle/JRC52955; https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/]
 
 An explanation is hard to vary when the same minimum or mechanism recurs across environments, when most component influence is carried by interactions with other components, and when only a small region of plausible parameter space preserves explanatory coherence. [inference; source: https://arxiv.org/abs/2009.00329; https://pmc.ncbi.nlm.nih.gov/articles/PMC5473177/; https://arxiv.org/abs/1608.05679]
 
