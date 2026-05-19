@@ -23,7 +23,12 @@ cites:
   - 2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness
   - 2026-05-14-endsley-model-situational-awareness-deep-dive
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "021e7d7f30f491c8468817ace7deaf9ad2f3077f"
+    changed: 2026-05-19
+    progress: "progress/2026-05-19-human-ai-cognitive-divergence-risk.md"
+    summary: "Initial draft synthesis integrating eight human-risk source items"
 ---
 
 # Human-AI Cognitive Divergence Risk
