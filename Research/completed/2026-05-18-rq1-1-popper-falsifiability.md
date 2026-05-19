@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: bb9188fc40e9da28cec09f898abe476439aba740
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq1-1-popper-falsifiability.md
+    summary: Initial completion
 ---
 
 # RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation
