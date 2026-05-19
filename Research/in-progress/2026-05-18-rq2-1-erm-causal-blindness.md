@@ -26,13 +26,13 @@ versions: []
 
 ## Research Question
 
-How does the framework of Empirical Risk Minimisation (ERM) mathematically guarantee predictive accuracy within a known data distribution while remaining blind to the causal mechanisms needed for out-of-distribution (OOD) generalisation?
+How does the framework of Empirical Risk Minimisation (ERM) mathematically guarantee predictive accuracy within a known data distribution while remaining blind to the stable cause-and-effect relations needed to keep working after the data-generating environment changes?
 
 ## Scope
 
 **In scope:**
 - Mathematical guarantees of ERM within the training distribution, especially Probably Approximately Correct (PAC) learning bounds
-- Formal characterisation of ERM's OOD failure modes
+- Formal characterisation of ERM's failures after environment change, often called out-of-distribution (OOD) failure modes
 - Spurious correlations as the mechanism by which ERM produces causally blind solutions
 - Invariant Risk Minimisation (IRM) as a causal alternative to ERM
 - Inductive biases of gradient descent that favour simple shortcut features
@@ -79,7 +79,7 @@ This item is the mathematical hinge for later Phase 2 questions because it asks 
 
 ### §0 Initialise
 
-- Question: How does ERM guarantee low error on a fixed data distribution while remaining blind to the causal mechanism needed for OOD generalisation?
+- Question: How does ERM guarantee low error on a fixed data distribution while remaining blind to the stable cause-and-effect structure needed to keep working after the environment changes?
 - Scope: ERM objective, PAC guarantee, spurious-correlation counterexample, IRM, and gradient-descent simplicity bias.
 - Constraints: full mode; mathematical treatment required; connect back to Phase 1 epistemology; URL-backed citations only.
 - Output: executive summary, key findings, evidence map, assumptions, analysis, risks, gaps, uncertainties, and open questions.
@@ -187,7 +187,7 @@ This item is the mathematical hinge for later Phase 2 questions because it asks 
 
 **Executive summary:**
 
-Empirical Risk Minimisation (ERM) guarantees low true risk only for fresh examples drawn from the same distribution as the training sample, under the assumptions built into Probably Approximately Correct (PAC) learning; it does not identify the causal mechanism required for out-of-distribution (OOD) generalisation. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
+Empirical Risk Minimisation (ERM) guarantees low error only for fresh examples drawn from the same distribution as the training sample, under the assumptions built into Probably Approximately Correct (PAC) learning; it does not identify the stable cause-and-effect structure needed to remain reliable after the data-generating environment changes. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
 
 This is why ERM can be mathematically correct and still causally blind: the guarantee controls in-distribution risk, while causal robustness depends on whether the predictor tracks an invariant mechanism rather than a contingent correlation. [inference; source: https://arxiv.org/abs/1501.01332; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1907.02893]
 
@@ -197,26 +197,26 @@ Invariant Risk Minimisation (IRM) is one formal correction proposed in this lite
 
 **Key findings:**
 
-1. **ERM's formal PAC guarantee is distribution-conditional, because it bounds true risk only for hypotheses trained and evaluated on independent and identically distributed draws from the same underlying distribution rather than across environment changes.** ([fact]; high confidence; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019)
+1. **ERM's formal PAC guarantee is distribution-conditional, because it bounds error only for hypotheses trained and evaluated on independent and identically distributed draws from the same underlying distribution rather than across environment changes.** ([fact]; medium confidence; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019)
 2. **That guarantee leaves causal structure unidentified, because a low-risk hypothesis may fit observational regularities without answering intervention or counterfactual questions about which feature actually generates the label.** ([inference]; medium confidence; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1501.01332)
 3. **A formal multi-environment counterexample shows that pooled ERM can rationally choose a spurious feature with lower average training error even when only the invariant feature retains low risk after the environment shifts.** ([inference]; medium confidence; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107)
 4. **Spurious correlation is the mechanism of causal blindness under ERM, because minimizing empirical error rewards whichever cue predicts well on the observed sample whether that cue is structural or merely contextual.** ([fact]; high confidence; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2004.07780)
 5. **IRM is one formal correction proposed for ERM's blind spot because it searches for representations whose optimal classifier is invariant across training environments, which ties the learning objective more closely to stable causal structure.** ([inference]; medium confidence; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://arxiv.org/abs/1501.01332)
-6. **Shortcut-learning evidence shows that benchmark-strong systems often solve tasks through background, context, or collection artifacts, so observed accuracy can coexist with a failure to learn the intended object-level rule.** ([fact]; high confidence; source: https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z)
-7. **Gradient-descent simplicity bias makes causally blind ERM solutions more likely in practice because optimisation tends to lock onto simple spurious features before it has to represent more complex invariant features.** ([fact]; medium confidence; source: https://openreview.net/forum?id=VCnuSuDSHv)
+6. **Shortcut-learning evidence shows that benchmark-strong systems often solve tasks through background, context, or collection artifacts, so observed accuracy can coexist with a failure to learn the intended object-level rule.** ([fact]; medium confidence; source: https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z)
+7. **Gradient-descent simplicity bias plausibly makes causally blind ERM solutions more likely in practice because optimisation can lock onto simple spurious features before it has to represent more complex invariant features.** ([inference]; medium confidence; source: https://openreview.net/forum?id=VCnuSuDSHv)
 8. **This item therefore sharpens Research Question 1.3's instrumentalism critique by showing that prediction-first success is not merely philosophically incomplete but mathematically silent about whether the learned rule will travel beyond the observed regime.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md; https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1907.02893)
 
 **Evidence map:**
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] ERM's PAC guarantee is distribution-conditional rather than shift-conditional. | https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019 | high | direct book definition of PAC learning |
+| [fact] ERM's PAC guarantee is distribution-conditional rather than shift-conditional. | https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019 | medium | one substantive source plus its bibliographic locator |
 | [inference] The PAC guarantee does not identify which predictive feature is causally responsible for low risk. | https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1501.01332 | medium | combines the scope of PAC with causal-intervention arguments |
 | [inference] Pooled ERM can prefer a spurious feature over a noisier invariant one. | https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107 | medium | derived counterexample grounded in multi-environment invariance results |
 | [fact] Spurious correlation is the mechanism by which ERM can succeed without mechanism learning. | https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2004.07780 | high | direct statements from IRM and shortcut-learning papers |
 | [inference] IRM is one formal correction because it adds an invariance criterion across environments. | https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://arxiv.org/abs/1501.01332 | medium | objective statement plus broader invariance literature |
-| [fact] Shortcut-learning evidence documents high-accuracy reliance on background and context artifacts. | https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z | high | direct examples and taxonomy |
-| [fact] Gradient-descent simplicity bias makes simple spurious features attractive early in training. | https://openreview.net/forum?id=VCnuSuDSHv | medium | single primary paper |
+| [fact] Shortcut-learning evidence documents high-accuracy reliance on background and context artifacts. | https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z | medium | one substantive source plus its bibliographic locator |
+| [inference] Gradient-descent simplicity bias makes simple spurious features attractive early in training. | https://openreview.net/forum?id=VCnuSuDSHv | medium | inference from a single primary paper |
 | [inference] ERM formally underwrites the instrumentalism diagnosis from RQ 1.3. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md; https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1907.02893 | medium | repository synthesis anchored to external theory |
 
 **Assumptions:**
@@ -258,7 +258,7 @@ Invariant Risk Minimisation (IRM) is one formal correction proposed in this lite
 
 ### Executive Summary
 
-Empirical Risk Minimisation (ERM) guarantees low true risk only for fresh examples drawn from the same distribution as the training sample, under the assumptions built into Probably Approximately Correct (PAC) learning; it does not identify the causal mechanism required for out-of-distribution (OOD) generalisation. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
+Empirical Risk Minimisation (ERM) guarantees low error only for fresh examples drawn from the same distribution as the training sample, under the assumptions built into Probably Approximately Correct (PAC) learning; it does not identify the stable cause-and-effect structure needed to remain reliable after the data-generating environment changes. [fact; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/2102.11107]
 
 This is why ERM can be mathematically correct and still causally blind: the guarantee controls in-distribution risk, while causal robustness depends on whether the predictor tracks an invariant mechanism rather than a contingent correlation. [inference; source: https://arxiv.org/abs/1501.01332; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1907.02893]
 
@@ -268,26 +268,26 @@ Invariant Risk Minimisation (IRM) is one formal correction proposed in this lite
 
 ### Key Findings
 
-1. **ERM's formal PAC guarantee is distribution-conditional, because it bounds true risk only for hypotheses trained and evaluated on independent and identically distributed draws from the same underlying distribution rather than across environment changes.** ([fact]; high confidence; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019)
+1. **ERM's formal PAC guarantee is distribution-conditional, because it bounds error only for hypotheses trained and evaluated on independent and identically distributed draws from the same underlying distribution rather than across environment changes.** ([fact]; medium confidence; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019)
 2. **That guarantee leaves causal structure unidentified, because a low-risk hypothesis may fit observational regularities without answering intervention or counterfactual questions about which feature actually generates the label.** ([inference]; medium confidence; source: https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1501.01332)
 3. **A formal multi-environment counterexample shows that pooled ERM can rationally choose a spurious feature with lower average training error even when only the invariant feature retains low risk after the environment shifts.** ([inference]; medium confidence; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107)
 4. **Spurious correlation is the mechanism of causal blindness under ERM, because minimizing empirical error rewards whichever cue predicts well on the observed sample whether that cue is structural or merely contextual.** ([fact]; high confidence; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2004.07780)
 5. **IRM is one formal correction proposed for ERM's blind spot because it searches for representations whose optimal classifier is invariant across training environments, which ties the learning objective more closely to stable causal structure.** ([inference]; medium confidence; source: https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://arxiv.org/abs/1501.01332)
-6. **Shortcut-learning evidence shows that benchmark-strong systems often solve tasks through background, context, or collection artifacts, so observed accuracy can coexist with a failure to learn the intended object-level rule.** ([fact]; high confidence; source: https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z)
-7. **Gradient-descent simplicity bias makes causally blind ERM solutions more likely in practice because optimisation tends to lock onto simple spurious features before it has to represent more complex invariant features.** ([fact]; medium confidence; source: https://openreview.net/forum?id=VCnuSuDSHv)
+6. **Shortcut-learning evidence shows that benchmark-strong systems often solve tasks through background, context, or collection artifacts, so observed accuracy can coexist with a failure to learn the intended object-level rule.** ([fact]; medium confidence; source: https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z)
+7. **Gradient-descent simplicity bias plausibly makes causally blind ERM solutions more likely in practice because optimisation can lock onto simple spurious features before it has to represent more complex invariant features.** ([inference]; medium confidence; source: https://openreview.net/forum?id=VCnuSuDSHv)
 8. **This item therefore sharpens Research Question 1.3's instrumentalism critique by showing that prediction-first success is not merely philosophically incomplete but mathematically silent about whether the learned rule will travel beyond the observed regime.** ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md; https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1907.02893)
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] ERM's PAC guarantee is distribution-conditional rather than shift-conditional. | https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019 | high | direct book definition of PAC learning |
+| [fact] ERM's PAC guarantee is distribution-conditional rather than shift-conditional. | https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://doi.org/10.1017/CBO9781107298019 | medium | one substantive source plus its bibliographic locator |
 | [inference] The PAC guarantee does not identify which predictive feature is causally responsible for low risk. | https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1801.04016; https://arxiv.org/abs/1501.01332 | medium | combines the scope of PAC with causal-intervention arguments |
 | [inference] Pooled ERM can prefer a spurious feature over a noisier invariant one. | https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107 | medium | derived counterexample grounded in multi-environment invariance results |
 | [fact] Spurious correlation is the mechanism by which ERM can succeed without mechanism learning. | https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2004.07780 | high | direct statements from IRM and shortcut-learning papers |
 | [inference] IRM is one formal correction because it adds an invariance criterion across environments. | https://arxiv.org/abs/1907.02893; https://arxiv.org/abs/2102.11107; https://arxiv.org/abs/1501.01332 | medium | objective statement plus broader invariance literature |
-| [fact] Shortcut-learning evidence documents high-accuracy reliance on background and context artifacts. | https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z | high | direct examples and taxonomy |
-| [fact] Gradient-descent simplicity bias makes simple spurious features attractive early in training. | https://openreview.net/forum?id=VCnuSuDSHv | medium | single primary paper |
+| [fact] Shortcut-learning evidence documents high-accuracy reliance on background and context artifacts. | https://arxiv.org/abs/2004.07780; https://doi.org/10.1038/s42256-020-00257-z | medium | one substantive source plus its bibliographic locator |
+| [inference] Gradient-descent simplicity bias makes simple spurious features attractive early in training. | https://openreview.net/forum?id=VCnuSuDSHv | medium | inference from a single primary paper |
 | [inference] ERM formally underwrites the instrumentalism diagnosis from RQ 1.3. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-3-instrumentalism-failure-modes.md; https://moodle2.units.it/pluginfile.php/757668/mod_resource/content/1/Shalev-Shwartz%20and%20Ben-David%20-%20Understanding%20Machine%20Learning.pdf; https://arxiv.org/abs/1907.02893 | medium | repository synthesis anchored to external theory |
 
 ### Assumptions
