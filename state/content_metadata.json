@@ -1,6 +1,118 @@
 {
-  "extracted_at": "2026-05-19T02:16:51Z",
+  "extracted_at": "2026-05-19T02:30:53Z",
   "items": {
+    "2026-05-18-rq1-3-instrumentalism-failure-modes": {
+      "named_concepts": [
+        "predictive fruitfulness",
+        "dynamic systems",
+        "causal hierarchy",
+        "rival explanation",
+        "predictive success",
+        "recurring operational",
+        "operational failure",
+        "regime brittleness",
+        "causal blindness",
+        "silent quality",
+        "quality decay",
+        "predictive model",
+        "remain stable",
+        "non-causal predictors",
+        "environmental change",
+        "sugihara et",
+        "et al",
+        "nonlinear dynamic",
+        "mirage correlations",
+        "structural instability"
+      ],
+      "source_urls": [
+        "https://archive.org/details/essaysinpositive00milt",
+        "https://plato.stanford.edu/entries/economics/",
+        "https://en.wikipedia.org/wiki/Essays_in_Positive_Economics",
+        "https://www.econbiz.de/10002525062",
+        "https://www.rba.gov.au/publications/rdp/1990/9013/conference-volumes.html",
+        "https://en.wikipedia.org/wiki/Goodhart%27s_law",
+        "https://bayes.cs.ucla.edu/BOOK-2K/",
+        "https://ftp.cs.ucla.edu/pub/stat_ser/r350-reprint.pdf",
+        "https://arxiv.org/abs/1801.04016",
+        "https://jmlr.org/papers/v9/shpitser08a.html",
+        "https://arxiv.org/abs/1501.01332",
+        "https://arxiv.org/abs/1812.08233",
+        "https://arxiv.org/abs/1907.02893",
+        "https://arxiv.org/abs/2009.00329",
+        "https://cdanfort.w3.uvm.edu/csc-reading-group/sugihara-causality-science-2012.pdf",
+        "https://www.bu.edu/econ/files/2019/01/structural-change-oxford.pdf",
+        "https://www.aeaweb.org/articles?id=10.1257/jel.20201479",
+        "https://www.bis.org/publ/qtrpdf/r_qt0812.htm",
+        "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1359368/full",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9499327/",
+        "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1330258/full",
+        "https://doaj.org/article/903ba595bbe544899ee16fc8513b93f0"
+      ],
+      "key_claims": [
+        {
+          "text": "Accessible summaries of Friedman's methodology treat predictive fruitfulness, not realism of assumptions, as the decisive test of a theory, which makes instrumentalism an epistemic rule for accepting models that predict well without requiring them to explain the underlying mechanism",
+          "sources": [
+            "https://archive.org/details/essaysinpositive00milt",
+            "https://plato.stanford.edu/entries/economics/",
+            "https://en.wikipedia.org/wiki/Essays_in_Positive_Economics"
+          ]
+        },
+        {
+          "text": "Goodhart's Law shows that once an observed regularity is pressed into service as a control target, optimisation pressure can change the underlying process and collapse the regularity, so score-maximisation itself becomes a source of model failure rather than proof of model adequacy",
+          "sources": [
+            "https://www.econbiz.de/10002525062",
+            "https://www.rba.gov.au/publications/rdp/1990/9013/conference-volumes.html",
+            "https://en.wikipedia.org/wiki/Goodhart%27s_law"
+          ]
+        },
+        {
+          "text": "Pearl's causal hierarchy and later invariance work jointly imply that observationally successful non-causal predictors can become badly wrong under intervention or environmental change, because only causal or invariant structure is expected to travel across such shifts",
+          "sources": [
+            "https://jmlr.org/papers/v9/shpitser08a.html",
+            "https://ftp.cs.ucla.edu/pub/stat_ser/r350-reprint.pdf",
+            "https://arxiv.org/abs/1501.01332",
+            "https://arxiv.org/abs/1812.08233"
+          ]
+        },
+        {
+          "text": "Sugihara et al. show that nonlinear dynamic systems can exhibit mirage correlations and require tools stronger than correlation or one-step predictability to detect causation, which means short-run predictive success in such systems can conceal causal misidentification",
+          "sources": [
+            "https://cdanfort.w3.uvm.edu/csc-reading-group/sugihara-causality-science-2012.pdf"
+          ]
+        },
+        {
+          "text": "Economic forecasting under structural instability fails through regime brittleness, because crisis periods such as 2007-08 invalidate the assumption that average historical performance is still informative, and instability-aware evaluation must replace simple retrospective scorekeeping",
+          "sources": [
+            "https://www.aeaweb.org/articles?id=10.1257/jel.20201479",
+            "https://www.bu.edu/econ/files/2019/01/structural-change-oxford.pdf",
+            "https://www.bis.org/publ/qtrpdf/r_qt0812.htm"
+          ]
+        },
+        {
+          "text": "Coronavirus Disease 2019 (COVID-19) case forecasting exposed assumption lock-in, because many official-hub models failed to beat simple baselines and were built around continuation assumptions about interventions or behavior that became unreliable as policy, reporting, and variant conditions changed",
+          "sources": [
+            "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1359368/full",
+            "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9499327/"
+          ]
+        },
+        {
+          "text": "Recommendation systems exhibit silent quality decay under preference drift, because yesterday's successful correlations degrade in non-stationary user environments unless the system explicitly models drift, reweights evidence, or equips operators to intervene",
+          "sources": [
+            "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1330258/full",
+            "https://doaj.org/article/903ba595bbe544899ee16fc8513b93f0"
+          ]
+        },
+        {
+          "text": "The operational value of explanation is therefore that it makes diagnosis and repair more directed, because mechanistic or invariant accounts narrow what should remain stable, whereas instrumentalist systems rely more heavily on continual monitoring, recalibration, and governance after failure signals appear",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-2-deutsch-hard-to-vary.md",
+            "https://arxiv.org/abs/1812.08233",
+            "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1330258/full"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq1-2-deutsch-hard-to-vary": {
       "named_concepts": [
         "interaction dominance",
