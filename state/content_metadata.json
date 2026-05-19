@@ -1,6 +1,91 @@
 {
-  "extracted_at": "2026-05-19T09:45:35Z",
+  "extracted_at": "2026-05-19T09:58:29Z",
   "items": {
+    "2026-05-18-rq2-4-causal-hierarchy-formal-limits": {
+      "named_concepts": [
+        "causal hierarchy",
+        "never collapses",
+        "higher-layer facts",
+        "association intervention",
+        "hierarchy theorem",
+        "almost never",
+        "causal effects",
+        "question becomes",
+        "cross-item integration",
+        "hierarchy distinguishes",
+        "structural information",
+        "unobserved confounding",
+        "observational underdetermination",
+        "perturbation fragility",
+        "query classes",
+        "structural causal",
+        "collapse occurs",
+        "level never",
+        "observational equivalence",
+        "level almost"
+      ],
+      "source_urls": [
+        "https://causalai.net/r60.pdf",
+        "https://web.cs.ucla.edu/~kaoru/3-layer-causal-hierarchy.pdf",
+        "https://arxiv.org/abs/1801.04016",
+        "https://arxiv.org/pdf/1206.6831v1",
+        "https://library.oapen.org/bitstream/id/056a11be-ce3a-44b9-8987-a6c68fce8d9b/11283.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Pearl's Causal Hierarchy distinguishes three query classes, association, intervention, and counterfactuals, by the forms `P(y|x)`, `P(y|do(x), z)`, and `P(y_x|x', y')`, and each class corresponds to a different kind of causal information rather than a different notation for the same information",
+          "sources": [
+            "https://web.cs.ucla.edu/~kaoru/3-layer-causal-hierarchy.pdf",
+            "https://causalai.net/r60.pdf"
+          ]
+        },
+        {
+          "text": "The Causal Hierarchy Theorem states that the hierarchy almost never collapses, and formally that the subset of Structural Causal Models in which any collapse occurs has measure zero, so lower-layer data generically fail to determine higher-layer facts",
+          "sources": [
+            "https://causalai.net/r60.pdf"
+          ]
+        },
+        {
+          "text": "Level 2 never collapses to Level 1, because for any Structural Causal Model there exists another model with the same observational theory but a different intervention theory, which means observational equivalence is never enough to fix causal effects by itself",
+          "sources": [
+            "https://causalai.net/r60.pdf"
+          ]
+        },
+        {
+          "text": "Level 3 almost never collapses to Level 2, so even a system that knows intervention distributions still generally lacks enough information to answer unit-level alternate-world questions without additional assumptions or richer model structure",
+          "sources": [
+            "https://causalai.net/r60.pdf"
+          ]
+        },
+        {
+          "text": "Unobserved confounding can make observational conditioning disagree with intervention effects, including reversing the apparent sign of treatment benefit in Bareinboim et al.'s worked example, which shows that `P(Y|X)` and `P(Y|do(X))` are not interchangeable objects",
+          "sources": [
+            "https://causalai.net/r60.pdf"
+          ]
+        },
+        {
+          "text": "Do-calculus is complete for identifiable causal effects, meaning every successful reduction of an intervention query to observational quantities can be derived by Pearl's three rules together with standard probability manipulations, so identifiability depends on structure rather than on ad hoc algebraic tricks",
+          "sources": [
+            "https://arxiv.org/pdf/1206.6831v1"
+          ]
+        },
+        {
+          "text": "Passive machine-learning systems trained only on logged observations are normally confined to Level 1 unless they are given extra structural assumptions, intervention data, or sufficiently rich environment variation, because passive fitting does not itself supply mechanism-replacement semantics or counterfactual world comparisons",
+          "sources": [
+            "https://arxiv.org/abs/1801.04016",
+            "https://library.oapen.org/bitstream/id/056a11be-ce3a-44b9-8987-a6c68fce8d9b/11283.pdf",
+            "https://arxiv.org/pdf/1206.6831v1"
+          ]
+        },
+        {
+          "text": "Research Question 2.1 becomes the learning-theory corollary of the theorem, because ERM can control observational risk under one distribution without identifying the intervention-sensitive structure needed to remain correct when the environment changes",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-1-erm-causal-blindness.md",
+            "https://causalai.net/r60.pdf"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq2-3-predictive-model-fragility": {
       "named_concepts": [
         "structural stability",

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T09:45:39Z",
-  "node_count": 366,
-  "edge_count": 2168,
+  "generated": "2026-05-19T09:58:33Z",
+  "node_count": 367,
+  "edge_count": 2180,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2199,6 +2199,12 @@
       "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq2-3-predictive-model-fragility.html"
+    },
+    {
+      "slug": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
+      "type": "synthesis",
+      "url": "/Research/research/2026-05-18-rq2-4-causal-hierarchy-formal-limits.html"
     }
   ],
   "edges": [
@@ -19328,15 +19334,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "epistemology,machine-learning,philosophy-of-science",
-      "provenance": "2026-05-18-rq1-3-instrumentalism-failure-modes"
-    },
-    {
-      "source": "2026-05-18-rq1-1-popper-falsifiability",
-      "target": "2026-05-18-rq2-1-erm-causal-blindness",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "epistemology,machine-learning",
-      "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
@@ -19344,7 +19342,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "epistemology,machine-learning,philosophy-of-science",
-      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
@@ -19352,7 +19350,15 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,machine-learning",
-      "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,machine-learning",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
     },
     {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
@@ -19411,6 +19417,14 @@
       "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
     },
     {
+      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,invariants,machine-learning",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -19451,6 +19465,14 @@
       "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
     },
     {
+      "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
       "source": "2026-05-18-rq2-1-erm-causal-blindness",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -19481,6 +19503,14 @@
       "rel": "tag-overlap",
       "evidence": "causal-inference,epistemology,invariants,machine-learning",
       "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
+    },
+    {
+      "source": "2026-05-18-rq2-1-erm-causal-blindness",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
     },
     {
       "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
@@ -19523,6 +19553,22 @@
       "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
     },
     {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,invariants,machine-learning",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "weight": 4,
@@ -19545,6 +19591,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
+    },
+    {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
+    },
+    {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 5,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,epistemology,formal-methods,invariants,machine-learning",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq1-1-popper-falsifiability",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq2-1-erm-causal-blindness",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq2-3-predictive-model-fragility",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
     }
   ]
 }

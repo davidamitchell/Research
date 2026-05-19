@@ -6570,13 +6570,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -6632,7 +6632,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "copilot-instructions-claude",
@@ -6815,6 +6815,61 @@
     "url": "/Research/threads/mobile-interface-delivery.html"
   },
   {
+    "slug": "machine-learning-epistemology-invariants",
+    "title": "machine-learning / epistemology / invariants",
+    "kind": "implicit",
+    "tag_cluster": [
+      "machine-learning",
+      "epistemology",
+      "invariants"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+        "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
+        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
+        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-1-popper-falsifiability",
+        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
+        "added": "2026-05-18"
+      }
+    ],
+    "url": "/Research/threads/machine-learning-epistemology-invariants.html"
+  },
+  {
     "slug": "agentic-ai-strategy-anthropic",
     "title": "agentic-ai / strategy / anthropic",
     "kind": "implicit",
@@ -6980,56 +7035,6 @@
     "url": "/Research/threads/rory-sutherland-behavioral-economics-strategy.html"
   },
   {
-    "slug": "machine-learning-invariants-epistemology",
-    "title": "machine-learning / invariants / epistemology",
-    "kind": "implicit",
-    "tag_cluster": [
-      "machine-learning",
-      "invariants",
-      "epistemology"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
-        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
-        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
-        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
-        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-1-popper-falsifiability",
-        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
-        "added": "2026-05-18"
-      }
-    ],
-    "url": "/Research/threads/machine-learning-invariants-epistemology.html"
-  },
-  {
     "slug": "predictive-processing-consciousness-anil-seth",
     "title": "predictive-processing / consciousness / anil-seth",
     "kind": "implicit",
@@ -7130,14 +7135,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -7177,7 +7182,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -7675,14 +7680,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
-      "native governance"
+      "copilot studio",
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -7702,6 +7707,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   }
 ]
