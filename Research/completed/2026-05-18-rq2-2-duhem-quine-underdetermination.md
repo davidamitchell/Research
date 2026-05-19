@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e1e4be7e94b0349dfb83e8dfb3688ecd738627dc
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq2-2-duhem-quine-underdetermination.md
+    summary: "Initial completion"
 ---
 
 # Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism
