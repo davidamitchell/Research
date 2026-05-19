@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T21:31:13Z",
-  "node_count": 378,
-  "edge_count": 2276,
+  "generated": "2026-05-19T21:42:23Z",
+  "node_count": 379,
+  "edge_count": 2286,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2265,6 +2265,12 @@
       "title": "Research Question 6.2: State Space Explosion and Deterministic Chaos, Fragility Shared Between Concurrent Coded Systems and Machine Learning Models",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq6-2-state-explosion-chaos-theory.html"
+    },
+    {
+      "slug": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "title": "Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq6-3-complexity-horizon-classical-systems.html"
     },
     {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -19764,14 +19770,6 @@
     },
     {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
-      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "epistemology,formal-methods",
-      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
-    },
-    {
-      "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
       "weight": 3,
       "rel": "tag-overlap",
@@ -19905,6 +19903,14 @@
       "rel": "tag-overlap",
       "evidence": "causal-inference,llm,machine-learning",
       "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,llm",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
     },
     {
       "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
@@ -20299,6 +20305,14 @@
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
     },
     {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "formal-methods,llm",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
       "source": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -20355,6 +20369,14 @@
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
     },
     {
+      "source": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "formal-methods,llm",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
       "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -20392,7 +20414,15 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods",
-      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
     },
     {
       "source": "2026-05-18-rq6-2-state-explosion-chaos-theory",
@@ -20417,6 +20447,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+    },
+    {
+      "source": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "target": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "distributed-systems,epistemology,formal-methods",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-05-18-rq2-3-predictive-model-fragility",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

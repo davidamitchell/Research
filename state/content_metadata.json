@@ -1,6 +1,107 @@
 {
-  "extracted_at": "2026-05-19T21:31:08Z",
+  "extracted_at": "2026-05-19T21:42:19Z",
   "items": {
+    "2026-05-18-rq6-3-complexity-horizon-classical-systems": {
+      "named_concepts": [
+        "complexity horizon",
+        "site reliability",
+        "reliability engineering",
+        "one service",
+        "language model",
+        "local replayability",
+        "bounded comparison",
+        "microservice systems",
+        "direct mental",
+        "deterministic systems",
+        "engineering practice",
+        "simple alerting",
+        "alerting plus",
+        "plus post",
+        "post hoc",
+        "hoc analysis",
+        "traces aggregate",
+        "mental simulation",
+        "service specification",
+        "specification alone"
+      ],
+      "source_urls": [
+        "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/ArchitectureOfComplexity.HSimon1962.pdf",
+        "https://www.sfipress.org/21-simon-1962",
+        "https://www.routledge.com/Drift-into-Failure/Dekker/p/book/9781409422211",
+        "https://pragprog.com/titles/mnee2/release-it-second-edition/",
+        "https://arxiv.org/abs/1702.05843",
+        "https://principlesofchaos.org/",
+        "https://sre.google/sre-book/monitoring-distributed-systems/",
+        "https://sre.google/sre-book/addressing-cascading-failures/",
+        "https://arxiv.org/abs/2407.01710",
+        "https://martinfowler.com/articles/microservices.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-2-state-explosion-chaos-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Simon's hierarchy result shows that complex systems become manageable by partitioning them into subsystems whose short-run behaviour is approximately independent, but his own near-decomposability conditions also show that this independence weakens at longer horizons and higher aggregation levels",
+          "sources": [
+            "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/ArchitectureOfComplexity.HSimon1962.pdf"
+          ]
+        },
+        {
+          "text": "Microservice architecture applies that hierarchic strategy directly by splitting one application into independently deployable out-of-process services, yet the same split creates more remote interfaces, dependency chains, and cross-team coordination points than a single-process design",
+          "sources": [
+            "https://martinfowler.com/articles/microservices.html",
+            "https://arxiv.org/abs/2407.01710"
+          ]
+        },
+        {
+          "text": "Modern microservice systems exhibit emergent failure modes because independent deployment and dynamic service interactions can produce cascading failures and diagnosis challenges that are not visible from any one service specification alone",
+          "sources": [
+            "https://arxiv.org/abs/2407.01710",
+            "https://principlesofchaos.org/",
+            "https://sre.google/sre-book/addressing-cascading-failures/"
+          ]
+        },
+        {
+          "text": "Site Reliability Engineering practice provides direct operational evidence for an epistemic barrier, because monitoring a complex application is itself a major engineering task, complex dependency hierarchies have had only limited success, and teams prefer simple alerting plus post hoc analysis",
+          "sources": [
+            "https://sre.google/sre-book/monitoring-distributed-systems/"
+          ]
+        },
+        {
+          "text": "Dekker's drift framework helps explain why this barrier feels like opacity rather than ordinary component debugging, because many locally reasonable actions can propagate through relationships and feedback loops until the eventual failure state is visible only after reconstruction",
+          "sources": [
+            "https://www.routledge.com/Drift-into-Failure/Dekker/p/book/9781409422211",
+            "https://sre.google/sre-book/addressing-cascading-failures/"
+          ]
+        },
+        {
+          "text": "The Complexity Horizon is best defined as the point where service count, dependency degree, and runtime nesting depth outgrow reliable operator mental models, forcing explanation to shift from direct understanding to traces, aggregate metrics, and controlled experiment",
+          "sources": [
+            "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/ArchitectureOfComplexity.HSimon1962.pdf",
+            "https://sre.google/sre-book/monitoring-distributed-systems/",
+            "https://principlesofchaos.org/",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-2-state-explosion-chaos-theory.html"
+          ]
+        },
+        {
+          "text": "This item extends Research Question 6.1 and Research Question 6.2 by showing that formal limits on static analysis and dynamic state growth culminate in an operational intelligibility limit, where code can remain deterministic and inspectable locally while the total system becomes globally hard to explain",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-2-state-explosion-chaos-theory.html",
+            "https://sre.google/sre-book/monitoring-distributed-systems/"
+          ]
+        },
+        {
+          "text": "The bounded comparison with neural-network or Large Language Model opacity is justified at the global-explanation layer, but not as a full equivalence claim, because deterministic systems still retain stronger local replayability and component-level explanation than stochastic models do",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+            "https://sre.google/sre-book/monitoring-distributed-systems/"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq6-2-state-explosion-chaos-theory": {
       "named_concepts": [
         "state space",

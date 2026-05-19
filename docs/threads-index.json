@@ -4685,16 +4685,16 @@
     "url": "/Research/threads/organisation-governance-organisational-design.html"
   },
   {
-    "slug": "machine-learning-epistemology-causal-inference",
-    "title": "machine-learning / epistemology / causal-inference",
+    "slug": "machine-learning-epistemology-llm",
+    "title": "machine-learning / epistemology / llm",
     "kind": "implicit",
     "tag_cluster": [
       "machine-learning",
       "epistemology",
-      "causal-inference"
+      "llm"
     ],
     "concept_cluster": [],
-    "item_count": 16,
+    "item_count": 17,
     "items": [
       {
         "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
@@ -4709,6 +4709,11 @@
       {
         "slug": "2026-05-18-rq3-1-llm-statistical-vs-causal",
         "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+        "title": "Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks",
         "added": "2026-05-18"
       },
       {
@@ -4777,7 +4782,7 @@
         "added": "2026-05-18"
       }
     ],
-    "url": "/Research/threads/machine-learning-epistemology-causal-inference.html"
+    "url": "/Research/threads/machine-learning-epistemology-llm.html"
   },
   {
     "slug": "governance-organisation-knowledge-graph",
@@ -7440,14 +7445,14 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -7477,17 +7482,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -7517,7 +7522,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "reference-architecture-capability-model-enterprise-architecture",
@@ -7625,13 +7630,13 @@
     "url": "/Research/threads/workflow-tooling-process.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -7657,7 +7662,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -7808,6 +7813,36 @@
       }
     ],
     "url": "/Research/threads/llm-context-window-mcp.html"
+  },
+  {
+    "slug": "language-model-local-replayability-deterministic-systems",
+    "title": "language model / local replayability / deterministic systems",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
+      "language model",
+      "local replayability",
+      "deterministic systems"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+        "title": "Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+        "title": "RQ 5.1: Stochastic versus Deterministic Failure Modes on Identical Unvalidated Inputs",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-agentic-explainability-vs-traditional",
+        "title": "Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable Than Equivalently Scoped Deterministic Software Systems?",
+        "added": "2026-05-18"
+      }
+    ],
+    "url": "/Research/threads/language-model-local-replayability-deterministic-systems.html"
   },
   {
     "slug": "power-platform-copilot-studio-native-governance",
