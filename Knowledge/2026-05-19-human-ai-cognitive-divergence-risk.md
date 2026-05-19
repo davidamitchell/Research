@@ -25,7 +25,7 @@ cites:
 confidence: medium
 versions:
   - version: "1.0"
-    sha: "021e7d7f30f491c8468817ace7deaf9ad2f3077f"
+    sha: "c5f23577a59ea1b11b375769c9ad261512071af3"
     changed: 2026-05-19
     progress: "progress/2026-05-19-human-ai-cognitive-divergence-risk.md"
     summary: "Initial draft synthesis integrating eight human-risk source items"
