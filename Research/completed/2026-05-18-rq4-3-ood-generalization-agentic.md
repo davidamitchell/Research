@@ -2,13 +2,13 @@
 review_count: 1
 title: "Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq5-1-stochastic-vs-deterministic-failures
 tags: [agentic-ai, llm, machine-learning, invariants, evaluation]
 started: 2026-05-19T12:16:01+00:00
-completed: ~
+completed: 2026-05-19T12:39:55+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq4-1-agentic-loop-explanatory-reach
@@ -226,7 +226,7 @@ This item therefore asks what survives when the planner is wrapped in stochastic
 **Evidence map:**
 
 - [fact] Arbitrary out-of-distribution generalisation is impossible without restricted shift, and conditional target-risk bounds require bounded divergence plus a low shared-error term. | source: https://proceedings.neurips.cc/paper/2021/hash/c5c1cb0bebd56ae38817b251ad72bedb-Abstract.html ; https://www.alexkulesza.com/pubs/adapt_mlj10.pdf | confidence: high | notes: impossibility plus bound conditions
-- [inference] Tool-output randomness belongs mainly to the aleatoric uncertainty term, so it creates an irreducible uncertainty floor. | source: https://arxiv.org/abs/1703.04977 | confidence: medium | notes: planner-tool classification
+- [inference] Tool-output randomness belongs mainly to the aleatoric uncertainty term, so it creates an irreducible uncertainty floor. | source: https://arxiv.org/abs/1703.04977 | confidence: low | notes: planner-tool classification
 - [inference] Tool-using Large Language Model loops are better modelled as bounded-rational satisficers than as globally optimizing controllers. | source: https://www.nobelprize.org/uploads/2018/06/simon-lecture.pdf ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-1-agentic-loop-explanatory-reach.md | confidence: medium | notes: decision frame
 - [inference] Monte Carlo Dropout approximates epistemic uncertainty but does not remain a reliable OOD certificate under shift. | source: https://arxiv.org/abs/1506.02142 ; https://arxiv.org/abs/1906.02530 | confidence: medium | notes: approximation plus calibration decay
 - [fact] Conformal prediction moves the guarantee from point correctness to coverage frequency, and online variants weaken it further to long-run or local-interval guarantees under shift. | source: https://arxiv.org/abs/2107.07511 ; https://arxiv.org/abs/2106.00170 ; https://arxiv.org/abs/2208.08401 | confidence: high | notes: set coverage not exact action correctness
@@ -261,12 +261,12 @@ This item therefore asks what survives when the planner is wrapped in stochastic
 - [inference] Can a future benchmark isolate the separate contributions of divergence, aleatoric tool noise, and verifier independence in one end-to-end planner-tool deployment setting? [source: https://www.alexkulesza.com/pubs/adapt_mlj10.pdf; https://arxiv.org/abs/1703.04977; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-2-adversarial-error-propagation.md]
 ### §7 Recursive Review
 
-- Review result: pass
-- Acronym audit: Out-of-Distribution (OOD), Large Language Model (LLM), Monte Carlo (MC)
-- Domain-term audit: bounded rationality, epistemic uncertainty, aleatoric uncertainty, and conformal prediction defined on first substantive use
-- Claim audit: all visible claims in Research Skill Output labeled as fact, inference, or assumption
-- Findings parity: matched to Section 6
-- Confidence: medium
+review_result: pass
+acronym_audit: Out-of-Distribution (OOD), Large Language Model (LLM), Monte Carlo (MC)
+domain_term_audit: bounded rationality, epistemic uncertainty, aleatoric uncertainty, and conformal prediction defined on first substantive use
+claim_audit: all visible claims in Research Skill Output labeled as fact, inference, or assumption
+findings_parity: matched to Section 6
+confidence: medium
 
 ---
 
@@ -285,7 +285,7 @@ Current theory therefore supports conditional risk management, abstention, and e
 ### Key Findings
 
 1. **Arbitrary out-of-distribution generalisation is impossible without restricting the family of deployment shifts, and classical target-risk bounds remain conditional on bounded divergence between source and target domains plus a hypothesis that performs well on both.** ([fact]; high confidence; source: https://proceedings.neurips.cc/paper/2021/hash/c5c1cb0bebd56ae38817b251ad72bedb-Abstract.html; https://www.alexkulesza.com/pubs/adapt_mlj10.pdf)
-2. **Non-deterministic tool outputs belong mainly to the aleatoric uncertainty term, so they create an irreducible error floor that additional planner training data or model scaling cannot remove on their own.** ([inference]; medium confidence; source: https://arxiv.org/abs/1703.04977)
+2. **Non-deterministic tool outputs belong mainly to the aleatoric uncertainty term, so they create an irreducible error floor that additional planner training data or model scaling cannot remove on their own.** ([inference]; low confidence; source: https://arxiv.org/abs/1703.04977)
 3. **Simon’s bounded-rationality frame describes tool-using Large Language Model loops more accurately than an omniscient optimization frame, which means their guarantees should be phrased as performance under partial information and finite computation rather than as exact optimal control.** ([inference]; medium confidence; source: https://www.nobelprize.org/uploads/2018/06/simon-lecture.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-1-agentic-loop-explanatory-reach.md)
 4. **Monte Carlo Dropout provides a useful approximation to epistemic model uncertainty, but predictive uncertainty calibration still degrades under dataset shift, so the method cannot serve as a standalone out-of-distribution reliability certificate for planner outputs.** ([inference]; medium confidence; source: https://arxiv.org/abs/1506.02142; https://arxiv.org/abs/1906.02530)
 5. **Conformal prediction gives exact finite-sample coverage only when calibration and test points satisfy its exchangeability assumptions, while adaptive online variants weaken the guarantee to long-run coverage frequency or local regret under evolving shift.** ([fact]; high confidence; source: https://arxiv.org/abs/2107.07511; https://arxiv.org/abs/2106.00170; https://arxiv.org/abs/2208.08401)
@@ -298,7 +298,7 @@ Current theory therefore supports conditional risk management, abstention, and e
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | [fact] Arbitrary out-of-distribution generalisation is impossible without restricted shift, and conditional target-risk bounds require bounded divergence plus a low shared-error term. | https://proceedings.neurips.cc/paper/2021/hash/c5c1cb0bebd56ae38817b251ad72bedb-Abstract.html; https://www.alexkulesza.com/pubs/adapt_mlj10.pdf | high | impossibility plus bound conditions |
-| [inference] Tool-output randomness belongs mainly to the aleatoric uncertainty term, so it creates an irreducible uncertainty floor. | https://arxiv.org/abs/1703.04977 | medium | planner-tool classification |
+| [inference] Tool-output randomness belongs mainly to the aleatoric uncertainty term, so it creates an irreducible uncertainty floor. | https://arxiv.org/abs/1703.04977 | low | planner-tool classification |
 | [inference] Tool-using Large Language Model loops are better modelled as bounded-rational satisficers than as globally optimizing controllers. | https://www.nobelprize.org/uploads/2018/06/simon-lecture.pdf; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-1-agentic-loop-explanatory-reach.md | medium | decision frame |
 | [inference] Monte Carlo Dropout approximates epistemic uncertainty but does not remain a reliable out-of-distribution certificate under shift. | https://arxiv.org/abs/1506.02142; https://arxiv.org/abs/1906.02530 | medium | approximation plus calibration decay |
 | [fact] Conformal prediction moves the guarantee from point correctness to coverage frequency, and online variants weaken it further to long-run or local-interval guarantees under shift. | https://arxiv.org/abs/2107.07511; https://arxiv.org/abs/2106.00170; https://arxiv.org/abs/2208.08401 | high | set coverage not exact action correctness |

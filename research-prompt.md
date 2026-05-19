@@ -440,8 +440,9 @@ easily-detectable issues.
 2c2. **§7 review-metadata check** -- treat `§7 Recursive Review` lines such as
     `Review result: pass`, `Acronym audit: ...`, and `Claim audit: ...` as
     pure metadata fragments unless you intentionally turn them into labeled,
-    source-bound claims. Do not leave review-outcome sentences as unlabeled
-    declarative prose.
+    source-bound claims. Use bare metadata forms such as `review_result: pass`
+    or `acronym_audit: passed` without bullet-sentence phrasing. Do not leave
+    review-outcome sentences as unlabeled declarative prose.
 
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official
