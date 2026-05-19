@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T11:39:27Z",
-  "node_count": 371,
-  "edge_count": 2216,
+  "generated": "2026-05-19T11:51:26Z",
+  "node_count": 372,
+  "edge_count": 2222,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2225,6 +2225,12 @@
       "url": "/Research/research/2026-05-18-rq3-3-cot-counterfactual-limits.html"
     },
     {
+      "slug": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "title": "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html"
+    },
+    {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
       "title": "Human-AI Cognitive Divergence Risk",
       "type": "synthesis",
@@ -3410,14 +3416,6 @@
     },
     {
       "source": "2026-03-05-general-agent-optimization-framework",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-05-general-agent-optimization-framework"
-    },
-    {
-      "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3435,6 +3433,14 @@
     {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4026,14 +4032,6 @@
     },
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
-    },
-    {
-      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4051,6 +4049,14 @@
     {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -4186,14 +4192,6 @@
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-03-10-research-loop-evaluation-rubric"
-    },
-    {
-      "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -4211,6 +4209,14 @@
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -6866,7 +6872,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6874,7 +6880,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -8986,14 +8992,6 @@
     },
     {
       "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
-      "target": "2026-05-02-automated-claim-verification-academic-literature",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
-      "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
-    },
-    {
-      "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
       "target": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
       "weight": 4,
       "rel": "tag-overlap",
@@ -9003,6 +9001,14 @@
     {
       "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
       "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
+    },
+    {
+      "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm",
@@ -9418,7 +9424,7 @@
     },
     {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm",
@@ -9858,14 +9864,6 @@
     },
     {
       "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
-      "target": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
-      "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
-    },
-    {
-      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
       "target": "2026-05-02-automated-claim-verification-academic-literature",
       "weight": 4,
       "rel": "tag-overlap",
@@ -9887,6 +9885,14 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm",
       "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
+    },
+    {
+      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
@@ -9954,7 +9960,7 @@
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -9962,11 +9968,11 @@
     },
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
-      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
       "source": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
@@ -10175,6 +10181,14 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,evaluation,llm,workflow",
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
+      "source": "2026-05-02-automated-claim-verification-academic-literature",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
       "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
@@ -11034,7 +11048,7 @@
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -11042,11 +11056,11 @@
     },
     {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
-      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
       "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
@@ -12887,14 +12901,6 @@
       "rel": "tag-overlap",
       "evidence": "evaluation,fact-checking,hallucinations,llm,workflow",
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
-    },
-    {
-      "source": "2026-05-06-loki-fact-checking-journalists-moderation",
-      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "evaluation,hallucinations,llm",
-      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
       "source": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
@@ -15322,14 +15328,6 @@
     },
     {
       "source": "2026-05-12-hardware-load-inference-performance",
-      "target": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-12-hardware-load-inference-performance"
-    },
-    {
-      "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -15355,6 +15353,14 @@
     {
       "source": "2026-05-12-hardware-load-inference-performance",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm",
@@ -15442,18 +15448,18 @@
     },
     {
       "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
-      "target": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,llm",
-      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
-    },
-    {
-      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
       "target": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,memory-system",
+      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
+    },
+    {
+      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agent-tooling,agentic-ai,llm",
       "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
     },
     {
@@ -16394,14 +16400,6 @@
     },
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation",
-      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
-    },
-    {
-      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16427,6 +16425,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation",
@@ -17394,7 +17400,7 @@
     },
     {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,evaluation,llm,workflow",
@@ -17402,11 +17408,11 @@
     },
     {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
-      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
       "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm,workflow",
-      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+      "evidence": "agent-tooling,agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
       "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
@@ -18287,14 +18293,6 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
       "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
@@ -19337,6 +19335,14 @@
       "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,evaluation,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
       "target": "2026-02-27-information-synthesis-entropy",
       "weight": 3,
@@ -19633,14 +19639,6 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
-      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "causal-inference,machine-learning",
-      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
-    },
-    {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "weight": 4,
@@ -19857,6 +19855,14 @@
       "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
     },
     {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,evaluation,llm",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 3,
@@ -19895,6 +19901,54 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "causal-inference,evaluation,llm",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
+    },
+    {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
+    },
+    {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
+    },
+    {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
+    },
+    {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

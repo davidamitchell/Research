@@ -1,6 +1,95 @@
 {
-  "extracted_at": "2026-05-19T11:39:23Z",
+  "extracted_at": "2026-05-19T11:51:22Z",
   "items": {
+    "2026-05-18-rq4-1-agentic-loop-explanatory-reach": {
+      "named_concepts": [
+        "language model",
+        "explanatory reach",
+        "strategy errors",
+        "causal benchmarks",
+        "assembled system",
+        "react reflexion",
+        "loop structure",
+        "early strategy",
+        "composite system",
+        "higher-level reach",
+        "external tools",
+        "react-style loops",
+        "base next-token",
+        "next-token objective",
+        "verbal feedback",
+        "repeated-trial behavior",
+        "later actions",
+        "planning-heavy tasks",
+        "naive sequential",
+        "sequential looping"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2210.03629",
+        "https://react-lm.github.io/",
+        "https://arxiv.org/abs/2303.11366",
+        "https://arxiv.org/abs/2302.07842",
+        "https://arxiv.org/abs/2206.10498",
+        "https://openreview.net/forum?id=5Xc1ecxO1h",
+        "https://arxiv.org/abs/2407.08029",
+        "https://aclanthology.org/2024.sighan-1.17/",
+        "https://opencausalab.github.io/CaLM"
+      ],
+      "key_claims": [
+        {
+          "text": "ReAct-style loops improve performance mainly by interleaving text generation with external observations and actions, so the loop widens the model's evidence stream without changing the base next-token objective",
+          "sources": [
+            "https://arxiv.org/abs/2210.03629",
+            "https://arxiv.org/abs/2302.07842"
+          ]
+        },
+        {
+          "text": "Reflexion shows that verbal feedback and episodic memory can improve repeated-trial behavior, but that mechanism is best understood as local policy adaptation across attempts rather than as proof of a learned causal world model",
+          "sources": [
+            "https://arxiv.org/abs/2303.11366",
+            "https://arxiv.org/abs/2302.07842"
+          ]
+        },
+        {
+          "text": "Error propagation remains a structural feature of one-path agentic loops, because later actions and checks are conditioned on earlier generated strategy tokens, so the loop can execute and sometimes amplify an upstream mistake before it corrects it",
+          "sources": [
+            "https://openreview.net/forum?id=5Xc1ecxO1h",
+            "https://react-lm.github.io/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-3-cot-counterfactual-limits.md"
+          ]
+        },
+        {
+          "text": "Tree of Thoughts shows that branching, self-evaluation, and backtracking outperform one linear chain on planning-heavy tasks, which supports the narrower conclusion that naive sequential looping is brittle under novelty and search pressure",
+          "sources": [
+            "https://openreview.net/forum?id=5Xc1ecxO1h",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-3-cot-counterfactual-limits.md"
+          ]
+        },
+        {
+          "text": "Planning and causal benchmarks still show major weakness on structurally demanding tasks, including plan generation and higher-complexity causal reasoning, across planning suites and large causal evaluations",
+          "sources": [
+            "https://arxiv.org/abs/2206.10498",
+            "https://opencausalab.github.io/CaLM",
+            "https://aclanthology.org/2024.sighan-1.17/"
+          ]
+        },
+        {
+          "text": "Human-readable trajectories increase inspectability and intervention opportunities, but they are better treated as audit artifacts than as evidence that the system has acquired genuine explanatory reach",
+          "sources": [
+            "https://react-lm.github.io/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-agentic-explainability-vs-traditional.md"
+          ]
+        },
+        {
+          "text": "The composite system can answer some questions about the effects of actions or about alternate worlds under different actions only when an external tool, simulator, or environment already embodies those semantics, so the extra reach is imported and distributed rather than intrinsic to the language model",
+          "sources": [
+            "https://arxiv.org/abs/2302.07842",
+            "https://arxiv.org/abs/2210.03629",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq3-3-cot-counterfactual-limits": {
       "named_concepts": [
         "causal benchmarks",

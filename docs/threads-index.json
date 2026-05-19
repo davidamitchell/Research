@@ -9,7 +9,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 134,
+    "item_count": 135,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -667,6 +667,11 @@
         "added": "2026-05-17"
       },
       {
+        "slug": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+        "title": "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?",
+        "added": "2026-05-18"
+      },
+      {
         "slug": "2026-05-18-rq3-3-cot-counterfactual-limits",
         "title": "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?",
         "added": "2026-05-18"
@@ -694,7 +699,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 134,
+    "item_count": 135,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1355,6 +1360,11 @@
         "slug": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
         "title": "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation",
         "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+        "title": "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?",
+        "added": "2026-05-18"
       },
       {
         "slug": "2026-05-18-rq3-2-stochastic-parrot-ood",
@@ -5505,6 +5515,86 @@
     "url": "/Research/threads/agentic-ai-financial-services-regulation.html"
   },
   {
+    "slug": "machine-learning-causal-inference-epistemology",
+    "title": "machine-learning / causal-inference / epistemology",
+    "kind": "implicit",
+    "tag_cluster": [
+      "machine-learning",
+      "causal-inference",
+      "epistemology"
+    ],
+    "concept_cluster": [],
+    "item_count": 13,
+    "items": [
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+        "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+        "title": "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq3-3-cot-counterfactual-limits",
+        "title": "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq3-2-stochastic-parrot-ood",
+        "title": "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+        "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
+        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
+        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-1-popper-falsifiability",
+        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
+        "added": "2026-05-18"
+      }
+    ],
+    "url": "/Research/threads/machine-learning-causal-inference-epistemology.html"
+  },
+  {
     "slug": "financial-services-ai-governance-ai-strategy",
     "title": "financial-services / ai-governance / ai-strategy",
     "kind": "implicit",
@@ -5663,81 +5753,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-regulation-financial-services.html"
-  },
-  {
-    "slug": "machine-learning-epistemology-causal-inference",
-    "title": "machine-learning / epistemology / causal-inference",
-    "kind": "implicit",
-    "tag_cluster": [
-      "machine-learning",
-      "epistemology",
-      "causal-inference"
-    ],
-    "concept_cluster": [],
-    "item_count": 12,
-    "items": [
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-18-rq3-1-llm-statistical-vs-causal",
-        "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq3-3-cot-counterfactual-limits",
-        "title": "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq3-2-stochastic-parrot-ood",
-        "title": "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
-        "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
-        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
-        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
-        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
-        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-1-popper-falsifiability",
-        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
-        "added": "2026-05-18"
-      }
-    ],
-    "url": "/Research/threads/machine-learning-epistemology-causal-inference.html"
   },
   {
     "slug": "skills-copilot-instructions",
@@ -6660,13 +6675,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -6722,7 +6737,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "copilot-instructions-claude",
@@ -7170,14 +7185,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -7217,7 +7232,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -7715,13 +7730,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "native governance"
     ],
     "item_count": 3,
@@ -7742,6 +7757,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   }
 ]
