@@ -84,10 +84,10 @@ jobs:
 
       - name: Build synthesis context block
         id: context
+        env:
+          QUESTION: ${{ inputs.synthesis_question }}
+          SOURCE_ITEMS: ${{ inputs.source_items }}
         run: |
-          QUESTION="${{ inputs.synthesis_question }}"
-          SOURCE_ITEMS="${{ inputs.source_items }}"
-
           # Build a context block analogous to the research loop's ITEM_CONTEXT.
           # This is injected into synthesis-prompt.md before the Copilot session.
           if [ -n "$SOURCE_ITEMS" ]; then
@@ -127,13 +127,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          SYNTHESIS_QUESTION: ${{ inputs.synthesis_question }}
+          SOURCE_ITEMS: ${{ inputs.source_items }}
         run: |
           set -euo pipefail
 
           echo "========================================"
           echo "  Synthesis session"
-          echo "  Question: ${{ inputs.synthesis_question }}"
-          echo "  Source items: ${{ inputs.source_items }}"
+          echo "  Question: ${SYNTHESIS_QUESTION}"
+          echo "  Source items: ${SOURCE_ITEMS}"
           echo "========================================"
 
           copilot -p "$(cat /tmp/synthesis_prompt_injected.md)" \
