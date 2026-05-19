@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: f450563a24229a54f451a4e59ae1fe116abf6806
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq2-3-predictive-model-fragility.md
+    summary: "Initial completion"
 ---
 
 # Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise
