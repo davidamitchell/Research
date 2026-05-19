@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b550c0e1c1c9c8842f1b731a50fddab3b05e5ee8
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq4-2-adversarial-error-propagation.md
+    summary: "Initial completion"
 ---
 
 # Research Question 4.2: Adversarial inputs and error propagation through multi-step tool-using verification and strategy phases
