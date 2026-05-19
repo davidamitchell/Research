@@ -1,6 +1,122 @@
 {
-  "extracted_at": "2026-05-19T20:12:29Z",
+  "extracted_at": "2026-05-19T20:30:47Z",
   "items": {
+    "2026-05-18-rq5-2-flexibility-vs-predictability-auditability": {
+      "named_concepts": [
+        "model checking",
+        "agentic flexibility",
+        "abstraction loss",
+        "keep deterministic",
+        "retrieval tool",
+        "post hoc",
+        "markov decision",
+        "decision processes",
+        "finite model",
+        "semantic loss",
+        "face state-space",
+        "control flow",
+        "probabilistic model",
+        "full semantic",
+        "regulated production",
+        "deterministic authority",
+        "final consequential",
+        "consequential control",
+        "control surface",
+        "agentic components"
+      ],
+      "source_urls": [
+        "https://www.anthropic.com/research/trustworthy-agents",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://www.prismmodelchecker.org/",
+        "https://www.prismmodelchecker.org/manual/Main/AllOnOnePage",
+        "https://www.prismmodelchecker.org/manual/ThePRISMLanguage/Introduction",
+        "https://www.prismmodelchecker.org/manual/ThePRISMLanguage/LocalNondeterminism",
+        "https://www.prismmodelchecker.org/manual/PropertySpecification/Introduction",
+        "https://www.prismmodelchecker.org/manual/RunningPRISM/StatisticalModelChecking",
+        "https://www.stormchecker.org/",
+        "https://spinroot.com/spin/Doc/Book_extras/",
+        "https://arxiv.org/abs/2411.05285",
+        "https://arxiv.org/abs/2302.12173",
+        "https://arxiv.org/abs/2310.01798",
+        "https://arxiv.org/abs/2503.00563",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+        "https://mitpress.mit.edu/9780262038553/model-checking/",
+        "https://mitpress.mit.edu/9780262026499/principles-of-model-checking/"
+      ],
+      "key_claims": [
+        {
+          "text": "A production-grade audit trail for an agentic pipeline must capture conversation identity, model identity, prompt and instruction state, retrieval lineage, tool-call lineage, outputs, and errors, because current observability standards and agent-observability literature split those facts across traces, events, attributes, and lifecycle artifacts rather than one canonical log record",
+          "sources": [
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/",
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+            "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+            "https://arxiv.org/abs/2411.05285",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        },
+        {
+          "text": "The European Union Artificial Intelligence Act's automatic logging requirement means that recorded event traces, not only post hoc textual explanations, are needed where a high-risk system's functioning must later be reconstructed for monitoring or investigation",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        },
+        {
+          "text": "Current mainstream formal-verification tooling already supports probabilistic and nondeterministic state-transition models such as Markov Decision Processes, so the practical boundary is not randomness by itself but whether an open-ended workflow can be compressed into a finite model with acceptable semantic loss",
+          "sources": [
+            "https://www.prismmodelchecker.org/",
+            "https://www.prismmodelchecker.org/manual/Main/AllOnOnePage",
+            "https://www.prismmodelchecker.org/manual/ThePRISMLanguage/LocalNondeterminism",
+            "https://www.stormchecker.org/"
+          ]
+        },
+        {
+          "text": "Deterministic production workflows still face state-space explosion and rely on abstraction, reduction, and compression, but they usually preserve stronger local replayability because explicit guards and updates exist before execution rather than being selected at runtime by a language model",
+          "sources": [
+            "https://spinroot.com/spin/Doc/Book_extras/",
+            "https://www.prismmodelchecker.org/manual/ThePRISMLanguage/Introduction",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
+          ]
+        },
+        {
+          "text": "Agentic flexibility expands the relevant runtime state to include prompt content, retrieved data, tool choices, tool outputs, and environment side effects, so the abstraction required for formal verification loses more semantic detail than it typically does in an equivalently scoped deterministic workflow",
+          "sources": [
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://arxiv.org/abs/2302.12173",
+            "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html"
+          ]
+        },
+        {
+          "text": "PRISM says statistical model checking is useful when explicit probabilistic verification becomes infeasible, but is not well suited to models with unresolved nondeterministic choices such as Markov Decision Processes because random paths are not well defined for them",
+          "sources": [
+            "https://www.prismmodelchecker.org/manual/RunningPRISM/StatisticalModelChecking"
+          ]
+        },
+        {
+          "text": "Because agents can misread intent, absorb adversarial instructions through data, and fail to self-correct reliably, trustworthy auditability depends more on durable event lineage than on the model's later narrative or self-reported reasoning",
+          "sources": [
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2310.01798"
+          ]
+        },
+        {
+          "text": "The most defensible production pattern is therefore a hybrid one in which flexible agentic components operate inside bounded tools and telemetry envelopes, while deterministic logic remains authoritative for final approvals, denials, or other consequential state changes",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq5-1-stochastic-vs-deterministic-failures": {
       "named_concepts": [
         "language model",
