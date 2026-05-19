@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "f0637b125266fafe630d6f88694777784432e042"
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq1-2-deutsch-hard-to-vary.md
+    summary: "Initial completion"
 ---
 
 # Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence
