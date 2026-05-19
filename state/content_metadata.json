@@ -1,6 +1,95 @@
 {
-  "extracted_at": "2026-05-19T01:47:47Z",
+  "extracted_at": "2026-05-19T02:00:59Z",
   "items": {
+    "2026-05-18-rq1-2-deutsch-hard-to-vary": {
+      "named_concepts": [
+        "interaction dominance",
+        "structural fragility",
+        "patchwork solutions",
+        "popperian filter",
+        "explanatory constraint",
+        "variance-based sensitivity",
+        "internal logical",
+        "logical coupling",
+        "hard-to-vary explanations",
+        "mechanistic models",
+        "hard-to-vary criterion",
+        "cross-environment consistency",
+        "single metric",
+        "component influence",
+        "parameter space",
+        "internal constraints",
+        "constraints exposes",
+        "exposes structural",
+        "empirical testing",
+        "admissible variation"
+      ],
+      "source_urls": [
+        "https://www.penguin.com.au/books/the-beginning-of-infinity-9780140278163",
+        "https://arxiv.org/abs/2009.00329",
+        "https://www.wiley.com/en-us/Global+Sensitivity+Analysis%3A+The+Primer-p-9780470059975",
+        "https://publications.jrc.ec.europa.eu/repository/handle/JRC52955",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5473177/",
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030189",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/",
+        "https://arxiv.org/abs/1608.05679",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/"
+      ],
+      "key_claims": [
+        {
+          "text": "Deutsch's hard-to-vary criterion complements the Popperian filter formalised in RQ 1.1 because it evaluates internal explanatory constraint before new evidence is gathered, whereas Popper evaluates excluded observations and risky tests after confrontation with data",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md",
+            "https://plato.stanford.edu/entries/popper/",
+            "https://arxiv.org/abs/2009.00329"
+          ]
+        },
+        {
+          "text": "Parascandolo et al. operationalise Deutsch's idea by defining consistency for minima across environments and by treating low-consistency minima as patchwork solutions that are likely to memorise rather than capture invariant mechanisms",
+          "sources": [
+            "https://arxiv.org/abs/2009.00329"
+          ]
+        },
+        {
+          "text": "Variance-based sensitivity analysis supplies a measurable notion of internal logical coupling because the gap between a component's total effect and first-order effect quantifies how much explanatory work depends on coordinated interaction with other components",
+          "sources": [
+            "https://publications.jrc.ec.europa.eu/repository/handle/JRC52955",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC5473177/"
+          ]
+        },
+        {
+          "text": "Research on sloppiness, broad parameter directions that leave predictions nearly unchanged, and on structural identifiability, whether a model structure permits a unique parameter solution, shows that easy variation appears as broad parameter regions, whereas hard-to-vary explanations occupy comparatively small stiff regions",
+          "sources": [
+            "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030189",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/",
+            "https://arxiv.org/abs/1608.05679"
+          ]
+        },
+        {
+          "text": "A usable formal score for hard-to-vary-ness is therefore a composite of cross-environment consistency, interaction dominance, and admissible-variation volume, because no one of those quantities alone distinguishes genuine explanatory constraint from mere brittleness or mere good fit",
+          "sources": [
+            "https://arxiv.org/abs/2009.00329",
+            "https://publications.jrc.ec.europa.eu/repository/handle/JRC52955",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/"
+          ]
+        },
+        {
+          "text": "Varying internal constraints exposes structural fragility before empirical testing when the same fitted model can be rewritten through many compensating parameter changes, when minima disappear outside pooled data, or when component influence remains mostly separable rather than jointly constrained",
+          "sources": [
+            "https://arxiv.org/abs/2009.00329",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC5473177/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC9994762/"
+          ]
+        },
+        {
+          "text": "In the contrast reviewed here, flexible deep neural networks trained only for prediction are more likely than compact mechanistic models to score lower on this criterion, while hybrid scientific machine learning systems can raise their score when architecture and training explicitly enforce governing structure or cross-environment invariance",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/",
+            "https://arxiv.org/abs/2009.00329"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq1-1-popper-falsifiability": {
       "named_concepts": [
         "description length",
