@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 14f9a38a97c8f40ccac36b5bd097d69d289590dc
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq5-2-flexibility-vs-predictability-auditability.md
+    summary: "Initial completion"
 ---
 
 # Research Question 5.2: Flexibility vs. Predictability, How the Agentic Tradeoff Affects Auditability and Formal Verification in Production Pipelines
