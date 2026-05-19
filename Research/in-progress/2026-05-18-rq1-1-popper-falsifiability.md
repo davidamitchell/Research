@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
