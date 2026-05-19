@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
