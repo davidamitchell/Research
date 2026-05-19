@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "RQ 6.1: The Halting Problem and Rice's Theorem, the Absolute Boundary of Static Analysis for Coded Systems"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
