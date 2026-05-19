@@ -333,6 +333,12 @@ easily-detectable issues.
     or other early uncited prose, either attach an authoritative source at that
     first use or rewrite the phrase into plain descriptive language before the
     first review run.
+    **Run this check explicitly on the Research Question itself before writing
+    `§0 Initialise`.** If the Research Question introduces a coined synthesis
+    term or a central theoretical label, either define it in plain language in
+    the question text or bind the first use there to an authoritative external
+    source, because the first-use requirement is document-wide rather than
+    Findings-only.
     **Do not rely on another completed repository item as the only first-use
     definition source for a central domain term.** If the term is carrying the
     argument, for example AIBOM, legibility, or another synthesis label, bind
