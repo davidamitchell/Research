@@ -115,11 +115,6 @@ Bender et al.'s "Stochastic Parrot" critique framed the central risk as fluent s
 
 ### §2 Investigation
 
-#### Access notes
-
-- Access note: Bender et al. DOI landing returned 403 here; claim extraction used an accessible PDF mirror carrying the same title, venue, DOI, and abstract.
-- Access note: Webb et al. Nature DOI page was not useful in this renderer; claim extraction used the linked arXiv version.
-
 #### A. What the Stochastic Parrot frame predicts
 
 - [fact] Bender et al. describe the recent language-model trajectory as one that pushes benchmark performance through scale while raising the question of whether fluent form is being mistaken for grounded capability. [source: https://treasures.scss.tcd.ie/miscellany/TCD-SCSS-X.20121208.002/AI-fabrications-related-articles/20210201-StochasticParrots-Proc2021ACM.pdf]
