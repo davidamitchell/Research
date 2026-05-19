@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-05-19T12:01:45Z",
+  "extracted_at": "2026-05-19T12:15:38Z",
   "items": {
+    "2026-05-18-rq4-2-adversarial-error-propagation": {
+      "named_concepts": [
+        "prompt injection",
+        "language model",
+        "independent correction",
+        "semantic error",
+        "error grows",
+        "path dependence",
+        "indirect prompt",
+        "model applications",
+        "expected semantic",
+        "environmental shift",
+        "one shared",
+        "environmental shifts",
+        "multi-step tool-using",
+        "one isolated",
+        "tool calls",
+        "agent loops",
+        "injection succeeds",
+        "retrieved content",
+        "strategy selection",
+        "later tool"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html",
+        "https://www.anthropic.com/research/trustworthy-agents",
+        "https://arxiv.org/abs/1606.06565",
+        "https://arxiv.org/abs/1412.6572",
+        "https://arxiv.org/abs/2211.09527",
+        "https://arxiv.org/abs/2205.01663",
+        "https://arxiv.org/abs/2302.12173",
+        "https://arxiv.org/abs/2312.14197",
+        "https://arxiv.org/abs/2310.01798",
+        "https://aclanthology.org/2024.emnlp-main.714/",
+        "https://owasp.org/www-community/attacks/PromptInjection",
+        "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+        "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/"
+      ],
+      "key_claims": [
+        {
+          "text": "Indirect prompt injection succeeds because tool-using Large Language Model applications routinely concatenate retrieved content with user instructions, leaving models unable to reliably separate informational context from actionable commands",
+          "sources": [
+            "https://arxiv.org/abs/2302.12173",
+            "https://arxiv.org/abs/2312.14197",
+            "https://owasp.org/www-community/attacks/PromptInjection"
+          ]
+        },
+        {
+          "text": "Once the loop's perception stage encodes a corrupted task state, strategy selection can remain internally coherent while optimizing for the wrong objective, so later tool calls inherit rather than repair the original semantic error",
+          "sources": [
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html",
+            "https://arxiv.org/abs/2302.12173"
+          ]
+        },
+        {
+          "text": "Tool use and persistent memory can extend adversarial corruption beyond one response by letting a locally plausible mistake change external state and, in documented cases, influence later sessions",
+          "sources": [
+            "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+            "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/",
+            "https://arxiv.org/abs/2302.12173"
+          ]
+        },
+        {
+          "text": "Generic self-verification by the same model class is not an independent safety layer, because intrinsic self-correction remains weak without external feedback and usually inspects the same contaminated context that produced the original mistake",
+          "sources": [
+            "https://arxiv.org/abs/2310.01798",
+            "https://arxiv.org/abs/2312.14197",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html"
+          ]
+        },
+        {
+          "text": "Structured verification can recover some reasoning errors only when it introduces extra constraints such as explicit condition isolation, which shows that correction comes from added independence rather than from reflection alone",
+          "sources": [
+            "https://aclanthology.org/2024.emnlp-main.714/",
+            "https://arxiv.org/abs/2310.01798"
+          ]
+        },
+        {
+          "text": "Unexpected environmental shifts and adversarial prompting are propagation-equivalent at the loop level when they both create observations that look familiar to the model while no longer preserving the environment's real causal structure",
+          "sources": [
+            "https://arxiv.org/abs/1606.06565",
+            "https://arxiv.org/abs/2205.01663",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html"
+          ]
+        },
+        {
+          "text": "A useful formal approximation is that expected semantic error grows across repeated steps whenever path-dependent amplification and persistence exceed the error removed by independent correction signals",
+          "sources": [
+            "https://arxiv.org/abs/2310.01798",
+            "https://arxiv.org/abs/2302.12173",
+            "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq4-1-agentic-loop-explanatory-reach": {
       "named_concepts": [
         "language model",

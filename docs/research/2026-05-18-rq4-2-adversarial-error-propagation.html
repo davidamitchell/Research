@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Research loop evaluation rubric — Research</title>
+          <title>Research Question 4.2 — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -679,157 +679,119 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Research loop evaluation rubric</span>
+    <span>Research Question 4.2</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research loop evaluation rubric</h1>
-  <p class="full-title-subtitle">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research Question 4.2</h1>
+  <p class="full-title-subtitle">Research Question 4.2: Adversarial inputs and error propagation through multi-step tool-using verification and strategy phases</p>
   <div class="meta-bar">
-    <span>2026-03-14</span>
+    <span>2026-05-18</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/ci.html">ci</a> 
+    <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-research-loop-evaluation-rubric.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-2-adversarial-error-propagation.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-research-loop-evaluation-rubric" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-18-rq4-2-adversarial-error-propagation" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The only tooling approach satisfying this repository&#39;s no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high</li>
-<li>The research loop agent&#39;s three most structurally significant failure modes per the protocol specification — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high</li>
-<li>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high</li>
-<li>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high</li>
-<li>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single `OVERALL: PASS` or `OVERALL: FAIL` line, enabling CI parsing with a simple `grep` command — the same approach proven reliable in the existing `research-review.yml` workflow. Confidence: high</li>
-<li>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high</li>
-<li>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever `research-prompt.md` or `SKILL.md` changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium</li>
-<li>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Indirect prompt injection succeeds because tool-using Large Language Model applications routinely concatenate retrieved content with user instructions, leaving models unable to reliably separate informational context from actionable commands<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2302.12173" target="_blank" rel="noopener" title="https://arxiv.org/abs/2302.12173">Greshake et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2312.14197" target="_blank" rel="noopener" title="https://arxiv.org/abs/2312.14197">Yi et al. (2025)</a><a class="claim-source-link" href="https://owasp.org/www-community/attacks/PromptInjection" target="_blank" rel="noopener" title="https://owasp.org/www-community/attacks/PromptInjection">Owasp (n.d.)</a></span></li>
+<li>Once the loop&#39;s perception stage encodes a corrupted task state, strategy selection can remain internally coherent while optimizing for the wrong objective, so later tool calls inherit rather than repair the original semantic error<span class="claim-sources"><a class="claim-source-link" href="https://www.anthropic.com/research/trustworthy-agents" target="_blank" rel="noopener" title="https://www.anthropic.com/research/trustworthy-agents">Anthropic (2026)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">Mitchell (2026)</a><a class="claim-source-link" href="https://arxiv.org/abs/2302.12173" target="_blank" rel="noopener" title="https://arxiv.org/abs/2302.12173">Greshake et al. (2023)</a></span></li>
+<li>Tool use and persistent memory can extend adversarial corruption beyond one response by letting a locally plausible mistake change external state and, in documented cases, influence later sessions<span class="claim-sources"><a class="claim-source-link" href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks" target="_blank" rel="noopener" title="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">Microsoft (2025)</a><a class="claim-source-link" href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/" target="_blank" rel="noopener" title="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">Paloaltonetworks (n.d.)</a><a class="claim-source-link" href="https://arxiv.org/abs/2302.12173" target="_blank" rel="noopener" title="https://arxiv.org/abs/2302.12173">Greshake et al. (2023)</a></span></li>
+<li>Generic self-verification by the same model class is not an independent safety layer, because intrinsic self-correction remains weak without external feedback and usually inspects the same contaminated context that produced the original mistake<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.01798">Huang et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2312.14197" target="_blank" rel="noopener" title="https://arxiv.org/abs/2312.14197">Yi et al. (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">Mitchell (2026)</a></span></li>
+<li>Structured verification can recover some reasoning errors only when it introduces extra constraints such as explicit condition isolation, which shows that correction comes from added independence rather than from reflection alone<span class="claim-sources"><a class="claim-source-link" href="https://aclanthology.org/2024.emnlp-main.714/" target="_blank" rel="noopener" title="https://aclanthology.org/2024.emnlp-main.714/">Wu et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.01798">Huang et al. (2024)</a></span></li>
+<li>Unexpected environmental shifts and adversarial prompting are propagation-equivalent at the loop level when they both create observations that look familiar to the model while no longer preserving the environment&#39;s real causal structure<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/1606.06565" target="_blank" rel="noopener" title="https://arxiv.org/abs/1606.06565">Amodei et al. (2016)</a><a class="claim-source-link" href="https://arxiv.org/abs/2205.01663" target="_blank" rel="noopener" title="https://arxiv.org/abs/2205.01663">Ziegler et al. (2022)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">Mitchell (2026)</a></span></li>
+<li>A useful formal approximation is that expected semantic error grows across repeated steps whenever path-dependent amplification and persistence exceed the error removed by independent correction signals<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2310.01798" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.01798">Huang et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2302.12173" target="_blank" rel="noopener" title="https://arxiv.org/abs/2302.12173">Greshake et al. (2023)</a><a class="claim-source-link" href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/" target="_blank" rel="noopener" title="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">Paloaltonetworks (n.d.)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>What structured rubric should be used to evaluate the outputs of this repository's research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval gate for that rubric look like? The rubric must be specific enough to produce reproducible Large Language Model (LLM)-as-judge scores, version-controlled alongside the agent prompt, and executable in CI without prohibitive cost.</p>
+<p>How do adversarial inputs or unexpected environmental shifts propagate error through a multi-step tool-using Large Language Model (LLM) system's verification and strategy-selection phases when the underlying model lacks grounded knowledge of how actions and environmental changes actually produce outcomes in the system?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
+<p>Adversarial inputs and environmental shifts propagate through multi-step tool-using Large Language Model systems mainly by corrupting the working state that later strategy and verification steps reuse, not by causing one isolated bad output.</p>
+<p>When verification is implemented as another free-form judgment from the same model on the same context, it is usually not an independent check and cannot reliably detect blind-spot-consistent errors.</p>
+<p>Prompt injection, meaning malicious instructions embedded in content that the model later treats as authoritative instructions, is the clearest empirical example in this item because attacker text can be ingested as data, reinterpreted as instructions, and then propagated through tool calls, memory summaries, or future plans.</p>
+<p>The best-supported formal picture is an amplification process in which error grows whenever path dependence and persistence outpace independent correction, which means agent loops without external verifiers mostly redistribute and sometimes magnify causal ignorance rather than curing it.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
-</li>
-<li>
-<p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
-</li>
-<li>
-<p>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high.</p>
-</li>
-<li>
-<p>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single <code>OVERALL: PASS</code> or <code>OVERALL: FAIL</code> line, enabling CI parsing with a simple <code>grep</code> command — the same approach proven reliable in the existing <code>research-review.yml</code> workflow. Confidence: high.</p>
-</li>
-<li>
-<p>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high.</p>
-</li>
-<li>
-<p>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever <code>research-prompt.md</code> or <code>SKILL.md</code> changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium.</p>
-</li>
-<li>
-<p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
-</li>
-<li>
-<p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
-</li>
+<li><strong>Indirect prompt injection succeeds because tool-using Large Language Model applications routinely concatenate retrieved content with user instructions, leaving models unable to reliably separate informational context from actionable commands.</strong></li>
+<li><strong>Once the loop's perception stage encodes a corrupted task state, strategy selection can remain internally coherent while optimizing for the wrong objective, so later tool calls inherit rather than repair the original semantic error.</strong></li>
+<li><strong>Tool use and persistent memory can extend adversarial corruption beyond one response by letting a locally plausible mistake change external state and, in documented cases, influence later sessions.</strong></li>
+<li><strong>Generic self-verification by the same model class is not an independent safety layer, because intrinsic self-correction remains weak without external feedback and usually inspects the same contaminated context that produced the original mistake.</strong></li>
+<li><strong>Structured verification can recover some reasoning errors only when it introduces extra constraints such as explicit condition isolation, which shows that correction comes from added independence rather than from reflection alone.</strong></li>
+<li><strong>Unexpected environmental shifts and adversarial prompting are propagation-equivalent at the loop level when they both create observations that look familiar to the model while no longer preserving the environment's real causal structure.</strong></li>
+<li><strong>A useful formal approximation is that expected semantic error grows across repeated steps whenever path-dependent amplification and persistence exceed the error removed by independent correction signals.</strong></li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-<th>Claim</th>
-<th>Source</th>
-<th>Confidence</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Custom Copilot CLI is only feasible approach</td>
-<td>AGENTS.md credentials table; DeepEval docs; Pydantic Evals docs; agentevals README</td>
-<td>high</td>
-<td>Credential constraint is explicit in AGENTS.md</td>
-</tr>
-<tr>
-<td>Acronym non-expansion is most frequent failure</td>
-<td>research-prompt.md Step 6 header (&quot;#1 cause of review failures&quot;)</td>
-<td>high</td>
-<td>Explicit statement in the protocol document</td>
-</tr>
-<tr>
-<td>Executive Summary first-sentence quality is diagnostic</td>
-<td>research-prompt.md Step 5 Executive Summary spec</td>
-<td>high</td>
-<td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>A1:</strong> The Copilot CLI can evaluate a 9-dimension rubric prompt for a 10,000-word research item within 5 minutes. Justification: the existing review workflow applies three separate skill checks on similarly sized items within the 30-minute timeout; a single rubric prompt of comparable length is unlikely to exceed 5 minutes.</li>
-<li><strong>A2:</strong> A gold dataset of 3–5 manually audited items is sufficient for an initial regression baseline. Justification: minimum viable approach for a single-agent system with a stable protocol; more items increase coverage but are not required to start.</li>
-<li><strong>A3:</strong> The owner will not approve OpenAI or Anthropic API credentials for this use case. Justification: the AGENTS.md constraint explicitly requires owner approval for new credentials, and the Copilot CLI approach provides equivalent functionality without new credentials.</li>
+<li>The Anthropic agent-loop description and Research Question 4.1 together represent the common structure of contemporary multi-step tool-using systems closely enough for a structural propagation model.</li>
+<li>Expected semantic error magnitude is an acceptable synthesis variable even though the cited studies report attack success, accuracy, or qualitative failure rather than one shared scalar measurement.</li>
+<li>Environmental shift can be grouped with adversarial input for propagation analysis because the mechanism under study is misleading observation entering a recurrent loop, not attacker intent itself.</li>
 </ul>
 <h3>Analysis</h3>
-<p>The credential constraint is the binding design decision. All named evaluation frameworks require credentials beyond those available, so the tooling selection is deterministic given the constraints. The evaluation framework design question then becomes: how to maximise rubric quality using only the Copilot CLI?</p>
-<p>The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs [inference]. This makes them the most diagnostic indicators of incomplete protocol execution.</p>
+<p>The strongest evidence in this item is on indirect prompt injection and intrinsic self-correction, because those claims rest on direct primary studies and official security guidance rather than on analogy alone.</p>
+<p>The weakest element is the cross-domain bridge from classical adversarial examples to language-model agent loops, so Goodfellow et al. is used here to motivate the adversarial-input framing rather than as direct evidence about tool-using Large Language Model applications.</p>
+<p>Wu et al. is the main rival interpretation because it shows that models can sometimes improve answers during verification, but its gains require key-condition isolation rather than unconstrained reflection, which supports rather than contradicts the independence claim.</p>
+<p>Another rival explanation is that failures arise only from overly permissive tools rather than from model-level causal limits, but Greshake, Yi, and Microsoft all show that misclassification of context as instructions already misroutes the loop before any one tool policy is discussed.</p>
+<p>The formal propagation model is therefore best read as a structural synthesis: attack severity depends on path dependence, persistence, and verifier independence, not only on raw model accuracy at one isolated step.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>Judge model drift:</strong> The Copilot CLI model may change without notice, causing score drift over time. Accepted risk; mitigated by versioning the rubric prompt and monitoring score distributions.</li>
-<li><strong>Rubric calibration:</strong> The 1–5 anchors need calibration against real items. If 80%+ of items score 4–5 on a given dimension, the anchors are too loose and should be tightened.</li>
-<li><strong>Copilot API availability:</strong> The eval gate has the same COPILOT_GITHUB_TOKEN dependency as the existing review workflow; if access changes, both fail. Accepted risk.</li>
-<li><strong>Gold set refresh discipline:</strong> The gold set refresh requirement is easy to forget when <code>research-prompt.md</code> is updated. A TODO comment in the research protocol or a <code>CODEOWNERS</code> rule linking protocol changes to gold set reviews would reduce this risk.</li>
+<li>No cited source directly estimates one shared numeric amplification coefficient across full plan-act-verify loops, so the formal equation is structural rather than benchmark-calibrated.</li>
+<li>The cited evidence on cross-session memory poisoning in this item comes from a proof of concept and vendor guidance rather than from a multi-platform benchmark study.</li>
+<li>The environmental-shift argument is strongest at the structural level and weaker at the level of one shared empirical benchmark that jointly measures shift, tool use, and verification failure in the same loop.</li>
 </ul>
 <h3>Open Questions</h3>
-<ol>
-<li><strong>Rubric prompt text:</strong> Writing the exact prompt text (dimension definitions, scoring anchors, output format specification) is the primary implementation task and is out of scope for this research item. A separate task should produce <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>CI workflow YAML:</strong> The CI workflow design is specified here in prose; the YAML implementation is a separate backlog task.</li>
-<li><strong>Score history:</strong> Should dimension scores be persisted in a JavaScript Object Notation (JSON) file in the repository for trend tracking? This would enable automated detection of systematic quality degradation across items.</li>
-<li><strong>First three gold items:</strong> Which completed items in <code>Research/completed/</code> should be designated as the initial gold set? This requires a manual audit pass.</li>
-</ol>
-<h3>Output</h3>
 <ul>
-<li><strong>Type:</strong> knowledge, artefact</li>
-<li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>Key sources:</strong>
-<ol>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain evals guide</a></li>
-<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge">Pydantic LLM-as-a-Judge article</a></li>
-<li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>
-</ol>
-</li>
+<li>Which benchmark design best measures full-loop propagation, including planning, tool use, memory, and verification, under both prompt injection and non-malicious environmental shift?</li>
+<li>How much independent correction is added by deterministic policy engines, typed tool interfaces, or formal verifiers compared with model-only verification?</li>
+<li>When does memory persistence improve robustness by preserving context, and when does it mainly extend the lifetime of semantically corrupted state?</li>
 </ul>
+<hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <code>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code> — the framework that motivates this item</li>
-<li>[x] <a href="https://ai.pydantic.dev/evals/">Pydantic Evals documentation</a></li>
-<li>[x] <a href="https://pydantic.dev/articles/llm-as-a-judge">Pydantic LLM-as-a-Judge article</a></li>
-<li>[x] <a href="https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide">DeepEval agent evaluation guide</a></li>
-<li>[x] <a href="https://hamel.dev/blog/posts/evals/">Hamel Husain evals guide</a></li>
-<li>[x] <a href="https://github.com/langchain-ai/agentevals">langchain-ai/agentevals</a></li>
-<li>[ ] <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">Anthropic &quot;Writing effective tools for AI agents&quot;</a></li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">Mitchell (2026) Research Question 4.1: Tool-feedback loops and explanatory reach</a> - prior completed item on loop-level causal limits and path-dependent error.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">Mitchell (2026) Artificial Intelligence security threat model for prompt injection, Retrieval-Augmented Generation, supply chain compromise, and data exfiltration</a> - prior completed item on structural prompt-injection risk in tool-using systems.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html">Mitchell (2026) Integrated cascading failure in agentic versus generative Artificial Intelligence risk</a> - prior completed synthesis on persistence and blast radius in multi-step systems.</li>
+<li>[x] <a href="https://www.anthropic.com/research/trustworthy-agents">Anthropic (2026) Trustworthy agents</a> - accessible definition of an agent loop and its oversight surfaces.</li>
+<li>[x] <a href="https://arxiv.org/abs/1606.06565">Amodei et al. (2016) Concrete Problems in Artificial Intelligence (AI) Safety</a> - distributional shift as a practical safety problem.</li>
+<li>[x] <a href="https://arxiv.org/abs/1412.6572">Goodfellow et al. (2015) Explaining and Harnessing Adversarial Examples</a> - canonical adversarial-example framing for high-confidence error under worst-case perturbation.</li>
+<li>[x] <a href="https://arxiv.org/abs/2211.09527">Perez and Ribeiro (2022) Ignore Previous Prompt: Attack Techniques For Language Models</a> - direct prompt-injection evidence showing goal hijacking and prompt leaking in deployed Large Language Models.</li>
+<li>[x] <a href="https://arxiv.org/abs/2205.01663">Ziegler et al. (2022) Adversarial Training for High-Stakes Reliability</a> - empirical evidence that adversarial robustness is attack-specific rather than automatic.</li>
+<li>[x] <a href="https://arxiv.org/abs/2302.12173">Greshake et al. (2023) Not what you've signed up for: Compromising Real-World Large Language Model-Integrated Applications with Indirect Prompt Injection</a> - foundational indirect prompt-injection paper.</li>
+<li>[x] <a href="https://arxiv.org/abs/2312.14197">Yi et al. (2025) Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models</a> - benchmark evidence that evaluated models remain vulnerable because they do not reliably distinguish context from instructions.</li>
+<li>[x] <a href="https://arxiv.org/abs/2310.01798">Huang et al. (2024) Large Language Models Cannot Self-Correct Reasoning Yet</a> - primary evidence on intrinsic self-correction limits.</li>
+<li>[x] <a href="https://aclanthology.org/2024.emnlp-main.714/">Wu et al. (2024) Large Language Models Can Self-Correct with Key Condition Verification</a> - evidence that structured verification can outperform generic self-correction.</li>
+<li>[x] <a href="https://owasp.org/www-community/attacks/PromptInjection">Open Worldwide Application Security Project (OWASP) Prompt Injection</a> - accessible explanation of the prompt-injection semantic gap and attack forms.</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">Microsoft (2025) How Microsoft defends against indirect prompt injection attacks</a> - official description of tool-mediated exfiltration and unintended-action pathways.</li>
+<li>[x] <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">Unit 42 (2025) Indirect prompt injection poisons Artificial Intelligence (AI) long-term memory</a> - proof of concept showing cross-session propagation through memory summarization.</li>
 </ul>
 <hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> <span class="related-note">via agentic-ai, evaluation, regression</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html">Research Question 4.2: Adversarial inputs and error propagation through multi-step tool-using verification and strategy phases</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-18-agentic-explainability-vs-traditional.html">Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable Than Equivalently Scoped Deterministic Software Systems?</a> <span class="related-note">via agentic-ai, evaluation</span></div>
-<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html">Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution</a> <span class="related-note">via agentic-ai, evaluation</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-18-agentic-explainability-vs-traditional.html">Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable Than Equivalently Scoped Deterministic Software Systems?</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html">Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.html">Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html">Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation</a> <span class="related-note">via agentic-ai, evaluation, llm</span></div>
 </div></div>
 
-  
-  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html">What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html">How do coupled enterprise risks manifest differently in agentic Artificial Intelligence (AI), meaning autonomous multi-step systems, versus generative AI deployments, and what integrated risk frameworks best predict cascading failures?</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html">Human cognitive bias toward Artificial Intelligence (AI) correctness and explainability: automation bias, Reinforcement Learning from Human Feedback (RLHF) sycophancy, and mechanistic interpretability limits</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <span>2026-05-18-rq4-3-ood-generalization-agentic</span></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-19</td><td><a href="https://github.com/davidamitchell/Research/commit/b550c0e1c1c9c8842f1b731a50fddab3b05e5ee8" target="_blank" rel="noopener">b550c0e</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html">RQ 4.1</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -840,7 +802,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-03-10-research-loop-evaluation-rubric";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-18-rq4-2-adversarial-error-propagation";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;
