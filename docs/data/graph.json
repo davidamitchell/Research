@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T10:44:39Z",
-  "node_count": 368,
-  "edge_count": 2188,
+  "generated": "2026-05-19T10:51:08Z",
+  "node_count": 369,
+  "edge_count": 2196,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2211,6 +2211,12 @@
       "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html"
+    },
+    {
+      "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "title": "Human-AI Cognitive Divergence Risk",
+      "type": "synthesis",
+      "url": "/Research/knowledge/2026-05-19-human-ai-cognitive-divergence-risk.html"
     }
   ],
   "edges": [
@@ -19717,6 +19723,70 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-02-28-interoception-and-the-predictive-self",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
+    },
+    {
+      "source": "2026-05-19-human-ai-cognitive-divergence-risk",
+      "target": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-human-ai-cognitive-divergence-risk"
     }
   ]
 }
