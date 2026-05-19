@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
