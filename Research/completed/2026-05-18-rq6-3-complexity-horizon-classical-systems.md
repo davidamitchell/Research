@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e260e4419c598852c2812c13a2a21f4891035ceb
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq6-3-complexity-horizon-classical-systems.md
+    summary: "Initial completion"
 ---
 
 # Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks
