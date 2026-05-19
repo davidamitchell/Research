@@ -2,13 +2,13 @@
 review_count: 2
 title: "Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable Than Equivalently Scoped Deterministic Software Systems?"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-agentic-production-tradeoffs
 tags: [agentic-ai, llm, governance, evaluation]
 started: 2026-05-19T00:54:38+00:00
-completed: ~
+completed: 2026-05-19T01:14:38+00:00
 output: [knowledge]
 cites:
   - 2026-04-26-ai-lowcode-observability-telemetry-governance
