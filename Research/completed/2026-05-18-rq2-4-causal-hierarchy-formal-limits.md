@@ -2,13 +2,13 @@
 review_count: 2
 title: "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq3-1-llm-statistical-vs-causal
 tags: [causal-inference, machine-learning, formal-methods, epistemology, invariants]
 started: 2026-05-19T09:32:53+00:00
-completed: ~
+completed: 2026-05-19T09:56:54+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq2-1-erm-causal-blindness
