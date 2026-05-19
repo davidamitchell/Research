@@ -1,6 +1,100 @@
 {
-  "extracted_at": "2026-05-19T21:06:26Z",
+  "extracted_at": "2026-05-19T21:20:39Z",
   "items": {
+    "2026-05-18-rq6-2-state-explosion-chaos-theory": {
+      "named_concepts": [
+        "state space",
+        "adversarial fragility",
+        "adversarial examples",
+        "race conditions",
+        "initial differences",
+        "machine learning",
+        "chaotic sensitivity",
+        "space explosion",
+        "machine-learning fragility",
+        "perturbation sensitivity",
+        "coded systems",
+        "core mechanism",
+        "worst-case perturbations",
+        "force high-confidence",
+        "high-dimensional linear",
+        "logical clocks",
+        "concurrent systems",
+        "reachable state",
+        "deterministic equations",
+        "later states"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1175/1520-0469(1963",
+        "https://www.ams.org/publicoutreach/feature-column/fcarc-lorenz",
+        "https://lamport.azurewebsites.net/pubs/time-clocks.pdf",
+        "https://doi.org/10.1145/359545.359563",
+        "https://mitpress.mit.edu/9780262038553/model-checking/",
+        "https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf",
+        "https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html",
+        "https://cwe.mitre.org/data/definitions/362.html",
+        "https://arxiv.org/abs/1412.6572",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq2-3-predictive-model-fragility.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html"
+      ],
+      "key_claims": [
+        {
+          "text": "State space explosion in concurrent systems is a genuine exponential-growth problem, because the reachable state space often grows exponentially in the number of processes and variables rather than merely linearly with added components",
+          "sources": [
+            "https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf"
+          ]
+        },
+        {
+          "text": "Race conditions are the runtime symptom of that explosion, because multiple valid interleavings of simple read-modify-write operations can produce different outcomes from the same code and nominal input",
+          "sources": [
+            "https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html",
+            "https://cwe.mitre.org/data/definitions/362.html",
+            "https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf"
+          ]
+        },
+        {
+          "text": "Lorenz's deterministic nonperiodic-flow result shows that deterministic equations can still yield practical unpredictability when small initial differences grow into considerably different later states. (; medium confidence; source: https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2; https://www.ams.org/publicoutreach/feature-column/fcarc-lorenz)",
+          "sources": [
+            "https://doi.org/10.1175/1520-0469(1963"
+          ]
+        },
+        {
+          "text": "Adversarial examples show small-perturbation vulnerability inside machine learning, and this item treats that result as an analogous sensitivity pattern because small worst-case perturbations can force high-confidence misclassification through high-dimensional linear behavior",
+          "sources": [
+            "https://arxiv.org/abs/1412.6572"
+          ]
+        },
+        {
+          "text": "Across concurrency, chaos, and adversarial learning, small local perturbations can trigger much larger qualitative behavioral changes than a simple reading of the governing rules would suggest. (; medium confidence; source: https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf; https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2; https://arxiv.org/abs/1412.6572)",
+          "sources": [
+            "https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf",
+            "https://doi.org/10.1175/1520-0469(1963"
+          ]
+        },
+        {
+          "text": "The analogy stops at mechanism, because chaotic sensitivity tracks divergence of nearby trajectories through time while adversarial fragility usually tracks local instability of a learned classifier around a decision boundary at inference time. (; medium confidence; source: https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2; https://arxiv.org/abs/1412.6572)",
+          "sources": [
+            "https://doi.org/10.1175/1520-0469(1963"
+          ]
+        },
+        {
+          "text": "Lamport's happened-before relation provides a rigorous partial-order framework for causal ordering in distributed systems, but concurrent events remain those for which neither event happens before the other",
+          "sources": [
+            "https://lamport.azurewebsites.net/pubs/time-clocks.pdf"
+          ]
+        },
+        {
+          "text": "This item extends Research Question 6.1 and Research Question 2.3 together by showing that formal impossibility and structural fragility are complementary rather than competing explanations of why deterministic coded systems can still be hard to predict, verify, or stabilize. (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html; https://davidamitchell.github.io/Research/research/2026-05-18-rq2-3-predictive-model-fragility.html; https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf; https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2)",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq2-3-predictive-model-fragility.html",
+            "https://www.cs.vsb.cz/kot/down/Texts/StateSpace.pdf",
+            "https://doi.org/10.1175/1520-0469(1963"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq6-1-halting-problem-static-analysis": {
       "named_concepts": [
         "coded systems",

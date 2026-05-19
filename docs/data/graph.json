@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T21:06:31Z",
-  "node_count": 377,
-  "edge_count": 2270,
+  "generated": "2026-05-19T21:20:43Z",
+  "node_count": 378,
+  "edge_count": 2276,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2259,6 +2259,12 @@
       "title": "RQ 6.1: The Halting Problem and Rice's Theorem, the Absolute Boundary of Static Analysis for Coded Systems",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html"
+    },
+    {
+      "slug": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "title": "Research Question 6.2: State Space Explosion and Deterministic Chaos, Fragility Shared Between Concurrent Coded Systems and Machine Learning Models",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq6-2-state-explosion-chaos-theory.html"
     },
     {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -19438,14 +19444,6 @@
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
-      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "epistemology,machine-learning,philosophy-of-science",
-      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
-    },
-    {
-      "source": "2026-05-18-rq1-1-popper-falsifiability",
       "target": "2026-05-18-rq2-3-predictive-model-fragility",
       "weight": 3,
       "rel": "tag-overlap",
@@ -19467,6 +19465,14 @@
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,philosophy-of-science",
       "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,machine-learning",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
     },
     {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
@@ -19531,6 +19537,14 @@
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,philosophy-of-science",
       "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+      "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,machine-learning",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
     },
     {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
@@ -19701,14 +19715,6 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
-      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "epistemology,philosophy-of-science",
-      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
-    },
-    {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "weight": 4,
@@ -19765,6 +19771,14 @@
       "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
     },
     {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,machine-learning",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+    },
+    {
       "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 3,
@@ -19819,6 +19833,14 @@
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods",
       "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,machine-learning",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
     },
     {
       "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
@@ -20363,6 +20385,38 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+    },
+    {
+      "source": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "target": "2026-05-18-rq2-3-predictive-model-fragility",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+    },
+    {
+      "source": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+    },
+    {
+      "source": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",
