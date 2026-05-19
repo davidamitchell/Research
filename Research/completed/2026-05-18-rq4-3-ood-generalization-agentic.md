@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 4f69d9f0eeb1b372dd4d8f3540a4891259381300
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq4-3-ood-generalization-agentic.md
+    summary: "Initial completion"
 ---
 
 # Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs
