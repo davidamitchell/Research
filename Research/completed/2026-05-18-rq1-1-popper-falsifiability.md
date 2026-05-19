@@ -2,7 +2,7 @@
 review_count: 1
 title: "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq1-2-deutsch-hard-to-vary
@@ -10,7 +10,7 @@ blocks:
   - 2026-05-18-rq6-1-halting-problem-static-analysis
 tags: [epistemology, philosophy-of-science, machine-learning, formal-methods]
 started: 2026-05-19T01:16:22+00:00
-completed: ~
+completed: 2026-05-19T01:36:04+00:00
 output: [knowledge]
 cites:
   - 2026-02-28-predictive-processing-active-inference
