@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-19T20:47:55Z",
-  "node_count": 376,
-  "edge_count": 2262,
+  "generated": "2026-05-19T20:55:33Z",
+  "node_count": 377,
+  "edge_count": 2270,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2253,6 +2253,12 @@
       "title": "Research Question 5.2: Flexibility vs. Predictability, How the Agentic Tradeoff Affects Auditability and Formal Verification in Production Pipelines",
       "type": "primary",
       "url": "/Research/research/2026-05-18-rq5-2-flexibility-vs-predictability-auditability.html"
+    },
+    {
+      "slug": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "title": "RQ 6.1: The Halting Problem and Rice's Theorem, the Absolute Boundary of Static Analysis for Coded Systems",
+      "type": "primary",
+      "url": "/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html"
     },
     {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -19432,14 +19438,6 @@
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
-      "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "epistemology,machine-learning,philosophy-of-science",
-      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
-    },
-    {
-      "source": "2026-05-18-rq1-1-popper-falsifiability",
       "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
       "weight": 3,
       "rel": "tag-overlap",
@@ -19461,6 +19459,14 @@
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,machine-learning",
       "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,philosophy-of-science",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
     },
     {
       "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
@@ -19517,6 +19523,14 @@
       "rel": "tag-overlap",
       "evidence": "epistemology,formal-methods,invariants,machine-learning",
       "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
+    },
+    {
+      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods,philosophy-of-science",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
     },
     {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
@@ -19687,6 +19701,14 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,philosophy-of-science",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "weight": 4,
@@ -19735,6 +19757,14 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
       "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 3,
@@ -19781,6 +19811,14 @@
       "rel": "tag-overlap",
       "evidence": "causal-inference,epistemology,invariants,machine-learning",
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "epistemology,formal-methods",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
     },
     {
       "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
@@ -20293,6 +20331,38 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-05-18-rq1-1-popper-falsifiability",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

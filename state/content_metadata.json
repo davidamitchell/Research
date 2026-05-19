@@ -1,6 +1,102 @@
 {
-  "extracted_at": "2026-05-19T20:47:51Z",
+  "extracted_at": "2026-05-19T20:55:29Z",
   "items": {
+    "2026-05-18-rq6-1-halting-problem-static-analysis": {
+      "named_concepts": [
+        "coded systems",
+        "non-trivial semantic",
+        "semantic property",
+        "universal exact",
+        "earlier repository",
+        "causal hierarchy",
+        "abstract interpretation",
+        "model checking",
+        "general algorithm",
+        "exact static",
+        "unrestricted coded",
+        "first incompleteness",
+        "incompleteness theorem",
+        "formal arithmetic",
+        "rice limit",
+        "program analysis",
+        "theorem plays",
+        "every non-trivial",
+        "arbitrary general-purpose",
+        "general-purpose programs"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1112/plms/s2-42.1.230",
+        "https://doi.org/10.2307/1990888",
+        "https://doi.org/10.1007/BF01700692",
+        "https://www.cengage.com/c/introduction-to-the-theory-of-computation-3e-sipser/9781133187790/",
+        "https://cs.uwaterloo.ca/~s4bendav/files/CS360S21Lec16.pdf",
+        "https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf",
+        "https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf",
+        "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+        "https://www.di.ens.fr/~cousot/AI/",
+        "https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture18.htm",
+        "https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html",
+        "https://plato.stanford.edu/entries/goedel-incompleteness/"
+      ],
+      "key_claims": [
+        {
+          "text": "The halting problem proves that no general procedure can decide, for every arbitrary program and input pair, whether execution halts, so exact universal termination checking is impossible in the unrestricted case",
+          "sources": [
+            "https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf",
+            "https://cs.uwaterloo.ca/~s4bendav/files/CS360S21Lec16.pdf"
+          ]
+        },
+        {
+          "text": "Rice's Theorem extends this impossibility from termination to every non-trivial semantic property of a program, which means the barrier concerns behavioural meaning rather than one isolated verification task",
+          "sources": [
+            "https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf"
+          ]
+        },
+        {
+          "text": "A static analyser for arbitrary general-purpose programs written in languages expressive enough to simulate general computation cannot therefore be both universal and exact about semantic behaviour, because such a tool would decide a question family that Turing and Rice prove undecidable",
+          "sources": [
+            "https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf",
+            "https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf",
+            "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml"
+          ]
+        },
+        {
+          "text": "Abstract interpretation provides a systematic response to undecidability by analysing concrete executions through abstractions that aim to remain sound while tolerating inaccuracy about concrete behaviour",
+          "sources": [
+            "https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml",
+            "https://www.di.ens.fr/~cousot/AI/"
+          ]
+        },
+        {
+          "text": "Deductive verification hits the same boundary for looping programs, because total-correctness proofs require invariants and termination arguments that are not computable automatically in full generality",
+          "sources": [
+            "https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture18.htm"
+          ]
+        },
+        {
+          "text": "Model checking regains decidability only after the system has been reduced to a finite-state transition model or another bounded abstraction, making algorithmic temporal-logic checking possible on that narrowed domain",
+          "sources": [
+            "https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html"
+          ]
+        },
+        {
+          "text": "Godel's first incompleteness theorem is a disciplined parallel, not a substitute proof, because it limits what a formal arithmetic system can prove while Turing and Rice limit what software analysis can decide",
+          "sources": [
+            "https://plato.stanford.edu/entries/goedel-incompleteness/",
+            "https://doi.org/10.1007/BF01700692",
+            "https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf"
+          ]
+        },
+        {
+          "text": "This theorem family gives coded systems the same kind of hard epistemic boundary that earlier repository items found for scientific demarcation and causal inference, namely that one formal layer does not generically settle every deeper semantic truth",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md",
+            "https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq5-2-flexibility-vs-predictability-auditability": {
       "named_concepts": [
         "model checking",
