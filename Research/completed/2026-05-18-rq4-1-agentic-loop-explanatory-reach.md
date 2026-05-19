@@ -2,13 +2,13 @@
 review_count: 2
 title: "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq4-2-adversarial-error-propagation
 tags: [agentic-ai, llm, causal-inference, evaluation, agent-tooling]
 started: 2026-05-19T11:32:05+00:00
-completed: ~
+completed: 2026-05-19T11:49:46+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq2-4-causal-hierarchy-formal-limits
@@ -99,8 +99,8 @@ This item asks whether adding tools, feedback, and retries changes that conclusi
    1.1 What exactly does a ReAct-style tool-feedback loop add beyond plain next-token generation?
    1.2 Which parts of the loop are still implemented by the same predictive model?
 2. Causal-hierarchy test
-   2.1 Does tool access itself create Level 2 intervention semantics?
-   2.2 Does verification or retry create Level 3 counterfactual reasoning?
+   2.1 Does tool access itself create reliable reasoning about the effects of actions?
+   2.2 Does verification or retry create reliable reasoning about alternate worlds under different actions?
    2.3 If causal reach appears, is it inside the model, or imported from an external tool or environment?
 3. Error cascade
    3.1 How does one early strategy-selection error constrain later tool calls?
@@ -169,7 +169,7 @@ This item asks whether adding tools, feedback, and retries changes that conclusi
 
 - [inference] The strongest charitable reading of agentic loops is not that they are empty wrappers, but that they externalise information gathering, persistence, evaluation, and branching search in ways that the base model alone cannot perform reliably in one shot. [source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2303.11366; https://openreview.net/forum?id=5Xc1ecxO1h]
 - [inference] Even under that charitable reading, the question of explanatory reach stays separate from task success, because a loop can improve end-to-end performance by searching better or calling stronger tools while leaving the model's internal semantics unchanged. [source: https://arxiv.org/abs/2302.07842; https://arxiv.org/abs/2407.08029]
-- [inference] The right classification is therefore layered: local loop performance can improve materially, yet the composite system can still remain mostly an observational controller, meaning a system that maps present inputs to actions without intrinsically modelling interventions or alternate-world counterfactuals, and whose apparent higher-level competence depends on external modules and task structure. [source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2206.10498; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
+- [inference] The right classification is therefore layered: local loop performance can improve materially, yet the composite system still mostly maps present inputs to actions and gets its apparent higher-level competence from external modules and task structure. [source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2206.10498; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
 - [inference] This explains why inspectable reasoning traces and retries are useful governance artifacts without being proofs of genuine understanding, a distinction that aligns with the adjacent explainability item in this repository. [source: https://react-lm.github.io/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-agentic-explainability-vs-traditional.md]
 
 ### §4 Consistency Check
@@ -193,7 +193,7 @@ This item asks whether adding tools, feedback, and retries changes that conclusi
 - [inference] Wrapping a Large Language Model (LLM) in a ReAct-style tool-feedback loop does not, on the cited evidence, give the model intrinsic causal understanding; it mainly improves search, grounding, memory, and local error recovery. [source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2303.11366; https://arxiv.org/abs/2302.07842; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
 - [inference] ReAct, Reflexion, and Tree of Thoughts show that loop structure can materially improve performance by adding external observations, episodic feedback, or branching search. [source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2303.11366; https://openreview.net/forum?id=5Xc1ecxO1h]
 - [inference] The same evidence base also shows that early strategy mistakes still propagate through later actions and checks, which is why branching, backtracking, and stronger verifiers matter so much. [source: https://openreview.net/forum?id=5Xc1ecxO1h; https://react-lm.github.io/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-3-cot-counterfactual-limits.md]
-- [inference] The best-supported classification is that the composite system remains mostly an observational controller, meaning a system that maps present inputs to actions without intrinsically modelling interventions or alternate-world counterfactuals, and whose apparent higher-level reach comes from external tools or environments that already encode those semantics. [source: https://arxiv.org/abs/2302.07842; https://arxiv.org/abs/2206.10498; https://opencausalab.github.io/CaLM; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
+- [inference] The best-supported classification is that the composite system still mostly maps present inputs to actions and gets any apparent higher-level reach from external tools or environments that already encode the needed action-effect or alternate-world semantics. [source: https://arxiv.org/abs/2302.07842; https://arxiv.org/abs/2206.10498; https://opencausalab.github.io/CaLM; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
 
 **Key findings:**
 
@@ -223,7 +223,7 @@ This item asks whether adding tools, feedback, and retries changes that conclusi
 **Analysis:**
 
 - [inference] The evidence is strongest for a "better controller" interpretation of agentic loops, because every major improvement mechanism in the cited sources is about information access, memory, branching, or retry policy. [source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2303.11366; https://openreview.net/forum?id=5Xc1ecxO1h]
-- [inference] The main rival interpretation, that the loop itself creates genuine explanatory reach, would need evidence that the model can internally answer intervention or counterfactual questions beyond what the external tool or environment already provides. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md; https://arxiv.org/abs/2407.08029]
+- [inference] The main rival interpretation, that the loop itself creates genuine explanatory reach, would need evidence that the model can internally answer questions about the effects of actions or about alternate worlds under different actions beyond what the external tool or environment already provides. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md; https://arxiv.org/abs/2407.08029]
 - [inference] The current sources do not show that stronger claim, and the planning and causal benchmarks point the other way by showing continuing fragility as structural demands rise. [source: https://arxiv.org/abs/2206.10498; https://opencausalab.github.io/CaLM; https://aclanthology.org/2024.sighan-1.17/]
 
 **Risks, gaps, uncertainties:**
@@ -254,7 +254,7 @@ ReAct, Reflexion, and Tree of Thoughts show that loop structure can materially i
 
 Those gains do not erase the core failure mode identified in Phase 3, because early strategy errors still shape later tool calls and verification steps, and planning-heavy or causally complex benchmarks remain fragile. [inference; source: https://openreview.net/forum?id=5Xc1ecxO1h; https://arxiv.org/abs/2206.10498; https://opencausalab.github.io/CaLM; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq3-3-cot-counterfactual-limits.md]
 
-The best-supported classification is that the composite system remains mostly an observational controller, meaning a system that maps present inputs to actions without intrinsically modelling interventions or alternate-world counterfactuals, and whose occasional higher-level reach is imported from external tools or environments that already encode those semantics. [inference; source: https://arxiv.org/abs/2302.07842; https://arxiv.org/abs/2210.03629; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
+The best-supported classification is that the composite system still mostly maps present inputs to actions and gets any occasional higher-level reach from external tools or environments that already encode the needed action-effect or alternate-world semantics. [inference; source: https://arxiv.org/abs/2302.07842; https://arxiv.org/abs/2210.03629; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md]
 
 ### Key Findings
 
@@ -287,7 +287,7 @@ The best-supported classification is that the composite system remains mostly an
 
 The evidence is strongest for a "better controller" interpretation of tool-feedback loops, because every major improvement mechanism in the cited sources is about information access, memory, branching, or retry policy. [inference; source: https://arxiv.org/abs/2210.03629; https://arxiv.org/abs/2303.11366; https://openreview.net/forum?id=5Xc1ecxO1h]
 
-The main rival interpretation, that the loop itself creates genuine explanatory reach, would require evidence that the model can internally answer intervention or counterfactual questions beyond what the external tool or environment already provides. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md; https://arxiv.org/abs/2407.08029]
+The main rival interpretation, that the loop itself creates genuine explanatory reach, would require evidence that the model can internally answer questions about the effects of actions or about alternate worlds under different actions beyond what the external tool or environment already provides. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md; https://arxiv.org/abs/2407.08029]
 
 The current sources do not show that stronger claim, and the planning and causal benchmarks point the other way by showing continuing fragility as structural demands rise. [inference; source: https://arxiv.org/abs/2206.10498; https://opencausalab.github.io/CaLM; https://aclanthology.org/2024.sighan-1.17/]
 
