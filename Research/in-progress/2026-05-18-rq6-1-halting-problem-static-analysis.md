@@ -109,13 +109,6 @@ Research Question 1.1 argued that stronger theories rule out more possibilities;
 
 ### §2 Investigation
 
-#### Access notes
-
-- access_note: seeded Turing Digital Object Identifier link returned 403 in this runtime.
-- access_note: seeded Rice Digital Object Identifier link resolved to a journal index page rather than usable article text in this runtime.
-- access_note: seeded Godel Digital Object Identifier link yielded article text.
-- search_note: query "Turing 1936 On Computable Numbers pdf" did not yield a stable directly fetchable primary full text in this runtime, so halting-proof claims below rely on accessible secondary expositions.
-
 #### Identified but not consulted
 
 - [ ] [Turing (1936) On Computable Numbers, with an Application to the Entscheidungsproblem](https://doi.org/10.1112/plms/s2-42.1.230)
@@ -203,7 +196,7 @@ Relative to earlier repository items, Rice's Theorem plays for coded systems the
 
 1. The halting problem proves that no general procedure can decide, for every arbitrary program and input pair, whether execution halts, so exact universal termination checking is impossible in the unrestricted case. ([fact]; medium confidence; source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://cs.uwaterloo.ca/~s4bendav/files/CS360S21Lec16.pdf)
 2. Rice's Theorem extends this impossibility from termination to every non-trivial semantic property of a program, which means the barrier is about meaning and behaviour rather than one special verification question. ([fact]; medium confidence; source: https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf)
-3. A static analyser for arbitrary Turing-complete programs, programs in languages expressive enough to simulate general-purpose computation, therefore cannot be both universal and exact about semantic behaviour, because such a tool would decide a class of questions that Turing and Rice prove undecidable. ([inference]; medium confidence; source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml)
+3. A static analyser for arbitrary general-purpose programs written in languages expressive enough to simulate general computation cannot be both universal and exact about semantic behaviour, because such a tool would decide a class of questions that Turing and Rice prove undecidable. ([inference]; medium confidence; source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml)
 4. Abstract interpretation provides a systematic response to undecidability by analysing concrete executions through abstractions that aim to remain sound while tolerating inaccuracy about concrete behaviour. ([fact]; medium confidence; source: https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml; https://www.di.ens.fr/~cousot/AI/)
 5. Deductive verification hits the same boundary for looping programs, because total-correctness proofs require invariants and termination arguments that are not computable automatically in full generality. ([fact]; medium confidence; source: https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture18.htm)
 6. Model checking regains decidability only after the system has been reduced to a finite-state transition model or another bounded abstraction, making algorithmic temporal-logic checking possible on that narrowed domain. ([fact]; low confidence; source: https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html)
@@ -225,7 +218,7 @@ Relative to earlier repository items, Rice's Theorem plays for coded systems the
 
 **Assumptions:**
 
-- [assumption] "General algorithm" in this item means one procedure over arbitrary Turing-complete programs rather than over a restricted language or bounded abstraction, because the impossibility theorems target unrestricted universality. [source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html]
+- [assumption] "General algorithm" in this item means one procedure over arbitrary general-purpose programs rather than over a restricted language or bounded abstraction, because the impossibility theorems target unrestricted universality. [source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html]
 - [assumption] "Static analysis" here includes abstract interpretation, deductive verification, and model checking insofar as each reasons about program behaviour without executing the target program on the target input of interest. [source: https://www.di.ens.fr/~cousot/AI/; https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture18.htm; https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html]
 - [assumption] The comparison to Popper and the Causal Hierarchy is a synthesis claim about formal limits on inferability, not an assertion that these theorems are mathematically reducible to one another. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md; https://plato.stanford.edu/entries/goedel-incompleteness/]
 
@@ -253,13 +246,15 @@ The cross-item synthesis is justified because the earlier Popper and Causal Hier
 
 ### §7 Recursive Review
 
-- review_result: pass
-- acronym_audit: pass
-- domain_term_audit: pass
-- claim_label_audit: pass
-- citation_audit: pass
-- synthesis_findings_parity: aligned
-- confidence_assignment: medium
+```text
+review_result: pass
+acronym_audit: pass
+domain_term_audit: pass
+claim_label_audit: pass
+citation_audit: pass
+synthesis_findings_parity: aligned
+confidence_assignment: medium
+```
 
 ---
 
@@ -279,7 +274,7 @@ Relative to earlier repository items, Rice's Theorem plays for coded systems the
 
 1. **The halting problem proves that no general procedure can decide, for every arbitrary program and input pair, whether execution halts, so exact universal termination checking is impossible in the unrestricted case.** ([fact]; medium confidence; source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://cs.uwaterloo.ca/~s4bendav/files/CS360S21Lec16.pdf)
 2. **Rice's Theorem extends this impossibility from termination to every non-trivial semantic property of a program, which means the barrier concerns behavioural meaning rather than one isolated verification task.** ([fact]; medium confidence; source: https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf)
-3. **A static analyser for arbitrary Turing-complete programs, programs in languages expressive enough to simulate general-purpose computation, cannot therefore be both universal and exact about semantic behaviour, because such a tool would decide a question family that Turing and Rice prove undecidable.** ([inference]; medium confidence; source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml)
+3. **A static analyser for arbitrary general-purpose programs written in languages expressive enough to simulate general computation cannot therefore be both universal and exact about semantic behaviour, because such a tool would decide a question family that Turing and Rice prove undecidable.** ([inference]; medium confidence; source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml)
 4. **Abstract interpretation provides a systematic response to undecidability by analysing concrete executions through abstractions that aim to remain sound while tolerating inaccuracy about concrete behaviour.** ([fact]; medium confidence; source: https://www.di.ens.fr/~cousot/COUSOTpapers/POPL77.shtml; https://www.di.ens.fr/~cousot/AI/)
 5. **Deductive verification hits the same boundary for looping programs, because total-correctness proofs require invariants and termination arguments that are not computable automatically in full generality.** ([fact]; medium confidence; source: https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture18.htm)
 6. **Model checking regains decidability only after the system has been reduced to a finite-state transition model or another bounded abstraction, making algorithmic temporal-logic checking possible on that narrowed domain.** ([fact]; low confidence; source: https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html)
@@ -301,7 +296,7 @@ Relative to earlier repository items, Rice's Theorem plays for coded systems the
 
 ### Assumptions
 
-- [assumption] "General algorithm" in this item means one procedure over arbitrary Turing-complete programs rather than over a restricted language or bounded abstraction, because the impossibility theorems target unrestricted universality. [source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html]
+- [assumption] "General algorithm" in this item means one procedure over arbitrary general-purpose programs rather than over a restricted language or bounded abstraction, because the impossibility theorems target unrestricted universality. [source: https://builds.openlogicproject.org/content/turing-machines/undecidability/halting-problem.pdf; https://theory.stanford.edu/~trevisan/cs154-12/noterice.pdf; https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html]
 - [assumption] "Static analysis" here includes abstract interpretation, deductive verification, and model checking insofar as each reasons about program behaviour without executing the target program on the target input of interest. [source: https://www.di.ens.fr/~cousot/AI/; https://people.csail.mit.edu/asolar/SynthesisCourse/Lecture18.htm; https://will62794.github.io/my-notes/notes/Model_Checking/Model_Checking.html]
 - [assumption] The comparison to Popper and the Causal Hierarchy is a synthesis claim about formal limits on inferability, not an assertion that these theorems are mathematically reducible to one another. [source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq1-1-popper-falsifiability.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq2-4-causal-hierarchy-formal-limits.md; https://plato.stanford.edu/entries/goedel-incompleteness/]
 
