@@ -2,14 +2,14 @@
 review_count: 2
 title: "RQ 5.1: Stochastic versus Deterministic Failure Modes on Identical Unvalidated Inputs"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq5-2-flexibility-vs-predictability-auditability
   - 2026-05-18-agentic-explainability-vs-traditional
 tags: [agentic-ai, llm, formal-methods, machine-learning, evaluation]
 started: 2026-05-19T19:40:54+00:00
-completed: ~
+completed: 2026-05-19T20:00:09+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq4-2-adversarial-error-propagation
