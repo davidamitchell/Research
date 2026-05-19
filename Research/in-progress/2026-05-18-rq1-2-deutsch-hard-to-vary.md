@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
