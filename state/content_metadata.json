@@ -1,6 +1,102 @@
 {
-  "extracted_at": "2026-05-19T12:32:12Z",
+  "extracted_at": "2026-05-19T12:43:34Z",
   "items": {
+    "2026-05-18-rq4-3-ood-generalization-agentic": {
+      "named_concepts": [
+        "language model",
+        "tool outputs",
+        "arbitrary production",
+        "model systems",
+        "production conditions",
+        "arbitrary out-of-distribution",
+        "target-risk bounds",
+        "bounded divergence",
+        "epistemic uncertainty",
+        "monte carlo",
+        "carlo dropout",
+        "planner-tool loop",
+        "weakest uncontrolled",
+        "aleatoric uncertainty",
+        "stochastic tool",
+        "irreducible uncertainty",
+        "current theory",
+        "uncontrolled surface",
+        "adversarial tool",
+        "guaranteed correctness"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/1703.04977",
+        "https://arxiv.org/abs/1506.02142",
+        "https://arxiv.org/abs/1906.02530",
+        "https://arxiv.org/abs/2107.07511",
+        "https://arxiv.org/abs/2106.00170",
+        "https://arxiv.org/abs/2208.08401",
+        "https://www.alexkulesza.com/pubs/adapt_mlj10.pdf",
+        "https://proceedings.neurips.cc/paper/2021/hash/c5c1cb0bebd56ae38817b251ad72bedb-Abstract.html",
+        "https://www.nobelprize.org/uploads/2018/06/simon-lecture.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Arbitrary out-of-distribution generalisation is impossible without restricting the family of deployment shifts, and classical target-risk bounds remain conditional on bounded divergence between source and target domains plus a hypothesis that performs well on both",
+          "sources": [
+            "https://proceedings.neurips.cc/paper/2021/hash/c5c1cb0bebd56ae38817b251ad72bedb-Abstract.html",
+            "https://www.alexkulesza.com/pubs/adapt_mlj10.pdf"
+          ]
+        },
+        {
+          "text": "Non-deterministic tool outputs belong mainly to the aleatoric uncertainty term, so they create an irreducible error floor that additional planner training data or model scaling cannot remove on their own",
+          "sources": [
+            "https://arxiv.org/abs/1703.04977"
+          ]
+        },
+        {
+          "text": "Simon’s bounded-rationality frame describes tool-using Large Language Model loops more accurately than an omniscient optimization frame, which means their guarantees should be phrased as performance under partial information and finite computation rather than as exact optimal control",
+          "sources": [
+            "https://www.nobelprize.org/uploads/2018/06/simon-lecture.pdf",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-1-agentic-loop-explanatory-reach.md"
+          ]
+        },
+        {
+          "text": "Monte Carlo Dropout provides a useful approximation to epistemic model uncertainty, but predictive uncertainty calibration still degrades under dataset shift, so the method cannot serve as a standalone out-of-distribution reliability certificate for planner outputs",
+          "sources": [
+            "https://arxiv.org/abs/1506.02142",
+            "https://arxiv.org/abs/1906.02530"
+          ]
+        },
+        {
+          "text": "Conformal prediction gives exact finite-sample coverage only when calibration and test points satisfy its exchangeability assumptions, while adaptive online variants weaken the guarantee to long-run coverage frequency or local regret under evolving shift",
+          "sources": [
+            "https://arxiv.org/abs/2107.07511",
+            "https://arxiv.org/abs/2106.00170",
+            "https://arxiv.org/abs/2208.08401"
+          ]
+        },
+        {
+          "text": "In a planner-tool loop, the formal guarantee is inherited from the weakest uncontrolled component, because recurrent tool use and verification can amplify a shifted or semantically corrupted observation before any independent correction arrives",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-2-adversarial-error-propagation.md",
+            "https://www.alexkulesza.com/pubs/adapt_mlj10.pdf"
+          ]
+        },
+        {
+          "text": "Manageable non-determinism is limited to tool regimes with support overlap, bounded or slowly varying shift, and independent correction or abstention, while open-world, adversarial, or regime-changing tool outputs remain formally unbounded",
+          "sources": [
+            "https://arxiv.org/abs/2106.00170",
+            "https://arxiv.org/abs/2208.08401",
+            "https://proceedings.neurips.cc/paper/2021/hash/c5c1cb0bebd56ae38817b251ad72bedb-Abstract.html",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-18-rq4-2-adversarial-error-propagation.md"
+          ]
+        },
+        {
+          "text": "Current evidence supports deployment claims about calibrated abstention, set-valued prediction, or monitored online adaptation instead of guaranteed correctness for one chosen action under arbitrary production conditions",
+          "sources": [
+            "https://arxiv.org/abs/2107.07511",
+            "https://arxiv.org/abs/2208.08401",
+            "https://arxiv.org/abs/1906.02530"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq4-2-adversarial-error-propagation": {
       "named_concepts": [
         "prompt injection",

@@ -9,7 +9,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 136,
+    "item_count": 137,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -667,6 +667,11 @@
         "added": "2026-05-17"
       },
       {
+        "slug": "2026-05-18-rq4-3-ood-generalization-agentic",
+        "title": "Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs",
+        "added": "2026-05-18"
+      },
+      {
         "slug": "2026-05-18-rq4-2-adversarial-error-propagation",
         "title": "Research Question 4.2: Adversarial inputs and error propagation through multi-step tool-using verification and strategy phases",
         "added": "2026-05-18"
@@ -704,7 +709,7 @@
       "governance"
     ],
     "concept_cluster": [],
-    "item_count": 136,
+    "item_count": 137,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1365,6 +1370,11 @@
         "slug": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
         "title": "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation",
         "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq4-3-ood-generalization-agentic",
+        "title": "Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs",
+        "added": "2026-05-18"
       },
       {
         "slug": "2026-05-18-rq4-2-adversarial-error-propagation",
@@ -4745,6 +4755,101 @@
     "url": "/Research/threads/governance-organisation-knowledge-graph.html"
   },
   {
+    "slug": "agentic-ai-prompt-injection-llm",
+    "title": "agentic-ai / prompt-injection / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "prompt-injection",
+      "llm"
+    ],
+    "concept_cluster": [],
+    "item_count": 16,
+    "items": [
+      {
+        "slug": "2026-03-03-knowledge-representation-agent-context",
+        "title": "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-out-of-band-policy-invalidation-remediation",
+        "title": "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
+        "title": "Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
+        "added": "2026-05-02"
+      },
+      {
+        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq4-3-ood-generalization-agentic",
+        "title": "Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq4-2-adversarial-error-propagation",
+        "title": "Research Question 4.2: Adversarial inputs and error propagation through multi-step tool-using verification and strategy phases",
+        "added": "2026-05-18"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-prompt-injection-llm.html"
+  },
+  {
     "slug": "agentic-ai-uelgf-regulated-banking",
     "title": "agentic-ai / uelgf / regulated-banking",
     "kind": "implicit",
@@ -4833,96 +4938,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-uelgf-regulated-banking.html"
-  },
-  {
-    "slug": "agentic-ai-prompt-injection-pbac",
-    "title": "agentic-ai / prompt-injection / pbac",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "prompt-injection",
-      "pbac"
-    ],
-    "concept_cluster": [],
-    "item_count": 15,
-    "items": [
-      {
-        "slug": "2026-03-03-knowledge-representation-agent-context",
-        "title": "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-11"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
-        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
-        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-out-of-band-policy-invalidation-remediation",
-        "title": "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
-        "title": "Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
-        "title": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system to address prompt injection, Retrieval-Augmented Generation (RAG)-based attacks, model supply chain compromise, and data exfiltration beyond basic Application Programming Interface (API) access controls and audit logging?",
-        "added": "2026-05-02"
-      },
-      {
-        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-18-rq4-2-adversarial-error-propagation",
-        "title": "Research Question 4.2: Adversarial inputs and error propagation through multi-step tool-using verification and strategy phases",
-        "added": "2026-05-18"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-prompt-injection-pbac.html"
   },
   {
     "slug": "low-code-enterprise-governance-ai-governance",
@@ -5103,6 +5118,91 @@
       }
     ],
     "url": "/Research/threads/llm-alignment-mechanistic-interpretability.html"
+  },
+  {
+    "slug": "machine-learning-causal-inference-invariants",
+    "title": "machine-learning / causal-inference / invariants",
+    "kind": "implicit",
+    "tag_cluster": [
+      "machine-learning",
+      "causal-inference",
+      "invariants"
+    ],
+    "concept_cluster": [],
+    "item_count": 14,
+    "items": [
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+        "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq4-3-ood-generalization-agentic",
+        "title": "Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+        "title": "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq3-3-cot-counterfactual-limits",
+        "title": "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq3-2-stochastic-parrot-ood",
+        "title": "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+        "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
+        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
+        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
+        "added": "2026-05-18"
+      },
+      {
+        "slug": "2026-05-18-rq1-1-popper-falsifiability",
+        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
+        "added": "2026-05-18"
+      }
+    ],
+    "url": "/Research/threads/machine-learning-causal-inference-invariants.html"
   },
   {
     "slug": "agentic-ai-organisational-design-strategy",
@@ -5528,86 +5628,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-financial-services-regulation.html"
-  },
-  {
-    "slug": "machine-learning-causal-inference-epistemology",
-    "title": "machine-learning / causal-inference / epistemology",
-    "kind": "implicit",
-    "tag_cluster": [
-      "machine-learning",
-      "causal-inference",
-      "epistemology"
-    ],
-    "concept_cluster": [],
-    "item_count": 13,
-    "items": [
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-        "title": "Layered reasoning stack interfaces: state abstraction and Large Language Model (LLM) ↔ Energy-Based Model (EBM) protocols",
-        "added": "2026-05-17"
-      },
-      {
-        "slug": "2026-05-18-rq3-1-llm-statistical-vs-causal",
-        "title": "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
-        "title": "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq3-3-cot-counterfactual-limits",
-        "title": "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq3-2-stochastic-parrot-ood",
-        "title": "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
-        "title": "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-3-predictive-model-fragility",
-        "title": "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-2-duhem-quine-underdetermination",
-        "title": "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq2-1-erm-causal-blindness",
-        "title": "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-3-instrumentalism-failure-modes",
-        "title": "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-2-deutsch-hard-to-vary",
-        "title": "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence",
-        "added": "2026-05-18"
-      },
-      {
-        "slug": "2026-05-18-rq1-1-popper-falsifiability",
-        "title": "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation",
-        "added": "2026-05-18"
-      }
-    ],
-    "url": "/Research/threads/machine-learning-causal-inference-epistemology.html"
   },
   {
     "slug": "financial-services-ai-governance-ai-strategy",
@@ -6690,13 +6710,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -6752,7 +6772,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "copilot-instructions-claude",
@@ -7200,14 +7220,14 @@
     "url": "/Research/threads/interface-delivery-rag.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -7247,7 +7267,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
     "slug": "policy-as-code-compliance-agentic-ai",
@@ -7375,14 +7395,14 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -7412,17 +7432,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "agents md"
+      "coding agent",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -7452,7 +7472,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "reference-architecture-capability-model-enterprise-architecture",
@@ -7560,13 +7580,13 @@
     "url": "/Research/threads/workflow-tooling-process.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -7592,7 +7612,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
