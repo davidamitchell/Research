@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 857f3f58bfc29f88725f04022019c72420eca571
+    changed: 2026-05-19
+    progress: progress/2026-05-19-rq2-1-erm-causal-blindness.md
+    summary: "Initial completion"
 ---
 
 # Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees
