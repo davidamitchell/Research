@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?"
 added: 2026-05-18T19:40:00+00:00
 status: reviewing
