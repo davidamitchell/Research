@@ -2,13 +2,13 @@
 review_count: 2
 title: "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks:
   - 2026-05-18-rq2-4-causal-hierarchy-formal-limits
 tags: [epistemology, philosophy-of-science, machine-learning, causal-inference, invariants]
 started: 2026-05-19T08:32:59+00:00
-completed: ~
+completed: 2026-05-19T09:04:21+00:00
 output: [knowledge]
 cites:
   - 2026-05-18-rq2-1-erm-causal-blindness
