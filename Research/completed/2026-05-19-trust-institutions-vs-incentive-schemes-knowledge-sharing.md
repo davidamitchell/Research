@@ -2,12 +2,12 @@
 review_count: 2
 title: "Why Do Trust-Based Institutions Outperform Incentive Schemes for Knowledge Sharing?"
 added: 2026-05-19T19:42:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, organisational-learning, organisational-theory]
 started: 2026-05-20T07:36:24+00:00
-completed: ~
+completed: 2026-05-20T08:05:27+00:00
 output: [knowledge]
 cites:
   - 2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways
