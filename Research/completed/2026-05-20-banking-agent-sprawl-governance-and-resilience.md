@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 14fe06fbbd9169d43195192caad329d51516e8df
+    changed: 2026-05-20
+    progress: progress/2026-05-20-banking-agent-sprawl-governance-and-resilience.md
+    summary: "Initial completion"
 ---
 
 # How should banks govern department-level agent sprawl and bottleneck shifts across divisions?
