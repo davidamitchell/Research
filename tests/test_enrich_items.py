@@ -15,8 +15,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from scripts.enrich_items import (
     _build_prompt,
     _build_prompt_context,
-    _has_ai_themes,
-    _insert_ai_themes,
+    _has_themes,
+    _insert_themes,
     _parse_themes,
     _reconstruct,
     _split_frontmatter,
@@ -69,17 +69,21 @@ class TestSplitFrontmatter:
 
 
 class TestHasAiThemes:
-    def test_detects_ai_themes_field(self) -> None:
+    def test_detects_themes_field(self) -> None:
+        yaml_block = "title: Foo\nthemes: [agentic-ai]\ntags: [ai]"
+        assert _has_themes(yaml_block) is True
+
+    def test_detects_legacy_ai_themes_field(self) -> None:
         yaml_block = "title: Foo\nai_themes: [agentic-ai]\ntags: [ai]"
-        assert _has_ai_themes(yaml_block) is True
+        assert _has_themes(yaml_block) is True
 
-    def test_no_ai_themes_field(self) -> None:
+    def test_no_themes_field(self) -> None:
         yaml_block = "title: Foo\ntags: [ai]"
-        assert _has_ai_themes(yaml_block) is False
+        assert _has_themes(yaml_block) is False
 
-    def test_ai_themes_with_spaces(self) -> None:
-        yaml_block = "title: Foo\nai_themes : []\n"
-        assert _has_ai_themes(yaml_block) is True
+    def test_themes_with_spaces(self) -> None:
+        yaml_block = "title: Foo\nthemes : []\n"
+        assert _has_themes(yaml_block) is True
 
 
 # ---------------------------------------------------------------------------
@@ -90,20 +94,20 @@ class TestHasAiThemes:
 class TestInsertAiThemes:
     def test_inserts_after_tags(self) -> None:
         yaml_block = "title: Foo\ntags: [ai, llm]\nstatus: completed"
-        result = _insert_ai_themes(yaml_block, ["agentic-ai", "llm-reasoning"])
+        result = _insert_themes(yaml_block, ["agentic-ai", "llm-reasoning"])
         lines = result.splitlines()
         tags_idx = next(i for i, line in enumerate(lines) if line.startswith("tags:"))
-        themes_idx = next(i for i, line in enumerate(lines) if line.startswith("ai_themes:"))
+        themes_idx = next(i for i, line in enumerate(lines) if line.startswith("themes:"))
         assert themes_idx == tags_idx + 1
 
     def test_appends_when_no_tags(self) -> None:
         yaml_block = "title: Foo\nstatus: completed"
-        result = _insert_ai_themes(yaml_block, ["agentic-ai"])
-        assert result.endswith("ai_themes: [agentic-ai]")
+        result = _insert_themes(yaml_block, ["agentic-ai"])
+        assert result.endswith("themes: [agentic-ai]")
 
     def test_themes_formatted_correctly(self) -> None:
-        result = _insert_ai_themes("title: Foo\ntags: [x]", ["a", "b"])
-        assert "ai_themes: [a, b]" in result
+        result = _insert_themes("title: Foo\ntags: [x]", ["a", "b"])
+        assert "themes: [a, b]" in result
 
 
 # ---------------------------------------------------------------------------
@@ -235,7 +239,7 @@ class TestEnrichItem:
                 ---
                 title: "Test Item"
                 tags: [ai]
-                ai_themes: [agentic-ai]
+                themes: [agentic-ai]
                 status: completed
                 ---
 
@@ -306,7 +310,7 @@ class TestEnrichItem:
 
         assert result is True
         # File should be unchanged in dry_run mode.
-        assert "ai_themes" not in path.read_text(encoding="utf-8")
+        assert "themes" not in path.read_text(encoding="utf-8")
 
     def test_enriches_item_writes_file(self, tmp_path: Path) -> None:
         from scripts.enrich_items import enrich_item
@@ -323,7 +327,7 @@ class TestEnrichItem:
 
         assert result is True
         written = path.read_text(encoding="utf-8")
-        assert "ai_themes: [agentic-ai, llm-reasoning]" in written
+        assert "themes: [agentic-ai, llm-reasoning]" in written
 
 
 class TestGenerateThemes:

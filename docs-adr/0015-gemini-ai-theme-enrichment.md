@@ -160,6 +160,8 @@ reflect this addition.
   is superseded by this amendment.
 - `ai_themes` are now wired into site graph generation: each graph node includes `ai_themes`, and
   `theme-overlap` edges are emitted between items that share one or more themes.
+- Theme frontmatter is now generalized to `themes` (with `ai_themes` retained only as a legacy read
+  fallback), so classification is no longer AI-prefixed in schema naming.
 - Thread generation no longer creates implicit tag-cluster threads. Threads are now reserved for
   explicit `thread:` progressions and concept-based clusters from `named_concepts`.
 - Enrichment prompt context now uses three sections from each item body (Research Question, Scope,

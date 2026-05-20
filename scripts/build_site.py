@@ -1018,6 +1018,16 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
     return meta, body
 
 
+def extract_themes(meta: dict) -> list[str]:
+    """Return normalized themes from frontmatter (themes preferred, ai_themes fallback)."""
+    raw_themes = meta.get("themes")
+    if not isinstance(raw_themes, list):
+        raw_themes = meta.get("ai_themes", [])
+    if not isinstance(raw_themes, list):
+        return []
+    return [str(theme).strip() for theme in raw_themes if str(theme).strip()]
+
+
 def normalise_tags(raw: object) -> list[str]:
     """Normalise tags field to a list of lowercase strings."""
     if isinstance(raw, list):
@@ -1274,12 +1284,7 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
-        raw_ai_themes = meta.get("ai_themes", [])
-        ai_themes = (
-            [str(theme).strip() for theme in raw_ai_themes if str(theme).strip()]
-            if isinstance(raw_ai_themes, list)
-            else []
-        )
+        themes = extract_themes(meta)
         slug = slugify(path.stem)
         sections = extract_sections(body)
         sources_text = extract_section(body, "Sources")
@@ -1300,7 +1305,7 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "added": added_dt,
                 "added_str": added_dt.date().isoformat(),
                 "tags": tags,
-                "ai_themes": ai_themes,
+                "themes": themes,
                 "sections": sections,
                 "_sources_text": sources_text,
                 "question": question,
@@ -1373,12 +1378,7 @@ def load_knowledge_items() -> list[dict]:
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
-        raw_ai_themes = meta.get("ai_themes", [])
-        ai_themes = (
-            [str(theme).strip() for theme in raw_ai_themes if str(theme).strip()]
-            if isinstance(raw_ai_themes, list)
-            else []
-        )
+        themes = extract_themes(meta)
         slug = slugify(path.stem)
         sections = extract_sections(body)
         sources_text = extract_section(body, "Source Items")
@@ -1393,7 +1393,7 @@ def load_knowledge_items() -> list[dict]:
                 "added": added_dt,
                 "added_str": added_dt.date().isoformat(),
                 "tags": tags,
-                "ai_themes": ai_themes,
+                "themes": themes,
                 "sections": sections,
                 "_sources_text": sources_text,
                 "question": question,
@@ -3031,7 +3031,7 @@ def build_search_index(
             [item["title"]]
             + list(item["sections"].values())
             + named_concepts
-            + list(item.get("ai_themes") or [])
+            + list(item.get("themes") or [])
         )
         full_text = " ".join(all_text_parts)
         index.append(
@@ -3086,7 +3086,7 @@ def build_graph_json(
     - ``cites`` frontmatter field — directed edge from declaring item to cited slug
     - ``related_slugs`` frontmatter field — directed edge from declaring item to related slug
     - ``links`` (tag-overlap) — undirected; canonical direction is source < target (alphabetical)
-    - ``ai_themes`` overlap — undirected; canonical direction is source < target (alphabetical)
+    - ``themes`` overlap — undirected; canonical direction is source < target (alphabetical)
 
     Weighting rationale (W-0075):
     +--------------+--------+-----------------------------------------------+
@@ -3095,7 +3095,7 @@ def build_graph_json(
     | cites        | 4      | direct intellectual dependency — strongest     |
     | related      | 3      | explicit frontmatter declaration               |
     | tag-overlap  | N      | N = number of shared tags (implicit, 1..N)    |
-    | theme-overlap| N      | N = number of shared ai_themes (implicit)     |
+    | theme-overlap| N      | N = number of shared themes (implicit)        |
     +--------------+--------+-----------------------------------------------+
 
     Every edge carries:
@@ -3113,7 +3113,7 @@ def build_graph_json(
                 "title": item["title"],
                 "type": item.get("item_type", "primary"),
                 "url": item.get("page_url", f"/Research/research/{item['slug']}.html"),
-                "ai_themes": list(item.get("ai_themes") or []),
+                "themes": list(item.get("themes") or []),
             }
             for item in all_items
         ],
@@ -3178,7 +3178,7 @@ def build_graph_json(
         source_item = slug_to_item.get(source_slug)
         if not source_item:
             continue
-        source_themes = set(source_item.get("ai_themes") or [])
+        source_themes = set(source_item.get("themes") or [])
         if not source_themes:
             continue
         for target_slug in sorted(node_slugs):
@@ -3187,7 +3187,7 @@ def build_graph_json(
             target_item = slug_to_item.get(target_slug)
             if not target_item:
                 continue
-            shared_themes = sorted(source_themes & set(target_item.get("ai_themes") or []))
+            shared_themes = sorted(source_themes & set(target_item.get("themes") or []))
             if not shared_themes:
                 continue
             canonical_a, canonical_b = sorted([source_slug, target_slug])
