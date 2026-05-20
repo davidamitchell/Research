@@ -504,6 +504,13 @@ easily-detectable issues.
     source itself makes that judgment, keep the sentence as `[inference]` or
     rewrite it into non-evaluative factual prose.
 
+2g3. **Magnitude-and-ranking wording check** -- if a sentence uses language
+    such as "falls sharply," "most reliably," "strongest support," "primary
+    driver," or similar ranking or intensity wording, keep it only when a
+    cited source directly quantifies or ranks the effect. Otherwise rewrite
+    the sentence into neutral prose, or keep it as a narrower `[inference]`
+    with lower confidence.
+
 2g1. **Cross-source synthesis status** -- if a sentence combines an empirical
     result with a conceptual or theoretical source to conclude that models
     retain proxy objectives, shifted goals, strategic compliance, or similar
