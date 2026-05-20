@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "22c8f76be2b1dd93339f232ecbaee50cbcbb8fc6"
+    changed: 2026-05-20
+    progress: "progress/2026-05-20-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.md"
+    summary: "Initial completion"
 ---
 
 # How Do Formal Governance Structures Distort Cross-Department Knowledge Flows?
