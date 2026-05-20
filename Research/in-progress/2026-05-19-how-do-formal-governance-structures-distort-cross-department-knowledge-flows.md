@@ -1,7 +1,7 @@
 ---
 title: "How Do Formal Governance Structures Distort Cross-Department Knowledge Flows?"
 added: 2026-05-19T19:42:38+00:00
-review_count: 1
+review_count: 2
 status: reviewing
 priority: medium
 blocks: []
