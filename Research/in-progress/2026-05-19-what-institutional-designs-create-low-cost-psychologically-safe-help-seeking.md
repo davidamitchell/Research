@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What Institutional Designs Create Low-Cost Help-Seeking Without Embarrassment, Penalty, or Status Loss?"
 added: 2026-05-19T19:42:38+00:00
 status: reviewing
