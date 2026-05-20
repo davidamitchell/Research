@@ -1,5 +1,5 @@
 ---
-review_count: 0
+review_count: 1
 title: "How Do Asset Specificity and Information Asymmetry Block Knowledge Transfer?"
 added: 2026-05-19T19:42:37+00:00
 status: reviewing
