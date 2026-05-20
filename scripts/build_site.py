@@ -1714,7 +1714,108 @@ def render_backlog_card(item: dict) -> str:
 # Shared JS snippets
 # ---------------------------------------------------------------------------
 
-BROWSE_JS = """
+SEARCH_MATCH_UTILS_JS = """
+function normalizeSearchText(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[_-]+/g, ' ')
+    .replace(/[^a-z0-9\\s]/g, ' ')
+    .replace(/\\s+/g, ' ')
+    .trim();
+}
+
+function expandTokenForms(token) {
+  var forms = {};
+  var t = normalizeSearchText(token);
+  if (!t) return [];
+  forms[t] = true;
+
+  if (t.endsWith('ies') && t.length > 3) forms[t.slice(0, -3) + 'y'] = true;
+  if (t.endsWith('es') && t.length > 2) forms[t.slice(0, -2)] = true;
+  if (t.endsWith('s') && t.length > 1) forms[t.slice(0, -1)] = true;
+  if (t.endsWith('ing') && t.length > 4) forms[t.slice(0, -3)] = true;
+  if (t.endsWith('ed') && t.length > 3) forms[t.slice(0, -2)] = true;
+
+  var aliases = {
+    ai: ['artificial intelligence'],
+    ml: ['machine learning'],
+    llm: ['large language model', 'large language models'],
+    nlp: ['natural language processing'],
+    ux: ['user experience'],
+    ui: ['user interface'],
+  };
+  (aliases[t] || []).forEach(function(a) { forms[normalizeSearchText(a)] = true; });
+  return Object.keys(forms);
+}
+
+function scoreSearchMatch(query, haystack) {
+  var q = normalizeSearchText(query);
+  var text = normalizeSearchText(haystack);
+  if (!q || !text) return 0;
+
+  var textTokens = text.split(' ').filter(Boolean);
+  var textTokenSet = {};
+  textTokens.forEach(function(t) { textTokenSet[t] = true; });
+
+  var score = text.indexOf(q) !== -1 ? 80 : 0;
+  var queryTokens = q.split(' ').filter(Boolean);
+  if (!queryTokens.length) return score;
+
+  var matched = 0;
+  queryTokens.forEach(function(token) {
+    var forms = expandTokenForms(token);
+    var tokenMatched = false;
+    var best = 0;
+
+    for (var i = 0; i < forms.length; i += 1) {
+      var form = forms[i];
+      if (!form) continue;
+      if (textTokenSet[form]) {
+        tokenMatched = true;
+        best = Math.max(best, 18);
+        break;
+      }
+      if (text.indexOf(form) !== -1) {
+        tokenMatched = true;
+        best = Math.max(best, 14);
+      } else {
+        for (var j = 0; j < textTokens.length; j += 1) {
+          var tokenInText = textTokens[j];
+          if (tokenInText.indexOf(form) === 0 || form.indexOf(tokenInText) === 0) {
+            tokenMatched = true;
+            best = Math.max(best, 10);
+            break;
+          }
+        }
+      }
+      if (best >= 18) break;
+    }
+
+    if (tokenMatched) {
+      matched += 1;
+      score += best;
+    }
+  });
+
+  if (matched === 0) return 0;
+  if (matched < queryTokens.length && score < 80) return 0;
+  return score;
+}
+
+function debounce(fn, waitMs) {
+  var timer = null;
+  return function() {
+    var args = arguments;
+    var self = this;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function() { fn.apply(self, args); }, waitMs);
+  };
+}
+"""
+
+BROWSE_JS = (
+    SEARCH_MATCH_UTILS_JS
+    + """
 (function() {
   var cards = Array.from(document.querySelectorAll('.card'));
   var tagBtns = Array.from(document.querySelectorAll('.filter-bar .tag'));
@@ -1741,16 +1842,17 @@ BROWSE_JS = """
   }
 
   function applyFilters() {
-    var q = searchInput.value.trim().toLowerCase();
+    var q = searchInput.value.trim();
     var anyVisible = false;
     cards.forEach(function(card) {
       var cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
       var tagMatch = activeTags.size === 0 || Array.from(activeTags).some(function(t) {
         return cardTags.indexOf(t) !== -1;
       });
-      var textMatch = !q ||
-        card.dataset.title.indexOf(q) !== -1 ||
-        card.dataset.question.indexOf(q) !== -1;
+      var searchBlob = (card.dataset.title || '') + ' '
+        + (card.dataset.question || '') + ' '
+        + cardTags.join(' ');
+      var textMatch = !q || scoreSearchMatch(q, searchBlob) > 0;
       var visible = tagMatch && textMatch;
       card.style.display = visible ? '' : 'none';
       if (visible) anyVisible = true;
@@ -1784,12 +1886,15 @@ BROWSE_JS = """
     });
   }
 
-  searchInput.addEventListener('input', applyFilters);
+  searchInput.addEventListener('input', debounce(applyFilters, 120));
   applyFilters();
 })();
 """
+)
 
-SEARCH_JS = """
+SEARCH_JS = (
+    SEARCH_MATCH_UTILS_JS
+    + """
 (function() {
   var input = document.getElementById('search-input');
   var resultsEl = document.getElementById('search-results');
@@ -1824,9 +1929,24 @@ SEARCH_JS = """
 
   function runSearch() {
     if (!index) return;
-    var q = input.value.trim().toLowerCase();
-    var results = !q ? [] : index.filter(function(item) {
-      return (item.full_text || item.title + ' ' + item.question_excerpt).toLowerCase().indexOf(q) !== -1;
+    var q = input.value.trim();
+    var results = !q ? [] : index.map(function(item) {
+      var haystack = [
+        item.full_text || '',
+        item.title || '',
+        item.full_title || '',
+        item.question_excerpt || '',
+        item.findings_excerpt || '',
+        (item.tags || []).join(' '),
+      ].join(' ');
+      return { item: item, score: scoreSearchMatch(q, haystack) };
+    }).filter(function(r) {
+      return r.score > 0;
+    }).sort(function(a, b) {
+      if (b.score !== a.score) return b.score - a.score;
+      return String(a.item.title || '').localeCompare(String(b.item.title || ''));
+    }).map(function(r) {
+      return r.item;
     });
     resultsEl.innerHTML = results.map(renderCard).join('');
     if (countEl) {
@@ -1848,12 +1968,15 @@ SEARCH_JS = """
   var initQ = params.get('q') || '';
   input.value = initQ;
 
-  input.addEventListener('input', runSearch);
+  input.addEventListener('input', debounce(runSearch, 120));
   fetchIndex();
 })();
 """
+)
 
-LANDING_SEARCH_JS = """
+LANDING_SEARCH_JS = (
+    SEARCH_MATCH_UTILS_JS
+    + """
 (function() {
   var input = document.getElementById('landing-search');
   var resultsEl = document.getElementById('landing-search-results');
@@ -1873,13 +1996,26 @@ LANDING_SEARCH_JS = """
 
   function runPreview() {
     if (!index || !resultsEl) return;
-    var q = input.value.trim().toLowerCase();
+    var q = input.value.trim();
     if (!q) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; return; }
-    var results = index.filter(function(item) {
-      return item.title.toLowerCase().indexOf(q) !== -1
-          || item.question_excerpt.toLowerCase().indexOf(q) !== -1
-          || item.tags.join(' ').indexOf(q) !== -1;
-    }).slice(0, 6);
+    var results = index.map(function(item) {
+      var haystack = [
+        item.full_text || '',
+        item.title || '',
+        item.full_title || '',
+        item.question_excerpt || '',
+        item.findings_excerpt || '',
+        (item.tags || []).join(' '),
+      ].join(' ');
+      return { item: item, score: scoreSearchMatch(q, haystack) };
+    }).filter(function(r) {
+      return r.score > 0;
+    }).sort(function(a, b) {
+      if (b.score !== a.score) return b.score - a.score;
+      return String(a.item.title || '').localeCompare(String(b.item.title || ''));
+    }).slice(0, 6).map(function(r) {
+      return r.item;
+    });
     if (!results.length) { resultsEl.style.display = 'none'; return; }
     resultsEl.innerHTML = results.map(function(item) {
       return '<a class="search-preview-item" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
@@ -1891,7 +2027,7 @@ LANDING_SEARCH_JS = """
   }
 
   if (input) {
-    input.addEventListener('input', runPreview);
+    input.addEventListener('input', debounce(runPreview, 120));
     document.addEventListener('click', function(e) {
       if (!input.contains(e.target) && !resultsEl.contains(e.target)) {
         resultsEl.style.display = 'none';
@@ -1902,6 +2038,7 @@ LANDING_SEARCH_JS = """
   fetchIndex();
 })();
 """
+)
 
 # ---------------------------------------------------------------------------
 # Page generators

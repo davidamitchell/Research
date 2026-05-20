@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -10,12 +11,14 @@ import pytest
 
 # Make scripts/ importable
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-import json
 
 from build_site import (
     _GRAPH_JS,
     _MINI_GRAPH_CSS,
     _MINI_GRAPH_JS,
+    BROWSE_JS,
+    LANDING_SEARCH_JS,
+    SEARCH_JS,
     _cluster_overlap,
     _item_url,
     _validate_graph,
@@ -68,6 +71,14 @@ def _make_item(
 
 def _slugs(thread: dict) -> set[str]:
     return {it["slug"] for it in thread["items"]}
+
+
+def test_search_scripts_share_matching_logic() -> None:
+    scripts = (BROWSE_JS, SEARCH_JS, LANDING_SEARCH_JS)
+    for script in scripts:
+        assert "scoreSearchMatch(" in script
+        assert "normalizeSearchText(" in script
+        assert "debounce(" in script
 
 
 # ---------------------------------------------------------------------------
