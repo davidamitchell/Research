@@ -24,7 +24,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: d3af20d
+    changed: 2026-05-20
+    progress: progress/2026-05-20-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.md
+    summary: Initial completion
 ---
 
 # How Do Activation-Energy Barriers, the threshold costs of starting a knowledge request, Shape Knowledge-Seeking Behaviour?
