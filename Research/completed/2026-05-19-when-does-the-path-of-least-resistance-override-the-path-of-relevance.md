@@ -34,7 +34,16 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  [
+    {
+      version: "1.0",
+      sha: "493fbdf8fd894ae3cf5f4c4e3fc8901e39a2b491",
+      changed: 2026-05-20,
+      progress: "progress/2026-05-20-when-does-the-path-of-least-resistance-override-the-path-of-relevance.md",
+      summary: "Initial completion",
+    },
+  ]
 ---
 
 # When Does the Path of Least Resistance Override the Path of Relevance?
