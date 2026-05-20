@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [formal-methods, theorem-proving, lean, agentic-ai]
+themes: [ai-architecture, tools-infrastructure, knowledge-management, formal-methods, theorem-proving]
 started: 2026-05-17T19:52:08+00:00
 completed: 2026-05-17T20:14:36+00:00
 output: []

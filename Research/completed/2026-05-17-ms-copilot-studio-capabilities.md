@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [microsoft, copilot-studio, agentic-ai, ai-platform, enterprise, ai-governance, llm, workflow, regulated-enterprise]
+themes: [agentic-ai, governance-policy, tools-infrastructure, mlops-deployment, knowledge-management]
 started: 2026-05-17T14:30:24+00:00
 completed: 2026-05-17T14:50:31+00:00
 output: [knowledge]

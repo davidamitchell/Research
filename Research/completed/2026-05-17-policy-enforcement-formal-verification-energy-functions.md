@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [policy, formal-methods, verification, governance, agentic-ai]
+themes: [agentic-ai, governance-policy, ai-architecture, formal-methods]
 started: 2026-05-17T19:04:41+00:00
 completed: 2026-05-17T19:29:33+00:00
 output: [knowledge]

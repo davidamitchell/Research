@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, workflow, analytics, agentic-ai]
+themes: [agentic-ai, mlops-deployment, workforce-skills, cost-performance, low-code-development]
 started: 2026-05-18T12:06:11+00:00
 completed: 2026-05-18T12:28:45+00:00
 output: [knowledge]
