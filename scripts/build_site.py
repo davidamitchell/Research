@@ -1036,6 +1036,23 @@ def slugify(name: str) -> str:
     return s
 
 
+def make_unique_slug(
+    name: str,
+    *,
+    used: set[str],
+    fallback_prefix: str = "thread",
+) -> str:
+    """Return a non-empty, unique slug for thread pages."""
+    base = slugify(name) or fallback_prefix
+    candidate = base
+    i = 2
+    while candidate in used:
+        candidate = f"{base}-{i}"
+        i += 1
+    used.add(candidate)
+    return candidate
+
+
 def extract_section(body: str, section_name: str) -> str:
     """Extract content of a named ## section from markdown body."""
     lines = body.split("\n")
@@ -1480,6 +1497,7 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
       tag_cluster (list), concept_cluster (list)
     """
     threads: list[dict] = []
+    used_slugs: set[str] = set()
 
     # ------------------------------------------------------------------
     # 1. Explicit threads via frontmatter ``thread:`` field
@@ -1492,9 +1510,10 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
         if len(thread_items) < 2:
             continue
         thread_items_sorted = sorted(thread_items, key=lambda x: x["added"])
+        thread_slug = make_unique_slug(name, used=used_slugs, fallback_prefix="thread")
         threads.append(
             {
-                "slug": slugify(name),
+                "slug": thread_slug,
                 "title": name,
                 "items": thread_items_sorted,
                 "kind": "explicit",
@@ -1507,7 +1526,7 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
     # 2. Concept-based threads
     # ------------------------------------------------------------------
     if metadata:
-        threads.extend(detect_concept_threads(items, metadata, threads))
+        threads.extend(detect_concept_threads(items, metadata, threads, used_slugs=used_slugs))
 
     threads.sort(key=lambda t: -len(t["items"]))
     return threads
@@ -1517,6 +1536,7 @@ def detect_concept_threads(
     items: list[dict],
     metadata: dict,
     existing_threads: list[dict],
+    used_slugs: set[str] | None = None,
 ) -> list[dict]:
     """Detect threads based on shared named concepts from content_metadata.json.
 
@@ -1597,6 +1617,7 @@ def detect_concept_threads(
 
     # Build thread dicts
     concept_threads: list[dict] = []
+    used = used_slugs if used_slugs is not None else set()
     for cluster in accepted_clusters:
         cluster_sorted = sorted(cluster, key=lambda x: x["added"])
         all_concepts_in_cluster: list[str] = []
@@ -1604,9 +1625,10 @@ def detect_concept_threads(
             all_concepts_in_cluster.extend(item_filtered[c["slug"]])
         top_concepts = [c for c, _ in Counter(all_concepts_in_cluster).most_common(3)]
         thread_title = " / ".join(top_concepts)
+        thread_slug = make_unique_slug(thread_title, used=used, fallback_prefix="concept-thread")
         concept_threads.append(
             {
-                "slug": slugify(thread_title),
+                "slug": thread_slug,
                 "title": thread_title,
                 "items": cluster_sorted,
                 "kind": "concept",

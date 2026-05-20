@@ -118,6 +118,29 @@ def test_explicit_thread_requires_two_items() -> None:
     assert not any(t["kind"] == "explicit" for t in threads)
 
 
+def test_explicit_thread_slug_falls_back_when_title_not_ascii() -> None:
+    items = [
+        _make_item("a", ["x"], thread="研究の流れ"),
+        _make_item("b", ["y"], thread="研究の流れ"),
+    ]
+    threads = detect_threads(items)
+    explicit = [t for t in threads if t["kind"] == "explicit"]
+    assert len(explicit) == 1
+    assert explicit[0]["slug"] == "thread"
+
+
+def test_explicit_thread_slug_is_unique_when_titles_collide() -> None:
+    items = [
+        _make_item("a1", ["x"], thread="A.B"),
+        _make_item("a2", ["y"], thread="A.B"),
+        _make_item("b1", ["x"], thread="A B"),
+        _make_item("b2", ["y"], thread="A B"),
+    ]
+    threads = [t for t in detect_threads(items) if t["kind"] == "explicit"]
+    assert len(threads) == 2
+    assert sorted(t["slug"] for t in threads) == ["a-b", "a-b-2"]
+
+
 # ---------------------------------------------------------------------------
 # detect_threads — no implicit tag-based threads
 # ---------------------------------------------------------------------------
