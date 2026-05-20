@@ -25,7 +25,12 @@ superseded_by: ~
 supersedes: ~
 item_type: synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: e385cd840eceee2cf8c7f2cb1c64d0829e5c8135
+    changed: 2026-05-20
+    progress: progress/2026-05-20-agentic-production-tradeoffs.md
+    summary: Initial completion
 ---
 
 # What Are We Losing and Gaining by Inserting Autonomous Tool-Using Artificial Intelligence Systems Into Production Workflows?
