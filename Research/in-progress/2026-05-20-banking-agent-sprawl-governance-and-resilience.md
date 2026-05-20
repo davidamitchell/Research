@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?"
 added: 2026-05-20T08:35:44+00:00
 status: reviewing
