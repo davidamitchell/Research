@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How should financial Retrieval-Augmented Generation (RAG) systems filter low-information and duplicate content so risk and Anti-Money Laundering (AML) decisions stay factual and synchronized?"
 added: 2026-05-20T10:32:16+00:00
 status: reviewing
