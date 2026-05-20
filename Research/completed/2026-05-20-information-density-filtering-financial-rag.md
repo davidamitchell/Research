@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 7d557022b6b3b5defc64e6a72f62cea0f5117314
+    changed: 2026-05-20
+    progress: progress/2026-05-20-information-density-filtering-financial-rag.md
+    summary: "Initial completion"
 ---
 
 # How should financial Retrieval-Augmented Generation (RAG) systems filter low-information and duplicate content so risk and Anti-Money Laundering (AML) decisions stay factual and synchronized?
