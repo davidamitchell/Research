@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How should banks detect and mitigate user-belief mirroring and sycophantic behaviour in Large Language Model (LLM) risk-analysis workflows?"
 added: 2026-05-20T08:35:44+00:00
 status: reviewing
