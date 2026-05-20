@@ -9,7 +9,7 @@
       "evaluation"
     ],
     "concept_cluster": [],
-    "item_count": 141,
+    "item_count": 142,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -712,6 +712,11 @@
         "added": "2026-05-18"
       },
       {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
+      },
+      {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
         "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
         "added": "2026-05-20"
@@ -729,7 +734,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 111,
+    "item_count": 112,
     "items": [
       {
         "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
@@ -1285,6 +1290,11 @@
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
         "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
         "added": "2026-05-20"
+      },
+      {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
       }
     ],
     "url": "/Research/threads/agentic-ai-workflow-llm.html"
@@ -1299,7 +1309,7 @@
       "ai-governance"
     ],
     "concept_cluster": [],
-    "item_count": 74,
+    "item_count": 75,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -1667,6 +1677,11 @@
         "added": "2026-05-18"
       },
       {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
+      },
+      {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
         "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
         "added": "2026-05-20"
@@ -1684,7 +1699,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 74,
+    "item_count": 75,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -2052,6 +2067,11 @@
         "added": "2026-05-19"
       },
       {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
+      },
+      {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
         "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
         "added": "2026-05-20"
@@ -2069,7 +2089,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 69,
+    "item_count": 70,
     "items": [
       {
         "slug": "2026-02-28-jevons-paradox",
@@ -2412,6 +2432,11 @@
         "added": "2026-05-18"
       },
       {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
+      },
+      {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
         "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
         "added": "2026-05-20"
@@ -2429,7 +2454,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 69,
+    "item_count": 70,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -2772,6 +2797,11 @@
         "added": "2026-05-18"
       },
       {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
+      },
+      {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
         "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
         "added": "2026-05-20"
@@ -2789,7 +2819,7 @@
       "llm"
     ],
     "concept_cluster": [],
-    "item_count": 68,
+    "item_count": 69,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -3125,6 +3155,11 @@
         "slug": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
         "title": "How Can Institutions Align Strategic Relevance Pathways with Human Low-Effort Behaviour?",
         "added": "2026-05-19"
+      },
+      {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
       },
       {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
@@ -4164,7 +4199,7 @@
       "organisational-design"
     ],
     "concept_cluster": [],
-    "item_count": 29,
+    "item_count": 30,
     "items": [
       {
         "slug": "2026-03-02-agent-memory-management-context-injection",
@@ -4305,6 +4340,11 @@
         "slug": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
         "title": "What Institutional Designs Create Low-Cost Help-Seeking Without Embarrassment, Penalty, or Status Loss?",
         "added": "2026-05-19"
+      },
+      {
+        "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+        "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+        "added": "2026-05-20"
       },
       {
         "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
@@ -7310,13 +7350,13 @@
     "url": "/Research/threads/agentic-ai-organisational-design-multi-agent.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -7372,7 +7412,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
     "slug": "copilot-instructions-claude",
@@ -8075,13 +8115,13 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "agents md"
     ],
     "item_count": 5,
@@ -8112,7 +8152,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "reference-architecture-capability-model-enterprise-architecture",
@@ -8400,14 +8440,14 @@
     "url": "/Research/threads/language-model-deterministic-systems-local-replayability.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
-      "native governance"
+      "copilot studio",
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -8427,6 +8467,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   }
 ]

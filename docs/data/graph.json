@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T10:16:41Z",
-  "node_count": 386,
-  "edge_count": 2361,
+  "generated": "2026-05-20T10:31:39Z",
+  "node_count": 387,
+  "edge_count": 2370,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2319,6 +2319,12 @@
       "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
       "type": "primary",
       "url": "/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html"
+    },
+    {
+      "slug": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html"
     }
   ],
   "edges": [
@@ -3164,7 +3170,7 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -6956,7 +6962,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6964,7 +6970,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -8580,14 +8586,6 @@
     },
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-      "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm",
-      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
-    },
-    {
-      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
       "weight": 3,
       "rel": "tag-overlap",
@@ -8597,6 +8595,14 @@
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
+    },
+    {
+      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -9652,18 +9658,18 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
-    },
-    {
-      "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,workflow",
+      "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
+    },
+    {
+      "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance",
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
@@ -13060,15 +13066,15 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,ai-platform,llm",
+      "evidence": "agentic-ai,governance,llm",
       "provenance": "2026-05-07-ai-production-incidents-deep-dive"
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -14212,14 +14218,6 @@
     },
     {
       "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-      "target": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,compliance,governance,llm",
-      "provenance": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension"
-    },
-    {
-      "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
       "target": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "weight": 3,
       "rel": "tag-overlap",
@@ -14228,11 +14226,11 @@
     },
     {
       "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
-      "target": "2026-05-12-knowledge-graph-data-product-agentic",
-      "weight": 3,
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,organisation",
-      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+      "evidence": "agentic-ai,governance,llm,organisation",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     },
     {
       "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
@@ -15292,14 +15290,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15317,6 +15307,14 @@
     {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
@@ -15627,6 +15625,14 @@
       "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
     },
     {
+      "source": "2026-05-12-knowledge-graph-data-product-agentic",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,organisation",
+      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+    },
+    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -15760,11 +15766,11 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,knowledge-graph",
-      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+      "provenance": "2026-05-12-odrl-policies-knowledge-graph-agentic-access"
     },
     {
       "source": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -16005,6 +16011,14 @@
     {
       "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+    },
+    {
+      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -16340,18 +16354,18 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -18436,11 +18450,11 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+      "evidence": "agentic-ai,llm,organisation",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
@@ -19124,14 +19138,6 @@
     },
     {
       "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
-      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
-    },
-    {
-      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -19157,6 +19163,14 @@
     {
       "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -19532,11 +19546,11 @@
     },
     {
       "source": "2026-05-18-agentic-explainability-vs-traditional",
-      "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,evaluation,llm",
-      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     },
     {
       "source": "2026-05-18-agentic-production-tradeoffs",
@@ -19649,6 +19663,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
       "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,organisation",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
@@ -21209,6 +21231,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,organisation",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     }
   ]
 }

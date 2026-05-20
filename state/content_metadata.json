@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-20T10:16:37Z",
+  "extracted_at": "2026-05-20T10:31:34Z",
   "items": {
+    "2026-05-20-banking-ai-syntactic-confidence-trap": {
+      "named_concepts": [
+        "rights provenance",
+        "generative narrative",
+        "european banking",
+        "banking authority",
+        "ai narrative",
+        "ai-generated compliance",
+        "case facts",
+        "produce confident",
+        "confident user-agreeing",
+        "official sources",
+        "sources align",
+        "control pattern",
+        "system limits",
+        "override rights",
+        "evidence-first review",
+        "anchor analyst",
+        "analyst judgment",
+        "reviewer understanding",
+        "serious compliance",
+        "compliance failures"
+      ],
+      "source_urls": [
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://www.fincen.gov/resources/statutes-regulations",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+        "https://www.eba.europa.eu/regulation-and-policy/anti-money-laundering-and-countering-the-financing-terrorism",
+        "https://www.eba.europa.eu/publications-and-media/press-releases/careless-use-innovative-compliance-products-can-lead-money-laundering-and-terrorism-financing-risks",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+        "https://researchonline.lse.ac.uk/id/eprint/123856/",
+        "https://arxiv.org/abs/2310.12558",
+        "https://arxiv.org/abs/2310.13548",
+        "https://www.nature.com/articles/s41746-025-02008-z",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Banks should assume that polished AI-written compliance prose can anchor analyst judgment before evidence review, because recommendation-first presentation, congruent advice, and convincing explanations all increase acceptance or over-reliance risk in adjacent decision-support settings",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+            "https://researchonline.lse.ac.uk/id/eprint/123856/",
+            "https://arxiv.org/abs/2310.12558"
+          ]
+        },
+        {
+          "text": "Generative narrative is riskier than a bare alert or score because Large Language Models can produce confidently phrased but false or user-agreeing content, which gives unsupported compliance summaries the appearance of verified reasoning",
+          "sources": [
+            "https://arxiv.org/abs/2310.13548",
+            "https://www.nature.com/articles/s41746-025-02008-z",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+          ]
+        },
+        {
+          "text": "European Union oversight law and governance guidance require more than nominal review, specifically reviewer understanding of system limits, automation-bias awareness, override and stop rights, provenance visibility, retained logs, and tested fallback paths",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+          ]
+        },
+        {
+          "text": "The interface controls with the strongest support are error briefings, low-aggregation evidence views, and source-linked provenance, because these controls keep the analyst engaged with underlying case facts instead of a single recommendation surface",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10113449/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+          ]
+        },
+        {
+          "text": "European Banking Authority findings on serious compliance failures, combined with FinCEN AML obligations, mean that unsupported AI-generated narratives create governance, training, and monitoring exposure rather than only model-accuracy risk",
+          "sources": [
+            "https://www.eba.europa.eu/publications-and-media/press-releases/careless-use-innovative-compliance-products-can-lead-money-laundering-and-terrorism-financing-risks",
+            "https://www.fincen.gov/resources/statutes-regulations"
+          ]
+        },
+        {
+          "text": "Banks should keep AI-generated narrative at the proposal layer rather than the final authority layer, because AML systems can model unusual behaviour more readily than actual money laundering and Bank Secrecy Act obligations still depend on reviewable human judgment and records",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC7568127/",
+            "https://www.fincen.gov/resources/statutes-regulations",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html"
+          ]
+        },
+        {
+          "text": "An auditable banking control pattern is an evidence-first workflow with independent analyst review, source-linked generated narrative, structured accept-edit-escalate choices, override and disagreement logs, real-time monitoring, and tested manual fallback",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10772030/",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+            "https://www.eba.europa.eu/publications-and-media/press-releases/careless-use-innovative-compliance-products-can-lead-money-laundering-and-terrorism-financing-risks"
+          ]
+        }
+      ]
+    },
     "2026-05-20-banking-agent-sprawl-governance-and-resilience": {
       "named_concepts": [
         "traceable version",
