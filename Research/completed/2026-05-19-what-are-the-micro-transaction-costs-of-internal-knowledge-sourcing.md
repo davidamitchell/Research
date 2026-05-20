@@ -25,7 +25,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: f1862980a9eef2f25c36cb96acaa60cb4b319dcb
+    changed: 2026-05-20
+    progress: progress/2026-05-20-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.md
+    summary: "Initial completion"
 ---
 
 # What Are the Micro-Transaction Costs of Internal Knowledge Sourcing?
