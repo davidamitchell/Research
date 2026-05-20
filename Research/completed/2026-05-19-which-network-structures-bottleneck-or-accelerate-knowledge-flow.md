@@ -2,12 +2,12 @@
 review_count: 2
 title: "Which Network Structures Bottleneck or Accelerate Knowledge Flow?"
 added: 2026-05-19T19:42:37+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [organisation, organisational-design, organisational-learning, organisational-theory]
 started: 2026-05-20T18:16:56+00:00
-completed: ~
+completed: 2026-05-20T18:41:19+00:00
 output: [knowledge]
 cites:
   - 2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows
