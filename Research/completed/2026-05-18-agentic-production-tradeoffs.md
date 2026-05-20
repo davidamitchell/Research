@@ -2,12 +2,12 @@
 review_count: 2
 title: "What Are We Losing and Gaining by Inserting Autonomous Tool-Using Artificial Intelligence Systems Into Production Workflows?"
 added: 2026-05-18T19:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, workflow, evaluation, organisation, formal-methods]
 started: 2026-05-20T06:42:59+00:00
-completed: ~
+completed: 2026-05-20T07:10:42+00:00
 output: [knowledge, backlog-item]
 cites:
   - 2026-05-18-agentic-explainability-vs-traditional
