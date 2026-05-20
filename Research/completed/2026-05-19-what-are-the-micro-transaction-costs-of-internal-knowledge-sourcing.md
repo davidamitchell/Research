@@ -2,12 +2,12 @@
 review_count: 2
 title: "What Are the Micro-Transaction Costs of Internal Knowledge Sourcing?"
 added: 2026-05-19T19:42:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, organisational-learning, organisational-theory, workflow]
 started: 2026-05-20T08:07:19+00:00
-completed: ~
+completed: 2026-05-20T08:28:47+00:00
 output: [knowledge]
 cites:
   [
