@@ -2,12 +2,12 @@
 review_count: 1
 title: "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?"
 added: 2026-05-20T08:35:44+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, governance, organisation]
 started: 2026-05-20T10:03:37+00:00
-completed: ~
+completed: 2026-05-20T10:26:57+00:00
 output: [knowledge]
 cites:
   - 2026-04-30-human-bias-ai-trust-rlhf-sycophancy

@@ -108,6 +108,10 @@ follow leads they produce. Apply source-marking discipline as defined in
   substitute source alone. Either rewrite it as an `[assumption]` or pure
   metadata fragment, or delete it after updating `## Sources` to the working
   source.
+- Treat `Source correction:` or `source_replacement:` notes the same way as
+  `Access note:` bullets. Keep them as pure metadata fragments by default, not
+  as declarative prose sentences, unless you are explicitly turning them into a
+  labeled inference with supporting accessible sources.
 - Do not carry execution-path statements such as "blocked in this runtime",
   "fetched via web search", or "direct page fetch failed" into Findings or
   Risks/Gaps. Rewrite them as source-qualification claims grounded in the
@@ -510,6 +514,14 @@ easily-detectable issues.
     cited source directly quantifies or ranks the effect. Otherwise rewrite
     the sentence into neutral prose, or keep it as a narrower `[inference]`
     with lower confidence.
+
+2g4. **Design-synthesis ranking check** -- if a sentence describes a proposed
+    control, interface feature, or workflow pattern as one of the "strongest
+    supported" or similarly ranked findings, confirm that the cited sources
+    directly support that specific control element as written. If one part of
+    the bundle is your own design synthesis, remove the ranking language,
+    narrow the claim to the directly supported elements, or downgrade the whole
+    sentence to a clearly marked inference with lower confidence.
 
 2g1. **Cross-source synthesis status** -- if a sentence combines an empirical
     result with a conceptual or theoretical source to conclude that models
