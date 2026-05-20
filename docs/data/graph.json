@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T08:17:45Z",
-  "node_count": 383,
-  "edge_count": 2332,
+  "generated": "2026-05-20T08:31:21Z",
+  "node_count": 384,
+  "edge_count": 2342,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2301,6 +2301,12 @@
       "title": "Why Do Trust-Based Institutions Outperform Incentive Schemes for Knowledge Sharing?",
       "type": "primary",
       "url": "/Research/research/2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing.html"
+    },
+    {
+      "slug": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "title": "What Are the Micro-Transaction Costs of Internal Knowledge Sourcing?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.html"
     }
   ],
   "edges": [
@@ -2394,14 +2400,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2427,6 +2425,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -8434,14 +8440,6 @@
     },
     {
       "source": "2026-04-30-grill-me-ai-alignment-shared-design",
-      "target": "2026-05-09-build-vs-improve-throughput-tradeoff",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "software-engineering,workflow",
-      "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
-    },
-    {
-      "source": "2026-04-30-grill-me-ai-alignment-shared-design",
       "target": "2026-05-16-variance-control-comparison-across-delivery-modes",
       "weight": 4,
       "rel": "tag-overlap",
@@ -10682,14 +10680,6 @@
     },
     {
       "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,workflow",
-      "provenance": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm"
-    },
-    {
-      "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -10699,6 +10689,14 @@
     {
       "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
       "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-learning,workflow",
+      "provenance": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm"
+    },
+    {
+      "source": "2026-05-02-knowledge-gap-tracking-promotion-patterns-pkm",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisational-learning,workflow",
@@ -10954,14 +10952,6 @@
     },
     {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
-      "target": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,workflow",
-      "provenance": "2026-05-02-research-item-versioning-amendment-norms"
-    },
-    {
-      "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -10971,6 +10961,14 @@
     {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-learning,workflow",
+      "provenance": "2026-05-02-research-item-versioning-amendment-norms"
+    },
+    {
+      "source": "2026-05-02-research-item-versioning-amendment-norms",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisational-learning,workflow",
@@ -13866,7 +13864,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13874,7 +13872,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13926,6 +13924,14 @@
       "weight": 3,
       "rel": "related",
       "evidence": "frontmatter:related",
+      "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
+    },
+    {
+      "source": "2026-05-09-build-vs-improve-throughput-tradeoff",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-theory,workflow",
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
     },
     {
@@ -13994,14 +14000,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14014,6 +14012,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -14546,7 +14552,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14554,7 +14560,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14674,7 +14680,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14682,7 +14688,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14970,14 +14976,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14990,6 +14988,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -15058,14 +15064,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15091,6 +15089,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15138,14 +15144,6 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15171,6 +15169,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -16306,14 +16312,6 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16326,6 +16324,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -16450,14 +16456,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-accountability-gaps",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16478,7 +16476,15 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-theory",
-      "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-theory",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
@@ -16498,14 +16504,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16527,6 +16525,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-theory",
       "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-theory",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
     },
     {
       "source": "2026-05-14-org-failure-modes-project-demand-product-it",
@@ -16710,7 +16716,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
-      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
@@ -18417,6 +18423,14 @@
       "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning,workflow",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -18594,14 +18608,6 @@
     },
     {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
-    },
-    {
-      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "weight": 3,
       "rel": "tag-overlap",
@@ -18633,6 +18639,14 @@
       "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
     },
     {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
       "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -18658,14 +18672,6 @@
     },
     {
       "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
-    },
-    {
-      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 4,
       "rel": "cites",
@@ -18679,14 +18685,6 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
-    },
-    {
-      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
     },
     {
       "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
@@ -18907,6 +18905,14 @@
     {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
+      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -19599,6 +19605,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-agentic-production-tradeoffs"
+    },
+    {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
@@ -20801,6 +20815,14 @@
       "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
       "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
       "target": "2026-03-02-transaction-costs",
       "weight": 3,
@@ -20847,6 +20869,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-learning,organisational-theory",
       "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -20959,6 +20989,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
+    },
+    {
+      "source": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-03-02-transaction-costs",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-03-10-nature-of-the-firm-coase-organisations",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     }
   ]
 }
