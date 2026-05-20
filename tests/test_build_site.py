@@ -119,22 +119,23 @@ def test_explicit_thread_requires_two_items() -> None:
 
 
 # ---------------------------------------------------------------------------
-# detect_threads — implicit (tag-based) threads
+# detect_threads — no implicit tag-based threads
 # ---------------------------------------------------------------------------
 
 
-def test_minimum_cluster_size_not_met() -> None:
-    """Two items sharing 2+ tags do not form a thread (need 3 items)."""
+def test_no_implicit_threads_for_tag_overlap() -> None:
+    """Tag overlap alone must not create threads."""
     items = [
         _make_item("a", ["x", "y", "z"]),
         _make_item("b", ["x", "y", "w"]),
+        _make_item("c", ["x", "y", "v"]),
     ]
     threads = detect_threads(items)
     assert not any(t["kind"] == "implicit" for t in threads)
 
 
-def test_basic_implicit_thread() -> None:
-    """Three items sharing 2+ tags form one implicit thread."""
+def test_detect_threads_returns_no_threads_when_only_tags_overlap() -> None:
+    """When there are no explicit/concept signals, no thread is created."""
     items = [
         _make_item("a", ["x", "y", "p"]),
         _make_item("b", ["x", "y", "q"]),
@@ -142,60 +143,7 @@ def test_basic_implicit_thread() -> None:
         _make_item("d", ["m", "n"]),  # unrelated
     ]
     threads = detect_threads(items)
-    implicit = [t for t in threads if t["kind"] == "implicit"]
-    assert len(implicit) == 1
-    assert _slugs(implicit[0]) == {"a", "b", "c"}
-
-
-def test_overlapping_thread_membership() -> None:
-    """An item can appear in multiple threads when clusters partially overlap.
-
-    Three distinct clusters form because no cluster is 75%+ subsumed by another:
-
-    Cluster A (seed tags {a,b,c}): [a_seed, a_ab, a_ac, a_bc, cross]
-    Cluster X (cross tags {a,b,p,q}): [cross, a_seed, a_ab, b_seed, b_pq]
-    Cluster B (seed tags {p,q,r}): [b_seed, b_pq, b_pr, b_qr, cross]
-
-    'cross' appears in all three threads.  Clusters A and X share 3/5 items
-    (60%) so both survive the 75% deduplication threshold.
-    """
-    items = [
-        _make_item("a_seed", ["a", "b", "c"]),
-        _make_item("a_ab", ["a", "b", "1"]),  # shares {a,b} with cross
-        _make_item("a_ac", ["a", "c", "2"]),  # shares {a} only with cross
-        _make_item("a_bc", ["b", "c", "3"]),  # shares {b} only with cross
-        _make_item("cross", ["a", "b", "p", "q"]),  # bridges A and B clusters
-        _make_item("b_seed", ["p", "q", "r"]),
-        _make_item("b_pq", ["p", "q", "1"]),  # shares {p,q} with cross
-        _make_item("b_pr", ["p", "r", "2"]),  # shares {p} only with cross
-        _make_item("b_qr", ["q", "r", "3"]),  # shares {q} only with cross
-    ]
-    threads = detect_threads(items)
-    implicit = [t for t in threads if t["kind"] == "implicit"]
-    # Three distinct clusters should survive deduplication
-    assert len(implicit) >= 2
-
-    all_thread_slugsets = [_slugs(t) for t in implicit]
-    cross_threads = [s for s in all_thread_slugsets if "cross" in s]
-    assert len(cross_threads) >= 2, "'cross' should appear in at least 2 threads"
-
-
-def test_deduplication_keeps_larger_cluster() -> None:
-    """Near-identical clusters (>= 75% overlap) are deduplicated; larger survives."""
-    # Items a,b,c,d all share tags x,y with each other.
-    # Seeding from a gives [a,b,c,d]; seeding from b gives the same [a,b,c,d].
-    # After deduplication we expect exactly one thread.
-    items = [
-        _make_item("a", ["x", "y", "1"]),
-        _make_item("b", ["x", "y", "2"]),
-        _make_item("c", ["x", "y", "3"]),
-        _make_item("d", ["x", "y", "4"]),
-    ]
-    threads = detect_threads(items)
-    implicit = [t for t in threads if t["kind"] == "implicit"]
-    # All four seeds produce the same cluster → should collapse to 1
-    assert len(implicit) == 1
-    assert _slugs(implicit[0]) == {"a", "b", "c", "d"}
+    assert threads == []
 
 
 # ---------------------------------------------------------------------------

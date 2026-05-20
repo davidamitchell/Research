@@ -1472,14 +1472,11 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
 
     Priority:
     1. Items with a matching ``thread`` frontmatter field are grouped together.
-    2. Items sharing 2+ tags form implicit threads (tag cluster).  Items may
-       appear in more than one thread if they genuinely belong to multiple
-       distinct clusters.
-    3. Items sharing 3+ named concepts (from content_metadata.json) form
-       concept threads as a fallback for items not reached by tags alone.
+    2. Items sharing 3+ named concepts (from content_metadata.json) form
+       concept threads.
 
     Returns a list of thread dicts, each with keys:
-      slug, title, items, kind ('explicit', 'implicit', or 'concept'),
+      slug, title, items, kind ('explicit' or 'concept'),
       tag_cluster (list), concept_cluster (list)
     """
     threads: list[dict] = []
@@ -1507,52 +1504,7 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
         )
 
     # ------------------------------------------------------------------
-    # 2. Implicit tag-based threads
-    # Generate all candidate clusters (every item as seed, no exclusion),
-    # then deduplicate clusters with >= 75% item overlap.
-    # This allows items to appear in multiple genuinely different threads.
-    # ------------------------------------------------------------------
-    candidate_clusters: list[list[dict]] = []
-    for item in items:
-        if len(item["tags"]) < 2:
-            continue
-        item_tags = set(item["tags"])
-        cluster = [item]
-        for other in items:
-            if other["slug"] == item["slug"]:
-                continue
-            if len(item_tags & set(other["tags"])) >= 2:
-                cluster.append(other)
-        if len(cluster) >= 3:
-            candidate_clusters.append(cluster)
-
-    # Largest clusters first; skip any that are 75%+ covered by an already-accepted one
-    candidate_clusters.sort(key=lambda c: -len(c))
-    accepted_slugsets: list[set[str]] = []
-    for cluster in candidate_clusters:
-        cluster_slugs = {c["slug"] for c in cluster}
-        if any(_cluster_overlap(cluster_slugs, a) >= 0.75 for a in accepted_slugsets):
-            continue
-        accepted_slugsets.append(cluster_slugs)
-        cluster_sorted = sorted(cluster, key=lambda x: x["added"])
-        all_tags: list[str] = []
-        for c in cluster:
-            all_tags.extend(c["tags"])
-        top_tags = [t for t, _ in Counter(all_tags).most_common(3)]
-        thread_title = " / ".join(top_tags)
-        threads.append(
-            {
-                "slug": slugify(thread_title),
-                "title": thread_title,
-                "items": cluster_sorted,
-                "kind": "implicit",
-                "tag_cluster": top_tags,
-                "concept_cluster": [],
-            }
-        )
-
-    # ------------------------------------------------------------------
-    # 3. Concept-based threads (secondary pass)
+    # 2. Concept-based threads
     # ------------------------------------------------------------------
     if metadata:
         threads.extend(detect_concept_threads(items, metadata, threads))

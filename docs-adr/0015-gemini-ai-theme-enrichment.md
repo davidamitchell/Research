@@ -160,6 +160,8 @@ reflect this addition.
   is superseded by this amendment.
 - `ai_themes` are now wired into site graph generation: each graph node includes `ai_themes`, and
   `theme-overlap` edges are emitted between items that share one or more themes.
+- Thread generation no longer creates implicit tag-cluster threads. Threads are now reserved for
+  explicit `thread:` progressions and concept-based clusters from `named_concepts`.
 - Enrichment prompt context now uses three sections from each item body (Research Question, Scope,
   Findings) instead of a 400-character findings snippet, improving classification depth.
 - Workflow push behavior now uses `git pull --rebase origin main` followed by `git push origin main`
