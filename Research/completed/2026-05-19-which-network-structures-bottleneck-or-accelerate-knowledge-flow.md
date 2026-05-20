@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "99c306e5eadcc3ed6bd48c2c359b6c7dd01aa2f3"
+    changed: 2026-05-20
+    progress: progress/2026-05-20-which-network-structures-bottleneck-or-accelerate-knowledge-flow.md
+    summary: "Initial completion"
 ---
 
 # Which Network Structures Bottleneck or Accelerate Knowledge Flow?
