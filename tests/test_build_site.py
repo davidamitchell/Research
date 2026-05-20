@@ -90,6 +90,21 @@ def test_search_pages_load_vector_runtime_module() -> None:
     assert 'src="/Research/assets/search-runtime.js"' in landing_html
 
 
+def test_search_runtime_uses_shared_score_matcher() -> None:
+    runtime = (
+        Path(__file__).parent.parent / "scripts" / "search" / "src" / "search-runtime.js"
+    ).read_text(encoding="utf-8")
+    assert "function scoreSearchMatch(" in runtime
+    assert "function normalizeForSearch(" in runtime
+
+
+def test_search_runtime_does_not_require_worker_bootstrap() -> None:
+    runtime = (
+        Path(__file__).parent.parent / "scripts" / "search" / "src" / "search-runtime.js"
+    ).read_text(encoding="utf-8")
+    assert "new Worker(" not in runtime
+
+
 def test_build_search_index_enriches_items_before_vector_indexing(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -1581,6 +1596,14 @@ def test_mini_graph_js_uses_device_pixel_ratio() -> None:
 
 def test_graph_js_has_distance_max() -> None:
     assert "DIST_MAX" in _GRAPH_JS
+
+
+def test_graph_js_scales_rest_length_inverse_to_weight() -> None:
+    assert "REST / Math.sqrt(Math.max(1, e.weight || 1))" in _GRAPH_JS
+
+
+def test_graph_js_caps_velocity_to_avoid_runaway_layout() -> None:
+    assert "VMAX" in _GRAPH_JS
 
 
 def test_graph_js_adaptive_rest_uses_canvas_size() -> None:
