@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [servicenow, agentic-ai, ai-platform, ai-governance, observability, enterprise, now-assist]
+themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, observability-monitoring]
 started: 2026-05-17T19:31:58+00:00
 completed: 2026-05-17T19:49:00+00:00
 output: [knowledge]

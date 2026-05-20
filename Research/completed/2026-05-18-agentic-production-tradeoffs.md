@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, llm, workflow, evaluation, organisation, formal-methods]
+themes: [agentic-ai, tools-infrastructure, governance-policy, mlops-deployment, system-reliability]
 started: 2026-05-20T06:42:59+00:00
 completed: 2026-05-20T07:10:42+00:00
 output: [knowledge, backlog-item]

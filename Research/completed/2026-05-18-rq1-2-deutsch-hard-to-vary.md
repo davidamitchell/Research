@@ -7,6 +7,7 @@ priority: high
 blocks:
   - 2026-05-18-rq1-3-instrumentalism-failure-modes
 tags: [epistemology, philosophy-of-science, machine-learning, formal-methods, invariants]
+themes: [llm-reasoning, ai-architecture, benchmarks-eval, epistemic-formalism, model-interpretability]
 started: 2026-05-19T01:38:17+00:00
 completed: 2026-05-19T01:59:55+00:00
 output: [knowledge]

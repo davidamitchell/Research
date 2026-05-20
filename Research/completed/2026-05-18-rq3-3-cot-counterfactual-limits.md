@@ -7,6 +7,7 @@ priority: high
 blocks:
   - 2026-05-18-rq4-1-agentic-loop-explanatory-reach
 tags: [llm, machine-learning, evaluation, causal-inference]
+themes: [llm-reasoning, benchmarks-eval, consciousness-cognition, causal-inference]
 started: 2026-05-19T11:03:35+00:00
 completed: 2026-05-19T11:30:23+00:00
 output: [knowledge]

@@ -8,6 +8,7 @@ blocks:
   - 2026-05-18-rq2-2-duhem-quine-underdetermination
   - 2026-05-18-rq2-3-predictive-model-fragility
 tags: [machine-learning, causal-inference, invariants, epistemology]
+themes: [ai-architecture, benchmarks-eval, causal-robustness, epistemic-foundations]
 started: 2026-05-19T02:31:18+00:00
 completed: 2026-05-19T02:52:03+00:00
 output: [knowledge]
