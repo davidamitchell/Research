@@ -1028,6 +1028,12 @@ def extract_themes(meta: dict) -> list[str]:
     return [str(theme).strip() for theme in raw_themes if str(theme).strip()]
 
 
+def item_themes(item: dict) -> list[str]:
+    """Return normalized themes list from an item dict."""
+    themes = item.get("themes") or []
+    return themes if isinstance(themes, list) else []
+
+
 def normalise_tags(raw: object) -> list[str]:
     """Normalise tags field to a list of lowercase strings."""
     if isinstance(raw, list):
@@ -3031,7 +3037,7 @@ def build_search_index(
             [item["title"]]
             + list(item["sections"].values())
             + named_concepts
-            + list(item.get("themes") or [])
+            + item_themes(item)
         )
         full_text = " ".join(all_text_parts)
         index.append(
@@ -3113,7 +3119,7 @@ def build_graph_json(
                 "title": item["title"],
                 "type": item.get("item_type", "primary"),
                 "url": item.get("page_url", f"/Research/research/{item['slug']}.html"),
-                "themes": list(item.get("themes") or []),
+                "themes": item_themes(item),
             }
             for item in all_items
         ],
@@ -3178,7 +3184,7 @@ def build_graph_json(
         source_item = slug_to_item.get(source_slug)
         if not source_item:
             continue
-        source_themes = set(source_item.get("themes") or [])
+        source_themes = set(item_themes(source_item))
         if not source_themes:
             continue
         for target_slug in sorted(node_slugs):
@@ -3187,7 +3193,7 @@ def build_graph_json(
             target_item = slug_to_item.get(target_slug)
             if not target_item:
                 continue
-            shared_themes = sorted(source_themes & set(target_item.get("themes") or []))
+            shared_themes = sorted(source_themes & set(item_themes(target_item)))
             if not shared_themes:
                 continue
             canonical_a, canonical_b = sorted([source_slug, target_slug])
@@ -3221,6 +3227,16 @@ def build_graph_json(
     return json.dumps(graph, ensure_ascii=False, indent=2)
 
 
+_GRAPH_RELATION_META: tuple[tuple[str, str, bool], ...] = (
+    ("cites", "#2dd4bf", True),
+    ("related", "#a78bfa", True),
+    ("tag-overlap", "#64748b", False),
+    ("theme-overlap", "#f59e0b", False),
+)
+_GRAPH_RELATION_TYPES: tuple[str, ...] = tuple(rel for rel, _color, _default in _GRAPH_RELATION_META)
+_GRAPH_RELATION_TYPE_SET: frozenset[str] = frozenset(_GRAPH_RELATION_TYPES)
+
+
 def _validate_graph(graph: dict) -> list[str]:
     """Validate a graph dict against the schema-1.0 requirements.
 
@@ -3244,7 +3260,7 @@ def _validate_graph(graph: dict) -> list[str]:
         src = edge.get("source", "")
         tgt = edge.get("target", "")
         rel = edge.get("rel", "")
-        if rel and rel not in {"cites", "related", "tag-overlap", "theme-overlap"}:
+        if rel and rel not in _GRAPH_RELATION_TYPE_SET:
             errors.append(f"edge[{i}] rel '{rel}' is not a supported relationship type")
         if src and src not in node_slugs:
             errors.append(f"edge[{i}] source '{src}' references unknown node")
@@ -4090,25 +4106,22 @@ def build_graph_page() -> str:
         </style>
         """)
 
+    buttons: list[str] = []
+    for rel, color, _default in _GRAPH_RELATION_META:
+        slug = rel.replace("-overlap", "")
+        buttons.append(
+            f'<button class="filter-btn" id="filter-{slug}" data-rel="{rel}">'
+            f'<span class="fdot" style="background:{color}"></span>'
+            f'{rel} <span class="fcount">…</span></button>'
+        )
     controls_html = (
         '<div class="graph-controls">'
-        '<button class="filter-btn" id="filter-cites" data-rel="cites">'
-        '<span class="fdot" style="background:#2dd4bf"></span>'
-        'cites <span class="fcount">…</span></button>'
-        '<button class="filter-btn" id="filter-related" data-rel="related">'
-        '<span class="fdot" style="background:#a78bfa"></span>'
-        'related <span class="fcount">…</span></button>'
-        '<button class="filter-btn" id="filter-tag" data-rel="tag-overlap">'
-        '<span class="fdot" style="background:#64748b"></span>'
-        'tag-overlap <span class="fcount">…</span></button>'
-        '<button class="filter-btn" id="filter-theme" data-rel="theme-overlap">'
-        '<span class="fdot" style="background:#f59e0b"></span>'
-        'theme-overlap <span class="fcount">…</span></button>'
-        '<span class="ctrl-sep"></span>'
-        '<button id="btn-fit">fit</button>'
-        '<span class="ctrl-sep"></span>'
-        '<input id="node-search" type="search" placeholder="Search nodes…" />'
-        "</div>"
+        + "".join(buttons)
+        + '<span class="ctrl-sep"></span>'
+        + '<button id="btn-fit">fit</button>'
+        + '<span class="ctrl-sep"></span>'
+        + '<input id="node-search" type="search" placeholder="Search nodes…" />'
+        + "</div>"
     )
 
     return (
