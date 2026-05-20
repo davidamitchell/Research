@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: f8be4fa60b3b5c814b928ec32c5325029382169b
+    changed: 2026-05-20
+    progress: progress/2026-05-20-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.md
+    summary: "Initial completion"
 ---
 
 # How Do Asset Specificity and Information Asymmetry Block Knowledge Transfer?
