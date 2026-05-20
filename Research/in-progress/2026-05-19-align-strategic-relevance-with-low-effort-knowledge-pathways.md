@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How Can Institutions Align Strategic Relevance Pathways with Human Low-Effort Behaviour?"
 added: 2026-05-19T19:42:38+00:00
 status: reviewing
