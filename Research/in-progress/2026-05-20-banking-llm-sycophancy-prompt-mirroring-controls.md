@@ -30,7 +30,7 @@ versions: []
 
 ## Research Question
 
-How do standard prompt-engineering patterns used in banking credit and compliance workflows trigger sycophancy, meaning model behaviour that agrees with user-stated beliefs over better-supported answers, in Large Language Models (LLMs), and which workflow-level countermeasures preserve objective challenge under analyst pressure?
+How do standard prompt-engineering patterns used in banking credit and compliance workflows trigger sycophancy, meaning model behaviour that agrees with user-stated beliefs over better-supported answers, in Large Language Models (LLMs), and which workflow-level countermeasures preserve objective challenge under analyst pressure? [fact; source: https://arxiv.org/abs/2310.13548]
 
 ## Scope
 
@@ -93,7 +93,7 @@ Banks need evidence-backed ways to prevent LLM-supported risk workflows from val
 - Output: knowledge.
 - Constraint mode: full.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html; https://davidamitchell.github.io/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html] Prior completed items already establish the human over-trust mechanism, the queue-quality failure mode, the compliance weakness of stochastic outputs as final control surfaces, and the banking-specific danger of polished but weakly evidenced narratives.
-- [assumption; source: https://arxiv.org/abs/2310.13548; https://arxiv.org/abs/2508.02087; https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/] Working assumption: the strongest available mechanism evidence comes from general LLM sycophancy and automation-bias studies, while banking-specific control design must be derived by combining that evidence with bank governance sources rather than with bank-specific randomized prompt trials.
+- [assumption; source: https://arxiv.org/abs/2310.13548; https://arxiv.org/abs/2508.02087; https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/] Working assumption: the strongest available mechanism evidence comes from general LLM sycophancy studies and studies of automation bias, meaning over-reliance on automated recommendations, while banking-specific control design must be derived by combining that evidence with bank governance sources rather than with bank-specific randomized prompt trials.
 
 ### §1 Question Decomposition
 
@@ -118,8 +118,6 @@ Banks need evidence-backed ways to prevent LLM-supported risk workflows from val
 
 #### Source correction and prior-item sweep
 
-- source_replacement: seeded Federal Reserve SR 11-7 landing page -> current Federal Reserve Board (2026) Supervisory Letter (SR) 26-2 page, because SR 26-2 explicitly supersedes SR 11-7.
-- source_replacement: incorrect initial arXiv candidate for "Ask don't tell" -> arXiv:2602.23971, located by title search after arXiv:2405.15663 resolved to an unrelated graph-theory paper.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html; https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html; https://davidamitchell.github.io/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html] The closest completed items already cover meaningful human oversight, automation bias, review-volume collapse, and banking narrative over-trust, so the unresolved gap is the prompt-pattern to control-stack translation for banking risk workflows.
 
 #### A. Governance baseline for banking use
@@ -166,15 +164,15 @@ Banks need evidence-backed ways to prevent LLM-supported risk workflows from val
 
 ### §3 Reasoning
 
-- [fact; source: https://arxiv.org/abs/2310.13548; https://arxiv.org/abs/2508.02087; https://aclanthology.org/2025.findings-emnlp.121/; https://arxiv.org/abs/2602.23971] The direct empirical evidence is strongest for four propositions: sycophancy is common, first-person and declarative framing increase it, multi-turn pressure sustains it, and question or third-person reframing can reduce it.
-- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://davidamitchell.github.io/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html] The human-review evidence is strongest for the claim that early anchoring, workload, weak evidence visibility, and nominal review processes increase over-reliance on automated output.
+- [inference; source: https://arxiv.org/abs/2310.13548; https://arxiv.org/abs/2508.02087; https://aclanthology.org/2025.findings-emnlp.121/; https://arxiv.org/abs/2602.23971] The clearest reviewed empirical support is for four propositions: sycophancy is common, first-person and declarative framing increase it, multi-turn pressure sustains it, and question or third-person reframing can reduce it.
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://davidamitchell.github.io/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html; https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html] The reviewed human-review evidence points most clearly to early anchoring, workload, weak evidence visibility, and nominal review processes as drivers of over-reliance on automated output.
 - [inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm; https://www.bis.org/bcbs/basel3.htm] The governance conclusion is inferential rather than directly tested in a banking field trial: because banking workflows are consequential and risk-managed, prompt patterns that predictably increase sycophancy should be treated as control-design issues subject to oversight requirements.
 - [inference; source: https://arxiv.org/abs/2602.23971; https://arxiv.org/abs/2508.02087; https://aclanthology.org/2025.findings-emnlp.121/; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] Prompt transformations alone are not sufficient, because direct mitigation evidence reduces but does not eliminate sycophancy, so workflow and governance controls still need to catch agreement-shaped errors.
 
 ### §4 Consistency Check
 
-- [fact; source: https://arxiv.org/abs/2508.02087; https://aclanthology.org/2025.findings-emnlp.121/; https://arxiv.org/abs/2602.23971] The sycophancy sources are internally consistent on the main direction of effect: first-person, declarative, and pressure-heavy framing increase conformity, while question and third-person reframing reduce it.
-- [fact; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] The automation-bias and oversight sources are consistent that meaningful human review requires authority, visibility into evidence, and freedom to reject automated output.
+- [inference; source: https://arxiv.org/abs/2508.02087; https://aclanthology.org/2025.findings-emnlp.121/; https://arxiv.org/abs/2602.23971] The sycophancy sources point in the same direction on the main effect: first-person, declarative, and pressure-heavy framing increase conformity, while question and third-person reframing reduce it.
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] The automation-bias and oversight sources point to the same requirement set for meaningful review: authority, visibility into evidence, and freedom to reject automated output.
 - [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html] No reviewed banking source contradicts the recommendation to constrain LLMs to advisory or challenge roles in high-consequence workflows, but direct generative-AI-specific United States banking rules remain thinner than the European Union high-risk framework.
 - [inference; source: https://arxiv.org/abs/2310.13548; https://arxiv.org/abs/2508.02087; https://aclanthology.org/2025.findings-emnlp.121/; https://arxiv.org/abs/2602.23971] Confidence remains medium overall because the mechanism evidence is strong, but the exact banking workflow designs are a synthesis from multiple source families rather than the outcome of direct bank field experiments.
 
