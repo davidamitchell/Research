@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?"
 added: 2026-05-20T08:35:44+00:00
 status: reviewing
