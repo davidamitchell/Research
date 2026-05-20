@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 1c8847202ca270c064a2ad838fe889c16fae3925
+    changed: 2026-05-20
+    progress: progress/2026-05-20-hitl-capacity-thresholds-in-banking-compliance.md
+    summary: "Initial completion"
 ---
 
 # At what threshold does Human-in-the-Loop (HITL) oversight in bank compliance operations stop being a meaningful challenge function and become routine acceptance of automated outputs?
