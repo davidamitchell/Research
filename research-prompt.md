@@ -450,6 +450,15 @@ easily-detectable issues.
     or `acronym_audit: passed` without bullet-sentence phrasing. Do not leave
     review-outcome sentences as unlabeled declarative prose.
 
+2c3. **Evidence-ranking and author-method check** -- do not write
+    self-referential synthesis sentences such as "the strongest evidence in this
+    item is...", "I weighted X more heavily...", "I treated item Y as...", or
+    "the evidence here is stronger for A than B" unless the sentence is rewritten
+    as pure workflow metadata or converted into a narrowly scoped inference that
+    the cited sources directly support. Review treats these sentences as
+    unsupported claims about your own methodology or about comparative evidence
+    strength, and ordinary source citations do not justify them.
+
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official
     page, update the entry in `## Sources` to the working official URL before
