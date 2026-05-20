@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-20T09:42:31Z",
+  "extracted_at": "2026-05-20T10:03:09Z",
   "items": {
+    "2026-05-20-banking-agent-sprawl-governance-and-resilience": {
+      "named_concepts": [
+        "traceable version",
+        "version history",
+        "inventory policy",
+        "policy traceable",
+        "third-party outages",
+        "one central",
+        "central governance",
+        "governance core",
+        "agent growth",
+        "validation exception",
+        "queue governance",
+        "department-level agent",
+        "resilience sources",
+        "banking governance",
+        "control services",
+        "iso iec",
+        "locally inside",
+        "inside shared",
+        "shared rules",
+        "exception handling"
+      ],
+      "source_urls": [
+        "https://www.centralbank.ie/regulation/digital-operational-resilience-act-dora",
+        "https://eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716",
+        "https://www.amf-france.org/en/news-publications/depth/dora",
+        "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+        "https://www.fdic.gov/news/press-releases/2026/agencies-issue-revised-model-risk-guidance",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development",
+        "https://www.bis.org/fsi/publ/insights63.htm",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Uncoordinated department-level agent growth shifts bank risk from single-model error toward cross-division coordination failure, because banking and resilience sources all emphasise firmwide governance of shared models, dependencies, and reporting controls rather than isolated local tooling",
+          "sources": [
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://www.bis.org/fsi/publ/insights63.htm",
+            "https://www.bis.org/bcbs/publ/d516.htm"
+          ]
+        },
+        {
+          "text": "Automation does not remove human control work inside banks; it relocates the bottleneck into validation, exception handling, incident triage, and compliance decision queues that become new choke points when agent throughput rises",
+          "sources": [
+            "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development",
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://www.bis.org/bcbs/publ/d516.htm"
+          ]
+        },
+        {
+          "text": "Banking governance needs one central governance core for inventory, policy, traceable version history, and evidence services, even when domain-owned agents continue to execute locally inside shared rules",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+            "https://www.centralbank.ie/regulation/digital-operational-resilience-act-dora",
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf"
+          ]
+        },
+        {
+          "text": "Every consequential agent needs an auditable registry entry that binds ownership, business purpose, machine identity, traceable version history, validation status, and shutdown responsibility if cross-agent behaviour is to remain reviewable",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html",
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf"
+          ]
+        },
+        {
+          "text": "Consistency across agents cannot be maintained by local logs alone, because banks need shared telemetry and reconciliation events that can expose contradictory outputs, stale policies, and unresolved overrides across divisions and third-party services",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+            "https://www.amf-france.org/en/news-publications/depth/dora",
+            "https://www.bis.org/bcbs/publ/d516.htm",
+            "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"
+          ]
+        },
+        {
+          "text": "Operational resilience for an agent estate should test queue surges, third-party outages, stale-policy rollback, and contradiction drills in addition to ordinary model tests, because those dependent control services become part of the critical path",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d516.htm",
+            "https://www.centralbank.ie/regulation/digital-operational-resilience-act-dora",
+            "https://www.amf-france.org/en/news-publications/depth/dora"
+          ]
+        },
+        {
+          "text": "Risk-tiered review intensity is necessary in practice, with automated checks and sampling for low-impact agents and independent validation plus effective challenge for material agents, because bank model governance is expected to be proportional to size, complexity, and risk profile",
+          "sources": [
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://www.fdic.gov/news/press-releases/2026/agencies-issue-revised-model-risk-guidance",
+            "https://www.iso.org/standard/81230.html"
+          ]
+        }
+      ]
+    },
     "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking": {
       "named_concepts": [
         "visible expertise",

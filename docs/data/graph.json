@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T09:42:35Z",
-  "node_count": 385,
-  "edge_count": 2351,
+  "generated": "2026-05-20T10:03:12Z",
+  "node_count": 386,
+  "edge_count": 2361,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2313,6 +2313,12 @@
       "title": "What Institutional Designs Create Low-Cost Help-Seeking Without Embarrassment, Penalty, or Status Loss?",
       "type": "primary",
       "url": "/Research/research/2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking.html"
+    },
+    {
+      "slug": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "title": "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html"
     }
   ],
   "edges": [
@@ -2406,14 +2412,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2439,6 +2437,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -3158,10 +3164,10 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "governance,organisational-design",
+      "evidence": "agentic-ai,governance",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -5062,14 +5068,6 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5095,6 +5093,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5374,14 +5380,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5391,6 +5389,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9646,7 +9652,7 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -9654,10 +9660,10 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
-      "weight": 2,
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
+      "evidence": "agentic-ai,governance,workflow",
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
@@ -12406,14 +12412,6 @@
     },
     {
       "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
-      "target": "2026-05-12-knowledge-graph-data-product-agentic",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,knowledge-graph",
-      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
-    },
-    {
-      "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
       "target": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
       "weight": 3,
       "rel": "tag-overlap",
@@ -13866,11 +13864,11 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "operational-risk,organisation,workflow",
-      "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
+      "provenance": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification"
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13878,7 +13876,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14014,18 +14012,18 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -14558,7 +14556,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14566,7 +14564,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14686,7 +14684,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14694,7 +14692,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14949,6 +14947,14 @@
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
+      "source": "2026-05-09-policy-lsp-capability-debt-detection",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
+    },
+    {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
       "weight": 4,
@@ -14990,18 +14996,18 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -15070,14 +15076,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15103,6 +15101,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15150,14 +15156,6 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15183,6 +15181,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15286,14 +15292,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "knowledge-graph,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15311,6 +15309,14 @@
     {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
@@ -15613,6 +15619,14 @@
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
     },
     {
+      "source": "2026-05-12-knowledge-graph-data-product-agentic",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,organisation",
+      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+    },
+    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -15750,7 +15764,7 @@
     },
     {
       "source": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -16318,14 +16332,6 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16338,6 +16344,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,workflow",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -16658,7 +16672,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
-      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
     },
     {
       "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
@@ -17198,14 +17212,6 @@
     },
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "target": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
-    },
-    {
-      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -17231,6 +17237,14 @@
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
@@ -18070,14 +18084,6 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 5,
       "rel": "tag-overlap",
@@ -18390,14 +18396,6 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-      "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 3,
       "rel": "tag-overlap",
@@ -18435,6 +18433,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-learning,workflow",
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
@@ -18630,14 +18636,6 @@
     },
     {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
-    },
-    {
-      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -18647,6 +18645,14 @@
     {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -18691,6 +18697,14 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     },
     {
       "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
@@ -18806,14 +18820,6 @@
     },
     {
       "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-      "target": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,formal-methods",
-      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
-    },
-    {
-      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 4,
       "rel": "tag-overlap",
@@ -18902,14 +18908,6 @@
     },
     {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
-    },
-    {
-      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -18919,6 +18917,14 @@
     {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
+      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -19149,6 +19155,14 @@
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
       "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "target": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
       "weight": 3,
@@ -19211,6 +19225,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
       "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
+    },
+    {
+      "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     },
     {
       "source": "2026-05-17-servicenow-ai-control-tower-capabilities",
@@ -19445,6 +19467,14 @@
       "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
     },
     {
+      "source": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
       "source": "2026-05-18-agentic-explainability-vs-traditional",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -19611,6 +19641,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-agentic-production-tradeoffs"
+    },
+    {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
@@ -21123,6 +21161,54 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     }
   ]
 }
