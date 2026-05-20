@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T07:25:31Z",
-  "node_count": 381,
-  "edge_count": 2316,
+  "generated": "2026-05-20T07:35:16Z",
+  "node_count": 382,
+  "edge_count": 2324,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2283,6 +2283,12 @@
       "title": "How Can Institutions Align Strategic Relevance Pathways with Human Low-Effort Behaviour?",
       "type": "synthesis",
       "url": "/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+    },
+    {
+      "slug": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "title": "How Do Activation-Energy Barriers, the threshold costs of starting a knowledge request, Shape Knowledge-Seeking Behaviour?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
     },
     {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -13982,14 +13988,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13999,6 +13997,14 @@
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
@@ -14958,14 +14964,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14975,6 +14973,14 @@
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
@@ -16438,14 +16444,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
-      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-accountability-gaps",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16467,6 +16465,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
@@ -16486,14 +16492,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
       "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16515,6 +16513,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
     },
     {
       "source": "2026-05-14-org-failure-modes-project-demand-product-it",
@@ -16578,7 +16584,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
-      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
     },
     {
       "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
@@ -18397,6 +18403,14 @@
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
+    },
+    {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -18659,6 +18673,14 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
     },
     {
       "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
@@ -20755,6 +20777,54 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-03-02-transaction-costs",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-03-26-measuring-opportunity-cost",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

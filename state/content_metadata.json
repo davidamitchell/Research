@@ -1,6 +1,93 @@
 {
-  "extracted_at": "2026-05-20T07:25:27Z",
+  "extracted_at": "2026-05-20T07:35:12Z",
   "items": {
+    "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour": {
+      "named_concepts": [
+        "office hours",
+        "peer mentoring",
+        "leader coaching",
+        "expert directories",
+        "knowledge seeking",
+        "direct intervention",
+        "psychological safety",
+        "first useful",
+        "useful contact",
+        "consulted literature",
+        "internal knowledge",
+        "asking even",
+        "transfer barriers",
+        "learning behavior",
+        "coaching helps",
+        "helps shape",
+        "plausible way",
+        "reduce interpersonal",
+        "interpersonal hesitation",
+        "hesitation around"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1002/smj.4250171105",
+        "https://doi.org/10.1287/mnsc.49.4.432.14428",
+        "https://doi.org/10.1006/obhd.1997.2746",
+        "https://doi.org/10.1177/0021886302381002",
+        "https://doi.org/10.2307/2666999",
+        "https://doi.org/10.1111/peps.12183",
+        "https://doi.org/10.1177/1059601103258439",
+        "https://ideas.repec.org/p/tin/wpaper/20090042.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Internal knowledge seeking is most likely to stall before first contact when the seeker does not know who has the relevant expertise, cannot judge its value, or cannot reach that person quickly enough",
+          "sources": [
+            "https://ideas.repec.org/a/inm/ormnsc/v49y2003i4p432-445.html"
+          ]
+        },
+        {
+          "text": "Social-image costs suppress asking even when help is available, because help-seeking can signal incompetence, dependence, inferiority, or weakness, especially across status differences or on novel core tasks",
+          "sources": [
+            "https://colab.ws/articles/10.1006/obhd.1997.2746",
+            "https://doi.org/10.1177/0021886302381002",
+            "https://ideas.repec.org/p/tin/wpaper/20090042.html"
+          ]
+        },
+        {
+          "text": "Internal transfer barriers are not only motivational, because knowledge seeking also stalls when practices are hard to decode, recipients struggle to absorb them, or source-recipient relationships are arduous",
+          "sources": [
+            "https://doi.org/10.1002/smj.4250171105"
+          ]
+        },
+        {
+          "text": "Psychological safety, a shared belief that the team is safe for interpersonal risk taking, is associated with learning behavior, and leader coaching helps shape that team climate, which makes these conditions a plausible way to reduce interpersonal hesitation around asking",
+          "sources": [
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+            "https://digitalcommons.odu.edu/management_fac_pubs/13/"
+          ]
+        },
+        {
+          "text": "Peer mentoring has direct intervention support in the consulted literature, because mentor training increased perceived mentor skill and stronger peer mentoring was associated with higher knowledge creation and sharing",
+          "sources": [
+            "https://doi.org/10.1177/1059601103258439"
+          ]
+        },
+        {
+          "text": "Expert directories and scheduled office hours are best treated as mechanism-driven routines rather than proven universal fixes, because they directly lower expertise-discovery and timely-access costs identified by the information-seeking model",
+          "sources": [
+            "https://ideas.repec.org/a/inm/ormnsc/v49y2003i4p432-445.html",
+            "https://doi.org/10.1177/1059601103258439"
+          ]
+        },
+        {
+          "text": "Durable barrier reduction should be judged by operational leading indicators, such as time to first useful contact, cross-boundary help-seeking frequency, query abandonment, mentoring reuse, and successful referral completion, not by repository usage alone",
+          "sources": [
+            "https://ideas.repec.org/a/inm/ormnsc/v49y2003i4p432-445.html",
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+          ]
+        }
+      ]
+    },
     "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways": {
       "named_concepts": [
         "strategic relevance",
