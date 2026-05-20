@@ -45,7 +45,8 @@ What measurable workload, alert-volume, and staffing thresholds indicate that Hu
 
 ## Context
 
-Bank compliance teams increasingly inherit queues created by sanctions, transaction-monitoring, and other model-driven screening systems whose false-positive rates can exceed 90 percent, so nominal human presence is not enough unless reviewers retain protected time, authority, and evidence to challenge machine outputs. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/; https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
+Bank compliance teams increasingly inherit queues created by sanctions-screening and transaction-monitoring systems. [fact; source: https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf; https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf]
+Public sanctions-screening studies report false-positive rates above 90 percent, so nominal human presence is not enough unless reviewers retain protected time, authority, and evidence to challenge machine outputs. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/; https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/]
 
 ## Approach
 
