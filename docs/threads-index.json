@@ -4685,6 +4685,151 @@
     "url": "/Research/threads/ai-governance-low-code-regulated-enterprise.html"
   },
   {
+    "slug": "organisation-governance-organisational-design",
+    "title": "organisation / governance / organisational-design",
+    "kind": "implicit",
+    "tag_cluster": [
+      "organisation",
+      "governance",
+      "organisational-design"
+    ],
+    "concept_cluster": [],
+    "item_count": 26,
+    "items": [
+      {
+        "slug": "2026-03-02-agent-memory-management-context-injection",
+        "title": "Agent Memory Management and Context Injection",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-10-dikw-transformation-functions",
+        "title": "The DIKW pyramid: transformation functions from data to information to knowledge to wisdom",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-nature-of-the-firm-coase-organisations",
+        "title": "The Nature of the Firm: why organisations exist, their fitness functions, and invariants",
+        "added": "2026-03-13"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+        "title": "Extending Traditional Data Governance Frameworks to Address Large Language Model (LLM) Non-Determinism and Uncertainty About Deployed Behavior",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+        "title": "Process-Risk-Control (PRC) scoring impacts from unstandardized workforce processes",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-policy-lsp-capability-debt-detection",
+        "title": "Language Server Protocol (LSP)-style policy surfaces and workforce taxonomies for automatic persistent capability-mismatch detection",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+        "title": "Control Objectives for Information and Related Technologies (COBIT) and Capability Maturity Model Integration (CMMI): process-definition requirements for risk mitigation",
+        "added": "2026-05-09"
+      },
+      {
+        "slug": "2026-05-12-data-product-ontology",
+        "title": "Data product ontology: definition, adoption, and current relevance",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-12-knowledge-graph-data-product-agentic",
+        "title": "Knowledge Graph as a data product: data mesh principles, contracts, and ownership for software-agent runtime dependencies",
+        "added": "2026-05-12"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+        "title": "Organisational failure modes: vendor non-compliance with or absence of implementation standards",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+        "title": "Organisational failure modes: risk, operational cost, and benefits accountability in separate business units",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-project-demand-product-it",
+        "title": "Organisational failure modes: project-based demand with product-based information technology (IT) teams",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+        "title": "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-org-failure-modes-accountability-gaps",
+        "title": "Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-14-citizen-development-rollout-empirical-evidence",
+        "title": "Empirical evidence on rollout of organisation-wide low-code and no-code programs",
+        "added": "2026-05-14"
+      },
+      {
+        "slug": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+        "title": "Governance structures that support investment in delivery capability without one owner for risk, cost, and benefits",
+        "added": "2026-05-16"
+      },
+      {
+        "slug": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+        "title": "Institutional knowledge and social-friction risks in Artificial Intelligence (AI)-first policy clarification",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+        "title": "Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits",
+        "added": "2026-05-17"
+      },
+      {
+        "slug": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
+        "title": "Why Do Trust-Based Institutions Outperform Incentive Schemes for Knowledge Sharing?",
+        "added": "2026-05-19"
+      },
+      {
+        "slug": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+        "title": "How Do Activation-Energy Barriers, the threshold costs of starting a knowledge request, Shape Knowledge-Seeking Behaviour?",
+        "added": "2026-05-19"
+      },
+      {
+        "slug": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+        "title": "How Can Institutions Align Strategic Relevance Pathways with Human Low-Effort Behaviour?",
+        "added": "2026-05-19"
+      }
+    ],
+    "url": "/Research/threads/organisation-governance-organisational-design.html"
+  },
+  {
     "slug": "ai-governance-agentic-ai-low-code",
     "title": "ai-governance / agentic-ai / low-code",
     "kind": "implicit",
@@ -8250,14 +8395,14 @@
     "url": "/Research/threads/organisational-design-ai-strategy-coase.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -8287,17 +8432,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
-      "agents md"
+      "copilot coding",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -8327,7 +8472,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "reference-architecture-capability-model-enterprise-architecture",
@@ -8435,13 +8580,13 @@
     "url": "/Research/threads/workflow-tooling-process.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -8467,7 +8612,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "evaluation-benchmarking-copilot-studio",
@@ -8620,14 +8765,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "local-replayability-language-model-deterministic-systems",
-    "title": "local replayability / language model / deterministic systems",
+    "slug": "language-model-deterministic-systems-local-replayability",
+    "title": "language model / deterministic systems / local replayability",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "local replayability",
       "language model",
-      "deterministic systems"
+      "deterministic systems",
+      "local replayability"
     ],
     "item_count": 3,
     "items": [
@@ -8647,7 +8792,7 @@
         "added": "2026-05-18"
       }
     ],
-    "url": "/Research/threads/local-replayability-language-model-deterministic-systems.html"
+    "url": "/Research/threads/language-model-deterministic-systems-local-replayability.html"
   },
   {
     "slug": "power-platform-copilot-studio-native-governance",

@@ -1,6 +1,96 @@
 {
-  "extracted_at": "2026-05-20T07:49:23Z",
+  "extracted_at": "2026-05-20T08:06:33Z",
   "items": {
+    "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing": {
+      "named_concepts": [
+        "knowledge sharing",
+        "intrinsic motivation",
+        "trust-based institutions",
+        "incentive studies",
+        "psychologically safe",
+        "visible contribution",
+        "leader coaching",
+        "direct workplace",
+        "institutions outperform",
+        "direct incentive",
+        "highly individualised",
+        "safe norms",
+        "status risk",
+        "trusted pathways",
+        "generic incentive",
+        "sharing schemes",
+        "workplace knowledge-sharing",
+        "individual performance",
+        "shared-benefit dilemma",
+        "learning behavior"
+      ],
+      "source_urls": [
+        "https://ideas.repec.org/a/oup/qjecon/v115y2000i3p791-810..html",
+        "https://home.ubalt.edu/tmitch/642/Articles%20syllabus/Deci%20Koestner%20Ryan%20meta%20IM%20psy%20bull%2099.pdf",
+        "https://selfdeterminationtheory.org/wp-content/uploads/2025/01/2025_JinPeiEtAl_PayForIndividual.pdf",
+        "https://core.ac.uk/display/30042414",
+        "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+        "https://digitalcommons.odu.edu/management_fac_pubs/13/",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-exploration-synthesis-gap.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Generic incentive studies show that expected tangible rewards can reduce voluntary effort or intrinsic motivation, which makes reward-led sharing schemes more vulnerable when they depend on discretionary contribution rather than mandatory compliance",
+          "sources": [
+            "https://ideas.repec.org/a/oup/qjecon/v115y2000i3p791-810..html",
+            "https://home.ubalt.edu/tmitch/642/Articles%20syllabus/Deci%20Koestner%20Ryan%20meta%20IM%20psy%20bull%2099.pdf"
+          ]
+        },
+        {
+          "text": "In a direct workplace knowledge-sharing study, pay for individual performance improves sharing only up to a point and then reduces intrinsic motivation and sharing as the scheme becomes more controlling",
+          "sources": [
+            "https://selfdeterminationtheory.org/wp-content/uploads/2025/01/2025_JinPeiEtAl_PayForIndividual.pdf"
+          ]
+        },
+        {
+          "text": "Knowledge sharing has the structure of a shared-benefit dilemma, where contributing can be privately costly even when the group benefits, so changing payoffs alone is only one intervention family",
+          "sources": [
+            "https://core.ac.uk/display/30042414"
+          ]
+        },
+        {
+          "text": "Team climates where people believe it is safe to take interpersonal risks are associated with learning behavior, and leader coaching plus contextual support help sustain those climates",
+          "sources": [
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+            "https://digitalcommons.odu.edu/management_fac_pubs/13/"
+          ]
+        },
+        {
+          "text": "Trust-based institutions outperform incentive schemes in the long run because they lower the recurring search, access, and social effort required for each exchange, especially status risk and hesitation to ask",
+          "sources": [
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+            "https://digitalcommons.odu.edu/management_fac_pubs/13/",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
+          ]
+        },
+        {
+          "text": "Incentive-led programmes decay when they reward visible tokens of contribution more easily than tacit explanation, careful interpretation, or reuse, which creates gaming, withholding, and compliance-shaped sharing",
+          "sources": [
+            "https://selfdeterminationtheory.org/wp-content/uploads/2025/01/2025_JinPeiEtAl_PayForIndividual.pdf",
+            "https://core.ac.uk/display/30042414",
+            "https://davidamitchell.github.io/Research/research/2026-03-12-exploration-synthesis-gap.html"
+          ]
+        },
+        {
+          "text": "The most durable design is a mixed system that keeps recognition moderate and indirect while making expert access predictable, mentoring available, and psychologically safe asking part of ordinary work",
+          "sources": [
+            "https://core.ac.uk/display/30042414",
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+            "https://digitalcommons.odu.edu/management_fac_pubs/13/",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+          ]
+        }
+      ]
+    },
     "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour": {
       "named_concepts": [
         "office hours",
