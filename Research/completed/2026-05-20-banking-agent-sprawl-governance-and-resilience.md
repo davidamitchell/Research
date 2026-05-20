@@ -2,12 +2,12 @@
 review_count: 2
 title: "How should banks govern department-level agent sprawl and bottleneck shifts across divisions?"
 added: 2026-05-20T08:35:44+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, governance, organisation, workflow]
 started: 2026-05-20T09:27:07+00:00
-completed: ~
+completed: 2026-05-20T10:01:07+00:00
 output: [knowledge]
 cites:
   - 2026-04-26-ai-agent-control-plane-architecture-enterprise
