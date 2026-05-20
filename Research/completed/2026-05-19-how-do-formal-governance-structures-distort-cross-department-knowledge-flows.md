@@ -2,12 +2,12 @@
 title: "How Do Formal Governance Structures Distort Cross-Department Knowledge Flows?"
 added: 2026-05-19T19:42:38+00:00
 review_count: 2
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [organisation, organisational-design, organisational-learning, organisational-theory]
 started: 2026-05-20T12:35:13+00:00
-completed: ~
+completed: 2026-05-20T13:07:08+00:00
 output: [knowledge]
 cites:
   - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
