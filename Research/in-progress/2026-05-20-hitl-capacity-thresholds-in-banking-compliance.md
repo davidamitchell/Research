@@ -91,8 +91,8 @@ Bank compliance teams increasingly inherit queues created by sanctions, transact
 - constraints: use full-mode research, prioritise primary supervisory sources, and translate human-factors evidence into bounded operational thresholds rather than treating it as direct banking law.
 - output: knowledge
 - prior_completed_items: https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html, https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html, https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html, https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html
-- source_correction: the seeded Federal Reserve Board Supervision and Regulation Letter (SR) 11-7 landing page redirected to an unavailable attachment in this runtime, so the accessible official supervisory text used here came from OCC Bulletin 2026-13a, which rescinds and updates the 2011 guidance.
-- failed_primary_search: direct fetches of `https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm`, `https://www.federalreserve.gov/bankinforeg/srletters/sr1107.htm`, and a `site:federalreserve.gov sr1107 pdf` search did not produce the 2011 attachment in this runtime.
+- source_correction: seeded SR 11-7 link -> OCC Bulletin 2026-13a
+- failed_primary_search: direct fetches of the 2011 SR 11-7 landing pages and query `site:federalreserve.gov sr1107 pdf`
 
 ### §1 Question Decomposition
 
@@ -118,8 +118,8 @@ Bank compliance teams increasingly inherit queues created by sanctions, transact
 
 #### Access and search notes
 
-- source_replacement: OCC Bulletin 2026-13a replaced the seeded SR 11-7 link as the accessible official interagency model-risk text.
-- source_access: HKMA, Federal Reserve, and OCC Portable Document Format (PDF) sources were extracted locally after web simplification returned raw bytes.
+- source_replacement: OCC Bulletin 2026-13a
+- source_access: local Portable Document Format (PDF) extraction
 
 #### A. Supervisory baseline
 
@@ -133,7 +133,8 @@ Bank compliance teams increasingly inherit queues created by sanctions, transact
 - [fact; source: https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf] The Hong Kong Monetary Authority (HKMA) requires banks to tune and test transaction-monitoring rules, scenarios, parameters, and thresholds, and to document clear internal timelines for alert review and escalation.
 - [fact; source: https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf] The HKMA states that significant and prolonged alert backlogs may indicate ineffective monitoring systems, resourcing concerns, poor rule or threshold design, or inappropriate customer segmentation, and that senior management or the relevant risk committee should be involved when such backlogs arise.
 - [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/; https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf] Published banking research reports sanctions-screening false-positive rates above 90 percent, and the Federal Reserve's 2025 benchmark paper treats false positives as a direct source of compliance burden, transaction delay, and manual-review cost, which together make bank screening queues structurally vulnerable to superficial review.
-- [fact; source: https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf] The Federal Reserve benchmark finds that Large Language Models (LLMs) reduced sanctions-screening false positives by 92 percent relative to the best fuzzy-matching baseline in the study, showing that upstream model quality materially changes downstream human-review load.
+- [fact; source: https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf] The Federal Reserve benchmark finds that Large Language Models (LLMs) reduced sanctions-screening false positives by 92 percent relative to the best fuzzy-matching baseline in the study.
+- [inference; source: https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf] That reduction implies that upstream model quality can materially change downstream human-review load.
 
 #### C. Human-performance mechanics
 
@@ -165,7 +166,7 @@ Bank compliance teams increasingly inherit queues created by sanctions, transact
 
 ### §5 Depth and Breadth Expansion
 
-- [fact; source: https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf; https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/] **Technical lens:** Better screening models and better threshold tuning reduce false-positive burden and therefore directly reduce the chance that human review turns into queue-clearing rather than challenge.
+- [inference; source: https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf; https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/] **Technical lens:** Better screening models and better threshold tuning reduce false-positive burden and therefore reduce the risk that human review turns into queue-clearing rather than challenge.
 - [fact; source: https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13a.pdf; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/] **Regulatory lens:** Review authority, independence, and the ability to change outcomes remain mandatory even when upstream model quality improves.
 - [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html; https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf] **Economic lens:** Prolonged backlog is not only a control failure but also a cost signal, because queues created by poor tuning consume scarce reviewer time that should be reserved for higher-value challenge work.
 - [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full] **Behavioural lens:** Training and interface design matter, but they work only when the queue still leaves enough protected time for verification behaviour to occur.
