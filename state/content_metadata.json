@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-20T12:22:33Z",
+  "extracted_at": "2026-05-20T12:34:49Z",
   "items": {
     "2026-05-20-information-density-filtering-financial-rag": {
       "named_concepts": [
@@ -779,6 +779,101 @@
             "https://digitalcommons.odu.edu/management_fac_pubs/13/",
             "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
             "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer": {
+      "named_concepts": [
+        "causal ambiguity",
+        "expert knowledge",
+        "absorptive capacity",
+        "verification cost",
+        "transfer difficulty",
+        "prior related",
+        "related knowledge",
+        "recognize assimilate",
+        "apply external",
+        "source-recipient relationships",
+        "tacit exchange",
+        "boundary objects",
+        "shared reference",
+        "reduce abandonment",
+        "cannot cheaply",
+        "external knowledge",
+        "simple unwillingness",
+        "knowledge raises",
+        "raises verification",
+        "common reference"
+      ],
+      "source_urls": [
+        "https://www.nber.org/system/files/chapters/c2144/c2144.pdf",
+        "https://eric.ed.gov/?id=EJ406851",
+        "https://api.crossref.org/works/10.1002%2Fsmj.4250171105",
+        "https://api.crossref.org/works/10.1287%2Forsc.2016.1049",
+        "https://www.cambridge.org/core/journals/journal-of-management-and-organization/article/abs/determinants-of-causal-ambiguity-and-difficulty-of-knowledge-transfer-within-the-firm/C55CBA4022809A31A9F9D445591A7C67",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7645890/",
+        "https://people.bu.edu/carlile/docs/Pragmatic%20View%20of%20Knowledge%20%28Carlile%29.pdf",
+        "https://api.crossref.org/works/10.1177%2F030631289019003001",
+        "https://api.crossref.org/works/10.1108%2F13673270210417664",
+        "https://api.crossref.org/works/10.1108%2Fjkm-08-2020-0590",
+        "https://archive.org/details/economicinstitut00will"
+      ],
+      "key_claims": [
+        {
+          "text": "Highly specific expert knowledge creates a valuation problem because seekers often need partial disclosure or expert mediation to judge its worth, yet that same disclosure starts transferring the knowledge before a price or commitment is settled",
+          "sources": [
+            "https://www.nber.org/system/files/chapters/c2144/c2144.pdf",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-nature-of-the-firm-coase-organisations.md"
+          ]
+        },
+        {
+          "text": "Absorptive capacity is a binding constraint on knowledge transfer because recipients need prior related knowledge to recognize, assimilate, and apply external expertise rather than merely receiving a larger volume of information",
+          "sources": [
+            "https://eric.ed.gov/?id=EJ406851",
+            "https://api.crossref.org/works/10.1002%2Fsmj.4250171105"
+          ]
+        },
+        {
+          "text": "Empirical stickiness research shows that difficult transfers are driven mainly by recipient-side absorptive limits, causal ambiguity, and arduous source-recipient relationships, which supports the inference that some seekers will defer or abandon the pathway when the transfer burden stays high and benefits remain uncertain",
+          "sources": [
+            "https://api.crossref.org/works/10.1002%2Fsmj.4250171105",
+            "https://api.crossref.org/works/10.1287%2Forsc.2016.1049"
+          ]
+        },
+        {
+          "text": "Causal ambiguity rises when knowledge is complex, tacit, local, and weakly connected to the recipient's existing knowledge base, making it hard for seekers to know which elements matter and whether apparent understanding is real",
+          "sources": [
+            "https://www.cambridge.org/core/journals/journal-of-management-and-organization/article/abs/determinants-of-causal-ambiguity-and-difficulty-of-knowledge-transfer-within-the-firm/C55CBA4022809A31A9F9D445591A7C67",
+            "https://api.crossref.org/works/10.1002%2Fsmj.4250171105"
+          ]
+        },
+        {
+          "text": "Tacit knowledge remains difficult to verify and transfer through documents or quantitative measurement alone because effective use depends on context, relationships, and situated performance rather than on codified content by itself",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC7645890/",
+            "https://people.bu.edu/carlile/docs/Pragmatic%20View%20of%20Knowledge%20%28Carlile%29.pdf"
+          ]
+        },
+        {
+          "text": "Boundary objects, standardized forms, and other translational artifacts help because they preserve a common reference across specialist groups, but they reduce abandonment risk only when paired with enough interaction or capability-building for seekers to interpret them locally",
+          "sources": [
+            "https://people.bu.edu/carlile/docs/Pragmatic%20View%20of%20Knowledge%20%28Carlile%29.pdf",
+            "https://api.crossref.org/works/10.1177%2F030631289019003001",
+            "https://api.crossref.org/works/10.1108%2F13673270210417664"
+          ]
+        },
+        {
+          "text": "When causal ambiguity is high, front-loading tacit exchange can reduce transfer difficulty, but the same tactic backfires under an arduous relationship, so trust and working relationship quality are not optional complements to transfer design",
+          "sources": [
+            "https://api.crossref.org/works/10.1287%2Forsc.2016.1049"
+          ]
+        },
+        {
+          "text": "If organisations do not solve this transfer problem, they often surface it later as key-person dependency, undocumented workarounds, and weak governance visibility rather than as a formally recognized knowledge-transfer failure",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-key-person-dependency-basel-risk-linkage.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.md"
           ]
         }
       ]
