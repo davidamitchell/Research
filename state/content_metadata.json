@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-20T18:07:07Z",
+  "extracted_at": "2026-05-20T18:17:42Z",
   "items": {
     "2026-05-20-information-density-filtering-financial-rag": {
       "named_concepts": [
@@ -493,6 +493,103 @@
             "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
             "https://www.fdic.gov/news/press-releases/2026/agencies-issue-revised-model-risk-guidance",
             "https://www.iso.org/standard/81230.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-19-when-does-the-path-of-least-resistance-override-the-path-of-relevance": {
+      "named_concepts": [
+        "complex tacit",
+        "cross-boundary knowledge",
+        "visible expertise",
+        "peer mentoring",
+        "psychologically safe",
+        "informal routes",
+        "internal knowledge",
+        "routine clarification",
+        "intervention bundle",
+        "formal route",
+        "personal relationships",
+        "referrals problem",
+        "problem reformulation",
+        "reformulation validation",
+        "waiting time",
+        "knowledge quality",
+        "ties help",
+        "help search",
+        "transfer complex",
+        "complex practice"
+      ],
+      "source_urls": [
+        "https://doi.org/10.2307/2667032",
+        "https://doi.org/10.1002/smj.4250141009",
+        "https://doi.org/10.1287/mnsc.49.4.432.14428",
+        "https://doi.org/10.1287/orsc.13.2.179.536",
+        "https://doi.org/10.1287/orsc.1040.0075",
+        "https://doi.org/10.1002/smj.4250171105",
+        "https://www.gsb.stanford.edu/faculty-research/working-papers/valuing-internal-vs-external-knowledge-explaining-preference",
+        "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+        "https://digitalcommons.odu.edu/management_fac_pubs/13/",
+        "https://doi.org/10.1177/1059601103258439",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Low-effort informal routes dominate when workers can identify a nearby source quickly, expect timely access, and avoid the scrutiny or status risk attached to the formal pathway before answer quality is even tested",
+          "sources": [
+            "https://doi.org/10.1287/mnsc.49.4.432.14428",
+            "https://www.gsb.stanford.edu/faculty-research/working-papers/valuing-internal-vs-external-knowledge-explaining-preference",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
+          ]
+        },
+        {
+          "text": "Informal pathways persist because personal information relationships provide referrals, problem reformulation, validation, and legitimation as well as answers, which makes repeated local reuse rational for the seeker even when a formal repository exists",
+          "sources": [
+            "https://doi.org/10.1287/orsc.1040.0075",
+            "https://doi.org/10.1287/orsc.13.2.179.536",
+            "https://doi.org/10.2307/2666999"
+          ]
+        },
+        {
+          "text": "Centralization and mandatory vertical routing reduce knowledge sharing between units while lateral social interaction increases it, so official pathways lose behavioural share when formal control adds waiting time, handoffs, or exposure costs",
+          "sources": [
+            "https://doi.org/10.1287/orsc.13.2.179.536",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html"
+          ]
+        },
+        {
+          "text": "The cheapest route lowers knowledge quality when the task requires complex, tacit, or cross-boundary knowledge, because weak ties help search but do not transfer complex practice well and recipients still need absorptive capacity and low ambiguity",
+          "sources": [
+            "https://doi.org/10.2307/2667032",
+            "https://doi.org/10.1002/smj.4250171105"
+          ]
+        },
+        {
+          "text": "Informal asking is especially likely to outrank formal expertise pathways when internal requests are socially expensive, because internal knowledge can carry more scrutiny and status exposure than outsider or local alternatives",
+          "sources": [
+            "https://www.gsb.stanford.edu/faculty-research/working-papers/valuing-internal-vs-external-knowledge-explaining-preference",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
+          ]
+        },
+        {
+          "text": "A well-supported way to raise relevance without sharply increasing effort is to lower several costs together through visible expertise routing, predictable access, peer mentoring, and psychologically safe escalation rather than relying on better content alone",
+          "sources": [
+            "https://doi.org/10.1287/mnsc.49.4.432.14428",
+            "https://doi.org/10.2307/2666999",
+            "https://doi.org/10.1111/peps.12183",
+            "https://doi.org/10.1177/1059601103258439"
+          ]
+        },
+        {
+          "text": "Formal governance preserves quality when it keeps hierarchy at the ownership and exception layer while leaving routine clarification cheap and lateral, because centralization by itself suppresses sharing and does not solve complex transfer requirements",
+          "sources": [
+            "https://doi.org/10.1287/orsc.13.2.179.536",
+            "https://doi.org/10.2307/2667032",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html"
           ]
         }
       ]
