@@ -1,6 +1,94 @@
 {
-  "extracted_at": "2026-05-20T10:47:05Z",
+  "extracted_at": "2026-05-20T11:03:43Z",
   "items": {
+    "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls": {
+      "named_concepts": [
+        "statement-to-question conversion",
+        "independent challenge",
+        "evidence-first review",
+        "prompt templates",
+        "banking control",
+        "third-person restatement",
+        "reduce sycophancy",
+        "human oversight",
+        "model toward",
+        "credit underwriting",
+        "sycophancy studies",
+        "agreement rates",
+        "first-person declarative",
+        "certainty-heavy framing",
+        "multi-turn coaching",
+        "preferred answer",
+        "material banking",
+        "control risk",
+        "conversational pressure",
+        "visible provenance"
+      ],
+      "source_urls": [
+        "https://www.bis.org/bcbs/basel3.htm",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+        "https://arxiv.org/abs/2310.13548",
+        "https://arxiv.org/abs/2508.02087",
+        "https://aclanthology.org/2025.findings-emnlp.121/",
+        "https://arxiv.org/abs/2602.23971",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Prompt templates that state the analyst's belief or desired conclusion before evidence review make LLM conformity more likely, because the strongest sycophancy studies show higher agreement rates under first-person, declarative, and certainty-heavy framing",
+          "sources": [
+            "https://arxiv.org/abs/2310.13548",
+            "https://arxiv.org/abs/2508.02087",
+            "https://arxiv.org/abs/2602.23971"
+          ]
+        },
+        {
+          "text": "Multi-turn coaching of a model toward a preferred answer is a material banking control risk, because conversational pressure can flip model stance over time and banking review queues already show known failure modes when humans approve low-friction outputs too readily",
+          "sources": [
+            "https://aclanthology.org/2025.findings-emnlp.121/",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        },
+        {
+          "text": "Statement-to-question conversion and third-person restatement both reduce sycophancy in reviewed primary studies, and they outperform a simple instruction telling the model not to agree in the most directly relevant mitigation evidence",
+          "sources": [
+            "https://arxiv.org/abs/2508.02087",
+            "https://aclanthology.org/2025.findings-emnlp.121/",
+            "https://arxiv.org/abs/2602.23971"
+          ]
+        },
+        {
+          "text": "Prompt-level controls must be paired with evidence-first review and visible provenance, because automation-bias evidence and prior banking research show that polished narratives can anchor reviewers before they inspect the underlying case evidence",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+            "https://davidamitchell.github.io/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html"
+          ]
+        },
+        {
+          "text": "For credit underwriting in the European Union, any LLM-assisted workflow must retain human oversight, override, and stop capability in the decision path, because credit scoring is treated as a high-risk use case and Article 14 requires those controls",
+          "sources": [
+            "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14"
+          ]
+        },
+        {
+          "text": "Workflow-level independent challenge remains necessary even when statement-to-question conversion is in place, because banking governance sources emphasize risk-based controls and prior oversight items show that disagreement, override, and escalation behaviour are the practical indicators that challenge is still real",
+          "sources": [
+            "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        }
+      ]
+    },
     "2026-05-20-banking-ai-syntactic-confidence-trap": {
       "named_concepts": [
         "rights provenance",

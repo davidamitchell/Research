@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T10:47:10Z",
-  "node_count": 387,
-  "edge_count": 2370,
+  "generated": "2026-05-20T11:03:48Z",
+  "node_count": 388,
+  "edge_count": 2388,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2325,6 +2325,12 @@
       "title": "How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?",
       "type": "primary",
       "url": "/Research/research/2026-05-20-banking-ai-syntactic-confidence-trap.html"
+    },
+    {
+      "slug": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "title": "How should banks detect and mitigate user-belief mirroring and sycophantic behaviour in Large Language Model (LLM) risk-analysis workflows?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls.html"
     }
   ],
   "edges": [
@@ -2418,14 +2424,6 @@
     },
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-      "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
-    },
-    {
-      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 2,
       "rel": "tag-overlap",
@@ -2451,6 +2449,14 @@
     {
       "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -3170,7 +3176,7 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -5074,14 +5080,6 @@
     },
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
-      "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-18-stateless-agent-assumption-failure"
-    },
-    {
-      "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5107,6 +5105,14 @@
     {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -5386,14 +5392,6 @@
     },
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,workflow",
-      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
-    },
-    {
-      "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5403,6 +5401,14 @@
     {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,workflow",
+      "provenance": "2026-03-22-using-awesome-copilot-across-repos"
+    },
+    {
+      "source": "2026-03-22-using-awesome-copilot-across-repos",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,workflow",
@@ -6962,7 +6968,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -6970,7 +6976,7 @@
     },
     {
       "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm",
@@ -8586,14 +8592,6 @@
     },
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
-      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm",
-      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
-    },
-    {
-      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-18-agentic-explainability-vs-traditional",
       "weight": 3,
       "rel": "tag-overlap",
@@ -8603,6 +8601,14 @@
     {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
+    },
+    {
+      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -9666,10 +9672,10 @@
     },
     {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
-      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
-      "weight": 2,
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
+      "evidence": "agentic-ai,governance,workflow",
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
@@ -10247,14 +10253,6 @@
       "rel": "tag-overlap",
       "evidence": "agent-tooling,evaluation,hallucinations,llm,workflow",
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
-    },
-    {
-      "source": "2026-05-02-automated-claim-verification-academic-literature",
-      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agent-tooling,agentic-ai,llm,workflow",
-      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
     },
     {
       "source": "2026-05-02-automated-claim-verification-academic-literature",
@@ -13066,7 +13064,7 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -13074,7 +13072,7 @@
     },
     {
       "source": "2026-05-07-ai-production-incidents-deep-dive",
-      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -13874,7 +13872,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -13882,7 +13880,7 @@
     },
     {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
-      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14010,14 +14008,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14027,6 +14017,14 @@
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14231,6 +14229,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm,organisation",
       "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm,organisation",
+      "provenance": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension"
     },
     {
       "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
@@ -14498,7 +14504,7 @@
     },
     {
       "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
@@ -14550,11 +14556,11 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "operational-risk,organisation,workflow",
-      "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
+      "provenance": "2026-05-09-key-person-dependency-basel-risk-linkage"
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14562,7 +14568,7 @@
     },
     {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
-      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14682,7 +14688,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14690,7 +14696,7 @@
     },
     {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
-      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -14953,6 +14959,14 @@
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
+      "source": "2026-05-09-policy-lsp-capability-debt-detection",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
+    },
+    {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
       "weight": 4,
@@ -14986,14 +15000,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15003,6 +15009,14 @@
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15074,14 +15088,6 @@
     },
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
-      "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
-    },
-    {
-      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15107,6 +15113,14 @@
     {
       "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15154,14 +15168,6 @@
     },
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
-      "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
-    },
-    {
-      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15187,6 +15193,14 @@
     {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -15270,7 +15284,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,knowledge-graph,organisation",
-      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+      "provenance": "2026-05-12-data-product-ontology"
     },
     {
       "source": "2026-05-12-data-product-ontology",
@@ -15287,14 +15301,6 @@
       "rel": "tag-overlap",
       "evidence": "knowledge-graph,organisation",
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
     },
     {
       "source": "2026-05-12-data-product-ontology",
@@ -15315,6 +15321,14 @@
     {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
@@ -15633,6 +15647,14 @@
       "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
     },
     {
+      "source": "2026-05-12-knowledge-graph-data-product-agentic",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,organisation",
+      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+    },
+    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -15770,7 +15792,7 @@
     },
     {
       "source": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
-      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -15994,14 +16016,6 @@
     },
     {
       "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
-      "target": "2026-05-13-a2a-tool-calling-orchestration-overhead",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance,llm",
-      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
-    },
-    {
-      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "target": "2026-05-14-promptql-definition-foundations-related-technologies",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16019,6 +16033,14 @@
     {
       "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+    },
+    {
+      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
@@ -16078,6 +16100,14 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agent-tooling,agentic-ai,llm,workflow",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm,workflow",
       "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
     },
     {
@@ -16346,14 +16376,6 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16366,6 +16388,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,workflow",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -16742,7 +16772,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
-      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
     },
     {
       "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
@@ -16786,7 +16816,7 @@
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,workflow",
@@ -16930,14 +16960,6 @@
     },
     {
       "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "llm,organisation,workflow",
-      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
-    },
-    {
-      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 3,
       "rel": "tag-overlap",
@@ -16963,6 +16985,14 @@
     {
       "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "llm,organisation,workflow",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "llm,organisation,workflow",
@@ -17226,14 +17256,6 @@
     },
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
-      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
-    },
-    {
-      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 3,
       "rel": "tag-overlap",
@@ -17259,6 +17281,14 @@
     {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
@@ -17786,14 +17816,6 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-      "target": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
-      "weight": 4,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,organisation,workflow",
-      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "target": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
       "weight": 4,
       "rel": "tag-overlap",
@@ -17814,11 +17836,19 @@
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,organisation,workflow",
-      "provenance": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk"
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
       "target": "2026-05-18-agentic-production-tradeoffs",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,organisation,workflow",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 4,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,organisation,workflow",
@@ -18322,14 +18352,6 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisation,workflow",
-      "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
       "target": "2026-05-18-agentic-production-tradeoffs",
       "weight": 5,
       "rel": "tag-overlap",
@@ -18338,11 +18360,11 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
-      "target": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
-      "weight": 3,
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
+      "evidence": "agentic-ai,llm,organisation,workflow",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
@@ -18402,14 +18424,6 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-      "target": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
-      "weight": 3,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,workflow",
-      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
-    },
-    {
-      "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
       "target": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
       "weight": 3,
       "rel": "tag-overlap",
@@ -18450,11 +18464,11 @@
     },
     {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
-      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
-      "weight": 3,
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,llm,organisation",
-      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+      "evidence": "agentic-ai,llm,organisation,workflow",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
     },
     {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
@@ -18646,14 +18660,6 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "analytics,organisation,workflow",
-      "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
-    },
-    {
-      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
       "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
     },
     {
@@ -18667,6 +18673,14 @@
     {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -18718,7 +18732,15 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,workflow",
-      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,workflow",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
       "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
@@ -18865,6 +18887,14 @@
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
     },
     {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-03-08-servicenow-process-mapping",
       "weight": 3,
@@ -18922,14 +18952,6 @@
     },
     {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
-    },
-    {
-      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
@@ -18939,6 +18961,14 @@
     {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,workflow",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
+      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
@@ -19138,14 +19168,6 @@
     },
     {
       "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
-      "target": "2026-05-18-agentic-production-tradeoffs",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,formal-methods",
-      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
-    },
-    {
-      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
       "target": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
       "weight": 2,
       "rel": "tag-overlap",
@@ -19171,6 +19193,14 @@
     {
       "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
       "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance",
@@ -19247,6 +19277,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,organisation,workflow",
       "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
+      "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
     },
     {
       "source": "2026-05-17-servicenow-ai-control-tower-capabilities",
@@ -19489,6 +19527,14 @@
       "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     },
     {
+      "source": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,organisation,workflow",
+      "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
+    },
+    {
       "source": "2026-05-18-agentic-explainability-vs-traditional",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -19551,6 +19597,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,governance,llm",
       "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
       "source": "2026-05-18-agentic-production-tradeoffs",
@@ -19671,6 +19725,14 @@
       "rel": "tag-overlap",
       "evidence": "agentic-ai,llm,organisation",
       "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,organisation,workflow",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
     },
     {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
@@ -20641,6 +20703,14 @@
       "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
     },
     {
+      "source": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,llm,workflow",
+      "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
+    },
+    {
       "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -21241,6 +21311,14 @@
       "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     },
     {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,organisation,workflow",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
       "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -21287,6 +21365,78 @@
       "rel": "related",
       "evidence": "frontmatter:related",
       "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "agentic-ai,governance,llm,organisation",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
     }
   ]
 }
