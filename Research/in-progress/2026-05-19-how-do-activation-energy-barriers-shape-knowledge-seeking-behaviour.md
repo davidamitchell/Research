@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How Do Activation-Energy Barriers, the threshold costs of starting a knowledge request, Shape Knowledge-Seeking Behaviour?"
 added: 2026-05-19T19:42:37+00:00
 status: reviewing
