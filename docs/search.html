@@ -666,71 +666,10 @@ main {
     <input id="search-input" class="search-input" type="text"
            placeholder="search research items…" autocomplete="off" autofocus>
   </div>
-  <div id="results-count" class="search-results-count"></div>
+  <div id="results-count" class="search-results-count">Search engine idle.</div>
   <div id="search-results" class="card-grid"></div>
 </main>
-<script>
-(function() {
-  var input = document.getElementById('search-input');
-  var resultsEl = document.getElementById('search-results');
-  var countEl = document.getElementById('results-count');
-  var index = null;
-
-  function fetchIndex() {
-    fetch('/Research/search-index.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; runSearch(); })
-      .catch(function() {
-        if (countEl) countEl.textContent = 'Search index unavailable.';
-      });
-  }
-
-  function escapeHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  function renderCard(item) {
-    var tags = item.tags.map(function(t) {
-      return '<span class="tag">' + escapeHtml(t) + '</span>';
-    }).join('');
-    return '<a class="card" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
-      + '<div class="card-title">' + escapeHtml(item.title) + '</div>'
-      + '<div class="card-meta">' + escapeHtml(item.added) + '</div>'
-      + '<div class="card-tags">' + tags + '</div>'
-      + '<div class="card-excerpt">' + escapeHtml(item.findings_excerpt || item.question_excerpt || '') + '</div>'
-      + '</a>';
-  }
-
-  function runSearch() {
-    if (!index) return;
-    var q = input.value.trim().toLowerCase();
-    var results = !q ? [] : index.filter(function(item) {
-      return (item.full_text || item.title + ' ' + item.question_excerpt).toLowerCase().indexOf(q) !== -1;
-    });
-    resultsEl.innerHTML = results.map(renderCard).join('');
-    if (countEl) {
-      if (!q) {
-        countEl.textContent = '';
-      } else if (results.length === 0) {
-        countEl.textContent = 'No results found.';
-      } else {
-        countEl.textContent = results.length + ' result' + (results.length === 1 ? '' : 's');
-      }
-    }
-    var params = new URLSearchParams();
-    if (q) params.set('q', q);
-    var str = params.toString();
-    history.replaceState(null, '', window.location.pathname + (str ? '?' + str : ''));
-  }
-
-  var params = new URLSearchParams(window.location.search);
-  var initQ = params.get('q') || '';
-  input.value = initQ;
-
-  input.addEventListener('input', runSearch);
-  fetchIndex();
-})();
-</script>
+<script>(function(){window.__RESEARCH_SEARCH_PAGE__='full';})();</script>
+<script type="module" src="/Research/assets/search-runtime.js"></script>
 </body>
 </html>

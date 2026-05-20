@@ -684,6 +684,7 @@ main {
 .panel-rel-cites { color: #2dd4bf; }
 .panel-rel-related { color: #a78bfa; }
 .panel-rel-tag-overlap { color: #64748b; }
+.panel-rel-theme-overlap { color: #f59e0b; }
 #graph-stats { font-size: var(--text-xs); color: var(--text-muted); }
 #graph-canvas { touch-action: none; }
 .panel-item-link { font-weight: 600; }
@@ -714,7 +715,7 @@ main {
 <div class="page-wrap">
   <h1>Knowledge Graph</h1>
   <p id="graph-stats">Loading&hellip;</p>
-<div class="graph-controls"><button class="filter-btn" id="filter-cites" data-rel="cites"><span class="fdot" style="background:#2dd4bf"></span>cites <span class="fcount">…</span></button><button class="filter-btn" id="filter-related" data-rel="related"><span class="fdot" style="background:#a78bfa"></span>related <span class="fcount">…</span></button><button class="filter-btn" id="filter-tag" data-rel="tag-overlap"><span class="fdot" style="background:#64748b"></span>tag-overlap <span class="fcount">…</span></button><span class="ctrl-sep"></span><button id="btn-fit">fit</button><span class="ctrl-sep"></span><input id="node-search" type="search" placeholder="Search nodes…" /></div>  <div class="graph-wrap">
+<div class="graph-controls"><button class="filter-btn" id="filter-cites" data-rel="cites"><span class="fdot" style="background:#2dd4bf"></span>cites <span class="fcount">…</span></button><button class="filter-btn" id="filter-related" data-rel="related"><span class="fdot" style="background:#a78bfa"></span>related <span class="fcount">…</span></button><button class="filter-btn" id="filter-tag" data-rel="tag-overlap"><span class="fdot" style="background:#64748b"></span>tag-overlap <span class="fcount">…</span></button><button class="filter-btn" id="filter-theme" data-rel="theme-overlap"><span class="fdot" style="background:#f59e0b"></span>theme-overlap <span class="fcount">…</span></button><span class="ctrl-sep"></span><button id="btn-fit">fit</button><span class="ctrl-sep"></span><input id="node-search" type="search" placeholder="Search nodes…" /></div>  <div class="graph-wrap">
     <canvas id="graph-canvas"></canvas>
     <div id="info-panel"><p class="panel-hint">Loading graph&hellip;</p></div>
   </div>
@@ -734,7 +735,7 @@ main {
   var ticks = 0, MAX_TICKS = 300;
   var animRunning = false;
   var searchQuery = '';
-  var filters = {cites: true, related: true, 'tag-overlap': false};
+  var filters = {cites: true, related: true, 'tag-overlap': false, 'theme-overlap': false};
   var REST = 120;
 
   function resize() {
@@ -776,9 +777,9 @@ main {
         targetNode: nodeMap[e.target]
       });
     }).filter(function(e) { return e.sourceNode && e.targetNode; });
-    var counts = {cites: 0, related: 0, 'tag-overlap': 0};
+    var counts = {cites: 0, related: 0, 'tag-overlap': 0, 'theme-overlap': 0};
     data.edges.forEach(function(e) { if (e.rel in counts) counts[e.rel]++; });
-    ['cites', 'related', 'tag-overlap'].forEach(function(rel) {
+    ['cites', 'related', 'tag-overlap', 'theme-overlap'].forEach(function(rel) {
       var id = 'filter-' + rel.replace('-overlap', '');
       var sp = document.querySelector('#' + id + ' .fcount');
       if (sp) sp.textContent = counts[rel];
@@ -881,7 +882,7 @@ main {
     }
   }
 
-  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b'};
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b', 'theme-overlap': '#f59e0b'};
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
