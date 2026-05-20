@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a4083342369a5472c0683609922fd9e03ef358bd
+    changed: 2026-05-20
+    progress: progress/2026-05-20-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking.md
+    summary: "Initial completion"
 ---
 
 # What Institutional Designs Create Low-Cost Help-Seeking Without Embarrassment, Penalty, or Status Loss?
