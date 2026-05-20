@@ -2,12 +2,12 @@
 review_count: 2
 title: "What Institutional Designs Create Low-Cost Help-Seeking Without Embarrassment, Penalty, or Status Loss?"
 added: 2026-05-19T19:42:38+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [organisation, organisational-design, organisational-learning, organisational-theory]
 started: 2026-05-20T08:53:08+00:00
-completed: ~
+completed: 2026-05-20T09:20:38+00:00
 output: [knowledge]
 cites:
   - 2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour
