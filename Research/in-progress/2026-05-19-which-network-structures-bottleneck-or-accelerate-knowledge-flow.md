@@ -154,10 +154,6 @@ prior_work_scan: repeated before investigation; most relevant completed items we
 formal-governance, activation-energy, micro-transaction-costs, and asset-specificity
 items, plus the trust-based-institutions and low-effort-pathways syntheses.
 
-access_note: direct Crossref metadata was accessible for Hansen, Tsai, Reagans and
-McEvily, Borgatti and Cross, Burt, and Uzzi and Spiro; Granovetter was checked via its
-official source record plus the accessible abstract excerpt surfaced through web search.
-
 #### A. Which structures create bottlenecks?
 
 - [fact; source: https://doi.org/10.1287/orsc.13.2.179.536] Tsai reports that formal
@@ -198,9 +194,10 @@ official source record plus the accessible abstract excerpt surfaced through web
 - [fact; source: https://doi.org/10.2307/3556658] The same study reports that network
   range, ties to different knowledge pools, increases a person's ability to convey complex
   ideas to heterogeneous audiences, over and above tie strength.
-- [inference; source: https://doi.org/10.1086/421787] Burt's article indicates that brokerage
-  across structural holes exposes actors to alternative ways of thinking and places good
-  ideas disproportionately in the hands of people whose networks span groups.
+- [inference; source: https://doi.org/10.1086/421787] Burt's article indicates that
+  brokerage across gaps between otherwise disconnected groups exposes actors to
+  alternative ways of thinking and places good ideas disproportionately in the hands of
+  people whose networks span groups.
 - [inference; source: https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658;
   https://doi.org/10.1086/421787] Cross-boundary knowledge flow accelerates most reliably
   when the network combines cohesive local ties for explanation with range and brokerage
@@ -214,10 +211,10 @@ official source record plus the accessible abstract excerpt surfaced through web
 - [fact; source: https://doi.org/10.2307/3556658] Reagans and McEvily show that cohesion
   and range both ease transfer, over and above tie strength, rather than behaving as a
   pure either-or choice.
-- [fact; source: https://doi.org/10.1086/432782] Uzzi and Spiro report that small-world
-  properties, high local clustering plus short cross-network paths, have a parabolic
-  effect on creativity and performance, improving outcomes up to a threshold and then
-  reversing after that point.
+- [fact; source: https://doi.org/10.1086/432782] Uzzi and Spiro report that networks with
+  high local clustering plus short cross-network paths have a parabolic effect on
+  creativity and performance, improving outcomes up to a threshold and then reversing
+  after that point.
 - [inference; source: https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658;
   https://doi.org/10.1086/432782] The evidence supports a balanced topology, cohesive
   expert communities connected by several short cross-boundary paths, rather than either a
@@ -365,10 +362,10 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 #### Key Findings
 
 1. **High-centralization network structures bottleneck knowledge flow because Tsai finds that centralization is negatively associated with intraorganizational knowledge sharing, which makes concentrated routing authority a plausible warning sign for knowledge-network fragility.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536)
-2. **Weak bridging ties accelerate the discovery of useful knowledge across subunits, but they do not reliably transfer tacit or complex knowledge once found, because explanation and adaptation still require stronger relationships.** ([fact]; high confidence; source: https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469)
-3. **Cohesive local networks accelerate tacit knowledge transfer because social cohesion raises the willingness to invest time and effort in sharing, while repeated strong ties supply the context needed for complex explanation.** ([fact]; high confidence; source: https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032)
+2. **Weak bridging ties accelerate the discovery of useful knowledge across subunits, while stronger relationships become more important when the transferred knowledge is complex and context-heavy.** ([inference]; medium confidence; source: https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469)
+3. **Cohesive local networks are a strong design target for tacit knowledge transfer because social cohesion raises the willingness to invest effort in sharing, and richer ties support the contextual explanation complex transfer requires.** ([inference]; medium confidence; source: https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032)
 4. **Networks with both cohesion and range are a strong design target for cross-boundary transfer, because ties into different knowledge pools improve reach while cohesive relationships make complex ideas easier to convey to heterogeneous audiences.** ([inference]; medium confidence; source: https://doi.org/10.2307/3556658)
-5. **Brokerage across structural holes accelerates novelty and cross-boundary awareness, but brokerage concentrated in one or two actors is still a bottleneck-prone design because the discovery value of bridges does not remove access and response limits at those same actors.** ([inference]; medium confidence; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536)
+5. **Brokerage across gaps between otherwise disconnected groups accelerates novelty and cross-boundary awareness, but brokerage concentrated in one or two actors is still a bottleneck-prone design because the discovery value of bridges does not remove access and response limits at those same actors.** ([inference]; medium confidence; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536)
 6. **Siloed cluster structures, dense inside teams but weakly bridged across teams, preserve local sharing while slowing cross-boundary knowledge flow, because the network lacks enough bridges for discovery and enough repeated cross-unit ties for tacit translation.** ([inference]; medium confidence; source: https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html)
 7. **The most decision-useful diagnostic set combines centralization, cohesion, range, bridge redundancy, meaning more than one independent bridge across key clusters, and time to first useful cross-boundary contact, because no single metric captures both search reach and tacit-transfer capacity.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.2307/3556658; https://doi.org/10.1287/mnsc.49.4.432.14428; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html)
 
@@ -377,8 +374,8 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | [inference] High centralization is a warning sign for bottleneck risk because it is negatively associated with intraorganizational knowledge sharing. | https://doi.org/10.1287/orsc.13.2.179.536 | medium | Direct result plus design inference |
-| [fact] Weak bridging ties help search across subunits, but strong ties are needed for complex transfer. | https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469 | high | Search and transfer are distinct stages |
-| [fact] Cohesive local networks accelerate tacit transfer by increasing willingness to invest in sharing and explanation. | https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032 | high | Cohesion plus strong-tie explanation |
+| [inference] Weak bridging ties help search across subunits, while stronger relationships become more important when the transferred knowledge is complex and context-heavy. | https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469 | medium | Stage distinction plus tacit-transfer inference |
+| [inference] Cohesive local networks are a strong design target for tacit transfer because cohesion raises willingness to invest in sharing and richer ties support contextual explanation. | https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032 | medium | Cohesion plus strong-tie synthesis |
 | [inference] Cohesion and range are a strong combined design target because both ease transfer beyond tie strength alone. | https://doi.org/10.2307/3556658 | medium | Comparative design inference from direct result |
 | [inference] Brokerage accelerates novelty, but concentrated brokerage still creates bottleneck risk. | https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536 | medium | Discovery value and access-risk synthesis |
 | [inference] Siloed dense clusters slow cross-boundary flow because they lack enough bridges and repeated cross-unit ties. | https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html | medium | Silo-risk synthesis |
@@ -386,7 +383,7 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 
 #### Assumptions
 
-- [assumption; source: https://doi.org/10.1086/432782; https://doi.org/10.2307/3556658] Moderate small-world logic, high local clustering plus short cross-network paths, is treated as a supporting analogy for organisational knowledge networks even though Uzzi and Spiro study creative collaboration rather than internal enterprise knowledge transfer directly. Justification: the paper still addresses how clustering and short paths combine in collaborative performance.
+- [assumption; source: https://doi.org/10.1086/432782; https://doi.org/10.2307/3556658] Moderate combinations of high local clustering plus short cross-network paths are treated as a supporting analogy for organisational knowledge networks even though Uzzi and Spiro study creative collaboration rather than internal enterprise knowledge transfer directly. Justification: the paper still addresses how clustering and short paths combine in collaborative performance.
 - [assumption; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536] The overload risk of concentrated brokerage is inferred from brokerage value plus access-cost and centralization evidence rather than from a single study that measures broker queue length directly.
 - [assumption; source: https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html] Tacit-transfer requirements observed in subunits and contract research settings transfer sufficiently to cross-department knowledge flow because the common mechanism is context-heavy explanation across a boundary rather than one industry-specific workflow.
 
@@ -424,7 +421,7 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 - The direct centralization evidence is strong, but the precise overload threshold at which
   a broker becomes too busy is not quantified in the consulted sources. [inference; source:
   https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.1287/mnsc.49.4.432.14428]
-- The small-world paper is a supporting collaboration analogue rather than a direct
+- The clustering-plus-short-paths paper is a supporting collaboration analogue rather than a direct
   enterprise field study of internal knowledge transfer. [fact; source: https://doi.org/10.1086/432782]
 - The session verified Cummings and Cross only at the source-metadata level, so that paper
   was not used as direct evidence in the final synthesis. [fact; source:
@@ -487,10 +484,10 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 ### Key Findings
 
 1. **High-centralization network structures bottleneck knowledge flow because Tsai finds that centralization is negatively associated with intraorganizational knowledge sharing, which makes concentrated routing authority a plausible warning sign for knowledge-network fragility.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536)
-2. **Weak bridging ties accelerate the discovery of useful knowledge across subunits, but they do not reliably transfer tacit or complex knowledge once found, because explanation and adaptation still require stronger relationships.** ([fact]; high confidence; source: https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469)
-3. **Cohesive local networks accelerate tacit knowledge transfer because social cohesion raises the willingness to invest time and effort in sharing, while repeated strong ties supply the context needed for complex explanation.** ([fact]; high confidence; source: https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032)
+2. **Weak bridging ties accelerate the discovery of useful knowledge across subunits, while stronger relationships become more important when the transferred knowledge is complex and context-heavy.** ([inference]; medium confidence; source: https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469)
+3. **Cohesive local networks are a strong design target for tacit knowledge transfer because social cohesion raises the willingness to invest effort in sharing, and richer ties support the contextual explanation complex transfer requires.** ([inference]; medium confidence; source: https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032)
 4. **Networks with both cohesion and range are a strong design target for cross-boundary transfer, because ties into different knowledge pools improve reach while cohesive relationships make complex ideas easier to convey to heterogeneous audiences.** ([inference]; medium confidence; source: https://doi.org/10.2307/3556658)
-5. **Brokerage across structural holes accelerates novelty and cross-boundary awareness, but brokerage concentrated in one or two actors is still a bottleneck-prone design because the discovery value of bridges does not remove access and response limits at those same actors.** ([inference]; medium confidence; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536)
+5. **Brokerage across gaps between otherwise disconnected groups accelerates novelty and cross-boundary awareness, but brokerage concentrated in one or two actors is still a bottleneck-prone design because the discovery value of bridges does not remove access and response limits at those same actors.** ([inference]; medium confidence; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536)
 6. **Siloed cluster structures, dense inside teams but weakly bridged across teams, preserve local sharing while slowing cross-boundary knowledge flow, because the network lacks enough bridges for discovery and enough repeated cross-unit ties for tacit translation.** ([inference]; medium confidence; source: https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html)
 7. **The most decision-useful diagnostic set combines centralization, cohesion, range, bridge redundancy, meaning more than one independent bridge across key clusters, and time to first useful cross-boundary contact, because no single metric captures both search reach and tacit-transfer capacity.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.2307/3556658; https://doi.org/10.1287/mnsc.49.4.432.14428; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html)
 
@@ -499,8 +496,8 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | [inference] High centralization is a warning sign for bottleneck risk because it is negatively associated with intraorganizational knowledge sharing. | https://doi.org/10.1287/orsc.13.2.179.536 | medium | Direct result plus design inference |
-| [fact] Weak bridging ties help search across subunits, but strong ties are needed for complex transfer. | https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469 | high | Search and transfer are distinct stages |
-| [fact] Cohesive local networks accelerate tacit transfer by increasing willingness to invest in sharing and explanation. | https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032 | high | Cohesion plus strong-tie explanation |
+| [inference] Weak bridging ties help search across subunits, while stronger relationships become more important when the transferred knowledge is complex and context-heavy. | https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469 | medium | Stage distinction plus tacit-transfer inference |
+| [inference] Cohesive local networks are a strong design target for tacit transfer because cohesion raises willingness to invest in sharing and richer ties support contextual explanation. | https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032 | medium | Cohesion plus strong-tie synthesis |
 | [inference] Cohesion and range are a strong combined design target because both ease transfer beyond tie strength alone. | https://doi.org/10.2307/3556658 | medium | Comparative design inference from direct result |
 | [inference] Brokerage accelerates novelty, but concentrated brokerage still creates bottleneck risk. | https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536 | medium | Discovery value and access-risk synthesis |
 | [inference] Siloed dense clusters slow cross-boundary flow because they lack enough bridges and repeated cross-unit ties. | https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html | medium | Silo-risk synthesis |
@@ -508,7 +505,7 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 
 ### Assumptions
 
-- [assumption; source: https://doi.org/10.1086/432782; https://doi.org/10.2307/3556658] Moderate small-world logic, high local clustering plus short cross-network paths, is treated as a supporting analogy for organisational knowledge networks even though Uzzi and Spiro study creative collaboration rather than internal enterprise knowledge transfer directly. **Justification:** the paper still addresses how clustering and short paths combine in collaborative performance.
+- [assumption; source: https://doi.org/10.1086/432782; https://doi.org/10.2307/3556658] Moderate combinations of high local clustering plus short cross-network paths are treated as a supporting analogy for organisational knowledge networks even though Uzzi and Spiro study creative collaboration rather than internal enterprise knowledge transfer directly. **Justification:** the paper still addresses how clustering and short paths combine in collaborative performance.
 - [assumption; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536] The overload risk of concentrated brokerage is inferred from brokerage value plus access-cost and centralization evidence rather than from a single study that measures broker queue length directly. **Justification:** the consulted literature supports the mechanism parts but not one direct queue-length threshold.
 - [assumption; source: https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html] Tacit-transfer requirements observed in subunits and contract research settings transfer sufficiently to cross-department knowledge flow because the common mechanism is context-heavy explanation across a boundary rather than one industry-specific workflow. **Justification:** the question concerns structural transfer conditions, not one business domain.
 
@@ -546,7 +543,7 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 - The direct centralization evidence is strong, but the precise overload threshold at which
   a broker becomes too busy is not quantified in the consulted sources. [inference; source:
   https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.1287/mnsc.49.4.432.14428]
-- The small-world paper is a supporting collaboration analogue rather than a direct
+- The clustering-plus-short-paths paper is a supporting collaboration analogue rather than a direct
   enterprise field study of internal knowledge transfer. [fact; source: https://doi.org/10.1086/432782]
 - The session verified Cummings and Cross only at the source-metadata level, so that paper
   was not used as direct evidence in the final synthesis. [fact; source:
