@@ -112,16 +112,6 @@ transfer difficulty.
 
 output: knowledge, full mode.
 
-working_definition_1: social-network topology means the recurring pattern of who is
-connected to whom for questions, referrals, and explanation inside an organisation.
-[assumption; source: https://doi.org/10.1086/225469; https://doi.org/10.1287/mnsc.49.4.432.14428]
-
-working_definition_2: tacit knowledge means knowledge whose successful use depends on
-shared context, repeated interaction, or explanation that goes beyond a document or simple
-instruction. [assumption; source: https://doi.org/10.2307/2667032;
-https://doi.org/10.2307/3556658;
-https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html]
-
 prior_art: adjacent completed items already establish that formal governance can redirect
 knowledge requests into costly approval paths, that initiation barriers suppress asking
 before first contact, that micro-costs shape whether people seek or avoid help, and that
@@ -361,9 +351,8 @@ sharing, that weak ties help search across subunits, and that cohesion and range
 transfer beyond tie strength alone. [fact; source: https://doi.org/10.1287/orsc.13.2.179.536;
 https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658]
 
-The best-supported accelerator is therefore not a pure hub-and-spoke network or a pure web
-of weak ties, but a distributed brokerage pattern in which several boundary spanners link
-cohesive expertise communities. [inference; source: https://doi.org/10.1086/421787;
+A distributed brokerage pattern in which several boundary spanners link cohesive expertise
+communities best matches the consulted evidence on cross-boundary transfer. [inference; source: https://doi.org/10.1086/421787;
 https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032]
 
 That design avoids central-actor overload by making expertise discoverable through more
@@ -374,10 +363,10 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 
 #### Key Findings
 
-1. **High-centralization network structures bottleneck knowledge flow because centralization is negatively associated with intraorganizational knowledge sharing, which means the formal concentration of routing authority is already a direct warning sign for knowledge-network fragility.** ([fact]; high confidence; source: https://doi.org/10.1287/orsc.13.2.179.536)
+1. **High-centralization network structures bottleneck knowledge flow because Tsai finds that centralization is negatively associated with intraorganizational knowledge sharing, which makes concentrated routing authority a plausible warning sign for knowledge-network fragility.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536)
 2. **Weak bridging ties accelerate the discovery of useful knowledge across subunits, but they do not reliably transfer tacit or complex knowledge once found, because explanation and adaptation still require stronger relationships.** ([fact]; high confidence; source: https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469)
 3. **Cohesive local networks accelerate tacit knowledge transfer because social cohesion raises the willingness to invest time and effort in sharing, while repeated strong ties supply the context needed for complex explanation.** ([fact]; high confidence; source: https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032)
-4. **Networks with both cohesion and range outperform one-sided designs for cross-boundary transfer, because ties into different knowledge pools improve reach while cohesive relationships make complex ideas easier to convey to heterogeneous audiences.** ([fact]; high confidence; source: https://doi.org/10.2307/3556658)
+4. **Networks with both cohesion and range are a strong design target for cross-boundary transfer, because ties into different knowledge pools improve reach while cohesive relationships make complex ideas easier to convey to heterogeneous audiences.** ([inference]; medium confidence; source: https://doi.org/10.2307/3556658)
 5. **Brokerage across structural holes accelerates novelty and cross-boundary awareness, but brokerage concentrated in one or two actors is still a bottleneck-prone design because the discovery value of bridges does not remove access and response limits at those same actors.** ([inference]; medium confidence; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536)
 6. **Siloed cluster structures, dense inside teams but weakly bridged across teams, preserve local sharing while slowing cross-boundary knowledge flow, because the network lacks enough bridges for discovery and enough repeated cross-unit ties for tacit translation.** ([inference]; medium confidence; source: https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html)
 7. **The most decision-useful diagnostic set combines centralization, cohesion, range, bridge redundancy, meaning more than one independent bridge across key clusters, and time to first useful cross-boundary contact, because no single metric captures both search reach and tacit-transfer capacity.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.2307/3556658; https://doi.org/10.1287/mnsc.49.4.432.14428; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html)
@@ -386,10 +375,10 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] High centralization is negatively associated with intraorganizational knowledge sharing. | https://doi.org/10.1287/orsc.13.2.179.536 | high | Direct abstract result |
+| [inference] High centralization is a warning sign for bottleneck risk because it is negatively associated with intraorganizational knowledge sharing. | https://doi.org/10.1287/orsc.13.2.179.536 | medium | Direct result plus design inference |
 | [fact] Weak bridging ties help search across subunits, but strong ties are needed for complex transfer. | https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469 | high | Search and transfer are distinct stages |
 | [fact] Cohesive local networks accelerate tacit transfer by increasing willingness to invest in sharing and explanation. | https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032 | high | Cohesion plus strong-tie explanation |
-| [fact] Cohesion and range both ease transfer beyond tie strength alone. | https://doi.org/10.2307/3556658 | high | Direct abstract result |
+| [inference] Cohesion and range are a strong combined design target because both ease transfer beyond tie strength alone. | https://doi.org/10.2307/3556658 | medium | Comparative design inference from direct result |
 | [inference] Brokerage accelerates novelty, but concentrated brokerage still creates bottleneck risk. | https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536 | medium | Discovery value and access-risk synthesis |
 | [inference] Siloed dense clusters slow cross-boundary flow because they lack enough bridges and repeated cross-unit ties. | https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html | medium | Silo-risk synthesis |
 | [inference] The most useful diagnostic set combines centralization, cohesion, range, bridge redundancy, meaning more than one independent bridge across key clusters, and time to first useful cross-boundary contact. | https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.2307/3556658; https://doi.org/10.1287/mnsc.49.4.432.14428; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html | medium | Structural plus operational indicators |
@@ -421,10 +410,10 @@ search but slow the transfer of complex knowledge, while Reagans and McEvily sho
 cohesion and range are complements rather than substitutes. [inference; source:
 https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658]
 
-The practical implication is a distributed-brokerage design: several reachable boundary
-spanners connect cohesive expertise communities, and each critical knowledge domain has
-more than one viable bridge. That design preserves discovery breadth without forcing every
-context-rich explanation through one overused central actor. [inference; source:
+Several reachable boundary spanners should connect cohesive expertise communities, and each
+critical knowledge domain should have more than one viable bridge. This design preserves
+discovery breadth without forcing every context-rich explanation through one overused
+central actor. [inference; source:
 https://doi.org/10.1086/421787; https://doi.org/10.2307/3556658;
 https://doi.org/10.1287/mnsc.49.4.432.14428;
 https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.html]
@@ -484,9 +473,8 @@ sharing, that weak ties help search across subunits, and that cohesion and range
 transfer beyond tie strength alone. [fact; source: https://doi.org/10.1287/orsc.13.2.179.536;
 https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658]
 
-The best-supported accelerator is therefore not a pure hub-and-spoke network or a pure web
-of weak ties, but a distributed brokerage pattern in which several boundary spanners link
-cohesive expertise communities. [inference; source: https://doi.org/10.1086/421787;
+A distributed brokerage pattern in which several boundary spanners link cohesive expertise
+communities best matches the consulted evidence on cross-boundary transfer. [inference; source: https://doi.org/10.1086/421787;
 https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032]
 
 That design avoids central-actor overload by making expertise discoverable through more
@@ -497,10 +485,10 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 
 ### Key Findings
 
-1. **High-centralization network structures bottleneck knowledge flow because centralization is negatively associated with intraorganizational knowledge sharing, which means the formal concentration of routing authority is already a direct warning sign for knowledge-network fragility.** ([fact]; high confidence; source: https://doi.org/10.1287/orsc.13.2.179.536)
+1. **High-centralization network structures bottleneck knowledge flow because Tsai finds that centralization is negatively associated with intraorganizational knowledge sharing, which makes concentrated routing authority a plausible warning sign for knowledge-network fragility.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536)
 2. **Weak bridging ties accelerate the discovery of useful knowledge across subunits, but they do not reliably transfer tacit or complex knowledge once found, because explanation and adaptation still require stronger relationships.** ([fact]; high confidence; source: https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469)
 3. **Cohesive local networks accelerate tacit knowledge transfer because social cohesion raises the willingness to invest time and effort in sharing, while repeated strong ties supply the context needed for complex explanation.** ([fact]; high confidence; source: https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032)
-4. **Networks with both cohesion and range outperform one-sided designs for cross-boundary transfer, because ties into different knowledge pools improve reach while cohesive relationships make complex ideas easier to convey to heterogeneous audiences.** ([fact]; high confidence; source: https://doi.org/10.2307/3556658)
+4. **Networks with both cohesion and range are a strong design target for cross-boundary transfer, because ties into different knowledge pools improve reach while cohesive relationships make complex ideas easier to convey to heterogeneous audiences.** ([inference]; medium confidence; source: https://doi.org/10.2307/3556658)
 5. **Brokerage across structural holes accelerates novelty and cross-boundary awareness, but brokerage concentrated in one or two actors is still a bottleneck-prone design because the discovery value of bridges does not remove access and response limits at those same actors.** ([inference]; medium confidence; source: https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536)
 6. **Siloed cluster structures, dense inside teams but weakly bridged across teams, preserve local sharing while slowing cross-boundary knowledge flow, because the network lacks enough bridges for discovery and enough repeated cross-unit ties for tacit translation.** ([inference]; medium confidence; source: https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html)
 7. **The most decision-useful diagnostic set combines centralization, cohesion, range, bridge redundancy, meaning more than one independent bridge across key clusters, and time to first useful cross-boundary contact, because no single metric captures both search reach and tacit-transfer capacity.** ([inference]; medium confidence; source: https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.2307/3556658; https://doi.org/10.1287/mnsc.49.4.432.14428; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html)
@@ -509,10 +497,10 @@ https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] High centralization is negatively associated with intraorganizational knowledge sharing. | https://doi.org/10.1287/orsc.13.2.179.536 | high | Direct abstract result |
+| [inference] High centralization is a warning sign for bottleneck risk because it is negatively associated with intraorganizational knowledge sharing. | https://doi.org/10.1287/orsc.13.2.179.536 | medium | Direct result plus design inference |
 | [fact] Weak bridging ties help search across subunits, but strong ties are needed for complex transfer. | https://doi.org/10.2307/2667032; https://doi.org/10.1086/225469 | high | Search and transfer are distinct stages |
 | [fact] Cohesive local networks accelerate tacit transfer by increasing willingness to invest in sharing and explanation. | https://doi.org/10.2307/3556658; https://doi.org/10.2307/2667032 | high | Cohesion plus strong-tie explanation |
-| [fact] Cohesion and range both ease transfer beyond tie strength alone. | https://doi.org/10.2307/3556658 | high | Direct abstract result |
+| [inference] Cohesion and range are a strong combined design target because both ease transfer beyond tie strength alone. | https://doi.org/10.2307/3556658 | medium | Comparative design inference from direct result |
 | [inference] Brokerage accelerates novelty, but concentrated brokerage still creates bottleneck risk. | https://doi.org/10.1086/421787; https://doi.org/10.1287/mnsc.49.4.432.14428; https://doi.org/10.1287/orsc.13.2.179.536 | medium | Discovery value and access-risk synthesis |
 | [inference] Siloed dense clusters slow cross-boundary flow because they lack enough bridges and repeated cross-unit ties. | https://doi.org/10.1086/225469; https://doi.org/10.2307/2667032; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer.html | medium | Silo-risk synthesis |
 | [inference] The most useful diagnostic set combines centralization, cohesion, range, bridge redundancy, meaning more than one independent bridge across key clusters, and time to first useful cross-boundary contact. | https://doi.org/10.1287/orsc.13.2.179.536; https://doi.org/10.2307/3556658; https://doi.org/10.1287/mnsc.49.4.432.14428; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html | medium | Structural plus operational indicators |
@@ -544,10 +532,10 @@ search but slow the transfer of complex knowledge, while Reagans and McEvily sho
 cohesion and range are complements rather than substitutes. [inference; source:
 https://doi.org/10.2307/2667032; https://doi.org/10.2307/3556658]
 
-The practical implication is a distributed-brokerage design: several reachable boundary
-spanners connect cohesive expertise communities, and each critical knowledge domain has
-more than one viable bridge. That design preserves discovery breadth without forcing every
-context-rich explanation through one overused central actor. [inference; source:
+Several reachable boundary spanners should connect cohesive expertise communities, and each
+critical knowledge domain should have more than one viable bridge. This design preserves
+discovery breadth without forcing every context-rich explanation through one overused
+central actor. [inference; source:
 https://doi.org/10.1086/421787; https://doi.org/10.2307/3556658;
 https://doi.org/10.1287/mnsc.49.4.432.14428;
 https://davidamitchell.github.io/Research/research/2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.html]
