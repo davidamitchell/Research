@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b2f2604beb42283291def135f61b76b9fcdd598d
+    changed: 2026-05-20
+    progress: progress/2026-05-20-trust-institutions-vs-incentive-schemes-knowledge-sharing.md
+    summary: "Initial completion"
 ---
 
 # Why Do Trust-Based Institutions Outperform Incentive Schemes for Knowledge Sharing?
