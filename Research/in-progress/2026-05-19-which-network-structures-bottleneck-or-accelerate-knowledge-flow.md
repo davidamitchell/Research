@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Which Network Structures Bottleneck or Accelerate Knowledge Flow?"
 added: 2026-05-19T19:42:37+00:00
 status: reviewing
