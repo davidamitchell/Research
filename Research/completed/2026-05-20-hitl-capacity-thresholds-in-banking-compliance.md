@@ -2,12 +2,12 @@
 review_count: 2
 title: "At what threshold does Human-in-the-Loop (HITL) oversight in bank compliance operations stop being a meaningful challenge function and become routine acceptance of automated outputs?"
 added: 2026-05-20T08:35:44+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, governance, organisation, workflow]
 started: 2026-05-20T11:04:10+00:00
-completed: ~
+completed: 2026-05-20T11:30:57+00:00
 output: [knowledge]
 cites:
   - 2026-04-26-human-in-the-loop-ai-automated-workflows
