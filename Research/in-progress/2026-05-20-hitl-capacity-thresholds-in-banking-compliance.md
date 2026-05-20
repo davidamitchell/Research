@@ -1,5 +1,5 @@
 ---
-review_count: 0
+review_count: 1
 title: "At what threshold does Human-in-the-Loop (HITL) oversight in bank compliance operations stop being a meaningful challenge function and become routine acceptance of automated outputs?"
 added: 2026-05-20T08:35:44+00:00
 status: reviewing
