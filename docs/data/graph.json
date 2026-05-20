@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T09:08:55Z",
-  "node_count": 384,
-  "edge_count": 2342,
+  "generated": "2026-05-20T09:26:09Z",
+  "node_count": 385,
+  "edge_count": 2351,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2307,6 +2307,12 @@
       "title": "What Are the Micro-Transaction Costs of Internal Knowledge Sourcing?",
       "type": "primary",
       "url": "/Research/research/2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.html"
+    },
+    {
+      "slug": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "title": "What Institutional Designs Create Low-Cost Help-Seeking Without Embarrassment, Penalty, or Status Loss?",
+      "type": "primary",
+      "url": "/Research/research/2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking.html"
     }
   ],
   "edges": [
@@ -14008,18 +14014,18 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -14984,18 +14990,18 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -16468,14 +16474,6 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design,organisational-theory",
-      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-accountability-gaps",
-      "target": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
@@ -16484,6 +16482,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-theory",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
@@ -16520,19 +16526,19 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-      "target": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-theory",
-      "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
       "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
     },
     {
       "source": "2026-05-14-org-failure-modes-project-demand-product-it",
@@ -17468,7 +17474,7 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
-      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
@@ -19607,14 +19613,6 @@
       "provenance": "2026-05-18-agentic-production-tradeoffs"
     },
     {
-      "source": "2026-05-18-agentic-production-tradeoffs",
-      "target": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
-    },
-    {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
       "target": "2026-02-27-information-synthesis-entropy",
       "weight": 3,
@@ -20823,6 +20821,14 @@
       "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
       "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
       "target": "2026-03-02-transaction-costs",
       "weight": 3,
@@ -20877,6 +20883,14 @@
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-learning,organisational-theory",
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 4,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",
@@ -20999,6 +21013,14 @@
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     },
     {
+      "source": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
       "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
       "target": "2026-03-02-transaction-costs",
       "weight": 3,
@@ -21045,6 +21067,62 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-learning,organisational-theory",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-03-12-exploration-synthesis-gap",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
     }
   ]
 }

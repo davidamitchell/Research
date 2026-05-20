@@ -1,6 +1,99 @@
 {
-  "extracted_at": "2026-05-20T09:08:51Z",
+  "extracted_at": "2026-05-20T09:26:05Z",
   "items": {
+    "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking": {
+      "named_concepts": [
+        "visible expertise",
+        "psychological safety",
+        "low-cost help-seeking",
+        "inclusive invitations",
+        "peer contact",
+        "consulted sources",
+        "recurring low-preparation",
+        "first useful",
+        "useful contact",
+        "question abandonment",
+        "learning behavior",
+        "behavioural indicators",
+        "predictable access",
+        "repeated peer",
+        "low-preparation access",
+        "access points",
+        "repeated communication",
+        "validated survey",
+        "contact question",
+        "durable low-cost"
+      ],
+      "source_urls": [
+        "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+        "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
+        "https://experts.umn.edu/en/publications/the-influence-of-psychological-safety-and-confidence-in-knowledge/",
+        "https://digitalcommons.odu.edu/management_fac_pubs/13/",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Institutions create durable low-cost help-seeking only when they simultaneously reduce expertise-discovery cost, access uncertainty, and interpersonal status risk, because any one unresolved barrier can still make asking feel too expensive",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing.html"
+          ]
+        },
+        {
+          "text": "Psychological safety is consistently associated with learning behavior, knowledge sharing, and performance-related outcomes across multiple workplace settings, including field studies, meta-analysis, and employee knowledge-sharing research",
+          "sources": [
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f",
+            "https://digitalcommons.odu.edu/management_fac_pubs/13/",
+            "https://experts.umn.edu/en/publications/the-influence-of-psychological-safety-and-confidence-in-knowledge/"
+          ]
+        },
+        {
+          "text": "Leader inclusiveness and learning-oriented framing help make asking safer in hierarchical environments, because the consulted evidence links inclusive invitations to higher psychological safety and public team guidance recommends leaders frame work as learning and acknowledge fallibility",
+          "sources": [
+            "http://core.miserver.it.umich.edu/omeka-s/s/ire/item/4936",
+            "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f"
+          ]
+        },
+        {
+          "text": "Recurring interaction spaces such as office hours, mentoring windows, and peer forums work mainly when they make access predictable and communication frequent, not merely because a channel with that label exists on paper",
+          "sources": [
+            "https://experts.umn.edu/en/publications/the-influence-of-psychological-safety-and-confidence-in-knowledge/",
+            "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
+          ]
+        },
+        {
+          "text": "The most defensible design bundle combines visible expertise maps, recurring low-preparation access points, inclusive invitations from leaders, repeated peer contact, and low-stakes discussion of questions and mistakes inside ordinary work",
+          "sources": [
+            "http://core.miserver.it.umich.edu/omeka-s/s/ire/item/4936",
+            "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing.html"
+          ]
+        },
+        {
+          "text": "The strongest metric set pairs validated survey items about risk-taking and asking for help with behavioural indicators such as time to first useful contact, question abandonment, cross-team referrals, and the share of unique askers across levels and functions",
+          "sources": [
+            "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
+            "https://experts.umn.edu/en/publications/the-influence-of-psychological-safety-and-confidence-in-knowledge/",
+            "http://core.miserver.it.umich.edu/omeka-s/s/ire/item/4936",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
+          ]
+        },
+        {
+          "text": "Normalised admission of uncertainty and mistakes is most credibly indicated when questions and mistakes surface earlier, participation is less concentrated in a few already-safe insiders, and improvement activity rises instead of waiting for failure-driven escalation",
+          "sources": [
+            "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
+            "http://core.miserver.it.umich.edu/omeka-s/s/ire/item/4936",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour.html"
+          ]
+        }
+      ]
+    },
     "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing": {
       "named_concepts": [
         "knowledge sourcing",
