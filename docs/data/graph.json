@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-05-20T06:28:27Z",
-  "node_count": 379,
-  "edge_count": 2286,
+  "generated": "2026-05-20T06:42:30Z",
+  "node_count": 380,
+  "edge_count": 2300,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -2273,6 +2273,12 @@
       "url": "/Research/research/2026-05-18-rq6-3-complexity-horizon-classical-systems.html"
     },
     {
+      "slug": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "title": "How Can Institutions Align Strategic Relevance Pathways with Human Low-Effort Behaviour?",
+      "type": "synthesis",
+      "url": "/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html"
+    },
+    {
       "slug": "2026-05-19-human-ai-cognitive-divergence-risk",
       "title": "Human-AI Cognitive Divergence Risk",
       "type": "synthesis",
@@ -3122,10 +3128,10 @@
     },
     {
       "source": "2026-03-02-ai-not-a-data-problem",
-      "target": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 2,
       "rel": "tag-overlap",
-      "evidence": "agentic-ai,governance",
+      "evidence": "governance,organisational-design",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -3290,14 +3296,6 @@
     },
     {
       "source": "2026-03-02-transaction-costs",
-      "target": "2026-03-22-applied-context-engineering-agent-workflows",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,context-engineering",
-      "provenance": "2026-03-02-transaction-costs"
-    },
-    {
-      "source": "2026-03-02-transaction-costs",
       "target": "2026-04-02-org-shape-software-cost-zero",
       "weight": 2,
       "rel": "tag-overlap",
@@ -3318,6 +3316,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "agentic-ai,context-engineering",
+      "provenance": "2026-03-02-transaction-costs"
+    },
+    {
+      "source": "2026-03-02-transaction-costs",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-management,transaction-costs",
       "provenance": "2026-03-02-transaction-costs"
     },
     {
@@ -4145,6 +4151,14 @@
       "provenance": "2026-03-10-ai-concept-classification-taxonomy"
     },
     {
+      "source": "2026-03-10-dikw-transformation-functions",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "knowledge-management,organisation",
+      "provenance": "2026-03-10-dikw-transformation-functions"
+    },
+    {
       "source": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "target": "2026-03-10-language-for-llm-agent-output",
       "weight": 5,
@@ -4223,6 +4237,14 @@
       "rel": "tag-overlap",
       "evidence": "coase,institutional-economics",
       "provenance": "2026-03-15-adam-smith-org-design-desire-paths-ai"
+    },
+    {
+      "source": "2026-03-10-nature-of-the-firm-coase-organisations",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-theory,transaction-costs",
+      "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
     },
     {
       "source": "2026-03-10-research-loop-evaluation-rubric",
@@ -5834,14 +5856,6 @@
     },
     {
       "source": "2026-04-02-org-shape-software-cost-zero",
-      "target": "2026-04-30-strategic-tactical-division-ai-teams",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "agentic-ai,organisational-design",
-      "provenance": "2026-04-02-org-shape-software-cost-zero"
-    },
-    {
-      "source": "2026-04-02-org-shape-software-cost-zero",
       "target": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
       "weight": 2,
       "rel": "tag-overlap",
@@ -5862,6 +5876,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisational-design,product-management",
+      "provenance": "2026-04-02-org-shape-software-cost-zero"
+    },
+    {
+      "source": "2026-04-02-org-shape-software-cost-zero",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisational-design,transaction-costs",
       "provenance": "2026-04-02-org-shape-software-cost-zero"
     },
     {
@@ -5994,14 +6016,6 @@
     },
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisational-design",
-      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
-    },
-    {
-      "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
@@ -6019,6 +6033,14 @@
     {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisational-design",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisational-design",
@@ -13954,14 +13976,6 @@
     },
     {
       "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
-    },
-    {
-      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -13974,6 +13988,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
@@ -14930,14 +14952,6 @@
     },
     {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
-    },
-    {
-      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "weight": 2,
       "rel": "tag-overlap",
@@ -14950,6 +14964,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -15234,14 +15256,6 @@
     },
     {
       "source": "2026-05-12-data-product-ontology",
-      "target": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-12-data-product-ontology"
-    },
-    {
-      "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "weight": 2,
       "rel": "tag-overlap",
@@ -15259,6 +15273,14 @@
     {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "governance,organisation",
@@ -16290,51 +16312,11 @@
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-14-org-failure-modes-project-demand-product-it",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "governance,organisation",
-      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,workflow",
       "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
-    },
-    {
-      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
-      "target": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,workflow",
-      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
@@ -16350,6 +16332,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,workflow",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 2,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -16474,14 +16464,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-accountability-gaps",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-accountability-gaps",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16502,6 +16484,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
@@ -16522,14 +16512,6 @@
     },
     {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
-      "target": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
-      "weight": 2,
-      "rel": "tag-overlap",
-      "evidence": "organisation,organisational-design",
-      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
-    },
-    {
-      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
       "target": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "weight": 2,
       "rel": "tag-overlap",
@@ -16550,6 +16532,14 @@
       "weight": 2,
       "rel": "tag-overlap",
       "evidence": "organisation,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "organisation,organisational-design,organisational-theory",
       "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
     },
     {
@@ -16606,7 +16596,15 @@
       "weight": 3,
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
-      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
       "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
@@ -16665,6 +16663,14 @@
       "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
       "target": "2026-05-14-org-failure-modes-accountability-gaps",
       "weight": 4,
@@ -16711,6 +16717,14 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
       "source": "2026-05-14-promptql-definition-foundations-related-technologies",
@@ -17455,6 +17469,14 @@
       "rel": "tag-overlap",
       "evidence": "governance,organisation,organisational-design",
       "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
@@ -18639,6 +18661,14 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "weight": 3,
+      "rel": "tag-overlap",
+      "evidence": "governance,organisation,organisational-design",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
       "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
@@ -20503,6 +20533,94 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-03-02-transaction-costs",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-03-10-nature-of-the-firm-coase-organisations",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-03-26-measuring-opportunity-cost",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+      "weight": 3,
+      "rel": "related",
+      "evidence": "frontmatter:related",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
+    },
+    {
+      "source": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways",
+      "target": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways"
     },
     {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",

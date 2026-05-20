@@ -1,6 +1,107 @@
 {
-  "extracted_at": "2026-05-20T06:28:22Z",
+  "extracted_at": "2026-05-20T06:42:25Z",
   "items": {
+    "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways": {
+      "named_concepts": [
+        "strategic relevance",
+        "psychological safety",
+        "explicit exception",
+        "exception rights",
+        "named integrators",
+        "unofficial routes",
+        "authoritative pathway",
+        "integrator roles",
+        "default low-friction",
+        "universal synchronous",
+        "synchronous review",
+        "knowledge requests",
+        "trusted defaults",
+        "social risk",
+        "complementary behavioural",
+        "executive summary",
+        "summary institutions",
+        "institutions align",
+        "align strategic",
+        "low-effort behaviour"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1111/j.1468-0335.1937.tb00002.x",
+        "https://doi.org/10.2307/1882566",
+        "https://doi.org/10.1287/inte.4.3.28",
+        "https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/160DC098F27349B315A7B376F03E97E6",
+        "https://www.cambridge.org/core/books/governing-the-commons/7AB7AE11BADA84409C34815CC288CD79",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp77182",
+        "https://doi.org/10.1037/0033-295X.106.4.643",
+        "https://doi.org/10.2307/2666999",
+        "https://doi.org/10.1111/peps.12183",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-26-measuring-opportunity-cost.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Workers predictably choose the knowledge pathway with the lowest combined search, cue-reading, waiting, and interpersonal cost, even when a more authoritative route exists elsewhere in the organisation",
+          "sources": [
+            "https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp77182",
+            "https://doi.org/10.1037/0033-295X.106.4.643",
+            "https://davidamitchell.github.io/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html"
+          ]
+        },
+        {
+          "text": "Strategic relevance is better preserved when organisations remove unnecessary interdependence through clear ownership and self-contained tasks, then add shared systems or integrator roles only where interdependence is unavoidable",
+          "sources": [
+            "https://doi.org/10.1287/inte.4.3.28",
+            "https://doi.org/10.1111/j.1468-0335.1937.tb00002.x",
+            "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+          ]
+        },
+        {
+          "text": "Permission-incoherent information architectures raise access and evaluation cost enough to push users toward shadow pathways, because a system that cannot represent access boundaries coherently cannot become the default low-friction route",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+            "https://doi.org/10.1287/inte.4.3.28"
+          ]
+        },
+        {
+          "text": "Informal rules, local participation in rule design, and psychological safety are direct transaction-cost reducers, because people share, challenge, and reuse knowledge more readily when the pathway feels legitimate and non-punitive",
+          "sources": [
+            "https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/160DC098F27349B315A7B376F03E97E6",
+            "https://www.cambridge.org/core/books/governing-the-commons/7AB7AE11BADA84409C34815CC288CD79",
+            "https://doi.org/10.2307/2666999",
+            "https://doi.org/10.1111/peps.12183"
+          ]
+        },
+        {
+          "text": "Universal synchronous review becomes a poor relevance-preservation mechanism when queue volume exceeds realistic human attention, because control then degrades into waiting time and rubber-stamping instead of better decisions",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html"
+          ]
+        },
+        {
+          "text": "One high-leverage design pattern is to convert frequent, low-risk, high-value knowledge requests into trusted defaults while giving named integrators and experts explicit exception rights for ambiguous or cross-boundary cases",
+          "sources": [
+            "https://doi.org/10.1287/inte.4.3.28",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html"
+          ]
+        },
+        {
+          "text": "A valid operating scorecard must combine pathway-friction metrics with quality and outcome metrics, because visible speed alone systematically hides opportunity loss, wrong-source use, and rework",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-03-26-measuring-opportunity-cost.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
+          ]
+        }
+      ]
+    },
     "2026-05-18-rq6-3-complexity-horizon-classical-systems": {
       "named_concepts": [
         "complexity horizon",
