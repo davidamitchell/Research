@@ -1,6 +1,114 @@
 {
-  "extracted_at": "2026-05-20T11:25:36Z",
+  "extracted_at": "2026-05-20T11:33:59Z",
   "items": {
+    "2026-05-20-hitl-capacity-thresholds-in-banking-compliance": {
+      "named_concepts": [
+        "challenge minutes",
+        "human challenge",
+        "less aggregated",
+        "capacity ratio",
+        "backlog missed",
+        "review blocks",
+        "human-in-the-loop hitl",
+        "bank compliance",
+        "significant backlog",
+        "challenge activity",
+        "universal daily",
+        "daily alert-count",
+        "alert-count ceiling",
+        "supervisory sources",
+        "sources specify",
+        "breach indicators",
+        "shorter review",
+        "aggregated case",
+        "challenge behaviour",
+        "authority competence"
+      ],
+      "source_urls": [
+        "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13a.pdf",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://gdpr-info.eu/art-22-gdpr/",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://www.frontiersin.org/journals/cognition/articles/10.3389/fcogn.2025.1617561/full",
+        "https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Meaningful bank-compliance oversight requires reviewers who can understand system limits, detect anomalies, disregard or reverse outputs, and interrupt processing, because the reviewed supervisory sources treat authority, competence, independence, and real intervention power as the minimum standard for human challenge",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13a.pdf"
+          ]
+        },
+        {
+          "text": "No reviewed banking supervisor publishes a universal daily alert-count ceiling, but the Hong Kong Monetary Authority (HKMA) and interagency model-risk guidance treat significant backlog, missed timelines, and ineffective challenge staffing as observable signs that the review control has already failed",
+          "sources": [
+            "https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf",
+            "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13a.pdf",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/"
+          ]
+        },
+        {
+          "text": "Sanctions screening gives this failure mode real operational force because published banking research reports false-positive alert rates above 90 percent, and the Federal Reserve's 2025 benchmark paper treats manual review burden and transaction delay as direct consequences of those false positives",
+          "sources": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/",
+            "https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf"
+          ]
+        },
+        {
+          "text": "Reviewers should not be left in uninterrupted queue-clearing sessions longer than roughly 30 minutes, because vigilance research traces a steep initial drop in rare-signal detection within the first half hour of sustained monitoring before further decline sets in",
+          "sources": [
+            "https://www.frontiersin.org/journals/cognition/articles/10.3389/fcogn.2025.1617561/full"
+          ]
+        },
+        {
+          "text": "Evidence-rich case presentation matters because informing reviewers that the system can be wrong and showing less aggregated case data increases verification intensity and decision quality more reliably than generic reminders of responsibility",
+          "sources": [
+            "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/"
+          ]
+        },
+        {
+          "text": "An audit-ready threshold should compare required challenge minutes with available staffed challenge minutes after subtracting breaks, calibration, second-review sampling, and escalation work, because nominal headcount overstates the time available for substantive review",
+          "sources": [
+            "https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2023/20230209e2a2.pdf",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html"
+          ]
+        },
+        {
+          "text": "Near-zero override or escalation rates are not proof of safe automation, because the same pattern can arise from reviewer deference, so banks need logged second-review samples or planted-error tests to show that humans still detect machine mistakes under load",
+          "sources": [
+            "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+            "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html"
+          ]
+        },
+        {
+          "text": "Better screening models and threshold tuning materially reduce the risk of Human-in-the-Loop (HITL) collapse, but they do not remove the need for meaningful human challenge because banking and Artificial Intelligence (AI) oversight rules still require documented competence, accountability, and authority to intervene",
+          "sources": [
+            "https://www.federalreserve.gov/econres/feds/files/2025092pap.pdf",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC11621073/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13a.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html"
+          ]
+        }
+      ]
+    },
     "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls": {
       "named_concepts": [
         "statement-to-question conversion",
