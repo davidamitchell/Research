@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Enrich completed research items with AI theme tags via Gemini.
+"""Enrich completed research items with theme tags via Gemini.
 
-For each completed item that lacks an ``ai_themes`` frontmatter field, this
-script calls Gemini to identify 3–5 high-level AI research themes and writes
+For each completed item that lacks a ``themes`` frontmatter field, this
+script calls Gemini to identify 3–5 high-level research themes and writes
 them back into the file.  The run is idempotent: items that already carry
-``ai_themes`` are skipped.
+``themes`` (or legacy ``ai_themes``) are skipped.
 
 Usage:
-    # Backfill all items that lack ai_themes (up to --max-items):
+    # Backfill all items that lack themes (up to --max-items):
     python scripts/enrich_items.py --backfill
 
     # Enrich a single specific item:
@@ -61,8 +61,8 @@ logger = get_logger(__name__)
 COMPLETED_DIR = _REPO_ROOT / "Research" / "completed"
 CONFIG_PATH = _REPO_ROOT / "config" / "sources.yaml"
 
-# Controlled vocabulary of high-level AI research themes.
-_AI_THEMES: list[str] = [
+# Controlled vocabulary of high-level research themes.
+_THEMES: list[str] = [
     "agentic-ai",  # AI agents, tool use, autonomous systems
     "llm-reasoning",  # reasoning, chain-of-thought, structured output
     "memory-context",  # memory management, context windows, compression
@@ -81,7 +81,8 @@ _AI_THEMES: list[str] = [
     "knowledge-management",  # PKM, information architecture, wiki, synthesis
 ]
 
-_THEME_LIST_STR = "\n".join(f"  - {t}" for t in _AI_THEMES)
+_THEME_LIST_STR = "\n".join(f"  - {t}" for t in _THEMES)
+_AI_THEMES = _THEMES  # backward-compatible alias
 
 # Commit every N enriched items to create safe checkpoints.
 _COMMIT_BATCH = 20
@@ -126,19 +127,32 @@ def _split_frontmatter(text: str) -> tuple[str, str, str]:
     return "---", yaml_block, body
 
 
-def _has_ai_themes(yaml_block: str) -> bool:
-    return re.search(r"^ai_themes\s*:", yaml_block, re.MULTILINE) is not None
+def _has_themes(yaml_block: str) -> bool:
+    return (
+        re.search(r"^themes\s*:", yaml_block, re.MULTILINE) is not None
+        or re.search(r"^ai_themes\s*:", yaml_block, re.MULTILINE) is not None
+    )
 
 
-def _insert_ai_themes(yaml_block: str, themes: list[str]) -> str:
-    """Insert ``ai_themes`` after the ``tags:`` line (or at the end)."""
-    themes_yaml = "ai_themes: [" + ", ".join(themes) + "]"
+def _insert_themes(yaml_block: str, themes: list[str]) -> str:
+    """Insert ``themes`` after the ``tags:`` line (or at the end)."""
+    themes_yaml = "themes: [" + ", ".join(themes) + "]"
     # Insert after tags: line if present.
     tags_match = re.search(r"^(tags\s*:.*(?:\n  -.*)*)", yaml_block, re.MULTILINE)
     if tags_match:
         insert_pos = tags_match.end()
         return yaml_block[:insert_pos] + "\n" + themes_yaml + yaml_block[insert_pos:]
     return yaml_block.rstrip() + "\n" + themes_yaml
+
+
+def _has_ai_themes(yaml_block: str) -> bool:
+    """Backward-compatible alias for legacy callers/tests."""
+    return _has_themes(yaml_block)
+
+
+def _insert_ai_themes(yaml_block: str, themes: list[str]) -> str:
+    """Backward-compatible alias for legacy callers/tests."""
+    return _insert_themes(yaml_block, themes)
 
 
 def _reconstruct(yaml_block: str, body: str) -> str:
@@ -150,12 +164,25 @@ def _reconstruct(yaml_block: str, body: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def _build_prompt(title: str, tags: str, summary: str) -> str:
+def _build_prompt(
+    title: str,
+    tags: str,
+    research_question: str,
+    scope: str,
+    findings: str,
+) -> str:
+    """Build the Gemini classification prompt from structured item context."""
     return (
-        "You are classifying an AI research item into high-level themes.\n\n"
+        "You are classifying a research item into high-level themes.\n\n"
         f"Title: {title}\n"
         f"Tags: {tags}\n"
-        f"Summary: {summary}\n\n"
+        "\n"
+        "Research Question:\n"
+        f"{research_question}\n\n"
+        "Scope (summary):\n"
+        f"{scope}\n\n"
+        "Findings (summary):\n"
+        f"{findings}\n\n"
         "Choose 3–5 themes from this controlled vocabulary:\n"
         f"{_THEME_LIST_STR}\n\n"
         "You may add 1–2 novel themes (lowercase, hyphenated) not in the list "
@@ -196,15 +223,63 @@ def _parse_themes(raw: str) -> list[str] | None:
 # ---------------------------------------------------------------------------
 
 
-def _extract_summary(body: str, max_chars: int = 400) -> str:
-    """Return the first max_chars characters of the Findings section (or body)."""
-    findings_match = re.search(r"^##\s+Findings\b(.*?)(?=\n##|\Z)", body, re.DOTALL | re.MULTILINE)
-    source = findings_match.group(1).strip() if findings_match else body
-    clean = re.sub(r"\[([^\]]*)\]\([^)]+\)", r"\1", source)
-    clean = re.sub(r"\*{1,3}([^*]+)\*{1,3}", r"\1", clean)
-    clean = re.sub(r"`[^`]+`", "", clean)
-    clean = re.sub(r"\s+", " ", clean).strip()
-    return clean[:max_chars]
+def _markdown_to_plain_text(text: str) -> str:
+    """Strip common markdown syntax and collapse whitespace into plain text."""
+    text = re.sub(r"#{1,6}\s+", "", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\*{1,3}([^*]+)\*{1,3}", r"\1", text)
+    text = re.sub(r"`([^`]+)`", r"\1", text)
+    text = re.sub(r"^\s*[-*+]\s+", "", text, flags=re.MULTILINE)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _extract_section_text(
+    body: str,
+    headings: list[str],
+    *,
+    max_chars: int,
+    first_paragraph_only: bool = False,
+) -> str:
+    """Extract a section by H2 heading aliases, normalize markdown, and trim length."""
+    for heading in headings:
+        match = re.search(
+            rf"^##\s+{re.escape(heading)}\b(.*?)(?=\n##\s+|\Z)",
+            body,
+            re.DOTALL | re.MULTILINE,
+        )
+        if not match:
+            continue
+        section_text = match.group(1).strip()
+        if first_paragraph_only:
+            paragraphs = re.split(r"\n\s*\n", section_text, maxsplit=1)
+            section_text = paragraphs[0].strip()
+        clean = _markdown_to_plain_text(section_text)
+        if clean:
+            return clean[:max_chars]
+    return ""
+
+
+def _build_prompt_context(body: str) -> tuple[str, str, str]:
+    """Extract prompt context from markdown body: question, scope summary, findings summary."""
+    research_question = _extract_section_text(
+        body,
+        ["Research Question", "Question / Hypothesis"],
+        max_chars=300,
+    )
+    scope = _extract_section_text(
+        body,
+        ["Scope"],
+        max_chars=200,
+        first_paragraph_only=True,
+    )
+    findings = _extract_section_text(
+        body,
+        ["Findings"],
+        max_chars=800,
+    )
+    if not findings:
+        findings = _markdown_to_plain_text(body)[:800]
+    return research_question, scope, findings
 
 
 def _is_daily_quota_exhausted(exc_str: str) -> bool:
@@ -342,7 +417,7 @@ def enrich_item(
     if not fence:
         logger.debug("SKIP (no frontmatter): %s", path.name)
         return False
-    if _has_ai_themes(yaml_block):
+    if _has_themes(yaml_block):
         logger.debug("SKIP (already enriched): %s", path.name)
         return False
 
@@ -354,8 +429,8 @@ def enrich_item(
     title = str(meta.get("title", path.stem))
     raw_tags = meta.get("tags", [])
     tags_str = ", ".join(str(t) for t in raw_tags) if isinstance(raw_tags, list) else str(raw_tags)
-    summary = _extract_summary(body)
-    prompt = _build_prompt(title, tags_str, summary)
+    research_question, scope, findings = _build_prompt_context(body)
+    prompt = _build_prompt(title, tags_str, research_question, scope, findings)
 
     logger.info("Enriching: %s", path.name)
 
@@ -371,7 +446,7 @@ def enrich_item(
     logger.info("  → %s  (via %s)", themes, model_used)
 
     if not dry_run:
-        new_yaml = _insert_ai_themes(yaml_block, themes)
+        new_yaml = _insert_themes(yaml_block, themes)
         tmp = path.with_suffix(".tmp")
         try:
             tmp.write_text(_reconstruct(new_yaml, body), encoding="utf-8")
@@ -436,9 +511,7 @@ def main() -> int:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     mode = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument(
-        "--backfill", action="store_true", help="Process all items missing ai_themes."
-    )
+    mode.add_argument("--backfill", action="store_true", help="Process all items missing themes.")
     mode.add_argument("--item", metavar="PATH", help="Enrich a single item at PATH.")
     parser.add_argument(
         "--max-items",
@@ -506,7 +579,7 @@ def main() -> int:
             return 1
         changed = enrich_item(path, client, cascade, dry_run=args.dry_run)
         if args.commit and changed and not args.dry_run:
-            _git_commit(f"enrich: add ai_themes to {path.name}")
+            _git_commit(f"enrich: add themes to {path.name}")
         return 0
 
     # ------------------------------------------------------------------ #
@@ -517,12 +590,12 @@ def main() -> int:
         reverse=True,
     )
     pending = [
-        p for p in items if not _has_ai_themes(_split_frontmatter(p.read_text(encoding="utf-8"))[1])
+        p for p in items if not _has_themes(_split_frontmatter(p.read_text(encoding="utf-8"))[1])
     ]
     total_pending = len(pending)
     to_process = pending[: args.max_items]
     logger.info(
-        "Found %d items without ai_themes; processing %d this run.",
+        "Found %d items without themes; processing %d this run.",
         total_pending,
         len(to_process),
     )
@@ -541,14 +614,13 @@ def main() -> int:
 
         if args.commit and not args.dry_run and enriched > 0 and enriched % _COMMIT_BATCH == 0:
             _git_commit(
-                f"enrich: add ai_themes to items {i + 1 - _COMMIT_BATCH + 1}–{i + 1} "
+                f"enrich: add themes to items {i + 1 - _COMMIT_BATCH + 1}–{i + 1} "
                 f"of {len(to_process)}"
             )
 
     if args.commit and not args.dry_run and enriched > 0:
         _git_commit(
-            f"enrich: add ai_themes — {enriched} items enriched "
-            f"({total_pending - enriched} remaining)"
+            f"enrich: add themes — {enriched} items enriched ({total_pending - enriched} remaining)"
         )
 
     logger.info("Done. Enriched %d / %d items.", enriched, len(to_process))

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -10,12 +11,14 @@ import pytest
 
 # Make scripts/ importable
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-import json
 
 from build_site import (
     _GRAPH_JS,
     _MINI_GRAPH_CSS,
     _MINI_GRAPH_JS,
+    BROWSE_JS,
+    LANDING_SEARCH_JS,
+    SEARCH_JS,
     _cluster_overlap,
     _item_url,
     _validate_graph,
@@ -24,10 +27,14 @@ from build_site import (
     build_graph_page,
     build_item_page,
     build_knowledge_index_page,
+    build_landing,
     build_research_master_page,
+    build_search_index,
+    build_search_page,
     detect_concept_threads,
     detect_threads,
     html_nav,
+    load_items,
     load_knowledge_items,
     render_card,
     strip_evidence_labels,
@@ -67,6 +74,55 @@ def _make_item(
 
 def _slugs(thread: dict) -> set[str]:
     return {it["slug"] for it in thread["items"]}
+
+
+def test_search_scripts_bootstrap_vector_runtime_modes() -> None:
+    assert "__RESEARCH_SEARCH_PAGE__='full'" in SEARCH_JS
+    assert "__RESEARCH_SEARCH_PAGE__='landing'" in LANDING_SEARCH_JS
+    assert "scoreSearchMatch(" in BROWSE_JS
+
+
+def test_search_pages_load_vector_runtime_module() -> None:
+    search_html = build_search_page()
+    assert 'src="/Research/assets/search-runtime.js"' in search_html
+
+    landing_html = build_landing([], [])
+    assert 'src="/Research/assets/search-runtime.js"' in landing_html
+
+
+def test_build_search_index_enriches_items_before_vector_indexing(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    captured: dict[str, object] = {}
+
+    def _fake_vector_index(
+        items: list[dict], metadata: dict, slug_to_threads: dict[str, list[str]]
+    ) -> str:
+        captured["items"] = items
+        captured["metadata"] = metadata
+        captured["slug_to_threads"] = slug_to_threads
+        return '{"ok": true}'
+
+    monkeypatch.setattr("build_site.build_vector_search_index", _fake_vector_index)
+
+    items = [
+        {
+            "slug": "sample",
+            "title": "Sample",
+            "display_title": "Sample",
+            "tags": ["tag"],
+            "added_str": "2026-01-01",
+            "question_excerpt": "Question",
+            "sections": {"Findings": "This is a findings section."},
+            "ai_themes": [],
+        }
+    ]
+    output = build_search_index(items, {"items": {}}, {"sample": ["thread-a"]})
+
+    assert output == '{"ok": true}'
+    enriched_items = captured["items"]
+    assert isinstance(enriched_items, list)
+    assert enriched_items[0]["findings_excerpt"]
 
 
 # ---------------------------------------------------------------------------
@@ -117,23 +173,47 @@ def test_explicit_thread_requires_two_items() -> None:
     assert not any(t["kind"] == "explicit" for t in threads)
 
 
+def test_explicit_thread_slug_falls_back_when_title_not_ascii() -> None:
+    items = [
+        _make_item("a", ["x"], thread="研究の流れ"),
+        _make_item("b", ["y"], thread="研究の流れ"),
+    ]
+    threads = detect_threads(items)
+    explicit = [t for t in threads if t["kind"] == "explicit"]
+    assert len(explicit) == 1
+    assert explicit[0]["slug"] == "thread"
+
+
+def test_explicit_thread_slug_is_unique_when_titles_collide() -> None:
+    items = [
+        _make_item("a1", ["x"], thread="A.B"),
+        _make_item("a2", ["y"], thread="A.B"),
+        _make_item("b1", ["x"], thread="A B"),
+        _make_item("b2", ["y"], thread="A B"),
+    ]
+    threads = [t for t in detect_threads(items) if t["kind"] == "explicit"]
+    assert len(threads) == 2
+    assert sorted(t["slug"] for t in threads) == ["a-b", "a-b-2"]
+
+
 # ---------------------------------------------------------------------------
-# detect_threads — implicit (tag-based) threads
+# detect_threads — no implicit tag-based threads
 # ---------------------------------------------------------------------------
 
 
-def test_minimum_cluster_size_not_met() -> None:
-    """Two items sharing 2+ tags do not form a thread (need 3 items)."""
+def test_no_implicit_threads_for_tag_overlap() -> None:
+    """Tag overlap alone must not create threads."""
     items = [
         _make_item("a", ["x", "y", "z"]),
         _make_item("b", ["x", "y", "w"]),
+        _make_item("c", ["x", "y", "v"]),
     ]
     threads = detect_threads(items)
     assert not any(t["kind"] == "implicit" for t in threads)
 
 
-def test_basic_implicit_thread() -> None:
-    """Three items sharing 2+ tags form one implicit thread."""
+def test_detect_threads_returns_no_threads_when_only_tags_overlap() -> None:
+    """When there are no explicit/concept signals, no thread is created."""
     items = [
         _make_item("a", ["x", "y", "p"]),
         _make_item("b", ["x", "y", "q"]),
@@ -141,60 +221,7 @@ def test_basic_implicit_thread() -> None:
         _make_item("d", ["m", "n"]),  # unrelated
     ]
     threads = detect_threads(items)
-    implicit = [t for t in threads if t["kind"] == "implicit"]
-    assert len(implicit) == 1
-    assert _slugs(implicit[0]) == {"a", "b", "c"}
-
-
-def test_overlapping_thread_membership() -> None:
-    """An item can appear in multiple threads when clusters partially overlap.
-
-    Three distinct clusters form because no cluster is 75%+ subsumed by another:
-
-    Cluster A (seed tags {a,b,c}): [a_seed, a_ab, a_ac, a_bc, cross]
-    Cluster X (cross tags {a,b,p,q}): [cross, a_seed, a_ab, b_seed, b_pq]
-    Cluster B (seed tags {p,q,r}): [b_seed, b_pq, b_pr, b_qr, cross]
-
-    'cross' appears in all three threads.  Clusters A and X share 3/5 items
-    (60%) so both survive the 75% deduplication threshold.
-    """
-    items = [
-        _make_item("a_seed", ["a", "b", "c"]),
-        _make_item("a_ab", ["a", "b", "1"]),  # shares {a,b} with cross
-        _make_item("a_ac", ["a", "c", "2"]),  # shares {a} only with cross
-        _make_item("a_bc", ["b", "c", "3"]),  # shares {b} only with cross
-        _make_item("cross", ["a", "b", "p", "q"]),  # bridges A and B clusters
-        _make_item("b_seed", ["p", "q", "r"]),
-        _make_item("b_pq", ["p", "q", "1"]),  # shares {p,q} with cross
-        _make_item("b_pr", ["p", "r", "2"]),  # shares {p} only with cross
-        _make_item("b_qr", ["q", "r", "3"]),  # shares {q} only with cross
-    ]
-    threads = detect_threads(items)
-    implicit = [t for t in threads if t["kind"] == "implicit"]
-    # Three distinct clusters should survive deduplication
-    assert len(implicit) >= 2
-
-    all_thread_slugsets = [_slugs(t) for t in implicit]
-    cross_threads = [s for s in all_thread_slugsets if "cross" in s]
-    assert len(cross_threads) >= 2, "'cross' should appear in at least 2 threads"
-
-
-def test_deduplication_keeps_larger_cluster() -> None:
-    """Near-identical clusters (>= 75% overlap) are deduplicated; larger survives."""
-    # Items a,b,c,d all share tags x,y with each other.
-    # Seeding from a gives [a,b,c,d]; seeding from b gives the same [a,b,c,d].
-    # After deduplication we expect exactly one thread.
-    items = [
-        _make_item("a", ["x", "y", "1"]),
-        _make_item("b", ["x", "y", "2"]),
-        _make_item("c", ["x", "y", "3"]),
-        _make_item("d", ["x", "y", "4"]),
-    ]
-    threads = detect_threads(items)
-    implicit = [t for t in threads if t["kind"] == "implicit"]
-    # All four seeds produce the same cluster → should collapse to 1
-    assert len(implicit) == 1
-    assert _slugs(implicit[0]) == {"a", "b", "c", "d"}
+    assert threads == []
 
 
 # ---------------------------------------------------------------------------
@@ -855,6 +882,99 @@ def test_load_knowledge_items_missing_dir() -> None:
     assert items == []
 
 
+def test_load_items_reads_themes(tmp_path: Path) -> None:
+    """load_items includes themes from frontmatter."""
+    import build_site  # noqa: PLC0415
+
+    completed_dir = tmp_path / "Research" / "completed"
+    completed_dir.mkdir(parents=True)
+    (completed_dir / "2026-01-01-theme-test.md").write_text(
+        """---
+title: Theme Test
+added: 2026-01-01T00:00:00+00:00
+tags: [ai]
+themes: [agentic-ai, governance-policy]
+---
+
+## Research Question
+
+What themes exist?
+""",
+        encoding="utf-8",
+    )
+
+    original = build_site.COMPLETED_DIR
+    build_site.COMPLETED_DIR = completed_dir
+    try:
+        items, _stats = load_items()
+    finally:
+        build_site.COMPLETED_DIR = original
+
+    assert items[0]["themes"] == ["agentic-ai", "governance-policy"]
+
+
+def test_load_items_reads_legacy_ai_themes(tmp_path: Path) -> None:
+    """load_items supports legacy ai_themes frontmatter."""
+    import build_site  # noqa: PLC0415
+
+    completed_dir = tmp_path / "Research" / "completed"
+    completed_dir.mkdir(parents=True)
+    (completed_dir / "2026-01-01-theme-test.md").write_text(
+        """---
+title: Theme Test
+added: 2026-01-01T00:00:00+00:00
+tags: [ai]
+ai_themes: [agentic-ai, governance-policy]
+---
+
+## Research Question
+
+What themes exist?
+""",
+        encoding="utf-8",
+    )
+
+    original = build_site.COMPLETED_DIR
+    build_site.COMPLETED_DIR = completed_dir
+    try:
+        items, _stats = load_items()
+    finally:
+        build_site.COMPLETED_DIR = original
+
+    assert items[0]["themes"] == ["agentic-ai", "governance-policy"]
+
+
+def test_load_knowledge_items_reads_themes(tmp_path: Path) -> None:
+    """load_knowledge_items includes themes from frontmatter."""
+    import build_site  # noqa: PLC0415
+
+    knowledge_dir = tmp_path / "Knowledge"
+    knowledge_dir.mkdir()
+    (knowledge_dir / "2026-01-01-synthesis.md").write_text(
+        """---
+title: Synthesis
+synthesised: 2026-01-01T00:00:00+00:00
+tags: [ai]
+themes: [knowledge-management]
+---
+
+## Synthesis Question
+
+How do themes cluster?
+""",
+        encoding="utf-8",
+    )
+
+    original = build_site.KNOWLEDGE_DIR
+    build_site.KNOWLEDGE_DIR = knowledge_dir
+    try:
+        items = load_knowledge_items()
+    finally:
+        build_site.KNOWLEDGE_DIR = original
+
+    assert items[0]["themes"] == ["knowledge-management"]
+
+
 # ---------------------------------------------------------------------------
 # build_knowledge_index_page
 # ---------------------------------------------------------------------------
@@ -891,6 +1011,7 @@ def _make_graph_item(
     cites: list[str] | None = None,
     related: list[str] | None = None,
     tags: list[str] | None = None,
+    themes: list[str] | None = None,
 ) -> dict:
     """Minimal item dict with all fields required by build_graph_json."""
     prefix = "knowledge" if kind == "knowledge" else "research"
@@ -902,6 +1023,7 @@ def _make_graph_item(
         "cites": cites or [],
         "related_slugs": related or [],
         "tags": tags or [],
+        "themes": themes or [],
         "added": datetime(2026, 1, 1, tzinfo=UTC),
         "_kind": kind,
     }
@@ -931,12 +1053,12 @@ def test_graph_json_schema_version() -> None:
 
 
 def test_graph_json_node_required_fields() -> None:
-    """Every node has slug, title, type, and url."""
+    """Every node has slug, title, type, url, and themes."""
     item = _make_graph_item("alpha")
     parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
     assert len(parsed["nodes"]) == 1
     node = parsed["nodes"][0]
-    for field in ("slug", "title", "type", "url"):
+    for field in ("slug", "title", "type", "url", "themes"):
         assert field in node, f"node missing field: {field}"
 
 
@@ -1047,6 +1169,20 @@ def test_graph_json_tag_overlap_canonical_direction() -> None:
     assert len(tag_edges) == 1
     assert tag_edges[0]["source"] == "alpha"
     assert tag_edges[0]["target"] == "beta"
+
+
+def test_graph_json_theme_overlap_edge_produced_with_weight() -> None:
+    """Shared themes produce one canonical theme-overlap edge with count weight."""
+    item_a = _make_graph_item("alpha", themes=["agentic-ai", "governance-policy"])
+    item_b = _make_graph_item("beta", themes=["agentic-ai", "memory-context"])
+    items = [item_a, item_b]
+    parsed = json.loads(build_graph_json(items, {}, {i["slug"]: i for i in items}))
+    theme_edges = [e for e in parsed["edges"] if e["rel"] == "theme-overlap"]
+    assert len(theme_edges) == 1
+    assert theme_edges[0]["source"] == "alpha"
+    assert theme_edges[0]["target"] == "beta"
+    assert theme_edges[0]["weight"] == 1
+    assert theme_edges[0]["evidence"] == "agentic-ai"
 
 
 def test_graph_json_orphan_cites_skipped() -> None:
@@ -1223,6 +1359,14 @@ def test_validate_graph_detects_missing_edge_provenance() -> None:
     del graph["edges"][0]["provenance"]
     errors = _validate_graph(graph)
     assert errors
+
+
+def test_validate_graph_detects_unknown_rel_type() -> None:
+    """Edge relationship outside the supported set is flagged."""
+    graph = _make_valid_graph()
+    graph["edges"][0]["rel"] = "mystery-rel"
+    errors = _validate_graph(graph)
+    assert any("supported relationship type" in e for e in errors)
 
 
 def test_validate_graph_detects_node_count_mismatch() -> None:
@@ -1454,6 +1598,10 @@ def test_graph_page_css_has_user_select_none() -> None:
 
 def test_graph_js_tag_overlap_off_by_default() -> None:
     assert "'tag-overlap': false" in _GRAPH_JS
+
+
+def test_graph_js_theme_overlap_off_by_default() -> None:
+    assert "'theme-overlap': false" in _GRAPH_JS
 
 
 def test_graph_js_has_neighbour_highlight() -> None:

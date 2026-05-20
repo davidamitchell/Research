@@ -152,3 +152,19 @@ reflect this addition.
   run on `push`. If a new completed item should be enriched immediately, the
   operator triggers the workflow manually (single-item mode) or waits for the
   next backfill.
+
+## Amendment (2026-05-20)
+
+- The temporary `push` trigger that was introduced after this ADR was accepted has been removed.
+  This ADR's original `workflow_dispatch`-only decision now stands again, and the push-trigger variant
+  is superseded by this amendment.
+- `ai_themes` are now wired into site graph generation: each graph node includes `ai_themes`, and
+  `theme-overlap` edges are emitted between items that share one or more themes.
+- Theme frontmatter is now generalized to `themes` (with `ai_themes` retained only as a legacy read
+  fallback), so classification is no longer AI-prefixed in schema naming.
+- Thread generation no longer creates implicit tag-cluster threads. Threads are now reserved for
+  explicit `thread:` progressions and concept-based clusters from `named_concepts`.
+- Enrichment prompt context now uses three sections from each item body (Research Question, Scope,
+  Findings) instead of a 400-character findings snippet, improving classification depth.
+- Workflow push behavior now uses `git pull --rebase origin main` followed by `git push origin main`
+  so concurrent writes fail loudly and rebase safely rather than being silently ignored.

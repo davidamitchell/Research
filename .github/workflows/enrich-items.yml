@@ -1,16 +1,16 @@
-name: Enrich Items with AI Themes
+name: Enrich Items with Themes
 
-# Calls Gemini (flash cascade) to add ai_themes frontmatter to completed
+# Calls Gemini (flash cascade) to add themes frontmatter to completed
 # research items that lack it.
 #
 # Two modes:
 #   backfill  — iterates the completed corpus newest-first, skipping items
-#               that already have ai_themes.  Commits every 20 items so a
+#               that already have themes (or legacy ai_themes). Commits every
+#               20 items so a
 #               crash or cancellation preserves progress.
 #   single    — enriches exactly one item (useful after a new item lands on main).
 #
-# The push trigger runs automatically after the research-loop workflow commits
-# new items to Research/completed/.  It processes up to 5 new items per push.
+# This workflow is intentionally workflow_dispatch-only.
 #
 # Required secret:
 #   GEMINI_API_KEY — Google Generative AI API key.
@@ -24,7 +24,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "backfill (all missing ai_themes) or single (one item)"
+        description: "backfill (all missing themes) or single (one item)"
         required: true
         type: choice
         options:
@@ -49,18 +49,13 @@ on:
           - "100"
           - "297"
 
-  push:
-    branches: [main]
-    paths:
-      - "Research/completed/**"
-
 concurrency:
   group: enrich-items
   cancel-in-progress: false
 
 jobs:
   enrich:
-    name: Enrich items with AI themes
+    name: Enrich items with themes
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -110,20 +105,8 @@ jobs:
               --commit
           fi
 
-      - name: Enrich new items (push trigger)
-        if: github.event_name == 'push'
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          set -euo pipefail
-          # On a push event, process up to 5 items to keep the run short.
-          # Newly committed items will lack ai_themes and are picked up first
-          # because the script iterates newest-first.
-          python scripts/enrich_items.py \
-            --backfill \
-            --max-items 5 \
-            --commit
-
       - name: Push enriched items
         run: |
-          git push origin main || true
+          set -euo pipefail
+          git pull --rebase origin main
+          git push origin main

@@ -14,7 +14,7 @@ Generates:
   docs/threads/<slug>.html    — individual thread pages
   docs/search.html            — standalone search page
   docs/research-master.html   — rendered Research_Master.md with valid HTML anchors
-  docs/search-index.json      — search index for client-side JS
+  docs/search-index.json      — vector index for browser search runtime
   docs/threads-index.json     — thread data for JS
 
 Usage:
@@ -34,6 +34,7 @@ from datetime import UTC, date, datetime
 from pathlib import Path
 
 import yaml
+from generate_index import build_vector_search_index
 from markdown_it import MarkdownIt
 
 # ---------------------------------------------------------------------------
@@ -51,6 +52,8 @@ KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
 GRAPH_DATA_DIR = DOCS_DIR / "data"
+ASSETS_DIR = DOCS_DIR / "assets"
+SEARCH_ASSETS_SOURCE_DIR = REPO_ROOT / "scripts" / "search" / "dist"
 
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
 GITHUB_KNOWLEDGE_BASE = "https://github.com/davidamitchell/Research/blob/main/Knowledge/"
@@ -1018,6 +1021,22 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
     return meta, body
 
 
+def extract_themes(meta: dict) -> list[str]:
+    """Return normalized themes from frontmatter (themes preferred, ai_themes fallback)."""
+    raw_themes = meta.get("themes")
+    if not isinstance(raw_themes, list):
+        raw_themes = meta.get("ai_themes", [])
+    if not isinstance(raw_themes, list):
+        return []
+    return [str(theme).strip() for theme in raw_themes if str(theme).strip()]
+
+
+def item_themes(item: dict) -> list[str]:
+    """Return normalized themes list from an item dict."""
+    themes = item.get("themes") or []
+    return themes if isinstance(themes, list) else []
+
+
 def normalise_tags(raw: object) -> list[str]:
     """Normalise tags field to a list of lowercase strings."""
     if isinstance(raw, list):
@@ -1034,6 +1053,23 @@ def slugify(name: str) -> str:
     s = re.sub(r"[^a-z0-9\-]", "", s)
     s = re.sub(r"-+", "-", s).strip("-")
     return s
+
+
+def make_unique_slug(
+    name: str,
+    *,
+    used: set[str],
+    fallback_prefix: str = "thread",
+) -> str:
+    """Return a non-empty, unique slug for thread pages."""
+    base = slugify(name) or fallback_prefix
+    candidate = base
+    i = 2
+    while candidate in used:
+        candidate = f"{base}-{i}"
+        i += 1
+    used.add(candidate)
+    return candidate
 
 
 def extract_section(body: str, section_name: str) -> str:
@@ -1257,6 +1293,7 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
+        themes = extract_themes(meta)
         slug = slugify(path.stem)
         sections = extract_sections(body)
         sources_text = extract_section(body, "Sources")
@@ -1277,6 +1314,7 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "added": added_dt,
                 "added_str": added_dt.date().isoformat(),
                 "tags": tags,
+                "themes": themes,
                 "sections": sections,
                 "_sources_text": sources_text,
                 "question": question,
@@ -1349,6 +1387,7 @@ def load_knowledge_items() -> list[dict]:
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
+        themes = extract_themes(meta)
         slug = slugify(path.stem)
         sections = extract_sections(body)
         sources_text = extract_section(body, "Source Items")
@@ -1363,6 +1402,7 @@ def load_knowledge_items() -> list[dict]:
                 "added": added_dt,
                 "added_str": added_dt.date().isoformat(),
                 "tags": tags,
+                "themes": themes,
                 "sections": sections,
                 "_sources_text": sources_text,
                 "question": question,
@@ -1458,17 +1498,15 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
 
     Priority:
     1. Items with a matching ``thread`` frontmatter field are grouped together.
-    2. Items sharing 2+ tags form implicit threads (tag cluster).  Items may
-       appear in more than one thread if they genuinely belong to multiple
-       distinct clusters.
-    3. Items sharing 3+ named concepts (from content_metadata.json) form
-       concept threads as a fallback for items not reached by tags alone.
+    2. Items sharing 3+ named concepts (from content_metadata.json) form
+       concept threads.
 
     Returns a list of thread dicts, each with keys:
-      slug, title, items, kind ('explicit', 'implicit', or 'concept'),
+      slug, title, items, kind ('explicit' or 'concept'),
       tag_cluster (list), concept_cluster (list)
     """
     threads: list[dict] = []
+    used_slugs: set[str] = set()
 
     # ------------------------------------------------------------------
     # 1. Explicit threads via frontmatter ``thread:`` field
@@ -1481,9 +1519,10 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
         if len(thread_items) < 2:
             continue
         thread_items_sorted = sorted(thread_items, key=lambda x: x["added"])
+        thread_slug = make_unique_slug(name, used=used_slugs, fallback_prefix="thread")
         threads.append(
             {
-                "slug": slugify(name),
+                "slug": thread_slug,
                 "title": name,
                 "items": thread_items_sorted,
                 "kind": "explicit",
@@ -1493,55 +1532,10 @@ def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict
         )
 
     # ------------------------------------------------------------------
-    # 2. Implicit tag-based threads
-    # Generate all candidate clusters (every item as seed, no exclusion),
-    # then deduplicate clusters with >= 75% item overlap.
-    # This allows items to appear in multiple genuinely different threads.
-    # ------------------------------------------------------------------
-    candidate_clusters: list[list[dict]] = []
-    for item in items:
-        if len(item["tags"]) < 2:
-            continue
-        item_tags = set(item["tags"])
-        cluster = [item]
-        for other in items:
-            if other["slug"] == item["slug"]:
-                continue
-            if len(item_tags & set(other["tags"])) >= 2:
-                cluster.append(other)
-        if len(cluster) >= 3:
-            candidate_clusters.append(cluster)
-
-    # Largest clusters first; skip any that are 75%+ covered by an already-accepted one
-    candidate_clusters.sort(key=lambda c: -len(c))
-    accepted_slugsets: list[set[str]] = []
-    for cluster in candidate_clusters:
-        cluster_slugs = {c["slug"] for c in cluster}
-        if any(_cluster_overlap(cluster_slugs, a) >= 0.75 for a in accepted_slugsets):
-            continue
-        accepted_slugsets.append(cluster_slugs)
-        cluster_sorted = sorted(cluster, key=lambda x: x["added"])
-        all_tags: list[str] = []
-        for c in cluster:
-            all_tags.extend(c["tags"])
-        top_tags = [t for t, _ in Counter(all_tags).most_common(3)]
-        thread_title = " / ".join(top_tags)
-        threads.append(
-            {
-                "slug": slugify(thread_title),
-                "title": thread_title,
-                "items": cluster_sorted,
-                "kind": "implicit",
-                "tag_cluster": top_tags,
-                "concept_cluster": [],
-            }
-        )
-
-    # ------------------------------------------------------------------
-    # 3. Concept-based threads (secondary pass)
+    # 2. Concept-based threads
     # ------------------------------------------------------------------
     if metadata:
-        threads.extend(detect_concept_threads(items, metadata, threads))
+        threads.extend(detect_concept_threads(items, metadata, threads, used_slugs=used_slugs))
 
     threads.sort(key=lambda t: -len(t["items"]))
     return threads
@@ -1551,6 +1545,7 @@ def detect_concept_threads(
     items: list[dict],
     metadata: dict,
     existing_threads: list[dict],
+    used_slugs: set[str] | None = None,
 ) -> list[dict]:
     """Detect threads based on shared named concepts from content_metadata.json.
 
@@ -1631,6 +1626,7 @@ def detect_concept_threads(
 
     # Build thread dicts
     concept_threads: list[dict] = []
+    used = used_slugs if used_slugs is not None else set()
     for cluster in accepted_clusters:
         cluster_sorted = sorted(cluster, key=lambda x: x["added"])
         all_concepts_in_cluster: list[str] = []
@@ -1638,9 +1634,10 @@ def detect_concept_threads(
             all_concepts_in_cluster.extend(item_filtered[c["slug"]])
         top_concepts = [c for c, _ in Counter(all_concepts_in_cluster).most_common(3)]
         thread_title = " / ".join(top_concepts)
+        thread_slug = make_unique_slug(thread_title, used=used, fallback_prefix="concept-thread")
         concept_threads.append(
             {
-                "slug": slugify(thread_title),
+                "slug": thread_slug,
                 "title": thread_title,
                 "items": cluster_sorted,
                 "kind": "concept",
@@ -1726,7 +1723,108 @@ def render_backlog_card(item: dict) -> str:
 # Shared JS snippets
 # ---------------------------------------------------------------------------
 
-BROWSE_JS = """
+SEARCH_MATCH_UTILS_JS = """
+function normalizeSearchText(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[_-]+/g, ' ')
+    .replace(/[^a-z0-9\\s]/g, ' ')
+    .replace(/\\s+/g, ' ')
+    .trim();
+}
+
+function expandTokenForms(token) {
+  var forms = {};
+  var t = normalizeSearchText(token);
+  if (!t) return [];
+  forms[t] = true;
+
+  if (t.endsWith('ies') && t.length > 3) forms[t.slice(0, -3) + 'y'] = true;
+  if (t.endsWith('es') && t.length > 2) forms[t.slice(0, -2)] = true;
+  if (t.endsWith('s') && t.length > 1) forms[t.slice(0, -1)] = true;
+  if (t.endsWith('ing') && t.length > 4) forms[t.slice(0, -3)] = true;
+  if (t.endsWith('ed') && t.length > 3) forms[t.slice(0, -2)] = true;
+
+  var aliases = {
+    ai: ['artificial intelligence'],
+    ml: ['machine learning'],
+    llm: ['large language model', 'large language models'],
+    nlp: ['natural language processing'],
+    ux: ['user experience'],
+    ui: ['user interface'],
+  };
+  (aliases[t] || []).forEach(function(a) { forms[normalizeSearchText(a)] = true; });
+  return Object.keys(forms);
+}
+
+function scoreSearchMatch(query, haystack) {
+  var q = normalizeSearchText(query);
+  var text = normalizeSearchText(haystack);
+  if (!q || !text) return 0;
+
+  var textTokens = text.split(' ').filter(Boolean);
+  var textTokenSet = {};
+  textTokens.forEach(function(t) { textTokenSet[t] = true; });
+
+  var score = text.indexOf(q) !== -1 ? 80 : 0;
+  var queryTokens = q.split(' ').filter(Boolean);
+  if (!queryTokens.length) return score;
+
+  var matched = 0;
+  queryTokens.forEach(function(token) {
+    var forms = expandTokenForms(token);
+    var tokenMatched = false;
+    var best = 0;
+
+    for (var i = 0; i < forms.length; i += 1) {
+      var form = forms[i];
+      if (!form) continue;
+      if (textTokenSet[form]) {
+        tokenMatched = true;
+        best = Math.max(best, 18);
+        break;
+      }
+      if (text.indexOf(form) !== -1) {
+        tokenMatched = true;
+        best = Math.max(best, 14);
+      } else {
+        for (var j = 0; j < textTokens.length; j += 1) {
+          var tokenInText = textTokens[j];
+          if (tokenInText.indexOf(form) === 0 || form.indexOf(tokenInText) === 0) {
+            tokenMatched = true;
+            best = Math.max(best, 10);
+            break;
+          }
+        }
+      }
+      if (best >= 18) break;
+    }
+
+    if (tokenMatched) {
+      matched += 1;
+      score += best;
+    }
+  });
+
+  if (matched === 0) return 0;
+  if (matched < queryTokens.length && score < 80) return 0;
+  return score;
+}
+
+function debounce(fn, waitMs) {
+  var timer = null;
+  return function() {
+    var args = arguments;
+    var self = this;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function() { fn.apply(self, args); }, waitMs);
+  };
+}
+"""
+
+BROWSE_JS = (
+    SEARCH_MATCH_UTILS_JS
+    + """
 (function() {
   var cards = Array.from(document.querySelectorAll('.card'));
   var tagBtns = Array.from(document.querySelectorAll('.filter-bar .tag'));
@@ -1753,16 +1851,17 @@ BROWSE_JS = """
   }
 
   function applyFilters() {
-    var q = searchInput.value.trim().toLowerCase();
+    var q = searchInput.value.trim();
     var anyVisible = false;
     cards.forEach(function(card) {
       var cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
       var tagMatch = activeTags.size === 0 || Array.from(activeTags).some(function(t) {
         return cardTags.indexOf(t) !== -1;
       });
-      var textMatch = !q ||
-        card.dataset.title.indexOf(q) !== -1 ||
-        card.dataset.question.indexOf(q) !== -1;
+      var searchBlob = (card.dataset.title || '') + ' '
+        + (card.dataset.question || '') + ' '
+        + cardTags.join(' ');
+      var textMatch = !q || scoreSearchMatch(q, searchBlob) > 0;
       var visible = tagMatch && textMatch;
       card.style.display = visible ? '' : 'none';
       if (visible) anyVisible = true;
@@ -1796,124 +1895,14 @@ BROWSE_JS = """
     });
   }
 
-  searchInput.addEventListener('input', applyFilters);
+  searchInput.addEventListener('input', debounce(applyFilters, 120));
   applyFilters();
 })();
 """
+)
 
-SEARCH_JS = """
-(function() {
-  var input = document.getElementById('search-input');
-  var resultsEl = document.getElementById('search-results');
-  var countEl = document.getElementById('results-count');
-  var index = null;
-
-  function fetchIndex() {
-    fetch('/Research/search-index.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; runSearch(); })
-      .catch(function() {
-        if (countEl) countEl.textContent = 'Search index unavailable.';
-      });
-  }
-
-  function escapeHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  function renderCard(item) {
-    var tags = item.tags.map(function(t) {
-      return '<span class="tag">' + escapeHtml(t) + '</span>';
-    }).join('');
-    return '<a class="card" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
-      + '<div class="card-title">' + escapeHtml(item.title) + '</div>'
-      + '<div class="card-meta">' + escapeHtml(item.added) + '</div>'
-      + '<div class="card-tags">' + tags + '</div>'
-      + '<div class="card-excerpt">' + escapeHtml(item.findings_excerpt || item.question_excerpt || '') + '</div>'
-      + '</a>';
-  }
-
-  function runSearch() {
-    if (!index) return;
-    var q = input.value.trim().toLowerCase();
-    var results = !q ? [] : index.filter(function(item) {
-      return (item.full_text || item.title + ' ' + item.question_excerpt).toLowerCase().indexOf(q) !== -1;
-    });
-    resultsEl.innerHTML = results.map(renderCard).join('');
-    if (countEl) {
-      if (!q) {
-        countEl.textContent = '';
-      } else if (results.length === 0) {
-        countEl.textContent = 'No results found.';
-      } else {
-        countEl.textContent = results.length + ' result' + (results.length === 1 ? '' : 's');
-      }
-    }
-    var params = new URLSearchParams();
-    if (q) params.set('q', q);
-    var str = params.toString();
-    history.replaceState(null, '', window.location.pathname + (str ? '?' + str : ''));
-  }
-
-  var params = new URLSearchParams(window.location.search);
-  var initQ = params.get('q') || '';
-  input.value = initQ;
-
-  input.addEventListener('input', runSearch);
-  fetchIndex();
-})();
-"""
-
-LANDING_SEARCH_JS = """
-(function() {
-  var input = document.getElementById('landing-search');
-  var resultsEl = document.getElementById('landing-search-results');
-  var index = null;
-
-  function fetchIndex() {
-    fetch('/Research/search-index.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; runPreview(); })
-      .catch(function() {});
-  }
-
-  function escapeHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  function runPreview() {
-    if (!index || !resultsEl) return;
-    var q = input.value.trim().toLowerCase();
-    if (!q) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; return; }
-    var results = index.filter(function(item) {
-      return item.title.toLowerCase().indexOf(q) !== -1
-          || item.question_excerpt.toLowerCase().indexOf(q) !== -1
-          || item.tags.join(' ').indexOf(q) !== -1;
-    }).slice(0, 6);
-    if (!results.length) { resultsEl.style.display = 'none'; return; }
-    resultsEl.innerHTML = results.map(function(item) {
-      return '<a class="search-preview-item" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
-        + '<span>' + escapeHtml(item.title) + '</span>'
-        + '<span class="search-preview-date">' + escapeHtml(item.added) + '</span>'
-        + '</a>';
-    }).join('') + '<a class="search-see-all" href="/Research/search.html?q=' + encodeURIComponent(input.value.trim()) + '">see all results →</a>';
-    resultsEl.style.display = 'block';
-  }
-
-  if (input) {
-    input.addEventListener('input', runPreview);
-    document.addEventListener('click', function(e) {
-      if (!input.contains(e.target) && !resultsEl.contains(e.target)) {
-        resultsEl.style.display = 'none';
-      }
-    });
-  }
-
-  fetchIndex();
-})();
-"""
+SEARCH_JS = "(function(){window.__RESEARCH_SEARCH_PAGE__='full';})();"
+LANDING_SEARCH_JS = "(function(){window.__RESEARCH_SEARCH_PAGE__='landing';})();"
 
 # ---------------------------------------------------------------------------
 # Page generators
@@ -1973,6 +1962,7 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
   <div class="search-preview-wrap">
     <input id="landing-search" class="search-input" type="text"
            placeholder="search research items…" autocomplete="off">
+    <div id="landing-search-status" class="search-results-count"></div>
     <div id="landing-search-results" class="search-preview-results"></div>
   </div>
   <div class="featured-section">
@@ -1993,6 +1983,7 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
   </div>
 </main>
 <script>{LANDING_SEARCH_JS}</script>
+<script type="module" src="/Research/assets/search-runtime.js"></script>
 """
         + html_foot()
     )
@@ -2881,10 +2872,11 @@ def build_search_page() -> str:
     <input id="search-input" class="search-input" type="text"
            placeholder="search research items…" autocomplete="off" autofocus>
   </div>
-  <div id="results-count" class="search-results-count"></div>
+  <div id="results-count" class="search-results-count">Search engine idle.</div>
   <div id="search-results" class="card-grid"></div>
 </main>
 <script>{SEARCH_JS}</script>
+<script type="module" src="/Research/assets/search-runtime.js"></script>
 """
         + html_foot()
     )
@@ -2895,30 +2887,28 @@ def build_search_index(
     metadata: dict,
     slug_to_threads: dict[str, list[str]],
 ) -> str:
-    """Generate docs/search-index.json."""
-    meta_items = metadata.get("items", {})
-    index = []
+    """Generate docs/search-index.json as a vector payload."""
+    enriched_items: list[dict] = []
     for item in items:
-        slug = item["slug"]
-        item_meta = meta_items.get(slug, {})
-        named_concepts = item_meta.get("named_concepts", [])
-        all_text_parts = [item["title"]] + list(item["sections"].values()) + named_concepts
-        full_text = " ".join(all_text_parts)
-        index.append(
-            {
-                "slug": slug,
-                "title": item["display_title"],
-                "full_title": item["title"],
-                "tags": item["tags"],
-                "added": item["added_str"],
-                "question_excerpt": item["question_excerpt"],
-                "findings_excerpt": get_findings_excerpt(item, 400),
-                "full_text": full_text,
-                "thread_slugs": slug_to_threads.get(slug, []),
-                "url": item.get("page_url", f"/Research/research/{slug}.html"),
-            }
+        item_copy = dict(item)
+        item_copy["findings_excerpt"] = get_findings_excerpt(item, 400)
+        enriched_items.append(item_copy)
+    return build_vector_search_index(enriched_items, metadata, slug_to_threads)
+
+
+def copy_search_assets() -> None:
+    """Copy bundled vector-search runtime assets into docs/assets."""
+    ASSETS_DIR.mkdir(exist_ok=True)
+    required = ("search-runtime.js", "search-worker.js")
+    missing = [name for name in required if not (SEARCH_ASSETS_SOURCE_DIR / name).exists()]
+    if missing:
+        missing_str = ", ".join(missing)
+        raise RuntimeError(
+            f"Missing search assets in {SEARCH_ASSETS_SOURCE_DIR}: {missing_str}. "
+            "Run `npm run build:search-assets` first."
         )
-    return json.dumps(index, ensure_ascii=False, indent=2)
+    for name in required:
+        shutil.copy2(SEARCH_ASSETS_SOURCE_DIR / name, ASSETS_DIR / name)
 
 
 def build_threads_index_json(threads: list[dict]) -> str:
@@ -2956,6 +2946,7 @@ def build_graph_json(
     - ``cites`` frontmatter field — directed edge from declaring item to cited slug
     - ``related_slugs`` frontmatter field — directed edge from declaring item to related slug
     - ``links`` (tag-overlap) — undirected; canonical direction is source < target (alphabetical)
+    - ``themes`` overlap — undirected; canonical direction is source < target (alphabetical)
 
     Weighting rationale (W-0075):
     +--------------+--------+-----------------------------------------------+
@@ -2964,11 +2955,12 @@ def build_graph_json(
     | cites        | 4      | direct intellectual dependency — strongest     |
     | related      | 3      | explicit frontmatter declaration               |
     | tag-overlap  | N      | N = number of shared tags (implicit, 1..N)    |
+    | theme-overlap| N      | N = number of shared themes (implicit)        |
     +--------------+--------+-----------------------------------------------+
 
     Every edge carries:
     - ``weight`` — numeric strength (see table above)
-    - ``rel`` — relationship type: "cites" | "related" | "tag-overlap"
+    - ``rel`` — relationship type: "cites" | "related" | "tag-overlap" | "theme-overlap"
     - ``evidence`` — frontmatter field name or comma-joined shared tag list
     - ``provenance`` — slug of the item that declares the relationship
     """
@@ -2981,6 +2973,7 @@ def build_graph_json(
                 "title": item["title"],
                 "type": item.get("item_type", "primary"),
                 "url": item.get("page_url", f"/Research/research/{item['slug']}.html"),
+                "themes": item_themes(item),
             }
             for item in all_items
         ],
@@ -3040,6 +3033,38 @@ def build_graph_json(
                 }
             )
 
+    theme_seen_pairs: set[tuple[str, str]] = set()
+    for source_slug in sorted(node_slugs):
+        source_item = slug_to_item.get(source_slug)
+        if not source_item:
+            continue
+        source_themes = set(item_themes(source_item))
+        if not source_themes:
+            continue
+        for target_slug in sorted(node_slugs):
+            if target_slug == source_slug:
+                continue
+            target_item = slug_to_item.get(target_slug)
+            if not target_item:
+                continue
+            shared_themes = sorted(source_themes & set(item_themes(target_item)))
+            if not shared_themes:
+                continue
+            canonical_a, canonical_b = sorted([source_slug, target_slug])
+            if (canonical_a, canonical_b) in theme_seen_pairs:
+                continue
+            theme_seen_pairs.add((canonical_a, canonical_b))
+            edges.append(
+                {
+                    "source": canonical_a,
+                    "target": canonical_b,
+                    "weight": len(shared_themes),
+                    "rel": "theme-overlap",
+                    "evidence": ",".join(shared_themes),
+                    "provenance": canonical_a,
+                }
+            )
+
     edges.sort(key=lambda e: (e["source"], e["target"], e["rel"]))
 
     graph: dict = {
@@ -3054,6 +3079,18 @@ def build_graph_json(
     if errors:
         raise ValueError("Graph validation failed:\n" + "\n".join(f"  {e}" for e in errors))
     return json.dumps(graph, ensure_ascii=False, indent=2)
+
+
+_GRAPH_RELATION_META: tuple[tuple[str, str, bool], ...] = (
+    ("cites", "#2dd4bf", True),
+    ("related", "#a78bfa", True),
+    ("tag-overlap", "#64748b", False),
+    ("theme-overlap", "#f59e0b", False),
+)
+_GRAPH_RELATION_TYPES: tuple[str, ...] = tuple(
+    rel for rel, _color, _default in _GRAPH_RELATION_META
+)
+_GRAPH_RELATION_TYPE_SET: frozenset[str] = frozenset(_GRAPH_RELATION_TYPES)
 
 
 def _validate_graph(graph: dict) -> list[str]:
@@ -3078,6 +3115,9 @@ def _validate_graph(graph: dict) -> list[str]:
                 errors.append(f"edge[{i}] missing required field '{field}'")
         src = edge.get("source", "")
         tgt = edge.get("target", "")
+        rel = edge.get("rel", "")
+        if rel and rel not in _GRAPH_RELATION_TYPE_SET:
+            errors.append(f"edge[{i}] rel '{rel}' is not a supported relationship type")
         if src and src not in node_slugs:
             errors.append(f"edge[{i}] source '{src}' references unknown node")
         if tgt and tgt not in node_slugs:
@@ -3102,7 +3142,7 @@ _GRAPH_JS = """(function () {
   var ticks = 0, MAX_TICKS = 300;
   var animRunning = false;
   var searchQuery = '';
-  var filters = {cites: true, related: true, 'tag-overlap': false};
+  var filters = {cites: true, related: true, 'tag-overlap': false, 'theme-overlap': false};
   var REST = 120;
 
   function resize() {
@@ -3144,9 +3184,9 @@ _GRAPH_JS = """(function () {
         targetNode: nodeMap[e.target]
       });
     }).filter(function(e) { return e.sourceNode && e.targetNode; });
-    var counts = {cites: 0, related: 0, 'tag-overlap': 0};
+    var counts = {cites: 0, related: 0, 'tag-overlap': 0, 'theme-overlap': 0};
     data.edges.forEach(function(e) { if (e.rel in counts) counts[e.rel]++; });
-    ['cites', 'related', 'tag-overlap'].forEach(function(rel) {
+    ['cites', 'related', 'tag-overlap', 'theme-overlap'].forEach(function(rel) {
       var id = 'filter-' + rel.replace('-overlap', '');
       var sp = document.querySelector('#' + id + ' .fcount');
       if (sp) sp.textContent = counts[rel];
@@ -3249,7 +3289,7 @@ _GRAPH_JS = """(function () {
     }
   }
 
-  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b'};
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b', 'theme-overlap': '#f59e0b'};
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
@@ -3664,7 +3704,7 @@ _MINI_GRAPH_JS = """\
     }
   }
 
-  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569'};
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
@@ -3910,6 +3950,7 @@ def build_graph_page() -> str:
         .panel-rel-cites { color: #2dd4bf; }
         .panel-rel-related { color: #a78bfa; }
         .panel-rel-tag-overlap { color: #64748b; }
+        .panel-rel-theme-overlap { color: #f59e0b; }
         #graph-stats { font-size: var(--text-xs); color: var(--text-muted); }
         #graph-canvas { touch-action: none; }
         .panel-item-link { font-weight: 600; }
@@ -3921,22 +3962,22 @@ def build_graph_page() -> str:
         </style>
         """)
 
+    buttons: list[str] = []
+    for rel, color, _default in _GRAPH_RELATION_META:
+        slug = rel.replace("-overlap", "")
+        buttons.append(
+            f'<button class="filter-btn" id="filter-{slug}" data-rel="{rel}">'
+            f'<span class="fdot" style="background:{color}"></span>'
+            f'{rel} <span class="fcount">…</span></button>'
+        )
     controls_html = (
         '<div class="graph-controls">'
-        '<button class="filter-btn" id="filter-cites" data-rel="cites">'
-        '<span class="fdot" style="background:#2dd4bf"></span>'
-        'cites <span class="fcount">…</span></button>'
-        '<button class="filter-btn" id="filter-related" data-rel="related">'
-        '<span class="fdot" style="background:#a78bfa"></span>'
-        'related <span class="fcount">…</span></button>'
-        '<button class="filter-btn" id="filter-tag" data-rel="tag-overlap">'
-        '<span class="fdot" style="background:#64748b"></span>'
-        'tag-overlap <span class="fcount">…</span></button>'
-        '<span class="ctrl-sep"></span>'
-        '<button id="btn-fit">fit</button>'
-        '<span class="ctrl-sep"></span>'
-        '<input id="node-search" type="search" placeholder="Search nodes…" />'
-        "</div>"
+        + "".join(buttons)
+        + '<span class="ctrl-sep"></span>'
+        + '<button id="btn-fit">fit</button>'
+        + '<span class="ctrl-sep"></span>'
+        + '<input id="node-search" type="search" placeholder="Search nodes…" />'
+        + "</div>"
     )
 
     return (
@@ -4038,6 +4079,7 @@ def main() -> None:
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
+    copy_search_assets()
 
     # Graph artifact — serialized after singleton-tag filter and slug_to_item are ready
     print("Building graph.json…")

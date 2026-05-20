@@ -191,6 +191,10 @@ cython_debug/
 # Ruff stuff:
 .ruff_cache/
 
+# Node / frontend assets
+node_modules/
+scripts/search/dist/
+
 # PyPI configuration file
 .pypirc
 

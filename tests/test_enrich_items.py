@@ -14,9 +14,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.enrich_items import (
     _build_prompt,
-    _extract_summary,
-    _has_ai_themes,
-    _insert_ai_themes,
+    _build_prompt_context,
+    _has_themes,
+    _insert_themes,
     _parse_themes,
     _reconstruct,
     _split_frontmatter,
@@ -69,17 +69,21 @@ class TestSplitFrontmatter:
 
 
 class TestHasAiThemes:
-    def test_detects_ai_themes_field(self) -> None:
+    def test_detects_themes_field(self) -> None:
+        yaml_block = "title: Foo\nthemes: [agentic-ai]\ntags: [ai]"
+        assert _has_themes(yaml_block) is True
+
+    def test_detects_legacy_ai_themes_field(self) -> None:
         yaml_block = "title: Foo\nai_themes: [agentic-ai]\ntags: [ai]"
-        assert _has_ai_themes(yaml_block) is True
+        assert _has_themes(yaml_block) is True
 
-    def test_no_ai_themes_field(self) -> None:
+    def test_no_themes_field(self) -> None:
         yaml_block = "title: Foo\ntags: [ai]"
-        assert _has_ai_themes(yaml_block) is False
+        assert _has_themes(yaml_block) is False
 
-    def test_ai_themes_with_spaces(self) -> None:
-        yaml_block = "title: Foo\nai_themes : []\n"
-        assert _has_ai_themes(yaml_block) is True
+    def test_themes_with_spaces(self) -> None:
+        yaml_block = "title: Foo\nthemes : []\n"
+        assert _has_themes(yaml_block) is True
 
 
 # ---------------------------------------------------------------------------
@@ -90,20 +94,20 @@ class TestHasAiThemes:
 class TestInsertAiThemes:
     def test_inserts_after_tags(self) -> None:
         yaml_block = "title: Foo\ntags: [ai, llm]\nstatus: completed"
-        result = _insert_ai_themes(yaml_block, ["agentic-ai", "llm-reasoning"])
+        result = _insert_themes(yaml_block, ["agentic-ai", "llm-reasoning"])
         lines = result.splitlines()
         tags_idx = next(i for i, line in enumerate(lines) if line.startswith("tags:"))
-        themes_idx = next(i for i, line in enumerate(lines) if line.startswith("ai_themes:"))
+        themes_idx = next(i for i, line in enumerate(lines) if line.startswith("themes:"))
         assert themes_idx == tags_idx + 1
 
     def test_appends_when_no_tags(self) -> None:
         yaml_block = "title: Foo\nstatus: completed"
-        result = _insert_ai_themes(yaml_block, ["agentic-ai"])
-        assert result.endswith("ai_themes: [agentic-ai]")
+        result = _insert_themes(yaml_block, ["agentic-ai"])
+        assert result.endswith("themes: [agentic-ai]")
 
     def test_themes_formatted_correctly(self) -> None:
-        result = _insert_ai_themes("title: Foo\ntags: [x]", ["a", "b"])
-        assert "ai_themes: [a, b]" in result
+        result = _insert_themes("title: Foo\ntags: [x]", ["a", "b"])
+        assert "themes: [a, b]" in result
 
 
 # ---------------------------------------------------------------------------
@@ -151,32 +155,48 @@ class TestParseThemes:
 
 
 # ---------------------------------------------------------------------------
-# _extract_summary
+# _build_prompt_context
 # ---------------------------------------------------------------------------
 
 
-class TestExtractSummary:
-    def test_extracts_findings_section(self) -> None:
+class TestBuildPromptContext:
+    def test_happy_path_all_sections_present(self) -> None:
         body = textwrap.dedent("""\
+            ## Research Question
+
+            How do agentic systems sustain long-horizon reliability?
+
+            ## Scope
+
+            Focus on enterprise AI operations and governance.
+
             ## Findings
 
             Key finding here about AI systems.
 
             ## Sources
         """)
-        summary = _extract_summary(body, max_chars=100)
-        assert "Key finding" in summary
-        assert "## Sources" not in summary
+        question, scope, findings = _build_prompt_context(body)
+        assert "long-horizon reliability" in question
+        assert "enterprise AI operations" in scope
+        assert "Key finding here about AI systems." in findings
 
-    def test_falls_back_to_body_when_no_findings(self) -> None:
-        body = "Some content without a Findings section."
-        summary = _extract_summary(body, max_chars=50)
-        assert "Some content" in summary
+    def test_partial_context_with_only_findings(self) -> None:
+        body = textwrap.dedent("""\
+            ## Findings
 
-    def test_respects_max_chars(self) -> None:
-        body = "A" * 500
-        summary = _extract_summary(body, max_chars=100)
-        assert len(summary) <= 100
+            Practical deployment constraints dominate architecture choices.
+        """)
+        question, scope, findings = _build_prompt_context(body)
+        assert question == ""
+        assert scope == ""
+        assert "Practical deployment constraints" in findings
+
+    def test_empty_body_returns_empty_context(self) -> None:
+        question, scope, findings = _build_prompt_context("")
+        assert question == ""
+        assert scope == ""
+        assert findings == ""
 
 
 # ---------------------------------------------------------------------------
@@ -186,15 +206,23 @@ class TestExtractSummary:
 
 class TestBuildPrompt:
     def test_includes_title_and_tags(self) -> None:
-        prompt = _build_prompt("Test Title", "ai, llm", "Summary text.")
+        prompt = _build_prompt(
+            "Test Title",
+            "ai, llm",
+            "What is the question?",
+            "Scope summary.",
+            "Findings summary.",
+        )
         assert "Test Title" in prompt
         assert "ai, llm" in prompt
-        assert "Summary text." in prompt
+        assert "What is the question?" in prompt
+        assert "Scope summary." in prompt
+        assert "Findings summary." in prompt
 
     def test_includes_theme_list(self) -> None:
         from scripts.enrich_items import _AI_THEMES
 
-        prompt = _build_prompt("T", "t", "s")
+        prompt = _build_prompt("T", "t", "", "", "s")
         for theme in _AI_THEMES:
             assert theme in prompt
 
@@ -211,7 +239,7 @@ class TestEnrichItem:
                 ---
                 title: "Test Item"
                 tags: [ai]
-                ai_themes: [agentic-ai]
+                themes: [agentic-ai]
                 status: completed
                 ---
 
@@ -282,7 +310,7 @@ class TestEnrichItem:
 
         assert result is True
         # File should be unchanged in dry_run mode.
-        assert "ai_themes" not in path.read_text(encoding="utf-8")
+        assert "themes" not in path.read_text(encoding="utf-8")
 
     def test_enriches_item_writes_file(self, tmp_path: Path) -> None:
         from scripts.enrich_items import enrich_item
@@ -299,7 +327,7 @@ class TestEnrichItem:
 
         assert result is True
         written = path.read_text(encoding="utf-8")
-        assert "ai_themes: [agentic-ai, llm-reasoning]" in written
+        assert "themes: [agentic-ai, llm-reasoning]" in written
 
 
 class TestGenerateThemes:
