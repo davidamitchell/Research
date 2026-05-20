@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-20T11:49:46Z",
+  "extracted_at": "2026-05-20T12:06:28Z",
   "items": {
+    "2026-05-20-information-density-filtering-financial-rag": {
+      "named_concepts": [
+        "retrieval-augmented generation",
+        "generation rag",
+        "exact duplicates",
+        "financial retrieval-augmented",
+        "anti-money laundering",
+        "cross-document synthesis",
+        "additional controllable",
+        "controllable contributors",
+        "rag systems",
+        "pre-retrieval filtering",
+        "wrapper text",
+        "factual extraction",
+        "dense numerical",
+        "low-information suppression",
+        "transformation logs",
+        "superseded copies",
+        "exception handling",
+        "document family",
+        "numerical content",
+        "content complex"
+      ],
+      "source_urls": [
+        "https://www.datategy.net/2025/03/26/scaling-rag-systems-in-financial-organizations/",
+        "https://aclanthology.org/2025.finnlp-2.9.pdf",
+        "https://arxiv.org/abs/2312.10997",
+        "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+        "https://www.bis.org/publ/bcbs239.pdf",
+        "https://arxiv.org/abs/2311.17264",
+        "https://docs.nvidia.com/nemo-framework/user-guide/24.07/datacuration/gpudeduplication.html",
+        "https://www.deloitte.com/ch/en/Industries/financial-services/blogs/aml-transaction-monitoring.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A financial Retrieval-Augmented Generation (RAG) corpus should remove exact duplicates before embedding and keep one active canonical version per document family, because exact-first deduplication is the standard scalable procedure and version sprawl forces later synthesis to reconcile unnecessary evidence variants",
+          "sources": [
+            "https://docs.nvidia.com/nemo-framework/user-guide/24.07/datacuration/gpudeduplication.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://www.bis.org/publ/bcbs239.pdf"
+          ]
+        },
+        {
+          "text": "Near-duplicate control should use scalable candidate generation such as MinHash with Locality Sensitive Hashing (LSH), followed by stronger similarity checks or reviewer confirmation for noisy scans and template-driven variants, because financial document estates contain minor edits and Optical Character Recognition artifacts that exact hashing misses",
+          "sources": [
+            "https://docs.nvidia.com/nemo-framework/user-guide/24.07/datacuration/gpudeduplication.html",
+            "http://infolab.stanford.edu/~ullman/mmds/ch3n.pdf",
+            "https://arxiv.org/abs/2311.17264"
+          ]
+        },
+        {
+          "text": "Low-information filtering in regulated finance should target wrapper pages, navigation text, repeated disclaimers, and superseded copies rather than dense numerical or legal clauses, because the most difficult benchmark tasks depend on preserving precise cross-document evidence",
+          "sources": [
+            "https://aclanthology.org/2025.finnlp-2.9.pdf",
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf"
+          ]
+        },
+        {
+          "text": "Financial Retrieval-Augmented Generation (RAG) systems should record stable document identifiers, hashes, source-system identifiers, effective dates, duplicate-cluster identifiers, and transformation logs before indexing, because auditability depends on reconstructing exactly which source text entered retrieval",
+          "sources": [
+            "https://docs.nvidia.com/nemo-framework/user-guide/24.07/datacuration/gpudeduplication.html",
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://www.bis.org/publ/bcbs239.pdf"
+          ]
+        },
+        {
+          "text": "The pre-retrieval filtering layer should be governed as a model-input control rather than as a one-time data-cleaning task, because SR 11-7 and BCBS 239 expect data-quality assessment, documented transformations, change control, and reviewable exceptions for risk-relevant inputs",
+          "sources": [
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://www.bis.org/publ/bcbs239.pdf"
+          ]
+        },
+        {
+          "text": "Financial-document benchmarks show that current Retrieval-Augmented Generation (RAG) architectures drop sharply from factual extraction to multi-document synthesis, so pre-retrieval duplication and low-signal text should be validated as additional controllable contributors to an already difficult task rather than ignored as a minor efficiency issue",
+          "sources": [
+            "https://aclanthology.org/2025.finnlp-2.9.pdf"
+          ]
+        },
+        {
+          "text": "Validation should measure false-merge rate, duplicate recall, task-level retrieval accuracy, provenance completeness, stale-version leakage, and reviewer workload before a filtered corpus is promoted, because cross-document financial failures and corpus-drift failures are not visible from semantic-search quality alone",
+          "sources": [
+            "https://aclanthology.org/2025.finnlp-2.9.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
+          ]
+        },
+        {
+          "text": "The safest rollout pattern is immutable raw ingest plus snapshot-based promoted indices with manual review of ambiguous merges, because regulated teams need rollback, exception handling, and a defensible chain from challenged answer back to source",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://www.bis.org/publ/bcbs239.pdf"
+          ]
+        }
+      ]
+    },
     "2026-05-20-hitl-capacity-thresholds-in-banking-compliance": {
       "named_concepts": [
         "challenge minutes",
