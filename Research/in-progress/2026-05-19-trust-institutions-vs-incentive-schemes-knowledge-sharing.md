@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Why Do Trust-Based Institutions Outperform Incentive Schemes for Knowledge Sharing?"
 added: 2026-05-19T19:42:37+00:00
 status: reviewing
