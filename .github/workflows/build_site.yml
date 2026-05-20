@@ -46,8 +46,19 @@ jobs:
         with:
           python-version-file: .python-version
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Install dependencies
-        run: pip install markdown-it-py mdit-py-plugins PyYAML
+        run: pip install markdown-it-py mdit-py-plugins PyYAML sentence-transformers
+
+      - name: Install frontend dependencies
+        run: npm install
+
+      - name: Build search runtime assets
+        run: npm run build:search-assets
 
       - name: Extract metadata
         run: python scripts/extract_metadata.py

@@ -26,7 +26,10 @@ from build_site import (
     build_graph_json,
     build_graph_page,
     build_item_page,
+    build_landing,
     build_knowledge_index_page,
+    build_search_index,
+    build_search_page,
     build_research_master_page,
     detect_concept_threads,
     detect_threads,
@@ -73,12 +76,49 @@ def _slugs(thread: dict) -> set[str]:
     return {it["slug"] for it in thread["items"]}
 
 
-def test_search_scripts_share_matching_logic() -> None:
-    scripts = (BROWSE_JS, SEARCH_JS, LANDING_SEARCH_JS)
-    for script in scripts:
-        assert "scoreSearchMatch(" in script
-        assert "normalizeSearchText(" in script
-        assert "debounce(" in script
+def test_search_scripts_bootstrap_vector_runtime_modes() -> None:
+    assert "__RESEARCH_SEARCH_PAGE__='full'" in SEARCH_JS
+    assert "__RESEARCH_SEARCH_PAGE__='landing'" in LANDING_SEARCH_JS
+    assert "scoreSearchMatch(" in BROWSE_JS
+
+
+def test_search_pages_load_vector_runtime_module() -> None:
+    search_html = build_search_page()
+    assert 'src="/Research/assets/search-runtime.js"' in search_html
+
+    landing_html = build_landing([], [])
+    assert 'src="/Research/assets/search-runtime.js"' in landing_html
+
+
+def test_build_search_index_enriches_items_before_vector_indexing(monkeypatch: pytest.MonkeyPatch) -> None:
+    captured: dict[str, object] = {}
+
+    def _fake_vector_index(items: list[dict], metadata: dict, slug_to_threads: dict[str, list[str]]) -> str:
+        captured["items"] = items
+        captured["metadata"] = metadata
+        captured["slug_to_threads"] = slug_to_threads
+        return "{\"ok\": true}"
+
+    monkeypatch.setattr("build_site.build_vector_search_index", _fake_vector_index)
+
+    items = [
+        {
+            "slug": "sample",
+            "title": "Sample",
+            "display_title": "Sample",
+            "tags": ["tag"],
+            "added_str": "2026-01-01",
+            "question_excerpt": "Question",
+            "sections": {"Findings": "This is a findings section."},
+            "ai_themes": [],
+        }
+    ]
+    output = build_search_index(items, {"items": {}}, {"sample": ["thread-a"]})
+
+    assert output == "{\"ok\": true}"
+    enriched_items = captured["items"]
+    assert isinstance(enriched_items, list)
+    assert enriched_items[0]["findings_excerpt"]
 
 
 # ---------------------------------------------------------------------------

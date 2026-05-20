@@ -14,7 +14,7 @@ Generates:
   docs/threads/<slug>.html    — individual thread pages
   docs/search.html            — standalone search page
   docs/research-master.html   — rendered Research_Master.md with valid HTML anchors
-  docs/search-index.json      — search index for client-side JS
+  docs/search-index.json      — vector index for browser search runtime
   docs/threads-index.json     — thread data for JS
 
 Usage:
@@ -35,6 +35,7 @@ from pathlib import Path
 
 import yaml
 from markdown_it import MarkdownIt
+from generate_index import build_vector_search_index
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -51,6 +52,8 @@ KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
 GRAPH_DATA_DIR = DOCS_DIR / "data"
+ASSETS_DIR = DOCS_DIR / "assets"
+SEARCH_ASSETS_SOURCE_DIR = REPO_ROOT / "scripts" / "search" / "dist"
 
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
 GITHUB_KNOWLEDGE_BASE = "https://github.com/davidamitchell/Research/blob/main/Knowledge/"
@@ -1898,153 +1901,8 @@ BROWSE_JS = (
 """
 )
 
-SEARCH_JS = (
-    SEARCH_MATCH_UTILS_JS
-    + """
-(function() {
-  var input = document.getElementById('search-input');
-  var resultsEl = document.getElementById('search-results');
-  var countEl = document.getElementById('results-count');
-  var index = null;
-
-  function fetchIndex() {
-    fetch('/Research/search-index.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; runSearch(); })
-      .catch(function() {
-        if (countEl) countEl.textContent = 'Search index unavailable.';
-      });
-  }
-
-  function escapeHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  function renderCard(item) {
-    var tags = item.tags.map(function(t) {
-      return '<span class="tag">' + escapeHtml(t) + '</span>';
-    }).join('');
-    return '<a class="card" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
-      + '<div class="card-title">' + escapeHtml(item.title) + '</div>'
-      + '<div class="card-meta">' + escapeHtml(item.added) + '</div>'
-      + '<div class="card-tags">' + tags + '</div>'
-      + '<div class="card-excerpt">' + escapeHtml(item.findings_excerpt || item.question_excerpt || '') + '</div>'
-      + '</a>';
-  }
-
-  function runSearch() {
-    if (!index) return;
-    var q = input.value.trim();
-    var results = !q ? [] : index.map(function(item) {
-      var haystack = [
-        item.full_text || '',
-        item.title || '',
-        item.full_title || '',
-        item.question_excerpt || '',
-        item.findings_excerpt || '',
-        (item.tags || []).join(' '),
-      ].join(' ');
-      return { item: item, score: scoreSearchMatch(q, haystack) };
-    }).filter(function(r) {
-      return r.score > 0;
-    }).sort(function(a, b) {
-      if (b.score !== a.score) return b.score - a.score;
-      return String(a.item.title || '').localeCompare(String(b.item.title || ''));
-    }).map(function(r) {
-      return r.item;
-    });
-    resultsEl.innerHTML = results.map(renderCard).join('');
-    if (countEl) {
-      if (!q) {
-        countEl.textContent = '';
-      } else if (results.length === 0) {
-        countEl.textContent = 'No results found.';
-      } else {
-        countEl.textContent = results.length + ' result' + (results.length === 1 ? '' : 's');
-      }
-    }
-    var params = new URLSearchParams();
-    if (q) params.set('q', q);
-    var str = params.toString();
-    history.replaceState(null, '', window.location.pathname + (str ? '?' + str : ''));
-  }
-
-  var params = new URLSearchParams(window.location.search);
-  var initQ = params.get('q') || '';
-  input.value = initQ;
-
-  input.addEventListener('input', debounce(runSearch, 120));
-  fetchIndex();
-})();
-"""
-)
-
-LANDING_SEARCH_JS = (
-    SEARCH_MATCH_UTILS_JS
-    + """
-(function() {
-  var input = document.getElementById('landing-search');
-  var resultsEl = document.getElementById('landing-search-results');
-  var index = null;
-
-  function fetchIndex() {
-    fetch('/Research/search-index.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; runPreview(); })
-      .catch(function() {});
-  }
-
-  function escapeHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  function runPreview() {
-    if (!index || !resultsEl) return;
-    var q = input.value.trim();
-    if (!q) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; return; }
-    var results = index.map(function(item) {
-      var haystack = [
-        item.full_text || '',
-        item.title || '',
-        item.full_title || '',
-        item.question_excerpt || '',
-        item.findings_excerpt || '',
-        (item.tags || []).join(' '),
-      ].join(' ');
-      return { item: item, score: scoreSearchMatch(q, haystack) };
-    }).filter(function(r) {
-      return r.score > 0;
-    }).sort(function(a, b) {
-      if (b.score !== a.score) return b.score - a.score;
-      return String(a.item.title || '').localeCompare(String(b.item.title || ''));
-    }).slice(0, 6).map(function(r) {
-      return r.item;
-    });
-    if (!results.length) { resultsEl.style.display = 'none'; return; }
-    resultsEl.innerHTML = results.map(function(item) {
-      return '<a class="search-preview-item" href="' + (item.url || '/Research/research/' + item.slug + '.html') + '">'
-        + '<span>' + escapeHtml(item.title) + '</span>'
-        + '<span class="search-preview-date">' + escapeHtml(item.added) + '</span>'
-        + '</a>';
-    }).join('') + '<a class="search-see-all" href="/Research/search.html?q=' + encodeURIComponent(input.value.trim()) + '">see all results →</a>';
-    resultsEl.style.display = 'block';
-  }
-
-  if (input) {
-    input.addEventListener('input', debounce(runPreview, 120));
-    document.addEventListener('click', function(e) {
-      if (!input.contains(e.target) && !resultsEl.contains(e.target)) {
-        resultsEl.style.display = 'none';
-      }
-    });
-  }
-
-  fetchIndex();
-})();
-"""
-)
+SEARCH_JS = "(function(){window.__RESEARCH_SEARCH_PAGE__='full';})();"
+LANDING_SEARCH_JS = "(function(){window.__RESEARCH_SEARCH_PAGE__='landing';})();"
 
 # ---------------------------------------------------------------------------
 # Page generators
@@ -2104,6 +1962,7 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
   <div class="search-preview-wrap">
     <input id="landing-search" class="search-input" type="text"
            placeholder="search research items…" autocomplete="off">
+    <div id="landing-search-status" class="search-results-count"></div>
     <div id="landing-search-results" class="search-preview-results"></div>
   </div>
   <div class="featured-section">
@@ -2124,6 +1983,7 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
   </div>
 </main>
 <script>{LANDING_SEARCH_JS}</script>
+<script type="module" src="/Research/assets/search-runtime.js"></script>
 """
         + html_foot()
     )
@@ -3012,10 +2872,11 @@ def build_search_page() -> str:
     <input id="search-input" class="search-input" type="text"
            placeholder="search research items…" autocomplete="off" autofocus>
   </div>
-  <div id="results-count" class="search-results-count"></div>
+  <div id="results-count" class="search-results-count">Search engine idle.</div>
   <div id="search-results" class="card-grid"></div>
 </main>
 <script>{SEARCH_JS}</script>
+<script type="module" src="/Research/assets/search-runtime.js"></script>
 """
         + html_foot()
     )
@@ -3026,32 +2887,28 @@ def build_search_index(
     metadata: dict,
     slug_to_threads: dict[str, list[str]],
 ) -> str:
-    """Generate docs/search-index.json."""
-    meta_items = metadata.get("items", {})
-    index = []
+    """Generate docs/search-index.json as a vector payload."""
+    enriched_items: list[dict] = []
     for item in items:
-        slug = item["slug"]
-        item_meta = meta_items.get(slug, {})
-        named_concepts = item_meta.get("named_concepts", [])
-        all_text_parts = (
-            [item["title"]] + list(item["sections"].values()) + named_concepts + item_themes(item)
+        item_copy = dict(item)
+        item_copy["findings_excerpt"] = get_findings_excerpt(item, 400)
+        enriched_items.append(item_copy)
+    return build_vector_search_index(enriched_items, metadata, slug_to_threads)
+
+
+def copy_search_assets() -> None:
+    """Copy bundled vector-search runtime assets into docs/assets."""
+    ASSETS_DIR.mkdir(exist_ok=True)
+    required = ("search-runtime.js", "search-worker.js")
+    missing = [name for name in required if not (SEARCH_ASSETS_SOURCE_DIR / name).exists()]
+    if missing:
+        missing_str = ", ".join(missing)
+        raise RuntimeError(
+            f"Missing search assets in {SEARCH_ASSETS_SOURCE_DIR}: {missing_str}. "
+            "Run `npm run build:search-assets` first."
         )
-        full_text = " ".join(all_text_parts)
-        index.append(
-            {
-                "slug": slug,
-                "title": item["display_title"],
-                "full_title": item["title"],
-                "tags": item["tags"],
-                "added": item["added_str"],
-                "question_excerpt": item["question_excerpt"],
-                "findings_excerpt": get_findings_excerpt(item, 400),
-                "full_text": full_text,
-                "thread_slugs": slug_to_threads.get(slug, []),
-                "url": item.get("page_url", f"/Research/research/{slug}.html"),
-            }
-        )
-    return json.dumps(index, ensure_ascii=False, indent=2)
+    for name in required:
+        shutil.copy2(SEARCH_ASSETS_SOURCE_DIR / name, ASSETS_DIR / name)
 
 
 def build_threads_index_json(threads: list[dict]) -> str:
@@ -4222,6 +4079,7 @@ def main() -> None:
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
+    copy_search_assets()
 
     # Graph artifact — serialized after singleton-tag filter and slug_to_item are ready
     print("Building graph.json…")
