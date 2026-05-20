@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-20T06:53:54Z",
+  "extracted_at": "2026-05-20T07:13:39Z",
   "items": {
     "2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways": {
       "named_concepts": [
@@ -1865,6 +1865,120 @@
             "https://openreview.net/forum?id=B1g5sA4twr",
             "https://pmc.ncbi.nlm.nih.gov/articles/PMC12341957/",
             "https://arxiv.org/abs/1907.06374"
+          ]
+        }
+      ]
+    },
+    "2026-05-18-agentic-production-tradeoffs": {
+      "named_concepts": [
+        "autonomous tool-using",
+        "language model",
+        "task band",
+        "autonomous systems",
+        "model systems",
+        "interpret ambiguous",
+        "ambiguous inputs",
+        "final decisions",
+        "weakly formalized",
+        "formalized tasks",
+        "production pattern",
+        "final consequential",
+        "consequential decision",
+        "decision point",
+        "productivity gains",
+        "model handled",
+        "local replay",
+        "stronger local",
+        "local replayability",
+        "autonomous language-mediated"
+      ],
+      "source_urls": [
+        "https://www.anthropic.com/research/trustworthy-agents",
+        "https://www.anthropic.com/model-card",
+        "https://www.nber.org/papers/w31161",
+        "https://mitsloan.mit.edu/ideas-made-to-matter/how-generative-ai-can-boost-highly-skilled-workers-productivity",
+        "https://www.stlouisfed.org/on-the-economy/2025/feb/impact-generative-ai-work-productivity",
+        "https://doi.org/10.1007/978-3-662-43839-8",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-2-flexibility-vs-predictability-auditability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-3-complexity-horizon-classical-systems.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-13-agent-process-reliability-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://www.wwnorton.com/books/the-second-machine-age/",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"
+      ],
+      "key_claims": [
+        {
+          "text": "Autonomous tool-using Large Language Model systems earn their strongest production upside on language-heavy and weakly formalized tasks because they can interpret ambiguous inputs, plan across multiple steps, and use tools in ways that deterministic scripts cannot practically pre-specify",
+          "sources": [
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://www.nber.org/papers/w31161",
+            "https://www.stlouisfed.org/on-the-economy/2025/feb/impact-generative-ai-work-productivity"
+          ]
+        },
+        {
+          "text": "Measured productivity gains are real but sharply conditional, because performance rises on tasks inside the task band the model handled well and can fall materially on tasks deliberately placed outside that well-handled band",
+          "sources": [
+            "https://www.nber.org/papers/w31161",
+            "https://mitsloan.mit.edu/ideas-made-to-matter/how-generative-ai-can-boost-highly-skilled-workers-productivity",
+            "https://www.stlouisfed.org/on-the-economy/2025/feb/impact-generative-ai-work-productivity"
+          ]
+        },
+        {
+          "text": "Replacing a deterministic workflow step with an autonomous Large Language Model loop forfeits a cleaner local replay contract, because current deployed model interfaces remain nondeterministic even under stabilizing controls and prior completed items show that verification then shifts toward approximation and reconstruction",
+          "sources": [
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reproducible-output",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-2-flexibility-vs-predictability-auditability.html"
+          ]
+        },
+        {
+          "text": "Auditability can be made substantially better with telemetry, typed tool interfaces, and joined run records, but those artefacts provide post hoc reconstruction of a probabilistic process rather than restoring the exact transparency of a bounded deterministic rule path",
+          "sources": [
+            "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-spans/",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
+          ]
+        },
+        {
+          "text": "Deterministic production systems are not globally simple baselines, because large distributed systems also become opaque at scale, yet they still preserve stronger local replayability and a closer fit to finite-state proof than autonomous language-mediated workflows",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq6-3-complexity-horizon-classical-systems.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq5-2-flexibility-vs-predictability-auditability.html"
+          ]
+        },
+        {
+          "text": "The main governance loss appears at the final consequential decision point, because high-risk and rights-significant workflows require traceability, effective human oversight, and consistent operation that uncontrolled stochastic final decisions do not satisfy cleanly",
+          "sources": [
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+            "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html"
+          ]
+        },
+        {
+          "text": "The organisational tradeoff is not only technical, because the same autonomy that broadens worker capability and output can also increase exposure to hidden malicious instructions in retrieved content, reduce peer consultation, and erode deep supervisory skill if the organisation outsources too much judgment to the system",
+          "sources": [
+            "https://www.anthropic.com/research/trustworthy-agents",
+            "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html"
+          ]
+        },
+        {
+          "text": "The best-supported production pattern is a hybrid one in which autonomous systems generate proposals, retrieve evidence, or coordinate bounded work, while deterministic policy logic, human review, or formal workflow engines remain the authoritative executors of irreversible state changes",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-13-agent-process-reliability-architecture.html",
+            "https://doi.org/10.1007/978-3-662-43839-8"
           ]
         }
       ]
