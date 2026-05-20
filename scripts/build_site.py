@@ -34,8 +34,8 @@ from datetime import UTC, date, datetime
 from pathlib import Path
 
 import yaml
-from markdown_it import MarkdownIt
 from generate_index import build_vector_search_index
+from markdown_it import MarkdownIt
 
 # ---------------------------------------------------------------------------
 # Paths

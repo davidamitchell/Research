@@ -26,11 +26,11 @@ from build_site import (
     build_graph_json,
     build_graph_page,
     build_item_page,
-    build_landing,
     build_knowledge_index_page,
+    build_landing,
+    build_research_master_page,
     build_search_index,
     build_search_page,
-    build_research_master_page,
     detect_concept_threads,
     detect_threads,
     html_nav,
@@ -90,14 +90,18 @@ def test_search_pages_load_vector_runtime_module() -> None:
     assert 'src="/Research/assets/search-runtime.js"' in landing_html
 
 
-def test_build_search_index_enriches_items_before_vector_indexing(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_build_search_index_enriches_items_before_vector_indexing(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     captured: dict[str, object] = {}
 
-    def _fake_vector_index(items: list[dict], metadata: dict, slug_to_threads: dict[str, list[str]]) -> str:
+    def _fake_vector_index(
+        items: list[dict], metadata: dict, slug_to_threads: dict[str, list[str]]
+    ) -> str:
         captured["items"] = items
         captured["metadata"] = metadata
         captured["slug_to_threads"] = slug_to_threads
-        return "{\"ok\": true}"
+        return '{"ok": true}'
 
     monkeypatch.setattr("build_site.build_vector_search_index", _fake_vector_index)
 
@@ -115,7 +119,7 @@ def test_build_search_index_enriches_items_before_vector_indexing(monkeypatch: p
     ]
     output = build_search_index(items, {"items": {}}, {"sample": ["thread-a"]})
 
-    assert output == "{\"ok\": true}"
+    assert output == '{"ok": true}'
     enriched_items = captured["items"]
     assert isinstance(enriched_items, list)
     assert enriched_items[0]["findings_excerpt"]
