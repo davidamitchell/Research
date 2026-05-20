@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What Are the Micro-Transaction Costs of Internal Knowledge Sourcing?"
 added: 2026-05-19T19:42:37+00:00
 status: reviewing
