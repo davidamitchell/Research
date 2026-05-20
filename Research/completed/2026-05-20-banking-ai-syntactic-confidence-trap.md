@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a92865d525bc43665586a2f4c930bea7b14ae687
+    changed: 2026-05-20
+    progress: progress/2026-05-20-banking-ai-syntactic-confidence-trap.md
+    summary: Initial completion
 ---
 
 # How should banks stop fluent but weakly evidenced Artificial Intelligence (AI)-generated compliance narratives from being mistaken for verified truth?
