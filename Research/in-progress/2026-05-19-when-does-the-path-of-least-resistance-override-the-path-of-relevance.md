@@ -131,10 +131,12 @@ Q: When does the lowest-effort knowledge path dominate and persist even when it 
 
 #### Source correction, failed-search notes, and prior-work sweep
 
-- [fact; source: https://api.crossref.org/works/10.5465/257076; https://api.crossref.org/works/10.2307/2667032] The seeded Hansen identifier `10.5465/257076` resolves to an unrelated Zahra article, while Hansen's `The Search-Transfer Problem` resolves at `10.2307/2667032`, so the corrected Hansen source is used throughout this item.
-- source_correction: seeded Levinthal and March identifier `10.1287/orsc.4.1.95` did not match the article title; title search used the official Digital Object Identifier (DOI) `https://doi.org/10.1002/smj.4250141009`.
-- failed_primary_search: query `The myopia of learning 10.1002/smj.4250141009 abstract` did not surface an accessible abstract or open full text in this runtime, so Levinthal and March remains an identified seed rather than a directly extracted evidence source.
-- prior_work_scan: repeated before investigation and before synthesis; most relevant completed items were the low-effort-pathways, activation-energy, micro-transaction-costs, formal-governance, and trust-based-institutions items.
+```text
+source_correction_hansen: Crossref mismatch on seeded identifier 10.5465/257076; corrected source used: https://doi.org/10.2307/2667032
+source_correction_levinthal_march: seeded identifier 10.1287/orsc.4.1.95 did not match the article title; corrected Digital Object Identifier (DOI): https://doi.org/10.1002/smj.4250141009
+failed_primary_search_levinthal_march: query "The myopia of learning 10.1002/smj.4250141009 abstract" returned no accessible abstract or open full text in this runtime
+prior_work_scan: repeated before investigation and before synthesis; most relevant completed items were low-effort-pathways, activation-energy, micro-transaction-costs, formal-governance, and trust-based-institutions
+```
 
 #### A. What makes a nearby informal path win at the moment of choice?
 
@@ -265,12 +267,14 @@ The evidence supports a two-capability design: a cheap entry path for routine cl
 
 ### §7 Recursive Review
 
+```text
 review_result: pass
 acronym_audit: passed
 domain_term_audit: passed
 claim_audit: all visible claims in Research Skill Output carry fact, inference, or assumption labels
 cross_item_scan: repeated before synthesis with adjacent completed items on low-effort routing, activation barriers, micro-costs, governance, and trust
 confidence_result: medium
+```
 
 ---
 
