@@ -3034,10 +3034,7 @@ def build_search_index(
         item_meta = meta_items.get(slug, {})
         named_concepts = item_meta.get("named_concepts", [])
         all_text_parts = (
-            [item["title"]]
-            + list(item["sections"].values())
-            + named_concepts
-            + item_themes(item)
+            [item["title"]] + list(item["sections"].values()) + named_concepts + item_themes(item)
         )
         full_text = " ".join(all_text_parts)
         index.append(
@@ -3233,7 +3230,9 @@ _GRAPH_RELATION_META: tuple[tuple[str, str, bool], ...] = (
     ("tag-overlap", "#64748b", False),
     ("theme-overlap", "#f59e0b", False),
 )
-_GRAPH_RELATION_TYPES: tuple[str, ...] = tuple(rel for rel, _color, _default in _GRAPH_RELATION_META)
+_GRAPH_RELATION_TYPES: tuple[str, ...] = tuple(
+    rel for rel, _color, _default in _GRAPH_RELATION_META
+)
 _GRAPH_RELATION_TYPE_SET: frozenset[str] = frozenset(_GRAPH_RELATION_TYPES)
 
 
