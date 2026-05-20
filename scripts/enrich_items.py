@@ -150,12 +150,25 @@ def _reconstruct(yaml_block: str, body: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def _build_prompt(title: str, tags: str, summary: str) -> str:
+def _build_prompt(
+    title: str,
+    tags: str,
+    research_question: str,
+    scope: str,
+    findings: str,
+) -> str:
+    """Build the Gemini classification prompt from structured item context."""
     return (
         "You are classifying an AI research item into high-level themes.\n\n"
         f"Title: {title}\n"
         f"Tags: {tags}\n"
-        f"Summary: {summary}\n\n"
+        "\n"
+        "Research Question:\n"
+        f"{research_question}\n\n"
+        "Scope (summary):\n"
+        f"{scope}\n\n"
+        "Findings (summary):\n"
+        f"{findings}\n\n"
         "Choose 3–5 themes from this controlled vocabulary:\n"
         f"{_THEME_LIST_STR}\n\n"
         "You may add 1–2 novel themes (lowercase, hyphenated) not in the list "
@@ -196,15 +209,63 @@ def _parse_themes(raw: str) -> list[str] | None:
 # ---------------------------------------------------------------------------
 
 
-def _extract_summary(body: str, max_chars: int = 400) -> str:
-    """Return the first max_chars characters of the Findings section (or body)."""
-    findings_match = re.search(r"^##\s+Findings\b(.*?)(?=\n##|\Z)", body, re.DOTALL | re.MULTILINE)
-    source = findings_match.group(1).strip() if findings_match else body
-    clean = re.sub(r"\[([^\]]*)\]\([^)]+\)", r"\1", source)
-    clean = re.sub(r"\*{1,3}([^*]+)\*{1,3}", r"\1", clean)
-    clean = re.sub(r"`[^`]+`", "", clean)
-    clean = re.sub(r"\s+", " ", clean).strip()
-    return clean[:max_chars]
+def _markdown_to_plain_text(text: str) -> str:
+    """Strip common markdown syntax and collapse whitespace into plain text."""
+    text = re.sub(r"#{1,6}\s+", "", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"\*{1,3}([^*]+)\*{1,3}", r"\1", text)
+    text = re.sub(r"`([^`]+)`", r"\1", text)
+    text = re.sub(r"^\s*[-*+]\s+", "", text, flags=re.MULTILINE)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _extract_section_text(
+    body: str,
+    headings: list[str],
+    *,
+    max_chars: int,
+    first_paragraph_only: bool = False,
+) -> str:
+    """Extract a section by H2 heading aliases, normalize markdown, and trim length."""
+    for heading in headings:
+        match = re.search(
+            rf"^##\s+{re.escape(heading)}\b(.*?)(?=\n##\s+|\Z)",
+            body,
+            re.DOTALL | re.MULTILINE,
+        )
+        if not match:
+            continue
+        section_text = match.group(1).strip()
+        if first_paragraph_only:
+            paragraphs = re.split(r"\n\s*\n", section_text, maxsplit=1)
+            section_text = paragraphs[0].strip()
+        clean = _markdown_to_plain_text(section_text)
+        if clean:
+            return clean[:max_chars]
+    return ""
+
+
+def _build_prompt_context(body: str) -> tuple[str, str, str]:
+    """Extract prompt context from markdown body: question, scope summary, findings summary."""
+    research_question = _extract_section_text(
+        body,
+        ["Research Question", "Question / Hypothesis"],
+        max_chars=300,
+    )
+    scope = _extract_section_text(
+        body,
+        ["Scope"],
+        max_chars=200,
+        first_paragraph_only=True,
+    )
+    findings = _extract_section_text(
+        body,
+        ["Findings"],
+        max_chars=800,
+    )
+    if not findings:
+        findings = _markdown_to_plain_text(body)[:800]
+    return research_question, scope, findings
 
 
 def _is_daily_quota_exhausted(exc_str: str) -> bool:
@@ -354,8 +415,8 @@ def enrich_item(
     title = str(meta.get("title", path.stem))
     raw_tags = meta.get("tags", [])
     tags_str = ", ".join(str(t) for t in raw_tags) if isinstance(raw_tags, list) else str(raw_tags)
-    summary = _extract_summary(body)
-    prompt = _build_prompt(title, tags_str, summary)
+    research_question, scope, findings = _build_prompt_context(body)
+    prompt = _build_prompt(title, tags_str, research_question, scope, findings)
 
     logger.info("Enriching: %s", path.name)
 

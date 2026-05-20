@@ -9,8 +9,7 @@ name: Enrich Items with AI Themes
 #               crash or cancellation preserves progress.
 #   single    — enriches exactly one item (useful after a new item lands on main).
 #
-# The push trigger runs automatically after the research-loop workflow commits
-# new items to Research/completed/.  It processes up to 5 new items per push.
+# This workflow is intentionally workflow_dispatch-only.
 #
 # Required secret:
 #   GEMINI_API_KEY — Google Generative AI API key.
@@ -48,11 +47,6 @@ on:
           - "50"
           - "100"
           - "297"
-
-  push:
-    branches: [main]
-    paths:
-      - "Research/completed/**"
 
 concurrency:
   group: enrich-items
@@ -110,20 +104,8 @@ jobs:
               --commit
           fi
 
-      - name: Enrich new items (push trigger)
-        if: github.event_name == 'push'
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          set -euo pipefail
-          # On a push event, process up to 5 items to keep the run short.
-          # Newly committed items will lack ai_themes and are picked up first
-          # because the script iterates newest-first.
-          python scripts/enrich_items.py \
-            --backfill \
-            --max-items 5 \
-            --commit
-
       - name: Push enriched items
         run: |
-          git push origin main || true
+          set -euo pipefail
+          git pull --rebase origin main
+          git push origin main

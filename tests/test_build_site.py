@@ -28,6 +28,7 @@ from build_site import (
     detect_concept_threads,
     detect_threads,
     html_nav,
+    load_items,
     load_knowledge_items,
     render_card,
     strip_evidence_labels,
@@ -855,6 +856,68 @@ def test_load_knowledge_items_missing_dir() -> None:
     assert items == []
 
 
+def test_load_items_reads_ai_themes(tmp_path: Path) -> None:
+    """load_items includes ai_themes from frontmatter."""
+    import build_site  # noqa: PLC0415
+
+    completed_dir = tmp_path / "Research" / "completed"
+    completed_dir.mkdir(parents=True)
+    (completed_dir / "2026-01-01-theme-test.md").write_text(
+        """---
+title: Theme Test
+added: 2026-01-01T00:00:00+00:00
+tags: [ai]
+ai_themes: [agentic-ai, governance-policy]
+---
+
+## Research Question
+
+What themes exist?
+""",
+        encoding="utf-8",
+    )
+
+    original = build_site.COMPLETED_DIR
+    build_site.COMPLETED_DIR = completed_dir
+    try:
+        items, _stats = load_items()
+    finally:
+        build_site.COMPLETED_DIR = original
+
+    assert items[0]["ai_themes"] == ["agentic-ai", "governance-policy"]
+
+
+def test_load_knowledge_items_reads_ai_themes(tmp_path: Path) -> None:
+    """load_knowledge_items includes ai_themes from frontmatter."""
+    import build_site  # noqa: PLC0415
+
+    knowledge_dir = tmp_path / "Knowledge"
+    knowledge_dir.mkdir()
+    (knowledge_dir / "2026-01-01-synthesis.md").write_text(
+        """---
+title: Synthesis
+synthesised: 2026-01-01T00:00:00+00:00
+tags: [ai]
+ai_themes: [knowledge-management]
+---
+
+## Synthesis Question
+
+How do themes cluster?
+""",
+        encoding="utf-8",
+    )
+
+    original = build_site.KNOWLEDGE_DIR
+    build_site.KNOWLEDGE_DIR = knowledge_dir
+    try:
+        items = load_knowledge_items()
+    finally:
+        build_site.KNOWLEDGE_DIR = original
+
+    assert items[0]["ai_themes"] == ["knowledge-management"]
+
+
 # ---------------------------------------------------------------------------
 # build_knowledge_index_page
 # ---------------------------------------------------------------------------
@@ -891,6 +954,7 @@ def _make_graph_item(
     cites: list[str] | None = None,
     related: list[str] | None = None,
     tags: list[str] | None = None,
+    ai_themes: list[str] | None = None,
 ) -> dict:
     """Minimal item dict with all fields required by build_graph_json."""
     prefix = "knowledge" if kind == "knowledge" else "research"
@@ -902,6 +966,7 @@ def _make_graph_item(
         "cites": cites or [],
         "related_slugs": related or [],
         "tags": tags or [],
+        "ai_themes": ai_themes or [],
         "added": datetime(2026, 1, 1, tzinfo=UTC),
         "_kind": kind,
     }
@@ -931,12 +996,12 @@ def test_graph_json_schema_version() -> None:
 
 
 def test_graph_json_node_required_fields() -> None:
-    """Every node has slug, title, type, and url."""
+    """Every node has slug, title, type, url, and ai_themes."""
     item = _make_graph_item("alpha")
     parsed = json.loads(build_graph_json([item], {}, {"alpha": item}))
     assert len(parsed["nodes"]) == 1
     node = parsed["nodes"][0]
-    for field in ("slug", "title", "type", "url"):
+    for field in ("slug", "title", "type", "url", "ai_themes"):
         assert field in node, f"node missing field: {field}"
 
 
@@ -1047,6 +1112,20 @@ def test_graph_json_tag_overlap_canonical_direction() -> None:
     assert len(tag_edges) == 1
     assert tag_edges[0]["source"] == "alpha"
     assert tag_edges[0]["target"] == "beta"
+
+
+def test_graph_json_theme_overlap_edge_produced_with_weight() -> None:
+    """Shared ai_themes produce one canonical theme-overlap edge with count weight."""
+    item_a = _make_graph_item("alpha", ai_themes=["agentic-ai", "governance-policy"])
+    item_b = _make_graph_item("beta", ai_themes=["agentic-ai", "memory-context"])
+    items = [item_a, item_b]
+    parsed = json.loads(build_graph_json(items, {}, {i["slug"]: i for i in items}))
+    theme_edges = [e for e in parsed["edges"] if e["rel"] == "theme-overlap"]
+    assert len(theme_edges) == 1
+    assert theme_edges[0]["source"] == "alpha"
+    assert theme_edges[0]["target"] == "beta"
+    assert theme_edges[0]["weight"] == 1
+    assert theme_edges[0]["evidence"] == "agentic-ai"
 
 
 def test_graph_json_orphan_cites_skipped() -> None:
@@ -1223,6 +1302,14 @@ def test_validate_graph_detects_missing_edge_provenance() -> None:
     del graph["edges"][0]["provenance"]
     errors = _validate_graph(graph)
     assert errors
+
+
+def test_validate_graph_detects_unknown_rel_type() -> None:
+    """Edge relationship outside the supported set is flagged."""
+    graph = _make_valid_graph()
+    graph["edges"][0]["rel"] = "mystery-rel"
+    errors = _validate_graph(graph)
+    assert any("supported relationship type" in e for e in errors)
 
 
 def test_validate_graph_detects_node_count_mismatch() -> None:
@@ -1454,6 +1541,10 @@ def test_graph_page_css_has_user_select_none() -> None:
 
 def test_graph_js_tag_overlap_off_by_default() -> None:
     assert "'tag-overlap': false" in _GRAPH_JS
+
+
+def test_graph_js_theme_overlap_off_by_default() -> None:
+    assert "'theme-overlap': false" in _GRAPH_JS
 
 
 def test_graph_js_has_neighbour_highlight() -> None:

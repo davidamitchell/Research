@@ -1257,6 +1257,12 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
+        raw_ai_themes = meta.get("ai_themes", [])
+        ai_themes = (
+            [str(theme).strip() for theme in raw_ai_themes if str(theme).strip()]
+            if isinstance(raw_ai_themes, list)
+            else []
+        )
         slug = slugify(path.stem)
         sections = extract_sections(body)
         sources_text = extract_section(body, "Sources")
@@ -1277,6 +1283,7 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "added": added_dt,
                 "added_str": added_dt.date().isoformat(),
                 "tags": tags,
+                "ai_themes": ai_themes,
                 "sections": sections,
                 "_sources_text": sources_text,
                 "question": question,
@@ -1349,6 +1356,12 @@ def load_knowledge_items() -> list[dict]:
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
+        raw_ai_themes = meta.get("ai_themes", [])
+        ai_themes = (
+            [str(theme).strip() for theme in raw_ai_themes if str(theme).strip()]
+            if isinstance(raw_ai_themes, list)
+            else []
+        )
         slug = slugify(path.stem)
         sections = extract_sections(body)
         sources_text = extract_section(body, "Source Items")
@@ -1363,6 +1376,7 @@ def load_knowledge_items() -> list[dict]:
                 "added": added_dt,
                 "added_str": added_dt.date().isoformat(),
                 "tags": tags,
+                "ai_themes": ai_themes,
                 "sections": sections,
                 "_sources_text": sources_text,
                 "question": question,
@@ -2902,7 +2916,12 @@ def build_search_index(
         slug = item["slug"]
         item_meta = meta_items.get(slug, {})
         named_concepts = item_meta.get("named_concepts", [])
-        all_text_parts = [item["title"]] + list(item["sections"].values()) + named_concepts
+        all_text_parts = (
+            [item["title"]]
+            + list(item["sections"].values())
+            + named_concepts
+            + list(item.get("ai_themes") or [])
+        )
         full_text = " ".join(all_text_parts)
         index.append(
             {
@@ -2956,6 +2975,7 @@ def build_graph_json(
     - ``cites`` frontmatter field — directed edge from declaring item to cited slug
     - ``related_slugs`` frontmatter field — directed edge from declaring item to related slug
     - ``links`` (tag-overlap) — undirected; canonical direction is source < target (alphabetical)
+    - ``ai_themes`` overlap — undirected; canonical direction is source < target (alphabetical)
 
     Weighting rationale (W-0075):
     +--------------+--------+-----------------------------------------------+
@@ -2964,11 +2984,12 @@ def build_graph_json(
     | cites        | 4      | direct intellectual dependency — strongest     |
     | related      | 3      | explicit frontmatter declaration               |
     | tag-overlap  | N      | N = number of shared tags (implicit, 1..N)    |
+    | theme-overlap| N      | N = number of shared ai_themes (implicit)     |
     +--------------+--------+-----------------------------------------------+
 
     Every edge carries:
     - ``weight`` — numeric strength (see table above)
-    - ``rel`` — relationship type: "cites" | "related" | "tag-overlap"
+    - ``rel`` — relationship type: "cites" | "related" | "tag-overlap" | "theme-overlap"
     - ``evidence`` — frontmatter field name or comma-joined shared tag list
     - ``provenance`` — slug of the item that declares the relationship
     """
@@ -2981,6 +3002,7 @@ def build_graph_json(
                 "title": item["title"],
                 "type": item.get("item_type", "primary"),
                 "url": item.get("page_url", f"/Research/research/{item['slug']}.html"),
+                "ai_themes": list(item.get("ai_themes") or []),
             }
             for item in all_items
         ],
@@ -3040,6 +3062,38 @@ def build_graph_json(
                 }
             )
 
+    theme_seen_pairs: set[tuple[str, str]] = set()
+    for source_slug in sorted(node_slugs):
+        source_item = slug_to_item.get(source_slug)
+        if not source_item:
+            continue
+        source_themes = set(source_item.get("ai_themes") or [])
+        if not source_themes:
+            continue
+        for target_slug in sorted(node_slugs):
+            if target_slug == source_slug:
+                continue
+            target_item = slug_to_item.get(target_slug)
+            if not target_item:
+                continue
+            shared_themes = sorted(source_themes & set(target_item.get("ai_themes") or []))
+            if not shared_themes:
+                continue
+            canonical_a, canonical_b = sorted([source_slug, target_slug])
+            if (canonical_a, canonical_b) in theme_seen_pairs:
+                continue
+            theme_seen_pairs.add((canonical_a, canonical_b))
+            edges.append(
+                {
+                    "source": canonical_a,
+                    "target": canonical_b,
+                    "weight": len(shared_themes),
+                    "rel": "theme-overlap",
+                    "evidence": ",".join(shared_themes),
+                    "provenance": canonical_a,
+                }
+            )
+
     edges.sort(key=lambda e: (e["source"], e["target"], e["rel"]))
 
     graph: dict = {
@@ -3078,6 +3132,9 @@ def _validate_graph(graph: dict) -> list[str]:
                 errors.append(f"edge[{i}] missing required field '{field}'")
         src = edge.get("source", "")
         tgt = edge.get("target", "")
+        rel = edge.get("rel", "")
+        if rel and rel not in {"cites", "related", "tag-overlap", "theme-overlap"}:
+            errors.append(f"edge[{i}] rel '{rel}' is not a supported relationship type")
         if src and src not in node_slugs:
             errors.append(f"edge[{i}] source '{src}' references unknown node")
         if tgt and tgt not in node_slugs:
@@ -3102,7 +3159,7 @@ _GRAPH_JS = """(function () {
   var ticks = 0, MAX_TICKS = 300;
   var animRunning = false;
   var searchQuery = '';
-  var filters = {cites: true, related: true, 'tag-overlap': false};
+  var filters = {cites: true, related: true, 'tag-overlap': false, 'theme-overlap': false};
   var REST = 120;
 
   function resize() {
@@ -3144,9 +3201,9 @@ _GRAPH_JS = """(function () {
         targetNode: nodeMap[e.target]
       });
     }).filter(function(e) { return e.sourceNode && e.targetNode; });
-    var counts = {cites: 0, related: 0, 'tag-overlap': 0};
+    var counts = {cites: 0, related: 0, 'tag-overlap': 0, 'theme-overlap': 0};
     data.edges.forEach(function(e) { if (e.rel in counts) counts[e.rel]++; });
-    ['cites', 'related', 'tag-overlap'].forEach(function(rel) {
+    ['cites', 'related', 'tag-overlap', 'theme-overlap'].forEach(function(rel) {
       var id = 'filter-' + rel.replace('-overlap', '');
       var sp = document.querySelector('#' + id + ' .fcount');
       if (sp) sp.textContent = counts[rel];
@@ -3249,7 +3306,7 @@ _GRAPH_JS = """(function () {
     }
   }
 
-  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b'};
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#64748b', 'theme-overlap': '#f59e0b'};
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
@@ -3664,7 +3721,7 @@ _MINI_GRAPH_JS = """\
     }
   }
 
-  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569'};
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
@@ -3910,6 +3967,7 @@ def build_graph_page() -> str:
         .panel-rel-cites { color: #2dd4bf; }
         .panel-rel-related { color: #a78bfa; }
         .panel-rel-tag-overlap { color: #64748b; }
+        .panel-rel-theme-overlap { color: #f59e0b; }
         #graph-stats { font-size: var(--text-xs); color: var(--text-muted); }
         #graph-canvas { touch-action: none; }
         .panel-item-link { font-weight: 600; }
@@ -3932,6 +3990,9 @@ def build_graph_page() -> str:
         '<button class="filter-btn" id="filter-tag" data-rel="tag-overlap">'
         '<span class="fdot" style="background:#64748b"></span>'
         'tag-overlap <span class="fcount">…</span></button>'
+        '<button class="filter-btn" id="filter-theme" data-rel="theme-overlap">'
+        '<span class="fdot" style="background:#f59e0b"></span>'
+        'theme-overlap <span class="fcount">…</span></button>'
         '<span class="ctrl-sep"></span>'
         '<button id="btn-fit">fit</button>'
         '<span class="ctrl-sep"></span>'
