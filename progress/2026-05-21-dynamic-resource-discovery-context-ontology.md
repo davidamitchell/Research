@@ -37,3 +37,19 @@
 4. **Is this a pattern?** User-submitted research questions almost always need scope and motivation added; this is expected and handled by the skill.
 5. **Does any documentation need updating?** No.
 6. **Do the default instructions need updating?** No.
+
+---
+
+## Completion update
+
+**Completed:**
+- `Research/completed/2026-05-21-dynamic-resource-discovery-context-ontology.md` — completed the Dynamic Resource Discovery research item with reviewed findings on discovery-pattern synthesis, MCP as an agent-native instantiation, and ontology-backed retrieval trade-offs.
+
+## Mini-Retro — completion
+
+1. **Did the process work?** Yes. The research loop, source gathering, and iterative review eventually converged on a clean item.
+2. **What slowed down or went wrong?** The review workflow twice showed a green GitHub conclusion while the embedded reviewer output still said `OVERALL: FAIL`, so the logs had to be inspected directly.
+3. **What single change would prevent this next time?** Make the review workflow fail the job when the generated review report contains `OVERALL: FAIL`.
+4. **Is this a pattern?** Yes. This exact mismatch appeared multiple times during this item's review loop.
+5. **Does any documentation need updating?** No user-facing documentation needs a change from this research result alone.
+6. **Do the default instructions need updating?** No. The existing instruction to trust the workflow log over the UI outcome already covers this failure mode.

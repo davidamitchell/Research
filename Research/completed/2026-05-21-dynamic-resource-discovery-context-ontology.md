@@ -2,12 +2,12 @@
 review_count: 2
 title: "What is the Dynamic Resource Discovery architecture pattern in multi-agent systems, how does it relate to context engineering, and what design patterns enable agents to retrieve semantically relevant context from an ontological database?"
 added: 2026-05-21T10:31:30+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [dynamic-resource-discovery, context-engineering, ontology, knowledge-graph, agentic-ai, mcp, model-context-protocol, agent-architecture, semantic-retrieval, rag]
 started: 2026-05-21T11:01:36+00:00
-completed: ~
+completed: 2026-05-21T11:35:04+00:00
 output: [knowledge]
 cites:
   - 2026-03-08-context-engineering-first-principles
