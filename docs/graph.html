@@ -871,12 +871,16 @@ main {
       e = edges[i]; s = e.sourceNode; t = e.targetNode;
       dx = t.x - s.x; dy = t.y - s.y;
       d = Math.sqrt(dx * dx + dy * dy) || 1;
-      f = (d - REST * Math.max(1, e.weight)) * SPRING;
+      var target = REST / Math.sqrt(Math.max(1, e.weight || 1));
+      f = (d - target) * SPRING;
       fx = dx / d * f; fy = dy / d * f;
       s.vx += fx; s.vy += fy;
       t.vx -= fx; t.vy -= fy;
     }
+    var VMAX = 6;
     for (i = 0; i < nodes.length; i++) {
+      nodes[i].vx = Math.max(-VMAX, Math.min(VMAX, nodes[i].vx));
+      nodes[i].vy = Math.max(-VMAX, Math.min(VMAX, nodes[i].vy));
       nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
       nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
     }
@@ -944,7 +948,7 @@ main {
       draw();
       requestAnimationFrame(animStep);
     } else {
-      fitToView();
+      draw();
       animRunning = false;
     }
   }
