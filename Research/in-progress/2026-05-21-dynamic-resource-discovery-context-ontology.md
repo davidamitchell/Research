@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is the Dynamic Resource Discovery architecture pattern in multi-agent systems, how does it relate to context engineering, and what design patterns enable agents to retrieve semantically relevant context from an ontological database?"
 added: 2026-05-21T10:31:30+00:00
 status: reviewing
