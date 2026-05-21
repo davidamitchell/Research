@@ -2,12 +2,12 @@
 title: "What is the most practical enterprise design for a five-pillar knowledge management capability model for tool-using, semi-autonomous Artificial Intelligence systems, and how should existing architecture and governance frameworks be extended to support it?"
 review_count: 2
 added: 2026-05-20T21:41:45+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, knowledge-graph, memory-system, evaluation, organisational-design, workflow, llm]
 started: 2026-05-21T10:35:23+00:00
-completed: ~
+completed: 2026-05-21T10:58:17+00:00
 output: [knowledge]
 cites:
   - 2026-03-03-knowledge-representation-agent-context
