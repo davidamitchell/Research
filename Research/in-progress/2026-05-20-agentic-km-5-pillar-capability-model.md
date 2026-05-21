@@ -1,6 +1,6 @@
 ---
 title: "What is the most practical enterprise design for a five-pillar knowledge management capability model for tool-using, semi-autonomous Artificial Intelligence systems, and how should existing architecture and governance frameworks be extended to support it?"
-review_count: 1
+review_count: 2
 added: 2026-05-20T21:41:45+00:00
 status: reviewing
 priority: high
