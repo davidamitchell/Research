@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "79134fc4d86d283ad65975659353bce5a7e4a0a2"
+    changed: 2026-05-21
+    progress: progress/2026-05-21-dynamic-resource-discovery-context-ontology.md
+    summary: "Initial completion"
 ---
 
 # What is the Dynamic Resource Discovery architecture pattern in multi-agent systems, how does it relate to context engineering, and what design patterns enable agents to retrieve semantically relevant context from an ontological database?
