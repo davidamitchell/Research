@@ -29,7 +29,12 @@ superseded_by: ~
 supersedes: ~
 item_type: synthesis
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c4cfa466747f148df7252c62f23036c9ab9babdf
+    changed: 2026-05-21
+    progress: progress/2026-05-21-agentic-km-5-pillar-capability-model.md
+    summary: Initial completion
 ---
 
 # What is the most practical enterprise design for a five-pillar knowledge management capability model for tool-using, semi-autonomous Artificial Intelligence systems, and how should existing architecture and governance frameworks be extended to support it?
