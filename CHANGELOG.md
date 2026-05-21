@@ -9,10 +9,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 - `src/research/cli.py` `cmd_start` and `cmd_complete`: added `_git_add(root.parent, src, dest)` call after each file move so the git index is updated atomically with the filesystem change. Previously, only the new file was staged by the Copilot agent's explicit `git add`; the old file's deletion was never staged, leaving an unstaged deletion that caused the next `git pull --rebase` to fail with "You have unstaged changes." See ADR-0011.
 - `research-loop.yml`: added orphan cleanup step after each `git pull --rebase` to remove any `Research/in-progress/` files that already have a corresponding `Research/completed/` entry (stuck files from the old bug); creates a cleanup commit and pushes when orphans are found.
+- `scripts/build_site.py` graph force simulation: stabilized weighted layouts by switching spring rest length to inverse weight scaling and capping per-tick velocity, preventing runaway expansion and post-simulation disappearance.
+- `scripts/search/src/search-runtime.js`: replaced worker-dependent semantic bootstrap path with the same keyword matcher used on browse-style pages so search inputs behave consistently across generated pages.
 
 ### Added
 - ADR-0011: Git-index staging in CLI file-move commands — documents `_git_add` helper, the orphan cleanup step, and two rejected alternatives (`git mv`, loop-level stash/reset).
 - Two regression tests in `tests/test_research_cli.py` (`test_cmd_start_leaves_no_unstaged_changes`, `test_cmd_complete_leaves_no_unstaged_changes`) using a real git repo fixture; both tests failed before the fix and pass after.
+- Playwright UI regression tests (`tests/ui/site-ui.spec.js`) and Playwright configuration (`playwright.config.mjs`) validating graph visibility and landing/search consistency against locally generated pages.
+- ADR-0017: shared keyword matcher for site search and Playwright UI regression tests.
 
 ### Changed
 - `Research/README.md`: updated `research start` and `research complete` commit examples to note that the git index is staged automatically — `git add Research/` is no longer required.

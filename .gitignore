@@ -194,6 +194,8 @@ cython_debug/
 # Node / frontend assets
 node_modules/
 scripts/search/dist/
+playwright-report/
+test-results/
 
 # PyPI configuration file
 .pypirc
