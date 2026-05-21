@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-21T10:49:25Z",
+  "extracted_at": "2026-05-21T11:01:24Z",
   "items": {
     "2026-05-20-information-density-filtering-financial-rag": {
       "named_concepts": [
@@ -493,6 +493,135 @@
             "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
             "https://www.fdic.gov/news/press-releases/2026/agencies-issue-revised-model-risk-guidance",
             "https://www.iso.org/standard/81230.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-20-agentic-km-5-pillar-capability-model": {
+      "named_concepts": [
+        "reference architectures",
+        "enterprise guidance",
+        "control plane",
+        "operating model",
+        "five-pillar stack",
+        "context selection",
+        "memory governance",
+        "full ontology",
+        "ontology program",
+        "light canonical",
+        "canonical vocabulary",
+        "provenance model",
+        "multi-agent reference",
+        "freshness invalidation",
+        "vocabularies provenance",
+        "graph-plus-embedding storage",
+        "prior repository",
+        "goal-level steering",
+        "tiered memory",
+        "structured temporal"
+      ],
+      "source_urls": [
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/owl2-overview/",
+        "https://www.w3.org/TR/skos-reference/",
+        "https://arxiv.org/abs/2404.16130",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/airmf-resources/playbook/",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/",
+        "https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/",
+        "https://cyclonedx.org/capabilities/mlbom/",
+        "https://www.opengroup.org/togaf",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html",
+        "https://docs.cloud.google.com/architecture/multiagent-ai-system",
+        "https://microsoft.github.io/multi-agent-reference-architecture/docs/reference-architecture/Reference-Architecture.html",
+        "https://microsoft.github.io/multi-agent-reference-architecture/docs/governance/Governance.html",
+        "https://microsoft.github.io/multi-agent-reference-architecture/docs/observability/Observability.html",
+        "https://microsoft.github.io/multi-agent-reference-architecture/docs/evaluation/Evaluation.html",
+        "https://blog.getzep.com/state-of-the-art-agent-memory/",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-integrative-framework-agent-decision-making.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-ai-capability-reference-architecture-second-cycle-update.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-governance-moat-prior-research-implications.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A practical five-pillar Knowledge Management capability model should separate knowledge foundations, context orchestration, memory, governance, and operations into distinct services with explicit interfaces, because current standards and enterprise architectures already divide data semantics, runtime behavior, control, and lifecycle evidence across different layers",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/skos-reference/",
+            "https://www.opengroup.org/togaf",
+            "https://davidamitchell.github.io/Research/research/2026-05-08-ai-capability-reference-architecture-second-cycle-update.html"
+          ]
+        },
+        {
+          "text": "Pillar 1 is most practical when it starts with canonical identifiers, controlled vocabularies, provenance, and graph-plus-embedding storage, because RDF, OWL, and SKOS provide complementary semantics while GraphRAG and prior repository research show that graph and summary layers add value without displacing embeddings",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/skos-reference/",
+            "https://arxiv.org/abs/2404.16130",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html"
+          ]
+        },
+        {
+          "text": "Pillar 2 should treat tokens as scarce, authority-ordered context rather than as a large undifferentiated prompt, because context engineering evidence shows diminishing returns at long context lengths and prior repository work shows that goal-level steering depends on layer ordering as much as prompt wording",
+          "sources": [
+            "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+            "https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html"
+          ]
+        },
+        {
+          "text": "Pillar 3 should use a tiered memory model with explicit freshness, invalidation, provenance, and reconciliation rules, because public benchmark evidence shows structured temporal memory can materially improve long-horizon recall and latency relative to full-context replay",
+          "sources": [
+            "https://blog.getzep.com/state-of-the-art-agent-memory/",
+            "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/reference-architecture/Reference-Architecture.html"
+          ]
+        },
+        {
+          "text": "Pillar 4 has to function as an explicit control plane for identity, delegated authority, policy injection, runtime evidence, and supply-chain transparency, because risk-management, security, and AIBOM sources all describe these as separate responsibilities that inventory alone cannot satisfy",
+          "sources": [
+            "https://www.nist.gov/itl/ai-risk-management-framework",
+            "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+            "https://cyclonedx.org/capabilities/mlbom/",
+            "https://davidamitchell.github.io/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html"
+          ]
+        },
+        {
+          "text": "Pillar 5 should be treated as a first-class operating model rather than a support layer, because enterprise guidance consistently pairs multi-agent deployment with an Artificial Intelligence Center of Excellence, governance committee, reusable patterns, observability, evaluation loops, and explicit human intervention paths",
+          "sources": [
+            "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html",
+            "https://docs.cloud.google.com/architecture/multiagent-ai-system",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/governance/Governance.html",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/evaluation/Evaluation.html"
+          ]
+        },
+        {
+          "text": "TOGAF, CSDM, and current enterprise multi-agent reference architectures are extendable but incomplete for this model, because they provide useful structure for governance, traceability, orchestration, and change but still under-specify knowledge-state lineage, memory authority boundaries, and runtime evidence links",
+          "sources": [
+            "https://www.opengroup.org/togaf",
+            "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/reference-architecture/Reference-Architecture.html"
+          ]
+        },
+        {
+          "text": "The most practical adoption sequence is to start with Pillar 4 and Pillar 5 minimum controls, add a light Pillar 1 vocabulary and provenance model, then deploy bounded Pillar 2 and Pillar 3 loops before investing in deeper ontology and graph formalization",
+          "sources": [
+            "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html",
+            "https://docs.cloud.google.com/architecture/multiagent-ai-system",
+            "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+            "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html"
           ]
         }
       ]
