@@ -1,6 +1,123 @@
 {
-  "extracted_at": "2026-05-21T11:13:11Z",
+  "extracted_at": "2026-05-21T11:37:16Z",
   "items": {
+    "2026-05-21-dynamic-resource-discovery-context-ontology": {
+      "named_concepts": [
+        "context engineering",
+        "late binding",
+        "current agent-native",
+        "registry metadata",
+        "tools resources",
+        "consulted benchmark",
+        "benchmark literature",
+        "outperforming single-mode",
+        "single-mode baselines",
+        "hybrid retrieval",
+        "discovery standards",
+        "ontology-backed retrieval",
+        "hybrid graph-plus-vector",
+        "protocols dynamic",
+        "dynamic resource",
+        "resource discovery",
+        "registries descriptors",
+        "labels even",
+        "deeper architectural",
+        "architectural convergence"
+      ],
+      "source_urls": [
+        "https://modelcontextprotocol.io/introduction",
+        "https://modelcontextprotocol.io/docs/learn/architecture",
+        "https://modelcontextprotocol.io/registry/about",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/owl2-overview/",
+        "https://datatracker.ietf.org/doc/html/rfc2608",
+        "https://datatracker.ietf.org/doc/html/rfc6763",
+        "https://docs.oasis-open.org/ws-dd/discovery/1.1/wsdd-discovery-1.1-spec.html",
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2302.00093",
+        "https://arxiv.org/abs/2408.04948",
+        "https://aclanthology.org/2025.acl-long.43/",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+      ],
+      "key_claims": [
+        {
+          "text": "In the surveyed discovery protocols, Dynamic Resource Discovery is most usefully modeled as a synthesized architectural family because SLP, DNS-SD, WS-Discovery, and MCP all implement discoverable metadata plus late binding while describing that shared structure through different protocol labels, even though the similarity may reflect either deeper architectural convergence or repeated responses to similar discovery constraints",
+          "sources": [
+            "https://datatracker.ietf.org/doc/html/rfc2608",
+            "https://datatracker.ietf.org/doc/html/rfc6763",
+            "https://docs.oasis-open.org/ws-dd/discovery/1.1/wsdd-discovery-1.1-spec.html",
+            "https://modelcontextprotocol.io/docs/learn/architecture"
+          ]
+        },
+        {
+          "text": "A synthesized DRD abstraction can be expressed as registry or locator, machine-readable capability descriptor, lookup or advertisement mechanism, and a binding path from discovery to use, because those elements recur across classic discovery standards and the MCP architecture",
+          "sources": [
+            "https://datatracker.ietf.org/doc/html/rfc2608",
+            "https://datatracker.ietf.org/doc/html/rfc6763",
+            "https://docs.oasis-open.org/ws-dd/discovery/1.1/wsdd-discovery-1.1-spec.html",
+            "https://modelcontextprotocol.io/docs/learn/architecture",
+            "https://modelcontextprotocol.io/registry/about"
+          ]
+        },
+        {
+          "text": "MCP is a current agent-native DRD implementation because it combines pre-connection discovery of servers through registry metadata with post-connection discovery of tools, resources, and prompts through dynamic list methods, while the older protocols surveyed here focus on network-service discovery rather than agent-native primitives",
+          "sources": [
+            "https://modelcontextprotocol.io/registry/about",
+            "https://modelcontextprotocol.io/docs/learn/architecture",
+            "https://datatracker.ietf.org/doc/html/rfc2608",
+            "https://datatracker.ietf.org/doc/html/rfc6763",
+            "https://docs.oasis-open.org/ws-dd/discovery/1.1/wsdd-discovery-1.1-spec.html"
+          ]
+        },
+        {
+          "text": "Context engineering begins after discovery and converts a large set of discoverable resources into a minimal, high-signal working context through progressive disclosure, just-in-time loading, and aggressive relevance filtering that protects the model from distractor evidence",
+          "sources": [
+            "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+            "https://arxiv.org/abs/2302.00093",
+            "https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html"
+          ]
+        },
+        {
+          "text": "RDF, OWL, and SPARQL provide typed entities, relations, and query paths that make ontology-backed retrieval more semantically structured and auditable than purely lexical matching over static documentation",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/sparql11-query"
+          ]
+        },
+        {
+          "text": "The consulted benchmark literature shows hybrid graph-plus-vector retrieval outperforming single-mode baselines in several ontology-relevant mixed-evidence tasks, even though the result should be read as task-specific rather than universal because the studies use different domains and evaluation setups",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130",
+            "https://arxiv.org/abs/2408.04948",
+            "https://aclanthology.org/2025.acl-long.43"
+          ]
+        },
+        {
+          "text": "Dynamic discovery reduces prompt bloat and improves evidence freshness, but it raises orchestration cost, ranking dependence, and lookup latency, so the evidence favors a hybrid architecture that preloads a small stable control surface and discovers the larger evidence surface on demand",
+          "sources": [
+            "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+            "https://arxiv.org/abs/2302.00093",
+            "https://davidamitchell.github.io/Research/research/2026-03-18-api-context-hubs-rag-mcp.html"
+          ]
+        },
+        {
+          "text": "The dominant operational risks in a DRD-plus-ontology stack are descriptor drift, stale or over-broad registry metadata, expensive graph queries, authorization mismatch between discovery and execution, and low-quality ranking that injects irrelevant evidence into the model loop",
+          "sources": [
+            "https://modelcontextprotocol.io/registry/about",
+            "https://www.w3.org/TR/sparql11-query/",
+            "https://arxiv.org/abs/2302.00093",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        }
+      ]
+    },
     "2026-05-20-information-density-filtering-financial-rag": {
       "named_concepts": [
         "retrieval-augmented generation",
