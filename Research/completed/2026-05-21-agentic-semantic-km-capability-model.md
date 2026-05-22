@@ -2,12 +2,12 @@
 review_count: 2
 title: "What capabilities, sub-capabilities, architectural patterns, and maturity dimensions define tool-using, semi-autonomous Semantic Knowledge Management systems?"
 added: 2026-05-21T11:07:25+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, knowledge-management, capability-model, maturity-model, ontology, knowledge-graph, orchestration, context-engineering, semantic-interoperability, memory-system]
 started: 2026-05-22T06:02:12+00:00
-completed: ~
+completed: 2026-05-22T06:37:14+00:00
 output: []
 cites:
   - 2026-05-21-dynamic-resource-discovery-context-ontology
