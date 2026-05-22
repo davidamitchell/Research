@@ -273,13 +273,12 @@ Root question: when does portfolio shape lower or raise long-run TCO?
 
 - [fact; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html;
   https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign;
-  https://www.hbs.edu/ris/Publication%20Files/05-016.pdf] The strongest direct evidence in this
-  item concerns the mutation-cost side of the trade-off, because the consulted structural studies
+  https://www.hbs.edu/ris/Publication%20Files/05-016.pdf] The consulted structural studies
   directly discuss modularity, hidden complexity, and redesign.
 - [fact; source: https://doi.org/10.1109/ColumbianCC.2015.7333476;
   https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
-  https://arxiv.org/abs/1909.08933] The strongest direct evidence on operating cost concerns the
-  conditions and side effects of microservice migration, not audited portfolio-wide ledger data.
+  https://arxiv.org/abs/1909.08933] The consulted migration studies directly discuss deployment
+  independence, monitoring needs, testing complexity, and organisational side effects.
 - [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html;
   https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign;
   https://www.hbs.edu/ris/Publication%20Files/05-016.pdf;
@@ -331,8 +330,8 @@ Root question: when does portfolio shape lower or raise long-run TCO?
 
 **Executive summary:**
 
-Over multi-year horizons, portfolios of many smaller cohesive systems usually beat a few tightly
-coupled monoliths on Total Cost of Ownership (TCO) only when boundary quality is high and
+Over multi-year horizons, portfolios of many smaller cohesive systems have lower Total Cost of
+Ownership (TCO) than a few tightly coupled monoliths only when boundary quality is high and
 platform governance is mature; otherwise the extra coordination surface can make them more
 expensive than a well-structured monolith. [inference; source:
 http://sunnyday.mit.edu/16.355/parnas-criteria.html;
@@ -348,16 +347,16 @@ http://sunnyday.mit.edu/16.355/parnas-criteria.html;
 https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign;
 https://www.hbs.edu/ris/Publication%20Files/05-016.pdf]
 
-The operating-cost side is equally real: the migration literature says smaller services help when
+The operating-cost side is material: the migration literature says smaller services help when
 monolithic size, scalability, and ownership become dominant pain points, but they also demand
-more explicit monitoring, testing, ownership, and organisational coordination. [fact; source:
+more explicit monitoring, testing, ownership, and organisational coordination. [inference; source:
 https://doi.org/10.1109/ColumbianCC.2015.7333476;
 https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
 https://arxiv.org/abs/1909.08933]
 
-The practical decision rule is therefore not "monolith or microservices" but "are our boundaries
-good enough, and our governance automated enough, that extra system count reduces dependency
-propagation faster than it increases run-cost overhead?" [inference; source:
+The practical decision rule is to ask whether boundaries are good enough, and governance automated
+enough, that extra system count reduces dependency propagation faster than it increases run-cost
+overhead. [inference; source:
 https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
 https://arxiv.org/abs/1909.08933;
 https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html;
@@ -458,9 +457,9 @@ https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modula
 https://www.hbs.edu/ris/Publication%20Files/05-016.pdf;
 https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html]
 
-The practical trade-off is therefore triangular rather than binary: reduce dependency exposure,
-preserve real deployment autonomy, and automate enough governance that extra system count does not
-become a standing tax. [inference; source:
+The practical trade-off combines three requirements: reduce dependency exposure, preserve real
+deployment autonomy, and automate enough governance that extra system count does not become a
+standing tax. [inference; source:
 https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
 https://arxiv.org/abs/1909.08933;
 https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html]
@@ -512,8 +511,8 @@ https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm
 
 ### Executive Summary
 
-Over multi-year horizons, portfolios of many smaller cohesive systems usually beat a few tightly
-coupled monoliths on Total Cost of Ownership (TCO) only when boundary quality is high and
+Over multi-year horizons, portfolios of many smaller cohesive systems have lower Total Cost of
+Ownership (TCO) than a few tightly coupled monoliths only when boundary quality is high and
 platform governance is mature; otherwise the extra coordination surface can make them more
 expensive than a well-structured monolith. [inference; source:
 http://sunnyday.mit.edu/16.355/parnas-criteria.html;
@@ -529,16 +528,16 @@ http://sunnyday.mit.edu/16.355/parnas-criteria.html;
 https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign;
 https://www.hbs.edu/ris/Publication%20Files/05-016.pdf]
 
-The operating-cost side is equally real: the migration literature says smaller services help when
+The operating-cost side is material: the migration literature says smaller services help when
 monolithic size, scalability, and ownership become dominant pain points, but they also demand
-more explicit monitoring, testing, ownership, and organisational coordination. [fact; source:
+more explicit monitoring, testing, ownership, and organisational coordination. [inference; source:
 https://doi.org/10.1109/ColumbianCC.2015.7333476;
 https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
 https://arxiv.org/abs/1909.08933]
 
-The practical decision rule is therefore not "monolith or microservices" but "are our boundaries
-good enough, and our governance automated enough, that extra system count reduces dependency
-propagation faster than it increases run-cost overhead?" [inference; source:
+The practical decision rule is to ask whether boundaries are good enough, and governance automated
+enough, that extra system count reduces dependency propagation faster than it increases run-cost
+overhead. [inference; source:
 https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
 https://arxiv.org/abs/1909.08933;
 https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html;
@@ -642,9 +641,9 @@ https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modula
 https://www.hbs.edu/ris/Publication%20Files/05-016.pdf;
 https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html]
 
-The practical trade-off is therefore triangular rather than binary: reduce dependency exposure,
-preserve real deployment autonomy, and automate enough governance that extra system count does not
-become a standing tax. [inference; source:
+The practical trade-off combines three requirements: reduce dependency exposure, preserve real
+deployment autonomy, and automate enough governance that extra system count does not become a
+standing tax. [inference; source:
 https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
 https://arxiv.org/abs/1909.08933;
 https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html]
