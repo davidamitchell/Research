@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 9c236fe199dadda3a505c89ccb98e539c4eececb
+    changed: 2026-05-22
+    progress: progress/2026-05-22-agentic-semantic-km-capability-model.md
+    summary: Initial completion
 ---
 
 # What capabilities, sub-capabilities, architectural patterns, and maturity dimensions define tool-using, semi-autonomous Semantic Knowledge Management systems?
