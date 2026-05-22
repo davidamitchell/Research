@@ -1510,3 +1510,147 @@ The issue explicitly requires weighted edges with an initial default of `1`, plu
 Weighting algorithm added to `build_graph_json()`: `cites`=4, `related`=3, `tag-overlap`=N (N = number of shared tags, min 1). Rationale documented in docstring table and ADR-0016. Schema backwards-compatible (weight remains a positive number). 6 new tests covering type ordering, tag-count scaling, determinism, schema validity, and positivity.
 
 Blocked on W-0072 and W-0074.
+
+---
+
+## W-0076
+
+status: open
+created: 2026-05-22
+updated: 2026-05-22
+
+### Outcome
+
+A research item in `Research/backlog/` investigates syntactic and semantic similarity algorithms suitable for managing a controlled theme vocabulary in a file-based corpus. Specifically:
+
+1. What algorithms (e.g. Levenshtein, Jaccard, cosine TF-IDF, BM25, embedding similarity) are appropriate for detecting near-synonym themes at vocabulary-definition time vs. at enrichment time?
+2. What is the minimum viable vocabulary size and growth policy that avoids both explosion (too many themes, each appearing once) and collapse (too few themes, all items share every theme)?
+3. Are there established ontology-building patterns (e.g. from SKOS, WordNet, or controlled vocabulary literature) that apply to a corpus of ~300 items growing at ~5/week?
+
+Findings stored in `Research/completed/` after the loop runs. Directly unblocks W-0077 (vocabulary design).
+
+### Context
+
+The corpus currently has two competing theme fields (`tags` and `ai_themes`) that grew without a controlled vocabulary. Before defining the canonical `themes` field (W-0077), the vocabulary design must be evidence-based. Prior tag co-occurrence work (W-0053) and the tag report script (W-0053) provide structural data; this research item provides the algorithmic and ontological grounding.
+
+---
+
+## W-0077
+
+status: open
+created: 2026-05-22
+updated: 2026-05-22
+
+### Outcome
+
+A single canonical `themes` field replaces both `tags:` and `ai_themes:` in `Research/_template.md`. The field uses a controlled vocabulary defined in `docs/themes-vocabulary.md`. The vocabulary:
+
+- Contains 20–40 canonical theme slugs at launch, derived from the W-0076 research findings and the existing `ai_themes` 16-item set
+- Defines a synonym/alias map (slug → list of aliases) so the canonicalisation script can normalise incoming values
+- Defines a growth policy: new themes are added only when ≥3 items require a concept not covered by existing themes; candidates are surfaced by the similarity algorithm from W-0076 before a human confirms
+- Explicitly retires `tags:` and `ai_themes:` as separate fields
+
+`research-prompt.md` is updated: when assigning themes, consult `docs/themes-vocabulary.md` and use only canonical slugs. If no canonical theme fits, record the gap in `gaps:` frontmatter rather than inventing a new theme.
+
+`docs/themes-vocabulary.md` is referenced from `Research/_template.md` in a comment on the `themes:` field.
+
+Tests cover: vocabulary file is valid YAML, all canonical slugs are lowercase-hyphenated, no duplicate slugs, synonym map entries resolve to known canonicals.
+
+### Context
+
+The current state has `tags:` (798 unique values, majority singletons), `ai_themes:` (16-item controlled vocabulary, enriched by Gemini — W-0069), and no single authoritative theme field. The goal is one field, one vocabulary, one way to add themes. Blocked on W-0076 (research) and W-0069 (`ai_themes` backfill — status: ready).
+
+---
+
+## W-0078
+
+status: open
+created: 2026-05-22
+updated: 2026-05-22
+
+### Outcome
+
+`scripts/canonicalise_themes.py` migrates all completed and backlog items from `tags:`/`ai_themes:` to the new `themes:` field defined in W-0077:
+
+- Reads `docs/themes-vocabulary.md` synonym map
+- For each item: merges `tags:` and `ai_themes:` values through the synonym map, writes canonical slugs to `themes:`, removes the `tags:` and `ai_themes:` fields
+- Idempotent: already-canonical items are unchanged
+- Writes a migration summary to `state/themes-migration.md`
+
+A `scripts/validate_themes.py` script (or CI check) confirms no item in `Research/completed/`, `Research/backlog/`, or `Research/in-progress/` contains `tags:` or `ai_themes:` fields after migration.
+
+Tests cover: synonym resolution, idempotency, migration summary schema, validation script detects residual legacy fields.
+
+### Context
+
+Blocked on W-0077 (vocabulary must exist before migration runs). This is the one-time corpus migration that retires the dual-field model.
+
+---
+
+## W-0079
+
+status: open
+created: 2026-05-22
+updated: 2026-05-22
+
+### Outcome
+
+The GH Pages site exposes `themes` as the primary navigable dimension:
+
+- 16–40 theme index pages at `docs/themes/<theme-slug>.html`, each listing all items carrying that theme, sorted by date descending
+- Each item page shows `themes` as styled badges linking to theme pages (replaces current `ai_themes` badges from W-0070, which is superseded by this item)
+- A `docs/themes/index.html` lists all themes with item counts
+- A "Themes" nav link on all pages
+- The "Related Items" section on each item page includes a "Related by theme" subsection (≥2 shared themes, capped at 5 items)
+- Items with no `themes:` field degrade gracefully (no badges, no related-by-theme)
+
+Tests cover: theme pages render for all vocabulary themes, badges link correctly, related-by-theme threshold respected, graceful degradation.
+
+### Context
+
+Blocked on W-0077 (vocabulary) and W-0078 (migration). Supersedes W-0070 (`ai_themes` site integration) — W-0070 should be marked superseded once this item is done. The synthesis candidates page (W-0061) is also updated to use `themes` overlap as its clustering signal once this item is complete.
+
+---
+
+## W-0080
+
+status: open
+created: 2026-05-22
+updated: 2026-05-22
+
+### Outcome
+
+The theme vocabulary growth pipeline is automated:
+
+- `scripts/theme_report.py` (currently tracking `themes`/`ai_themes` separately — see PR #588) is updated to operate on the unified `themes:` field only
+- The `tag-review.yml` workflow is renamed or superseded by `theme-review.yml`, which runs monthly and on `workflow_dispatch`, runs `theme_report.py`, and opens a GitHub issue listing near-duplicate candidates and items missing `themes:` for human review
+- The growth policy from `docs/themes-vocabulary.md` is enforced: the issue template prompts the reviewer to confirm or reject candidate additions against the ≥3-item threshold
+
+Tests cover: theme report runs cleanly on post-migration corpus, near-duplicate detection uses the algorithm from W-0076, growth-policy threshold logic.
+
+### Context
+
+Blocked on W-0077 (vocabulary) and W-0078 (migration). Replaces the tag-review workflow. Closes the loop: vocabulary is defined, corpus is migrated, and ongoing quality is maintained automatically.
+
+---
+
+## W-0081
+
+status: open
+created: 2026-05-22
+updated: 2026-05-22
+
+### Outcome
+
+The synthesis candidates page (`docs/synthesis-candidates.html`, originally scoped in W-0061) is implemented using `themes` overlap as the clustering signal:
+
+- `scripts/build_site.py` updated: `generate_synthesis_candidates()` groups completed items by shared `themes` values (≥2 shared themes), ranks clusters by size and average item confidence, renders them as a browsable page
+- Each cluster card shows: shared themes, item count, linked item titles, "Synthesise this cluster" call-to-action
+- "Synthesis Candidates" nav link added to all pages
+- Blocked-on note in W-0061 is resolved by this item (W-0061 was blocked on `ai_themes` backfill and site integration; `themes` unifies both)
+
+Tests cover: cluster computation, minimum-theme threshold, ranking determinism, nav link present in all page templates.
+
+### Context
+
+Blocked on W-0079 (themes site integration, which provides the `themes` data on items). Supersedes the dependency note in W-0061 on W-0069/W-0070. Once W-0081 is done, W-0061 should be marked done (superseded).
