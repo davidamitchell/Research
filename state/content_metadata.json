@@ -1,6 +1,73 @@
 {
-  "extracted_at": "2026-05-22T06:50:25Z",
+  "extracted_at": "2026-05-22T06:57:16Z",
   "items": {
+    "2026-05-21-monolith-vs-cohesive-portfolio-tco": {
+      "named_concepts": [
+        "cohesive systems",
+        "smaller cohesive",
+        "boundary quality",
+        "system count",
+        "well-structured monolith",
+        "dependency exposure",
+        "mutation cost",
+        "many smaller",
+        "mozilla redesign",
+        "migration literature",
+        "monolithic size",
+        "become dominant",
+        "testing ownership",
+        "organisational coordination",
+        "decision rule",
+        "extra system",
+        "dependency propagation",
+        "weak cohesion",
+        "cohesion raise",
+        "raise long-run"
+      ],
+      "source_urls": [
+        "https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign",
+        "https://ieeexplore.ieee.org/document/295895/",
+        "https://ieeexplore.ieee.org/document/748920/",
+        "https://www.hbs.edu/ris/Publication%20Files/05-016.pdf",
+        "https://doi.org/10.1109/ColumbianCC.2015.7333476",
+        "https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content",
+        "https://arxiv.org/abs/1909.08933",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html",
+        "https://researchcommons.waikato.ac.nz/handle/10289/5307",
+        "https://ieeexplore.ieee.org/document/8813066"
+      ],
+      "key_claims": [
+        {
+          "text": "High coupling and weak cohesion raise long-run mutation cost because every local change",
+          "sources": []
+        },
+        {
+          "text": "Purposeful redesign can materially improve evolvability, because the Mozilla case shows that",
+          "sources": []
+        },
+        {
+          "text": "Many smaller cohesive systems reduce change and deployment coupling only when they really are",
+          "sources": []
+        },
+        {
+          "text": "The same decomposition that lowers local change cost can raise portfolio run cost, because",
+          "sources": []
+        },
+        {
+          "text": "Smaller cohesive systems are most likely to lower long-run TCO when monolithic scale,",
+          "sources": []
+        },
+        {
+          "text": "A well-structured monolith or a small number of modules that hide substantial implementation",
+          "sources": []
+        },
+        {
+          "text": "The dominant decision variable is therefore boundary quality plus governance maturity, not",
+          "sources": []
+        }
+      ]
+    },
     "2026-05-21-dynamic-resource-discovery-context-ontology": {
       "named_concepts": [
         "context engineering",
