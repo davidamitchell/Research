@@ -1,12 +1,12 @@
 [
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -62,10 +62,10 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
+    "slug": "nist-ai-ai-rmf-ai-act-2",
     "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
@@ -112,7 +112,7 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act-2.html"
   },
   {
     "slug": "copilot-coding-coding-agent-claude-code",
@@ -305,14 +305,14 @@
     "url": "/Research/threads/fly-io-contents-api-github-contents.html"
   },
   {
-    "slug": "ai-systems-prompt-injection-agentic-ai",
-    "title": "ai systems / prompt injection / agentic ai",
+    "slug": "ai-systems-agentic-ai-prompt-injection",
+    "title": "ai systems / agentic ai / prompt injection",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai systems",
-      "prompt injection",
-      "agentic ai"
+      "agentic ai",
+      "prompt injection"
     ],
     "item_count": 4,
     "items": [
@@ -337,17 +337,17 @@
         "added": "2026-05-02"
       }
     ],
-    "url": "/Research/threads/ai-systems-prompt-injection-agentic-ai.html"
+    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
   },
   {
-    "slug": "help-search-ties-help-weak-ties",
-    "title": "help search / ties help / weak ties",
+    "slug": "ties-help-help-search-centralization-reduces",
+    "title": "ties help / help search / centralization reduces",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "help search",
       "ties help",
-      "weak ties"
+      "help search",
+      "centralization reduces"
     ],
     "item_count": 3,
     "items": [
@@ -367,16 +367,16 @@
         "added": "2026-05-19"
       }
     ],
-    "url": "/Research/threads/help-search-ties-help-weak-ties.html"
+    "url": "/Research/threads/ties-help-help-search-centralization-reduces.html"
   },
   {
-    "slug": "language-model-deterministic-systems-local-replayability",
-    "title": "language model / deterministic systems / local replayability",
+    "slug": "deterministic-systems-language-model-local-replayability",
+    "title": "deterministic systems / language model / local replayability",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "language model",
       "deterministic systems",
+      "language model",
       "local replayability"
     ],
     "item_count": 3,
@@ -397,7 +397,7 @@
         "added": "2026-05-18"
       }
     ],
-    "url": "/Research/threads/language-model-deterministic-systems-local-replayability.html"
+    "url": "/Research/threads/deterministic-systems-language-model-local-replayability.html"
   },
   {
     "slug": "ai-control-control-tower-runtime-observability",
@@ -430,13 +430,13 @@
     "url": "/Research/threads/ai-control-control-tower-runtime-observability.html"
   },
   {
-    "slug": "banking-supervision-basel-committee-operational-risk",
-    "title": "banking supervision / basel committee / operational risk",
+    "slug": "basel-committee-banking-supervision-operational-risk",
+    "title": "basel committee / banking supervision / operational risk",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "banking supervision",
       "basel committee",
+      "banking supervision",
       "operational risk"
     ],
     "item_count": 3,
@@ -457,17 +457,17 @@
         "added": "2026-05-09"
       }
     ],
-    "url": "/Research/threads/banking-supervision-basel-committee-operational-risk.html"
+    "url": "/Research/threads/basel-committee-banking-supervision-operational-risk.html"
   },
   {
-    "slug": "verification-intensity-queue-depth-manageable-caseload",
-    "title": "verification intensity / queue depth / manageable caseload",
+    "slug": "verification-intensity-queue-depth-human-review",
+    "title": "verification intensity / queue depth / human review",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "verification intensity",
       "queue depth",
-      "manageable caseload"
+      "human review"
     ],
     "item_count": 3,
     "items": [
@@ -487,17 +487,17 @@
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/verification-intensity-queue-depth-manageable-caseload.html"
+    "url": "/Research/threads/verification-intensity-queue-depth-human-review.html"
   },
   {
-    "slug": "power-platform-copilot-studio-native-governance",
-    "title": "power platform / copilot studio / native governance",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "power platform",
       "copilot studio",
-      "native governance"
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -517,17 +517,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   },
   {
-    "slug": "team-size-coordination-overhead-tke-memo",
-    "title": "team size / coordination overhead / tke memo",
+    "slug": "mythical-man-month-saas-median-revenue-per",
+    "title": "mythical man-month / saas median / revenue per",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "team size",
-      "coordination overhead",
-      "tke memo"
+      "mythical man-month",
+      "saas median",
+      "revenue per"
     ],
     "item_count": 3,
     "items": [
@@ -547,17 +547,17 @@
         "added": "2026-03-14"
       }
     ],
-    "url": "/Research/threads/team-size-coordination-overhead-tke-memo.html"
+    "url": "/Research/threads/mythical-man-month-saas-median-revenue-per.html"
   },
   {
-    "slug": "fly-io-write-path-free-tier",
-    "title": "fly io / write path / free tier",
+    "slug": "fly-io-contents-api-github-contents-2",
+    "title": "fly io / contents api / github contents",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "fly io",
-      "write path",
-      "free tier"
+      "contents api",
+      "github contents"
     ],
     "item_count": 3,
     "items": [
@@ -577,17 +577,17 @@
         "added": "2026-03-15"
       }
     ],
-    "url": "/Research/threads/fly-io-write-path-free-tier.html"
+    "url": "/Research/threads/fly-io-contents-api-github-contents-2.html"
   },
   {
-    "slug": "ios-shortcuts-fine-grained-pat-github-contents",
-    "title": "ios shortcuts / fine-grained pat / github contents",
+    "slug": "fine-grained-pat-ios-shortcuts-contents-api",
+    "title": "fine-grained pat / ios shortcuts / contents api",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ios shortcuts",
       "fine-grained pat",
-      "github contents"
+      "ios shortcuts",
+      "contents api"
     ],
     "item_count": 3,
     "items": [
@@ -607,7 +607,7 @@
         "added": "2026-03-10"
       }
     ],
-    "url": "/Research/threads/ios-shortcuts-fine-grained-pat-github-contents.html"
+    "url": "/Research/threads/fine-grained-pat-ios-shortcuts-contents-api.html"
   },
   {
     "slug": "gao-et-parameter-inertia-ntp-objective",
@@ -640,14 +640,14 @@
     "url": "/Research/threads/gao-et-parameter-inertia-ntp-objective.html"
   },
   {
-    "slug": "gao-et-ntp-objective-inference-time-intervention",
-    "title": "gao et / ntp objective / inference-time intervention",
+    "slug": "gao-et-h-neuron-activation-ntp-objective",
+    "title": "gao et / h-neuron activation / ntp objective",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "gao et",
-      "ntp objective",
-      "inference-time intervention"
+      "h-neuron activation",
+      "ntp objective"
     ],
     "item_count": 3,
     "items": [
@@ -667,17 +667,17 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/gao-et-ntp-objective-inference-time-intervention.html"
+    "url": "/Research/threads/gao-et-h-neuron-activation-ntp-objective.html"
   },
   {
-    "slug": "controlled-hallucination-visual-cortex-predictive-processing",
-    "title": "controlled hallucination / visual cortex / predictive processing",
+    "slug": "controlled-hallucination-rao-ballard-prediction-error",
+    "title": "controlled hallucination / rao ballard / prediction error",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "controlled hallucination",
-      "visual cortex",
-      "predictive processing"
+      "rao ballard",
+      "prediction error"
     ],
     "item_count": 3,
     "items": [
@@ -697,17 +697,17 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/controlled-hallucination-visual-cortex-predictive-processing.html"
+    "url": "/Research/threads/controlled-hallucination-rao-ballard-prediction-error.html"
   },
   {
-    "slug": "free-energy-hard-problem-controlled-hallucination",
-    "title": "free energy / hard problem / controlled hallucination",
+    "slug": "free-energy-hard-problem-schr-dinger",
+    "title": "free energy / hard problem / schr dinger",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "free energy",
       "hard problem",
-      "controlled hallucination"
+      "schr dinger"
     ],
     "item_count": 3,
     "items": [
@@ -727,6 +727,6 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/free-energy-hard-problem-controlled-hallucination.html"
+    "url": "/Research/threads/free-energy-hard-problem-schr-dinger.html"
   }
 ]

@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-05-22T07:36:22Z",
+  "extracted_at": "2026-05-22T07:54:47Z",
   "items": {
+    "2026-05-21-prompt-program-optimization-theory-mechanisms": {
+      "named_concepts": [
+        "program optimization",
+        "program structure",
+        "demonstrations retrieval",
+        "reinforcement learning",
+        "modular program",
+        "information routing",
+        "explicit constraints",
+        "search variables",
+        "dspy assertions",
+        "paper plus",
+        "plus project",
+        "project docs",
+        "instructions demonstrations",
+        "lightweight program",
+        "outperform baseline",
+        "baseline prompting",
+        "control variables",
+        "task structure",
+        "structure retrieval",
+        "retrieval decomposition"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2507.19457",
+        "https://arxiv.org/abs/2406.11695",
+        "https://arxiv.org/abs/2310.03714",
+        "https://arxiv.org/abs/2407.10930",
+        "https://arxiv.org/abs/2406.11706",
+        "https://arxiv.org/abs/2402.14207",
+        "https://arxiv.org/abs/2401.12178",
+        "https://arxiv.org/abs/2312.13382",
+        "https://arxiv.org/abs/2212.14024",
+        "https://dspy.ai/learn/optimization/optimizers/",
+        "https://github.com/stanfordnlp/dspy/blob/main/docs/docs/faqs.md"
+      ],
+      "key_claims": [
+        {
+          "text": "Prompt and program optimization outperform baseline prompting because they convert instructions, demonstrations, retrieval context, constraints, and lightweight program structure into explicit search variables, and many of the gains attributed to better prompts are really gains from making those structural choices searchable instead of fixed",
+          "sources": [
+            "https://arxiv.org/abs/2406.11695",
+            "https://arxiv.org/abs/2310.03714",
+            "https://arxiv.org/abs/2212.14024",
+            "https://arxiv.org/abs/2406.11706"
+          ]
+        },
+        {
+          "text": "These methods can outperform Reinforcement Learning when the system exposes richer supervision than sparse scalar reward, but where gains come mainly from added retrieval stages or larger search budgets the advantage is structural rather than proof that natural-language feedback is always superior",
+          "sources": [
+            "https://arxiv.org/abs/2507.19457",
+            "https://arxiv.org/abs/2312.13382",
+            "https://arxiv.org/abs/2212.14024",
+            "https://arxiv.org/abs/2401.12178"
+          ]
+        },
+        {
+          "text": "GEPA operationalizes this theory through trajectory sampling, natural-language diagnosis, prompt revision, and combination of complementary high-performing updates, and the paper reports average gains over Group Relative Policy Optimization with far fewer rollouts",
+          "sources": [
+            "https://arxiv.org/abs/2507.19457"
+          ]
+        },
+        {
+          "text": "MIPRO operationalizes the same theory for modular pipelines by bootstrapping demonstrations, drafting program-aware and data-aware instructions, and using stochastic mini-batch search with a learned scoring model over instruction and demonstration bundles",
+          "sources": [
+            "https://arxiv.org/abs/2406.11695",
+            "https://dspy.ai/learn/optimization/optimizers/"
+          ]
+        },
+        {
+          "text": "DSPy broadens prompt optimization into program optimization by representing a language model pipeline as typed modules and signatures whose prompts, demonstrations, and optionally weights can all be compiled against a user-specified metric rather than tuned as brittle prompt strings",
+          "sources": [
+            "https://arxiv.org/abs/2310.03714",
+            "https://dspy.ai/learn/optimization/optimizers/"
+          ]
+        },
+        {
+          "text": "DSPy Assertions extend optimization beyond accuracy by turning explicit computational constraints into compile-time and inference-time self-refinement signals, which lets the system optimize for both task success and rule compliance together",
+          "sources": [
+            "https://arxiv.org/abs/2312.13382",
+            "https://github.com/stanfordnlp/dspy/blob/main/docs/docs/faqs.md"
+          ]
+        },
+        {
+          "text": "Retrieval-centered methods such as DSP and Infer-Retrieve-Rank work because they optimize information routing and class coverage through staged retrieval and demonstrations, which is especially valuable when missing knowledge or huge label spaces are the real bottleneck rather than raw model capability",
+          "sources": [
+            "https://arxiv.org/abs/2212.14024",
+            "https://arxiv.org/abs/2401.12178"
+          ]
+        },
+        {
+          "text": "BetterTogether and prompt-as-hyperparameter work indicate that prompt optimization can complement weight optimization or synthetic-data generation in some modular settings, because prompt search can discover useful decompositions or data-creation procedures that later training exploits",
+          "sources": [
+            "https://arxiv.org/abs/2407.10930",
+            "https://arxiv.org/abs/2406.11706"
+          ]
+        }
+      ]
+    },
     "2026-05-21-monolith-vs-cohesive-portfolio-tco": {
       "named_concepts": [
         "cohesive systems",

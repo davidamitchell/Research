@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Long-term total cost of ownership trade-offs — Research</title>
+          <title>Theory and mechanisms of prompt and program optimization in Language Models — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -679,226 +679,110 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Long-term total cost of ownership trade-offs</span>
+    <span>Theory and mechanisms of prompt and program optimization in Language Models</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Long-term total cost of ownership trade-offs</h1>
-  <p class="full-title-subtitle">Long-term total cost of ownership trade-offs: few tightly coupled monoliths vs many tightly cohesive systems</p>
-  <div class="meta-bar">
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Theory and mechanisms of prompt and program optimization in Language Models</h1>
+    <div class="meta-bar">
     <span>2026-05-21</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/coupling.html">coupling</a> <a class="tag" href="/Research/tags/total-cost-of-ownership.html">total-cost-of-ownership</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> 
+    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/dspy.html">dspy</a> <a class="tag" href="/Research/tags/optimization.html">optimization</a> <a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-monolith-vs-cohesive-portfolio-tco.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-prompt-program-optimization-theory-mechanisms.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-21-monolith-vs-cohesive-portfolio-tco" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-21-prompt-program-optimization-theory-mechanisms" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>High coupling and weak cohesion raise long-run mutation cost because every local change</li>
-<li>Purposeful redesign can materially improve evolvability, because the Mozilla case shows that</li>
-<li>Many smaller cohesive systems reduce change and deployment coupling only when they really are</li>
-<li>The same decomposition that lowers local change cost can raise portfolio run cost, because</li>
-<li>Smaller cohesive systems are most likely to lower long-run TCO when monolithic scale,</li>
-<li>A well-structured monolith or a small number of modules that hide substantial implementation</li>
-<li>The dominant decision variable is therefore boundary quality plus governance maturity, not</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Prompt and program optimization outperform baseline prompting because they convert instructions, demonstrations, retrieval context, constraints, and lightweight program structure into explicit search variables, and many of the gains attributed to better prompts are really gains from making those structural choices searchable instead of fixed<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2406.11695" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.11695">Opsahl-Ong et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2310.03714" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.03714">Khattab et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2212.14024" target="_blank" rel="noopener" title="https://arxiv.org/abs/2212.14024">Khattab et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2406.11706" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.11706">Xian et al. (2024)</a></span></li>
+<li>These methods can outperform Reinforcement Learning when the system exposes richer supervision than sparse scalar reward, but where gains come mainly from added retrieval stages or larger search budgets the advantage is structural rather than proof that natural-language feedback is always superior<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2507.19457" target="_blank" rel="noopener" title="https://arxiv.org/abs/2507.19457">Agrawal et al. (2025)</a><a class="claim-source-link" href="https://arxiv.org/abs/2312.13382" target="_blank" rel="noopener" title="https://arxiv.org/abs/2312.13382">Singhvi et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2212.14024" target="_blank" rel="noopener" title="https://arxiv.org/abs/2212.14024">Khattab et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2401.12178" target="_blank" rel="noopener" title="https://arxiv.org/abs/2401.12178">Arxiv (n.d.)</a></span></li>
+<li>GEPA operationalizes this theory through trajectory sampling, natural-language diagnosis, prompt revision, and combination of complementary high-performing updates, and the paper reports average gains over Group Relative Policy Optimization with far fewer rollouts<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2507.19457" target="_blank" rel="noopener" title="https://arxiv.org/abs/2507.19457">Agrawal et al. (2025)</a></span></li>
+<li>MIPRO operationalizes the same theory for modular pipelines by bootstrapping demonstrations, drafting program-aware and data-aware instructions, and using stochastic mini-batch search with a learned scoring model over instruction and demonstration bundles<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2406.11695" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.11695">Opsahl-Ong et al. (2024)</a><a class="claim-source-link" href="https://dspy.ai/learn/optimization/optimizers/" target="_blank" rel="noopener" title="https://dspy.ai/learn/optimization/optimizers/">Dspy (n.d.)</a></span></li>
+<li>DSPy broadens prompt optimization into program optimization by representing a language model pipeline as typed modules and signatures whose prompts, demonstrations, and optionally weights can all be compiled against a user-specified metric rather than tuned as brittle prompt strings<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2310.03714" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.03714">Khattab et al. (2023)</a><a class="claim-source-link" href="https://dspy.ai/learn/optimization/optimizers/" target="_blank" rel="noopener" title="https://dspy.ai/learn/optimization/optimizers/">Dspy (n.d.)</a></span></li>
+<li>DSPy Assertions extend optimization beyond accuracy by turning explicit computational constraints into compile-time and inference-time self-refinement signals, which lets the system optimize for both task success and rule compliance together<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2312.13382" target="_blank" rel="noopener" title="https://arxiv.org/abs/2312.13382">Singhvi et al. (2023)</a><a class="claim-source-link" href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/faqs.md" target="_blank" rel="noopener" title="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/faqs.md">DSPy Frequently Asked Questions (n.d.)</a></span></li>
+<li>Retrieval-centered methods such as DSP and Infer-Retrieve-Rank work because they optimize information routing and class coverage through staged retrieval and demonstrations, which is especially valuable when missing knowledge or huge label spaces are the real bottleneck rather than raw model capability<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2212.14024" target="_blank" rel="noopener" title="https://arxiv.org/abs/2212.14024">Khattab et al. (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2401.12178" target="_blank" rel="noopener" title="https://arxiv.org/abs/2401.12178">Arxiv (n.d.)</a></span></li>
+<li>BetterTogether and prompt-as-hyperparameter work indicate that prompt optimization can complement weight optimization or synthetic-data generation in some modular settings, because prompt search can discover useful decompositions or data-creation procedures that later training exploits<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2407.10930" target="_blank" rel="noopener" title="https://arxiv.org/abs/2407.10930">Soylu et al. (2024)</a><a class="claim-source-link" href="https://arxiv.org/abs/2406.11706" target="_blank" rel="noopener" title="https://arxiv.org/abs/2406.11706">Xian et al. (2024)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>How do structural differences between portfolios of a few large monolithic systems with tight
-coupling, meaning many cross-component dependencies, and portfolios of many smaller tightly
-cohesive systems, meaning each system concentrates on one bounded responsibility, correlate
-with long-term Total Cost of Ownership (TCO), when balancing direct operational maintenance
-costs, infrastructure, patching, and platform governance, against lifecycle mutation costs,
-design, development, testing, and deployment?</p>
+<p>What theory best explains why prompt and program optimization methods can outperform baseline prompting and Reinforcement Learning (RL) in Language Model (LM) pipelines, and how do the methods in the listed papers operationalize that theory?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
-<p>Over multi-year horizons, portfolios of many smaller cohesive systems can have lower Total Cost of
-Ownership (TCO) than a few tightly coupled monoliths only when boundary quality is high and
-platform governance is mature; otherwise the extra coordination surface can make them more
-expensive than a well-structured monolith. [inference; source:
-http://sunnyday.mit.edu/16.355/parnas-criteria.html;
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933]">arxiv.org/abs/1909.08933]</a></p>
-<p>The mutation-cost side of the trade-off is strong: foundational modularity theory and the Mozilla
-redesign study both support the claim that reducing dependency exposure lowers future change
-burden and can be achieved deliberately rather than accidentally. [inference; source:
-http://sunnyday.mit.edu/16.355/parnas-criteria.html;
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf]">www.hbs.edu</a></p>
-<p>The operating-cost side is material: the migration literature says smaller services help when
-monolithic size, scalability, and ownership become dominant pain points, but they also demand
-more explicit monitoring, testing, ownership, and organisational coordination. [inference; source:
-<a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933]">arxiv.org/abs/1909.08933]</a></p>
-<p>The practical decision rule is to ask whether boundaries are good enough, and governance automated
-enough, that extra system count reduces dependency propagation faster than it increases run-cost
-overhead. [inference; source:
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">Mitchell (2026) The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html]">davidamitchell.github.io</a></p>
+<p>Prompt and program optimization are best explained as metric-guided search over interpretable interface parameters, instructions, demonstrations, retrieval state, constraints, and lightweight program structure, rather than as one-shot prompt writing or pure reward-maximizing policy updates. These methods outperform baseline prompting because they repeatedly test and revise concrete control variables against downstream task metrics instead of relying on a static prompt chosen once by hand. Part of the reported gain also comes from added task structure, retrieval decomposition, and search budget, but the common pattern across the papers is that these structural changes matter when they are turned into searchable program variables rather than left fixed. These methods can outperform Reinforcement Learning when natural-language reflections, module traces, assertion failures, or retrieval-stage outputs provide richer and more localizable supervision than sparse scalar rewards. Among the surveyed families, GEPA specializes this theory around trajectory reflection, DSPy and MIPRO specialize it around modular program compilation and learned-scoring-model-guided search, Assertions specialize it around explicit reliability constraints, BetterTogether specializes it around alternating prompt and weight updates, and DSP-style retrieval programs specialize it around information routing. The practical consequence is that optimizer choice should be driven by where the task exposes useful feedback, full trajectories, modular metrics, explicit constraints, or retrieval bottlenecks, rather than by a generic belief that one method is globally best.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><strong>High coupling and weak cohesion raise long-run mutation cost because every local change
-requires developers to understand, coordinate, and retest a wider dependency surface than the
-business change itself would otherwise require.</strong> ([inference]; high confidence; source:
-http://sunnyday.mit.edu/16.355/parnas-criteria.html;
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://ieeexplore.ieee.org/document/295895/">Chidamber and Kemerer (1994) A Metrics Suite for Object Oriented Design</a>
-<a href="https://ieeexplore.ieee.org/document/748920/">Briand et al. (1999) A Unified Framework for Coupling Measurement in Object-Oriented Systems</a></li>
-<li><strong>Purposeful redesign can materially improve evolvability, because the Mozilla case shows that
-managerial effort can produce a design that is significantly more modular than both an earlier
-version and an already more modular comparator.</strong> ([fact]; medium confidence; source:
-<a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf">MacCormack et al. (2005) Exploring the Structure of Complex Software Designs working paper</a></li>
-<li><strong>Many smaller cohesive systems reduce change and deployment coupling only when they really are
-independently deployable, independently testable, and owned as bounded responsibilities rather
-than as thin wrappers around a still-shared dependency tangle.</strong> ([inference]; high confidence;
-source: <a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a></li>
-<li><strong>The same decomposition that lowers local change cost can raise portfolio run cost, because
-service counts expand the need for monitoring, logging, integration testing, ownership
-alignment, and organisational coordination.</strong> ([fact]; high confidence; source:
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a></li>
-<li><strong>Smaller cohesive systems are most likely to lower long-run TCO when monolithic scale,
-scalability pressure, and code ownership friction have already become dominant costs, because
-that is the regime where deployment independence starts to offset governance overhead.</strong>
-([inference]; medium confidence; source:
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a></li>
-<li><strong>A well-structured monolith or a small number of modules that hide substantial implementation
-behind simple interfaces can remain cheaper than a large service portfolio when the
-organisation lacks strong platform standards, because fragmentation then shifts complexity into
-operations and governance instead of actually removing it.</strong>
-([inference]; medium confidence; source:
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html">Mitchell (2026) Agent Operational Cost vs Gap Closure Cost</a></li>
-<li><strong>The dominant decision variable is therefore boundary quality plus governance maturity, not
-service count alone, which makes &quot;few versus many&quot; a weaker predictor of TCO than dependency
-exposure and the amount of manual coordination left in the operating model.</strong> ([inference];
-medium confidence; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html;
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">Mitchell (2026) The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a></li>
+<li><strong>Prompt and program optimization outperform baseline prompting because they convert instructions, demonstrations, retrieval context, constraints, and lightweight program structure into explicit search variables, and many of the gains attributed to better prompts are really gains from making those structural choices searchable instead of fixed.</strong></li>
+<li><strong>These methods can outperform Reinforcement Learning when the system exposes richer supervision than sparse scalar reward, but where gains come mainly from added retrieval stages or larger search budgets the advantage is structural rather than proof that natural-language feedback is always superior.</strong></li>
+<li><strong>GEPA operationalizes this theory through trajectory sampling, natural-language diagnosis, prompt revision, and combination of complementary high-performing updates, and the paper reports average gains over Group Relative Policy Optimization with far fewer rollouts.</strong></li>
+<li><strong>MIPRO operationalizes the same theory for modular pipelines by bootstrapping demonstrations, drafting program-aware and data-aware instructions, and using stochastic mini-batch search with a learned scoring model over instruction and demonstration bundles.</strong></li>
+<li><strong>DSPy broadens prompt optimization into program optimization by representing a language model pipeline as typed modules and signatures whose prompts, demonstrations, and optionally weights can all be compiled against a user-specified metric rather than tuned as brittle prompt strings.</strong></li>
+<li><strong>DSPy Assertions extend optimization beyond accuracy by turning explicit computational constraints into compile-time and inference-time self-refinement signals, which lets the system optimize for both task success and rule compliance together.</strong></li>
+<li><strong>Retrieval-centered methods such as DSP and Infer-Retrieve-Rank work because they optimize information routing and class coverage through staged retrieval and demonstrations, which is especially valuable when missing knowledge or huge label spaces are the real bottleneck rather than raw model capability.</strong></li>
+<li><strong>BetterTogether and prompt-as-hyperparameter work indicate that prompt optimization can complement weight optimization or synthetic-data generation in some modular settings, because prompt search can discover useful decompositions or data-creation procedures that later training exploits.</strong></li>
+<li><strong>The best method depends on where useful feedback lives: GEPA fits trajectory-rich reasoning or tool tasks, DSPy and MIPRO fit modular pipelines with explicit metrics, Assertions fit reliability-constrained systems, and DSP-style retrieval programs fit knowledge-intensive tasks with information-routing bottlenecks.</strong></li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li>&quot;Many tightly cohesive systems&quot; means truly bounded services with real deployment independence,
-because the consulted migration literature treats that property as the mechanism behind the
-pattern's benefits; without real independence, system count rises without removing the
-underlying dependency tangle. [assumption; source:
-<a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933]">arxiv.org/abs/1909.08933]</a></li>
-<li>Mutation cost is a major proxy for long-run TCO in this item, because the accessible evidence
-base is much stronger on dependency propagation and redesign effort than on audited cross-firm
-cost ledgers, so the synthesis must reason from the best-supported cost mechanism. [assumption;
-source: http://sunnyday.mit.edu/16.355/parnas-criteria.html;
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf]">www.hbs.edu</a></li>
+<li>[assumption] Comparing mechanism-level theory from abstracts and official documentation is sufficient for this item because the question asks how the methods work conceptually, not for a re-analysis of every experimental appendix or ablation table. <strong>Justification:</strong> the required objects, loops, and feedback signals are stated directly in the paper abstracts and optimizer docs used here. [source: <a href="https://arxiv.org/abs/2507.19457">Agrawal et al. (2025) Genetic-Pareto (GEPA): Reflective Prompt Evolution Can Outperform Reinforcement Learning</a> <a href="https://arxiv.org/abs/2406.11695">Opsahl-Ong et al. (2024) Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs</a> <a href="https://arxiv.org/abs/2310.03714">Khattab et al. (2023) Declarative Self-improving Python (DSPy): Compiling Declarative Language Model Calls into Self-Improving Pipelines</a> <a href="https://dspy.ai/learn/optimization/optimizers/]">dspy.ai</a></li>
+<li>[assumption] Current DSPy documentation can be used alongside the 2023 and 2024 papers when extracting selection criteria because the docs explicitly map current optimizer names and stages back to the paper-defined mechanisms. <strong>Justification:</strong> the optimizer documentation cross-links MIPROv2, GEPA, and BetterTogether to their corresponding papers. [source: <a href="https://dspy.ai/learn/optimization/optimizers/">DSPy Optimizers Documentation</a> <a href="https://arxiv.org/abs/2406.11695">Opsahl-Ong et al. (2024) Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs</a> <a href="https://arxiv.org/abs/2507.19457">Agrawal et al. (2025) Genetic-Pareto (GEPA): Reflective Prompt Evolution Can Outperform Reinforcement Learning</a> <a href="https://arxiv.org/abs/2407.10930]">arxiv.org/abs/2407.10930]</a></li>
 </ul>
 <h3>Analysis</h3>
-<p>The evidence weighs more heavily toward structural mechanism than toward direct accounting
-measurement, so the most defensible answer is about cost drivers rather than universal percentage
-deltas. [inference; source: http://sunnyday.mit.edu/16.355/parnas-criteria.html;
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf]">www.hbs.edu</a></p>
-<p>An important rival explanation is that microservices look cheaper simply because the studied
-firms were already under exceptional growth pressure, which would have forced re-architecture
-under almost any naming scheme. That challenge matters, but the consulted sources still point to a
-bounded mechanism, independent deployment and bounded ownership, rather than to naming alone.
-[inference; source: <a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a> <a href="https://doi.org/10.1109/ColumbianCC.2015.7333476]">doi.org</a></p>
-<p>Another rival remedy is to keep the monolith but deepen its internal modules. The evidence does
-not reject that option; in fact, it suggests it is often the cheaper first move when service-level
-governance would still be manual. [inference; source:
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf">MacCormack et al. (2005) Exploring the Structure of Complex Software Designs working paper</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html]">davidamitchell.github.io</a></p>
-<p>The practical trade-off combines three requirements: reduce dependency exposure, preserve real
-deployment autonomy, and automate enough governance that extra system count does not become a
-standing tax. [inference; source:
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html]">davidamitchell.github.io</a></p>
+<p>The strongest common thread across the surveyed work is not &quot;better prompts&quot; in the casual prompt-engineering sense, but repeated search over interpretable control variables that sit at the interface between modules and the model. A plausible rival explanation is that gains come mainly from extra task structure, retrieval decomposition, or larger search budgets rather than from feedback richness itself. The evidence here suggests those are not separate rival mechanisms so much as the concrete surfaces on which search operates, because the reported improvements appear when those added stages are exposed as optimizable prompts, demonstrations, retrieval hops, or constraints. GEPA and MIPRO differ mainly in how they do credit assignment, GEPA reads complete trajectories and writes natural-language update rules, while MIPRO decomposes a pipeline into modules and searches over instruction and demonstration bundles with surrogate-guided evaluation. DSPy and DSPy Assertions matter because they expose program structure and explicit constraints, which creates more places for optimization to receive informative feedback than a single flat prompt can provide. This sharpens the broader recommendation in the <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-general-agent-optimization-framework.md">General Agent Optimization Framework</a> item: DSPy remains the best base framework, but the reason is its exposure of modular search variables and measurable optimization loops rather than packaging convenience alone.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>Direct audited portfolio-wide TCO datasets remain absent in the consulted evidence base, so the
-final answer is a conditional synthesis rather than a universal numeric benchmark. [fact; source:
-<a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a>
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933]">arxiv.org/abs/1909.08933]</a></li>
-<li>The empirical microservice literature in this item concentrates on migration contexts, which may
-overrepresent organisations already experiencing scale or complexity pain. [inference; source:
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933]">arxiv.org/abs/1909.08933]</a></li>
-<li>The unconsulted Taube-Schock and Bogner items could sharpen the coupling-unavoidability and
-service-evolvability sides of the argument, but they are unlikely to reverse the main conditional
-conclusion already supported by the consulted sources. [inference; source:
-<a href="https://researchcommons.waikato.ac.nz/handle/10289/5307">Taube-Schock et al. (2011) Can We Avoid High Coupling?</a>
-<a href="https://ieeexplore.ieee.org/document/8813066]">ieeexplore.ieee.org</a></li>
+<li>The unifying theory is a synthesis across papers, not a single published theorem, so the highest-confidence claims are about individual mechanisms rather than about one formally proved general law.</li>
+<li>GEPA is very recent, so the evidence for its superiority over Reinforcement Learning comes mainly from its own paper rather than from a broad replication literature.</li>
+<li>BetterTogether and prompt-as-hyperparameter results are task-specific, so the complementarity of prompt and weight optimization is well supported for the reported settings but not yet guaranteed for every pipeline shape.</li>
+<li>STORM is adjacent evidence about staged retrieved artifacts rather than a direct optimizer comparison, so it should qualify the information-routing argument rather than carry the core optimizer claim by itself.</li>
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li>Which public datasets measure how much observability and platform-engineering headcount rises as
-service counts increase? [inference; source:
-<a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a>
-<a href="https://arxiv.org/abs/1909.08933]">arxiv.org/abs/1909.08933]</a></li>
-<li>Under what conditions does a modular monolith capture most mutation-cost benefits without paying
-the governance cost of many independently deployed systems? [inference; source:
-<a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a>
-<a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf]">www.hbs.edu</a></li>
-<li>Which observable governance metrics best predict when a service portfolio has crossed from
-productive decomposition into fragmentation debt? [inference; source:
-<a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a>
-<a href="https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html]">davidamitchell.github.io</a></li>
+<li>When both are available inside DSPy, what empirical threshold should trigger GEPA instead of MIPROv2 for a modular program with tool traces?</li>
+<li>Can assertions, retrieval policy, and weight updates be optimized jointly without destabilizing search or creating conflicting objectives?</li>
+<li>What evaluation metric best captures reliability when constraint satisfaction and task accuracy trade off against each other in self-refining pipelines?</li>
 </ul>
 <hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="http://sunnyday.mit.edu/16.355/parnas-criteria.html">Parnas (1972) On the Criteria To Be Used in Decomposing Systems into Modules</a></li>
-<li>[x] <a href="https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign">Ousterhout (2018) Modular Design lecture notes</a></li>
-<li>[x] <a href="https://ieeexplore.ieee.org/document/295895/">Chidamber and Kemerer (1994) A Metrics Suite for Object Oriented Design</a></li>
-<li>[x] <a href="https://ieeexplore.ieee.org/document/748920/">Briand et al. (1999) A Unified Framework for Coupling Measurement in Object-Oriented Systems</a></li>
-<li>[x] <a href="https://www.hbs.edu/ris/Publication%20Files/05-016.pdf">MacCormack et al. (2005) Exploring the Structure of Complex Software Designs working paper</a></li>
-<li>[x] <a href="https://doi.org/10.1109/ColumbianCC.2015.7333476">Villamizar et al. (2015) Evaluating the monolithic and the microservice architecture pattern to deploy web applications in the cloud</a></li>
-<li>[x] <a href="https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content">Kalske et al. (2018) Challenges When Moving from Monolith to Microservice Architecture</a></li>
-<li>[x] <a href="https://arxiv.org/abs/1909.08933">Auer et al. (2021) From Monolithic Systems to Microservices: An Assessment Framework</a></li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">Mitchell (2026) The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a></li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html">Mitchell (2026) Agent Operational Cost vs Gap Closure Cost</a></li>
-<li>[ ] <a href="https://researchcommons.waikato.ac.nz/handle/10289/5307">Taube-Schock et al. (2011) Can We Avoid High Coupling?</a></li>
-<li>[ ] <a href="https://ieeexplore.ieee.org/document/8813066">Bogner et al. (2019) Assuring the Evolvability of Microservices: Insights into Industry Practices and Challenges</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2507.19457">Agrawal et al. (2025) Genetic-Pareto (GEPA): Reflective Prompt Evolution Can Outperform Reinforcement Learning</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2406.11695">Opsahl-Ong et al. (2024) Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2310.03714">Khattab et al. (2023) Declarative Self-improving Python (DSPy): Compiling Declarative Language Model Calls into Self-Improving Pipelines</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2407.10930">Soylu et al. (2024) Fine-Tuning and Prompt Optimization: Two Great Steps that Work Better Together</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2406.11706">Xian et al. (2024) Prompts as Auto-Optimized Training Hyperparameters: Training Best-in-Class Information Retrieval Models from Scratch with 10 Gold Labels</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2402.14207">Shao et al. (2024) Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2401.12178">D'Oosterlinck et al. (2024) In-Context Learning for Extreme Multi-Label Classification</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2312.13382">Singhvi et al. (2023) DSPy Assertions: Computational Constraints for Self-Refining Language Model Pipelines</a></li>
+<li>[x] <a href="https://arxiv.org/abs/2212.14024">Khattab et al. (2023) Demonstrate-Search-Predict (DSP): Composing Retrieval and Language Models for Knowledge-Intensive Natural Language Processing</a></li>
+<li>[x] <a href="https://dspy.ai/learn/optimization/optimizers/">DSPy Optimizers Documentation</a></li>
+<li>[x] <a href="https://github.com/stanfordnlp/dspy/blob/main/docs/docs/faqs.md">DSPy Frequently Asked Questions: Assertions and Optimizer Mechanics</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-general-agent-optimization-framework.md">General Agent Optimization Framework</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.md">STORM Perspective Discovery and Multi-perspective Question Generation</a></li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md">Evaluating and Improving Autonomous Research Loop Quality: Prompt Engineering and Output Assessment</a></li>
 </ul>
+<hr />
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways.html">How Can Institutions Align Strategic Relevance Pathways with Human Low-Effort Behaviour?</a> <span class="related-note">via organisational-design, transaction-costs</span></div>
-<div class="related-entry"><a href="/Research/research/2026-04-02-org-shape-software-cost-zero.html">The shape of organisations when software is no longer the constraint</a> <span class="related-note">via organisational-design, transaction-costs</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-05-general-agent-optimization-framework.html">General Agent Optimization Framework</a> <span class="related-note">via dspy, evaluation, optimization, prompt-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-06-barnum-statements-ai-responses-theory-practice.html">What are Barnum statements (Forer Effect statements), how do they manifest in Artificial Intelligence (AI)-generated text, and what methods exist to identify and remove them from AI research outputs?</a> <span class="related-note">via evaluation, llm, prompt-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-20-agentic-km-5-pillar-capability-model.html">What is the most practical enterprise design for a five-pillar knowledge management capability model for tool-using, semi-autonomous Artificial Intelligence systems, and how should existing architecture and governance frameworks be extended to support it?</a> <span class="related-note">via evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-20-information-density-filtering-financial-rag.html">How should financial Retrieval-Augmented Generation (RAG) systems filter low-information and duplicate content so risk and Anti-Money Laundering (AML) decisions stay factual and synchronized?</a> <span class="related-note">via evaluation, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html">RQ 5.1: Stochastic versus Deterministic Failure Modes on Identical Unvalidated Inputs</a> <span class="related-note">via evaluation, llm</span></div>
 </div></div>
 
-  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a></div>
-<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html">Agent Operational Cost vs Gap Closure Cost</a></div>
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-05-general-agent-optimization-framework.html">General Agent Optimization Framework</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.html">How does STORM&#39;s perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?</a></div>
 </div>
-<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html">Deep modules in AI-augmented development: interface design, contract-first delegation, and architectural rescue of AI-generated codebases</a></div>
-<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-02-org-shape-software-cost-zero.html">The shape of organisations when software is no longer the constraint</a></div>
-<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-22-code-architecture-inspection.html">Code Architecture Inspection Across Repositories</a></div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.html">How does STORM&#39;s perspective discovery step work, and what is the minimum-viable prompt design for replicating multi-perspective sub-question generation in a single-agent automated research workflow?</a></div>
 </div>
 
   
   <div class="item-nav">
-    
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-21-prompt-program-optimization-theory-mechanisms.html">Theory and mechanisms of prompt and program optimization in Language Models</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-21-monolith-vs-cohesive-portfolio-tco.html">Long-term total cost of ownership trade-offs</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-21-contract-theory-statistical-criteria.html">Contract theory formulation and statistical criteria for contracts</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -909,7 +793,7 @@ productive decomposition into fragmentation debt? [inference; source:
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-05-21-monolith-vs-cohesive-portfolio-tco";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-21-prompt-program-optimization-theory-mechanisms";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;
