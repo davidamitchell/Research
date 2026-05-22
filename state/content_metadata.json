@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-22T06:19:50Z",
+  "extracted_at": "2026-05-22T06:39:39Z",
   "items": {
     "2026-05-21-dynamic-resource-discovery-context-ontology": {
       "named_concepts": [
@@ -114,6 +114,134 @@
             "https://www.w3.org/TR/sparql11-query/",
             "https://arxiv.org/abs/2302.00093",
             "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-21-agentic-semantic-km-capability-model": {
+      "named_concepts": [
+        "skm systems",
+        "long-term memory",
+        "capability domains",
+        "runtime state",
+        "semantic modeling",
+        "maturity rubric",
+        "knowledge management",
+        "acquisition versus",
+        "versus semantic",
+        "semantic operations",
+        "control surface",
+        "semantic layer",
+        "checkpointed state",
+        "tool invocation",
+        "practical maturity",
+        "state governed",
+        "governed discovery",
+        "improvement loops",
+        "settled industry",
+        "minimum complete"
+      ],
+      "source_urls": [
+        "https://www.apqc.org/resource-library/resource-listing/apqcs-knowledge-management-framework",
+        "https://www.apqc.org/process-frameworks",
+        "https://cmmiinstitute.com/",
+        "https://cmmiinstitute.com/learning/appraisals/levels",
+        "https://www.w3.org/TR/rdf11-concepts/",
+        "https://www.w3.org/TR/owl2-overview/",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://arxiv.org/abs/2404.16130",
+        "https://modelcontextprotocol.io/introduction",
+        "https://modelcontextprotocol.io/docs/learn/architecture",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://metaphacts.com/solutions/semantic-knowledge-modeling",
+        "https://docs.stardog.com/virtual-graphs/",
+        "https://docs.stardog.com/inference-engine/",
+        "https://smart-pucrs.github.io/publications/pdf/ao2017ArturFreitas.pdf",
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.langchain.com/oss/python/langgraph/durable-execution",
+        "https://docs.langchain.com/oss/python/langgraph/persistence",
+        "https://docs.langchain.com/oss/python/concepts/memory",
+        "https://docs.langchain.com/oss/python/langgraph/interrupts",
+        "https://www.anthropic.com/research/building-effective-agents",
+        "https://microsoft.github.io/multi-agent-reference-architecture/docs/reference-architecture/Reference-Architecture.html",
+        "https://microsoft.github.io/multi-agent-reference-architecture/docs/governance/Governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-21-dynamic-resource-discovery-context-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-agentic-km-5-pillar-capability-model.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The minimum complete SKM model needs six top-level capability domains, and this is a bounded extension of the earlier five-pillar repository model, because acquisition versus semantic operations and interoperability versus orchestration expose materially different control surfaces, failure modes, and ownership boundaries",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-20-agentic-km-5-pillar-capability-model.html",
+            "https://arxiv.org/abs/2404.16130",
+            "https://modelcontextprotocol.io/docs/learn/architecture",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/governance/Governance.html"
+          ]
+        },
+        {
+          "text": "Semantic-layer maturity depends on explicit RDF datasets, OWL ontologies, SPARQL query surfaces, collaborative semantic modeling, and query-time reasoning or validation, because these capabilities recur across standards and enterprise semantic platforms and collectively define the semantic control surface of an SKM system",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/sparql11-query/",
+            "https://metaphacts.com/solutions/semantic-knowledge-modeling",
+            "https://docs.stardog.com/inference-engine/"
+          ]
+        },
+        {
+          "text": "Harvesting and extraction capability must cover both document-derived graph construction and live source virtualization, because GraphRAG-style pipelines and Stardog-style virtual graphs solve complementary parts of the knowledge acquisition problem",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130",
+            "https://docs.stardog.com/virtual-graphs/",
+            "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-lifecycle-management-agentic.html"
+          ]
+        },
+        {
+          "text": "Dynamic context and memory capability is best modeled through just-in-time retrieval, thread-scoped short-term state, namespace-scoped long-term memory, checkpointed replay, and resumable interrupts, because those primitives together cover the runtime state-management problems described in current context-engineering and orchestration documentation",
+          "sources": [
+            "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+            "https://docs.langchain.com/oss/python/langgraph/durable-execution",
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://docs.langchain.com/oss/python/concepts/memory",
+            "https://docs.langchain.com/oss/python/langgraph/interrupts"
+          ]
+        },
+        {
+          "text": "Reasoning and orchestration maturity is marked by progression from fixed workflows to planner or supervisor coordination with worker specialization, because public agent guidance and reference architectures repeatedly separate routing, decomposition, supervision, and recovery concerns",
+          "sources": [
+            "https://www.anthropic.com/research/building-effective-agents",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/reference-architecture/Reference-Architecture.html",
+            "https://smart-pucrs.github.io/publications/pdf/ao2017ArturFreitas.pdf"
+          ]
+        },
+        {
+          "text": "Interoperability should be treated as a first-class capability domain, because usable SKM systems need both semantic standards for data and discovery standards for tools, with MCP exposing discoverable tools, resources, and prompts through explicit list and get methods",
+          "sources": [
+            "https://www.w3.org/TR/rdf11-concepts/",
+            "https://www.w3.org/TR/owl2-overview/",
+            "https://www.w3.org/TR/sparql11-query/",
+            "https://modelcontextprotocol.io/introduction",
+            "https://modelcontextprotocol.io/docs/learn/architecture"
+          ]
+        },
+        {
+          "text": "The minimum operating model requires domain owners, ontology and knowledge engineers, orchestration and platform engineers, governance and evaluation owners, and formal improvement roles, because semantic modeling, runtime control, and maturity assurance are documented as different human workstreams",
+          "sources": [
+            "https://metaphacts.com/solutions/semantic-knowledge-modeling",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/governance/Governance.html",
+            "https://cmmiinstitute.com/learning/appraisals/levels"
+          ]
+        },
+        {
+          "text": "A practical maturity rubric for SKM systems runs from Initial through Repeatable, Managed, Quantitatively Managed, and Optimizing, with the transitions driven by versioned semantics, persistent runtime state, governed discovery, and measurable control loops rather than by model size alone",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals/levels",
+            "https://docs.langchain.com/oss/python/langgraph/persistence",
+            "https://docs.stardog.com/inference-engine/",
+            "https://microsoft.github.io/multi-agent-reference-architecture/docs/governance/Governance.html"
           ]
         }
       ]
