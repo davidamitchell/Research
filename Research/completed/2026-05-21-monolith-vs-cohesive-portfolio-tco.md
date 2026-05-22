@@ -2,12 +2,12 @@
 review_count: 2
 title: "Long-term total cost of ownership trade-offs: few tightly coupled monoliths vs many tightly cohesive systems"
 added: 2026-05-21T20:43:51+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [software-architecture, coupling, cohesion, maintainability, total-cost-of-ownership, organisational-design, transaction-costs]
 started: 2026-05-22T06:38:39+00:00
-completed: ~
+completed: 2026-05-22T06:55:01+00:00
 output: [knowledge]
 cites:
   - 2026-03-10-nature-of-the-firm-coase-organisations
@@ -155,12 +155,6 @@ Root question: when does portfolio shape lower or raise long-run TCO?
   with `https://doi.org/10.1109/ColumbianCC.2015.7333476`.
 - source_correction: the seeded Kalske source link pointed to the wrong Springer chapter and was
   replaced with the Helsinki repository copy of `10.1007/978-3-319-74433-9_3`.
-- search_note: no accessible study in this session provided a direct multi-year, audited TCO
-  benchmark comparing few large monoliths against many cohesive systems as whole portfolios, so
-  the answer must be synthesized from mutation-cost, operating-cost, and coordination-cost
-  evidence.
-- search_note: the Taube-Schock and Bogner items were identified but not needed for the final
-  decision rule once stronger directly consulted sources covered the same trade-off surface.
 
 #### A. Foundational structural theory
 
@@ -330,7 +324,7 @@ Root question: when does portfolio shape lower or raise long-run TCO?
 
 **Executive summary:**
 
-Over multi-year horizons, portfolios of many smaller cohesive systems have lower Total Cost of
+Over multi-year horizons, portfolios of many smaller cohesive systems can have lower Total Cost of
 Ownership (TCO) than a few tightly coupled monoliths only when boundary quality is high and
 platform governance is mature; otherwise the extra coordination surface can make them more
 expensive than a well-structured monolith. [inference; source:
@@ -393,9 +387,10 @@ https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-
    https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
    https://doi.org/10.1109/ColumbianCC.2015.7333476;
    https://arxiv.org/abs/1909.08933)
-6. **A well-structured monolith or a small number of deep modules can remain cheaper than a large
-   service portfolio when the organisation lacks strong platform standards, because fragmentation
-   then shifts complexity into operations and governance instead of actually removing it.**
+6. **A well-structured monolith or a small number of modules that hide substantial implementation
+   behind simple interfaces can remain cheaper than a large service portfolio when the
+   organisation lacks strong platform standards, because fragmentation then shifts complexity into
+   operations and governance instead of actually removing it.**
    ([inference]; medium confidence; source:
    https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign;
    https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
@@ -511,7 +506,7 @@ https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm
 
 ### Executive Summary
 
-Over multi-year horizons, portfolios of many smaller cohesive systems have lower Total Cost of
+Over multi-year horizons, portfolios of many smaller cohesive systems can have lower Total Cost of
 Ownership (TCO) than a few tightly coupled monoliths only when boundary quality is high and
 platform governance is mature; otherwise the extra coordination surface can make them more
 expensive than a well-structured monolith. [inference; source:
@@ -574,9 +569,10 @@ https://davidamitchell.github.io/Research/research/2026-05-16-agent-operational-
    https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
    https://doi.org/10.1109/ColumbianCC.2015.7333476;
    https://arxiv.org/abs/1909.08933)
-6. **A well-structured monolith or a small number of deep modules can remain cheaper than a large
-   service portfolio when the organisation lacks strong platform standards, because fragmentation
-   then shifts complexity into operations and governance instead of actually removing it.**
+6. **A well-structured monolith or a small number of modules that hide substantial implementation
+   behind simple interfaces can remain cheaper than a large service portfolio when the
+   organisation lacks strong platform standards, because fragmentation then shifts complexity into
+   operations and governance instead of actually removing it.**
    ([inference]; medium confidence; source:
    https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign;
    https://helda.helsinki.fi/server/api/core/bitstreams/b3f9ded3-9db4-4e91-b683-f3ebadd2ede9/content;
