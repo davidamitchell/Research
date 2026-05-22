@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What capabilities, sub-capabilities, architectural patterns, and maturity dimensions define tool-using, semi-autonomous Semantic Knowledge Management systems?"
 added: 2026-05-21T11:07:25+00:00
 status: reviewing
