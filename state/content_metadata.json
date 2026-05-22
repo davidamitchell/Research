@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-22T07:10:31Z",
+  "extracted_at": "2026-05-22T07:26:17Z",
   "items": {
     "2026-05-21-monolith-vs-cohesive-portfolio-tco": {
       "named_concepts": [
@@ -181,6 +181,109 @@
             "https://www.w3.org/TR/sparql11-query/",
             "https://arxiv.org/abs/2302.00093",
             "https://davidamitchell.github.io/Research/research/2026-05-12-knowledge-graph-agentic-runtime-dependency.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-21-contract-theory-statistical-criteria": {
+      "named_concepts": [
+        "exact phrase",
+        "statistical contract",
+        "meaning whether",
+        "contract theory",
+        "phrase statistical",
+        "empirical contract",
+        "contract models",
+        "bates et",
+        "et al",
+        "information structure",
+        "intended action",
+        "contract appears",
+        "identification meaning",
+        "whether model",
+        "model parameters",
+        "contract model",
+        "evaluation criteria",
+        "adequacy checklist",
+        "incentive-compatibility constraints",
+        "constraints meaning"
+      ],
+      "source_urls": [
+        "https://ideas.repec.org/a/rje/bellje/v10y1979ispringp74-91.html",
+        "https://www.nobelprize.org/prizes/economic-sciences/2016/popular-information/",
+        "https://books.core-econ.org/the-economy/microeconomics/10-market-successes-failures-08-principal-agent-relationships.html",
+        "https://economics.mit.edu/sites/default/files/inline-files/Lecture%206%20and%207%20-%20Moral%20Hazard%20and%20Applicaitons.pdf",
+        "https://arxiv.org/abs/2205.06812",
+        "https://www.nber.org/papers/w28698",
+        "https://web.stanford.edu/group/fwolak/cgi-bin/sites/default/files/files/Structural%20Econometric%20Modeling_Rationales%20and%20Examples%20From%20Industrial%20Organization_Reiss,%20Wolak.pdf",
+        "https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33",
+        "https://www.nber.org/papers/w11259",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq1-3-instrumentalism-failure-modes.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq2-4-causal-hierarchy-formal-limits.html",
+        "https://press.princeton.edu/books/hardcover/9780691091846/the-theory-of-incentives",
+        "https://www.oecd.org/en/publications/handbook-on-constructing-composite-indicators_9789264043466-en.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Contract theory studies how principals structure incentives, risk sharing, and decision rights when agents possess hidden actions, hidden types, or non-contractible contingencies that prevent complete ex ante contracting",
+          "sources": [
+            "https://www.nobelprize.org/prizes/economic-sciences/2016/popular-information/",
+            "https://books.core-econ.org/the-economy/microeconomics/10-market-successes-failures-08-principal-agent-relationships.html",
+            "https://ideas.repec.org/a/rje/bellje/v10y1979ispringp74-91.html"
+          ]
+        },
+        {
+          "text": "A standard contract-theory formulation requires explicit specification of the parties, the information structure, the stochastic outcome process, the agent's utility and outside option, the principal's payoff, and the participation and incentive-compatibility constraints, meaning the constraints that make the agent prefer the intended action and accept the contract",
+          "sources": [
+            "https://economics.mit.edu/sites/default/files/inline-files/Lecture%206%20and%207%20-%20Moral%20Hazard%20and%20Applicaitons.pdf",
+            "https://www.nobelprize.org/prizes/economic-sciences/2016/popular-information/"
+          ]
+        },
+        {
+          "text": "In the accessible evidence base for this item, the exact phrase \"statistical contract\" appears as a narrow label for incentive-aware evidence protocols, especially in recent principal-agent hypothesis-testing work, rather than as a demonstrated blanket synonym for any empirical contract model",
+          "sources": [
+            "https://arxiv.org/abs/2205.06812",
+            "https://www.nobelprize.org/prizes/economic-sciences/2016/popular-information/",
+            "https://ideas.repec.org/a/rje/bellje/v10y1979ispringp74-91.html"
+          ]
+        },
+        {
+          "text": "For ordinary empirical contract models, statistical adequacy starts with identification, meaning whether model parameters can be learned from observed data, and estimability, meaning whether the model can be fit in practice, because the analyst must show how latent constructs such as effort, type, or quality are linked to observables or justified proxies",
+          "sources": [
+            "https://www.nber.org/papers/w28698",
+            "https://web.stanford.edu/group/fwolak/cgi-bin/sites/default/files/files/Structural%20Econometric%20Modeling_Rationales%20and%20Examples%20From%20Industrial%20Organization_Reiss,%20Wolak.pdf"
+          ]
+        },
+        {
+          "text": "Fit and prediction are necessary but not sufficient evaluation criteria, because structural contract models are valued partly for mechanism recovery and counterfactual policy analysis rather than only for reproducing the current sample",
+          "sources": [
+            "https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33",
+            "https://www.nber.org/papers/w28698",
+            "https://www.nber.org/papers/w11259"
+          ]
+        },
+        {
+          "text": "Robust evaluation of a contract model requires sensitivity checks on functional-form, stochastic, and environmental assumptions, because external validity and structure that remains stable under policy change determine whether conclusions travel beyond the estimation setting",
+          "sources": [
+            "https://www.nber.org/papers/w28698",
+            "https://www.nber.org/papers/w11259",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq1-3-instrumentalism-failure-modes.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-18-rq2-4-causal-hierarchy-formal-limits.html"
+          ]
+        },
+        {
+          "text": "Bates et al. show in their regulator-firm hypothesis-testing model that inferential error rates must be evaluated together with strategic response, because a statistically valid threshold can still make weak candidates profitable to submit when approval payoffs are large enough",
+          "sources": [
+            "https://arxiv.org/abs/2205.06812"
+          ]
+        },
+        {
+          "text": "A practical adequacy checklist is sequential: define the contractual objective, specify observables and latent variables, prove or justify identification, test fit and out-of-sample behavior, examine counterfactual stability, and then test whether the evidence rule remains incentive compatible once agents adapt to it",
+          "sources": [
+            "https://economics.mit.edu/sites/default/files/inline-files/Lecture%206%20and%207%20-%20Moral%20Hazard%20and%20Applicaitons.pdf",
+            "https://www.nber.org/papers/w28698",
+            "https://www.aeaweb.org/articles?id=10.1257/jep.31.2.33",
+            "https://arxiv.org/abs/2205.06812"
           ]
         }
       ]
