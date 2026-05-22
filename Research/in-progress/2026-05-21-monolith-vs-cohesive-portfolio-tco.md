@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Long-term total cost of ownership trade-offs: few tightly coupled monoliths vs many tightly cohesive systems"
 added: 2026-05-21T20:43:51+00:00
 status: reviewing
