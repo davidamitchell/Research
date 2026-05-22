@@ -2,12 +2,12 @@
 review_count: 2
 title: "Contract theory formulation and statistical criteria for contracts"
 added: 2026-05-21T11:12:00+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [economics, evaluation, invariants]
 started: 2026-05-22T06:56:33+00:00
-completed: ~
+completed: 2026-05-22T07:24:06+00:00
 output: [knowledge]
 cites: []
 related:
