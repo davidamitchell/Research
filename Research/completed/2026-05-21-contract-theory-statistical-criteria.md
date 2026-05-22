@@ -17,7 +17,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 1b5face1e28784378fb34c4eec26ec89b0161a42
+    changed: 2026-05-22
+    progress: progress/2026-05-22-contract-theory-statistical-criteria.md
+    summary: "Initial completion"
 ---
 
 # Contract theory formulation and statistical criteria for contracts
