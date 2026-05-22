@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Contract theory formulation and statistical criteria for contracts"
 added: 2026-05-21T11:12:00+00:00
 status: reviewing
