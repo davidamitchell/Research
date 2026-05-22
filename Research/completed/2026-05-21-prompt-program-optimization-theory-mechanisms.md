@@ -2,12 +2,12 @@
 review_count: 2
 title: "Theory and mechanisms of prompt and program optimization in Language Models"
 added: 2026-05-21T18:44:50+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [llm, dspy, optimization, prompt-engineering, evaluation]
 started: 2026-05-22T07:25:55+00:00
-completed: ~
+completed: 2026-05-22T07:52:49+00:00
 output: []
 cites:
   - 2026-03-05-general-agent-optimization-framework
