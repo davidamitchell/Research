@@ -15,6 +15,7 @@ supersedes: ~      # slug of an older item this one replaces (null if not applic
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+gaps: []           # 1–5 open questions this item could not answer; see scripts/aggregate_gaps.py
 ---
 
 # TITLE

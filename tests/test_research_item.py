@@ -230,3 +230,56 @@ def test_from_file_parses_versions(tmp_path: Path) -> None:
     assert item.versions[0]["version"] == "1.0"
     assert item.versions[0]["sha"] == "abc1234"
     assert item.versions[0]["summary"] == "Initial completion"
+
+
+def test_from_file_parses_gaps(tmp_path: Path) -> None:
+    """ResearchItem.from_file reads gaps list from frontmatter."""
+    content = """\
+---
+title: "Item with gaps"
+added: 2026-05-22
+status: completed
+priority: medium
+tags: [testing]
+gaps:
+  - How does X scale beyond 1000 items?
+  - What is the cost of Y at scale?
+---
+
+# Item with gaps
+"""
+    f = tmp_path / "2026-05-22-gaps.md"
+    f.write_text(content)
+    item = ResearchItem.from_file(f)
+    assert item.gaps == [
+        "How does X scale beyond 1000 items?",
+        "What is the cost of Y at scale?",
+    ]
+
+
+def test_from_file_defaults_gaps_to_empty_list_when_absent(tmp_path: Path) -> None:
+    """ResearchItem.from_file defaults gaps to [] when field is absent."""
+    f = tmp_path / "2026-02-27-test.md"
+    f.write_text(SAMPLE_ITEM)
+    item = ResearchItem.from_file(f)
+    assert item.gaps == []
+
+
+def test_from_file_defaults_gaps_to_empty_list_when_empty(tmp_path: Path) -> None:
+    """ResearchItem.from_file defaults gaps to [] when field is gaps: []."""
+    content = """\
+---
+title: "Empty gaps"
+added: 2026-05-22
+status: completed
+priority: medium
+tags: []
+gaps: []
+---
+
+# Empty gaps
+"""
+    f = tmp_path / "2026-05-22-empty-gaps.md"
+    f.write_text(content)
+    item = ResearchItem.from_file(f)
+    assert item.gaps == []

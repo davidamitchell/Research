@@ -26,6 +26,7 @@ class ResearchItem:
     item_type: str = "primary"  # primary | synthesis
     confidence: str = "medium"  # high | medium | low
     versions: list[dict] = field(default_factory=list)
+    gaps: list[str] = field(default_factory=list)
 
     @classmethod
     def from_file(cls, path: Path) -> ResearchItem:
@@ -74,6 +75,7 @@ class ResearchItem:
             item_type=str(meta.get("item_type") or "primary"),
             confidence=str(meta.get("confidence") or "medium"),
             versions=meta.get("versions") or [],
+            gaps=meta.get("gaps") or [],
         )
 
     def state_dir_name(self) -> str:

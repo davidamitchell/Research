@@ -675,9 +675,9 @@ The research loop runs a monologue, not a dialogue. STORM's simulated expert con
 
 ## W-0040
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-05-22
 
 ### Outcome
 
@@ -694,6 +694,10 @@ Tests cover: template field presence, script output schema, promotion threshold 
 ### Context
 
 ~280 instances of gap/risk language exist across completed items but all are inside body text — none are structured data. There is no mechanism to turn "outstanding question X" into a backlog item, and no way to query the gap corpus. This is the biggest structural gap in the research system. The Knowledge Explorer pattern (structured gap register with automatic promotion) is the design to follow. Lightweight: YAML list in frontmatter + a Python aggregator script.
+
+### Notes
+
+`gaps: []` field added to `Research/_template.md` and `ResearchItem` dataclass. `scripts/aggregate_gaps.py` implemented: reads `gaps:` from all completed items, normalises, counts, writes `state/gap_registry.json` with `promote: true` for gaps appearing in ≥3 items. `research-prompt.md` updated with Step 0 (check registry at session start) and `gaps:` instruction after §6 Synthesis. 21 new tests in `tests/test_aggregate_gaps.py`; 3 new tests in `tests/test_research_item.py`. All pass; `make check` clean.
 
 ---
 

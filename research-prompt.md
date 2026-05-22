@@ -20,6 +20,26 @@ re-run earlier steps unless the Action explicitly says to.
 
 ## Steps
 
+### 0. Check gap registry for promoted gaps
+
+Before starting research, check whether `state/gap_registry.json` exists and
+contains any gaps flagged `"promote": true`:
+
+```bash
+python scripts/aggregate_gaps.py  # regenerate the registry from current corpus
+```
+
+Read `state/gap_registry.json`. For each gap entry where `"promote": true`:
+
+1. Search `Research/backlog/` for an existing item whose Research Question
+   directly addresses that gap (title or question contains the gap text).
+2. If no matching backlog item exists, create one now using the standard
+   backlog format (`Research/backlog/YYYY-MM-DD-<slug>.md`) and add it to
+   the commit. Set `priority: high` if the gap appears in `blocks:` of an
+   existing in-progress item; otherwise `priority: medium`.
+
+Skip this step if `state/gap_registry.json` does not exist or is empty.
+
 ### 1. Read the item
 
 Read the file at the path given above in full. Understand:
@@ -66,6 +86,16 @@ other governance surfaces your conclusions touch.
   existing canonical tags. Use `agentic-ai` not `ai`; use `llm` not
   `large-language-model`; check the vocabulary table for all 20 canonical
   clusters before assigning tags.
+- `gaps:` — after §6 Synthesis, extract 1–5 open questions that this
+  research could not answer and write them into the `gaps:` frontmatter field
+  as a YAML list of strings. Each entry should be a self-contained question
+  (not a reformulation of the research question). Leave as `[]` if no genuine
+  open questions remain. Example:
+  ```yaml
+  gaps:
+    - How does X behave under Y conditions at scale beyond 1000 items?
+    - What is the cost profile of Z when adopted in regulated environments?
+  ```
 
 ### 2. Research the item -- follow the research skill in full
 
