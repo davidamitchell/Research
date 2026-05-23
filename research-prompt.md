@@ -61,11 +61,12 @@ other governance surfaces your conclusions touch.
   (`version: "1.0"`, `sha: <commit hash>`, `changed: YYYY-MM-DD`,
   `progress: <session log path>`, `summary: "Initial completion"`) after the
   item is committed and you have the commit SHA.
-- `tags:` — assign tags at §6 Synthesis. **Consult `docs/tag-vocabulary.md`
-  and use only canonical forms.** Do not create tags that are near-synonyms of
-  existing canonical tags. Use `agentic-ai` not `ai`; use `llm` not
-  `large-language-model`; check the vocabulary table for all 20 canonical
-  clusters before assigning tags.
+- `themes:` — assign 3–5 themes at §6 Synthesis. **Consult `docs/themes-vocabulary.md`
+  and use only canonical slugs from the 22-item controlled vocabulary.** Do not invent
+  slugs that are near-synonyms of existing ones — use the alias map to find the correct
+  canonical form. For example: use `agentic-ai` not `ai`; use `llm-reasoning` not
+  `prompt-engineering`; use `tools-infrastructure` not `workflow`. If no canonical theme
+  fits, record the concept in `gaps:` frontmatter rather than creating a new slug.
 
 ### 2. Research the item -- follow the research skill in full
 

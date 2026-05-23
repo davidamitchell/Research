@@ -1537,9 +1537,9 @@ The corpus currently has two competing theme fields (`tags` and `ai_themes`) tha
 
 ## W-0077
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
