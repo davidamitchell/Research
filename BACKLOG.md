@@ -1515,9 +1515,9 @@ Blocked on W-0072 and W-0074.
 
 ## W-0076
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
