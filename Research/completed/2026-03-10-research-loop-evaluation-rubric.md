@@ -4,11 +4,10 @@ added: 2026-03-14T07:48:55+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, evaluation, rubric, research-loop, llm-as-judge, regression, quality-gate, ci]
-ai_themes: [agentic-ai, benchmarks-eval, tools-infrastructure]
 started: 2026-03-14T07:48:55+00:00
 completed: 2026-03-14T07:48:55+00:00
 output: [knowledge, artefact]
+themes: [agentic-ai, benchmarks-eval, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

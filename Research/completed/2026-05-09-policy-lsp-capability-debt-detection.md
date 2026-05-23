@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, governance, capability-modelling, operational-risk]
-ai_themes: [governance-policy, workforce-skills, tools-infrastructure, operational-risk]
 started: 2026-05-11T11:16:13+00:00
 completed: 2026-05-11T11:42:38+00:00
 output: [knowledge]
+themes: [governance-policy, workforce-skills, tools-infrastructure, security-risk, organisational-design]
 cites: [2026-03-01-agent-lsp-policy-enforcement, 2026-03-21-technology-capability-models, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-04-26-systems-capability-debt-citizen-development-empirical-evidence, 2026-05-09-basel-iso-nist-shadow-workforce-risk-classification]
 related: [2026-04-27-pdp-universal-policy-synchronisation-integrity, 2026-04-22-historical-technology-adoption-enterprise-ai-capability-building, 2026-05-08-ai-skill-decay-deskilling-measurement-interventions]
 superseded_by: ~

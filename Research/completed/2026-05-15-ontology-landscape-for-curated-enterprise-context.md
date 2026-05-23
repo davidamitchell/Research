@@ -5,11 +5,10 @@ added: 2026-05-15T19:57:36+00:00
 status: completed
 priority: high
 blocks: []
-tags: [knowledge-graph, llm, organisation, workflow]
-ai_themes: [knowledge-graphs, memory-context, knowledge-management, ai-architecture, enterprise-ontology]
 started: 2026-05-15T23:33:05+00:00
 completed: 2026-05-15T23:58:23+00:00
 output: [knowledge]
+themes: [knowledge-graphs, memory-context, knowledge-management, ai-architecture, organisational-design, tools-infrastructure]
 cites:
   - 2026-05-12-web-ontologies-production-knowledge-graph-agentic
   - 2026-05-12-data-product-ontology

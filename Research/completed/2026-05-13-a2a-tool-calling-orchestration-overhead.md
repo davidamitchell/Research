@@ -5,11 +5,10 @@ added: 2026-05-13T09:01:36+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [agentic-ai, agent-tooling, llm, governance, workflow]
-ai_themes: [agentic-ai, multi-agent, tools-infrastructure, llm-reasoning, ai-architecture]
 started: 2026-05-14T09:29:21+00:00
 completed: 2026-05-14T09:52:32+00:00
 output: [knowledge]
+themes: [agentic-ai, multi-agent, tools-infrastructure, llm-reasoning, ai-architecture]
 cites:
   - 2026-03-18-api-context-hubs-rag-mcp
   - 2026-05-06-aibom-identity-attribution-multiagent-practice

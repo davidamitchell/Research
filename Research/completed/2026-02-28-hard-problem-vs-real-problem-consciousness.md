@@ -3,11 +3,10 @@ title: "The hard problem vs. the real problem of consciousness"
 added: 2026-03-05T08:03:16+00:00
 status: completed
 priority: medium
-tags: [consciousness, hard-problem, philosophy-of-mind, anil-seth, chalmers, phenomenology]
-ai_themes: [consciousness-cognition, ai-architecture, philosophy-of-mind]
 started: 2026-03-05T08:03:16+00:00
 completed: 2026-03-05T08:03:16+00:00
 output: [knowledge]
+themes: [consciousness-cognition, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

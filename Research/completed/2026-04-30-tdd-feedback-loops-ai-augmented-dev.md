@@ -5,11 +5,10 @@ added: 2026-04-30T20:31:45+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
-tags: [agentic-coding, software-engineering, tdd, evaluation, llm, agentic-ai]
-ai_themes: [agentic-ai, tools-infrastructure, benchmarks-eval, software-engineering-practices]
 started: 2026-05-01T01:14:58+00:00
 completed: 2026-05-01T01:34:06+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, tools-infrastructure, benchmarks-eval, software-engineering]
 cites: [2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-fundamentals-first-vs-specs-to-code, 2026-04-30-grill-me-ai-alignment-shared-design, 2026-04-26-llm-verifiability-asymmetry-code-world-action, 2026-04-26-software-engineering-investment-case-llm]
 related: [2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-strategic-tactical-division-ai-teams]
 superseded_by: ~

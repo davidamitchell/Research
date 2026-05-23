@@ -5,11 +5,10 @@ added: 2026-03-22T10:56:16+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [architecture, static-analysis, multi-repo, coupling, standards, github-copilot, tooling]
-ai_themes: [tools-infrastructure, ai-architecture, knowledge-management, code-analysis-automation]
 started: 2026-03-22T10:56:16+00:00
 completed: 2026-03-22T10:56:16+00:00
 output: [knowledge, backlog-item]
+themes: [tools-infrastructure, ai-architecture, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ added: 2026-04-27T00:55:35+00:00
 status: completed
 priority: high
 blocks: [2026-04-27-pdp-universal-policy-synchronisation-integrity, 2026-04-27-out-of-band-policy-invalidation-remediation, 2026-04-27-pip-invariant-anomaly-detection]
-tags: [pbac, pap, pep, policy-enforcement, agentic-ai, cia-classification, lifecycle-governance, lattice-access-control, capability-security, proportionality]
-ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, access-control-framework]
 started: 2026-04-27T02:47:31+00:00
 completed: 2026-04-27T03:11:29+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

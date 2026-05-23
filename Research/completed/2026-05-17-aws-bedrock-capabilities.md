@@ -5,8 +5,7 @@ added: 2026-05-17T10:17:56+00:00
 status: completed
 priority: high
 blocks: []
-tags: [aws, agentic-ai, ai-platform, enterprise, llm, rag, ai-governance, regulated-enterprise, evaluation, workflow]
-themes: [agentic-ai, rag-retrieval, governance-policy, benchmarks-eval, ai-architecture]
+themes: [agentic-ai, rag-retrieval, governance-policy, benchmarks-eval, ai-architecture, tools-infrastructure]
 started: 2026-05-17T12:58:58+00:00
 completed: 2026-05-17T13:20:19+00:00
 output: [knowledge]

@@ -3,11 +3,10 @@ title: "Transaction Cost Economics: foundations and speculative integration with
 added: 2026-03-02T20:00:58+00:00
 status: completed
 priority: high
-tags: [transaction-costs, institutional-economics, coase, williamson, north, ostrom, munger, swe, agentic-ai, knowledge-management, context-engineering]
-ai_themes: [agentic-ai, knowledge-management, governance-policy, transaction-cost-economics, context-engineering]
 started: 2026-03-02T20:00:58+00:00
 completed: 2026-03-02T20:00:58+00:00
 output: [knowledge]
+themes: [agentic-ai, knowledge-management, governance-policy]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

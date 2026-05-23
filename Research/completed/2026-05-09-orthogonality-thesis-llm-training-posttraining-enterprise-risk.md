@@ -5,11 +5,10 @@ added: 2026-05-09T01:45:34+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, llm, alignment, enterprise, ai-governance, runtime-monitoring, mechanistic-interpretability]
-ai_themes: [agentic-ai, security-risk, governance-policy, enterprise-adoption, llm-training]
 started: 2026-05-09T06:36:18+00:00
 completed: 2026-05-09T06:55:51+00:00
 output: [knowledge]
+themes: [agentic-ai, security-risk, governance-policy, enterprise-adoption, ai-architecture]
 cites:
   - 2026-04-30-orthogonality-thesis-ai-alignment-interpretability
   - 2026-04-30-human-bias-ai-trust-rlhf-sycophancy

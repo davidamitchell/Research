@@ -4,11 +4,10 @@ added: 2026-03-08T07:48:43+00:00
 status: completed
 priority: high
 blocks: []
-tags: [capture, ux, memory-system, triage, agent-automation]
-ai_themes: [memory-context, knowledge-management, tools-infrastructure, human-computer-interaction]
 started: 2026-03-08T07:48:43+00:00
 completed: 2026-03-08T07:48:43+00:00
 output: [knowledge, backlog-item]
+themes: [memory-context, knowledge-management, tools-infrastructure, human-ai-interaction]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

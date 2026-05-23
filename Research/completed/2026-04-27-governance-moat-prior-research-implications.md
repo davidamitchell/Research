@@ -5,11 +5,10 @@ added: 2026-04-27T04:15:46+00:00
 status: completed
 priority: high
 blocks: []
-tags: [governance, governance-moat, servicenow, uelgf, pap-pdp-pep, prior-research-synthesis, enterprise-architecture, agentic-ai, terminal-value, switching-costs, institutional-knowledge, ai-commoditisation, investment-thesis, regulated-financial-services]
-ai_themes: [agentic-ai, governance-policy, ai-architecture, knowledge-management, enterprise-strategy]
 started: 2026-04-27T10:05:23+00:00
 completed: 2026-04-27T10:48:41+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture, knowledge-management, enterprise-adoption]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

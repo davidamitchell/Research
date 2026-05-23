@@ -5,8 +5,7 @@ added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, organisation, workflow, evaluation]
-themes: [llm-reasoning, governance-policy, security-risk, benchmarks-eval, organisational-impact]
+themes: [llm-reasoning, governance-policy, security-risk, benchmarks-eval, organisational-impact, agentic-ai, organisational-design, tools-infrastructure]
 started: 2026-05-18T10:16:53+00:00
 completed: 2026-05-18T10:42:07+00:00
 output: [knowledge]

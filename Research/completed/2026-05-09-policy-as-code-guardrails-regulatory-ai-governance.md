@@ -6,11 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
-tags: [policy-as-code, governance, agentic-ai, llm, ai-governance, compliance, regulatory, guardrails, workflow]
-ai_themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, regulatory-compliance]
 started: 2026-05-09T23:23:17+00:00
 completed: 2026-05-09T23:45:33+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, regulatory-compliance, agentic-ai]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
   - 2026-04-26-ai-lowcode-governance-enforcement-architecture

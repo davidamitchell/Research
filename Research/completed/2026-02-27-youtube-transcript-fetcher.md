@@ -3,11 +3,10 @@ title: "YouTube transcript fetcher for research"
 added: 2026-03-03T02:21:31+00:00
 status: completed
 priority: high
-tags: [youtube, transcripts, fetching, tooling]
-ai_themes: [tools-infrastructure, knowledge-management, data-acquisition]
 started: 2026-03-03T02:21:31+00:00
 completed: 2026-03-03T02:21:31+00:00
 output: [tool, backlog-item]
+themes: [tools-infrastructure, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

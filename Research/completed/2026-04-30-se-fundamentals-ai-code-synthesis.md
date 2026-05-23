@@ -5,11 +5,10 @@ added: 2026-04-30T20:31:45+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-coding, software-engineering, tdd, evaluation, agentic-ai, llm, synthesis]
-ai_themes: [agentic-ai, benchmarks-eval, tools-infrastructure, software-engineering-practices]
 started: 2026-05-01T07:02:27+00:00
 completed: 2026-05-01T07:25:57+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, benchmarks-eval, tools-infrastructure, software-engineering]
 cites: [2026-04-30-grill-me-ai-alignment-shared-design, 2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-tdd-feedback-loops-ai-augmented-dev, 2026-04-30-strategic-tactical-division-ai-teams, 2026-04-30-fundamentals-first-vs-specs-to-code, 2026-03-12-volume-vs-correctness-ai-era, 2026-03-14-reliable-software-llm-era, 2026-04-26-llm-verifiability-asymmetry-code-world-action]
 related: [2026-04-26-software-engineering-investment-case-llm, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis]
 superseded_by: ~

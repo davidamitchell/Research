@@ -4,11 +4,10 @@ added: 2026-04-02T09:05:22+00:00
 status: completed
 priority: high
 blocks: []
-tags: [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agentic-ai, npm, typescript, memory, tools]
-ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, security-risk, prompt-engineering]
 started: 2026-04-02T09:05:22+00:00
 completed: 2026-04-02T09:05:22+00:00
 output: [knowledge]
+themes: [agentic-ai, ai-architecture, tools-infrastructure, security-risk, llm-reasoning]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

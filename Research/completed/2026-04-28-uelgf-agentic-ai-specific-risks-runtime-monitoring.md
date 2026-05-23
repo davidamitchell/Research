@@ -5,11 +5,10 @@ added: 2026-04-28T07:19:00+00:00
 status: completed
 priority: high
 blocks: []
-tags: [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucinations, runtime-monitoring, non-determinism, observability, governed-golden-rail]
-ai_themes: [agentic-ai, multi-agent, governance-policy, security-risk, runtime-observability]
 started: 2026-04-28T09:14:33+00:00
 completed: 2026-04-28T09:43:47+00:00
 output: [knowledge]
+themes: [agentic-ai, multi-agent, governance-policy, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

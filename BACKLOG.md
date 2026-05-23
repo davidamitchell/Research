@@ -1140,9 +1140,10 @@ Current individual item pages show only the Markdown body. Readers cannot see re
 
 ## W-0061
 
-status: open
+status: superseded
+superseded_by: W-0081
 created: 2026-05-09
-updated: 2026-05-11
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1344,9 +1345,10 @@ All completed research items carry an `ai_themes` frontmatter field drawn from t
 
 ## W-0070
 
-status: open
+status: superseded
+superseded-by: W-0079
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1515,9 +1517,9 @@ Blocked on W-0072 and W-0074.
 
 ## W-0076
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1537,9 +1539,9 @@ The corpus currently has two competing theme fields (`tags` and `ai_themes`) tha
 
 ## W-0077
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1564,9 +1566,9 @@ The current state has `tags:` (798 unique values, majority singletons), `ai_them
 
 ## W-0078
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1589,9 +1591,9 @@ Blocked on W-0077 (vocabulary must exist before migration runs). This is the one
 
 ## W-0079
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1614,9 +1616,9 @@ Blocked on W-0077 (vocabulary) and W-0078 (migration). Supersedes W-0070 (`ai_th
 
 ## W-0080
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1636,9 +1638,9 @@ Blocked on W-0077 (vocabulary) and W-0078 (migration). Replaces the tag-review w
 
 ## W-0081
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 

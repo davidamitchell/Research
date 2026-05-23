@@ -4,11 +4,10 @@ added: 2026-03-09T08:08:08+00:00
 status: completed
 priority: high
 blocks: []
-tags: [context-engineering, prompt-engineering, llm, token-prediction, first-principles, steering, goal-alignment, rag, agent-instructions, compliance]
-ai_themes: [memory-context, rag-retrieval, ai-architecture, prompt-engineering-methodology]
 started: 2026-03-09T08:08:08+00:00
 completed: 2026-03-09T08:08:08+00:00
 output: [knowledge]
+themes: [memory-context, rag-retrieval, ai-architecture, llm-reasoning]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

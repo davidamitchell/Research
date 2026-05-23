@@ -5,11 +5,10 @@ added: 2026-03-22T09:14:01+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: [2026-03-15-context-layers-aligned-decisions-synthesis]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [neuroscience, cognition, context-management, working-memory, attention, prefrontal-cortex, decision-making]
-ai_themes: [consciousness-cognition, memory-context, llm-reasoning, neuro-inspired-ai]
 started: 2026-03-22T09:14:01+00:00
 completed: 2026-03-22T09:14:01+00:00
 output: [knowledge]
+themes: [consciousness-cognition, memory-context, llm-reasoning]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

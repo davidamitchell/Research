@@ -4,11 +4,10 @@ added: 2026-03-03T09:37:29+00:00
 status: completed
 priority: high
 blocks: [2026-03-03-cross-item-synthesis-meta-insights]
-tags: [knowledge-graph, zettelkasten, cross-references, linking, synthesis, backlinks, corpus, knowledge-integration, knowledge-management]
-ai_themes: [knowledge-graphs, knowledge-management, tools-infrastructure, memory-context, information-synthesis]
 started: 2026-03-03T09:37:29+00:00
 completed: 2026-03-03T09:37:29+00:00
 output: [knowledge, tool, backlog-item]
+themes: [knowledge-graphs, knowledge-management, tools-infrastructure, memory-context]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

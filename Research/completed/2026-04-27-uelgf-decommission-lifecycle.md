@@ -5,11 +5,10 @@ added: 2026-04-27T01:28:25+00:00
 status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
-tags: [uelgf, decommission, ghost-entity, lifecycle, systems-capability-debt, credential-revocation, dependency-elimination, archive, off-rail-detection, regulated-banking]
-ai_themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, systems-lifecycle-management]
 started: 2026-04-27T04:51:42+00:00
 completed: 2026-04-27T05:10:48+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -3,11 +3,10 @@ title: "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Conce
 added: 2026-03-03T09:58:16+00:00
 status: completed
 priority: high
-tags: [lse, lsa, knowledge-graph, concept-maps, document-compression, context-management, rag, agentic-ai, knowledge-layering, intent-alignment, graphrag]
-ai_themes: [agentic-ai, memory-context, rag-retrieval, knowledge-graphs, knowledge-management]
 started: 2026-03-03T09:58:16+00:00
 completed: 2026-03-03T09:58:16+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, memory-context, rag-retrieval, knowledge-graphs, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

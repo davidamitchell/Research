@@ -5,11 +5,10 @@ added: 2026-04-22T20:49:35+00:00
 status: completed
 priority: high
 blocks: []
-tags: [ai-governance, compliance, change-control, delivery-pipeline]
-ai_themes: [governance-policy, mlops-deployment, tools-infrastructure, ai-assurance]
 started: 2026-04-22T20:49:35+00:00
 completed: 2026-04-22T20:49:35+00:00
 output: [knowledge]
+themes: [governance-policy, mlops-deployment, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

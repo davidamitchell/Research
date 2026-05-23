@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: medium
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]
-tags: [governance-cost, delivery-performance, ai-governance, low-code, economic-model, developer-friction, centralised-governance, federated-governance, enterprise-governance]
-ai_themes: [governance-policy, cost-performance, tools-infrastructure, low-code-governance]
 started: 2026-04-27T11:54:45+00:00
 completed: 2026-04-27T12:25:39+00:00
 output: [knowledge]
+themes: [governance-policy, cost-performance, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

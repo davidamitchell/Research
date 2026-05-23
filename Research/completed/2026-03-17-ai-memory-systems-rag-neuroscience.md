@@ -5,11 +5,10 @@ added: 2026-03-20T07:07:32+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [memory, retrieval-augmented-generation, neuroscience, artificial-intelligence-vendors, github-copilot, gemini, claude, episodic-memory, working-memory, knowledge-management]
-ai_themes: [memory-context, rag-retrieval, ai-architecture, consciousness-cognition, neuro-inspired-ai]
 started: 2026-03-20T07:07:32+00:00
 completed: 2026-03-20T07:07:32+00:00
 output: [knowledge]
+themes: [memory-context, rag-retrieval, ai-architecture, consciousness-cognition, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

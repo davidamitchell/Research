@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, llm, evaluation, technical-debt, governance]
-ai_themes: [agentic-ai, governance-policy, security-risk, benchmarks-eval, technical-debt]
 started: 2026-05-01T21:32:27+00:00
 completed: 2026-05-01T21:51:56+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, benchmarks-eval]
 cites: [2026-04-26-llm-verifiability-asymmetry-code-world-action, 2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-04-30-tdd-feedback-loops-ai-augmented-dev, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-coding-agent-context-management-transparency]
 related: [2026-03-14-reliable-software-llm-era, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks]
 superseded_by: ~

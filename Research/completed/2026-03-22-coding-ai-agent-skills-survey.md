@@ -5,11 +5,10 @@ added: 2026-03-22T07:39:46+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, copilot, skills, prompts, software-engineering, dotnet, python, ddd, cqrs, clean-architecture, solid, api-design, testing, security, kafka, airflow, data-pipelines, data-visualisation, jupyter]
-ai_themes: [agentic-ai, tools-infrastructure, knowledge-management, software-engineering-patterns]
 started: 2026-03-22T07:39:46+00:00
 completed: 2026-03-22T07:39:46+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, knowledge-management, software-engineering]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

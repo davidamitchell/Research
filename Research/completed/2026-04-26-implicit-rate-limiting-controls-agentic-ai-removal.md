@@ -5,11 +5,10 @@ added: 2026-04-26T08:31:49+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
-tags: [operational-risk, automation-risk, agentic-ai, blast-radius, implicit-controls, citizen-development, rate-limiting, regulated-banking]
-ai_themes: [agentic-ai, security-risk, governance-policy, operational-resilience, automation-governance]
 started: 2026-04-26T08:31:49+00:00
 completed: 2026-04-26T08:31:49+00:00
 output: [knowledge]
+themes: [agentic-ai, security-risk, governance-policy, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

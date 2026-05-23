@@ -5,11 +5,10 @@ added: 2026-05-19T19:42:38+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, organisational-design, organisational-learning, organisational-theory]
-themes: [governance-policy, workforce-skills, knowledge-management, organisational-design, psychological-safety]
 started: 2026-05-20T08:53:08+00:00
 completed: 2026-05-20T09:20:38+00:00
 output: [knowledge]
+themes: [governance-policy, workforce-skills, knowledge-management, organisational-design, psychological-safety]
 cites:
   - 2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour
   - 2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing

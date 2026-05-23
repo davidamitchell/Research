@@ -6,11 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq3-3-cot-counterfactual-limits
-tags: [llm, machine-learning, evaluation, hallucinations, causal-inference]
-themes: [llm-reasoning, benchmarks-eval, consciousness-cognition, causal-inference]
 started: 2026-05-19T10:32:06+00:00
 completed: 2026-05-19T11:01:20+00:00
 output: [knowledge]
+themes: [llm-reasoning, benchmarks-eval, consciousness-cognition, causal-inference]
 cites:
   - 2026-05-18-rq3-1-llm-statistical-vs-causal
   - 2026-05-18-rq2-4-causal-hierarchy-formal-limits

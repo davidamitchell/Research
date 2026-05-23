@@ -3,11 +3,10 @@ title: "ML techniques, algorithms, and advanced analytics — a systematic refer
 added: 2026-03-05T06:26:52+00:00
 status: completed
 priority: high
-tags: [machine-learning, analytics, algorithms, statistics, deep-learning, best-practices, model-selection]
-ai_themes: [ai-architecture, mlops-deployment, workforce-skills, analytics-methodology]
 started: 2026-03-05T06:26:52+00:00
 completed: 2026-03-05T06:26:52+00:00
 output: [knowledge, backlog-item]
+themes: [ai-architecture, mlops-deployment, workforce-skills]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

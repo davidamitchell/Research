@@ -5,11 +5,10 @@ added: 2026-05-06T09:49:53+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-fact-checking-tools-research-quality-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [llm, hallucinations, fact-checking, evaluation, workflow, journalism, content-moderation]
-ai_themes: [rag-retrieval, benchmarks-eval, ai-architecture, mlops-deployment, fact-checking-systems]
 started: 2026-05-06T12:58:00+00:00
 completed: 2026-05-06T13:28:08+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [rag-retrieval, benchmarks-eval, ai-architecture, mlops-deployment, tools-infrastructure]
 cites: [2026-05-02-automated-claim-verification-academic-literature, 2026-05-06-factscore-precision-scoring-atomic-claims, 2026-03-05-llm-hallucination-mechanisms]          # slugs of items this item directly depends on or quotes
 related: [2026-04-28-llm-as-judge-pipeline-validation-checkpoints, 2026-05-06-barnum-statements-ai-responses-theory-practice]  # slugs of completed items that are thematically related but not directly cited
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

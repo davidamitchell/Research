@@ -31,6 +31,8 @@ from build_site import (
     build_research_master_page,
     build_search_index,
     build_search_page,
+    build_theme_page,
+    build_themes_index,
     detect_concept_threads,
     detect_threads,
     html_nav,
@@ -1645,3 +1647,245 @@ def test_mini_graph_js_uses_pointer_events() -> None:
 
 def test_graph_js_has_barnes_hut() -> None:
     assert "makeBarnesHut" in _GRAPH_JS
+
+
+# ---------------------------------------------------------------------------
+# Themes — W-0079
+# ---------------------------------------------------------------------------
+
+
+def _make_theme_item(
+    slug: str,
+    themes: list[str],
+    added: datetime | None = None,
+) -> dict:
+    """Minimal item dict sufficient for theme page building."""
+    added_dt = added or datetime(2026, 1, 1, tzinfo=UTC)
+    return {
+        "slug": slug,
+        "tags": [],
+        "themes": themes,
+        "thread": "",
+        "added": added_dt,
+        "added_str": added_dt.date().isoformat(),
+        "title": f"Title for {slug}",
+        "display_title": f"Title for {slug}",
+        "question": "",
+        "question_excerpt": "",
+        "sections": {},
+        "item_type": "primary",
+        "confidence": "medium",
+        "superseded_by": None,
+        "cites": [],
+        "related_slugs": [],
+        "versions": [],
+        "github_url": f"https://github.com/example/{slug}",
+        "_sources_text": "",
+        "_kind": "research",
+        "page_url": f"/Research/research/{slug}.html",
+    }
+
+
+def test_build_themes_index_returns_html() -> None:
+    """build_themes_index should return an HTML string with theme links."""
+    item_a = _make_theme_item("item-a", ["agentic-ai", "governance-policy"])
+    item_b = _make_theme_item("item-b", ["agentic-ai", "tools-infrastructure"])
+    themes_map = {
+        "agentic-ai": [item_a, item_b],
+        "governance-policy": [item_a],
+        "tools-infrastructure": [item_b],
+    }
+    html = build_themes_index(themes_map)
+    assert "agentic-ai" in html
+    assert "governance-policy" in html
+    assert "/Research/themes/" in html
+
+
+def test_build_themes_index_shows_item_counts() -> None:
+    """The themes index must show item counts for each theme."""
+    item = _make_theme_item("item-a", ["agentic-ai"])
+    themes_map = {"agentic-ai": [item, item]}
+    html = build_themes_index(themes_map)
+    assert "2" in html
+
+
+def test_build_theme_page_returns_html() -> None:
+    """build_theme_page should return HTML containing the theme name and item cards."""
+    item = _make_theme_item("item-a", ["agentic-ai"])
+    html = build_theme_page("agentic-ai", [item])
+    assert "agentic-ai" in html
+    assert "item-a" in html.lower() or "Title for item-a" in html
+
+
+def test_build_theme_page_shows_item_count() -> None:
+    """build_theme_page must include item count in the page header."""
+    items = [_make_theme_item(f"item-{i}", ["agentic-ai"]) for i in range(3)]
+    html = build_theme_page("agentic-ai", items)
+    assert "3" in html
+
+
+def test_build_theme_page_links_back_to_themes_index() -> None:
+    """Each theme page must include a link back to the themes index."""
+    item = _make_theme_item("item-a", ["agentic-ai"])
+    html = build_theme_page("agentic-ai", [item])
+    assert "/Research/themes/" in html
+
+
+def test_html_nav_contains_themes_link() -> None:
+    """html_nav must include a link to /Research/themes/."""
+    nav = html_nav()
+    assert "/Research/themes/" in nav
+
+
+def test_render_card_uses_themes_for_badges() -> None:
+    """render_card must render theme slugs as badge spans."""
+    item = _make_theme_item("item-a", ["agentic-ai", "governance-policy"])
+    html = render_card(item)
+    assert "agentic-ai" in html
+    assert "governance-policy" in html
+
+
+def test_render_card_empty_themes_renders_no_badges() -> None:
+    """render_card with empty themes must render with no tag span badges."""
+    item = _make_theme_item("item-a", [])
+    html = render_card(item)
+    # No theme badge spans expected (card-tags div should be empty or absent)
+    assert 'class="tag"' not in html or html.count('class="tag"') == 0
+
+
+# ---------------------------------------------------------------------------
+# W-0081 — Synthesis Candidates Page
+# ---------------------------------------------------------------------------
+
+
+def _make_conf_item(
+    slug: str,
+    themes: list[str],
+    confidence: str = "medium",
+    added: datetime | None = None,
+) -> dict:
+    """Minimal item dict for synthesis candidate cluster tests."""
+    added_dt = added or datetime(2026, 1, 1, tzinfo=UTC)
+    return {
+        "slug": slug,
+        "tags": [],
+        "themes": themes,
+        "thread": "",
+        "added": added_dt,
+        "added_str": added_dt.date().isoformat(),
+        "title": f"Title for {slug}",
+        "display_title": f"Title for {slug}",
+        "question": "",
+        "question_excerpt": "",
+        "sections": {},
+        "item_type": "primary",
+        "confidence": confidence,
+        "superseded_by": None,
+        "cites": [],
+        "related_slugs": [],
+        "versions": [],
+        "github_url": f"https://github.com/example/{slug}",
+        "_sources_text": "",
+        "_kind": "research",
+        "page_url": f"/Research/research/{slug}.html",
+    }
+
+
+def test_generate_synthesis_candidates_groups_by_shared_themes() -> None:
+    """Items sharing ≥2 themes must be grouped into a cluster."""
+    from build_site import generate_synthesis_candidates
+
+    items = [
+        _make_conf_item("a", ["agentic-ai", "knowledge-management", "llm-reasoning"]),
+        _make_conf_item("b", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("c", ["governance-policy"]),
+    ]
+    clusters = generate_synthesis_candidates(items)
+    # Items a and b share 2 themes — must form a cluster
+    cluster_slugs = [frozenset(it["slug"] for it in cl["items"]) for cl in clusters]
+    assert frozenset({"a", "b"}) in cluster_slugs
+
+
+def test_generate_synthesis_candidates_requires_minimum_two_shared_themes() -> None:
+    """Items sharing only 1 theme must not form a cluster."""
+    from build_site import generate_synthesis_candidates
+
+    items = [
+        _make_conf_item("a", ["agentic-ai"]),
+        _make_conf_item("b", ["agentic-ai"]),
+        _make_conf_item("c", ["agentic-ai"]),
+    ]
+    clusters = generate_synthesis_candidates(items)
+    # Only 1 shared theme — no clusters
+    assert clusters == []
+
+
+def test_generate_synthesis_candidates_requires_minimum_two_items() -> None:
+    """Clusters must contain at least 2 items."""
+    from build_site import generate_synthesis_candidates
+
+    items = [_make_conf_item("a", ["agentic-ai", "knowledge-management"])]
+    clusters = generate_synthesis_candidates(items)
+    assert clusters == []
+
+
+def test_generate_synthesis_candidates_ranked_by_size() -> None:
+    """Clusters must be ranked by descending size (most items first)."""
+    from build_site import generate_synthesis_candidates
+
+    items = [
+        _make_conf_item("a", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("b", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("c", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("d", ["governance-policy", "tools-infrastructure"]),
+        _make_conf_item("e", ["governance-policy", "tools-infrastructure"]),
+    ]
+    clusters = generate_synthesis_candidates(items)
+    assert len(clusters) >= 2
+    assert len(clusters[0]["items"]) >= len(clusters[-1]["items"])
+
+
+def test_generate_synthesis_candidates_deterministic() -> None:
+    """generate_synthesis_candidates must produce the same output for the same input."""
+    from build_site import generate_synthesis_candidates
+
+    items = [
+        _make_conf_item("a", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("b", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("c", ["governance-policy", "tools-infrastructure"]),
+        _make_conf_item("d", ["governance-policy", "tools-infrastructure"]),
+    ]
+    assert generate_synthesis_candidates(items) == generate_synthesis_candidates(items)
+
+
+def test_build_synthesis_candidates_page_contains_nav_link() -> None:
+    """html_nav must contain a 'Synthesis Candidates' link."""
+    nav = html_nav()
+    assert "synthesis-candidates" in nav or "Synthesis" in nav
+
+
+def test_build_synthesis_candidates_page_renders_html() -> None:
+    """build_synthesis_candidates_page must return a non-empty HTML string."""
+    from build_site import build_synthesis_candidates_page
+
+    items = [
+        _make_conf_item("a", ["agentic-ai", "knowledge-management"]),
+        _make_conf_item("b", ["agentic-ai", "knowledge-management"]),
+    ]
+    html = build_synthesis_candidates_page(items)
+    assert "synthesis" in html.lower()
+    assert "agentic-ai" in html
+    assert "knowledge-management" in html
+
+
+def test_build_synthesis_candidates_page_links_to_items() -> None:
+    """Each cluster item must be linked from the candidates page."""
+    from build_site import build_synthesis_candidates_page
+
+    items = [
+        _make_conf_item("item-alpha", ["agentic-ai", "governance-policy"]),
+        _make_conf_item("item-beta", ["agentic-ai", "governance-policy"]),
+    ]
+    html = build_synthesis_candidates_page(items)
+    assert "item-alpha" in html
+    assert "item-beta" in html

@@ -4,11 +4,10 @@ added: 2026-03-08T08:09:53+00:00
 status: completed
 priority: high
 blocks: []
-tags: [lancedb, performance, indexing, serverless, memory-system]
-ai_themes: [rag-retrieval, tools-infrastructure, mlops-deployment, cost-performance, vector-database-optimization]
 started: 2026-03-08T08:09:53+00:00
 completed: 2026-03-08T08:09:53+00:00
 output: [knowledge, backlog-item]
+themes: [rag-retrieval, tools-infrastructure, mlops-deployment, cost-performance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

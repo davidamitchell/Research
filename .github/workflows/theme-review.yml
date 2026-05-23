@@ -1,0 +1,156 @@
+name: Theme Review
+
+# Generates a theme governance report and opens a GitHub issue listing
+# coverage gaps, near-duplicate vocabulary candidates, and stray themes.
+#
+# Outputs:
+#   state/theme_report.json  — machine-readable data
+#   state/theme_report.md    — human-readable summary committed back to main
+#
+# The generated issue summarises:
+#   - Items missing themes: field (need enrich-items.yml run)
+#   - Near-duplicate canonical vocabulary slugs (consolidation candidates)
+#   - Stray non-vocabulary themes in corpus (normalisation candidates)
+#   - Unused canonical themes (potential pruning candidates)
+#
+# Trigger: monthly on the 1st at 06:00 UTC, or manual workflow_dispatch.
+# No secrets required (reads only; GITHUB_TOKEN used for commit and issue).
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"  # monthly on the 1st
+  workflow_dispatch: {}
+
+concurrency:
+  group: theme-review
+  cancel-in-progress: true
+
+jobs:
+  generate-report:
+    name: Generate theme report
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Generate theme report
+        run: python scripts/theme_report.py
+
+      - name: Commit report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/theme_report.json state/theme_report.md
+          if git diff --cached --quiet; then
+            echo "No changes to theme report — skipping commit."
+          else
+            git commit -m "chore: update theme report [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Build issue body
+        id: issue-body
+        run: |
+          python - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("state/theme_report.json").read_text())
+          s = data["summary"]
+
+          lines = [
+              "## Theme governance report",
+              "",
+              f"**Canonical themes in vocabulary:** {s['total_canonical_themes']}  ",
+              f"**Items scanned:** {s['total_items_scanned']}  ",
+              f"**Items with themes:** {s['items_with_themes']}  ",
+              f"**Uncovered items (no themes:):** {s['uncovered_count']}  ",
+              f"**Near-duplicate vocabulary candidates:** {s['near_duplicate_count']}  ",
+              f"**Stray (non-vocabulary) themes:** {s['stray_theme_count']}  ",
+              f"**Unused canonical themes:** {s['unused_canonical_count']}",
+              "",
+              "---",
+              "",
+              "### Uncovered items (missing `themes:` field)",
+              "",
+              "> Run `enrich-items.yml` to backfill these items.",
+              "",
+          ]
+
+          uncovered = data["coverage"]["uncovered_slugs"]
+          if uncovered:
+              for slug in uncovered[:30]:
+                  lines.append(f"- `{slug}`")
+              if len(uncovered) > 30:
+                  lines.append(f"- … and {len(uncovered) - 30} more — see `state/theme_report.md`")
+          else:
+              lines.append("✅ All items have `themes:` — coverage is complete.")
+
+          lines += [
+              "",
+              "---",
+              "",
+              "### Near-duplicate vocabulary candidates",
+              "",
+              "> Levenshtein distance ≤ 2 or token Jaccard ≥ 0.6.",
+              "> Candidates for future vocabulary consolidation.",
+              "",
+          ]
+
+          if data["near_duplicates"]:
+              lines += ["| Slug A | Slug B | Levenshtein | Jaccard |", "|---|---|---|---|"]
+              for d in data["near_duplicates"][:20]:
+                  lines.append(
+                      f"| `{d['a']}` | `{d['b']}` | {d['levenshtein']} | {d['jaccard']} |"
+                  )
+          else:
+              lines.append("_None found._")
+
+          if data["stray_themes"]:
+              lines += [
+                  "",
+                  "---",
+                  "",
+                  "### Stray themes (not in canonical vocabulary)",
+                  "",
+              ]
+              lines.append(", ".join(f"`{t}`" for t in data["stray_themes"][:20]))
+
+          lines += [
+              "",
+              "---",
+              "",
+              f"Full report: [`state/theme_report.md`](https://github.com/${{ github.repository }}/blob/main/state/theme_report.md)",
+              "",
+              "_Use this report to maintain `docs/themes-vocabulary.md` and trigger enrichment as needed._",
+          ]
+
+          body = "\n".join(lines)
+          Path("/tmp/issue_body.md").write_text(body)
+          PYEOF
+
+      - name: Open review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Theme review: $(date +%Y-%m-%d)" \
+            --body-file /tmp/issue_body.md \
+            --label "theme-review" || \
+          gh issue create \
+            --title "Theme review: $(date +%Y-%m-%d)" \
+            --body-file /tmp/issue_body.md

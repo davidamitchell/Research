@@ -5,11 +5,10 @@ added: 2026-04-26T06:57:01+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
-tags: [policy-coherence, policy-as-code, open-policy-agent, formal-specification, invariant-registry, agentic-ai, regulated-banking, governance, automated-enforcement]
-ai_themes: [agentic-ai, governance-policy, tools-infrastructure, formal-verification]
 started: 2026-04-26T10:02:06+00:00
 completed: 2026-04-26T10:32:03+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, tools-infrastructure, formal-methods]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

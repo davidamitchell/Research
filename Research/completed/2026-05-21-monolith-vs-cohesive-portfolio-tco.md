@@ -5,10 +5,10 @@ added: 2026-05-21T20:43:51+00:00
 status: completed
 priority: high
 blocks: []
-tags: [software-architecture, coupling, cohesion, maintainability, total-cost-of-ownership, organisational-design, transaction-costs]
 started: 2026-05-22T06:38:39+00:00
 completed: 2026-05-22T06:55:01+00:00
 output: [knowledge]
+themes: [organisational-design]
 cites:
   - 2026-03-10-nature-of-the-firm-coase-organisations
   - 2026-05-16-agent-operational-cost-vs-gap-closure-cost

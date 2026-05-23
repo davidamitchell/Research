@@ -5,8 +5,7 @@ added: 2026-05-19T19:42:37+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, organisational-learning, organisational-theory, workflow]
-themes: [knowledge-management, cost-performance, workforce-skills]
+themes: [knowledge-management, cost-performance, workforce-skills, organisational-design, tools-infrastructure]
 started: 2026-05-20T08:07:19+00:00
 completed: 2026-05-20T08:28:47+00:00
 output: [knowledge]

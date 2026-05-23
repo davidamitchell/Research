@@ -5,10 +5,10 @@ added: 2026-05-20T08:35:44+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, governance, organisation, workflow]
 started: 2026-05-20T11:04:10+00:00
 completed: 2026-05-20T11:30:57+00:00
 output: [knowledge]
+themes: [agentic-ai, organisational-design, tools-infrastructure]
 cites:
   - 2026-04-26-human-in-the-loop-ai-automated-workflows
   - 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp

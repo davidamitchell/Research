@@ -5,11 +5,10 @@ added: 2026-05-06T08:52:41+00:00
 status: completed
 priority: high
 blocks: [2026-05-06-aibom-runtime-capture-opentelemetry-practice]
-tags: [agentic-ai, governance, llm, observability, runtime-monitoring, security]
-ai_themes: [agentic-ai, governance-policy, observability-monitoring, ai-architecture]
 started: 2026-05-06T10:14:22+00:00
 completed: 2026-05-06T10:33:39+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture]
 cites: [2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-05-06-aibom-identity-delegation-trust-theory]
 related: [2026-04-27-cryptographic-intent-preservation-runtime-evaluation, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
 superseded_by: ~

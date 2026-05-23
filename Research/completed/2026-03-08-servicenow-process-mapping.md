@@ -4,11 +4,10 @@ added: 2026-03-09T10:40:24+00:00
 status: completed
 priority: medium
 blocks: [2026-03-08-servicenow-platform-strategy]
-tags: [servicenow, process-mapping, bpm, workflow, flow-designer, process-mining, itsm, documentation]
-ai_themes: [knowledge-management, tools-infrastructure, governance-policy, business-process-automation]
 started: 2026-03-09T10:40:24+00:00
 completed: 2026-03-09T10:40:24+00:00
 output: [knowledge]
+themes: [knowledge-management, tools-infrastructure, governance-policy]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

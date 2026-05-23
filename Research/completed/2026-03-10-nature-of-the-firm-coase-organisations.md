@@ -4,11 +4,10 @@ added: 2026-03-13T22:03:31+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisational-theory, transaction-costs, coase, williamson, north, institutions, team-topologies, fitness-functions, invariants, platform-strategy, institutional-economics]
-ai_themes: [organizational-theory, governance-policy, cost-performance, institutional-economics]
 started: 2026-03-13T22:03:31+00:00
 completed: 2026-03-13T22:03:31+00:00
 output: [knowledge]
+themes: [governance-policy, cost-performance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

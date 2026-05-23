@@ -4,11 +4,10 @@ added: 2026-03-10T17:02:39+00:00
 status: completed
 priority: high
 blocks: []
-tags: [formal-methods, intent-alignment, reward-hacking, agentic-ai, programming-languages, type-theory, out-of-the-tar-pit]
-ai_themes: [agentic-ai, formal-methods, intent-alignment, programming-languages]
 started: 2026-03-10T17:02:39+00:00
 completed: 2026-03-10T17:02:39+00:00
 output: [knowledge]
+themes: [agentic-ai, formal-methods]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

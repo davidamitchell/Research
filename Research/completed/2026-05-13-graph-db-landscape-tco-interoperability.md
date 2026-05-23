@@ -5,11 +5,10 @@ added: 2026-05-13T19:07:27+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [knowledge-graph, ai-platform, organisation]
-ai_themes: [knowledge-graphs, tools-infrastructure, workforce-skills, cost-performance, knowledge-management]
 started: 2026-05-14T10:22:59+00:00
 completed: 2026-05-14T10:48:14+00:00
 output: [knowledge]
+themes: [knowledge-graphs, tools-infrastructure, workforce-skills, cost-performance, knowledge-management, organisational-design]
 cites:
   - 2026-05-12-graph-db-saas-knowledge-ontology
   - 2026-05-02-knowledge-graph-schema-cross-session-research-mcp

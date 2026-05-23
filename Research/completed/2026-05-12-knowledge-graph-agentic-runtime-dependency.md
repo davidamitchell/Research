@@ -5,11 +5,10 @@ added: 2026-05-12T08:21:48+00:00
 status: completed
 priority: high
 blocks: []
-tags: [knowledge-graph, agentic-ai, llm, agent-tooling, memory-system]
-ai_themes: [knowledge-graphs, agentic-ai, llm, ai-architecture, tools-infrastructure]
 started: 2026-05-12T10:02:46+00:00
 completed: 2026-05-12T10:32:38+00:00
 output: [knowledge]
+themes: [knowledge-graphs, agentic-ai, ai-architecture, tools-infrastructure]
 cites:
   - 2026-05-02-knowledge-graph-schema-cross-session-research-mcp
   - 2026-03-03-knowledge-representation-agent-context

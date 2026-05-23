@@ -5,11 +5,10 @@ added: 2026-04-30T20:31:45+00:00
 status: completed
 priority: high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
-tags: [agentic-coding, software-engineering, llm, evaluation, agentic-ai]
-ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, software-engineering-practices]
 started: 2026-04-30T21:18:01+00:00
 completed: 2026-04-30T21:41:16+00:00
 output: [knowledge]
+themes: [agentic-ai, ai-architecture, tools-infrastructure, software-engineering, benchmarks-eval]
 cites: [2026-04-30-ai-code-entropy-quality-metrics, 2026-03-16-intent-driven-development, 2026-03-14-reliable-software-llm-era, 2026-04-26-llm-verifiability-asymmetry-code-world-action]
 related: [2026-04-26-software-engineering-investment-case-llm, 2026-03-22-coding-ai-agent-skills-survey, 2026-04-02-org-shape-software-cost-zero]
 superseded_by: ~

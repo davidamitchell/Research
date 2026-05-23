@@ -4,11 +4,10 @@ added: 2026-04-01T12:03:49+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [theory-of-constraints, backpressure, systems-thinking, operations, lean]
-ai_themes: [ai-architecture, tools-infrastructure, mlops-deployment, cost-performance, systems-engineering]
 started: 2026-04-01T12:03:49+00:00
 completed: 2026-04-01T12:03:49+00:00
 output: []
+themes: [ai-architecture, tools-infrastructure, mlops-deployment, cost-performance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

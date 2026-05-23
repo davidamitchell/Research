@@ -4,11 +4,10 @@ added: 2026-03-15T05:36:40+00:00
 status: completed
 priority: low
 blocks: []
-tags: [mobile, chatgpt, openai, actions, memory-system]
-ai_themes: [agentic-ai, memory-context, rag-retrieval, ai-architecture, tools-infrastructure]
 started: 2026-03-15T05:36:40+00:00
 completed: 2026-03-15T05:36:40+00:00
 output: [knowledge]
+themes: [agentic-ai, memory-context, rag-retrieval, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

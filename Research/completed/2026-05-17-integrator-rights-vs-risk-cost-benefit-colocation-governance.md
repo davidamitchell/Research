@@ -5,8 +5,7 @@ added: 2026-05-17T20:40:49+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [organisation, governance, organisational-design, workflow]
-themes: [governance-policy, organisational-design, decision-making]
+themes: [governance-policy, organisational-design, decision-making, tools-infrastructure]
 started: 2026-05-18T13:00:39+00:00
 completed: 2026-05-18T13:22:39+00:00
 output: [knowledge]

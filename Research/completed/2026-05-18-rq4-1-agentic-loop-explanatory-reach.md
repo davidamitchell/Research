@@ -6,7 +6,6 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq4-2-adversarial-error-propagation
-tags: [agentic-ai, llm, causal-inference, evaluation, agent-tooling]
 themes: [agentic-ai, llm-reasoning, benchmarks-eval, ai-architecture]
 started: 2026-05-19T11:32:05+00:00
 completed: 2026-05-19T11:49:46+00:00

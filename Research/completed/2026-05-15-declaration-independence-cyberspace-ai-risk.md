@@ -5,11 +5,10 @@ added: 2026-05-15T18:17:15+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [internet-governance, digital-sovereignty, agentic-ai, ai-governance, ai-safety]
-ai_themes: [agentic-ai, governance-policy, security-risk, digital-sovereignty]
 started: 2026-05-16T00:21:11+00:00
 completed: 2026-05-16T00:41:38+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, security-risk]
 cites: [2026-04-30-orthogonality-thesis-ai-alignment-interpretability, 2026-05-06-aibom-regulatory-eu-ai-act-intersection]
 related: [2026-05-07-five-eyes-ai-risks-and-advice, 2026-02-28-ai-strategy, 2026-04-30-explainable-ai-xai-regulation-governance]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

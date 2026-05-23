@@ -5,11 +5,10 @@ added: 2026-04-26T05:36:34+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [systems-capability-debt, technical-debt, agentic-ai, citizen-development, operational-risk, transaction-cost-economics, regulated-banking, novelty-assessment]
-ai_themes: [agentic-ai, governance-policy, workforce-skills, systems-capability-debt, operational-risk]
 started: 2026-04-26T05:36:34+00:00
 completed: 2026-04-26T05:36:34+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, workforce-skills, security-risk, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

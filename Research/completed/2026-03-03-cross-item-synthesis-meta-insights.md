@@ -4,11 +4,10 @@ added: 2026-03-03T09:47:55+00:00
 status: completed
 priority: high
 blocks: []
-tags: [synthesis, meta-analysis, cross-item, insights, knowledge-integration, aggregation, thematic-analysis]
-ai_themes: [knowledge-management, rag-retrieval, tools-infrastructure, knowledge-graphs, synthesis-methodology]
 started: 2026-03-03T09:47:55+00:00
 completed: 2026-03-03T09:47:55+00:00
 output: [knowledge, skill, tool, backlog-item]
+themes: [knowledge-management, rag-retrieval, tools-infrastructure, knowledge-graphs]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

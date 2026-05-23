@@ -6,7 +6,6 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq2-4-causal-hierarchy-formal-limits
-tags: [epistemology, philosophy-of-science, machine-learning, causal-inference, invariants]
 themes: [ai-architecture, benchmarks-eval, epistemic-foundations, causal-modeling]
 started: 2026-05-19T08:32:59+00:00
 completed: 2026-05-19T09:04:21+00:00

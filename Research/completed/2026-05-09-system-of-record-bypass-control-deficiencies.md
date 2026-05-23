@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow]
-ai_themes: [governance-policy, security-risk, workforce-skills, organizational-controls]
 started: 2026-05-11T12:31:24+00:00
 completed: 2026-05-11T12:53:57+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, workforce-skills, organisational-design, tools-infrastructure]
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification, 2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts]
 related: [2026-05-09-prc-risk-scoring-unstandardized-workforce-processes, 2026-05-09-key-person-dependency-basel-risk-linkage, 2026-04-22-knowledge-curation-governance-for-regulated-ai]
 superseded_by: ~

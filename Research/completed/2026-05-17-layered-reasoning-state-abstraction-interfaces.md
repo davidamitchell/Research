@@ -5,8 +5,7 @@ added: 2026-05-17T11:18:46+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, invariants, workflow, formal-methods]
-themes: [agentic-ai, llm-reasoning, ai-architecture, governance-policy, formal-methods]
+themes: [agentic-ai, llm-reasoning, ai-architecture, governance-policy, formal-methods, tools-infrastructure]
 started: 2026-05-17T13:41:59+00:00
 completed: 2026-05-17T14:00:49+00:00
 output: [knowledge]

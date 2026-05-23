@@ -2,16 +2,19 @@
 """Build a static GitHub Pages site from Research/completed/*.md files.
 
 Generates:
-  docs/index.html             — landing page with stats, threads, tags, search preview
-  docs/browse.html            — filterable research card grid
+  docs/index.html             — landing page with stats, threads, themes, search preview
+  docs/browse.html            — filterable research card grid (filter by themes)
   docs/all-items.html         — complete list of all completed items (newest first)
   docs/backlog.html           — outstanding research questions from Research/backlog/
   docs/research/<slug>.html   — individual research item pages with related items
   docs/knowledge/<slug>.html  — individual synthesis item pages from Knowledge/
   docs/knowledge/index.html   — synthesis items index
-  docs/tags/<tag>.html        — one page per unique tag
+  docs/themes/<theme>.html    — one page per canonical theme
+  docs/themes/index.html      — themes index
+  docs/tags/<tag>.html        — one page per legacy tag (kept for backward compat)
   docs/threads.html           — threads listing
   docs/threads/<slug>.html    — individual thread pages
+  docs/synthesis-candidates.html — clusters of items sharing ≥2 themes
   docs/search.html            — standalone search page
   docs/research-master.html   — rendered Research_Master.md with valid HTML anchors
   docs/search-index.json      — vector index for browser search runtime
@@ -50,6 +53,7 @@ DOCS_DIR = REPO_ROOT / "docs"
 RESEARCH_DIR = DOCS_DIR / "research"
 KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
+THEMES_DIR = DOCS_DIR / "themes"
 THREADS_DIR = DOCS_DIR / "threads"
 GRAPH_DATA_DIR = DOCS_DIR / "data"
 ASSETS_DIR = DOCS_DIR / "assets"
@@ -830,7 +834,8 @@ def html_nav(active: str = "") -> str:
         f'      <a href="/Research/backlog.html"{_cls("backlog")}>{ICON_NOTE}Backlog</a>\n'
         f'      <a href="/Research/knowledge/"{_cls("knowledge")}>{ICON_NOTE}Synthesis</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
-        f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
+        f'      <a href="/Research/themes/"{_cls("themes")}>{ICON_TAG}Themes</a>\n'
+        f'      <a href="/Research/synthesis-candidates.html"{_cls("synthesis-candidates")}>{ICON_NOTE}Candidates</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
         f'      <a href="/Research/graph.html"{_cls("graph")}>{ICON_THREAD}Graph</a>\n'
         '      <a href="https://github.com/davidamitchell/Research"'
@@ -1451,6 +1456,7 @@ def load_backlog_items() -> list[dict]:
             {
                 "title": str(meta.get("title", path.stem)),
                 "tags": list(meta.get("tags") or []),
+                "themes": list(meta.get("themes") or []),
                 "priority": str(meta.get("priority", "medium")),
                 "date": date_str,
                 "question": question,
@@ -1670,7 +1676,13 @@ def render_card(item: dict) -> str:
     used for the href.  Research items link to ``/Research/research/`` and
     knowledge items link to ``/Research/knowledge/``.
     """
-    tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item["tags"])
+    # Prefer themes (canonical vocabulary) for badges; fall back to tags for
+    # legacy items that pre-date the themes migration.
+    display_slugs = item_themes(item) or item["tags"]
+    tags_html = "".join(
+        f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a>'
+        for t in display_slugs
+    )
     excerpt = item["question_excerpt"]
     if len(item["question"]) > 200:
         excerpt = excerpt.rstrip() + "…"
@@ -1685,7 +1697,7 @@ def render_card(item: dict) -> str:
         f'<a class="card" href="{href}"'
         f' data-title="{escape(item["display_title"].lower())}"'
         f' data-question="{escape(item["question_excerpt"].lower())}"'
-        f' data-tags="{escape(",".join(item["tags"]))}"'
+        f' data-tags="{escape(",".join(display_slugs))}"'
         f"{superseded_attr}>\n"
         f'  <div class="card-title">{escape(item["display_title"])}{synthesis_badge}</div>\n'
         f'  <div class="card-meta">{item["added_str"]}</div>\n'
@@ -1699,7 +1711,10 @@ def render_backlog_card(item: dict) -> str:
     """Render a non-linkable card for a Research/backlog/ item."""
     title = escape(item.get("title", "Untitled"))
     question = escape(item.get("question", ""))
-    tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item.get("tags", []))
+    tags_html = "".join(
+        f'<span class="tag">{escape(t)}</span>'
+        for t in (item.get("themes") or item.get("tags") or [])
+    )
     priority = item.get("priority", "medium")
     date_str = escape(item.get("date", ""))
     priority_colour = {"high": "#e05252", "medium": "#e09a52", "low": "#52a0e0"}.get(
@@ -1991,13 +2006,13 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
 
 def build_browse(items: list[dict]) -> str:
     """Generate docs/browse.html — filterable research card grid."""
-    all_tags: set[str] = set()
+    all_themes: set[str] = set()
     for item in items:
-        all_tags.update(item["tags"])
-    sorted_tags = sorted(all_tags)
+        all_themes.update(item_themes(item))
+    sorted_themes = sorted(all_themes)
 
     tag_btns = "".join(
-        f'<button class="tag" data-tag="{escape(t)}">{escape(t)}</button>' for t in sorted_tags
+        f'<button class="tag" data-tag="{escape(t)}">{escape(t)}</button>' for t in sorted_themes
     )
     cards_html = "".join(render_card(item) for item in items)
     count = len(items)
@@ -2016,7 +2031,7 @@ def build_browse(items: list[dict]) -> str:
            placeholder="search by title or question…" autocomplete="off">
   </div>
   <div class="filter-bar">
-    <span class="filter-label">tags:</span>
+    <span class="filter-label">themes:</span>
     {tag_btns}
     <span id="clear-filters" class="clear-filters" style="display:none">clear</span>
   </div>
@@ -2557,6 +2572,9 @@ def build_item_page(
     wiki_slug = item["slug"]
 
     tags_html = "".join(
+        f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a> '
+        for t in item_themes(item)
+    ) or "".join(
         f'<a class="tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a> '
         for t in item["tags"]
     )
@@ -2761,6 +2779,75 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
     )
 
 
+def build_theme_page(theme: str, theme_items: list[dict]) -> str:
+    """Generate docs/themes/<theme>.html."""
+    cards_html = "".join(render_card(item) for item in theme_items)
+    count = len(theme_items)
+    return (
+        html_head(f"Theme: {escape(theme)} — Research")
+        + html_nav("themes")
+        + f"""\
+<main>
+  <div class="tag-page-header">
+    <h1>{ICON_TAG_H1}Theme: {escape(theme)}</h1>
+    <p class="page-subtitle">{count} item{"s" if count != 1 else ""}</p>
+    <a class="back-link" href="/Research/themes/">← all themes</a>
+  </div>
+  <div class="card-grid">
+    {cards_html}
+  </div>
+</main>
+"""
+        + html_foot()
+    )
+
+
+def build_themes_index(themes_map: dict[str, list[dict]]) -> str:
+    """Generate docs/themes/index.html — all themes listed alphabetically."""
+    sorted_themes = sorted(themes_map.keys())
+    rows = "".join(
+        f'<li data-tag="{escape(t)}">'
+        f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a>'
+        f' <span class="tag-count">({len(themes_map[t])})</span></li>\n'
+        for t in sorted_themes
+    )
+    themes_filter_js = """
+(function() {
+  var input = document.getElementById('theme-filter');
+  var items = document.querySelectorAll('#themes-list li');
+  if (!input) return;
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    items.forEach(function(li) {
+      var tag = li.getAttribute('data-tag') || '';
+      li.style.display = (!q || tag.indexOf(q) !== -1) ? '' : 'none';
+    });
+  });
+})();
+"""
+    return (
+        html_head("Themes — Research")
+        + html_nav("themes")
+        + f"""\
+<main>
+  <div class="tag-page-header">
+    <h1>{ICON_TAG_H1}Themes</h1>
+    <p class="page-subtitle">{len(sorted_themes)} themes</p>
+  </div>
+  <div class="search-wrap" style="margin-bottom:1.5rem">
+    <input id="theme-filter" class="search-input" type="text"
+           placeholder="filter themes…" autocomplete="off">
+  </div>
+  <ul id="themes-list" class="tags-list">
+    {rows}
+  </ul>
+</main>
+<script>{themes_filter_js}</script>
+"""
+        + html_foot()
+    )
+
+
 def _thread_date_range(items: list[dict]) -> str:
     """Return 'YYYY-MM-DD → YYYY-MM-DD' or single date if all the same."""
     dates = sorted(item["added"] for item in items)
@@ -2769,6 +2856,128 @@ def _thread_date_range(items: list[dict]) -> str:
     if first == last:
         return first
     return f"{first} → {last}"
+
+
+_CONF_RANK = {"high": 3, "medium": 2, "low": 1}
+
+
+def generate_synthesis_candidates(
+    items: list[dict],
+    min_shared_themes: int = 2,
+    min_cluster_size: int = 2,
+) -> list[dict]:
+    """Group completed items into synthesis candidate clusters by shared themes.
+
+    Items are grouped by the set of themes they share (≥ min_shared_themes themes
+    in common).  Clusters with fewer than min_cluster_size items are excluded.
+    Each cluster entry has keys:
+        shared_themes  — sorted list of shared theme slugs
+        items          — list of item dicts in this cluster
+        avg_confidence — mean confidence score (high=3, medium=2, low=1)
+
+    Clusters are returned sorted by descending size, then descending average
+    confidence, then alphabetically by first shared theme for determinism.
+    """
+    # Build theme → item index
+    theme_to_items: dict[str, list[dict]] = {}
+    for item in items:
+        for theme in item_themes(item):
+            theme_to_items.setdefault(theme, []).append(item)
+
+    # For each pair of themes, find items that have both
+    themes_list = sorted(theme_to_items.keys())
+    seen_keys: set[frozenset] = set()
+    clusters: list[dict] = []
+
+    from itertools import combinations as _comb
+
+    for theme_combo in _comb(themes_list, min_shared_themes):
+        # Items with ALL themes in the combo
+        sets = [{it["slug"] for it in theme_to_items[t]} for t in theme_combo]
+        shared_slugs = sets[0].intersection(*sets[1:])
+        if len(shared_slugs) < min_cluster_size:
+            continue
+        key = frozenset(shared_slugs)
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        cluster_items = [it for it in items if it["slug"] in shared_slugs]
+        avg_conf = sum(
+            _CONF_RANK.get(it.get("confidence", "medium"), 2) for it in cluster_items
+        ) / len(cluster_items)
+        clusters.append(
+            {
+                "shared_themes": sorted(theme_combo),
+                "items": sorted(cluster_items, key=lambda x: x["slug"]),
+                "avg_confidence": avg_conf,
+            }
+        )
+
+    # Sort: largest cluster first, then highest avg confidence, then theme label
+    clusters.sort(key=lambda c: (-len(c["items"]), -c["avg_confidence"], c["shared_themes"][0]))
+    return clusters
+
+
+def build_synthesis_candidates_page(items: list[dict]) -> str:
+    """Generate docs/synthesis-candidates.html.
+
+    Groups items by shared themes (≥2) and renders a browsable page of
+    synthesis candidate clusters, each with a call-to-action linking to the
+    synthesis-loop.yml dispatch instructions.
+    """
+    clusters = generate_synthesis_candidates(items)
+    count = len(clusters)
+
+    cluster_html = ""
+    for cl in clusters:
+        themes_html = "".join(
+            f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a>'
+            for t in cl["shared_themes"]
+        )
+        n = len(cl["items"])
+        conf_str = f"{cl['avg_confidence']:.1f}"
+        item_links = "".join(
+            f'<li><a href="{_item_url(it)}">{escape(it["display_title"])}</a></li>'
+            for it in cl["items"]
+        )
+        cluster_html += f"""\
+<div class="thread-card" style="margin-bottom:1.5rem">
+  <div class="thread-card-tags">{themes_html}</div>
+  <div class="thread-card-meta">{n} item{"s" if n != 1 else ""} · avg confidence {conf_str}</div>
+  <ul class="synthesis-cluster-items" style="margin:0.5rem 0 0.5rem 1.2rem;padding:0">
+    {item_links}
+  </ul>
+  <div style="margin-top:0.5rem;font-size:var(--text-sm)">
+    <a href="https://github.com/davidamitchell/Research/actions/workflows/synthesis-loop.yml"
+       target="_blank" rel="noopener">Synthesise this cluster →</a>
+  </div>
+</div>
+"""
+
+    if not clusters:
+        cluster_html = (
+            "<p>No synthesis candidates found — run theme enrichment to classify items.</p>"
+        )
+
+    return (
+        html_head("Synthesis Candidates — Research")
+        + html_nav("synthesis-candidates")
+        + f"""\
+<main>
+  <div class="tag-page-header">
+    <h1>{ICON_NOTE_H1}Synthesis Candidates</h1>
+    <p class="page-subtitle">{count} cluster{"s" if count != 1 else ""} · items sharing ≥2 themes</p>
+  </div>
+  {cluster_html}
+</main>
+"""
+        + html_foot()
+    )
+
+
+def _thread_date_range_items_check(items: list[dict]) -> str:
+    """Alias kept for backwards compatibility — delegates to _thread_date_range."""
+    return _thread_date_range(items)
 
 
 def build_threads_listing(threads: list[dict]) -> str:
@@ -4079,7 +4288,7 @@ def main() -> None:
     # Ensure owned output directories are clean (removes stale pages)
     DOCS_DIR.mkdir(exist_ok=True)
     GRAPH_DATA_DIR.mkdir(exist_ok=True)
-    for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THREADS_DIR):
+    for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THEMES_DIR, THREADS_DIR):
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
@@ -4159,6 +4368,19 @@ def main() -> None:
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
+    # 8b. Theme pages — canonical vocabulary (themes: field)
+    themes_map: dict[str, list[dict]] = {}
+    for item in all_items:
+        for theme in item_themes(item):
+            themes_map.setdefault(theme, []).append(item)
+    print(f"Building themes index + {len(themes_map)} theme pages…")
+    (THEMES_DIR / "index.html").write_text(build_themes_index(themes_map), encoding="utf-8")
+    pages_written += 1
+    for theme, theme_items in themes_map.items():
+        html = build_theme_page(theme, theme_items)
+        (THEMES_DIR / f"{theme}.html").write_text(html, encoding="utf-8")
+        pages_written += 1
+
     # 9. Thread pages
     print(f"Building threads.html + {len(threads)} thread pages…")
     (DOCS_DIR / "threads.html").write_text(build_threads_listing(threads), encoding="utf-8")
@@ -4171,6 +4393,13 @@ def main() -> None:
     # 10. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
+    pages_written += 1
+
+    # 10b. synthesis-candidates.html — items grouped by shared themes (≥2)
+    print("Building synthesis-candidates.html…")
+    (DOCS_DIR / "synthesis-candidates.html").write_text(
+        build_synthesis_candidates_page(items), encoding="utf-8"
+    )
     pages_written += 1
 
     # 11. search-index.json — includes both research and knowledge items

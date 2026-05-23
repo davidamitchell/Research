@@ -5,11 +5,10 @@ added: 2026-03-22T09:37:48+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [knowledge-management, work-tracking, sharepoint, confluence, ado, jira, git, monitoring, data-platform, provenance]
-ai_themes: [knowledge-management, tools-infrastructure, data-provenance]
 started: 2026-03-22T09:37:48+00:00
 completed: 2026-03-22T09:37:48+00:00
 output: [knowledge]
+themes: [knowledge-management, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

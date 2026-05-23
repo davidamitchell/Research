@@ -3,11 +3,10 @@ title: "Jevons Paradox: efficiency gains, demand rebound, and the falling cost o
 added: 2026-02-28T09:33:14+00:00
 status: completed
 priority: high
-tags: [jevons-paradox, rebound-effect, economics, software-engineering, agentic-coding, technology-forecasting]
-ai_themes: [agentic-ai, cost-performance, workforce-skills, economic-impact, software-productivity]
 started: 2026-02-28T09:33:14+00:00
 completed: 2026-02-28T09:33:14+00:00
 output: [knowledge]
+themes: [agentic-ai, cost-performance, workforce-skills, software-engineering]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

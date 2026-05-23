@@ -5,11 +5,10 @@ added: 2026-05-17T10:17:56+00:00
 status: completed
 priority: high
 blocks: [2026-05-17-aws-bedrock-capabilities]
-tags: [aws, agentic-ai, ai-platform, enterprise, agent-tooling, ai-governance, regulated-enterprise, identity, memory-system, observability, control-plane]
-ai_themes: [agentic-ai, tools-infrastructure, governance-policy, memory-context, mlops-deployment]
 started: 2026-05-17T12:32:18+00:00
 completed: 2026-05-17T12:53:38+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, governance-policy, memory-context, mlops-deployment]
 cites: [2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-04-26-multi-ai-provider-control-planes, 2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model]
 related: [2026-04-22-enterprise-ai-platform-operating-models, 2026-04-22-enterprise-ai-capability-model, 2026-05-02-vendor-lock-in-portability-multi-platform-ai]
 superseded_by: ~

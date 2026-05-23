@@ -4,11 +4,10 @@ added: 2026-03-14T11:06:19+00:00
 status: completed
 priority: high
 blocks: []
-tags: [failure-modes, taxonomy, hallucinations, reward-hacking, prompt-injection, alignment, agentic-ai, owasp, safety, observability]
-ai_themes: [agentic-ai, security-risk, mlops-deployment, failure-analysis]
 started: 2026-03-14T11:06:19+00:00
 completed: 2026-03-14T11:06:19+00:00
 output: [knowledge]
+themes: [agentic-ai, security-risk, mlops-deployment]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

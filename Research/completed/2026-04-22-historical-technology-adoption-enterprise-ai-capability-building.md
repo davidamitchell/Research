@@ -5,11 +5,10 @@ added: 2026-04-24T08:45:11+00:00
 status: completed
 priority: high
 blocks: []
-tags: [enterprise-ai, technology-adoption, organisational-change, governance, operating-model, financial-services]
-ai_themes: [governance-policy, workforce-skills, ai-architecture, enterprise-adoption-strategy, organizational-change-management]
 started: 2026-04-24T08:45:11+00:00
 completed: 2026-04-24T08:45:11+00:00
 output: [knowledge]
+themes: [governance-policy, workforce-skills, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

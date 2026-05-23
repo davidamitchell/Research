@@ -5,10 +5,10 @@ added: 2026-05-21T11:12:00+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [economics, evaluation, invariants]
 started: 2026-05-22T06:56:33+00:00
 completed: 2026-05-22T07:24:06+00:00
 output: [knowledge]
+themes: [benchmarks-eval]
 cites: []
 related:
   - 2026-05-18-rq1-3-instrumentalism-failure-modes

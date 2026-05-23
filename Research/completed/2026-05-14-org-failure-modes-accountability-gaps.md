@@ -5,11 +5,10 @@ added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, organisational-design, organisational-theory]
-ai_themes: [governance-policy, workforce-skills, knowledge-management, organisational-design]
 started: 2026-05-15T02:06:27+00:00
 completed: 2026-05-15T02:34:53+00:00
 output: [knowledge]
+themes: [governance-policy, workforce-skills, knowledge-management, organisational-design]
 cites: [2026-03-14-organisational-intent-formal-specification, 2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-decision-rights-accountability-liability]
 related: []
 superseded_by: ~

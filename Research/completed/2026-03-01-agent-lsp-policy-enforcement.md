@@ -3,11 +3,10 @@ title: "Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conforman
 added: 2026-03-07T01:30:02+00:00
 status: completed
 priority: medium
-tags: [agentic-coding, lsp, policy-enforcement, headless-agents, architecture-governance, security, developer-tooling]
-ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, tools-infrastructure, developer-experience]
 started: 2026-03-07T01:30:02+00:00
 completed: 2026-03-07T01:30:02+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

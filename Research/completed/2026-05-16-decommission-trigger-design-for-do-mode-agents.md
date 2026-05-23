@@ -5,11 +5,10 @@ added: 2026-05-16T05:29:48+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, workflow, organisation, agent-tooling, systems-capability-debt]
-ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, lifecycle-management, systems-reliability]
 started: 2026-05-16T06:59:18+00:00
 completed: 2026-05-16T07:18:40+00:00
 output: [knowledge]
+themes: [agentic-ai, ai-architecture, tools-infrastructure, organisational-design]
 cites:
   - 2026-04-27-uelgf-decommission-lifecycle
   - 2026-04-27-uelgf-runtime-feedback-loop

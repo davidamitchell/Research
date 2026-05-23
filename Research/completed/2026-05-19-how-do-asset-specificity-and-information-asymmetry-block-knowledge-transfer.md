@@ -5,11 +5,10 @@ added: 2026-05-19T19:42:37+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [organisation, organisational-learning, organisational-theory, organisational-design]
-themes: [knowledge-management, workforce-skills, information-asymmetry, knowledge-transfer]
 started: 2026-05-20T12:05:40+00:00
 completed: 2026-05-20T12:31:32+00:00
 output: [knowledge]
+themes: [knowledge-management, workforce-skills, information-asymmetry, knowledge-transfer]
 cites: [2026-03-10-nature-of-the-firm-coase-organisations]
 related: [2026-05-09-key-person-dependency-basel-risk-linkage, 2026-05-09-prc-risk-scoring-unstandardized-workforce-processes]
 superseded_by: ~

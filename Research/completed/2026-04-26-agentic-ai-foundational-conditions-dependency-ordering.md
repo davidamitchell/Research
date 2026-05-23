@@ -5,11 +5,10 @@ added: 2026-04-26T06:57:01+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, dependency-ordering, foundational-conditions, access-control, rag, policy-coherence, deployment-pipeline, synthesis, regulated-banking, operational-risk, regulatory-compliance]
-ai_themes: [agentic-ai, governance-policy, security-risk, mlops-deployment, dependency-ordering]
 started: 2026-04-27T08:03:08+00:00
 completed: 2026-04-27T08:22:39+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, mlops-deployment, regulatory-compliance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

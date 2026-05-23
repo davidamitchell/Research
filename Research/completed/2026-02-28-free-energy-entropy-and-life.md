@@ -3,8 +3,6 @@ title: "Free energy, entropy, and life: why organisms predict — from Schrödin
 added: 2026-03-05T07:55:34+00:00
 status: completed
 priority: medium
-tags: [free-energy-principle, entropy, predictive-processing, active-inference, karl-friston, anil-seth, consciousness, thermodynamics, life]
-ai_themes: [consciousness-cognition, ai-architecture, agentic-ai, theoretical-neuroscience, thermodynamics-of-intelligence]
 spawned-from: Research/completed/2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
@@ -13,6 +11,7 @@ supersedes: ~      # slug of an older item this one replaces (null if not applic
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+themes: [consciousness-cognition, ai-architecture, agentic-ai]
 ---
 
 # Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth

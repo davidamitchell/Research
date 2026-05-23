@@ -5,11 +5,10 @@ added: 2026-03-22T05:04:25+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agentic-ai, observability, infrastructure-as-code]
-ai_themes: [agentic-ai, knowledge-graphs, tools-infrastructure, knowledge-management, observability-engineering]
 started: 2026-03-22T05:04:25+00:00
 completed: 2026-03-22T05:04:25+00:00
 output: [knowledge]
+themes: [agentic-ai, knowledge-graphs, tools-infrastructure, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

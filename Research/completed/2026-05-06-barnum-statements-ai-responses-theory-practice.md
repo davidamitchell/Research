@@ -5,11 +5,10 @@ added: 2026-05-06T09:49:53+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-fact-checking-tools-research-quality-improvement]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [llm, hallucinations, evaluation, prompt-engineering, research-methodology, reliability]
-ai_themes: [llm-reasoning, benchmarks-eval, reliability, text-analysis]
 started: 2026-05-06T11:30:28+00:00
 completed: 2026-05-06T11:58:19+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [llm-reasoning, benchmarks-eval]
 cites: [2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-04-28-llm-as-judge-pipeline-validation-checkpoints, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp]          # slugs of items this item directly depends on or quotes
 related: [2026-05-02-meta-analysis-standards-and-ai-skill-evaluation, 2026-03-03-research-loop-quality-prompt-engineering, 2026-03-02-research-quality-assurance-methodology, 2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

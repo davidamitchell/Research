@@ -4,11 +4,10 @@ added: 2026-03-14T23:31:33+00:00
 status: completed
 priority: high
 blocks: []
-tags: [formal-methods, strategy, okrs, goal-modelling, normative-systems, hoshin-kanri, resource-allocation, consistency-checking, funding, intent]
-ai_themes: [governance-policy, knowledge-management, formal-methods, organizational-intent-modelling]
 started: 2026-03-14T23:31:33+00:00
 completed: 2026-03-14T23:31:33+00:00
 output: [knowledge]
+themes: [governance-policy, knowledge-management, formal-methods]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

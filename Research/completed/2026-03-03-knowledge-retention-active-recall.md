@@ -4,11 +4,10 @@ added: 2026-03-03T10:05:15+00:00
 status: completed
 priority: high
 blocks: []
-tags: [retention, recall, spaced-repetition, knowledge-decay, application, active-recall, knowledge-management]
-ai_themes: [memory-context, knowledge-management, tools-infrastructure, cognitive-persistence]
 started: 2026-03-03T10:05:15+00:00
 completed: 2026-03-03T10:05:15+00:00
 output: [knowledge, tool, backlog-item]
+themes: [memory-context, knowledge-management, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

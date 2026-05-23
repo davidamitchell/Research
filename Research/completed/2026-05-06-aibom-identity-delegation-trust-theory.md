@@ -5,11 +5,10 @@ added: 2026-05-06T08:52:41+00:00
 status: completed
 priority: high
 blocks: [2026-05-06-aibom-identity-attribution-multiagent-practice]
-tags: [agentic-ai, identity, security, governance, access-control, delegation, attribution, zero-trust]
-ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture]
 started: 2026-05-06T09:51:18+00:00
 completed: 2026-05-06T10:12:47+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, ai-architecture]
 cites: [2026-04-26-ai-agent-identity-access-management-enterprise, 2026-04-26-access-control-amplification-agentic-operations, 2026-04-26-permission-safe-rag-enterprise-information-architecture, 2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment]
 related: [2026-03-18-api-context-hubs-rag-mcp]
 superseded_by: ~

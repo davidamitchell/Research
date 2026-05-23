@@ -4,11 +4,10 @@ added: 2026-03-14T18:32:46+00:00
 status: completed
 priority: high
 blocks: []
-tags: [financial-forecasting, it-run-costs, uncertainty-modelling, regulatory, error-bars, infrastructure-costing, assumptions]
-ai_themes: [financial-forecasting, uncertainty-modelling, governance-policy, cost-performance, tools-infrastructure]
 started: 2026-03-14T18:32:46+00:00
 completed: 2026-03-14T18:32:46+00:00
 output: [knowledge]
+themes: [governance-policy, cost-performance, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

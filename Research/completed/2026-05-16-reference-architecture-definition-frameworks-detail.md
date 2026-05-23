@@ -5,11 +5,10 @@ added: 2026-05-16T04:50:59+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [reference-architecture, enterprise-architecture, capability-model, togaf, cloud-architecture]
-ai_themes: [ai-architecture, tools-infrastructure, governance-policy, enterprise-frameworks]
 started: 2026-05-16T09:55:38+00:00
 completed: 2026-05-16T10:13:08+00:00
 output: [knowledge]
+themes: [ai-architecture, tools-infrastructure, governance-policy]
 cites:
   - 2026-03-21-technology-capability-models
 related:

@@ -5,11 +5,10 @@ added: 2026-04-29T02:36:48+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [context-engineering, llm, agentic-ai, rag, prompt-engineering, memory-system, workflow, knowledge-graph]
-ai_themes: [agentic-ai, memory-context, rag-retrieval, knowledge-graphs, context-engineering]
 started: 2026-04-29T09:43:40+00:00
 completed: 2026-04-29T10:10:00+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, memory-context, rag-retrieval, knowledge-graphs, llm-reasoning, tools-infrastructure]
 cites: [2026-03-08-context-engineering-first-principles, 2026-03-02-agent-memory-management-context-injection, 2026-03-03-knowledge-representation-agent-context, 2026-03-22-applied-context-engineering-agent-workflows, 2026-03-15-context-compression-rag-enterprise-knowledge]          # slugs of items this item directly depends on or quotes
 related: [2026-03-15-context-layers-aligned-decisions-synthesis, 2026-03-17-ai-memory-systems-rag-neuroscience, 2026-03-18-stateless-agent-assumption-failure]        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

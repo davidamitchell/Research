@@ -4,12 +4,11 @@ added: 2026-03-29T09:45:35+00:00
 status: completed
 priority: high
 blocks: []
-tags: [copilot, claude, ios, devcontainer, copilot-setup-steps, environment, github-issues]
-ai_themes: [tools-infrastructure, ai-architecture, mlops-deployment, developer-experience]
 started: 2026-03-29T09:45:35+00:00
 completed: 2026-03-29T09:45:35+00:00
 review_count: 2
 output: [knowledge, backlog-item]
+themes: [tools-infrastructure, ai-architecture, mlops-deployment]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

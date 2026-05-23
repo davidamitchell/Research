@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-decision-rights-accountability-liability, 2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-26-ai-governance-cost-performance-delivery-impact]
-tags: [ai-governance, low-code, risk-classification, risk-tiers, enterprise-governance, controls, regulated-enterprise]
-ai_themes: [governance-policy, security-risk, ai-architecture, low-code-governance, risk-management]
 started: 2026-04-26T22:14:26+00:00
 completed: 2026-04-26T22:28:32+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

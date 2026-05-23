@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: high
 blocks: []
-tags: [open-source, agentic-ai, governance, workflow]
-ai_themes: [agentic-ai, governance-policy, workforce-skills, human-ai-interaction]
 started: 2026-05-01T22:21:59+00:00
 completed: 2026-05-01T22:42:53+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, workforce-skills, human-ai-interaction, tools-infrastructure]
 cites: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-05-01-compound-error-accumulation-ai-codebases, 2026-05-01-human-oversight-ai-software-development]
 related: [2026-04-30-ai-code-entropy-quality-metrics, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-coding-agent-context-management-transparency]
 superseded_by: ~

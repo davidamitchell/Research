@@ -5,11 +5,10 @@ added: 2026-03-22T04:13:04+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [formal-methods, formal-verification, lean, proof-engineering, agentic-ai, guardrails, agent-autonomy, software-reliability, trustworthy-ai]
-ai_themes: [agentic-ai, llm-reasoning, tools-infrastructure, formal-verification-methods]
 started: 2026-03-22T04:13:04+00:00
 completed: 2026-03-22T04:13:04+00:00
 output: [knowledge]
+themes: [agentic-ai, llm-reasoning, tools-infrastructure, formal-methods]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

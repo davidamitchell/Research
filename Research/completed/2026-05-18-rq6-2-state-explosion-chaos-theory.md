@@ -6,7 +6,6 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq6-3-complexity-horizon-classical-systems
-tags: [formal-methods, machine-learning, distributed-systems, epistemology, chaos-theory]
 themes: [security-risk, ai-architecture, formal-methods, system-dynamics]
 started: 2026-05-19T20:56:44+00:00
 completed: 2026-05-19T21:18:57+00:00

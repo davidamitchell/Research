@@ -4,11 +4,10 @@ added: 2026-03-14T10:22:40+00:00
 status: completed
 priority: high
 blocks: []
-tags: [team-size, agentic-ai, coordination-overhead, strike-team, organisational-design, productivity, ai-native]
-ai_themes: [agentic-ai, organisational-design, coordination-overhead, productivity]
 started: 2026-03-14T10:22:40+00:00
 completed: 2026-03-14T10:22:40+00:00
 output: [knowledge]
+themes: [agentic-ai, organisational-design]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

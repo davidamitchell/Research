@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, agent-tooling, evaluation, llm]
-ai_themes: [agentic-ai, benchmarks-eval, tools-infrastructure, agentic-coding]
 started: 2026-05-02T00:06:44+00:00
 completed: 2026-05-02T00:28:54+00:00
 output: [knowledge]
+themes: [agentic-ai, benchmarks-eval, tools-infrastructure]
 cites: [2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-coding-agent-context-management-transparency]
 related: [2026-03-08-ai-coding-harnesses-agent-philosophy]
 superseded_by: ~

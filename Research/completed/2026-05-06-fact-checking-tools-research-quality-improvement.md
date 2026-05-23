@@ -5,11 +5,10 @@ added: 2026-05-06T09:49:53+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [research-methodology, quality-assurance, evaluation, research-loop, fact-checking, llm, workflow]
-ai_themes: [benchmarks-eval, research-methodology, llm-reasoning, tools-infrastructure]
 started: 2026-05-06T22:37:33+00:00
 completed: 2026-05-06T22:57:27+00:00
 output: [backlog-item, knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [benchmarks-eval, llm-reasoning, tools-infrastructure]
 cites: [2026-05-06-openfactcheck-ai-fact-checking-pipeline, 2026-05-06-loki-fact-checking-journalists-moderation, 2026-05-06-factscore-precision-scoring-atomic-claims, 2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight, 2026-05-06-barnum-statements-ai-responses-theory-practice, 2026-05-02-automated-claim-verification-academic-literature, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-03-03-research-loop-quality-prompt-engineering, 2026-04-28-llm-as-judge-pipeline-validation-checkpoints]
 related: [2026-05-02-meta-analysis-standards-and-ai-skill-evaluation, 2026-03-02-research-quality-assurance-methodology]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

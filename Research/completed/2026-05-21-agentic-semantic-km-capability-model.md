@@ -5,10 +5,10 @@ added: 2026-05-21T11:07:25+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, knowledge-management, capability-model, maturity-model, ontology, knowledge-graph, orchestration, context-engineering, semantic-interoperability, memory-system]
 started: 2026-05-22T06:02:12+00:00
 completed: 2026-05-22T06:37:14+00:00
 output: []
+themes: [agentic-ai, knowledge-management]
 cites:
   - 2026-05-21-dynamic-resource-discovery-context-ontology
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency

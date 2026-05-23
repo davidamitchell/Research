@@ -5,8 +5,6 @@ added: 2026-05-19T19:42:37+00:00
 status: completed
 priority: medium
 blocks: []
-tags:
-themes: [knowledge-management, workforce-skills, organisational-behaviour, effort-minimisation]
   [
     organisation,
     organisational-design,
@@ -17,6 +15,7 @@ themes: [knowledge-management, workforce-skills, organisational-behaviour, effor
 started: 2026-05-20T17:53:35+00:00
 completed: 2026-05-20T18:15:29+00:00
 output: [knowledge]
+themes: [knowledge-management, workforce-skills, organisational-behaviour, effort-minimisation]
 cites:
   [
     2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways,

@@ -92,7 +92,17 @@ class TestHasAiThemes:
 
 
 class TestInsertAiThemes:
-    def test_inserts_after_tags(self) -> None:
+    def test_inserts_after_output_when_present(self) -> None:
+        """themes: is inserted immediately after output: (canonical field order)."""
+        yaml_block = "title: Foo\noutput: []\nversions: []"
+        result = _insert_themes(yaml_block, ["agentic-ai"])
+        lines = result.splitlines()
+        output_idx = next(i for i, line in enumerate(lines) if line.startswith("output:"))
+        themes_idx = next(i for i, line in enumerate(lines) if line.startswith("themes:"))
+        assert themes_idx == output_idx + 1
+
+    def test_inserts_after_tags_when_no_output(self) -> None:
+        """Legacy fallback: insert after tags: when output: is absent."""
         yaml_block = "title: Foo\ntags: [ai, llm]\nstatus: completed"
         result = _insert_themes(yaml_block, ["agentic-ai", "llm-reasoning"])
         lines = result.splitlines()
@@ -100,13 +110,13 @@ class TestInsertAiThemes:
         themes_idx = next(i for i, line in enumerate(lines) if line.startswith("themes:"))
         assert themes_idx == tags_idx + 1
 
-    def test_appends_when_no_tags(self) -> None:
+    def test_appends_when_no_output_no_tags(self) -> None:
         yaml_block = "title: Foo\nstatus: completed"
         result = _insert_themes(yaml_block, ["agentic-ai"])
         assert result.endswith("themes: [agentic-ai]")
 
     def test_themes_formatted_correctly(self) -> None:
-        result = _insert_themes("title: Foo\ntags: [x]", ["a", "b"])
+        result = _insert_themes("title: Foo\noutput: []", ["a", "b"])
         assert "themes: [a, b]" in result
 
 

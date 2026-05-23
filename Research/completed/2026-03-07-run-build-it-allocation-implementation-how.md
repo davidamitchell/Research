@@ -4,11 +4,10 @@ added: 2026-03-08T03:35:47+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [it-finance, run-build, cost-allocation, application-portfolio, change-management, organisational-design, tbm]
-ai_themes: [governance-policy, cost-performance, tools-infrastructure, it-financial-management]
 started: 2026-03-08T03:35:47+00:00
 completed: 2026-03-08T03:35:47+00:00
 output: [knowledge]
+themes: [governance-policy, cost-performance, tools-infrastructure, organisational-design]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

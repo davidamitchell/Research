@@ -5,11 +5,10 @@ added: 2026-04-27T01:28:25+00:00
 status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
-tags: [uelgf, governance, entity-lifecycle, governed-golden-rail, policy-engine, agentic-ai, citizen-development, systems-capability-debt, regulated-banking, framework-design]
-ai_themes: [agentic-ai, governance-policy, ai-architecture, tools-infrastructure, entity-lifecycle-management]
 started: 2026-04-27T05:57:56+00:00
 completed: 2026-04-27T06:13:52+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

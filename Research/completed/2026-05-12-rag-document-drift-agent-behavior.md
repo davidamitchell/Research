@@ -5,11 +5,10 @@ added: 2026-05-12T11:03:22+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, evaluation, workflow, organisation]
-ai_themes: [agentic-ai, rag-retrieval, governance-policy, benchmarks-eval, mlops-deployment]
 started: 2026-05-12T19:03:28+00:00
 completed: 2026-05-12T19:33:35+00:00
 output: []
+themes: [agentic-ai, rag-retrieval, governance-policy, benchmarks-eval, mlops-deployment, tools-infrastructure, organisational-design]
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
   - 2026-04-29-knowledge-scaffolding-context-engineering

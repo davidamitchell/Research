@@ -5,11 +5,10 @@ added: 2026-04-26T18:31:29+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-lecun-critique-citizen-development-enterprise-risk, 2026-04-26-software-engineering-investment-case-llm]
-tags: [lecun, llm, large-language-models, autonomous-intelligence, causal-reasoning, world-models, ai-critique, primary-sources]
-ai_themes: [agentic-ai, llm-reasoning, ai-architecture, consciousness-cognition, world-models]
 started: 2026-04-27T02:04:05+00:00
 completed: 2026-04-27T02:25:23+00:00
 output: [knowledge]
+themes: [agentic-ai, llm-reasoning, ai-architecture, consciousness-cognition]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

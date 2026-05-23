@@ -5,11 +5,10 @@ added: 2026-05-12T08:21:48+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [knowledge-graph, agentic-ai, governance, ricardian-contracts]
-ai_themes: [knowledge-graphs, agentic-ai, governance-policy, access-control]
 started: 2026-05-13T10:02:08+00:00
 completed: 2026-05-13T10:28:16+00:00
 output: [knowledge]
+themes: [knowledge-graphs, agentic-ai, governance-policy]
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
   - 2026-05-12-web-ontologies-production-knowledge-graph-agentic

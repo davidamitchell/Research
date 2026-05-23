@@ -5,11 +5,10 @@ added: 2026-04-19T23:32:08+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [agentic-ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-system, messaging, ios, workflow]
-ai_themes: [agentic-ai, memory-context, tools-infrastructure, knowledge-management, personal-automation]
 started: 2026-04-19T23:32:08+00:00
 completed: 2026-04-19T23:32:08+00:00
 output: [knowledge]
+themes: [agentic-ai, memory-context, tools-infrastructure, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

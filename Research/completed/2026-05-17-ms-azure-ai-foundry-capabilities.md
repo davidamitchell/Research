@@ -5,7 +5,6 @@ added: 2026-05-17T10:17:56+00:00
 status: completed
 priority: high
 blocks: []
-tags: [microsoft, agentic-ai, ai-platform, enterprise, llm, evaluation, ai-governance, regulated-enterprise, workflow]
 themes: [agentic-ai, mlops-deployment, benchmarks-eval, governance-policy, tools-infrastructure]
 started: 2026-05-17T14:02:48+00:00
 completed: 2026-05-17T14:26:51+00:00

@@ -4,11 +4,10 @@ added: 2026-03-12T07:50:21+00:00
 status: completed
 priority: high
 blocks: []
-tags: [superpowers, skills, claude-code, github-copilot, agent-tooling, tdd, workflow, inspiration]
-ai_themes: [agentic-ai, workforce-skills, tools-infrastructure, workflow-optimization]
 started: 2026-03-12T07:50:21+00:00
 completed: 2026-03-12T07:50:21+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, workforce-skills, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

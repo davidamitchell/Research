@@ -6,11 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq3-1-llm-statistical-vs-causal
-tags: [causal-inference, machine-learning, formal-methods, epistemology, invariants]
-themes: [llm-reasoning, ai-architecture, causal-reasoning, formal-epistemology]
 started: 2026-05-19T09:32:53+00:00
 completed: 2026-05-19T09:56:54+00:00
 output: [knowledge]
+themes: [llm-reasoning, ai-architecture, causal-reasoning, formal-epistemology]
 cites:
   - 2026-05-18-rq2-1-erm-causal-blindness
   - 2026-05-18-rq2-2-duhem-quine-underdetermination

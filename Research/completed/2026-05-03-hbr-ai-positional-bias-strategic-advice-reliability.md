@@ -5,11 +5,10 @@ added: 2026-05-03T03:48:21+00:00
 status: completed
 priority: high
 blocks: []
-tags: [llm, evaluation, alignment, human-oversight, hallucinations]
-ai_themes: [benchmarks-eval, governance-policy, workforce-skills, decision-reliability]
 started: 2026-05-03T05:13:31+00:00
 completed: 2026-05-03T05:35:45+00:00
 output: [knowledge]
+themes: [benchmarks-eval, governance-policy, workforce-skills]
 cites: [2026-04-30-human-bias-ai-trust-rlhf-sycophancy]
 related: [2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-03-12-failure-mode-taxonomy-expansion]
 superseded_by: ~

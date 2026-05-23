@@ -4,11 +4,10 @@ added: 2026-03-09T10:32:01+00:00
 status: completed
 priority: medium
 blocks: [2026-03-08-servicenow-platform-strategy]
-tags: [servicenow, agentic-ai, now-assist, rag, knowledge-management, agent-frameworks, genai, llm, knowledge-base]
-ai_themes: [agentic-ai, rag-retrieval, knowledge-management, ai-architecture, enterprise-automation]
 started: 2026-03-09T10:32:01+00:00
 completed: 2026-03-09T10:32:01+00:00
 output: [knowledge]
+themes: [agentic-ai, rag-retrieval, knowledge-management, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

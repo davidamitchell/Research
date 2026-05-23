@@ -5,11 +5,10 @@ added: 2026-05-02T06:11:10+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [agentic-ai, llm, workflow, agent-tooling, evaluation]
-ai_themes: [agentic-ai, llm-reasoning, ai-architecture, tools-infrastructure, automated-research]
 started: 2026-05-03T07:52:09+00:00
 completed: 2026-05-03T08:13:24+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, llm-reasoning, ai-architecture, tools-infrastructure, benchmarks-eval]
 cites: [2026-03-10-adversarial-agents-shared-goals-multi-perspective]
 related: [2026-03-12-exploration-synthesis-gap]
 superseded_by: ~

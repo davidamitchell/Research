@@ -5,11 +5,10 @@ added: 2026-05-16T05:29:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, organisation, evaluation]
-ai_themes: [agentic-ai, benchmarks-eval, cost-performance, decision-making]
 started: 2026-05-16T06:27:49+00:00
 completed: 2026-05-16T06:58:18+00:00
 output: [knowledge]
+themes: [agentic-ai, benchmarks-eval, cost-performance, organisational-design]
 cites:
   - 2026-05-13-agent-process-reliability-architecture
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance

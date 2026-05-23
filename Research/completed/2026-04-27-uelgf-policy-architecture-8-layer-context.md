@@ -5,11 +5,10 @@ added: 2026-04-27T01:28:25+00:00
 status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
-tags: [uelgf, policy-architecture, pap, pdp, pep, pip, policy-independence, scope-boundary, kill-switch, organisational-context, policy-as-code, regulated-banking, xacml, opa]
-ai_themes: [governance-policy, ai-architecture, security-risk, tools-infrastructure, policy-as-code]
 started: 2026-04-27T06:39:39+00:00
 completed: 2026-04-27T06:53:15+00:00
 output: [knowledge]
+themes: [governance-policy, ai-architecture, security-risk, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

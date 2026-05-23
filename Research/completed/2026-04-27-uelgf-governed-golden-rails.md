@@ -5,11 +5,10 @@ added: 2026-04-27T01:28:25+00:00
 status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
-tags: [uelgf, governed-golden-rail, scaffold-generation, persona-adapted, citizen-development, low-code, deviation-handling, rail-adoption, policy-engine, platform-engineering]
-ai_themes: [governance-policy, ai-architecture, tools-infrastructure, platform-engineering, citizen-development]
 started: 2026-04-27T06:20:07+00:00
 completed: 2026-04-27T06:37:09+00:00
 output: [knowledge]
+themes: [governance-policy, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

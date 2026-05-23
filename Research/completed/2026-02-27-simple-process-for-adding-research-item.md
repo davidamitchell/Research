@@ -3,11 +3,10 @@ title: "Simple process for adding a research item"
 added: 2026-03-02T08:23:20+00:00
 status: completed
 priority: high
-tags: [process, workflow, tooling]
-ai_themes: [tools-infrastructure, knowledge-management, research-operations]
 started: 2026-03-02T08:23:20+00:00
 completed: 2026-03-02T08:23:20+00:00
 output: [tool, knowledge]
+themes: [tools-infrastructure, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

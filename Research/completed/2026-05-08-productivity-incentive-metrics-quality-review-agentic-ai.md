@@ -5,11 +5,10 @@ added: 2026-05-08T10:05:24+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, software-engineering, incentives, governance-behaviour, enterprise, measurement, technical-debt]
-ai_themes: [agentic-ai, governance-policy, workforce-skills, cost-performance, measurement-metrics]
 started: 2026-05-09T03:09:50+00:00
 completed: 2026-05-09T03:31:23+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, workforce-skills, cost-performance, software-engineering]
 cites: [2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-04-26-ai-governance-culture-incentives-behaviour, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-05-01-human-oversight-ai-software-development, 2026-05-01-compound-error-accumulation-ai-codebases]
 related: [2026-04-22-enterprise-ai-capability-model, 2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-05-01-appropriate-task-selection-coding-agents]
 superseded_by: ~

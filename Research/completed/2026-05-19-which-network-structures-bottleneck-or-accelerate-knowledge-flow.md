@@ -5,11 +5,10 @@ added: 2026-05-19T19:42:37+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [organisation, organisational-design, organisational-learning, organisational-theory]
-themes: [knowledge-management, organisational-design, organisational-learning, organisational-theory]
 started: 2026-05-20T18:16:56+00:00
 completed: 2026-05-20T18:41:19+00:00
 output: [knowledge]
+themes: [knowledge-management, organisational-design, organisational-learning, organisational-theory]
 cites:
   - 2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows
   - 2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour

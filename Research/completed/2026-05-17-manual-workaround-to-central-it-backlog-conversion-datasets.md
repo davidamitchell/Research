@@ -5,8 +5,7 @@ added: 2026-05-17T20:40:49+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, analytics]
-themes: [governance-policy, benchmarks-eval, tools-infrastructure, knowledge-management, workflow-automation]
+themes: [governance-policy, benchmarks-eval, tools-infrastructure, knowledge-management, workflow-automation, organisational-design]
 started: 2026-05-18T11:41:57+00:00
 completed: 2026-05-18T12:04:26+00:00
 output: []

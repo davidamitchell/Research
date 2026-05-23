@@ -5,11 +5,10 @@ added: 2026-03-19T08:21:30+00:00
 status: completed
 priority: high
 blocks: []
-tags: [authorization, policy-as-code, compliance, nist, iso-27001, agentic-ai, governance, least-privilege, access-control, iac]
-ai_themes: [agentic-ai, governance-policy, security-risk, tools-infrastructure, compliance-automation]
 started: 2026-03-19T08:21:30+00:00
 completed: 2026-03-19T08:21:30+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, tools-infrastructure, regulatory-compliance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

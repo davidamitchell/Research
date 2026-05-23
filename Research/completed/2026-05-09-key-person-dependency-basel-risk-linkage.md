@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, operational-risk]
-ai_themes: [governance-policy, security-risk, workforce-skills, operational-risk]
 started: 2026-05-10T20:39:31+00:00
 completed: 2026-05-10T20:59:22+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, workforce-skills, organisational-design, tools-infrastructure]
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification]
 related: [2026-05-09-cobit-cmmi-defined-process-risk-mitigation, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk]
 superseded_by: ~

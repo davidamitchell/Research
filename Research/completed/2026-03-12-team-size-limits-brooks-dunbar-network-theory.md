@@ -4,11 +4,10 @@ added: 2026-03-14T11:20:36+00:00
 status: completed
 priority: high
 blocks: []
-tags: [brooks-law, dunbar-number, network-theory, team-size, coordination-overhead, graph-theory, evolutionary-psychology, software-engineering, military]
-ai_themes: [multi-agent, consciousness-cognition, team-size-dynamics]
 started: 2026-03-14T11:20:36+00:00
 completed: 2026-03-14T11:20:36+00:00
 output: [knowledge]
+themes: [multi-agent, consciousness-cognition, software-engineering]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

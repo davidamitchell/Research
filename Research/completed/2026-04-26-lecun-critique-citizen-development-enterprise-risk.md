@@ -5,11 +5,10 @@ added: 2026-04-26T18:31:29+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-software-engineering-investment-case-llm]
-tags: [lecun, llm, large-language-models, citizen-development, systems-capability-debt, enterprise-risk, regulated-financial-services, agentic-ai, causal-reasoning, governance-architecture, risk-framework]
-ai_themes: [agentic-ai, governance-policy, ai-architecture, enterprise-risk-management, systems-capability-debt]
 started: 2026-04-27T01:39:14+00:00
 completed: 2026-04-27T02:02:44+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

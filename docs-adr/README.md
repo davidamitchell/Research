@@ -28,6 +28,7 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0015](0015-gemini-ai-theme-enrichment.md) | Gemini AI theme enrichment pipeline | Accepted | 2026-05-11 |
 | [0016](0016-graph-visualization-approach.md) | Graph visualization approach for GitHub Pages | Accepted | 2026-05-14 |
 | [0017](0017-search-matcher-and-playwright-ui-regression-tests.md) | Shared keyword matcher for site search and Playwright UI regression tests | Accepted | 2026-05-20 |
+| [0018](0018-unified-themes-field.md) | Unified `themes` field replacing `tags` and `ai_themes` | Accepted | 2026-05-23 |
 
 ---
 

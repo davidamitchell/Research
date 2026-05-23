@@ -5,11 +5,10 @@ added: 2026-04-19T22:18:52+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [agentic-ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
-ai_themes: [agentic-ai, workforce-skills, ai-architecture, competitive-strategy]
 started: 2026-04-19T22:18:52+00:00
 completed: 2026-04-19T22:18:52+00:00
 output: [knowledge]
+themes: [agentic-ai, workforce-skills, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

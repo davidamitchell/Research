@@ -5,11 +5,10 @@ added: 2026-05-08T10:05:24+00:00
 status: completed
 priority: high
 blocks: []
-tags: [systems-capability-debt, technical-debt, agentic-ai, enterprise, operational-risk, ai-governance, measurement, shadow-it, culture, regulated-enterprise]
-ai_themes: [agentic-ai, security-risk, governance-policy, workforce-skills, organizational-risk]
 started: 2026-05-09T02:47:36+00:00
 completed: 2026-05-09T03:08:11+00:00
 output: []
+themes: [agentic-ai, security-risk, governance-policy, workforce-skills]
 cites: [2026-04-22-enterprise-ai-capability-model, 2026-04-24-business-led-low-code-agent-governance, 2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-04-26-systems-capability-debt-citizen-development-empirical-evidence, 2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-05-08-ai-skill-decay-deskilling-measurement-interventions]
 related: [2026-04-26-ai-governance-assurance-change-control-verification, 2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-04-26-ai-lowcode-governance-maturity-model]
 superseded_by: ~

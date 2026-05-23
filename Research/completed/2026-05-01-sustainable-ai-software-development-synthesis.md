@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: medium
 blocks: [2026-05-01-terminal-bench-minimal-coding-agent-benchmarks, 2026-05-01-coding-agent-context-management-transparency, 2026-05-01-self-modifying-agent-architectures, 2026-05-01-extension-systems-ai-coding-agents, 2026-05-01-oss-sustainability-ai-generated-contributions, 2026-05-01-compound-error-accumulation-ai-codebases, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-human-oversight-ai-software-development]
-tags: [agentic-ai, agentic-coding, software-engineering, governance, code-quality, open-source, human-ai-collaboration]
-ai_themes: [agentic-ai, governance-policy, workforce-skills, software-engineering]
 started: 2026-05-02T00:30:49+00:00
 completed: 2026-05-02T00:53:29+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, workforce-skills, software-engineering, human-ai-interaction]
 cites: [2026-05-01-terminal-bench-minimal-coding-agent-benchmarks, 2026-05-01-coding-agent-context-management-transparency, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-human-oversight-ai-software-development, 2026-05-01-compound-error-accumulation-ai-codebases, 2026-05-01-oss-sustainability-ai-generated-contributions, 2026-05-01-ai-coding-harness-quality-benchmarks, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-04-26-access-control-amplification-agentic-operations, 2026-04-26-permission-safe-rag-enterprise-information-architecture, 2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal, 2026-04-26-deployment-pipeline-citizen-development-governed-gate, 2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 related: [2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-03-22-agents-as-finishers-and-synthesisers, 2026-04-26-human-in-the-loop-ai-automated-workflows]
 superseded_by: ~

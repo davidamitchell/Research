@@ -4,11 +4,10 @@ added: 2026-03-14T11:58:48+00:00
 status: completed
 priority: high
 blocks: []
-tags: [correctness, quality, throughput, volume, agentic-ai, productivity, verification, shared-context, agentic-tarpit, procter-and-gamble-study]
-ai_themes: [agentic-ai, workforce-skills, cost-performance, quality-assurance]
 started: 2026-03-14T11:58:48+00:00
 completed: 2026-03-14T11:58:48+00:00
 output: [knowledge]
+themes: [agentic-ai, workforce-skills, cost-performance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ added: 2026-05-02T06:11:10+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-02-research-to-publication-authoring-workflow]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [agentic-ai, llm, workflow, knowledge-graph, evaluation, hallucinations]
-ai_themes: [ai-architecture, knowledge-management, benchmarks-eval, tools-infrastructure, rag-retrieval]
 started: 2026-05-02T08:41:24+00:00
 completed: 2026-05-02T09:05:51+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [ai-architecture, knowledge-management, benchmarks-eval, tools-infrastructure, rag-retrieval, agentic-ai]
 cites: [2026-02-27-information-synthesis-entropy, 2026-03-03-cross-item-synthesis-meta-insights, 2026-03-03-knowledge-linking-connected-corpus, 2026-03-12-exploration-synthesis-gap]
 related: [2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-04-27-uelgf-synthesis-complete-framework]
 superseded_by: ~

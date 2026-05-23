@@ -4,11 +4,10 @@ added: 2026-03-27T08:57:15+00:00
 status: completed
 priority: high
 blocks: []
-tags: [customer-service, strategy, behavioral-economics, agentic-ai, self-service, customer-delight, rory-sutherland]
-ai_themes: [agentic-ai, knowledge-management, workforce-skills, customer-experience-strategy]
 started: 2026-03-27T08:57:15+00:00
 completed: 2026-03-27T08:57:15+00:00
 output: [knowledge]
+themes: [agentic-ai, knowledge-management, workforce-skills]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

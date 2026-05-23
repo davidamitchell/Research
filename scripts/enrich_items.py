@@ -135,9 +135,20 @@ def _has_themes(yaml_block: str) -> bool:
 
 
 def _insert_themes(yaml_block: str, themes: list[str]) -> str:
-    """Insert ``themes`` after the ``tags:`` line (or at the end)."""
+    """Insert ``themes`` after the ``output:`` line (or at the end).
+
+    The ``output:`` field is the canonical insertion point per the research item
+    template.  If ``output:`` is absent (older items), themes are appended at the
+    end of the YAML block.  The legacy insertion-after-``tags:`` behaviour is
+    retained as a last-resort fallback for backward compatibility.
+    """
     themes_yaml = "themes: [" + ", ".join(themes) + "]"
-    # Insert after tags: line if present.
+    # Prefer inserting after output: line (matches template field order).
+    output_match = re.search(r"^(output\s*:.*(?:\n  -.*)*)", yaml_block, re.MULTILINE)
+    if output_match:
+        insert_pos = output_match.end()
+        return yaml_block[:insert_pos] + "\n" + themes_yaml + yaml_block[insert_pos:]
+    # Legacy fallback: insert after tags: line (pre-migration items only).
     tags_match = re.search(r"^(tags\s*:.*(?:\n  -.*)*)", yaml_block, re.MULTILINE)
     if tags_match:
         insert_pos = tags_match.end()

@@ -5,8 +5,7 @@ added: 2026-05-17T20:40:49+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, agentic-ai]
-themes: [agentic-ai, governance-policy, security-risk, tools-infrastructure, vendor-management]
+themes: [agentic-ai, governance-policy, security-risk, tools-infrastructure, vendor-management, organisational-design]
 started: 2026-05-18T12:30:56+00:00
 completed: 2026-05-18T12:56:10+00:00
 output: [knowledge]

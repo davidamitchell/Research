@@ -5,10 +5,10 @@ added: 2026-05-21T18:44:50+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [llm, dspy, optimization, prompt-engineering, evaluation]
 started: 2026-05-22T07:25:55+00:00
 completed: 2026-05-22T07:52:49+00:00
 output: []
+themes: [llm-reasoning, benchmarks-eval]
 cites:
   - 2026-03-05-general-agent-optimization-framework
   - 2026-05-02-storm-perspective-discovery-multi-perspective-question-generation

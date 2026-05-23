@@ -5,11 +5,10 @@ added: 2026-04-26T18:31:29+00:00
 status: completed
 priority: high
 blocks: []
-tags: [software-engineering, engineering-investment, citizen-development, llm, large-language-models, formal-verification, agentic-coding, regulated-financial-services, systems-capability-debt, delivery-pipelines, deployment-architecture]
-ai_themes: [governance-policy, ai-architecture, tools-infrastructure, workforce-skills, software-engineering-strategy]
 started: 2026-04-27T08:25:26+00:00
 completed: 2026-04-27T08:50:09+00:00
 output: [knowledge]
+themes: [governance-policy, ai-architecture, tools-infrastructure, workforce-skills, software-engineering, formal-methods]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

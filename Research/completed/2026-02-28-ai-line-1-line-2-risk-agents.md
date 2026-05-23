@@ -3,11 +3,10 @@ title: "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?"
 added: 2026-03-03T06:16:53+00:00
 status: completed
 priority: high
-tags: [ai-strategy, risk-agents, line-1, line-2, three-lines-model, agentic-ai, financial-services, risk-management]
-ai_themes: [agentic-ai, governance-policy, security-risk, financial-risk-management]
 started: 2026-03-03T06:16:53+00:00
 completed: 2026-03-03T06:16:53+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
