@@ -16,7 +16,12 @@ supersedes: ~
 item_type: primary
 confidence: medium
 themes: [governance-policy, organisational-design, regulatory-compliance, enterprise-adoption, cost-performance]
-versions: []
+versions:
+  - version: "1.0"
+    sha: bc27985faa74084423d007a6a727c526bb814be2
+    changed: 2026-05-23
+    progress: progress/2026-05-23-governance-reform-leadership-failure.md
+    summary: "Initial completion"
 ---
 
 # Barriers to governance reform, leadership failure modes, and reform mechanisms in regulated enterprises
