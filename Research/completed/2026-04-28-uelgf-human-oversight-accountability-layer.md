@@ -5,11 +5,10 @@ added: 2026-04-28T07:19:00+00:00
 status: completed
 priority: high
 blocks: []
-tags: [uelgf, human-oversight, accountability, escalation, agentic-ai, governance, human-owner, board-risk, openai-practices, eu-ai-act, regulated-banking]
-ai_themes: [agentic-ai, governance-policy, security-risk, human-in-the-loop]
 started: 2026-04-28T09:47:16+00:00
 completed: 2026-04-28T10:12:54+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

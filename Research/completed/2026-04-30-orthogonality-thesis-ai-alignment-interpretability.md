@@ -5,11 +5,10 @@ added: 2026-04-30T06:52:37+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [alignment, governance, explainability, ai-safety, llm, agentic-ai, mechanistic-interpretability]
-ai_themes: [agentic-ai, governance-policy, ai-safety-theory, mechanistic-interpretability]
 started: 2026-05-01T08:51:56+00:00
 completed: 2026-05-01T09:14:23+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture]
 cites: [2026-04-30-explainable-ai-xai-regulation-governance, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy]
 related: [2026-04-02-claude-mythos, 2026-03-15-context-layers-aligned-decisions-synthesis, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
 superseded_by: ~

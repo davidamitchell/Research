@@ -5,11 +5,10 @@ added: 2026-03-29T10:46:03+00:00
 status: completed
 priority: high
 blocks: []
-tags: [copilot, claude, ios, github-issues, multi-agent, copilot-spaces, repo-setup, instructions, agents-md]
-ai_themes: [agentic-ai, multi-agent, tools-infrastructure, developer-workflow]
 started: 2026-03-29T10:46:03+00:00
 completed: 2026-03-29T10:46:03+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, multi-agent, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

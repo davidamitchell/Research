@@ -5,11 +5,10 @@ added: 2026-05-02T06:11:10+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [knowledge-graph, agentic-ai, workflow, llm, memory-system, research-tooling]
-ai_themes: [agentic-ai, knowledge-graphs, ai-architecture, tools-infrastructure, memory-context]
 started: 2026-05-02T09:31:35+00:00
 completed: 2026-05-02T09:53:24+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, knowledge-graphs, ai-architecture, tools-infrastructure, memory-context]
 cites:
   - 2026-03-03-cross-item-synthesis-meta-insights
   - 2026-03-12-exploration-synthesis-gap

@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-lowcode-governance-maturity-model]
-tags: [decision-rights, accountability, liability, raci, governance, ai-systems, low-code, enterprise-governance, operational-risk, escalation]
-ai_themes: [governance-policy, security-risk, mlops-deployment, enterprise-accountability, operational-oversight]
 started: 2026-04-26T18:16:34+00:00
 completed: 2026-04-26T18:31:47+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, mlops-deployment]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

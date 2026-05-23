@@ -5,11 +5,10 @@ added: 2026-04-19T22:43:44+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [claude, anthropic, llm, character, identity, ai-safety, alignment]
-ai_themes: [agentic-ai, consciousness-cognition, ai-architecture, narrative-identity, alignment-theory]
 started: 2026-04-19T22:43:44+00:00
 completed: 2026-04-19T22:43:44+00:00
 output: [knowledge]
+themes: [agentic-ai, consciousness-cognition, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

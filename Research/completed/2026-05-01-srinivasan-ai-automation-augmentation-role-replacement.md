@@ -5,11 +5,10 @@ added: 2026-05-01T04:16:09+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, ai-strategy, organisational-design, strategy]
-ai_themes: [workforce-skills, organisational-design, ai-strategy, economic-impact]
 started: 2026-05-01T07:27:52+00:00
 completed: 2026-05-01T07:53:31+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [workforce-skills, organisational-design, agentic-ai]
 cites: []
 related: [2026-04-02-org-shape-software-cost-zero, 2026-04-02-ai-company-hiring-strategies]
 superseded_by: ~

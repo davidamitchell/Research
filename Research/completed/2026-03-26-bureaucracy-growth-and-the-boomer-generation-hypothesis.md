@@ -4,11 +4,10 @@ added: 2026-03-26T22:04:26+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [bureaucracy, demographics, baby-boomers, HR, organisational-theory, management, workforce]
-ai_themes: [governance-policy, workforce-skills, knowledge-management, organisational-dynamics]
 started: 2026-03-26T22:04:26+00:00
 completed: 2026-03-26T22:04:26+00:00
 output: [knowledge]
+themes: [governance-policy, workforce-skills, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

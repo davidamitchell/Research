@@ -5,11 +5,10 @@ added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [organisation, organisational-design, governance, vendor-management, technical-debt]
-ai_themes: [governance-policy, security-risk, tools-infrastructure, vendor-oversight, technical-debt-management]
 started: 2026-05-15T03:53:08+00:00
 completed: 2026-05-15T04:13:25+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, tools-infrastructure, organisational-design]
 cites: [2026-05-14-org-failure-modes-accountability-gaps, 2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability]
 related: [2026-05-14-org-failure-modes-cohort-demand-domain-it, 2026-05-14-org-failure-modes-project-demand-product-it]
 superseded_by: ~

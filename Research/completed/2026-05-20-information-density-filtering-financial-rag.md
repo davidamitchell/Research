@@ -5,10 +5,10 @@ added: 2026-05-20T10:32:16+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, governance, workflow, evaluation]
 started: 2026-05-20T11:33:13+00:00
 completed: 2026-05-20T12:02:38+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, benchmarks-eval]
 cites:
   - 2026-04-26-permission-safe-rag-enterprise-information-architecture
   - 2026-05-12-rag-document-drift-agent-behavior

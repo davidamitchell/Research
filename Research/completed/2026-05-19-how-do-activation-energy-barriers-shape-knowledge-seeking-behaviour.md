@@ -5,10 +5,10 @@ added: 2026-05-19T19:42:37+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, organisational-design, organisational-learning, organisational-theory]
 started: 2026-05-20T07:14:12+00:00
 completed: 2026-05-20T07:32:28+00:00
 output: [knowledge]
+themes: [organisational-design]
 cites:
   [
     2026-03-15-adam-smith-org-design-desire-paths-ai,

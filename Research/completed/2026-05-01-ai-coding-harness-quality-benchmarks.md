@@ -5,11 +5,10 @@ added: 2026-05-01T06:58:37+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-coding, evaluation, benchmarks, agentic-ai, llm, agent-tooling, developer-tooling]
-ai_themes: [agentic-ai, benchmarks-eval, tools-infrastructure, developer-productivity]
 started: 2026-05-01T08:22:25+00:00
 completed: 2026-05-01T08:49:47+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, benchmarks-eval, tools-infrastructure]
 cites: [2026-03-08-ai-coding-harnesses-agent-philosophy, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-04-30-ai-code-entropy-quality-metrics]
 related: [2026-03-08-ai-coding-harnesses-agent-philosophy, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-04-30-ai-code-entropy-quality-metrics, 2026-03-10-agent-evaluation-cross-repo-analysis]
 superseded_by: ~

@@ -3,11 +3,10 @@ title: "Controlled hallucination: perception as active brain construction"
 added: 2026-03-05T07:04:47+00:00
 status: completed
 priority: medium
-tags: [consciousness, perception, controlled-hallucination, anil-seth, neuroscience]
-ai_themes: [consciousness-cognition, ai-architecture, neuro-inspired-ai]
 started: 2026-03-05T07:04:47+00:00
 completed: 2026-03-05T07:04:47+00:00
 output: [knowledge]
+themes: [consciousness-cognition, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

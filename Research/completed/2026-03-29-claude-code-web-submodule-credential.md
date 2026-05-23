@@ -5,11 +5,10 @@ added: 2026-03-29T10:07:36+00:00
 status: completed
 priority: high
 blocks: []
-tags: [claude-code, submodules, credentials, environment-setup, agent-tooling]
-ai_themes: [agentic-ai, tools-infrastructure, security-risk, developer-experience]
 started: 2026-03-29T10:07:36+00:00
 completed: 2026-03-29T10:07:36+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

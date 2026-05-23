@@ -5,11 +5,10 @@ status: completed
 review_count: 2
 priority: high
 blocks: []
-tags: [organisation, workflow, evaluation, agentic-coding]
-ai_themes: [agentic-ai, tools-infrastructure, cost-performance, workforce-skills, technical-debt-management]
 started: 2026-05-16T08:10:47+00:00
 completed: 2026-05-16T08:31:34+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, cost-performance, workforce-skills, organisational-design, benchmarks-eval]
 cites: [2026-04-26-systems-capability-debt-citizen-development-empirical-evidence, 2026-04-26-software-engineering-investment-case-llm, 2026-05-14-citizen-development-rollout-empirical-evidence, 2026-05-14-org-failure-modes-cohort-demand-domain-it]
 related: [2026-04-22-enterprise-ai-use-case-routing-frameworks, 2026-04-26-ai-lowcode-risk-tier-classification-controls, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis]
 superseded_by: ~

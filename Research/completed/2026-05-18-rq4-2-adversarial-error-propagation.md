@@ -6,10 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq4-3-ood-generalization-agentic
-tags: [agentic-ai, llm, evaluation, prompt-injection]
 started: 2026-05-19T11:52:12+00:00
 completed: 2026-05-19T12:12:50+00:00
 output: [knowledge]
+themes: [agentic-ai, benchmarks-eval]
 cites:
   - 2026-05-18-rq4-1-agentic-loop-explanatory-reach
   - 2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain

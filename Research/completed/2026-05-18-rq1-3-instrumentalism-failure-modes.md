@@ -6,7 +6,6 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq2-1-erm-causal-blindness
-tags: [epistemology, philosophy-of-science, machine-learning, causal-inference, invariants]
 themes: [benchmarks-eval, mlops-deployment, security-risk, epistemic-robustness, causal-modeling]
 started: 2026-05-19T02:01:31+00:00
 completed: 2026-05-19T02:29:39+00:00

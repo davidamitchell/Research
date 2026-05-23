@@ -5,11 +5,10 @@ added: 2026-05-06T08:52:41+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [agentic-ai, identity, security, access-control, delegation, attribution, llm, governance]
-ai_themes: [agentic-ai, multi-agent, security-risk, tools-infrastructure, identity-management]
 started: 2026-05-06T21:09:53+00:00
 completed: 2026-05-06T21:34:46+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, multi-agent, security-risk, tools-infrastructure]
 cites: [2026-05-06-aibom-identity-delegation-trust-theory, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-04-26-access-control-amplification-agentic-operations, 2026-04-26-permission-safe-rag-enterprise-information-architecture, 2026-05-06-aibom-platform-observability-control-comparison]
 related: [2026-05-06-aibom-identity-delegation-trust-theory, 2026-05-06-aibom-platform-observability-control-comparison, 2026-05-06-aibom-effectiveness-risk-mitigation-limits, 2026-04-26-ai-agent-identity-access-management-enterprise]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

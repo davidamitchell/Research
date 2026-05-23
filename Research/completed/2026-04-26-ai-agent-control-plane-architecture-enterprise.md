@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]
-tags: [control-plane, agentic-ai, low-code, enterprise-architecture, policy-propagation, distributed-systems, governance-architecture, feedback-loops, ai-governance]
-ai_themes: [agentic-ai, multi-agent, governance-policy, ai-architecture, enterprise-control-plane]
 started: 2026-04-26T10:33:09+00:00
 completed: 2026-04-26T10:52:29+00:00
 output: [knowledge]
+themes: [agentic-ai, multi-agent, governance-policy, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

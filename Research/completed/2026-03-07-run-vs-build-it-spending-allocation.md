@@ -4,11 +4,10 @@ added: 2026-03-08T03:05:39+00:00
 status: completed
 priority: medium
 blocks: [2026-03-07-run-build-it-allocation-implementation-how]
-tags: [it-finance, run-build, cost-allocation, gartner, activity-based-costing, flow-metrics, tbc-framework]
-ai_themes: [cost-performance, tools-infrastructure, workforce-skills, it-financial-management]
 started: 2026-03-08T03:05:39+00:00
 completed: 2026-03-08T03:05:39+00:00
 output: [knowledge]
+themes: [cost-performance, tools-infrastructure, workforce-skills]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

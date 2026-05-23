@@ -3,11 +3,10 @@ title: "Research Quality Assurance and Knowledge Integration Methodology"
 added: 2026-03-08T01:34:31+00:00
 status: completed
 priority: medium
-tags: [research-methodology, quality-assurance, peer-review, knowledge-integration, information-to-wisdom, ci, skills, synthesis]
-ai_themes: [benchmarks-eval, knowledge-management, knowledge-graphs, research-synthesis]
 started: 2026-03-08T01:34:31+00:00
 completed: 2026-03-08T01:34:31+00:00
 output: [skill, knowledge, backlog-item]
+themes: [benchmarks-eval, knowledge-management, knowledge-graphs]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ added: 2026-05-08T10:05:24+00:00
 status: completed
 priority: high
 blocks: []
-tags: [human-in-the-loop, automation-bias, agentic-ai, ai-governance, enterprise, measurement, governance-behaviour, regulated-enterprise, workflow]
-ai_themes: [governance-policy, mlops-deployment, workforce-skills, ai-governance, human-oversight]
 started: 2026-05-09T03:33:35+00:00
 completed: 2026-05-09T03:50:39+00:00
 output: [knowledge]
+themes: [governance-policy, mlops-deployment, workforce-skills, agentic-ai, tools-infrastructure]
 cites: [2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-04-26-ai-governance-culture-incentives-behaviour]
 related: [2026-05-01-human-oversight-ai-software-development, 2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-lowcode-decision-rights-accountability-liability]
 superseded_by: ~

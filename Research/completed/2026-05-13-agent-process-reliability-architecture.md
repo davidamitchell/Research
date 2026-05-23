@@ -5,11 +5,10 @@ added: 2026-05-13T19:34:45+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, workflow, organisation, evaluation, llm, memory-system]
-ai_themes: [agentic-ai, ai-architecture, workflow, organisation]
 started: 2026-05-14T09:01:14+00:00
 completed: 2026-05-14T09:26:34+00:00
 output: []
+themes: [agentic-ai, ai-architecture, tools-infrastructure, organisational-design, benchmarks-eval]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
   - 2026-04-26-ai-lowcode-governance-enforcement-architecture

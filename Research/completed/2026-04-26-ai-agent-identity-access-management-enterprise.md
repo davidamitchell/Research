@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
-tags: [identity, access-management, machine-identity, agentic-ai, low-code, credential-management, enterprise-iam, delegation, attribution]
-ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, identity-access-management]
 started: 2026-04-26T10:55:16+00:00
 completed: 2026-04-26T18:14:01+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

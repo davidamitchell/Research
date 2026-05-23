@@ -5,11 +5,10 @@ added: 2026-04-30T19:01:01+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, llm, microsoft, copilot, cowork, anthropic, enterprise, governance, security]
-ai_themes: [agentic-ai, governance-policy, security-risk, cost-performance, enterprise-adoption]
 started: 2026-05-01T01:36:31+00:00
 completed: 2026-05-01T01:59:48+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, security-risk, cost-performance, enterprise-adoption]
 cites: [2026-04-26-ms-copilot-cowork, 2026-04-24-business-led-low-code-agent-governance, 2026-04-22-enterprise-ai-use-case-routing-frameworks]
 related: [2026-04-26-vendor-platform-governance-constraints-compensating-controls, 2026-04-26-ai-governance-cost-performance-delivery-impact, 2026-04-02-claude-mythos]
 superseded_by: ~

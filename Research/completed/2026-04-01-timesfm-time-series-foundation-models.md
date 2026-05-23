@@ -4,11 +4,10 @@ added: 2026-04-01T00:48:47+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [machine-learning, time-series, forecasting, foundation-models, google, transformers]
-ai_themes: [ai-architecture, benchmarks-eval, cost-performance, time-series-foundation-models]
 started: 2026-04-01T00:48:47+00:00
 completed: 2026-04-01T00:48:47+00:00
 output: [knowledge]
+themes: [ai-architecture, benchmarks-eval, cost-performance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ status: completed
 review_count: 2
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [microsoft, copilot, cowork, enterprise, governance, shadow-it, legal]
-ai_themes: [governance-policy, security-risk, knowledge-management, enterprise-adoption]
 started: 2026-04-26T01:30:30+00:00
 completed: 2026-04-26T01:30:30+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [governance-policy, security-risk, knowledge-management, enterprise-adoption]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

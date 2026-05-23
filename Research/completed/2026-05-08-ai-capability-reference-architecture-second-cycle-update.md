@@ -5,11 +5,10 @@ added: 2026-05-08T09:16:11+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, enterprise, capability-model, ai-governance, security, supply-chain, sbom, evaluation, reference-architecture, regulation]
-ai_themes: [ai-architecture, governance-policy, security-risk, benchmarks-eval, enterprise-ai]
 started: 2026-05-09T01:57:07+00:00
 completed: 2026-05-09T02:19:53+00:00
 output: [knowledge]
+themes: [ai-architecture, governance-policy, security-risk, benchmarks-eval, agentic-ai]
 cites:
   - 2026-04-22-enterprise-ai-capability-model
   - 2026-04-22-knowledge-curation-governance-for-regulated-ai

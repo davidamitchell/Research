@@ -3,11 +3,10 @@ title: "Predictive processing and active inference: the brain as prediction mach
 added: 2026-02-28T09:33:14+00:00
 status: completed
 priority: high
-tags: [predictive-processing, active-inference, free-energy-principle, karl-friston, neuroscience]
-ai_themes: [agentic-ai, consciousness-cognition, ai-architecture, neuro-symbolic-ai]
 started: 2026-02-28T09:33:14+00:00
 completed: 2026-02-28T09:33:14+00:00
 output: [knowledge]
+themes: [agentic-ai, consciousness-cognition, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

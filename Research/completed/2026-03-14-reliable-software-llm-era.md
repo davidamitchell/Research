@@ -4,11 +4,10 @@ added: 2026-03-16T06:08:00+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [llm, formal-methods, reliability, software-engineering, quint, formal-verification, cognitive-debt, agentic-ai]
-ai_themes: [llm-reasoning, reliability, formal-verification, cognitive-debt]
 started: 2026-03-16T06:08:00+00:00
 completed: 2026-03-16T06:08:00+00:00
 output: [knowledge]
+themes: [llm-reasoning, formal-methods, software-engineering, agentic-ai]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

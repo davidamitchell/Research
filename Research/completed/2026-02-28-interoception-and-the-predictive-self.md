@@ -3,11 +3,10 @@ title: "Interoception and the predictive self: selfhood as bodily inference"
 added: 2026-03-06T08:07:16+00:00
 status: completed
 priority: medium
-tags: [interoception, self, consciousness, embodied-cognition, anil-seth, predictive-processing]
-ai_themes: [consciousness-cognition, embodied-ai, predictive-processing]
 started: 2026-03-06T08:07:16+00:00
 completed: 2026-03-06T08:07:16+00:00
 output: [knowledge]
+themes: [consciousness-cognition]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

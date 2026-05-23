@@ -3,11 +3,10 @@ title: "Local database: requirements and technology choice"
 added: 2026-03-03T18:06:36+00:00
 status: completed
 priority: medium
-tags: [database, sqlite, storage, local]
-ai_themes: [memory-context, rag-retrieval, ai-architecture, tools-infrastructure, local-storage]
 started: 2026-03-03T18:06:36+00:00
 completed: 2026-03-03T18:06:36+00:00
 output: [knowledge, backlog-item]
+themes: [memory-context, rag-retrieval, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ added: 2026-04-26T07:40:17+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
-tags: [access-control, agentic-ai, amplification, nist, apra-cps-230, dora, least-privilege, zero-trust, regulated-banking]
-ai_themes: [agentic-ai, governance-policy, security-risk, access-control-systems]
 started: 2026-04-26T07:40:17+00:00
 completed: 2026-04-26T07:40:17+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

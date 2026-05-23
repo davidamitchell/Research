@@ -5,11 +5,10 @@ added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
 blocks: []
-tags: [llm, organisation, evaluation]
-ai_themes: [governance-policy, security-risk, benchmarks-eval]
 started: 2026-05-18T09:51:20+00:00
 completed: 2026-05-18T10:13:58+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, benchmarks-eval, organisational-design]
 cites: [2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-05-12-iso-iec-42001-aims-controls-adoption-history]
 related: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-28-uelgf-human-oversight-accountability-layer, 2026-04-30-explainable-ai-xai-regulation-governance]
 superseded_by: ~

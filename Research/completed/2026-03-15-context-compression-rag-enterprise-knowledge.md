@@ -4,11 +4,10 @@ added: 2026-03-16T05:48:47+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-03-15-context-layers-aligned-decisions-synthesis]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [rag, context-management, compression, llm, knowledge-architecture, enterprise-ai, context-window]
-ai_themes: [memory-context, rag-retrieval, knowledge-management, ai-architecture, context-compression]
 started: 2026-03-16T05:48:47+00:00
 completed: 2026-03-16T05:48:47+00:00
 output: [knowledge]
+themes: [memory-context, rag-retrieval, knowledge-management, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

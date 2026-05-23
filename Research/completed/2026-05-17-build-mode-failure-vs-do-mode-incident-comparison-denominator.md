@@ -5,11 +5,10 @@ added: 2026-05-17T20:40:49+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, analytics]
-ai_themes: [mlops-deployment, benchmarks-eval, tools-infrastructure]
 started: 2026-05-18T11:09:21+00:00
 completed: 2026-05-18T11:39:12+00:00
 output: []
+themes: [mlops-deployment, benchmarks-eval, tools-infrastructure, organisational-design]
 cites: [2026-05-16-variance-control-comparison-across-delivery-modes]
 related: [2026-05-07-ai-production-incidents-deep-dive, 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates]
 superseded_by: ~

@@ -5,11 +5,10 @@ added: 2026-05-09T02:05:08+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [workflow, organisational-theory, software-engineering, measurement, throughput, reliability, technical-debt, platform-engineering]
-ai_themes: [tools-infrastructure, mlops-deployment, workforce-skills, cost-performance, organisational-design]
 started: 2026-05-09T07:27:16+00:00
 completed: 2026-05-09T07:46:18+00:00
 output: [knowledge]
+themes: [tools-infrastructure, mlops-deployment, workforce-skills, cost-performance, organisational-design, software-engineering]
 cites: [2026-04-01-backpressure-theory-of-constraints, 2026-04-26-software-engineering-investment-case-llm, 2026-03-26-measuring-opportunity-cost]
 related: [2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai, 2026-04-01-backpressure-theory-of-constraints, 2026-03-26-measuring-opportunity-cost]
 superseded_by: ~

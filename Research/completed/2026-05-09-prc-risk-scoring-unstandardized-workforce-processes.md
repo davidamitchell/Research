@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, organisational-design]
-ai_themes: [governance-policy, security-risk, workforce-skills, organisational-processes]
 started: 2026-05-11T11:45:15+00:00
 completed: 2026-05-11T12:09:41+00:00
 output: []
+themes: [governance-policy, security-risk, workforce-skills, organisational-design, tools-infrastructure]
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification, 2026-05-09-cobit-cmmi-defined-process-risk-mitigation]
 related: [2026-05-09-key-person-dependency-basel-risk-linkage]
 superseded_by: ~

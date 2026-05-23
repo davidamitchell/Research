@@ -3,11 +3,10 @@ title: "AI Strategy Examples: Risk Reduction Focus"
 added: 2026-03-03T07:52:49+00:00
 status: completed
 priority: high
-tags: [ai-strategy, risk-management, operational-risk, model-risk, ai-governance, financial-services]
-ai_themes: [governance-policy, security-risk, benchmarks-eval, operational-resilience]
 started: 2026-03-03T07:52:49+00:00
 completed: 2026-03-03T07:52:49+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, benchmarks-eval]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

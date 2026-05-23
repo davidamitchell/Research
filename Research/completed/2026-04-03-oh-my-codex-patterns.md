@@ -4,11 +4,10 @@ added: 2026-04-03T00:27:58+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, tooling, instructions, skills, workflow, codex, copilot, agents-md]
-ai_themes: [agentic-ai, tools-infrastructure, ai-architecture, workflow-patterns]
 started: 2026-04-03T00:27:58+00:00
 completed: 2026-04-03T00:27:58+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, tools-infrastructure, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

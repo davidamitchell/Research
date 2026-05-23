@@ -4,11 +4,10 @@ added: 2026-03-05T20:11:40+00:00
 status: completed
 priority: high
 blocks: [2026-03-05-h-neuron-over-compliance, 2026-03-05-h-neuron-pretraining-origins]
-tags: [llm, hallucinations, h-neurons, mechanistic-interpretability, over-compliance, pre-training, alignment, reliability, arxiv]
-ai_themes: [ai-architecture, security-risk, mechanistic-interpretability, llm-alignment]
 started: 2026-03-05T20:11:40+00:00
 completed: 2026-03-05T20:11:40+00:00
 output: [knowledge, backlog-item]
+themes: [ai-architecture, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

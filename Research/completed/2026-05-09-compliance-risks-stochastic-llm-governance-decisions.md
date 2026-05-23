@@ -5,11 +5,10 @@ added: 2026-05-09T22:44:23+00:00
 status: completed
 priority: high
 blocks: []
-tags: [compliance, llm, governance, agentic-ai, ai-governance, hallucinations, privacy, financial-services]
-ai_themes: [governance-policy, security-risk, llm-reasoning, compliance-risk]
 started: 2026-05-10T19:19:52+00:00
 completed: 2026-05-10T19:38:03+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, llm-reasoning, agentic-ai]
 cites:
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance
   - 2026-05-09-policy-as-code-guardrails-regulatory-ai-governance

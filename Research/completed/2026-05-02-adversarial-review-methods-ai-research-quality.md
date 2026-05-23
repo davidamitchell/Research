@@ -5,11 +5,10 @@ added: 2026-05-02T06:11:10+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [agentic-ai, llm, evaluation, workflow, agent-tooling]
-ai_themes: [agentic-ai, llm-reasoning, benchmarks-eval, security-risk, red-teaming]
 started: 2026-05-03T03:56:17+00:00
 completed: 2026-05-03T04:18:20+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, llm-reasoning, benchmarks-eval, security-risk, tools-infrastructure]
 cites: [2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-04-26-human-in-the-loop-ai-automated-workflows]
 related: [2026-03-10-adversarial-agents-shared-goals-multi-perspective, 2026-05-01-coding-agent-context-management-transparency, 2026-05-01-ai-coding-harness-quality-benchmarks]
 superseded_by: ~

@@ -5,11 +5,10 @@ added: 2026-03-24T23:08:35+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
-ai_themes: [agentic-ai, governance-policy, security-risk, public-perception]
 started: 2026-03-24T23:08:35+00:00
 completed: 2026-03-24T23:08:35+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

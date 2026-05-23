@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [maturity-model, ai-governance, low-code, enterprise-governance, capability-model, benchmarks, progression, assessment, regulated-enterprise]
-ai_themes: [governance-policy, security-risk, ai-architecture, enterprise-maturity]
 started: 2026-04-27T13:44:41+00:00
 completed: 2026-04-27T14:14:19+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -6,8 +6,7 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-agentic-production-tradeoffs
-tags: [agentic-ai, llm, governance, evaluation]
-themes: [agentic-ai, ai-architecture, governance-policy, mlops-deployment, explainability-transparency]
+themes: [agentic-ai, ai-architecture, governance-policy, mlops-deployment, explainability-transparency, benchmarks-eval]
 started: 2026-05-19T00:54:38+00:00
 completed: 2026-05-19T01:14:38+00:00
 output: [knowledge]

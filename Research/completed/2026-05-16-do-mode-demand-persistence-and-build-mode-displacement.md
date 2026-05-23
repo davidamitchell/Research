@@ -5,11 +5,10 @@ added: 2026-05-16T05:29:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, organisation, workflow, evaluation]
-ai_themes: [agentic-ai, workforce-skills, cost-performance, knowledge-management, automation-economics]
 started: 2026-05-16T07:21:27+00:00
 completed: 2026-05-16T07:44:06+00:00
 output: [knowledge]
+themes: [agentic-ai, workforce-skills, cost-performance, knowledge-management, organisational-design, tools-infrastructure, benchmarks-eval]
 cites:
   - 2026-05-16-decommission-trigger-design-for-do-mode-agents
   - 2026-05-16-agent-operational-cost-vs-gap-closure-cost

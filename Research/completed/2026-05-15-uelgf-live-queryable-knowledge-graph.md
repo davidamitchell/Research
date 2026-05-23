@@ -5,11 +5,10 @@ added: 2026-05-15T19:59:47+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [uelgf, knowledge-graph, ontology, policy-coherence, cia-classification, regulated-banking]
-ai_themes: [governance-policy, knowledge-graphs, security-risk, knowledge-management, ai-architecture]
 started: 2026-05-16T00:00:18+00:00
 completed: 2026-05-16T00:19:20+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [governance-policy, knowledge-graphs, security-risk, knowledge-management, ai-architecture]
 cites:
   - 2026-04-27-uelgf-policy-architecture-8-layer-context
   - 2026-04-27-uelgf-entity-taxonomy-cia-classification

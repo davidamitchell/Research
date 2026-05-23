@@ -7,10 +7,10 @@ priority: high
 blocks:
   - 2026-05-18-rq5-2-flexibility-vs-predictability-auditability
   - 2026-05-18-agentic-explainability-vs-traditional
-tags: [agentic-ai, llm, formal-methods, machine-learning, evaluation]
 started: 2026-05-19T19:40:54+00:00
 completed: 2026-05-19T20:00:09+00:00
 output: [knowledge]
+themes: [agentic-ai, formal-methods, benchmarks-eval]
 cites:
   - 2026-05-18-rq4-2-adversarial-error-propagation
   - 2026-05-18-rq4-3-ood-generalization-agentic

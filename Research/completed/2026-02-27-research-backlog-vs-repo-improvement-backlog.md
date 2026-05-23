@@ -3,11 +3,10 @@ title: "Keeping research backlog separate from repo improvement backlog"
 added: 2026-03-02T08:19:48+00:00
 status: completed
 priority: high
-tags: [process, workflow, organisation]
-ai_themes: [tools-infrastructure, knowledge-management, ai-development-process]
 started: 2026-03-02T08:19:48+00:00
 completed: 2026-03-02T08:19:48+00:00
 output: [knowledge]
+themes: [tools-infrastructure, knowledge-management, organisational-design]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

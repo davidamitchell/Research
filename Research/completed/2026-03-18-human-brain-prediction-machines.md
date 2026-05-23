@@ -5,11 +5,10 @@ added: 2026-03-22T11:41:58+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [neuroscience, cognitive-science, llm, predictive-processing, predictive-coding, next-token-prediction, world-models, consciousness, free-energy-principle]
-ai_themes: [consciousness-cognition, ai-architecture, predictive-modeling, neuro-symbolic-ai]
 started: 2026-03-22T11:41:58+00:00
 completed: 2026-03-22T11:41:58+00:00
 output: [knowledge]
+themes: [consciousness-cognition, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

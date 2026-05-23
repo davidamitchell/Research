@@ -3,11 +3,10 @@ title: "Interface and delivery: how to surface research outputs"
 added: 2026-03-10T17:09:13+00:00
 status: completed
 priority: low
-tags: [interface, delivery, output, ux]
-ai_themes: [knowledge-management, tools-infrastructure, user-experience-design]
 started: 2026-03-10T17:09:13+00:00
 completed: 2026-03-10T17:09:13+00:00
 output: [knowledge, backlog-item]
+themes: [knowledge-management, tools-infrastructure, human-ai-interaction]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

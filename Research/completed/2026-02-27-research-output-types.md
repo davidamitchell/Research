@@ -3,11 +3,10 @@ title: "Research output types: skills, tools, agents, knowledge"
 added: 2026-03-03T18:19:41+00:00
 status: completed
 priority: medium
-tags: [outputs, classification, workflow]
-ai_themes: [agentic-ai, tools-infrastructure, knowledge-management, research-methodology]
 started: 2026-03-03T18:19:41+00:00
 completed: 2026-03-03T18:19:41+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, knowledge-management, benchmarks-eval]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

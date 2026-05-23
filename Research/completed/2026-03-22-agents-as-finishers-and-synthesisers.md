@@ -5,11 +5,10 @@ added: 2026-03-23T08:27:40+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, human-ai-collaboration, productivity, finishing, synthesis, orchestration, cognitive-styles]
-ai_themes: [agentic-ai, human-ai-collaboration, workforce-skills, cognitive-augmentation]
 started: 2026-03-23T08:27:40+00:00
 completed: 2026-03-23T08:27:40+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, human-ai-interaction, workforce-skills]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

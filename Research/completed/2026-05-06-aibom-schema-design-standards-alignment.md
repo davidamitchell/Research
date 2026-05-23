@@ -5,11 +5,10 @@ added: 2026-05-06T08:52:41+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-aibom-declared-construction-practice]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [agentic-ai, security, supply-chain, governance, llm, ai-governance]
-ai_themes: [agentic-ai, governance-policy, rag-retrieval, tools-infrastructure, supply-chain-security]
 started: 2026-05-06T11:00:55+00:00
 completed: 2026-05-06T11:26:17+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, rag-retrieval, tools-infrastructure, security-risk]
 cites: [2026-05-06-aibom-sbom-conceptual-gaps-theory, 2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-identity-delegation-trust-theory]
 related: [2026-05-06-aibom-declared-construction-practice, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-effectiveness-risk-mitigation-limits]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

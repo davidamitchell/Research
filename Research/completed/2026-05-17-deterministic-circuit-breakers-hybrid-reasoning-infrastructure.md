@@ -5,8 +5,7 @@ added: 2026-05-17T11:18:46+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, observability, workflow, invariants]
-themes: [ai-architecture, tools-infrastructure, governance-policy, cost-performance, mlops-deployment]
+themes: [ai-architecture, tools-infrastructure, governance-policy, cost-performance, mlops-deployment, agentic-ai]
 started: 2026-05-17T13:22:35+00:00
 completed: 2026-05-17T13:38:41+00:00
 output: []

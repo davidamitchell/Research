@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, operational-risk]
-ai_themes: [governance-policy, security-risk, workforce-skills, operational-risk, data-provenance]
 started: 2026-05-11T10:54:44+00:00
 completed: 2026-05-11T11:13:53+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, workforce-skills, organisational-design, tools-infrastructure]
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification]
 related: [2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-05-09-key-person-dependency-basel-risk-linkage]
 superseded_by: ~

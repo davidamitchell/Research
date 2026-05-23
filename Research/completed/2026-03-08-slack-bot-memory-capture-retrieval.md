@@ -4,11 +4,10 @@ added: 2026-03-10T07:51:38+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [mobile, slack, bot, capture, retrieval, memory-system]
-ai_themes: [memory-context, rag-retrieval, tools-infrastructure, knowledge-management, human-computer-interaction]
 started: 2026-03-10T07:51:38+00:00
 completed: 2026-03-10T07:51:38+00:00
 output: [knowledge]
+themes: [memory-context, rag-retrieval, tools-infrastructure, knowledge-management, human-ai-interaction]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, organisation, workflow, evaluation]
-ai_themes: [governance-policy, security-risk, organisation, workflow]
 started: 2026-05-17T21:35:12+00:00
 completed: 2026-05-17T21:54:54+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, organisational-design, tools-infrastructure, agentic-ai, benchmarks-eval]
 cites: [2026-03-12-swat-technique-loop-fresh-context, 2026-03-14-organisational-intent-formal-specification, 2026-05-09-prc-risk-scoring-unstandardized-workforce-processes]
 related: [2026-04-27-governance-moat-prior-research-implications, 2026-05-12-iso-iec-42001-aims-controls-adoption-history, 2026-03-12-failure-mode-taxonomy-expansion]
 superseded_by: ~

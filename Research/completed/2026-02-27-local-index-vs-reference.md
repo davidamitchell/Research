@@ -3,11 +3,10 @@ title: "Local index vs reference: what to store vs link"
 added: 2026-03-03T18:13:09+00:00
 status: completed
 priority: medium
-tags: [indexing, storage, local, reference]
-ai_themes: [memory-context, rag-retrieval, knowledge-management, ai-architecture, data-indexing]
 started: 2026-03-03T18:13:09+00:00
 completed: 2026-03-03T18:13:09+00:00
 output: [knowledge, backlog-item]
+themes: [memory-context, rag-retrieval, knowledge-management, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

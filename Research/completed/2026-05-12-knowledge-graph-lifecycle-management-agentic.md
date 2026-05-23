@@ -5,11 +5,10 @@ added: 2026-05-12T08:21:48+00:00
 status: completed
 priority: high
 blocks: []
-tags: [knowledge-graph, agentic-ai, workflow]
-ai_themes: [knowledge-graphs, agentic-ai, knowledge-management, ai-architecture]
 started: 2026-05-12T10:35:05+00:00
 completed: 2026-05-12T10:58:55+00:00
 output: [knowledge]
+themes: [knowledge-graphs, agentic-ai, knowledge-management, ai-architecture, tools-infrastructure]
 cites:
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency
   - 2026-05-12-graph-db-saas-knowledge-ontology

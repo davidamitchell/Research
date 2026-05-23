@@ -5,11 +5,10 @@ added: 2026-05-08T10:05:24+00:00
 status: completed
 priority: high
 blocks: []
-tags: [shadow-it, agentic-ai, ai-governance, enterprise, governance-behaviour, regulated-enterprise, human-factors, observability]
-ai_themes: [agentic-ai, governance-policy, security-risk, workforce-skills, organizational-behavior]
 started: 2026-05-09T06:12:15+00:00
 completed: 2026-05-09T06:34:21+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, workforce-skills]
 cites: [2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring]
 related: [2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-22-enterprise-ai-capability-model]
 superseded_by: ~

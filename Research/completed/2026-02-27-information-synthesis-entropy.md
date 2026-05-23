@@ -3,11 +3,10 @@ title: "Information synthesis: non-lossy compression, entropy, and information t
 added: 2026-03-02T08:16:39+00:00
 status: completed
 priority: high
-tags: [synthesis, information-theory, entropy, compression, agentic-ai]
-ai_themes: [agentic-ai, memory-context, knowledge-management, information-theory]
 started: 2026-03-02T08:16:39+00:00
 completed: 2026-03-02T08:16:39+00:00
 output: [knowledge, skill]
+themes: [agentic-ai, memory-context, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

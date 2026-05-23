@@ -5,11 +5,10 @@ added: 2026-05-06T08:52:41+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-05-06-aibom-schema-design-standards-alignment, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-declared-construction-practice]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [agentic-ai, governance, llm, security, supply-chain, knowledge-graph, ai-governance]
-ai_themes: [agentic-ai, governance-policy, knowledge-graphs, security-risk, ai-architecture]
 started: 2026-05-06T10:35:10+00:00
 completed: 2026-05-06T10:58:37+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, knowledge-graphs, security-risk, ai-architecture]
 cites: [2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain, 2026-05-06-aibom-runtime-generation-divergence-theory, 2026-05-06-aibom-identity-delegation-trust-theory]
 related: [2026-04-26-permission-safe-rag-enterprise-information-architecture, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-22-ai-governance-assurance-change-control-verification]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

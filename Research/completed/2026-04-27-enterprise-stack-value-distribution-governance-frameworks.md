@@ -5,11 +5,10 @@ added: 2026-04-27T04:15:46+00:00
 status: completed
 priority: high
 blocks: [2026-04-27-governance-moat-prior-research-implications]
-tags: [enterprise-architecture, value-distribution, governance, seven-layer-stack, software-repricing-matrix, terminal-value, servicenow, snowflake, palantir, uipath, ai-commoditisation, investment-frameworks, platform-strategy]
-ai_themes: [governance-policy, ai-architecture, tools-infrastructure, value-capture-economics, enterprise-strategy]
 started: 2026-04-27T05:14:37+00:00
 completed: 2026-04-27T05:33:14+00:00
 output: [knowledge]
+themes: [governance-policy, ai-architecture, tools-infrastructure, enterprise-adoption]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

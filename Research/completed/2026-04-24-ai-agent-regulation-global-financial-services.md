@@ -5,11 +5,10 @@ added: 2026-04-24T23:02:59+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [artificial-intelligence, regulation, financial-services, governance, low-code, citizen-development, non-functional-requirements, eu-ai-act, apra, rbnz, fma, privacy-act, fair-trading, new-zealand-legislation, concentration-risk]
-ai_themes: [agentic-ai, governance-policy, security-risk, financial-regulation, low-code-governance]
 started: 2026-04-24T23:02:59+00:00
 completed: 2026-04-24T23:02:59+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, security-risk, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

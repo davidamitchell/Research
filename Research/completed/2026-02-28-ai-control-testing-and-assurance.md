@@ -3,11 +3,10 @@ title: "AI for Control Testing, Gap Identification, and Policies/Standards Revie
 added: 2026-03-03T02:26:48+00:00
 status: completed
 priority: high
-tags: [ai-strategy, grc, control-testing, compliance-automation, internal-audit, risk-management, financial-services]
-ai_themes: [agentic-ai, rag-retrieval, governance-policy, security-risk, compliance-automation]
 started: 2026-03-03T02:26:48+00:00
 completed: 2026-03-03T02:26:48+00:00
 output: [knowledge]
+themes: [agentic-ai, rag-retrieval, governance-policy, security-risk, regulatory-compliance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

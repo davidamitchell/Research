@@ -5,11 +5,10 @@ added: 2026-03-22T08:53:01+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [github-actions, compliance, policy-as-code, evidence, waivers, sarif, governance, reporting]
-ai_themes: [governance-policy, security-risk, tools-infrastructure, compliance-automation]
 started: 2026-03-22T08:53:01+00:00
 completed: 2026-03-22T08:53:01+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, tools-infrastructure, regulatory-compliance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

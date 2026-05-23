@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
-tags: [failure-modes, ai-governance, low-code, risk, data-leakage, adversarial-analysis, enterprise-governance, operational-risk, incident-scenarios]
-ai_themes: [governance-policy, security-risk, mlops-deployment, enterprise-risk-management]
 started: 2026-04-26T18:34:06+00:00
 completed: 2026-04-26T18:56:39+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, mlops-deployment]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

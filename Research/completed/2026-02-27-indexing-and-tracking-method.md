@@ -3,11 +3,10 @@ title: "Indexing and tracking method for research content"
 added: 2026-02-28T09:06:25+00:00
 status: completed
 priority: high
-tags: [indexing, tracking, database, organisation]
-ai_themes: [knowledge-management, rag-retrieval, tools-infrastructure, knowledge-graphs]
 started: 2026-02-28T09:06:25+00:00
 completed: 2026-02-28T09:06:25+00:00
 output: [knowledge, backlog-item]
+themes: [knowledge-management, rag-retrieval, tools-infrastructure, knowledge-graphs, organisational-design]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

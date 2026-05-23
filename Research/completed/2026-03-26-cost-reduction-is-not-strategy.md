@@ -4,11 +4,10 @@ added: 2026-03-27T01:30:55+00:00
 status: completed
 priority: high
 blocks: []
-tags: [strategy, cost-reduction, agentic-ai, marketing, opportunity-mindset, behavioral-economics, rory-sutherland]
-ai_themes: [agentic-ai, workforce-skills, cost-performance, strategic-mindset]
 started: 2026-03-27T01:30:55+00:00
 completed: 2026-03-27T01:30:55+00:00
 output: [knowledge]
+themes: [agentic-ai, workforce-skills, cost-performance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

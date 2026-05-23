@@ -5,11 +5,10 @@ added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, organisation, evaluation, workflow]
-ai_themes: [governance-policy, security-risk, benchmarks-eval, human-factors]
 started: 2026-05-17T21:56:58+00:00
 completed: 2026-05-17T22:22:06+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, benchmarks-eval, agentic-ai, organisational-design, tools-infrastructure]
 cites:
   - 2026-04-30-human-bias-ai-trust-rlhf-sycophancy
   - 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp

@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, operational-risk]
-ai_themes: [governance-policy, security-risk, workforce-skills, operational-risk]
 started: 2026-05-09T23:47:30+00:00
 completed: 2026-05-10T00:09:46+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, workforce-skills, organisational-design, tools-infrastructure]
 cites: [2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis, 2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk]
 related: []
 superseded_by: ~

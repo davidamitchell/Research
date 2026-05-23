@@ -6,11 +6,10 @@ status: completed
 priority: medium
 blocks:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
-tags: [governance, agentic-ai, llm, ai-governance, compliance, organisation]
-ai_themes: [governance-policy, security-risk, llm, ai-governance, compliance]
 started: 2026-05-11T13:19:18+00:00
 completed: 2026-05-11T13:45:22+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, agentic-ai, organisational-design]
 cites:
   - 2026-05-09-data-governance-standards-ai-agentic-applicability
   - 2026-05-09-governance-policy-determinism-vs-stochastic-llm

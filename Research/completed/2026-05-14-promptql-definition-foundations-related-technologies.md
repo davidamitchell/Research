@@ -5,11 +5,10 @@ added: 2026-05-14T18:26:20+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [llm, agentic-ai, workflow, knowledge-graph]
-ai_themes: [agentic-ai, knowledge-graphs, tools-infrastructure, query-languages]
 started: 2026-05-15T10:07:16+00:00
 completed: 2026-05-15T10:39:56+00:00
 output: [knowledge]
+themes: [agentic-ai, knowledge-graphs, tools-infrastructure]
 cites:
   - 2026-03-03-knowledge-representation-agent-context
   - 2026-05-12-knowledge-graph-agentic-runtime-dependency

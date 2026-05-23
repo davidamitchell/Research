@@ -4,11 +4,10 @@ added: 2026-03-08T09:07:24+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, prompts, sdlc, software-engineering, best-practices, prompt-engineering, developer-tooling]
-ai_themes: [agentic-ai, tools-infrastructure, knowledge-management, software-engineering-practices]
 started: 2026-03-08T09:07:24+00:00
 completed: 2026-03-08T09:07:24+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, tools-infrastructure, knowledge-management, software-engineering, llm-reasoning]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

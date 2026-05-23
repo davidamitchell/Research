@@ -5,11 +5,10 @@ added: 2026-05-16T05:29:48+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, evaluation, workflow]
-ai_themes: [benchmarks-eval, cost-performance, agentic-ai, delivery-modes]
 started: 2026-05-16T09:26:53+00:00
 completed: 2026-05-16T09:52:54+00:00
 output: []
+themes: [benchmarks-eval, cost-performance, agentic-ai, tools-infrastructure]
 cites:
   - 2026-04-26-access-control-amplification-agentic-operations
   - 2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal

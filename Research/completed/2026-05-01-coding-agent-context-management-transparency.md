@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, llm, agent-tooling, workflow]
-ai_themes: [agentic-ai, memory-context, tools-infrastructure, human-ai-interaction]
 started: 2026-05-01T21:12:35+00:00
 completed: 2026-05-01T21:30:47+00:00
 output: [knowledge]
+themes: [agentic-ai, memory-context, tools-infrastructure, human-ai-interaction]
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-03-03-knowledge-representation-agent-context, 2026-03-15-context-layers-aligned-decisions-synthesis, 2026-03-22-applied-context-engineering-agent-workflows, 2026-04-29-knowledge-scaffolding-context-engineering, 2026-05-01-appropriate-task-selection-coding-agents]
 related: [2026-05-01-ai-coding-harness-quality-benchmarks, 2026-03-08-ai-coding-harnesses-agent-philosophy, 2026-04-20-harness-selection-tools-agents-skills-prompts-instructions]
 superseded_by: ~

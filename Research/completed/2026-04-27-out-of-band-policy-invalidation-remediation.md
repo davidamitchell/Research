@@ -5,11 +5,10 @@ added: 2026-04-27T00:55:35+00:00
 status: completed
 priority: high
 blocks: []
-tags: [pbac, pap, pep, policy-invalidation, kill-switch, distributed-systems, cap-theorem, consistency-model, agentic-ai, cia-classification, operational-risk, lifecycle-governance]
-ai_themes: [agentic-ai, governance-policy, security-risk, ai-architecture, distributed-systems-resilience]
 started: 2026-04-27T10:50:39+00:00
 completed: 2026-04-27T11:21:51+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

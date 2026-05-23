@@ -5,11 +5,10 @@ added: 2026-04-30T20:31:45+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
-tags: [agentic-coding, software-engineering, technical-debt, evaluation, llm]
-ai_themes: [agentic-ai, ai-architecture, tools-infrastructure, software-sustainability, code-quality-metrics]
 started: 2026-04-30T20:52:07+00:00
 completed: 2026-04-30T21:16:17+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, ai-architecture, tools-infrastructure, software-engineering, benchmarks-eval]
 cites: [2026-03-14-reliable-software-llm-era, 2026-04-26-llm-verifiability-asymmetry-code-world-action, 2026-04-26-software-engineering-investment-case-llm, 2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis]
 related: [2026-03-22-code-architecture-inspection, 2026-04-26-llm-verifiability-asymmetry-code-world-action, 2026-04-28-llm-as-judge-pipeline-validation-checkpoints]
 superseded_by: ~

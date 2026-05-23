@@ -5,11 +5,10 @@ added: 2026-03-29T11:12:49+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [agents-md, copilot, claude, instructions, cross-agent, consistency]
-ai_themes: [agentic-ai, memory-context, ai-architecture, knowledge-management, prompt-engineering]
 started: 2026-03-29T11:12:49+00:00
 completed: 2026-03-29T11:12:49+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, memory-context, ai-architecture, knowledge-management, llm-reasoning]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

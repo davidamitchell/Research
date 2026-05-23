@@ -8,8 +8,7 @@ blocks:
   - 2026-05-18-rq1-2-deutsch-hard-to-vary
   - 2026-05-18-rq1-3-instrumentalism-failure-modes
   - 2026-05-18-rq6-1-halting-problem-static-analysis
-tags: [epistemology, philosophy-of-science, machine-learning, formal-methods]
-themes: [ai-architecture, benchmarks-eval, epistemology-of-ai, formal-learning-theory]
+themes: [ai-architecture, benchmarks-eval, epistemology-of-ai, formal-learning-theory, formal-methods]
 started: 2026-05-19T01:16:22+00:00
 completed: 2026-05-19T01:36:04+00:00
 output: [knowledge]

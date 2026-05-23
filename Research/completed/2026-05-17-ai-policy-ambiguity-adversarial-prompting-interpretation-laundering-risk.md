@@ -5,11 +5,10 @@ added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, organisation, evaluation]
-ai_themes: [agentic-ai, governance-policy, security-risk, llm-reasoning]
 started: 2026-05-17T21:12:28+00:00
 completed: 2026-05-17T21:33:30+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, security-risk, llm-reasoning, organisational-design, benchmarks-eval]
 cites:
   - 2026-03-15-prompt-injection-threat-landscape
   - 2026-04-26-access-control-amplification-agentic-operations

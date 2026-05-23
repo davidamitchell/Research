@@ -5,11 +5,10 @@ added: 2026-04-26T06:57:01+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
-tags: [rag, access-control, information-architecture, embedding-inference, enterprise-ai, regulated-banking, agentic-ai]
-ai_themes: [rag-retrieval, governance-policy, security-risk, ai-architecture, access-control-systems]
 started: 2026-04-26T09:52:26+00:00
 completed: 2026-04-26T10:00:12+00:00
 output: [knowledge]
+themes: [rag-retrieval, governance-policy, security-risk, ai-architecture, knowledge-management, agentic-ai]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

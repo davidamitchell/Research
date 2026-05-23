@@ -1564,9 +1564,9 @@ The current state has `tags:` (798 unique values, majority singletons), `ai_them
 
 ## W-0078
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 

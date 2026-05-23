@@ -4,11 +4,10 @@ added: 2026-03-15T05:22:51+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [contracts, legal-technology, cryptography, blockchain, smart-contracts, fintech, ian-grigg, ricardian-contracts]
-ai_themes: [tools-infrastructure, governance-policy, knowledge-management, legal-technology]
 started: 2026-03-15T05:22:51+00:00
 completed: 2026-03-15T05:22:51+00:00
 output: [knowledge]
+themes: [tools-infrastructure, governance-policy, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

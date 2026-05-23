@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, agentic-coding, software-engineering, governance, human-oversight]
-ai_themes: [agentic-ai, governance-policy, workforce-skills, software-engineering]
 started: 2026-05-01T21:54:36+00:00
 completed: 2026-05-01T22:19:50+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, workforce-skills, software-engineering]
 cites: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-05-01-appropriate-task-selection-coding-agents, 2026-05-01-compound-error-accumulation-ai-codebases]
 related: [2026-03-14-reliable-software-llm-era, 2026-04-28-uelgf-human-oversight-accountability-layer, 2026-04-30-tdd-feedback-loops-ai-augmented-dev]
 superseded_by: ~

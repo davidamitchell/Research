@@ -5,11 +5,10 @@ added: 2026-04-28T21:06:12+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [agentic-ai, agentic-coding, software-cost, saas, build-vs-buy, transaction-costs, platform-engineering, internal-developer-platform, observability, identity, market-structure]
-ai_themes: [agentic-ai, tools-infrastructure, cost-performance, software-economics, market-dynamics]
 started: 2026-04-29T09:06:19+00:00
 completed: 2026-04-29T09:42:02+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, cost-performance]
 cites: [2026-04-02-org-shape-software-cost-zero, 2026-03-23-software-factory, 2026-04-26-software-engineering-investment-case-llm]
 related: [2026-02-28-jevons-paradox, 2026-03-10-nature-of-the-firm-coase-organisations]
 superseded_by: ~

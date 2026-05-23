@@ -5,11 +5,10 @@ added: 2026-04-28T07:19:00+00:00
 status: completed
 priority: high
 blocks: []
-tags: [uelgf, tooling, reference-architecture, policy-as-code, opa, cedar, opentelemetry, iam, revocable-credentials, governed-golden-rail, platform-engineering]
-ai_themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure, platform-engineering]
 started: 2026-04-28T10:14:29+00:00
 completed: 2026-04-28T10:50:36+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, ai-architecture, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

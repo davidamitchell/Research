@@ -4,11 +4,10 @@ added: 2026-03-10T07:59:54+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [mobile, telegram, bot, capture, retrieval, memory-system, self-hosted]
-ai_themes: [memory-context, rag-retrieval, tools-infrastructure, knowledge-management, personal-knowledge-base]
 started: 2026-03-10T07:59:54+00:00
 completed: 2026-03-10T07:59:54+00:00
 output: [tool, knowledge]
+themes: [memory-context, rag-retrieval, tools-infrastructure, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

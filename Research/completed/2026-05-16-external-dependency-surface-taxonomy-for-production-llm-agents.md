@@ -5,11 +5,10 @@ added: 2026-05-16T05:29:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, agent-tooling, workflow, evaluation]
-ai_themes: [agentic-ai, tools-infrastructure, security-risk, mlops-deployment, dependency-management]
 started: 2026-05-16T07:45:33+00:00
 completed: 2026-05-16T08:08:41+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, security-risk, mlops-deployment, benchmarks-eval]
 cites:
   - 2026-03-08-ai-coding-harnesses-agent-philosophy
   - 2026-03-10-ai-concept-classification-taxonomy

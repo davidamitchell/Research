@@ -4,11 +4,10 @@ added: 2026-03-09T10:22:27+00:00
 status: completed
 priority: high
 blocks: []
-tags: [servicenow, platform-strategy, csdm, itsm, apm, spm, irm, grc, fso, agentic-ai, process-mapping, enterprise-architecture, tco]
-ai_themes: [agentic-ai, ai-architecture, governance-policy, enterprise-platform-strategy, process-optimization]
 started: 2026-03-09T10:22:27+00:00
 completed: 2026-03-09T10:22:27+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, ai-architecture, governance-policy]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

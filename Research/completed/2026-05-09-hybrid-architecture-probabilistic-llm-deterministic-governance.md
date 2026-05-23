@@ -6,11 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-09-llm-determinism-limits-temperature-zero
-tags: [agentic-ai, llm, ai-governance, workflow, policy-enforcement, human-oversight, enterprise-architecture]
-ai_themes: [agentic-ai, governance-policy, ai-architecture, llm-reasoning]
 started: 2026-05-09T23:02:09+00:00
 completed: 2026-05-09T23:21:07+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture, llm-reasoning, tools-infrastructure]
 cites:
   - 2026-04-26-ai-lowcode-governance-enforcement-architecture
   - 2026-04-26-ai-lowcode-observability-telemetry-governance

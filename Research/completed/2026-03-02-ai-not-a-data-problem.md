@@ -3,11 +3,10 @@ title: "AI capability is not a data problem - why the data/analytics department 
 added: 2026-03-07T01:39:25+00:00
 status: completed
 priority: medium
-tags: [ai-strategy, architecture, data-platform, api-layer, agentic-ai, organisational-design, governance, mcp, zero-trust, identity]
-ai_themes: [agentic-ai, ai-architecture, governance-policy, organisational-strategy, systems-integration]
 started: 2026-03-07T01:39:25+00:00
 completed: 2026-03-07T01:39:25+00:00
 output: [knowledge, backlog-item]
+themes: [agentic-ai, ai-architecture, governance-policy, organisational-design]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

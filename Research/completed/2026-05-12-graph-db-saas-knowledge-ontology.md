@@ -5,11 +5,10 @@ added: 2026-05-12T03:22:49+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [knowledge-graph]
-ai_themes: [knowledge-graphs, tools-infrastructure, knowledge-management]
 started: 2026-05-12T09:30:23+00:00
 completed: 2026-05-12T10:00:47+00:00
 output: [knowledge]
+themes: [knowledge-graphs, tools-infrastructure, knowledge-management]
 cites:
   - 2026-05-02-knowledge-graph-schema-cross-session-research-mcp
   - 2026-03-03-knowledge-representation-agent-context

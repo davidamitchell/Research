@@ -5,8 +5,7 @@ added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, organisation, organisational-learning, workflow]
-themes: [llm-reasoning, governance-policy, workforce-skills, knowledge-management, organisational-learning]
+themes: [llm-reasoning, governance-policy, workforce-skills, knowledge-management, organisational-learning, agentic-ai, organisational-design, tools-infrastructure]
 started: 2026-05-18T10:44:17+00:00
 completed: 2026-05-18T11:06:14+00:00
 output: [knowledge]

@@ -5,11 +5,10 @@ added: 2026-04-20T00:04:09+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [trends, forecasting, technology, history, strategy]
-ai_themes: [governance-policy, workforce-skills, ai-architecture, technology-forecasting]
 started: 2026-04-20T00:04:09+00:00
 completed: 2026-04-20T00:04:09+00:00
 output: []
+themes: [governance-policy, workforce-skills, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

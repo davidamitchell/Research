@@ -5,11 +5,10 @@ added: 2026-04-27T00:55:35+00:00
 status: completed
 priority: high
 blocks: []
-tags: [pbac, pdp, pip, intent-preservation, cryptographic-binding, ricardian-contracts, formal-specification, agentic-ai, lifecycle-governance, dikw, intent-driven-development, semantic-stability]
-ai_themes: [agentic-ai, governance-policy, ai-architecture, intent-verification, cryptographic-governance]
 started: 2026-04-27T09:28:58+00:00
 completed: 2026-04-27T09:55:20+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -4,11 +4,10 @@ added: 2026-03-08T07:33:18+00:00
 status: completed
 priority: high
 blocks: [2026-03-08-servicenow-platform-strategy]
-tags: [servicenow, csdm, cmdb, configuration-management, itsm, apm, spm, irm, grc, fso, enterprise-architecture, application-portfolio]
-ai_themes: [knowledge-graphs, governance-policy, ai-architecture, enterprise-data-modeling]
 started: 2026-03-08T07:33:18+00:00
 completed: 2026-03-08T07:33:18+00:00
 output: [knowledge]
+themes: [knowledge-graphs, governance-policy, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

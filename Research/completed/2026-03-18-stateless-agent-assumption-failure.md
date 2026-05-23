@@ -5,11 +5,10 @@ added: 2026-03-20T07:26:32+00:00
 status: completed
 priority: high
 blocks: []
-tags: [failure-modes, agentic-ai, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
-ai_themes: [agentic-ai, memory-context, ai-architecture, mlops-deployment, state-resilience]
 started: 2026-03-20T07:26:32+00:00
 completed: 2026-03-20T07:26:32+00:00
 output: [knowledge]
+themes: [agentic-ai, memory-context, ai-architecture, mlops-deployment, tools-infrastructure]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

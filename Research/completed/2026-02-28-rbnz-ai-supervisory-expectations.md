@@ -3,11 +3,10 @@ title: "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Kno
 added: 2026-03-07T01:10:16+00:00
 status: completed
 priority: medium
-tags: [rbnz, ai-strategy, financial-services, prudential-regulation, model-risk, nz-specific]
-ai_themes: [governance-policy, security-risk, mlops-deployment, regulatory-compliance]
 started: 2026-03-07T01:10:16+00:00
 completed: 2026-03-07T01:10:16+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, mlops-deployment, regulatory-compliance]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

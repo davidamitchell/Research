@@ -4,11 +4,10 @@ added: 2026-03-03T10:13:26+00:00
 status: completed
 priority: high
 blocks: []
-tags: [research-agenda, prioritisation, coverage, curation, strategy, backlog-management, research-drift]
-ai_themes: [knowledge-management, benchmarks-eval, research-strategy]
 started: 2026-03-03T10:13:26+00:00
 completed: 2026-03-03T10:13:26+00:00
 output: [knowledge, tool, backlog-item]
+themes: [knowledge-management, benchmarks-eval]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

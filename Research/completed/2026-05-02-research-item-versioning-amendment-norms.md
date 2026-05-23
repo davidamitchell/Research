@@ -5,11 +5,10 @@ added: 2026-05-02T06:11:10+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [research-tooling, workflow, knowledge-graph, organisational-learning]
-ai_themes: [knowledge-management, knowledge-graphs, tools-infrastructure, research-provenance]
 started: 2026-05-02T10:41:11+00:00
 completed: 2026-05-02T11:00:48+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [knowledge-management, knowledge-graphs, tools-infrastructure]
 cites: [2026-04-27-academic-post-publication-amendment-practices, 2026-03-03-knowledge-linking-connected-corpus]
 related: [2026-05-01-coding-agent-context-management-transparency]
 superseded_by: ~

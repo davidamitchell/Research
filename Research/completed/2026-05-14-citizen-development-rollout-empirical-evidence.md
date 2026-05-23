@@ -5,11 +5,10 @@ added: 2026-05-14T19:05:57+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [citizen-development, organisation, governance, workflow]
-ai_themes: [governance-policy, workforce-skills, tools-infrastructure, citizen-development-strategy]
 started: 2026-05-15T04:15:01+00:00
 completed: 2026-05-15T04:34:30+00:00
 output: []
+themes: [governance-policy, workforce-skills, tools-infrastructure, organisational-design]
 cites: [2026-04-24-business-led-low-code-agent-governance, 2026-04-26-systems-capability-debt-citizen-development-empirical-evidence]
 related: [2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-04-26-deployment-pipeline-citizen-development-governed-gate, 2026-04-26-ai-lowcode-governance-maturity-model]
 superseded_by: ~

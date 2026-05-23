@@ -6,10 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq3-2-stochastic-parrot-ood
-tags: [llm, machine-learning, causal-inference, invariants, epistemology]
 started: 2026-05-19T09:59:12+00:00
 completed: 2026-05-19T10:30:14+00:00
 output: [knowledge]
+themes: []
 cites:
   - 2026-05-18-rq2-4-causal-hierarchy-formal-limits
   - 2026-05-18-rq2-1-erm-causal-blindness

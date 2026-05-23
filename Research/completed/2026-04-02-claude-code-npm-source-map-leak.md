@@ -4,11 +4,10 @@ added: 2026-04-02T08:49:50+00:00
 status: completed
 priority: high
 blocks: []
-tags: [security, npm, release-engineering, intellectual-property, anthropic, claude]
-ai_themes: [security-risk, tools-infrastructure, mlops-deployment, supply-chain-security]
 started: 2026-04-02T08:49:50+00:00
 completed: 2026-04-02T08:49:50+00:00
 output: [knowledge]
+themes: [security-risk, tools-infrastructure, mlops-deployment]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

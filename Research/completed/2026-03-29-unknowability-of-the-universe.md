@@ -5,11 +5,10 @@ added: 2026-03-30T08:51:59+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [philosophy, physics, general-relativity, zen-buddhism, epistemology]
-ai_themes: [consciousness-cognition, knowledge-management, epistemological-foundations]
 started: 2026-03-30T08:51:59+00:00
 completed: 2026-03-30T08:51:59+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
+themes: [consciousness-cognition, knowledge-management]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

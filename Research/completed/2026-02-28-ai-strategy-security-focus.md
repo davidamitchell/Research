@@ -3,11 +3,10 @@ title: "AI Strategy Examples: Security Focus"
 added: 2026-03-05T06:49:02+00:00
 status: completed
 priority: medium
-tags: [ai-strategy, security, cybersecurity, threat-detection, adversarial-ai, ai-governance]
-ai_themes: [security-risk, governance-policy, adversarial-defense]
 started: 2026-03-05T06:49:02+00:00
 completed: 2026-03-05T06:49:02+00:00
 output: [knowledge]
+themes: [security-risk, governance-policy]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

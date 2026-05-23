@@ -5,11 +5,10 @@ added: 2026-05-02T06:00:57+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [human-in-the-loop, automation-bias, ai-governance, agentic-ai, enterprise, workflow, regulated-enterprise]
-ai_themes: [agentic-ai, governance-policy, workflow, human-ai-collaboration]
 started: 2026-05-02T09:55:44+00:00
 completed: 2026-05-02T10:14:05+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, governance-policy, tools-infrastructure, human-ai-interaction]
 cites: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-28-uelgf-human-oversight-accountability-layer, 2026-04-26-ai-governance-cost-performance-delivery-impact, 2026-04-22-enterprise-ai-capability-model, 2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-risk-tier-classification-controls, 2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-26-ai-lowcode-decision-rights-accountability-liability]
 related: [2026-05-01-human-oversight-ai-software-development, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring, 2026-04-27-uelgf-runtime-feedback-loop]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

@@ -5,11 +5,10 @@ added: 2026-05-06T07:32:54+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [observability, enterprise-architecture, dependency-mapping, it-architecture, measurement, governance]
-ai_themes: [governance-policy, benchmarks-eval, knowledge-graphs, ai-architecture, tools-infrastructure, system-legibility]
 started: 2026-05-06T09:16:34+00:00
 completed: 2026-05-06T09:49:05+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [governance-policy, benchmarks-eval, knowledge-graphs, ai-architecture, tools-infrastructure]
 cites: [2026-03-21-dependency-mapping-dotnet-terraform-dynatrace, 2026-03-21-technology-capability-models]
 related: [2026-04-27-enterprise-stack-value-distribution-governance-frameworks, 2026-03-15-tracking-work-across-systems]
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

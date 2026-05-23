@@ -5,11 +5,10 @@ added: 2026-05-02T06:11:10+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [workflow, research-tooling, organisational-learning, knowledge-graph]
-ai_themes: [knowledge-management, knowledge-graphs, tools-infrastructure, organizational-learning]
 started: 2026-05-03T04:45:58+00:00
 completed: 2026-05-03T05:11:59+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
+themes: [knowledge-management, knowledge-graphs, tools-infrastructure]
 cites:
   - 2026-03-03-cross-item-synthesis-meta-insights
   - 2026-05-02-cross-item-synthesis-knowledge-map-architecture

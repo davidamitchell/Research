@@ -5,11 +5,10 @@ added: 2026-05-12T08:17:21+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [knowledge-graph, governance, organisation]
-ai_themes: [knowledge-graphs, governance-policy, knowledge-management, data-management]
 started: 2026-05-12T18:10:49+00:00
 completed: 2026-05-12T18:36:22+00:00
 output: [knowledge]
+themes: [knowledge-graphs, governance-policy, knowledge-management, organisational-design]
 cites:
   - 2026-05-12-web-ontologies-production-knowledge-graph-agentic
 related:

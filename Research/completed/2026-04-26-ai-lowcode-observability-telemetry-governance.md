@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-governance-cost-performance-delivery-impact, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
-tags: [observability, telemetry, logging, ai-governance, low-code, audit, traceability, decision-logging, enterprise-governance, monitoring]
-ai_themes: [governance-policy, ai-architecture, tools-infrastructure, mlops-deployment, observability-telemetry]
 started: 2026-04-26T19:47:13+00:00
 completed: 2026-04-26T20:08:01+00:00
 output: [knowledge]
+themes: [governance-policy, ai-architecture, tools-infrastructure, mlops-deployment]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

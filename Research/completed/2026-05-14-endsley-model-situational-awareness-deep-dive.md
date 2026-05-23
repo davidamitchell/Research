@@ -5,11 +5,10 @@ added: 2026-05-14T10:08:59+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [agentic-ai, evaluation]
-ai_themes: [agentic-ai, benchmarks-eval, consciousness-cognition, human-factors-engineering]
 started: 2026-05-15T09:40:32+00:00
 completed: 2026-05-15T10:05:17+00:00
 output: [knowledge]
+themes: [agentic-ai, benchmarks-eval, consciousness-cognition]
 cites: [2026-05-02-hitl-review-volume-bottleneck-rubber-stamp, 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates, 2026-04-26-human-in-the-loop-ai-automated-workflows]
 related: [2026-04-28-uelgf-human-oversight-accountability-layer, 2026-05-01-human-oversight-ai-software-development, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy]
 superseded_by: ~

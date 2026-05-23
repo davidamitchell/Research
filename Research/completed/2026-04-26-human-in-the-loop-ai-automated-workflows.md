@@ -5,11 +5,10 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-governance-cost-performance-delivery-impact]
-tags: [human-in-the-loop, human-oversight, ai-governance, automated-workflows, intervention, escalation, override, enterprise-governance]
-ai_themes: [governance-policy, mlops-deployment, workforce-skills, human-machine-collaboration]
 started: 2026-04-27T01:19:45+00:00
 completed: 2026-04-27T01:36:59+00:00
 output: [knowledge]
+themes: [governance-policy, mlops-deployment, workforce-skills]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

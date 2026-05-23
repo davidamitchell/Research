@@ -3,11 +3,10 @@ title: "Slack and MS Teams integration for research delivery and capture"
 added: 2026-03-08T03:18:48+00:00
 status: completed
 priority: medium
-tags: [slack, ms-teams, integration, delivery, notifications, bot, interface, distribution]
-ai_themes: [tools-infrastructure, knowledge-management, ai-architecture, human-ai-interface]
 started: 2026-03-08T03:18:48+00:00
 completed: 2026-03-08T03:18:48+00:00
 output: [knowledge, backlog-item]
+themes: [tools-infrastructure, knowledge-management, ai-architecture]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

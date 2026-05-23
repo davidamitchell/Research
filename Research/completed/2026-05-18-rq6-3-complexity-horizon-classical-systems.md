@@ -6,10 +6,10 @@ status: completed
 priority: high
 blocks:
   - 2026-05-18-rq5-1-stochastic-vs-deterministic-failures
-tags: [formal-methods, distributed-systems, epistemology, llm]
 started: 2026-05-19T21:21:11+00:00
 completed: 2026-05-19T21:40:13+00:00
 output: [knowledge]
+themes: [formal-methods]
 cites:
   - 2026-05-18-rq6-1-halting-problem-static-analysis
   - 2026-05-18-rq6-2-state-explosion-chaos-theory

@@ -5,10 +5,10 @@ added: 2026-05-20T08:35:44+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agentic-ai, llm, governance, organisation]
 started: 2026-05-20T10:03:37+00:00
 completed: 2026-05-20T10:26:57+00:00
 output: [knowledge]
+themes: [agentic-ai, organisational-design]
 cites:
   - 2026-04-30-human-bias-ai-trust-rlhf-sycophancy
   - 2026-05-02-hitl-review-volume-bottleneck-rubber-stamp

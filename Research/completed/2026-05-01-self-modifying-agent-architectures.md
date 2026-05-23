@@ -5,11 +5,10 @@ added: 2026-05-01T08:17:39+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [agentic-ai, agentic-coding, agent-tooling, llm, software-engineering]
-ai_themes: [agentic-ai, ai-architecture, software-engineering, design-tradeoffs]
 started: 2026-05-02T01:17:07+00:00
 completed: 2026-05-02T01:36:10+00:00
 output: [knowledge]
+themes: [agentic-ai, ai-architecture, software-engineering]
 cites: [2026-05-01-extension-systems-ai-coding-agents, 2026-05-01-coding-agent-context-management-transparency, 2026-05-01-sustainable-ai-software-development-synthesis, 2026-04-26-access-control-amplification-agentic-operations, 2026-05-01-terminal-bench-minimal-coding-agent-benchmarks]
 related: [2026-04-20-harness-selection-tools-agents-skills-prompts-instructions, 2026-05-01-ai-coding-harness-quality-benchmarks, 2026-05-01-appropriate-task-selection-coding-agents]
 superseded_by: ~

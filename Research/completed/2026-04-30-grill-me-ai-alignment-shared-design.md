@@ -5,11 +5,10 @@ added: 2026-04-30T20:31:45+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
-tags: [agentic-coding, software-engineering, llm, evaluation, workflow, agentic-ai]
-ai_themes: [agentic-ai, llm-reasoning, benchmarks-eval, human-ai-interaction, software-engineering-workflow]
 started: 2026-04-30T22:07:42+00:00
 completed: 2026-04-30T22:26:16+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, llm-reasoning, benchmarks-eval, human-ai-interaction, software-engineering, tools-infrastructure]
 cites: [2026-04-30-fundamentals-first-vs-specs-to-code, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-03-16-intent-driven-development]
 related: [2026-04-30-ai-code-entropy-quality-metrics, 2026-03-14-reliable-software-llm-era]
 superseded_by: ~

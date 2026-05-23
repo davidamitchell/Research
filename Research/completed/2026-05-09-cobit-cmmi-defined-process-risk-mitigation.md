@@ -5,11 +5,10 @@ added: 2026-05-09T22:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [organisation, workflow, organisational-design]
-ai_themes: [governance-policy, security-risk, knowledge-management, process-improvement]
 started: 2026-05-10T00:11:10+00:00
 completed: 2026-05-10T00:27:39+00:00
 output: [knowledge]
+themes: [governance-policy, security-risk, knowledge-management, organisational-design, tools-infrastructure]
 cites: [2026-05-09-basel-iso-nist-shadow-workforce-risk-classification, 2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness, 2026-04-26-ai-lowcode-governance-maturity-model]
 related: [2026-04-26-ai-governance-culture-incentives-behaviour, 2026-04-26-ai-lowcode-failure-modes-governance-mitigation, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 superseded_by: ~

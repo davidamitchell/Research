@@ -5,11 +5,10 @@ added: 2026-05-09T22:44:23+00:00
 status: completed
 priority: high
 blocks: []
-tags: [governance, agentic-ai, llm, regulatory, compliance, ai-governance]
-ai_themes: [agentic-ai, governance-policy, mlops-deployment, regulatory-compliance]
 started: 2026-05-10T19:39:37+00:00
 completed: 2026-05-10T20:09:08+00:00
 output: [knowledge]
+themes: [agentic-ai, governance-policy, mlops-deployment, regulatory-compliance]
 cites:
   - 2026-05-09-policy-as-code-guardrails-regulatory-ai-governance
   - 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance

@@ -5,11 +5,10 @@ added: 2026-04-30T06:42:30+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agentic-ai, governance, regulation, financial-services, healthcare, eu-ai-act, audit, model-risk]
-ai_themes: [governance-policy, security-risk, mlops-deployment, explainability-transparency]
 started: 2026-05-01T02:24:45+00:00
 completed: 2026-05-01T02:49:42+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [governance-policy, security-risk, mlops-deployment, agentic-ai]
 cites: [2026-04-24-ai-agent-regulation-global-financial-services, 2026-04-22-ai-governance-assurance-change-control-verification, 2026-02-28-ai-control-testing-and-assurance]
 related: [2026-02-28-rbnz-ai-supervisory-expectations, 2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy]
 superseded_by: ~

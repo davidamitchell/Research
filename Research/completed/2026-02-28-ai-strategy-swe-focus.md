@@ -3,11 +3,10 @@ title: "AI Strategy Examples: Software Engineering Focus"
 added: 2026-03-05T06:57:04+00:00
 status: completed
 priority: medium
-tags: [ai-strategy, software-engineering, developer-productivity, code-generation, agentic-swe]
-ai_themes: [agentic-ai, tools-infrastructure, workforce-skills, developer-experience]
 started: 2026-03-05T06:57:04+00:00
 completed: 2026-03-05T06:57:04+00:00
 output: [knowledge]
+themes: [agentic-ai, tools-infrastructure, workforce-skills, software-engineering]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

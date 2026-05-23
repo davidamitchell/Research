@@ -5,10 +5,10 @@ added: 2026-05-21T10:31:30+00:00
 status: completed
 priority: high
 blocks: []
-tags: [dynamic-resource-discovery, context-engineering, ontology, knowledge-graph, agentic-ai, mcp, model-context-protocol, agent-architecture, semantic-retrieval, rag]
 started: 2026-05-21T11:01:36+00:00
 completed: 2026-05-21T11:35:04+00:00
 output: [knowledge]
+themes: [agentic-ai]
 cites:
   - 2026-03-08-context-engineering-first-principles
   - 2026-03-18-api-context-hubs-rag-mcp

@@ -5,11 +5,10 @@ added: 2026-04-30T20:31:45+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-04-30-se-fundamentals-ai-code-synthesis]
-tags: [agentic-coding, software-engineering, tdd, evaluation, agentic-ai, llm, workflow]
-ai_themes: [agentic-ai, benchmarks-eval, cost-performance, software-engineering-practices]
 started: 2026-04-30T21:42:49+00:00
 completed: 2026-04-30T22:04:45+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+themes: [agentic-ai, benchmarks-eval, cost-performance, software-engineering, tools-infrastructure]
 cites: [2026-04-30-ai-code-entropy-quality-metrics, 2026-04-30-deep-modules-ai-augmented-codebases, 2026-03-14-reliable-software-llm-era, 2026-03-16-intent-driven-development, 2026-04-26-llm-verifiability-asymmetry-code-world-action]
 related: [2026-04-26-software-engineering-investment-case-llm, 2026-03-22-applied-context-engineering-agent-workflows, 2026-04-02-org-shape-software-cost-zero]
 superseded_by: ~

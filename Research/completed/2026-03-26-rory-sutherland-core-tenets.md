@@ -5,11 +5,10 @@ added: 2026-03-27T12:06:56+00:00
 status: completed
 priority: high
 blocks: []
-tags: [behavioral-economics, marketing, strategy, rory-sutherland, customer-thinking, anti-bureaucracy]
-ai_themes: [consciousness-cognition, workforce-skills, behavioral-design]
 started: 2026-03-27T12:06:56+00:00
 completed: 2026-03-27T12:06:56+00:00
 output: [knowledge]
+themes: [consciousness-cognition, workforce-skills]
 cites: []          # slugs of items this item directly depends on or quotes
 related: []        # slugs of thematically connected items
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)

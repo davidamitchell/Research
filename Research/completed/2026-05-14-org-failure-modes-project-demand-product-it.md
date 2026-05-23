@@ -5,11 +5,10 @@ added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [organisation, organisational-design, governance, product-management, project-management]
-ai_themes: [governance-policy, workforce-skills, knowledge-management, organisational-design]
 started: 2026-05-15T03:08:37+00:00
 completed: 2026-05-15T03:27:08+00:00
 output: [knowledge]
+themes: [governance-policy, workforce-skills, knowledge-management, organisational-design]
 cites: [2026-05-14-org-failure-modes-accountability-gaps, 2026-05-14-org-failure-modes-cohort-demand-domain-it]
 related: [2026-04-22-enterprise-ai-platform-operating-models]
 superseded_by: ~
