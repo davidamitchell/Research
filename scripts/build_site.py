@@ -50,6 +50,7 @@ DOCS_DIR = REPO_ROOT / "docs"
 RESEARCH_DIR = DOCS_DIR / "research"
 KNOWLEDGE_DOCS_DIR = DOCS_DIR / "knowledge"
 TAGS_DIR = DOCS_DIR / "tags"
+THEMES_DIR = DOCS_DIR / "themes"
 THREADS_DIR = DOCS_DIR / "threads"
 GRAPH_DATA_DIR = DOCS_DIR / "data"
 ASSETS_DIR = DOCS_DIR / "assets"
@@ -830,6 +831,7 @@ def html_nav(active: str = "") -> str:
         f'      <a href="/Research/backlog.html"{_cls("backlog")}>{ICON_NOTE}Backlog</a>\n'
         f'      <a href="/Research/knowledge/"{_cls("knowledge")}>{ICON_NOTE}Synthesis</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
+        f'      <a href="/Research/themes/"{_cls("themes")}>{ICON_TAG}Themes</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
         f'      <a href="/Research/graph.html"{_cls("graph")}>{ICON_THREAD}Graph</a>\n'
@@ -1670,7 +1672,13 @@ def render_card(item: dict) -> str:
     used for the href.  Research items link to ``/Research/research/`` and
     knowledge items link to ``/Research/knowledge/``.
     """
-    tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item["tags"])
+    # Prefer themes (canonical vocabulary) for badges; fall back to tags for
+    # legacy items that pre-date the themes migration.
+    display_slugs = item_themes(item) or item["tags"]
+    tags_html = "".join(
+        f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a>'
+        for t in display_slugs
+    )
     excerpt = item["question_excerpt"]
     if len(item["question"]) > 200:
         excerpt = excerpt.rstrip() + "…"
@@ -1685,7 +1693,7 @@ def render_card(item: dict) -> str:
         f'<a class="card" href="{href}"'
         f' data-title="{escape(item["display_title"].lower())}"'
         f' data-question="{escape(item["question_excerpt"].lower())}"'
-        f' data-tags="{escape(",".join(item["tags"]))}"'
+        f' data-tags="{escape(",".join(display_slugs))}"'
         f"{superseded_attr}>\n"
         f'  <div class="card-title">{escape(item["display_title"])}{synthesis_badge}</div>\n'
         f'  <div class="card-meta">{item["added_str"]}</div>\n'
@@ -2557,6 +2565,9 @@ def build_item_page(
     wiki_slug = item["slug"]
 
     tags_html = "".join(
+        f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a> '
+        for t in item_themes(item)
+    ) or "".join(
         f'<a class="tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a> '
         for t in item["tags"]
     )
@@ -2756,6 +2767,75 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
   </ul>
 </main>
 <script>{tags_filter_js}</script>
+"""
+        + html_foot()
+    )
+
+
+def build_theme_page(theme: str, theme_items: list[dict]) -> str:
+    """Generate docs/themes/<theme>.html."""
+    cards_html = "".join(render_card(item) for item in theme_items)
+    count = len(theme_items)
+    return (
+        html_head(f"Theme: {escape(theme)} — Research")
+        + html_nav("themes")
+        + f"""\
+<main>
+  <div class="tag-page-header">
+    <h1>{ICON_TAG_H1}Theme: {escape(theme)}</h1>
+    <p class="page-subtitle">{count} item{"s" if count != 1 else ""}</p>
+    <a class="back-link" href="/Research/themes/">← all themes</a>
+  </div>
+  <div class="card-grid">
+    {cards_html}
+  </div>
+</main>
+"""
+        + html_foot()
+    )
+
+
+def build_themes_index(themes_map: dict[str, list[dict]]) -> str:
+    """Generate docs/themes/index.html — all themes listed alphabetically."""
+    sorted_themes = sorted(themes_map.keys())
+    rows = "".join(
+        f'<li data-tag="{escape(t)}">'
+        f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a>'
+        f' <span class="tag-count">({len(themes_map[t])})</span></li>\n'
+        for t in sorted_themes
+    )
+    themes_filter_js = """
+(function() {
+  var input = document.getElementById('theme-filter');
+  var items = document.querySelectorAll('#themes-list li');
+  if (!input) return;
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    items.forEach(function(li) {
+      var tag = li.getAttribute('data-tag') || '';
+      li.style.display = (!q || tag.indexOf(q) !== -1) ? '' : 'none';
+    });
+  });
+})();
+"""
+    return (
+        html_head("Themes — Research")
+        + html_nav("themes")
+        + f"""\
+<main>
+  <div class="tag-page-header">
+    <h1>{ICON_TAG_H1}Themes</h1>
+    <p class="page-subtitle">{len(sorted_themes)} themes</p>
+  </div>
+  <div class="search-wrap" style="margin-bottom:1.5rem">
+    <input id="theme-filter" class="search-input" type="text"
+           placeholder="filter themes…" autocomplete="off">
+  </div>
+  <ul id="themes-list" class="tags-list">
+    {rows}
+  </ul>
+</main>
+<script>{themes_filter_js}</script>
 """
         + html_foot()
     )
@@ -4079,7 +4159,7 @@ def main() -> None:
     # Ensure owned output directories are clean (removes stale pages)
     DOCS_DIR.mkdir(exist_ok=True)
     GRAPH_DATA_DIR.mkdir(exist_ok=True)
-    for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THREADS_DIR):
+    for owned_dir in (RESEARCH_DIR, KNOWLEDGE_DOCS_DIR, TAGS_DIR, THEMES_DIR, THREADS_DIR):
         if owned_dir.exists():
             shutil.rmtree(owned_dir)
         owned_dir.mkdir()
@@ -4157,6 +4237,19 @@ def main() -> None:
     for tag, tag_items in tags_map.items():
         html = build_tag_page(tag, tag_items)
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
+        pages_written += 1
+
+    # 8b. Theme pages — canonical vocabulary (themes: field)
+    themes_map: dict[str, list[dict]] = {}
+    for item in all_items:
+        for theme in item_themes(item):
+            themes_map.setdefault(theme, []).append(item)
+    print(f"Building themes index + {len(themes_map)} theme pages…")
+    (THEMES_DIR / "index.html").write_text(build_themes_index(themes_map), encoding="utf-8")
+    pages_written += 1
+    for theme, theme_items in themes_map.items():
+        html = build_theme_page(theme, theme_items)
+        (THEMES_DIR / f"{theme}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
     # 9. Thread pages

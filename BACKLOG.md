@@ -1589,9 +1589,9 @@ Blocked on W-0077 (vocabulary must exist before migration runs). This is the one
 
 ## W-0079
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
