@@ -140,7 +140,14 @@ into `### §3 Reasoning`.
 
 **§4 Consistency Check:** Scan for internal contradictions and unsupported
 leaps. Resolve or explicitly flag unresolvable contradictions. Write into
-`### §4 Consistency Check`.
+`### §4 Consistency Check`. **Render audit outcomes as a fenced plain-text
+metadata block by default, not as bullet-sentence prose**, for example:
+
+```text
+contradiction_scan: resolved
+confidence_adjustment: claim X kept at medium
+scope_guardrail: maintained
+```
 
 **§5 Depth and Breadth Expansion:** Re-evaluate findings through relevant lenses
 (technical, regulatory, economic, historical, behavioural). Add any new
@@ -151,7 +158,14 @@ insights. Write into `### §5 Depth and Breadth Expansion`.
 
 **§7 Recursive Review:** Validate that every section is justified, all threads
 synthesised, every claim sourced or labelled, all uncertainties explicit.
-Record the outcome in `### §7 Recursive Review`.
+Record the outcome in `### §7 Recursive Review`. **Render the review result as a
+fenced plain-text metadata block by default**, for example:
+
+```text
+review_result: pass
+acronym_audit: passed
+parity_check: passed
+```
 
 ### 3. Seed the Findings section from §6
 
@@ -452,8 +466,10 @@ easily-detectable issues.
     `Review result: pass`, `Acronym audit: ...`, and `Claim audit: ...` as
     pure metadata fragments unless you intentionally turn them into labeled,
     source-bound claims. Use bare metadata forms such as `review_result: pass`
-    or `acronym_audit: passed` without bullet-sentence phrasing. Do not leave
-    review-outcome sentences as unlabeled declarative prose.
+    or `acronym_audit: passed` without bullet-sentence phrasing. Prefer a fenced
+    plain-text metadata block over bullets, because bullet-sentence audit notes
+    are repeatedly reviewed as unsupported claims. Do not leave review-outcome
+    sentences as unlabeled declarative prose.
 
 2c3. **Evidence-ranking and author-method check** -- do not write
     self-referential synthesis sentences such as "the strongest evidence in this

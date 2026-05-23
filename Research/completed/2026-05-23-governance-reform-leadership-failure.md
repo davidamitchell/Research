@@ -2,12 +2,12 @@
 review_count: 1
 title: "Barriers to governance reform, leadership failure modes, and reform mechanisms in regulated enterprises"
 added: 2026-05-23T01:19:53+00:00
-status: in-progress
+status: completed
 priority: high
 blocks: []
 tags: [governance, organisation, organisational-design, regulated-enterprise, change-management, incentives, institutional-economics]
 started: 2026-05-23T09:04:03+00:00
-completed: ~
+completed: 2026-05-23T09:22:42+00:00
 output: []
 cites: [2026-03-02-transaction-costs, 2026-03-10-nature-of-the-firm-coase-organisations, 2026-05-23-governance-controls-effectiveness-conditions, 2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention]
 related: [2026-05-20-hitl-capacity-thresholds-in-banking-compliance, 2026-05-09-system-of-record-bypass-control-deficiencies, 2026-04-26-ai-lowcode-decision-rights-accountability-liability]
@@ -167,10 +167,12 @@ Adjacent completed items in this corpus already establish when controls remain e
 
 ### §4 Consistency Check
 
-- contradiction_scan: no direct contradiction remained between the banking, healthcare, and energy cases on the central mechanism of accountability diffusion plus weak challenge
-- confidence_adjustment: the forcing-event conclusion remained medium confidence because the evidence comes from repeated cases and supervisory practice rather than from a comparative causal study
-- scope_guardrail: external regulation was used only where it changed internal governance incentives or validated remediation
-- acronym_audit: principal-agent (PA), Commonwealth Bank of Australia (CBA), National Health Service (NHS), and Bureau of Ocean Energy Management (BOEM) appear expanded on first use or were removed from prose where unnecessary
+```text
+contradiction_scan: resolved
+confidence_adjustment: forcing-event conclusion kept at medium
+scope_guardrail: external regulation used only where it changed internal governance incentives or validated remediation
+acronym_audit: passed
+```
 
 ### §5 Depth and Breadth Expansion
 
@@ -190,9 +192,9 @@ Adjacent completed items in this corpus already establish when controls remain e
 
 **Key findings:**
 
-1. [fact; high confidence; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected.
+1. [inference; high confidence; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected.
 2. [fact; high confidence; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf] Leadership failure is often sustained by filtered information and target bias, with patient outcomes, non-financial risks, or safety warnings discounted relative to reported success.
-3. [fact; high confidence; source: https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk.
+3. [inference; high confidence; source: https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk.
 4. [inference; medium confidence; source: https://doi.org/10.1017/CBO9780511808678; https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html] Institutional persistence matters because removing inherited controls concentrates political downside on decision-makers, while keeping them spreads cost diffusely across the enterprise.
 5. [fact; high confidence; source: https://www.fsb.org/2017/04/thematic-review-on-corporate-governance/; https://www.bis.org/bcbs/publ/d328.htm; https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm] Effective reform mechanisms consistently include clearer responsibility maps, stronger independent risk and audit functions, proportionality, and regular review of board effectiveness and information quality.
 6. [inference; medium confidence; source: https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.apra.gov.au/news-and-publications/apra-removes-cba%E2%80%99s-operational-risk-capital-add-on; https://www.boem.gov/about-boem/regulations-guidance/regulatory-reforms] Durable reform often follows an external forcing function such as supervisory sanctions, public inquiry, or structural reorganisation, followed by repeated validation that the changes are embedded.
@@ -200,9 +202,9 @@ Adjacent completed items in this corpus already establish when controls remain e
 
 **Evidence map:**
 
-- [fact; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Claim 1, confidence: high, notes: direct case evidence from healthcare and banking
+- [inference; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Claim 1, confidence: high, notes: direct case evidence from healthcare and banking plus synthesis
 - [fact; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf] Claim 2, confidence: high, notes: cross-sector convergence
-- [fact; source: https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Claim 3, confidence: high, notes: official argument plus case confirmation
+- [inference; source: https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable] Claim 3, confidence: high, notes: official argument plus case confirmation
 - [inference; source: https://doi.org/10.1017/CBO9780511808678; https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html] Claim 4, confidence: medium, notes: theory-backed synthesis rather than direct causal measurement
 - [fact; source: https://www.fsb.org/2017/04/thematic-review-on-corporate-governance/; https://www.bis.org/bcbs/publ/d328.htm; https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm] Claim 5, confidence: high, notes: supervisory convergence
 - [inference; source: https://www.apra.gov.au/news-and-publications/apra-removes-cba%E2%80%99s-operational-risk-capital-add-on; https://www.boem.gov/about-boem/regulations-guidance/regulatory-reforms; https://www.bmj.com/content/380/bmj.p513] Claim 6, confidence: medium, notes: repeated pattern across cases, but without comparative experiment
@@ -233,11 +235,13 @@ Adjacent completed items in this corpus already establish when controls remain e
 
 ### §7 Recursive Review
 
-- review_result: pass
-- citation_audit: all visible factual and inferential claims in Research Skill Output carry inline labels and URL-backed sources or were rewritten as metadata fragments
-- acronym_audit: principal-agent (PA) expanded on first use; no unresolved first-use abbreviation issues remained in Findings or Research Skill Output
-- parity_check: section 6 synthesis and Findings were written from the same claim set and source set
-- confidence_result: overall frontmatter confidence kept at medium because several cross-case causal conclusions remain inferential even though the central failure-mode evidence is strong
+```text
+review_result: pass
+citation_audit: passed
+acronym_audit: passed
+parity_check: passed
+confidence_result: medium
+```
 
 ---
 
@@ -257,9 +261,9 @@ Across the cases and guidance reviewed here, durable reform is associated with r
 
 ### Key Findings
 
-1. **Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected across long reporting chains.** ([fact]; high confidence; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable)
+1. **Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected across long reporting chains.** ([inference]; high confidence; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable)
 2. **Leadership failure is often sustained by filtered information and target bias, with patient outcomes, non-financial risks, or safety warnings discounted relative to reported success, budget targets, or procedural completion.** ([fact]; high confidence; source: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf)
-3. **Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk or safety objective.** ([fact]; high confidence; source: https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable)
+3. **Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk or safety objective.** ([inference]; high confidence; source: https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable)
 4. **Institutional persistence matters because removing inherited controls concentrates political downside on decision-makers, while keeping them spreads cost diffusely across the enterprise and therefore attracts less resistance.** ([inference]; medium confidence; source: https://doi.org/10.1017/CBO9780511808678; https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html)
 5. **Effective reform mechanisms consistently include clearer responsibility maps, stronger independent risk and audit functions, proportionality, and regular review of board effectiveness and information quality.** ([fact]; high confidence; source: https://www.fsb.org/2017/04/thematic-review-on-corporate-governance/; https://www.bis.org/bcbs/publ/d328.htm; https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm)
 6. **Durable reform often follows an external forcing function such as supervisory sanctions, public inquiry, or structural reorganisation, followed by repeated validation that the changes are embedded rather than merely announced.** ([inference]; medium confidence; source: https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.apra.gov.au/news-and-publications/apra-removes-cba%E2%80%99s-operational-risk-capital-add-on; https://www.boem.gov/about-boem/regulations-guidance/regulatory-reforms)
@@ -269,9 +273,9 @@ Across the cases and guidance reviewed here, durable reform is associated with r
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected across long reporting chains. | https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable | high | Direct case evidence |
+| [inference] Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected across long reporting chains. | https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable | high | Direct case evidence plus synthesis |
 | [fact] Leadership failure is often sustained by filtered information and target bias, with patient outcomes, non-financial risks, or safety warnings discounted relative to reported success, budget targets, or procedural completion. | https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf | high | Cross-sector convergence |
-| [fact] Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk or safety objective. | https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable | high | Official argument plus case confirmation |
+| [inference] Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk or safety objective. | https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf; https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable | high | Official argument plus case confirmation |
 | [inference] Institutional persistence matters because removing inherited controls concentrates political downside on decision-makers, while keeping them spreads cost diffusely across the enterprise and therefore attracts less resistance. | https://doi.org/10.1017/CBO9780511808678; https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html | medium | Theory-backed synthesis |
 | [fact] Effective reform mechanisms consistently include clearer responsibility maps, stronger independent risk and audit functions, proportionality, and regular review of board effectiveness and information quality. | https://www.fsb.org/2017/04/thematic-review-on-corporate-governance/; https://www.bis.org/bcbs/publ/d328.htm; https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm | high | Supervisory convergence |
 | [inference] Durable reform often follows an external forcing function such as supervisory sanctions, public inquiry, or structural reorganisation, followed by repeated validation that the changes are embedded rather than merely announced. | https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable; https://www.apra.gov.au/news-and-publications/apra-removes-cba%E2%80%99s-operational-risk-capital-add-on; https://www.boem.gov/about-boem/regulations-guidance/regulatory-reforms | medium | Repeated case pattern |
