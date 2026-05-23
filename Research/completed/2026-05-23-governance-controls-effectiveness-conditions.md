@@ -24,7 +24,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 99c9a4f0e5fef7f0d4ca98e34fef1707147cc4b9
+    changed: 2026-05-23
+    progress: progress/2026-05-23-governance-controls-effectiveness-conditions.md
+    summary: "Initial completion"
 ---
 
 # Conditions under which internal governance controls minimise coordination costs in regulated enterprises
