@@ -832,6 +832,7 @@ def html_nav(active: str = "") -> str:
         f'      <a href="/Research/knowledge/"{_cls("knowledge")}>{ICON_NOTE}Synthesis</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/themes/"{_cls("themes")}>{ICON_TAG}Themes</a>\n'
+        f'      <a href="/Research/synthesis-candidates.html"{_cls("synthesis-candidates")}>{ICON_NOTE}Synthesis</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
         f'      <a href="/Research/graph.html"{_cls("graph")}>{ICON_THREAD}Graph</a>\n'
@@ -2851,6 +2852,128 @@ def _thread_date_range(items: list[dict]) -> str:
     return f"{first} → {last}"
 
 
+_CONF_RANK = {"high": 3, "medium": 2, "low": 1}
+
+
+def generate_synthesis_candidates(
+    items: list[dict],
+    min_shared_themes: int = 2,
+    min_cluster_size: int = 2,
+) -> list[dict]:
+    """Group completed items into synthesis candidate clusters by shared themes.
+
+    Items are grouped by the set of themes they share (≥ min_shared_themes themes
+    in common).  Clusters with fewer than min_cluster_size items are excluded.
+    Each cluster entry has keys:
+        shared_themes  — sorted list of shared theme slugs
+        items          — list of item dicts in this cluster
+        avg_confidence — mean confidence score (high=3, medium=2, low=1)
+
+    Clusters are returned sorted by descending size, then descending average
+    confidence, then alphabetically by first shared theme for determinism.
+    """
+    # Build theme → item index
+    theme_to_items: dict[str, list[dict]] = {}
+    for item in items:
+        for theme in item_themes(item):
+            theme_to_items.setdefault(theme, []).append(item)
+
+    # For each pair of themes, find items that have both
+    themes_list = sorted(theme_to_items.keys())
+    seen_keys: set[frozenset] = set()
+    clusters: list[dict] = []
+
+    from itertools import combinations as _comb
+
+    for theme_combo in _comb(themes_list, min_shared_themes):
+        # Items with ALL themes in the combo
+        sets = [{it["slug"] for it in theme_to_items[t]} for t in theme_combo]
+        shared_slugs = sets[0].intersection(*sets[1:])
+        if len(shared_slugs) < min_cluster_size:
+            continue
+        key = frozenset(shared_slugs)
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        cluster_items = [it for it in items if it["slug"] in shared_slugs]
+        avg_conf = sum(
+            _CONF_RANK.get(it.get("confidence", "medium"), 2) for it in cluster_items
+        ) / len(cluster_items)
+        clusters.append(
+            {
+                "shared_themes": sorted(theme_combo),
+                "items": sorted(cluster_items, key=lambda x: x["slug"]),
+                "avg_confidence": avg_conf,
+            }
+        )
+
+    # Sort: largest cluster first, then highest avg confidence, then theme label
+    clusters.sort(key=lambda c: (-len(c["items"]), -c["avg_confidence"], c["shared_themes"][0]))
+    return clusters
+
+
+def build_synthesis_candidates_page(items: list[dict]) -> str:
+    """Generate docs/synthesis-candidates.html.
+
+    Groups items by shared themes (≥2) and renders a browsable page of
+    synthesis candidate clusters, each with a call-to-action linking to the
+    synthesis-loop.yml dispatch instructions.
+    """
+    clusters = generate_synthesis_candidates(items)
+    count = len(clusters)
+
+    cluster_html = ""
+    for cl in clusters:
+        themes_html = "".join(
+            f'<a class="tag" href="/Research/themes/{escape(t)}.html">{escape(t)}</a>'
+            for t in cl["shared_themes"]
+        )
+        n = len(cl["items"])
+        conf_str = f"{cl['avg_confidence']:.1f}"
+        item_links = "".join(
+            f'<li><a href="{_item_url(it)}">{escape(it["display_title"])}</a></li>'
+            for it in cl["items"]
+        )
+        cluster_html += f"""\
+<div class="thread-card" style="margin-bottom:1.5rem">
+  <div class="thread-card-tags">{themes_html}</div>
+  <div class="thread-card-meta">{n} item{"s" if n != 1 else ""} · avg confidence {conf_str}</div>
+  <ul class="synthesis-cluster-items" style="margin:0.5rem 0 0.5rem 1.2rem;padding:0">
+    {item_links}
+  </ul>
+  <div style="margin-top:0.5rem;font-size:var(--text-sm)">
+    <a href="https://github.com/davidamitchell/Research/actions/workflows/synthesis-loop.yml"
+       target="_blank" rel="noopener">Synthesise this cluster →</a>
+  </div>
+</div>
+"""
+
+    if not clusters:
+        cluster_html = (
+            "<p>No synthesis candidates found — run theme enrichment to classify items.</p>"
+        )
+
+    return (
+        html_head("Synthesis Candidates — Research")
+        + html_nav("synthesis-candidates")
+        + f"""\
+<main>
+  <div class="tag-page-header">
+    <h1>{ICON_NOTE_H1}Synthesis Candidates</h1>
+    <p class="page-subtitle">{count} cluster{"s" if count != 1 else ""} · items sharing ≥2 themes</p>
+  </div>
+  {cluster_html}
+</main>
+"""
+        + html_foot()
+    )
+
+
+def _thread_date_range_items_check(items: list[dict]) -> str:
+    """Alias kept for backwards compatibility — delegates to _thread_date_range."""
+    return _thread_date_range(items)
+
+
 def build_threads_listing(threads: list[dict]) -> str:
     """Generate docs/threads.html — all threads."""
     entries_html = ""
@@ -4264,6 +4387,13 @@ def main() -> None:
     # 10. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
+    pages_written += 1
+
+    # 10b. synthesis-candidates.html — items grouped by shared themes (≥2)
+    print("Building synthesis-candidates.html…")
+    (DOCS_DIR / "synthesis-candidates.html").write_text(
+        build_synthesis_candidates_page(items), encoding="utf-8"
+    )
     pages_written += 1
 
     # 11. search-index.json — includes both research and knowledge items

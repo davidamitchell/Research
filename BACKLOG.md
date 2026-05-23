@@ -1140,9 +1140,10 @@ Current individual item pages show only the Markdown body. Readers cannot see re
 
 ## W-0061
 
-status: open
+status: superseded
+superseded_by: W-0081
 created: 2026-05-09
-updated: 2026-05-11
+updated: 2026-05-23
 
 ### Outcome
 
@@ -1636,9 +1637,9 @@ Blocked on W-0077 (vocabulary) and W-0078 (migration). Replaces the tag-review w
 
 ## W-0081
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
