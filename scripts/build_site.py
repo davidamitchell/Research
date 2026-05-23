@@ -2,16 +2,19 @@
 """Build a static GitHub Pages site from Research/completed/*.md files.
 
 Generates:
-  docs/index.html             — landing page with stats, threads, tags, search preview
-  docs/browse.html            — filterable research card grid
+  docs/index.html             — landing page with stats, threads, themes, search preview
+  docs/browse.html            — filterable research card grid (filter by themes)
   docs/all-items.html         — complete list of all completed items (newest first)
   docs/backlog.html           — outstanding research questions from Research/backlog/
   docs/research/<slug>.html   — individual research item pages with related items
   docs/knowledge/<slug>.html  — individual synthesis item pages from Knowledge/
   docs/knowledge/index.html   — synthesis items index
-  docs/tags/<tag>.html        — one page per unique tag
+  docs/themes/<theme>.html    — one page per canonical theme
+  docs/themes/index.html      — themes index
+  docs/tags/<tag>.html        — one page per legacy tag (kept for backward compat)
   docs/threads.html           — threads listing
   docs/threads/<slug>.html    — individual thread pages
+  docs/synthesis-candidates.html — clusters of items sharing ≥2 themes
   docs/search.html            — standalone search page
   docs/research-master.html   — rendered Research_Master.md with valid HTML anchors
   docs/search-index.json      — vector index for browser search runtime
@@ -832,8 +835,7 @@ def html_nav(active: str = "") -> str:
         f'      <a href="/Research/knowledge/"{_cls("knowledge")}>{ICON_NOTE}Synthesis</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/themes/"{_cls("themes")}>{ICON_TAG}Themes</a>\n'
-        f'      <a href="/Research/synthesis-candidates.html"{_cls("synthesis-candidates")}>{ICON_NOTE}Synthesis</a>\n'
-        f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
+        f'      <a href="/Research/synthesis-candidates.html"{_cls("synthesis-candidates")}>{ICON_NOTE}Candidates</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
         f'      <a href="/Research/graph.html"{_cls("graph")}>{ICON_THREAD}Graph</a>\n'
         '      <a href="https://github.com/davidamitchell/Research"'
@@ -1454,6 +1456,7 @@ def load_backlog_items() -> list[dict]:
             {
                 "title": str(meta.get("title", path.stem)),
                 "tags": list(meta.get("tags") or []),
+                "themes": list(meta.get("themes") or []),
                 "priority": str(meta.get("priority", "medium")),
                 "date": date_str,
                 "question": question,
@@ -1708,7 +1711,10 @@ def render_backlog_card(item: dict) -> str:
     """Render a non-linkable card for a Research/backlog/ item."""
     title = escape(item.get("title", "Untitled"))
     question = escape(item.get("question", ""))
-    tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item.get("tags", []))
+    tags_html = "".join(
+        f'<span class="tag">{escape(t)}</span>'
+        for t in (item.get("themes") or item.get("tags") or [])
+    )
     priority = item.get("priority", "medium")
     date_str = escape(item.get("date", ""))
     priority_colour = {"high": "#e05252", "medium": "#e09a52", "low": "#52a0e0"}.get(
@@ -2000,13 +2006,13 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
 
 def build_browse(items: list[dict]) -> str:
     """Generate docs/browse.html — filterable research card grid."""
-    all_tags: set[str] = set()
+    all_themes: set[str] = set()
     for item in items:
-        all_tags.update(item["tags"])
-    sorted_tags = sorted(all_tags)
+        all_themes.update(item_themes(item))
+    sorted_themes = sorted(all_themes)
 
     tag_btns = "".join(
-        f'<button class="tag" data-tag="{escape(t)}">{escape(t)}</button>' for t in sorted_tags
+        f'<button class="tag" data-tag="{escape(t)}">{escape(t)}</button>' for t in sorted_themes
     )
     cards_html = "".join(render_card(item) for item in items)
     count = len(items)
@@ -2025,7 +2031,7 @@ def build_browse(items: list[dict]) -> str:
            placeholder="search by title or question…" autocomplete="off">
   </div>
   <div class="filter-bar">
-    <span class="filter-label">tags:</span>
+    <span class="filter-label">themes:</span>
     {tag_btns}
     <span id="clear-filters" class="clear-filters" style="display:none">clear</span>
   </div>

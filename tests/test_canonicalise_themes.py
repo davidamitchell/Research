@@ -87,6 +87,32 @@ def test_ai_themes_migrated_to_themes(tmp_path: Path) -> None:
     assert "ai_themes:" not in content
 
 
+def test_themes_inserted_inside_frontmatter_when_no_output_field(tmp_path: Path) -> None:
+    """themes: must land inside the frontmatter block, not before the opening ---.
+
+    Regression guard for the bug where ``re.search(r"^---$", text, re.MULTILINE)``
+    in ``_insert_themes_field`` matched the *opening* delimiter (first occurrence),
+    causing ``themes:`` to be prepended before the frontmatter rather than inside it.
+    """
+    path = _item(
+        tmp_path,
+        "item.md",
+        """\
+        title: "Test"
+        status: completed
+        ai_themes: [agentic-ai]
+        """,
+    )
+    vocab = load_themes_vocabulary(VOCAB_PATH)
+    canonicalise_file(path, vocab)
+
+    content = path.read_text()
+    assert content.startswith("---\n"), "File must start with the opening frontmatter ---"
+    opening_pos = content.index("---\n")
+    themes_pos = content.index("themes:")
+    assert themes_pos > opening_pos, "themes: must be inside frontmatter, not before it"
+
+
 def test_tags_known_aliases_migrated_to_themes(tmp_path: Path) -> None:
     """tags: values that are known aliases are resolved to canonical themes:."""
     path = _item(

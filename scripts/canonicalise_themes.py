@@ -187,10 +187,15 @@ def _insert_themes_field(text: str, themes: list[str]) -> str:
             insert_pos += 1
         return text[:insert_pos] + themes_line + "\n" + text[insert_pos:]
 
-    # Fallback: insert before the closing ---
-    close_match = re.search(r"^---$", text, re.MULTILINE)
-    if close_match:
-        return text[: close_match.start()] + themes_line + "\n" + text[close_match.start() :]
+    # Fallback: insert before the CLOSING --- using the frontmatter regex so we
+    # reliably target the closing delimiter, not the opening one.
+    # re.search(r"^---$", ...) would match the opening --- first, placing themes:
+    # before the frontmatter block instead of inside it.
+    fm_match = _FM_RE.match(text)
+    if fm_match:
+        # fm_match.end() is the position just after the closing ---
+        close_start = fm_match.end() - 3  # start of the closing ---
+        return text[:close_start] + themes_line + "\n" + text[close_start:]
 
     return text + themes_line + "\n"
 

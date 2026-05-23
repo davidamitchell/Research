@@ -1345,9 +1345,10 @@ All completed research items carry an `ai_themes` frontmatter field drawn from t
 
 ## W-0070
 
-status: open
+status: superseded
+superseded-by: W-0079
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-05-23
 
 ### Outcome
 

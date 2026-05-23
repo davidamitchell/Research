@@ -1,4 +1,3 @@
-themes: [consciousness-cognition, ai-architecture, agentic-ai]
 ---
 title: "Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth"
 added: 2026-03-05T07:55:34+00:00
@@ -12,6 +11,7 @@ supersedes: ~      # slug of an older item this one replaces (null if not applic
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+themes: [consciousness-cognition, ai-architecture, agentic-ai]
 ---
 
 # Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth
