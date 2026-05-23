@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [organisation, organisational-learning, organisational-theory, organisational-design]
+themes: [knowledge-management, workforce-skills, information-asymmetry, knowledge-transfer]
 started: 2026-05-20T12:05:40+00:00
 completed: 2026-05-20T12:31:32+00:00
 output: [knowledge]
