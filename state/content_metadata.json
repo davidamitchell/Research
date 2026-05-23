@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-23T08:53:03Z",
+  "extracted_at": "2026-05-23T09:04:29Z",
   "items": {
     "2026-05-23-similarity-algorithms-controlled-vocabulary": {
       "named_concepts": [
@@ -66,6 +66,121 @@
         {
           "text": "Cosine TF-IDF, BM25, and embedding similarity are not appropriate for pairwise slug-label deduplication at vocabulary scales of 20–40 terms",
           "sources": []
+        }
+      ]
+    },
+    "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention": {
+      "named_concepts": [
+        "shadow records",
+        "repeated remediation",
+        "internal governance",
+        "transaction hazard",
+        "proxy-target substitution",
+        "local workarounds",
+        "practical early-warning",
+        "early-warning bundle",
+        "information gaps",
+        "queue depth",
+        "board information",
+        "governance controls",
+        "regulated enterprises",
+        "proxy metrics",
+        "workarounds shadow",
+        "enabling formalisation",
+        "management information",
+        "compensating controls",
+        "real state",
+        "records duplicate"
+      ],
+      "source_urls": [
+        "https://www.worldcat.org/oclc/12216444",
+        "https://doi.org/10.1017/CBO9780511808678",
+        "https://doi.org/10.1007/978-1-349-17295-5_1",
+        "https://global.oup.com/academic/product/the-audit-society-9780198289470",
+        "https://press.uchicago.edu/ucp/books/book/chicago/B/bo5988377.html",
+        "https://publications.parliament.uk/pa/jt201314/jtselect/jtpcbs/27/27.pdf",
+        "https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf",
+        "https://doi.org/10.17705/1CAIS.03455",
+        "https://www.jstor.org/stable/2393986",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6541803/",
+        "https://patientsafety.pa.gov/ADVISORIES/Pages/201709_Workarounds.aspx",
+        "https://qualitysafety.bmj.com/content/34/5/317",
+        "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf",
+        "https://www.occ.gov/news-issuances/news-releases/2024/nr-occ-2024-76.html",
+        "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20240710a.htm",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-hitl-capacity-thresholds-in-banking-compliance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Internal governance controls become bureaucratic overhead when their intensity is no longer discriminatingly aligned to transaction hazard, because costly approvals, reviews, or documentation then remain attached to low-specificity or routine work after the coordination problem they once solved has changed",
+          "sources": [
+            "https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+          ]
+        },
+        {
+          "text": "Proxy-target substitution is a distinct governance failure mechanism, because once a reported measure becomes the success target, managers can improve the metric while weakening the underlying control objective, as shown conceptually by Goodhart's proxy-target principle and concretely by Silicon Valley Bank's changed risk assumptions",
+          "sources": [
+            "https://doi.org/10.1007/978-1-349-17295-5_1",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC6541803/",
+            "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf"
+          ]
+        },
+        {
+          "text": "Informal circumvention emerges from workflow hindrances, design flaws, and organisational pressures rather than from isolated bad actors, and the workaround literature shows that staff reroute around formal controls when the formal path blocks immediate task completion or patient or service goals",
+          "sources": [
+            "https://doi.org/10.17705/1CAIS.03455",
+            "https://patientsafety.pa.gov/ADVISORIES/Pages/201709_Workarounds.aspx",
+            "https://qualitysafety.bmj.com/content/34/5/317"
+          ]
+        },
+        {
+          "text": "The enabling-versus-coercive distinction explains why some formalisation remains productive while other formalisation invites circumvention, because rules that help workers resolve exceptions and use reliable information support performance, whereas repetitive low-signal checkpoints mainly enforce ritual compliance",
+          "sources": [
+            "https://www.jstor.org/stable/2393986",
+            "https://qualitysafety.bmj.com/content/34/5/317",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+          ]
+        },
+        {
+          "text": "Recent regulated-banking cases show that active control failure is visible through board information gaps, controls lagging growth, persistent data-quality weaknesses, and repeated remediation or compensating-control programs that remain open without closing the underlying design problem",
+          "sources": [
+            "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf",
+            "https://www.occ.gov/news-issuances/news-releases/2024/nr-occ-2024-76.html",
+            "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20240710a.htm"
+          ]
+        },
+        {
+          "text": "Shadow records and copied downstream artifacts form one documented circumvention surface in regulated workflows because they let local teams complete the work faster while severing authoritative-source control, complete audit evidence, governed change, and part of the organisation's operational resilience",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html",
+            "https://doi.org/10.17705/1CAIS.03455",
+            "https://patientsafety.pa.gov/ADVISORIES/Pages/201709_Workarounds.aspx"
+          ]
+        },
+        {
+          "text": "In high-volume human-in-the-loop review, especially bank-compliance review, queue depth, review latency, very low disagreement, and very low effective override are measurable signs that the checkpoint still exists on paper but no longer contributes meaningful scrutiny",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-20-hitl-capacity-thresholds-in-banking-compliance.html"
+          ]
+        },
+        {
+          "text": "A practical early-warning bundle combines persistent remediation misses, management-information gaps, compensating-control dependence, duplicate reconciliations, shadow records, queue metrics, and unexplained proxy-metric improvement without matching reduction in the underlying hazard",
+          "sources": [
+            "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf",
+            "https://www.occ.gov/news-issuances/news-releases/2024/nr-occ-2024-76.html",
+            "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20240710a.htm",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-20-hitl-capacity-thresholds-in-banking-compliance.html"
+          ]
         }
       ]
     },
