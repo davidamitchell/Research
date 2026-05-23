@@ -1614,9 +1614,9 @@ Blocked on W-0077 (vocabulary) and W-0078 (migration). Supersedes W-0070 (`ai_th
 
 ## W-0080
 
-status: open
+status: done
 created: 2026-05-22
-updated: 2026-05-22
+updated: 2026-05-23
 
 ### Outcome
 
