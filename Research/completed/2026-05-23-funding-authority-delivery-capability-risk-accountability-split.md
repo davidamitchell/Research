@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5c8b68a6646373f85e78a13d99ba932018bae112
+    changed: 2026-05-23
+    progress: progress/2026-05-23-funding-authority-delivery-capability-risk-accountability-split.md
+    summary: Initial completion
 ---
 
 # Funding authority and delivery-risk accountability split
