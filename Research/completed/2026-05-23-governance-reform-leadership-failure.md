@@ -18,7 +18,7 @@ confidence: medium
 themes: [governance-policy, organisational-design, regulatory-compliance, enterprise-adoption, cost-performance]
 versions:
   - version: "1.0"
-    sha: bc27985faa74084423d007a6a727c526bb814be2
+    sha: 0aa6ed80540932fcafad2ae6210995f84362c462
     changed: 2026-05-23
     progress: progress/2026-05-23-governance-reform-leadership-failure.md
     summary: "Initial completion"
