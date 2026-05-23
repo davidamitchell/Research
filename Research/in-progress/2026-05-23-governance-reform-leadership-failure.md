@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Barriers to governance reform, leadership failure modes, and reform mechanisms in regulated enterprises"
 added: 2026-05-23T01:19:53+00:00
 status: in-progress
