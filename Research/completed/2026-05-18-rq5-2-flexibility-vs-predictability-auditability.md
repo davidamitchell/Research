@@ -9,7 +9,7 @@ blocks:
 started: 2026-05-19T20:02:20+00:00
 completed: 2026-05-19T20:29:09+00:00
 output: [knowledge]
-themes: [agentic-ai, formal-methods, tools-infrastructure]
+themes: [agentic-ai, ai-architecture, mlops-deployment, governance-policy, formal-verification]
 cites:
   - 2026-05-18-rq5-1-stochastic-vs-deterministic-failures
   - 2026-05-18-agentic-explainability-vs-traditional

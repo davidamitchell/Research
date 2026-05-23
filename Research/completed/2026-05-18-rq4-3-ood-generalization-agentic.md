@@ -9,7 +9,7 @@ blocks:
 started: 2026-05-19T12:16:01+00:00
 completed: 2026-05-19T12:39:55+00:00
 output: [knowledge]
-themes: [agentic-ai, benchmarks-eval]
+themes: [agentic-ai, llm-reasoning, tools-infrastructure, formal-guarantees, distribution-shift]
 cites:
   - 2026-05-18-rq4-1-agentic-loop-explanatory-reach
   - 2026-05-18-rq4-2-adversarial-error-propagation

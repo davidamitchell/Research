@@ -9,7 +9,7 @@ blocks:
 started: 2026-05-19T21:21:11+00:00
 completed: 2026-05-19T21:40:13+00:00
 output: [knowledge]
-themes: [formal-methods]
+themes: [ai-architecture, tools-infrastructure, consciousness-cognition, system-interpretability, distributed-complexity]
 cites:
   - 2026-05-18-rq6-1-halting-problem-static-analysis
   - 2026-05-18-rq6-2-state-explosion-chaos-theory

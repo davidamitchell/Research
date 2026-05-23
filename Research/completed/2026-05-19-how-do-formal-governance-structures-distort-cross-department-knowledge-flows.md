@@ -8,7 +8,7 @@ blocks: []
 started: 2026-05-20T12:35:13+00:00
 completed: 2026-05-20T13:07:08+00:00
 output: [knowledge]
-themes: [organisational-design]
+themes: [governance-policy, knowledge-management, organisational-design, organisational-learning]
 cites:
   - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
   - 2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways

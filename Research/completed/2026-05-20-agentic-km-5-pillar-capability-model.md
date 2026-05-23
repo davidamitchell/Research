@@ -8,7 +8,7 @@ blocks: []
 started: 2026-05-21T10:35:23+00:00
 completed: 2026-05-21T10:58:17+00:00
 output: [knowledge]
-themes: [agentic-ai, benchmarks-eval, organisational-design, tools-infrastructure]
+themes: [agentic-ai, knowledge-graphs, ai-architecture, governance-policy, knowledge-management]
 cites:
   - 2026-03-03-knowledge-representation-agent-context
   - 2026-03-02-agent-memory-management-context-injection

@@ -10,7 +10,7 @@ blocks:
 started: 2026-05-19T19:40:54+00:00
 completed: 2026-05-19T20:00:09+00:00
 output: [knowledge]
-themes: [agentic-ai, formal-methods, benchmarks-eval]
+themes: [agentic-ai, llm-reasoning, security-risk, ai-architecture, formal-reliability]
 cites:
   - 2026-05-18-rq4-2-adversarial-error-propagation
   - 2026-05-18-rq4-3-ood-generalization-agentic

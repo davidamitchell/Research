@@ -9,7 +9,7 @@ blocks:
 started: 2026-05-19T09:06:53+00:00
 completed: 2026-05-19T09:30:18+00:00
 output: [knowledge]
-themes: [formal-methods]
+themes: [ai-architecture, mlops-deployment, security-risk, robust-system-design, dynamical-systems-theory]
 cites:
   - 2026-05-18-rq2-1-erm-causal-blindness
   - 2026-05-18-rq2-2-duhem-quine-underdetermination

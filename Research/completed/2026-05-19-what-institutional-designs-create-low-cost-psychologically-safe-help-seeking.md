@@ -8,7 +8,7 @@ blocks: []
 started: 2026-05-20T08:53:08+00:00
 completed: 2026-05-20T09:20:38+00:00
 output: [knowledge]
-themes: [organisational-design]
+themes: [governance-policy, workforce-skills, knowledge-management, organisational-design, psychological-safety]
 cites:
   - 2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour
   - 2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing

@@ -15,7 +15,7 @@ blocks: []
 started: 2026-05-20T17:53:35+00:00
 completed: 2026-05-20T18:15:29+00:00
 output: [knowledge]
-themes: []
+themes: [knowledge-management, workforce-skills, organisational-behaviour, effort-minimisation]
 cites:
   [
     2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways,
