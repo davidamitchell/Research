@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, organisational-design, organisational-learning, organisational-theory]
+themes: [governance-policy, workforce-skills, knowledge-management, organisational-design, psychological-safety]
 started: 2026-05-20T08:53:08+00:00
 completed: 2026-05-20T09:20:38+00:00
 output: [knowledge]

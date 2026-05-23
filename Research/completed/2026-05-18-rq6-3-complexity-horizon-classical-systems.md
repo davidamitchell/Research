@@ -7,6 +7,7 @@ priority: high
 blocks:
   - 2026-05-18-rq5-1-stochastic-vs-deterministic-failures
 tags: [formal-methods, distributed-systems, epistemology, llm]
+themes: [ai-architecture, tools-infrastructure, consciousness-cognition, system-interpretability, distributed-complexity]
 started: 2026-05-19T21:21:11+00:00
 completed: 2026-05-19T21:40:13+00:00
 output: [knowledge]

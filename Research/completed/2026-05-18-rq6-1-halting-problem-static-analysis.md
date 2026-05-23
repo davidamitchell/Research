@@ -7,6 +7,7 @@ priority: high
 blocks:
   - 2026-05-18-rq6-2-state-explosion-chaos-theory
 tags: [formal-methods, epistemology, philosophy-of-science]
+themes: [security-risk, ai-architecture, formal-verification, computational-theory]
 started: 2026-05-19T20:31:03+00:00
 completed: 2026-05-19T20:53:17+00:00
 output: [knowledge]

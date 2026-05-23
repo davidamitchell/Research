@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags: [organisation, organisational-design, organisational-learning, organisational-theory]
+themes: [knowledge-management, organisational-design, organisational-learning, organisational-theory]
 started: 2026-05-20T18:16:56+00:00
 completed: 2026-05-20T18:41:19+00:00
 output: [knowledge]

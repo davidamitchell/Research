@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, knowledge-graph, memory-system, evaluation, organisational-design, workflow, llm]
+themes: [agentic-ai, knowledge-graphs, ai-architecture, governance-policy, knowledge-management]
 started: 2026-05-21T10:35:23+00:00
 completed: 2026-05-21T10:58:17+00:00
 output: [knowledge]

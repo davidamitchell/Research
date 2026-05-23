@@ -7,6 +7,7 @@ priority: high
 blocks:
   - 2026-05-18-agentic-production-tradeoffs
 tags: [agentic-ai, llm, formal-methods, workflow]
+themes: [agentic-ai, ai-architecture, mlops-deployment, governance-policy, formal-verification]
 started: 2026-05-19T20:02:20+00:00
 completed: 2026-05-19T20:29:09+00:00
 output: [knowledge]

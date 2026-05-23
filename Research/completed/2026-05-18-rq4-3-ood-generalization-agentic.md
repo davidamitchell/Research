@@ -7,6 +7,7 @@ priority: high
 blocks:
   - 2026-05-18-rq5-1-stochastic-vs-deterministic-failures
 tags: [agentic-ai, llm, machine-learning, invariants, evaluation]
+themes: [agentic-ai, llm-reasoning, tools-infrastructure, formal-guarantees, distribution-shift]
 started: 2026-05-19T12:16:01+00:00
 completed: 2026-05-19T12:39:55+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: high
 blocks: []
 tags: [organisation, organisational-learning, organisational-theory]
+themes: [knowledge-management, workforce-skills, governance-policy, organisational-learning]
 started: 2026-05-20T07:36:24+00:00
 completed: 2026-05-20T08:05:27+00:00
 output: [knowledge]

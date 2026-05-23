@@ -8,6 +8,7 @@ blocks:
   - 2026-05-18-rq5-2-flexibility-vs-predictability-auditability
   - 2026-05-18-agentic-explainability-vs-traditional
 tags: [agentic-ai, llm, formal-methods, machine-learning, evaluation]
+themes: [agentic-ai, llm-reasoning, security-risk, ai-architecture, formal-reliability]
 started: 2026-05-19T19:40:54+00:00
 completed: 2026-05-19T20:00:09+00:00
 output: [knowledge]

@@ -6,6 +6,7 @@ status: completed
 priority: medium
 blocks: []
 tags:
+themes: [knowledge-management, workforce-skills, organisational-behaviour, effort-minimisation]
   [
     organisation,
     organisational-design,
