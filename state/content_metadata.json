@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-23T19:49:34Z",
+  "extracted_at": "2026-05-23T20:04:28Z",
   "items": {
     "2026-05-23-similarity-algorithms-controlled-vocabulary": {
       "named_concepts": [
@@ -378,6 +378,119 @@
             "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20internal%20governance%20under%20CRD.pdf",
             "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
             "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html"
+          ]
+        }
+      ]
+    },
+    "2026-05-23-funding-authority-delivery-capability-risk-accountability-split": {
+      "named_concepts": [
+        "total cost",
+        "operational risk",
+        "delivery-capable teams",
+        "central investment",
+        "investment control",
+        "central review",
+        "review focused",
+        "higher-risk cases",
+        "strongest supported",
+        "delivery team",
+        "funding authority",
+        "portfolio pacing",
+        "exception handling",
+        "risk control",
+        "control weaken",
+        "fund reliability",
+        "incident readiness",
+        "cost accountability",
+        "engineering decisions",
+        "funding releases"
+      ],
+      "source_urls": [
+        "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=94043",
+        "https://itrevolution.com/product/accelerate/",
+        "https://sre.google/sre-book/table-of-contents/",
+        "https://sre.google/sre-book/embracing-risk/",
+        "https://sre.google/sre-book/service-level-objectives/",
+        "https://docs.cloud.google.com/architecture/devops",
+        "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://www.finops.org/framework/",
+        "https://www.finops.org/framework/principles/",
+        "https://www.finops.org/framework/personas/",
+        "https://www.nao.org.uk/reports/digital-transformation-in-government-addressing-the-barriers/",
+        "https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/",
+        "https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review",
+        "https://tmf.cio.gov/",
+        "https://tmf.cio.gov/board/",
+        "https://ussm.gsa.gov/governance/",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+      ],
+      "key_claims": [
+        {
+          "text": "When funding authority, prioritisation, and exception handling are separated from the team that carries delivery and operational risk, delivery usually slows because decisions queue in external forums that modern DevOps guidance and recent government reviews both describe as poorly suited to flexible digital work",
+          "sources": [
+            "https://docs.cloud.google.com/architecture/devops",
+            "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+            "https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review"
+          ]
+        },
+        {
+          "text": "Delivered quality and operational risk control weaken when the accountable operator cannot directly fund reliability work, because service-level trade-offs, incident readiness, and technical-debt reduction then depend on a budget holder who does not experience the operational consequences first-hand",
+          "sources": [
+            "https://sre.google/sre-book/embracing-risk/",
+            "https://sre.google/sre-book/service-level-objectives/",
+            "https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review"
+          ]
+        },
+        {
+          "text": "Total cost of ownership increases under split-authority models when cost accountability is detached from engineering decisions, because the teams that determine architecture and usage patterns do not control enough of the operating budget to optimize spend continuously",
+          "sources": [
+            "https://www.finops.org/framework/principles/",
+            "https://www.finops.org/framework/personas/",
+            "https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review"
+          ]
+        },
+        {
+          "text": "Milestone-based and outcome-aware funding releases are one credible way to keep central investment control while allowing delivery-capable teams to learn, adapt scope, and draw money incrementally as measurable progress is demonstrated",
+          "sources": [
+            "https://tmf.cio.gov/",
+            "https://tmf.cio.gov/board/",
+            "https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/"
+          ]
+        },
+        {
+          "text": "The strongest supported substitute for full structural co-location is a named integrator with explicit authority over portfolio allocation, exception handling, and escalation, combined with a named accountable contact inside each participating unit that can turn central decisions into local action quickly",
+          "sources": [
+            "https://ussm.gsa.gov/governance/",
+            "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html"
+          ]
+        },
+        {
+          "text": "Commercial arrangements should budget for both build and run costs and permit changing scope, because rigid capital-heavy or specification-heavy models systematically underfund the ongoing maintenance, resilience, and integration work that determines long-run service performance",
+          "sources": [
+            "https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/",
+            "https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review"
+          ]
+        },
+        {
+          "text": "Split-authority governance becomes counterproductive when control intensity exceeds the actual risk profile and reversibility of the work, because the result is queueing, proxy compliance, and escalation traffic rather than materially better risk reduction or faster learning",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html"
+          ]
+        },
+        {
+          "text": "A well-supported operating pattern combines delegated delivery authority, central guardrails, shared outcome metrics, and central review focused on exceptional or higher-risk cases, which keeps central review off routine local technical and operational choices",
+          "sources": [
+            "https://www.finops.org/framework/principles/",
+            "https://docs.cloud.google.com/architecture/devops",
+            "https://sre.google/sre-book/service-level-objectives/"
           ]
         }
       ]
