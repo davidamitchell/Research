@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-23T09:15:07Z",
+  "extracted_at": "2026-05-23T09:26:49Z",
   "items": {
     "2026-05-23-similarity-algorithms-controlled-vocabulary": {
       "named_concepts": [
@@ -66,6 +66,104 @@
         {
           "text": "Cosine TF-IDF, BM25, and embedding similarity are not appropriate for pairwise slug-label deduplication at vocabulary scales of 20–40 terms",
           "sources": []
+        }
+      ]
+    },
+    "2026-05-23-governance-reform-leadership-failure": {
+      "named_concepts": [
+        "durable reform",
+        "governance reform",
+        "regulated enterprises",
+        "leadership failure",
+        "filtered escalation",
+        "reform stalls",
+        "committees diffuse",
+        "diffuse responsibility",
+        "assume another",
+        "another body",
+        "body owns",
+        "owns intervention",
+        "deficiencies continue",
+        "continue uncorrected",
+        "reporting chains",
+        "filtered information",
+        "target bias",
+        "patient outcomes",
+        "outcomes non-financial",
+        "non-financial risks"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1017/CBO9780511808678",
+        "https://global.oup.com/academic/product/the-mechanisms-of-governance-9780195097856",
+        "https://doi.org/10.1016/0304-405X(76",
+        "https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf",
+        "https://www.fsb.org/2017/04/thematic-review-on-corporate-governance/",
+        "https://www.bis.org/bcbs/publ/d328.htm",
+        "https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm",
+        "https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable",
+        "https://www.apra.gov.au/news-and-publications/apra-removes-cba%E2%80%99s-operational-risk-capital-add-on",
+        "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf",
+        "https://www.bmj.com/content/380/bmj.p513",
+        "https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf",
+        "https://www.boem.gov/about-boem/regulations-guidance/regulatory-reforms",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Governance reform stalls when boards and committees diffuse responsibility, because each layer can assume another body owns intervention while deficiencies continue uncorrected across long reporting chains",
+          "sources": [
+            "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf",
+            "https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable"
+          ]
+        },
+        {
+          "text": "Leadership failure is often sustained by filtered information and target bias, with patient outcomes, non-financial risks, or safety warnings discounted relative to reported success, budget targets, or procedural completion",
+          "sources": [
+            "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/279124/0947.pdf",
+            "https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable",
+            "https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION.pdf"
+          ]
+        },
+        {
+          "text": "Control complexity is itself a reform barrier because it raises information-processing cost, obscures ownership, and encourages managing to the rules rather than to the underlying risk or safety objective",
+          "sources": [
+            "https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf",
+            "https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable"
+          ]
+        },
+        {
+          "text": "Institutional persistence matters because removing inherited controls concentrates political downside on decision-makers, while keeping them spreads cost diffusely across the enterprise and therefore attracts less resistance",
+          "sources": [
+            "https://doi.org/10.1017/CBO9780511808678",
+            "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+          ]
+        },
+        {
+          "text": "Effective reform mechanisms consistently include clearer responsibility maps, stronger independent risk and audit functions, proportionality, and regular review of board effectiveness and information quality",
+          "sources": [
+            "https://www.fsb.org/2017/04/thematic-review-on-corporate-governance/",
+            "https://www.bis.org/bcbs/publ/d328.htm",
+            "https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm"
+          ]
+        },
+        {
+          "text": "Durable reform often follows an external forcing function such as supervisory sanctions, public inquiry, or structural reorganisation, followed by repeated validation that the changes are embedded rather than merely announced",
+          "sources": [
+            "https://www.apra.gov.au/news-and-publications/apra-releases-cba-prudential-inquiry-final-report-and-accepts-enforceable",
+            "https://www.apra.gov.au/news-and-publications/apra-removes-cba%E2%80%99s-operational-risk-capital-add-on",
+            "https://www.boem.gov/about-boem/regulations-guidance/regulatory-reforms"
+          ]
+        },
+        {
+          "text": "A recurring reform pattern in the evidence is to judge controls by whether they change risk, safety, and decision quality rather than by whether they add formal activity",
+          "sources": [
+            "https://www.bmj.com/content/380/bmj.p513",
+            "https://www.federalreserve.gov/supervisionreg/srletters/SR2103.htm",
+            "https://www.bankofengland.co.uk/-/media/boe/files/news/2012/august/the-dog-and-the-frisbee-paper-by-andy-haldane.pdf"
+          ]
         }
       ]
     },
