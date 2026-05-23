@@ -2,12 +2,12 @@
 review_count: 2
 title: "Funding authority and delivery-risk accountability split"
 added: 2026-05-23T10:24:15+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [organisational-design, governance-policy, cost-performance, enterprise-adoption, software-engineering]
 started: 2026-05-23T19:39:12+00:00
-completed: ~
+completed: 2026-05-23T20:00:42+00:00
 output: [knowledge]
 cites:
   - 2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability
@@ -203,7 +203,7 @@ prior_work_repeat_scan:
 - [fact; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth] MIT CISR treats exception handling as one of the few decisions that must be explicitly assigned in digital transformation.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html] The prior integrator-rights item found that explicit integrator rights can substitute for structural co-location when the escalation body can force resolution, performance is measurable, and local teams keep enough execution authority to make day-to-day trade-offs quickly.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html] The prior governance-controls item found that effective controls stay proportionate when they have clear ownership, explicit authority, and review tied to real change rather than generic process accumulation.
-- [inference; source: https://ussm.gsa.gov/governance/; https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html] The strongest mitigation pattern is a two-level structure: delegated day-to-day delivery and operating authority inside a ring-fenced budget envelope for the delivery-capable team, combined with a small integrator layer that owns portfolio allocation, exception adjudication, and milestone release rather than universal pre-approval.
+- [inference; source: https://ussm.gsa.gov/governance/; https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html] The strongest mitigation pattern is a two-level structure: delegated day-to-day delivery and operating authority with a defined delivery budget for the delivery-capable team, combined with a small integrator layer that owns portfolio allocation and exception adjudication rather than universal pre-approval.
 
 #### 2.6 Failure boundary
 
@@ -240,7 +240,7 @@ confidence_adjustment: overall item kept at medium because the synthesis depends
 
 **Executive summary**
 
-- [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://docs.cloud.google.com/architecture/devops; https://www.finops.org/framework/principles/; https://sre.google/sre-book/embracing-risk/] The strongest supported answer is a product or service-aligned delivery team that holds routine delivery and operating authority inside a ring-fenced budget envelope, while a small central integrator retains portfolio-allocation, exception, and milestone-release rights instead of approving every change.
+- [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://docs.cloud.google.com/architecture/devops; https://www.finops.org/framework/principles/; https://sre.google/sre-book/embracing-risk/] The strongest supported answer is a product or service-aligned delivery team that holds routine delivery and operating authority together with a defined delivery budget, while a small central integrator retains portfolio-allocation and exception rights instead of approving every change.
 - [inference; source: https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review; https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://tmf.cio.gov/; https://ussm.gsa.gov/governance/] Split-authority models fail when funding approval remains project-like, capital-biased, or committee-heavy, because the delivery-capable party then inherits reliability, legacy, and maintenance obligations without the budget discretion needed to manage them.
 - [inference; source: https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/; https://www.finops.org/framework/personas/] The evidence points toward relocating central governance to guardrails, portfolio pacing, and escalation rather than abolishing it, because the reviewed sources still assign a central role to metrics, exception handling, and investment oversight.
 
@@ -253,7 +253,7 @@ confidence_adjustment: overall item kept at medium because the synthesis depends
 5. [inference; source: https://ussm.gsa.gov/governance/; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html] The most reliable substitute for full structural co-location is a named integrator with explicit authority over portfolio allocation, exceptions, and escalation, plus a named accountable contact inside each participating unit.
 6. [inference; source: https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review] Commercial structures should budget for both build and run costs and should allow changing scope, because rigid capital-heavy or specification-heavy models systematically underfund the ongoing work that keeps services safe and useful.
 7. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html] Split-authority governance becomes counterproductive when control intensity exceeds the actual risk profile and reversibility of the work, because the result is queueing, proxy compliance, and escalation traffic rather than faster learning or better risk reduction.
-8. [inference; source: https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/] A well-supported operating pattern combines delegated delivery authority, central guardrails, shared outcome metrics, and approval-by-exception, which keeps central review focused on exceptions instead of routine local technical and operational choices.
+8. [inference; source: https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/] A well-supported operating pattern combines delegated delivery authority, central guardrails, shared outcome metrics, and central review focused on exceptional or higher-risk cases, which keeps central review off routine local technical and operational choices.
 
 **Evidence map**
 
@@ -266,7 +266,7 @@ confidence_adjustment: overall item kept at medium because the synthesis depends
 | [inference] Named integrator rights are the strongest substitute for full co-location. | https://ussm.gsa.gov/governance/; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html | medium | escalation, exception handling, accountable contact |
 | [inference] Flexible contracts and combined build-run funding help reduce downstream burden. | https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review | medium | flexible scope, resource funding |
 | [inference] Over-governed split models drift into proxy compliance and coordination overhead. | https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html | medium | control intensity, bureaucracy, distortion |
-| [inference] Delegated delivery authority plus central guardrails keeps central review focused on exceptions. | https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/ | medium | approval-by-exception, shared metrics |
+| [inference] Delegated delivery authority plus central guardrails keeps central review focused on exceptional or higher-risk cases. | https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/ | medium | shared metrics, exceptional cases |
 
 **Assumptions**
 
@@ -290,7 +290,7 @@ confidence_adjustment: overall item kept at medium because the synthesis depends
 **Open questions**
 
 - How far can delegated budget envelopes be pushed in heavily regulated sectors before legal or prudential constraints require a different authority pattern?
-- Which service-level metric bundle best predicts when approval-by-exception should tighten back into pre-execution review?
+- Which service-level metric bundle best predicts when review focused on exceptional or higher-risk cases should tighten back into pre-execution review?
 - What contractual clauses most effectively tie supplier incentives to long-run service reliability instead of short-run delivery milestones?
 
 ### §7 Recursive Review
@@ -311,7 +311,7 @@ repository_cross_reference_repeat: completed
 
 ### Executive Summary
 
-The strongest supported structure is a product or service-aligned delivery team that holds routine delivery and operating authority inside a ring-fenced budget envelope, while a small central integrator retains portfolio-allocation, exception, and milestone-release rights instead of approving every change. [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://docs.cloud.google.com/architecture/devops; https://www.finops.org/framework/principles/]
+The strongest supported structure is a product or service-aligned delivery team that holds routine delivery and operating authority together with a defined delivery budget, while a small central integrator retains portfolio-allocation and exception rights instead of approving every change. [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://docs.cloud.google.com/architecture/devops; https://www.finops.org/framework/principles/]
 
 When funding authority remains external and committee-heavy, delivery speed, reliability, and total cost of ownership usually worsen because the team carrying operational risk cannot close trade-offs about scope, reliability, technical debt, and spend in real time. [inference; source: https://sre.google/sre-book/embracing-risk/; https://sre.google/sre-book/service-level-objectives/; https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review]
 
@@ -326,7 +326,7 @@ The evidence points away from abolishing central governance and toward relocatin
 5. **The strongest supported substitute for full structural co-location is a named integrator with explicit authority over portfolio allocation, exception handling, and escalation, combined with a named accountable contact inside each participating unit that can turn central decisions into local action quickly.** ([inference]; medium confidence; source: https://ussm.gsa.gov/governance/; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html)
 6. **Commercial arrangements should budget for both build and run costs and permit changing scope, because rigid capital-heavy or specification-heavy models systematically underfund the ongoing maintenance, resilience, and integration work that determines long-run service performance.** ([inference]; medium confidence; source: https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review)
 7. **Split-authority governance becomes counterproductive when control intensity exceeds the actual risk profile and reversibility of the work, because the result is queueing, proxy compliance, and escalation traffic rather than materially better risk reduction or faster learning.** ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html)
-8. **A well-supported operating pattern combines delegated delivery authority, central guardrails, shared outcome metrics, and approval-by-exception, which keeps central review focused on exceptions instead of routine local technical and operational choices.** ([inference]; medium confidence; source: https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/)
+8. **A well-supported operating pattern combines delegated delivery authority, central guardrails, shared outcome metrics, and central review focused on exceptional or higher-risk cases, which keeps central review off routine local technical and operational choices.** ([inference]; medium confidence; source: https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/)
 
 ### Evidence Map
 
@@ -339,7 +339,7 @@ The evidence points away from abolishing central governance and toward relocatin
 | [inference] Named integrator rights are the strongest substitute for full co-location. | https://ussm.gsa.gov/governance/; https://cisr.mit.edu/content/simplifying-decision-rights-growth; https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html | medium | escalation, accountable contact |
 | [inference] Flexible contracts and combined build-run funding reduce downstream burden better than rigid project contracts. | https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review | medium | flexible scope, operating funds |
 | [inference] Over-governed split models drift into proxy compliance and coordination overhead. | https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html; https://davidamitchell.github.io/Research/research/2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows.html | medium | control overload, distortion |
-| [inference] Delegated delivery authority plus central guardrails is better supported than routine central re-approval. | https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/ | medium | approval-by-exception, shared metrics |
+| [inference] Delegated delivery authority plus central guardrails keeps central review focused on exceptional or higher-risk cases. | https://www.finops.org/framework/principles/; https://docs.cloud.google.com/architecture/devops; https://sre.google/sre-book/service-level-objectives/ | medium | shared metrics, exceptional cases |
 
 ### Assumptions
 
@@ -366,7 +366,7 @@ The adjacent repository items sharpen the boundary condition rather than changin
 ### Open Questions
 
 - How far can delegated budget envelopes be pushed in heavily regulated sectors before legal or prudential constraints require a different authority pattern?
-- Which service-level metric bundle best predicts when approval-by-exception should tighten back into pre-execution review?
+- Which service-level metric bundle best predicts when review focused on exceptional or higher-risk cases should tighten back into pre-execution review?
 - What contractual clauses most effectively tie supplier incentives to long-run service reliability instead of short-run milestone completion?
 
 ---
