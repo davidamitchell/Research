@@ -143,19 +143,29 @@ Q. Which structures preserve delivery outcomes when funding authority and delive
 
 #### 2.1 Source checks and prior-work sweep
 
-- Query: `Jensen Meckling 1976 agency costs pdf`
-  - Results inspected: Social Science Research Network (SSRN) abstract page, index pages
-  - Accessible primary text: none retrieved in-session
-- Query: `Accelerate change approval DORA public`
-  - Results inspected: book product page, Google Cloud Architecture Center page, current DORA pages
-  - Accessible primary text: public Google Cloud pages retrieved; book text not retrieved
-- Seeded URL correction:
-  - Original 2021 National Audit Office (NAO) report page: `https://www.nao.org.uk/reports/the-challenges-in-implementing-digital-change/`
-  - Outcome: 404 in this session
-  - Replacement evidence family: the official National Audit Office insight page and the 2023 barrier report
-- Repeated completed-item sweep before drafting:
-  - Directly cited: `2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability`, `2026-05-16-governance-structures-build-mode-without-full-accountability-colocation`, `2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance`, `2026-05-23-governance-controls-effectiveness-conditions`
-  - Thematically related: `2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention`, `2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows`, `2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates`
+```text
+failed_primary_search:
+  - query: Jensen Meckling 1976 agency costs pdf
+    inspected: Social Science Research Network (SSRN) abstract page, index pages
+    accessible_primary_text: none_retrieved_in_session
+  - query: Accelerate change approval DORA public
+    inspected: book product page, Google Cloud Architecture Center page, current DORA pages
+    accessible_primary_text: public Google Cloud pages only
+source_correction:
+  - original_2021_nao_report_page: https://www.nao.org.uk/reports/the-challenges-in-implementing-digital-change/
+    session_outcome: 404
+    replacement_evidence_family: official National Audit Office insight page and 2023 barrier report
+prior_work_repeat_scan:
+  directly_cited:
+    - 2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability
+    - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
+    - 2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance
+    - 2026-05-23-governance-controls-effectiveness-conditions
+  thematically_related:
+    - 2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention
+    - 2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows
+    - 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates
+```
 - [fact; source: https://cisr.mit.edu/content/classic-topics-decision-rights] MIT CISR defines governance as a company's allocation of decision rights and accountabilities, and says clear specification of both is key to progress on digital transformation.
 - [fact; source: https://cisr.mit.edu/content/simplifying-decision-rights-growth] MIT CISR identifies the few decisions that matter most in digital transformation as who decides what versus how, how much is invested and how spending is prioritised, and who handles exceptions.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html] The closest prior completed item found a recurring missing-integrator failure mode when risk, cost, and benefits sit in separate units.
@@ -275,7 +285,6 @@ confidence_adjustment: overall item kept at medium because the synthesis depends
 **Risks, gaps, uncertainties**
 
 - [inference; source: https://cisr.mit.edu/content/classic-topics-decision-rights; https://docs.cloud.google.com/architecture/devops; https://www.finops.org/framework/principles/] The public evidence base is strong on mechanism families, but thinner on direct head-to-head comparative studies that isolate this exact split from all other organisational differences.
-- [fact; source: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=94043; https://itrevolution.com/product/accelerate/] Two seeded foundational sources, Jensen and Meckling's original article and the full Accelerate book text, were not directly accessible in this session, so their ideas enter only through accessible official or repository-adjacent sources.
 - [inference; source: https://www.nao.org.uk/insights/six-reasons-why-digital-transformation-is-still-a-problem-for-government/; https://www.gov.uk/government/publications/state-of-digital-government-review/state-of-digital-government-review] Government evidence is highly relevant to split authority, but some sector-specific frictions may overstate the severity of the problem for private firms with simpler capital-allocation paths.
 
 **Open questions**
