@@ -26,7 +26,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5fdc53d00436cb9f20bcb9ffd42014bb80dcddbb
+    changed: 2026-05-23
+    progress: progress/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.md
+    summary: Initial completion
 ---
 
 # Failure mechanisms of internal governance controls: bureaucratic inefficiency and informal circumvention in regulated enterprises
