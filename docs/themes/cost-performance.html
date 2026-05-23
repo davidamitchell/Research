@@ -1,0 +1,929 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Theme: cost-performance — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="tag-page-header">
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Theme: cost-performance</h1>
+    <p class="page-subtitle">42 items</p>
+    <a class="back-link" href="/Research/themes/">← all themes</a>
+  </div>
+  <div class="card-grid">
+    <a class="card" href="/Research/research/2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing.html" data-title="what are the micro-transaction costs of internal knowledge sourcing?" data-question="what micro-transaction costs are borne by knowledge seekers and providers during internal peer-to-peer transfers, and how do these costs shift the choice between self-solving (&quot;make&quot;) and help-seeking" data-tags="knowledge-management,cost-performance,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">What Are the Micro-Transaction Costs of Internal Knowledge Sourcing?</div>
+  <div class="card-meta">2026-05-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What micro-transaction costs are borne by knowledge seekers and providers during internal peer-to-peer transfers, and how do these costs shift the choice between self-solving (&quot;make&quot;) and help-seeking…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-post-gap-closure-persistence-low-code-bots-agents.html" data-title="longitudinal persistence rates after gap closure for low-code applications,…" data-question="what longitudinal evidence exists on persistence rates after the original gap is closed for low-code applications, bots, and agents in live enterprise estates?" data-tags="agentic-ai,mlops-deployment,workforce-skills,cost-performance,low-code-development,organisational-design,tools-infrastructure">
+  <div class="card-title">Longitudinal persistence rates after gap closure for low-code applications,…</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/low-code-development.html">low-code-development</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What longitudinal evidence exists on persistence rates after the original gap is closed for low-code applications, bots, and agents in live enterprise estates?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html" data-title="governance structures that support investment in delivery capability without…" data-question="under what governance conditions can investment in building durable delivery capability be made reliably without placing risk, cost, and benefits accountability under one owner, and what minimum autho" data-tags="governance-policy,security-risk,cost-performance,organisational-design">
+  <div class="card-title">Governance structures that support investment in delivery capability without…</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">Under what governance conditions can investment in building durable delivery capability be made reliably without placing risk, cost, and benefits accountability under one owner, and what minimum autho…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html" data-title="variance control comparison across delivery modes" data-question="what is the empirical failure-rate distribution of artificial intelligence (ai)-assisted code that has passed a standard software delivery pipeline compared with ai-agent-executed business processes a" data-tags="benchmarks-eval,cost-performance,agentic-ai,tools-infrastructure">
+  <div class="card-title">Variance Control Comparison Across Delivery Modes</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the empirical failure-rate distribution of Artificial Intelligence (AI)-assisted code that has passed a standard software delivery pipeline compared with AI-agent-executed business processes a…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html" data-title="it throughput constraint magnitude and debt accumulation rate" data-question="what is the empirical relationship between information technology (it) throughput capacity and the rate at which unmet operational capability needs accumulate across comparable organisations, and what" data-tags="agentic-ai,tools-infrastructure,cost-performance,workforce-skills,organisational-design,benchmarks-eval">
+  <div class="card-title">IT Throughput Constraint Magnitude and Debt Accumulation Rate</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is the empirical relationship between Information Technology (IT) throughput capacity and the rate at which unmet operational capability needs accumulate across comparable organisations, and what…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html" data-title="temporary automation demand persistence and core capability investment…" data-question="what evidence exists that temporary automation workarounds displace investment in core software delivery, and what is the observed persistence rate of those workarounds after the underlying systems ca" data-tags="agentic-ai,workforce-skills,cost-performance,knowledge-management,organisational-design,tools-infrastructure,benchmarks-eval">
+  <div class="card-title">Temporary Automation Demand Persistence and Core Capability Investment…</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What evidence exists that temporary automation workarounds displace investment in core software delivery, and what is the observed persistence rate of those workarounds after the underlying systems ca…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html" data-title="agent operational cost vs gap closure cost" data-question="what is the fully loaded operational cost of a production artificial intelligence (ai) agent used as a workaround for a missing system capability, relative to the cost of closing the underlying system" data-tags="agentic-ai,benchmarks-eval,cost-performance,organisational-design">
+  <div class="card-title">Agent Operational Cost vs Gap Closure Cost</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What is the fully loaded operational cost of a production Artificial Intelligence (AI) agent used as a workaround for a missing system capability, relative to the cost of closing the underlying system…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html" data-title="organisational failure modes" data-question="what failure modes have been empirically observed in organisations where accountability for risk, operational cost, and benefits realisation are held in separate business units (bus) rather than co-lo" data-tags="governance-policy,security-risk,cost-performance,workforce-skills,organisational-design">
+  <div class="card-title">Organisational failure modes</div>
+  <div class="card-meta">2026-05-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What failure modes have been empirically observed in organisations where accountability for risk, operational cost, and benefits realisation are held in separate business units (BUs) rather than co-lo…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html" data-title="graph database landscape" data-question="for the hosted graph database platforms identified in the 2026 software-as-a-service (saas) knowledge-ontology research, neo4j auradb, amazon neptune, stardog cloud, ontotext graphdb, and memgraph clo" data-tags="knowledge-graphs,tools-infrastructure,workforce-skills,cost-performance,knowledge-management,organisational-design">
+  <div class="card-title">Graph database landscape</div>
+  <div class="card-meta">2026-05-13</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/knowledge-graphs.html">knowledge-graphs</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">For the hosted graph database platforms identified in the 2026 Software-as-a-Service (SaaS) knowledge-ontology research, Neo4j AuraDB, Amazon Neptune, Stardog Cloud, Ontotext GraphDB, and Memgraph Clo…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-12-hardware-load-inference-performance.html" data-title="llm inference performance" data-question="how does hardware resource load, central processing unit (cpu), graphics processing unit (gpu), and memory pressure, affect large language model (llm) inference performance, specifically latency, thro" data-tags="agentic-ai,cost-performance,benchmarks-eval,tools-infrastructure">
+  <div class="card-title">LLM inference performance</div>
+  <div class="card-meta">2026-05-12</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How does hardware resource load, Central Processing Unit (CPU), Graphics Processing Unit (GPU), and memory pressure, affect Large Language Model (LLM) inference performance, specifically latency, thro…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html" data-title="llm determinism" data-question="what are the practical limits of making llm (large language model)-based decisions or policy enforcement deterministic, even with temperature=0, fixed seeds, and constrained prompts?" data-tags="llm-reasoning,benchmarks-eval,cost-performance,governance-policy,agentic-ai">
+  <div class="card-title">LLM Determinism</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What are the practical limits of making LLM (Large Language Model)-based decisions or policy enforcement deterministic, even with temperature=0, fixed seeds, and constrained prompts?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-build-vs-improve-throughput-tradeoff.html" data-title="build vs improve tradeoff" data-question="given constrained engineering capacity, how should organisations allocate effort between (1) building features within an existing system and (2) improving the system itself (tooling, process, architec" data-tags="tools-infrastructure,mlops-deployment,workforce-skills,cost-performance,organisational-design,software-engineering">
+  <div class="card-title">Build vs improve tradeoff</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">Given constrained engineering capacity, how should organisations allocate effort between (1) building features within an existing system and (2) improving the system itself (tooling, process, architec…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html" data-title="ai coding tools are adopted with productivity mandates, and how do…" data-question="what metrics beyond code acceptance rates and lines of code best capture net organisational value when artificial intelligence (ai) coding tools such as github copilot are adopted with productivity ma" data-tags="agentic-ai,governance-policy,workforce-skills,cost-performance,software-engineering">
+  <div class="card-title">AI coding tools are adopted with productivity mandates, and how do…</div>
+  <div class="card-meta">2026-05-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">What metrics beyond code acceptance rates and lines of code best capture net organisational value when Artificial Intelligence (AI) coding tools such as GitHub Copilot are adopted with productivity ma…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html" data-title="how do open-weight policy enforcement reasoning models, exemplified by openai&#39;s…" data-question="how do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by openai&#39;s gpt-oss-safeguard, classify text against strict, customizable policies, and" data-tags="llm-reasoning,governance-policy,security-risk,mlops-deployment,cost-performance,benchmarks-eval,tools-infrastructure,agentic-ai">
+  <div class="card-title">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">How do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against strict, customizable policies, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-vendor-lock-in-portability-multi-platform-ai.html" data-title="ai vendor lock-in risk?" data-question="what architectural capabilities and contractual conditions are required for an enterprise to maintain multi-platform portability and mitigate artificial intelligence (ai) vendor lock-in risk from: mic" data-tags="ai-architecture,governance-policy,tools-infrastructure,cost-performance,agentic-ai">
+  <div class="card-title">AI vendor lock-in risk?</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What architectural capabilities and contractual conditions are required for an enterprise to maintain multi-platform portability and mitigate Artificial Intelligence (AI) vendor lock-in risk from: Mic…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html" data-title="ai capability model" data-question="what is the complete set of architectural capabilities required to run artificial intelligence (ai) safely at scale in a regulated enterprise, how do microsoft&#39;s copilot family (microsoft 365 copilot" data-tags="agentic-ai,governance-policy,ai-architecture,tools-infrastructure,cost-performance">
+  <div class="card-title">AI capability model</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">What is the complete set of architectural capabilities required to run Artificial Intelligence (AI) safely at scale in a regulated enterprise, how do Microsoft&#39;s Copilot family (Microsoft 365 Copilot…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-strategic-tactical-division-ai-teams.html" data-title="ai-augmented software teams" data-question="in an artificial intelligence (ai)-augmented software team, what is the optimal division of labour between the human developer, who owns strategic design, interface definition, and architectural overs" data-tags="agentic-ai,workforce-skills,cost-performance,human-ai-interaction,software-engineering,organisational-design">
+  <div class="card-title">AI-augmented software teams</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/human-ai-interaction.html">human-ai-interaction</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">In an Artificial Intelligence (AI)-augmented software team, what is the optimal division of labour between the human developer, who owns strategic design, interface definition, and architectural overs…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html" data-title="fundamentals-first versus specs-to-code" data-question="what empirical patterns emerge when comparing real-world software projects built with a strict fundamentals-first artificial intelligence (ai) workflow, structured alignment, modules with simple inter" data-tags="agentic-ai,benchmarks-eval,cost-performance,software-engineering,tools-infrastructure">
+  <div class="card-title">Fundamentals-first versus specs-to-code</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What empirical patterns emerge when comparing real-world software projects built with a strict fundamentals-first Artificial Intelligence (AI) workflow, structured alignment, modules with simple inter…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html" data-title="anthropic claude teams or enterprise vs microsoft 365 copilot cowork" data-question="how do anthropic claude, specifically the team and enterprise plans, and microsoft 365 (m365) copilot cowork compare across capability, pricing, user experience, and guardrails, and what are the secur" data-tags="agentic-ai,governance-policy,security-risk,cost-performance,enterprise-adoption">
+  <div class="card-title">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a></div>
+  <div class="card-excerpt">How do Anthropic Claude, specifically the Team and Enterprise plans, and Microsoft 365 (M365) Copilot Cowork compare across capability, pricing, user experience, and guardrails, and what are the secur…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-28-software-demand-shift-ai-coding-era.html" data-title="ai coding agents make custom software generation cheap?" data-question="as artificial intelligence (ai) coding agents, such as anthropic claude code, openai codex, and github copilot workspace, make custom software generation materially cheaper, which categories of commer" data-tags="agentic-ai,tools-infrastructure,cost-performance">
+  <div class="card-title">AI coding agents make custom software generation cheap?</div>
+  <div class="card-meta">2026-04-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">As Artificial Intelligence (AI) coding agents, such as Anthropic Claude Code, OpenAI Codex, and GitHub Copilot Workspace, make custom software generation materially cheaper, which categories of commer…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html" data-title="what is the cost, performance, and delivery impact of governance controls on ai…" data-question="what is the cost, performance, and delivery impact of governance controls on ai and low-code development, specifically, what economic model quantifies the trade-offs between governance strength and de" data-tags="governance-policy,cost-performance,tools-infrastructure">
+  <div class="card-title">What is the cost, performance, and delivery impact of governance controls on AI…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the cost, performance, and delivery impact of governance controls on AI and low-code development, specifically, what economic model quantifies the trade-offs between governance strength and de…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-multi-ai-provider-control-planes.html" data-title="multi-provider ai control planes" data-question="which platforms or architectural designs provide multi-provider artificial intelligence (ai) control planes that unify discoverability, oversight, logging, security, data-access control, financial ope" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure,cost-performance">
+  <div class="card-title">Multi-provider AI control planes</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Which platforms or architectural designs provide multi-provider Artificial Intelligence (AI) control planes that unify discoverability, oversight, logging, security, data-access control, Financial Ope…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-18-shopify-ai-strategy-red-queen-memo.html" data-title="shopify&#39;s ai strategy after the red queen memo" data-question="what is shopify&#39;s explicit artificial intelligence (ai) strategy as evidenced by toby lütke&#39;s &quot;prove ai cannot do it before you hire&quot; memo and follow-on operating decisions, and how has that strategy" data-tags="workforce-skills,cost-performance">
+  <div class="card-title">Shopify&#39;s AI strategy after the Red Queen memo</div>
+  <div class="card-meta">2026-04-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">What is Shopify&#39;s explicit Artificial Intelligence (AI) strategy as evidenced by Toby Lütke&#39;s &quot;prove AI cannot do it before you hire&quot; memo and follow-on operating decisions, and how has that strategy…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-org-shape-software-cost-zero.html" data-title="the shape of organisations when software is no longer the constraint" data-question="inside an organisation that requires software to be built, integrated, and maintained (including commercial off-the-shelf (cots) systems, software-as-a-service (saas) platforms, and bespoke-built syst" data-tags="agentic-ai,workforce-skills,cost-performance,organisational-design">
+  <div class="card-title">The shape of organisations when software is no longer the constraint</div>
+  <div class="card-meta">2026-04-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">Inside an organisation that requires software to be built, integrated, and maintained (including Commercial Off-The-Shelf (COTS) systems, Software-as-a-Service (SaaS) platforms, and bespoke-built syst…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-ai-funding-and-capital-investment-landscape.html" data-title="ai funding and capital investment landscape" data-question="which artificial intelligence (ai)-related and tech companies are receiving and deploying capital investment in 2023-2026, who the major investors are, where investment is concentrated, and what actio" data-tags="agentic-ai,tools-infrastructure,cost-performance">
+  <div class="card-title">AI Funding and Capital Investment Landscape</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Which Artificial Intelligence (AI)-related and tech companies are receiving and deploying capital investment in 2023-2026, who the major investors are, where investment is concentrated, and what actio…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-01-backpressure-theory-of-constraints.html" data-title="backpressure infrastructure and the theory of constraints" data-question="what is backpressure infrastructure, specifically as it pertains to the theory of constraints (toc), and what does academic research and real-world white papers say about its practical application?" data-tags="ai-architecture,tools-infrastructure,mlops-deployment,cost-performance">
+  <div class="card-title">Backpressure Infrastructure and the Theory of Constraints</div>
+  <div class="card-meta">2026-04-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">What is backpressure infrastructure, specifically as it pertains to the Theory of Constraints (TOC), and what does academic research and real-world white papers say about its practical application?</div>
+</a>
+<a class="card" href="/Research/research/2026-04-01-timesfm-time-series-foundation-models.html" data-title="timesfm and the landscape of time-series foundation models" data-question="what are the practical use cases for timesfm (google&#39;s pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured dat" data-tags="ai-architecture,benchmarks-eval,cost-performance">
+  <div class="card-title">TimesFM and the Landscape of Time-Series Foundation Models</div>
+  <div class="card-meta">2026-04-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">What are the practical use cases for TimesFM (Google&#39;s pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured dat…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-measuring-opportunity-cost.html" data-title="the measurement asymmetry" data-question="why is measuring opportunity cost systematically harder than measuring direct costs, and what cognitive and structural mechanisms cause organisations to destroy value while claiming efficiency gains?" data-tags="cost-performance,workforce-skills,knowledge-management">
+  <div class="card-title">The measurement asymmetry</div>
+  <div class="card-meta">2026-03-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a></div>
+  <div class="card-excerpt">Why is measuring opportunity cost systematically harder than measuring direct costs, and what cognitive and structural mechanisms cause organisations to destroy value while claiming efficiency gains?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-cost-reduction-is-not-strategy.html" data-title="cost reduction is not a strategy" data-question="why is cost reduction insufficient as a business strategy, and how does framing artificial intelligence (ai) primarily as a cost-cutting tool risk destroying value through missed opportunities?" data-tags="agentic-ai,workforce-skills,cost-performance">
+  <div class="card-title">Cost reduction is not a strategy</div>
+  <div class="card-meta">2026-03-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Why is cost reduction insufficient as a business strategy, and how does framing artificial intelligence (AI) primarily as a cost-cutting tool risk destroying value through missed opportunities?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-23-software-factory.html" data-title="the software factory" data-question="if the cost of producing high-quality, standardised, integrated software is approaching zero — as artificial intelligence (ai) coding agents and software factory patterns suggest — what must organisat" data-tags="tools-infrastructure,workforce-skills,cost-performance,ai-architecture,organisational-design">
+  <div class="card-title">The Software Factory</div>
+  <div class="card-meta">2026-03-24</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">If the cost of producing high-quality, standardised, integrated software is approaching zero — as Artificial Intelligence (AI) coding agents and software factory patterns suggest — what must organisat…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-saas-banking-invariants.html" data-title="invariants in software as a service (saas) banking software" data-question="what capabilities do enterprise software as a service (saas) banking platforms (principally salesforce financial services cloud (fsc) and ncino) provide as true invariants - independent of customer im" data-tags="ai-architecture,cost-performance,governance-policy">
+  <div class="card-title">Invariants in Software as a Service (SaaS) Banking Software</div>
+  <div class="card-meta">2026-03-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a></div>
+  <div class="card-excerpt">What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer im…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-hosting-options-for-the-research-repo.html" data-title="hosting options for the research repo" data-question="what is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring seo, custom dns," data-tags="tools-infrastructure,cost-performance,mlops-deployment">
+  <div class="card-title">Hosting options for the Research repo</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS,…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html" data-title="best practices in financial forecasting for it operational run costs" data-question="what are the established best practices for financially responsible forecasting of information technology (it) operational run costs — covering cost estimation by technology and infrastructure type, r" data-tags="governance-policy,cost-performance,tools-infrastructure">
+  <div class="card-title">Best practices in financial forecasting for IT operational run costs</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What are the established best practices for financially responsible forecasting of Information Technology (IT) operational run costs — covering cost estimation by technology and infrastructure type, r…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html" data-title="ai inverted the knowledge-work scarcity equation" data-question="before artificial intelligence (ai), throughput (volume of output) was the binding constraint on knowledge work. ai has
+dramatically reduced the cost of generating output. does the evidence support th" data-tags="agentic-ai,workforce-skills,cost-performance">
+  <div class="card-title">AI inverted the knowledge-work scarcity equation</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has
+dramatically reduced the cost of generating output. Does the evidence support th…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html" data-title="force multiplier, not cost reducer" data-question="when artificial intelligence (ai) multiplies the productive capacity of each person by 5–10x, organisations face a
+strategic choice: reduce headcount to cut costs, or redeploy the same people against" data-tags="workforce-skills,cost-performance,organisational-design">
+  <div class="card-title">Force multiplier, not cost reducer</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a
+strategic choice: reduce headcount to cut costs, or redeploy the same people against…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html" data-title="the nature of the firm" data-question="why do organisations (firms and business units) exist when markets are theoretically efficient? what are the fitness functions and invariants that determine when organisational form is the correct coo" data-tags="governance-policy,cost-performance">
+  <div class="card-title">The Nature of the Firm</div>
+  <div class="card-meta">2026-03-13</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Why do organisations (firms and business units) exist when markets are theoretically efficient? What are the fitness functions and invariants that determine when organisational form is the correct coo…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-lancedb-index-rebuild-from-git.html" data-title="lancedb index rebuild speed from git" data-question="can the lancedb index be rebuilt from the `.md` files in the repo on startup fast enough to enable stateless (per-request) deployment? measure rebuild time at: current corpus size, 100 files, 500 file" data-tags="rag-retrieval,tools-infrastructure,mlops-deployment,cost-performance">
+  <div class="card-title">LanceDB index rebuild speed from git</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Can the LanceDB index be rebuilt from the `.md` files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 file…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-07-run-build-it-allocation-implementation-how.html" data-title="how organisations practically implement it run vs build cost allocation" data-question="how have organisations actually implemented a working run vs build it cost allocation — specifically: how did they agree on what counts as an &quot;application&quot;, how did they get consistent work-item taggi" data-tags="governance-policy,cost-performance,tools-infrastructure,organisational-design">
+  <div class="card-title">How organisations practically implement IT RUN vs BUILD cost allocation</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">How have organisations actually implemented a working RUN vs BUILD IT cost allocation — specifically: how did they agree on what counts as an &quot;application&quot;, how did they get consistent work-item taggi…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html" data-title="run vs build it spending allocation in non-it primary businesses" data-question="how do non-it primary businesses (manufacturing, retail, finance) calculate and apportion it spending between run (nondiscretionary operational sustainment) and build (discretionary strategic enhancem" data-tags="cost-performance,tools-infrastructure,workforce-skills">
+  <div class="card-title">RUN vs BUILD IT spending allocation in non-IT primary businesses</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">How do non-IT primary businesses (manufacturing, retail, finance) calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancem…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html" data-title="ai strategy examples" data-question="which published ai strategies — corporate, national, or sector-specific — are explicitly designed around business efficiency as the primary objective, what measurable outcomes have they produced, and" data-tags="governance-policy,tools-infrastructure,workforce-skills,cost-performance">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Which published AI strategies — corporate, national, or sector-specific — are explicitly designed around business efficiency as the primary objective, what measurable outcomes have they produced, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-01-context-mode-llm-context-compression.html" data-title="context mode" data-question="what is context mode&#39;s architecture and actual effectiveness for compressing mcp tool outputs in claude code, what are its real-world limitations (especially regarding mcp tool interception), and what" data-tags="memory-context,tools-infrastructure,ai-architecture,cost-performance">
+  <div class="card-title">Context Mode</div>
+  <div class="card-meta">2026-03-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/memory-context.html">memory-context</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">What is Context Mode&#39;s architecture and actual effectiveness for compressing MCP tool outputs in Claude Code, what are its real-world limitations (especially regarding MCP tool interception), and what…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-jevons-paradox.html" data-title="jevons paradox" data-question="how does jevons paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers" data-tags="agentic-ai,cost-performance,workforce-skills,software-engineering">
+  <div class="card-title">Jevons Paradox</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">How does Jevons Paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers…</div>
+</a>
+
+  </div>
+</main>
+</body>
+</html>

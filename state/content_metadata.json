@@ -1,6 +1,74 @@
 {
-  "extracted_at": "2026-05-22T07:54:47Z",
+  "extracted_at": "2026-05-23T02:21:02Z",
   "items": {
+    "2026-05-23-similarity-algorithms-controlled-vocabulary": {
+      "named_concepts": [
+        "token jaccard",
+        "growth policy",
+        "levenshtein edit",
+        "edit distance",
+        "character-level typos",
+        "plural variants",
+        "jaccard similarity",
+        "canonical slugs",
+        "policy requiring",
+        "controlled vocabulary",
+        "singleton explosion",
+        "uncontrolled field",
+        "unique values",
+        "preflabel altlabel",
+        "altlabel pattern",
+        "canonical slug",
+        "requiring rdf",
+        "external tooling",
+        "monthly review",
+        "review workflow"
+      ],
+      "source_urls": [
+        "https://www.w3.org/TR/skos-primer/",
+        "https://www.w3.org/TR/skos-reference/",
+        "https://campus.dariah.eu/resources/hosted/controlled-vocabularies-and-skos",
+        "https://www.hedden-information.com/skos-taxonomies/",
+        "https://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-agglomerative-clustering-1.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Token Jaccard similarity on hyphen-split tokens is the primary algorithm for near-synonym detection in slug-based vocabularies",
+          "sources": [
+            "https://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-agglomerative-clustering-1.html"
+          ]
+        },
+        {
+          "text": "Levenshtein edit distance ≤ 2 complements Jaccard by catching character-level typos and singular/plural variants such as `knowledge-graph` vs `knowledge-graphs`",
+          "sources": [
+            "https://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-agglomerative-clustering-1.html"
+          ]
+        },
+        {
+          "text": "A vocabulary of 20–40 canonical theme slugs is appropriate for a corpus of ~300–400 items; the existing 16-theme `ai_themes` field at 86% coverage confirms the lower bound is sufficient",
+          "sources": [
+            "https://www.hedden-information.com/skos-taxonomies/",
+            "https://campus.dariah.eu/resources/hosted/controlled-vocabularies-and-skos"
+          ]
+        },
+        {
+          "text": "A growth policy requiring ≥3 items for a new theme prevents singleton explosion and is consistent with information science best practice",
+          "sources": [
+            "https://www.hedden-information.com/skos-taxonomies/"
+          ]
+        },
+        {
+          "text": "The SKOS prefLabel/altLabel/scopeNote pattern is applicable to a YAML file-based vocabulary without requiring RDF serialisation or external tooling",
+          "sources": [
+            "https://www.w3.org/TR/skos-primer/"
+          ]
+        },
+        {
+          "text": "Cosine TF-IDF, BM25, and embedding similarity are not appropriate for pairwise slug-label deduplication at vocabulary scales of 20–40 terms",
+          "sources": []
+        }
+      ]
+    },
     "2026-05-21-prompt-program-optimization-theory-mechanisms": {
       "named_concepts": [
         "program optimization",

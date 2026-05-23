@@ -1,0 +1,1141 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Theme: benchmarks-eval — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="tag-page-header">
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Theme: benchmarks-eval</h1>
+    <p class="page-subtitle">78 items</p>
+    <a class="back-link" href="/Research/themes/">← all themes</a>
+  </div>
+  <div class="card-grid">
+    <a class="card" href="/Research/research/2026-05-23-similarity-algorithms-controlled-vocabulary.html" data-title="similarity algorithms and growth policy for a file-based controlled theme…" data-question="which similarity algorithms are appropriate for detecting near-synonym themes in a controlled vocabulary of 20–40 slug-based labels, and what growth policy prevents both vocabulary explosion and colla" data-tags="knowledge-management,tools-infrastructure,benchmarks-eval">
+  <div class="card-title">Similarity algorithms and growth policy for a file-based controlled theme…</div>
+  <div class="card-meta">2026-05-23</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">Which similarity algorithms are appropriate for detecting near-synonym themes in a controlled vocabulary of 20–40 slug-based labels, and what growth policy prevents both vocabulary explosion and colla…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-21-prompt-program-optimization-theory-mechanisms.html" data-title="theory and mechanisms of prompt and program optimization in language models" data-question="what theory best explains why prompt and program optimization methods can outperform baseline prompting and reinforcement learning (rl) in language model (lm) pipelines, and how do the methods in the" data-tags="llm-reasoning,benchmarks-eval">
+  <div class="card-title">Theory and mechanisms of prompt and program optimization in Language Models</div>
+  <div class="card-meta">2026-05-21</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What theory best explains why prompt and program optimization methods can outperform baseline prompting and Reinforcement Learning (RL) in Language Model (LM) pipelines, and how do the methods in the…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-21-contract-theory-statistical-criteria.html" data-title="contract theory formulation and statistical criteria for contracts" data-question="what is contract theory, how is a contract-theory model formally formulated, what is meant by a statistical contract, meaning a contract or protocol whose payoffs depend on statistical evidence, and w" data-tags="benchmarks-eval">
+  <div class="card-title">Contract theory formulation and statistical criteria for contracts</div>
+  <div class="card-meta">2026-05-21</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is contract theory, how is a contract-theory model formally formulated, what is meant by a statistical contract, meaning a contract or protocol whose payoffs depend on statistical evidence, and w…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-20-information-density-filtering-financial-rag.html" data-title="rag systems filter low-information and duplicate content so risk and aml…" data-question="what pre-retrieval architecture and governance controls most reliably remove low-information content, meaning boilerplate, repeated passages, wrapper text, and other low-signal document fragments, and" data-tags="agentic-ai,tools-infrastructure,benchmarks-eval">
+  <div class="card-title">RAG systems filter low-information and duplicate content so risk and AML…</div>
+  <div class="card-meta">2026-05-20</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What pre-retrieval architecture and governance controls most reliably remove low-information content, meaning boilerplate, repeated passages, wrapper text, and other low-signal document fragments, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html" data-title="research question 4.2" data-question="how do adversarial inputs or unexpected environmental shifts propagate error through a multi-step tool-using large language model (llm) system&#39;s verification and strategy-selection phases when the und" data-tags="agentic-ai,benchmarks-eval">
+  <div class="card-title">Research Question 4.2</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How do adversarial inputs or unexpected environmental shifts propagate error through a multi-step tool-using Large Language Model (LLM) system&#39;s verification and strategy-selection phases when the und…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq4-1-agentic-loop-explanatory-reach.html" data-title="rq 4.1" data-question="when a large language model (llm) is wrapped in an agentic loop, meaning a repeated perception, strategy-selection, tool-action, and verification cycle, does the outer loop introduce true explanatory" data-tags="agentic-ai,llm-reasoning,benchmarks-eval,ai-architecture">
+  <div class="card-title">RQ 4.1</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">When a Large Language Model (LLM) is wrapped in an agentic loop, meaning a repeated perception, strategy-selection, tool-action, and verification cycle, does the outer loop introduce true explanatory…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq3-3-cot-counterfactual-limits.html" data-title="rq 3.3" data-question="what are the empirical boundaries of in-context learning and chain-of-thought prompting when they are used to push a purely predictive statistical architecture toward intervention questions and altern" data-tags="llm-reasoning,benchmarks-eval,consciousness-cognition,causal-inference">
+  <div class="card-title">RQ 3.3</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/consciousness-cognition.html">consciousness-cognition</a><a class="tag" href="/Research/themes/causal-inference.html">causal-inference</a></div>
+  <div class="card-excerpt">What are the empirical boundaries of in-context learning and chain-of-thought prompting when they are used to push a purely predictive statistical architecture toward intervention questions and altern…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq3-2-stochastic-parrot-ood.html" data-title="rq 3.2" data-question="how does the stochastic parrot hypothesis, the claim that large language models (llms) reproduce linguistic form more readily than grounded structural understanding, manifest when an llm is presented" data-tags="llm-reasoning,benchmarks-eval,consciousness-cognition,causal-inference">
+  <div class="card-title">RQ 3.2</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/consciousness-cognition.html">consciousness-cognition</a><a class="tag" href="/Research/themes/causal-inference.html">causal-inference</a></div>
+  <div class="card-excerpt">How does the Stochastic Parrot hypothesis, the claim that Large Language Models (LLMs) reproduce linguistic form more readily than grounded structural understanding, manifest when an LLM is presented…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html" data-title="rq 3.1" data-question="to what extent do large language models (llms) optimise strictly for linguistic form and statistical token distribution rather than constructing internal, invariant causal models of reality?" data-tags="llm-reasoning,benchmarks-eval,ai-architecture,causal-representation-learning,epistemology-of-ai">
+  <div class="card-title">RQ 3.1</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/causal-representation-learning.html">causal-representation-learning</a><a class="tag" href="/Research/themes/epistemology-of-ai.html">epistemology-of-ai</a></div>
+  <div class="card-excerpt">To what extent do Large Language Models (LLMs) optimise strictly for linguistic form and statistical token distribution rather than constructing internal, invariant causal models of reality?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq2-2-duhem-quine-underdetermination.html" data-title="research question 2.2" data-question="how can the phenomenon of multiple distinct functions perfectly interpolating identical data points be formalised through the lens of the duhem-quine thesis, underdetermination of theory by data, and" data-tags="ai-architecture,benchmarks-eval,epistemic-foundations,causal-modeling">
+  <div class="card-title">Research Question 2.2</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/epistemic-foundations.html">epistemic-foundations</a><a class="tag" href="/Research/themes/causal-modeling.html">causal-modeling</a></div>
+  <div class="card-excerpt">How can the phenomenon of multiple distinct functions perfectly interpolating identical data points be formalised through the lens of the Duhem-Quine thesis, underdetermination of theory by data, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq2-1-erm-causal-blindness.html" data-title="research question 2.1" data-question="how does the framework of empirical risk minimisation (erm) mathematically guarantee predictive accuracy within a known data distribution while remaining blind to the stable cause-and-effect relations" data-tags="ai-architecture,benchmarks-eval,causal-robustness,epistemic-foundations">
+  <div class="card-title">Research Question 2.1</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/causal-robustness.html">causal-robustness</a><a class="tag" href="/Research/themes/epistemic-foundations.html">epistemic-foundations</a></div>
+  <div class="card-excerpt">How does the framework of Empirical Risk Minimisation (ERM) mathematically guarantee predictive accuracy within a known data distribution while remaining blind to the stable cause-and-effect relations…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq1-3-instrumentalism-failure-modes.html" data-title="research question 1.3" data-question="what are the operational failure modes of an epistemic framework that prioritises instrumentalism, treating predictive performance as the primary criterion, over explanatory reach when applied to comp" data-tags="benchmarks-eval,mlops-deployment,security-risk,epistemic-robustness,causal-modeling">
+  <div class="card-title">Research Question 1.3</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/epistemic-robustness.html">epistemic-robustness</a><a class="tag" href="/Research/themes/causal-modeling.html">causal-modeling</a></div>
+  <div class="card-excerpt">What are the operational failure modes of an epistemic framework that prioritises instrumentalism, treating predictive performance as the primary criterion, over explanatory reach when applied to comp…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq1-2-deutsch-hard-to-vary.html" data-title="research question 1.2" data-question="using david deutsch&#39;s hard-to-vary criterion, meaning an explanation whose details cannot be changed without losing explanatory force, what formal criteria can measure the internal logical constraints" data-tags="llm-reasoning,ai-architecture,benchmarks-eval,epistemic-formalism,model-interpretability,formal-methods">
+  <div class="card-title">Research Question 1.2</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/epistemic-formalism.html">epistemic-formalism</a><a class="tag" href="/Research/themes/model-interpretability.html">model-interpretability</a><a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a></div>
+  <div class="card-excerpt">Using David Deutsch&#39;s hard-to-vary criterion, meaning an explanation whose details cannot be changed without losing explanatory force, what formal criteria can measure the internal logical constraints…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq1-1-popper-falsifiability.html" data-title="rq 1.1" data-question="how can karl popper&#39;s criterion of demarcation and falsifiability be mathematically formalised to distinguish between a model that explains a physical mechanism and one that merely interpolates observ" data-tags="ai-architecture,benchmarks-eval,epistemology-of-ai,formal-learning-theory,formal-methods">
+  <div class="card-title">RQ 1.1</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/epistemology-of-ai.html">epistemology-of-ai</a><a class="tag" href="/Research/themes/formal-learning-theory.html">formal-learning-theory</a><a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a></div>
+  <div class="card-excerpt">How can Karl Popper&#39;s criterion of demarcation and falsifiability be mathematically formalised to distinguish between a model that explains a physical mechanism and one that merely interpolates observ…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-agentic-production-tradeoffs.html" data-title="what are we losing and gaining by inserting autonomous tool-using artificial…" data-question="what are we concretely losing and gaining, across the dimensions of capability, reliability, auditability, explainability, and organisational risk, by inserting autonomous tool-using large language mo" data-tags="agentic-ai,tools-infrastructure,governance-policy,mlops-deployment,system-reliability,benchmarks-eval,organisational-design,formal-methods">
+  <div class="card-title">What Are We Losing and Gaining by Inserting Autonomous Tool-Using Artificial…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/system-reliability.html">system-reliability</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a></div>
+  <div class="card-excerpt">What are we concretely losing and gaining, across the dimensions of capability, reliability, auditability, explainability, and organisational risk, by inserting autonomous tool-using Large Language Mo…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-agentic-explainability-vs-traditional.html" data-title="are multi-step large language model-based systems inherently less explainable…" data-question="are multi-step large language model (llm)-based systems inherently less explainable than equivalently scoped deterministic software systems, or does production-scale distributed-system complexity make" data-tags="agentic-ai,ai-architecture,governance-policy,mlops-deployment,explainability-transparency,benchmarks-eval">
+  <div class="card-title">Are Multi-Step Large Language Model-Based Systems Inherently Less Explainable…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/explainability-transparency.html">explainability-transparency</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">Are multi-step Large Language Model (LLM)-based systems inherently less explainable than equivalently scoped deterministic software systems, or does production-scale distributed-system complexity make…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets.html" data-title="datasets for measuring conversion from demand for local workaround tools to…" data-question="what public or internal datasets can validly measure the rate at which demand for local workaround tools, such as local apps, flows, lists, or spreadsheets, is converted into formal central informatio" data-tags="governance-policy,benchmarks-eval,tools-infrastructure,knowledge-management,workflow-automation,organisational-design">
+  <div class="card-title">Datasets for measuring conversion from demand for local workaround tools to…</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/workflow-automation.html">workflow-automation</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What public or internal datasets can validly measure the rate at which demand for local workaround tools, such as local apps, flows, lists, or spreadsheets, is converted into formal central Informatio…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator.html" data-title="matched denominator for comparing post-pipeline release-based failures with…" data-question="what common denominator enables direct matched comparison between post-pipeline release-based failure rates and production live-runtime incident rates for the same production workflow?" data-tags="mlops-deployment,benchmarks-eval,tools-infrastructure,organisational-design">
+  <div class="card-title">Matched denominator for comparing post-pipeline release-based failures with…</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What common denominator enables direct matched comparison between post-pipeline release-based failure rates and production live-runtime incident rates for the same production workflow?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html" data-title="ai-mediated policy evolution" data-question="what policy-quality degradation and systemic blind-spot risks emerge when organisations draft new policy versions from large language model (llm) interpretations of previous policy versions?" data-tags="llm-reasoning,governance-policy,security-risk,benchmarks-eval,organisational-impact,agentic-ai,organisational-design,tools-infrastructure">
+  <div class="card-title">AI-mediated policy evolution</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/organisational-impact.html">organisational-impact</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What policy-quality degradation and systemic blind-spot risks emerge when organisations draft new policy versions from Large Language Model (LLM) interpretations of previous policy versions?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-epistemic-risk.html" data-title="ai policy guidance" data-question="how do large language model (llm) response style and self-reported confidence change how accurately users judge uncertainty and downstream risk when interpreting ambiguous policy and compliance requir" data-tags="governance-policy,security-risk,benchmarks-eval,organisational-design">
+  <div class="card-title">AI policy guidance</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">How do Large Language Model (LLM) response style and self-reported confidence change how accurately users judge uncertainty and downstream risk when interpreting ambiguous policy and compliance requir…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.html" data-title="ai policy interpretation" data-question="what failure modes emerge when large language models (llms) combine generic public legal knowledge with proprietary organisational policy in compliance interpretation tasks?" data-tags="llm-reasoning,memory-context,governance-policy,security-risk,agentic-ai,organisational-design,benchmarks-eval">
+  <div class="card-title">AI policy interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/memory-context.html">memory-context</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What failure modes emerge when Large Language Models (LLMs) combine generic public legal knowledge with proprietary organisational policy in compliance interpretation tasks?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html" data-title="ai policy interpretation" data-question="how do pressures to reach a quick, definite answer under ambiguity and iterative prompt refinement influence acceptance of flawed large language model (llm) policy interpretations?" data-tags="governance-policy,security-risk,benchmarks-eval,agentic-ai,organisational-design,tools-infrastructure">
+  <div class="card-title">AI policy interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How do pressures to reach a quick, definite answer under ambiguity and iterative prompt refinement influence acceptance of flawed Large Language Model (LLM) policy interpretations?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk.html" data-title="ai interpretation" data-question="how quickly do repeated unverified large language model (llm) interpretations create de facto policy norms that diverge from executive intent and board-level risk appetite?" data-tags="governance-policy,security-risk,organisational-design,tools-infrastructure,agentic-ai,benchmarks-eval">
+  <div class="card-title">AI interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How quickly do repeated unverified Large Language Model (LLM) interpretations create de facto policy norms that diverge from executive intent and board-level risk appetite?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk.html" data-title="adversarial prompting risks in policy assistants" data-question="how vulnerable are corporate compliance large language models (llms) to adversarial prompting that reframes restrictive policy as permissive guidance, and which controls detect or contain deliberate m" data-tags="agentic-ai,governance-policy,security-risk,llm-reasoning,organisational-design,benchmarks-eval">
+  <div class="card-title">Adversarial prompting risks in policy assistants</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How vulnerable are corporate compliance Large Language Models (LLMs) to adversarial prompting that reframes restrictive policy as permissive guidance, and which controls detect or contain deliberate m…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ms-azure-ai-foundry-capabilities.html" data-title="microsoft foundry (formerly ai foundry)" data-question="what is the complete set of features, functions, and capabilities offered by microsoft foundry, and how do those capabilities support the full artificial intelligence (ai) development lifecycle, from" data-tags="agentic-ai,mlops-deployment,benchmarks-eval,governance-policy,tools-infrastructure">
+  <div class="card-title">Microsoft Foundry (formerly AI Foundry)</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the complete set of features, functions, and capabilities offered by Microsoft Foundry, and how do those capabilities support the full Artificial Intelligence (AI) development lifecycle, from…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-aws-bedrock-capabilities.html" data-title="aws bedrock" data-question="what is the complete set of features, functions, and capabilities offered by amazon web services (aws) bedrock, including its model access, agent building, knowledge bases, guardrails, evaluation, and" data-tags="agentic-ai,rag-retrieval,governance-policy,benchmarks-eval,ai-architecture,tools-infrastructure">
+  <div class="card-title">AWS Bedrock</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the complete set of features, functions, and capabilities offered by Amazon Web Services (AWS) Bedrock, including its model access, agent building, knowledge bases, guardrails, evaluation, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html" data-title="variance control comparison across delivery modes" data-question="what is the empirical failure-rate distribution of artificial intelligence (ai)-assisted code that has passed a standard software delivery pipeline compared with ai-agent-executed business processes a" data-tags="benchmarks-eval,cost-performance,agentic-ai,tools-infrastructure">
+  <div class="card-title">Variance Control Comparison Across Delivery Modes</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the empirical failure-rate distribution of Artificial Intelligence (AI)-assisted code that has passed a standard software delivery pipeline compared with AI-agent-executed business processes a…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html" data-title="it throughput constraint magnitude and debt accumulation rate" data-question="what is the empirical relationship between information technology (it) throughput capacity and the rate at which unmet operational capability needs accumulate across comparable organisations, and what" data-tags="agentic-ai,tools-infrastructure,cost-performance,workforce-skills,organisational-design,benchmarks-eval">
+  <div class="card-title">IT Throughput Constraint Magnitude and Debt Accumulation Rate</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is the empirical relationship between Information Technology (IT) throughput capacity and the rate at which unmet operational capability needs accumulate across comparable organisations, and what…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html" data-title="external dependency surface taxonomy for production llm agents" data-question="what is the complete taxonomy of external dependencies for a production large language model (llm)-based agent, how does each dependency class fail, what is the blast radius of each failure class, and" data-tags="agentic-ai,tools-infrastructure,security-risk,mlops-deployment,benchmarks-eval">
+  <div class="card-title">External Dependency Surface Taxonomy for Production LLM Agents</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is the complete taxonomy of external dependencies for a production Large Language Model (LLM)-based agent, how does each dependency class fail, what is the blast radius of each failure class, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html" data-title="temporary automation demand persistence and core capability investment…" data-question="what evidence exists that temporary automation workarounds displace investment in core software delivery, and what is the observed persistence rate of those workarounds after the underlying systems ca" data-tags="agentic-ai,workforce-skills,cost-performance,knowledge-management,organisational-design,tools-infrastructure,benchmarks-eval">
+  <div class="card-title">Temporary Automation Demand Persistence and Core Capability Investment…</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What evidence exists that temporary automation workarounds displace investment in core software delivery, and what is the observed persistence rate of those workarounds after the underlying systems ca…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-agent-operational-cost-vs-gap-closure-cost.html" data-title="agent operational cost vs gap closure cost" data-question="what is the fully loaded operational cost of a production artificial intelligence (ai) agent used as a workaround for a missing system capability, relative to the cost of closing the underlying system" data-tags="agentic-ai,benchmarks-eval,cost-performance,organisational-design">
+  <div class="card-title">Agent Operational Cost vs Gap Closure Cost</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What is the fully loaded operational cost of a production Artificial Intelligence (AI) agent used as a workaround for a missing system capability, relative to the cost of closing the underlying system…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-14-endsley-model-situational-awareness-deep-dive.html" data-title="endsley model of situational awareness deep dive" data-question="what is the endsley model of situational awareness, meaning the perception of relevant elements, comprehension of their meaning, and projection of their near-future status, how are its three levels de" data-tags="agentic-ai,benchmarks-eval,consciousness-cognition">
+  <div class="card-title">Endsley Model of Situational Awareness deep dive</div>
+  <div class="card-meta">2026-05-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/consciousness-cognition.html">consciousness-cognition</a></div>
+  <div class="card-excerpt">What is the Endsley Model of situational awareness, meaning the perception of relevant elements, comprehension of their meaning, and projection of their near-future status, how are its three levels de…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-13-anthropic-4d-framework-ai-agent-taxonomy.html" data-title="what is anthropic&#39;s &#39;4d&#39; framework for ai fluency, what are its four components…" data-question="what is anthropic&#39;s &quot;4d&quot; framework for artificial intelligence (ai) fluency, what do each of the four ds, delegation, description, discernment, and diligence, mean in practice, and how does this frame" data-tags="agentic-ai,benchmarks-eval,ai-architecture,workforce-skills,tools-infrastructure">
+  <div class="card-title">What is Anthropic&#39;s &#39;4D&#39; framework for AI fluency, what are its four components…</div>
+  <div class="card-meta">2026-05-13</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is Anthropic&#39;s &quot;4D&quot; framework for Artificial Intelligence (AI) fluency, what do each of the four Ds, Delegation, Description, Discernment, and Diligence, mean in practice, and how does this frame…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-13-agent-process-reliability-architecture.html" data-title="architectural patterns for reliable organizational process identification,…" data-question="what integrated architectural configuration of retrieval, reconciliation, constraint enforcement, memory, validation, escalation, and governance mechanisms most reliably enables visual workflow toolin" data-tags="agentic-ai,ai-architecture,tools-infrastructure,organisational-design,benchmarks-eval">
+  <div class="card-title">Architectural patterns for reliable organizational process identification,…</div>
+  <div class="card-meta">2026-05-13</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What integrated architectural configuration of retrieval, reconciliation, constraint enforcement, memory, validation, escalation, and governance mechanisms most reliably enables visual workflow toolin…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-12-rag-document-drift-agent-behavior.html" data-title="when retrieval-augmented generation source documents change after agent build…" data-question="when the source documents indexed in a retrieval-augmented generation (rag) pipeline change after an agent has been built and tested, what failure modes and behavioral regressions can result in produc" data-tags="agentic-ai,rag-retrieval,governance-policy,benchmarks-eval,mlops-deployment,tools-infrastructure,organisational-design">
+  <div class="card-title">When Retrieval-Augmented Generation source documents change after agent build…</div>
+  <div class="card-meta">2026-05-12</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">When the source documents indexed in a Retrieval-Augmented Generation (RAG) pipeline change after an agent has been built and tested, what failure modes and behavioral regressions can result in produc…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-12-hardware-load-inference-performance.html" data-title="llm inference performance" data-question="how does hardware resource load, central processing unit (cpu), graphics processing unit (gpu), and memory pressure, affect large language model (llm) inference performance, specifically latency, thro" data-tags="agentic-ai,cost-performance,benchmarks-eval,tools-infrastructure">
+  <div class="card-title">LLM inference performance</div>
+  <div class="card-meta">2026-05-12</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How does hardware resource load, Central Processing Unit (CPU), Graphics Processing Unit (GPU), and memory pressure, affect Large Language Model (LLM) inference performance, specifically latency, thro…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-llm-determinism-limits-temperature-zero.html" data-title="llm determinism" data-question="what are the practical limits of making llm (large language model)-based decisions or policy enforcement deterministic, even with temperature=0, fixed seeds, and constrained prompts?" data-tags="llm-reasoning,benchmarks-eval,cost-performance,governance-policy,agentic-ai">
+  <div class="card-title">LLM Determinism</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What are the practical limits of making LLM (Large Language Model)-based decisions or policy enforcement deterministic, even with temperature=0, fixed seeds, and constrained prompts?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-08-ai-capability-reference-architecture-second-cycle-update.html" data-title="updating the enterprise artificial intelligence ecosystem capability reference…" data-question="how should the enterprise artificial intelligence (ai) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model`, `2026-05-05-enterprise-ai-capability-st" data-tags="ai-architecture,governance-policy,security-risk,benchmarks-eval,agentic-ai">
+  <div class="card-title">Updating the enterprise Artificial Intelligence ecosystem capability reference…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">How should the enterprise Artificial Intelligence (AI) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model`, `2026-05-05-enterprise-ai-capability-st…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html" data-title="integrating 2026-05 security and supply chain findings into the enterprise…" data-question="how should the enterprise artificial intelligence (ai) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model` and the `2026-05-05-enterprise-ai-capabi" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture,benchmarks-eval">
+  <div class="card-title">Integrating 2026-05 security and supply chain findings into the enterprise…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How should the enterprise Artificial Intelligence (AI) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model` and the `2026-05-05-enterprise-ai-capabi…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-openfactcheck-ai-fact-checking-pipeline.html" data-title="what is the architecture and practical applicability of openfactcheck as an…" data-question="what is the architecture, evaluation methodology, and practical applicability of openfactcheck as an automated, modular, claim-level fact-checking pipeline for artificial intelligence (ai)-generated c" data-tags="agentic-ai,rag-retrieval,benchmarks-eval,ai-architecture,tools-infrastructure">
+  <div class="card-title">What is the architecture and practical applicability of OpenFactCheck as an…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the architecture, evaluation methodology, and practical applicability of OpenFactCheck as an automated, modular, claim-level fact-checking pipeline for Artificial Intelligence (AI)-generated c…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-loki-fact-checking-journalists-moderation.html" data-title="what are the capabilities, architectural assumptions, and practical deployment…" data-question="what are the capabilities, underlying architectural assumptions, and practical deployment constraints of loki as an mit-licensed automated fact-checking tool optimised for journalists and content mode" data-tags="rag-retrieval,benchmarks-eval,ai-architecture,mlops-deployment,tools-infrastructure">
+  <div class="card-title">What are the capabilities, architectural assumptions, and practical deployment…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What are the capabilities, underlying architectural assumptions, and practical deployment constraints of Loki as an MIT-licensed automated fact-checking tool optimised for journalists and content mode…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html" data-title="how do open-weight policy enforcement reasoning models, exemplified by openai&#39;s…" data-question="how do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by openai&#39;s gpt-oss-safeguard, classify text against strict, customizable policies, and" data-tags="llm-reasoning,governance-policy,security-risk,mlops-deployment,cost-performance,benchmarks-eval,tools-infrastructure,agentic-ai">
+  <div class="card-title">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">How do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against strict, customizable policies, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-factscore-precision-scoring-atomic-claims.html" data-title="how does factual precision scoring (factscore) operationalise atomic-level…" data-question="how does factscore (factual precision scoring), developed at the university of washington, operationalise the concept of atomic factual claim decomposition and precision scoring for large language mod" data-tags="benchmarks-eval,llm-reasoning">
+  <div class="card-title">How does Factual precision Scoring (FActScore) operationalise atomic-level…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a></div>
+  <div class="card-excerpt">How does FActScore (Factual precision Scoring), developed at the University of Washington, operationalise the concept of atomic factual claim decomposition and precision scoring for Large Language Mod…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-fact-checking-tools-research-quality-improvement.html" data-title="how can findings from openfactcheck, loki, factscore, gpt-oss-safeguard, and…" data-question="how can the findings from research into openfactcheck, loki, factscore, gpt-oss-safeguard, and barnum statement identification techniques be synthesised into concrete, actionable improvements to the a" data-tags="benchmarks-eval,llm-reasoning,tools-infrastructure">
+  <div class="card-title">How can findings from OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How can the findings from research into OpenFactCheck, Loki, FActScore, gpt-oss-safeguard, and Barnum statement identification techniques be synthesised into concrete, actionable improvements to the a…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-barnum-statements-ai-responses-theory-practice.html" data-title="what are barnum statements (forer effect statements), how do they manifest in…" data-question="what are barnum statements (also known as forer effect statements) as a class of vague, universally applicable assertions, how do they manifest specifically in artificial intelligence (ai)-generated r" data-tags="llm-reasoning,benchmarks-eval">
+  <div class="card-title">What are Barnum statements (Forer Effect statements), how do they manifest in…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What are Barnum statements (also known as Forer Effect statements) as a class of vague, universally applicable assertions, how do they manifest specifically in Artificial Intelligence (AI)-generated r…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-it-system-legibility-measurement-frameworks.html" data-title="what measurement systems and frameworks exist for quantifying information…" data-question="what measurement systems and frameworks exist for quantifying information technology (it) system legibility, defined here as the ability to reason about, understand, and comprehensively characterise t" data-tags="governance-policy,benchmarks-eval,knowledge-graphs,ai-architecture,tools-infrastructure">
+  <div class="card-title">What measurement systems and frameworks exist for quantifying Information…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/knowledge-graphs.html">knowledge-graphs</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What measurement systems and frameworks exist for quantifying Information Technology (IT) system legibility, defined here as the ability to reason about, understand, and comprehensively characterise t…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability.html" data-title="what does the 2026 harvard business review trendslop study and related…" data-question="what does the march 2026 harvard business review (hbr) &quot;trendslop&quot; study reveal about positional bias, prompt-framing sensitivity, and context-insensitive bias in artificial intelligence (ai)-generate" data-tags="benchmarks-eval,governance-policy,workforce-skills">
+  <div class="card-title">What does the 2026 Harvard Business Review trendslop study and related…</div>
+  <div class="card-meta">2026-05-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">What does the March 2026 Harvard Business Review (HBR) &quot;trendslop&quot; study reveal about positional bias, prompt-framing sensitivity, and context-insensitive bias in Artificial Intelligence (AI)-generate…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-systematic-review-methodology-ai-synthesis.html" data-title="ai-assisted synthesis tool architectures are most appropriate for cross-item…" data-question="what systematic review methodologies, preferred reporting items for systematic reviews and meta-analyses (prisma), cochrane review, narrative synthesis, meta-ethnography, and realist synthesis, and wh" data-tags="ai-architecture,knowledge-management,benchmarks-eval,tools-infrastructure,rag-retrieval,agentic-ai">
+  <div class="card-title">AI-assisted synthesis tool architectures are most appropriate for cross-item…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What systematic review methodologies, Preferred Reporting Items for Systematic reviews and Meta-Analyses (PRISMA), Cochrane review, narrative synthesis, meta-ethnography, and realist synthesis, and wh…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-storm-perspective-discovery-multi-perspective-question-generation.html" data-title="how does storm&#39;s perspective discovery step work, and what is the…" data-question="how does the storm (synthesis of topic outlines through retrieval and multi-perspective question generation) system&#39;s perspective discovery step generate diverse expert viewpoints before decomposing a" data-tags="agentic-ai,llm-reasoning,ai-architecture,tools-infrastructure,benchmarks-eval">
+  <div class="card-title">How does STORM&#39;s perspective discovery step work, and what is the…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How does the STORM (Synthesis of Topic Outlines through Retrieval and Multi-perspective question generation) system&#39;s perspective discovery step generate diverse expert viewpoints before decomposing a…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-research-to-publication-authoring-workflow.html" data-title="ai agent workflow patterns best convert synthesised research findings into…" data-question="what structured approaches, from academic writing pedagogy, artificial intelligence (ai)-assisted writing tools, and agent workflow design, exist for converting synthesised research findings into poli" data-tags="agentic-ai,llm-reasoning,knowledge-management,ai-architecture,tools-infrastructure,benchmarks-eval">
+  <div class="card-title">AI agent workflow patterns best convert synthesised research findings into…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What structured approaches, from academic writing pedagogy, Artificial Intelligence (AI)-assisted writing tools, and agent workflow design, exist for converting synthesised research findings into poli…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-automated-claim-verification-academic-literature.html" data-title="what automated claim verification approaches against scientific literature…" data-question="what automated claim verification approaches against scientific literature, specifically arxiv preprints, are used in research synthesis systems, what search strategies maximise recall and precision f" data-tags="agentic-ai,rag-retrieval,benchmarks-eval,tools-infrastructure">
+  <div class="card-title">What automated claim verification approaches against scientific literature…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What automated claim verification approaches against scientific literature, specifically arXiv preprints, are used in research synthesis systems, what search strategies maximise recall and precision f…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-adversarial-review-methods-ai-research-quality.html" data-title="ai-generated research findings before finalisation, and how should they be…" data-question="what adversarial review and red-teaming methods, drawn from artificial intelligence (ai) safety research, debate-based evaluation, formal argumentation theory, and scientific peer review practice, are" data-tags="agentic-ai,llm-reasoning,benchmarks-eval,security-risk,tools-infrastructure">
+  <div class="card-title">AI-generated research findings before finalisation, and how should they be…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What adversarial review and red-teaming methods, drawn from Artificial Intelligence (AI) safety research, debate-based evaluation, formal argumentation theory, and scientific peer review practice, are…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html" data-title="what does terminalbench reveal about minimal toolsets and coding agent…" data-question="what does the terminalbench benchmark reveal about the relationship between toolset minimalism and coding agent performance, and what design principles does it suggest for effective artificial intelli" data-tags="agentic-ai,benchmarks-eval,tools-infrastructure">
+  <div class="card-title">What does TerminalBench reveal about minimal toolsets and coding agent…</div>
+  <div class="card-meta">2026-05-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What does the TerminalBench benchmark reveal about the relationship between toolset minimalism and coding agent performance, and what design principles does it suggest for effective Artificial Intelli…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-01-compound-error-accumulation-ai-codebases.html" data-title="ai-agent-heavy codebases, and what review strategies can manage this risk?" data-question="how do errors (&quot;boooos&quot;) compound in codebases developed with high volumes of ai agent-generated code, including how local patches cause global regressions, and what review and governance strategies c" data-tags="agentic-ai,governance-policy,security-risk,benchmarks-eval">
+  <div class="card-title">AI-agent-heavy codebases, and what review strategies can manage this risk?</div>
+  <div class="card-meta">2026-05-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How do errors (&quot;boooos&quot;) compound in codebases developed with high volumes of AI agent-generated code, including how local patches cause global regressions, and what review and governance strategies c…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-01-appropriate-task-selection-coding-agents.html" data-title="ai coding agents reliably add value versus where they introduce systemic risk?" data-question="what empirically grounded criteria define the characteristics of software development tasks where artificial intelligence (ai) coding agents reliably add value, versus tasks where agent autonomy intro" data-tags="agentic-ai,governance-policy,benchmarks-eval,security-risk,software-engineering">
+  <div class="card-title">AI coding agents reliably add value versus where they introduce systemic risk?</div>
+  <div class="card-meta">2026-05-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">What empirically grounded criteria define the characteristics of software development tasks where Artificial Intelligence (AI) coding agents reliably add value, versus tasks where agent autonomy intro…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html" data-title="artificial intelligence coding harness quality benchmarks" data-question="what benchmarks, metrics, and evaluation methodologies are used to measure the quality of artificial intelligence (ai) coding harnesses, including integrated development environment (ide) plugins, age" data-tags="agentic-ai,benchmarks-eval,tools-infrastructure">
+  <div class="card-title">Artificial Intelligence coding harness quality benchmarks</div>
+  <div class="card-meta">2026-05-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What benchmarks, metrics, and evaluation methodologies are used to measure the quality of Artificial Intelligence (AI) coding harnesses, including Integrated Development Environment (IDE) plugins, age…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html" data-title="tdd and fast feedback loops in ai-augmented development" data-question="how does enforcing test-driven development (tdd) with ai coding assistants, writing failing tests before asking the ai to implement, change the quality and stability of the ai output compared to &quot;writ" data-tags="agentic-ai,tools-infrastructure,benchmarks-eval,software-engineering">
+  <div class="card-title">TDD and fast feedback loops in AI-augmented development</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">How does enforcing Test-Driven Development (TDD) with AI coding assistants, writing failing tests before asking the AI to implement, change the quality and stability of the AI output compared to &quot;writ…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-se-fundamentals-ai-code-synthesis.html" data-title="software engineering fundamentals and ai code generation" data-question="drawing on the planned seven-item research programme on software engineering (se) fundamentals in artificial intelligence (ai)-augmented development, six completed primary items plus external anchors" data-tags="agentic-ai,benchmarks-eval,tools-infrastructure,software-engineering">
+  <div class="card-title">Software Engineering fundamentals and AI code generation<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">Drawing on the planned seven-item research programme on Software Engineering (SE) fundamentals in Artificial Intelligence (AI)-augmented development, six completed primary items plus external anchors…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-grill-me-ai-alignment-shared-design.html" data-title="grill-me technique" data-question="how effectively does the &quot;grill me&quot; technique, relentless iterative structured interviewing of the human developer by the ai assistant to build a shared design concept before generating any code, redu" data-tags="agentic-ai,llm-reasoning,benchmarks-eval,human-ai-interaction,software-engineering,tools-infrastructure">
+  <div class="card-title">Grill-Me technique</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/human-ai-interaction.html">human-ai-interaction</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How effectively does the &quot;Grill Me&quot; technique, relentless iterative structured interviewing of the human developer by the AI assistant to build a shared design concept before generating any code, redu…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-fundamentals-first-vs-specs-to-code.html" data-title="fundamentals-first versus specs-to-code" data-question="what empirical patterns emerge when comparing real-world software projects built with a strict fundamentals-first artificial intelligence (ai) workflow, structured alignment, modules with simple inter" data-tags="agentic-ai,benchmarks-eval,cost-performance,software-engineering,tools-infrastructure">
+  <div class="card-title">Fundamentals-first versus specs-to-code</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What empirical patterns emerge when comparing real-world software projects built with a strict fundamentals-first Artificial Intelligence (AI) workflow, structured alignment, modules with simple inter…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-deep-modules-ai-augmented-codebases.html" data-title="deep modules in ai-augmented development" data-question="how much more effective is artificial intelligence (ai) at understanding, navigating, and correctly modifying a codebase composed of deep modules with simple interfaces versus one filled with many sha" data-tags="agentic-ai,ai-architecture,tools-infrastructure,software-engineering,benchmarks-eval">
+  <div class="card-title">Deep modules in AI-augmented development</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How much more effective is Artificial Intelligence (AI) at understanding, navigating, and correctly modifying a codebase composed of deep modules with simple interfaces versus one filled with many sha…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html" data-title="artificial intelligence code entropy and complexity" data-question="does repeated artificial intelligence (ai) code generation without strong architectural guardrails demonstrably increase software entropy and complexity over time, as predicted by the entropy model de" data-tags="agentic-ai,ai-architecture,tools-infrastructure,software-engineering,benchmarks-eval">
+  <div class="card-title">Artificial Intelligence code entropy and complexity</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">Does repeated Artificial Intelligence (AI) code generation without strong architectural guardrails demonstrably increase software entropy and complexity over time, as predicted by the entropy model de…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-human-bias-ai-trust-rlhf-sycophancy.html" data-title="ai correctness and explainability" data-question="to what extent do humans systematically over-trust ai-generated explanations, and what mechanisms, automation bias, rlhf-induced sycophancy in post-training, and the polysemantic nature of internal mo" data-tags="agentic-ai,benchmarks-eval,governance-policy,consciousness-cognition,human-ai-interaction">
+  <div class="card-title">AI correctness and explainability</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/consciousness-cognition.html">consciousness-cognition</a><a class="tag" href="/Research/themes/human-ai-interaction.html">human-ai-interaction</a></div>
+  <div class="card-excerpt">To what extent do humans systematically over-trust AI-generated explanations, and what mechanisms, automation bias, RLHF-induced sycophancy in post-training, and the polysemantic nature of internal mo…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html" data-title="llm-as-judge as pipeline validation checkpoints" data-question="which organisations, projects, and frameworks are defining and operationalising large language model (llm)-as-judge evaluation, the use of one model to assess another model&#39;s outputs, as automated val" data-tags="agentic-ai,benchmarks-eval,ai-architecture,mlops-deployment">
+  <div class="card-title">LLM-as-judge as pipeline validation checkpoints</div>
+  <div class="card-meta">2026-04-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">Which organisations, projects, and frameworks are defining and operationalising Large Language Model (LLM)-as-judge evaluation, the use of one model to assess another model&#39;s outputs, as automated val…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-academic-post-publication-amendment-practices.html" data-title="how do academic and scientific publishing systems handle post-publication…" data-question="how do established academic and scientific publishing systems (journal publishers, preprint servers, living review platforms) handle post-publication corrections, amendments, retractions, and formal c" data-tags="governance-policy,knowledge-management,tools-infrastructure,benchmarks-eval" data-superseded="true">
+  <div class="card-title">How do academic and scientific publishing systems handle post-publication…</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How do established academic and scientific publishing systems (journal publishers, preprint servers, living review platforms) handle post-publication corrections, amendments, retractions, and formal c…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-01-timesfm-time-series-foundation-models.html" data-title="timesfm and the landscape of time-series foundation models" data-question="what are the practical use cases for timesfm (google&#39;s pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured dat" data-tags="ai-architecture,benchmarks-eval,cost-performance">
+  <div class="card-title">TimesFM and the Landscape of Time-Series Foundation Models</div>
+  <div class="card-meta">2026-04-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">What are the practical use cases for TimesFM (Google&#39;s pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured dat…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="agentic-ai,memory-context,multi-agent,tools-infrastructure,mlops-deployment,benchmarks-eval">
+  <div class="card-title">Applied context engineering</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/memory-context.html">memory-context</a><a class="tag" href="/Research/themes/multi-agent.html">multi-agent</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html" data-title="prompt injection threat landscape" data-question="what is the current state of the prompt injection threat in agentic artificial intelligence (ai) systems: who is exploiting it, who is defending against it, and what does the research community consid" data-tags="agentic-ai,security-risk,governance-policy,benchmarks-eval">
+  <div class="card-title">Prompt injection threat landscape</div>
+  <div class="card-meta">2026-03-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html" data-title="research loop evaluation rubric" data-question="what structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a continuous integration (ci)-integrated eval" data-tags="agentic-ai,benchmarks-eval,tools-infrastructure">
+  <div class="card-title">Research loop evaluation rubric</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html" data-title="agent evaluation framework" data-question="what evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in" data-tags="agentic-ai,benchmarks-eval,ai-architecture">
+  <div class="card-title">Agent evaluation framework</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html" data-title="adversarial agents with shared goals" data-question="what is the design pattern for a system of agents — human or ai — that share a common goal but deliberately occupy different competency domains and time horizons? how does &quot;adversarial collaboration&quot;" data-tags="agentic-ai,multi-agent,benchmarks-eval,security-risk,organisational-design">
+  <div class="card-title">Adversarial agents with shared goals</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/multi-agent.html">multi-agent</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does &quot;adversarial collaboration&quot;…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-research-quality-assurance-methodology.html" data-title="research quality assurance and knowledge integration methodology" data-question="what review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a ci pipeline versus requiring hu" data-tags="benchmarks-eval,knowledge-management,knowledge-graphs">
+  <div class="card-title">Research Quality Assurance and Knowledge Integration Methodology</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/knowledge-graphs.html">knowledge-graphs</a></div>
+  <div class="card-excerpt">What review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a CI pipeline versus requiring hu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="agentic-ai,benchmarks-eval,ai-architecture,tools-infrastructure,llm-reasoning">
+  <div class="card-title">General Agent Optimization Framework</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a></div>
+  <div class="card-excerpt">What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system promp…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html" data-title="llm hallucinations — types, causes, and current mitigation approaches" data-question="what are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m" data-tags="rag-retrieval,benchmarks-eval,security-risk,ai-architecture">
+  <div class="card-title">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-research-output-types.html" data-title="research output types" data-question="what are the possible output types from a research item, and how should each type be handled, stored, and acted upon?" data-tags="agentic-ai,tools-infrastructure,knowledge-management,benchmarks-eval">
+  <div class="card-title">Research output types</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What are the possible output types from a research item, and how should each type be handled, stored, and acted upon?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="agentic-ai,benchmarks-eval,tools-infrastructure,llm-reasoning">
+  <div class="card-title">Evaluating and improving autonomous research loop quality</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a></div>
+  <div class="card-excerpt">How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-research-agenda-curation-coverage.html" data-title="research agenda curation" data-question="how should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra" data-tags="knowledge-management,benchmarks-eval">
+  <div class="card-title">Research agenda curation</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html" data-title="ai strategy examples" data-question="which organisations have developed ai strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric" data-tags="governance-policy,security-risk,benchmarks-eval">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">Which organisations have developed AI strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric…</div>
+</a>
+
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,1369 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Theme: security-risk — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="tag-page-header">
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Theme: security-risk</h1>
+    <p class="page-subtitle">116 items</p>
+    <a class="back-link" href="/Research/themes/">← all themes</a>
+  </div>
+  <div class="card-grid">
+    <a class="card" href="/Research/research/2026-05-18-rq6-2-state-explosion-chaos-theory.html" data-title="research question 6.2" data-question="how do state space explosion in concurrent systems and chaos theory, especially sensitive dependence on initial conditions, mirror the fragility of machine learning models when subjected to minor inpu" data-tags="security-risk,ai-architecture,formal-methods,system-dynamics">
+  <div class="card-title">Research Question 6.2</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a><a class="tag" href="/Research/themes/system-dynamics.html">system-dynamics</a></div>
+  <div class="card-excerpt">How do state space explosion in concurrent systems and chaos theory, especially sensitive dependence on initial conditions, mirror the fragility of machine learning models when subjected to minor inpu…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq6-1-halting-problem-static-analysis.html" data-title="rq 6.1" data-question="how do the halting problem (turing) and rice&#39;s theorem formalise the absolute boundary of static analysis, proving that it is mathematically impossible to write a general algorithm to verify whether a" data-tags="security-risk,ai-architecture,formal-verification,computational-theory">
+  <div class="card-title">RQ 6.1</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/formal-verification.html">formal-verification</a><a class="tag" href="/Research/themes/computational-theory.html">computational-theory</a></div>
+  <div class="card-excerpt">How do the Halting Problem (Turing) and Rice&#39;s Theorem formalise the absolute boundary of static analysis, proving that it is mathematically impossible to write a general algorithm to verify whether a…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html" data-title="rq 5.1" data-question="how do the failure modes of a stochastic multi-step large language model (llm) agent, meaning a tool-using system whose action path can vary across runs, differ fundamentally from the failure modes of" data-tags="agentic-ai,llm-reasoning,security-risk,ai-architecture,formal-reliability">
+  <div class="card-title">RQ 5.1</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/formal-reliability.html">formal-reliability</a></div>
+  <div class="card-excerpt">How do the failure modes of a stochastic multi-step Large Language Model (LLM) agent, meaning a tool-using system whose action path can vary across runs, differ fundamentally from the failure modes of…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq2-3-predictive-model-fragility.html" data-title="research question 2.3" data-question="using dynamical systems theory, how does the fragility of a purely predictive model under input noise or system drift differ from the local qualitative stability of a model whose governing equations p" data-tags="ai-architecture,mlops-deployment,security-risk,robust-system-design,dynamical-systems-theory">
+  <div class="card-title">Research Question 2.3</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/robust-system-design.html">robust-system-design</a><a class="tag" href="/Research/themes/dynamical-systems-theory.html">dynamical-systems-theory</a></div>
+  <div class="card-excerpt">Using dynamical systems theory, how does the fragility of a purely predictive model under input noise or system drift differ from the local qualitative stability of a model whose governing equations p…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-18-rq1-3-instrumentalism-failure-modes.html" data-title="research question 1.3" data-question="what are the operational failure modes of an epistemic framework that prioritises instrumentalism, treating predictive performance as the primary criterion, over explanatory reach when applied to comp" data-tags="benchmarks-eval,mlops-deployment,security-risk,epistemic-robustness,causal-modeling">
+  <div class="card-title">Research Question 1.3</div>
+  <div class="card-meta">2026-05-18</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/epistemic-robustness.html">epistemic-robustness</a><a class="tag" href="/Research/themes/causal-modeling.html">causal-modeling</a></div>
+  <div class="card-excerpt">What are the operational failure modes of an epistemic framework that prioritises instrumentalism, treating predictive performance as the primary criterion, over explanatory reach when applied to comp…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes.html" data-title="visibility and exit outcomes" data-question="how often does vendor-supplied temporary operational automation produce materially worse visibility and exit outcomes than internally governed temporary operational automation?" data-tags="agentic-ai,governance-policy,security-risk,tools-infrastructure,vendor-management,organisational-design">
+  <div class="card-title">Visibility and exit outcomes</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/vendor-management.html">vendor-management</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">How often does vendor-supplied temporary operational automation produce materially worse visibility and exit outcomes than internally governed temporary operational automation?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html" data-title="ai-mediated policy evolution" data-question="what policy-quality degradation and systemic blind-spot risks emerge when organisations draft new policy versions from large language model (llm) interpretations of previous policy versions?" data-tags="llm-reasoning,governance-policy,security-risk,benchmarks-eval,organisational-impact,agentic-ai,organisational-design,tools-infrastructure">
+  <div class="card-title">AI-mediated policy evolution</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/organisational-impact.html">organisational-impact</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What policy-quality degradation and systemic blind-spot risks emerge when organisations draft new policy versions from Large Language Model (LLM) interpretations of previous policy versions?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-epistemic-risk.html" data-title="ai policy guidance" data-question="how do large language model (llm) response style and self-reported confidence change how accurately users judge uncertainty and downstream risk when interpreting ambiguous policy and compliance requir" data-tags="governance-policy,security-risk,benchmarks-eval,organisational-design">
+  <div class="card-title">AI policy guidance</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">How do Large Language Model (LLM) response style and self-reported confidence change how accurately users judge uncertainty and downstream risk when interpreting ambiguous policy and compliance requir…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk.html" data-title="ai policy interpretation" data-question="what failure modes emerge when large language models (llms) combine generic public legal knowledge with proprietary organisational policy in compliance interpretation tasks?" data-tags="llm-reasoning,memory-context,governance-policy,security-risk,agentic-ai,organisational-design,benchmarks-eval">
+  <div class="card-title">AI policy interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/memory-context.html">memory-context</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What failure modes emerge when Large Language Models (LLMs) combine generic public legal knowledge with proprietary organisational policy in compliance interpretation tasks?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk.html" data-title="ai policy interpretation" data-question="how do pressures to reach a quick, definite answer under ambiguity and iterative prompt refinement influence acceptance of flawed large language model (llm) policy interpretations?" data-tags="governance-policy,security-risk,benchmarks-eval,agentic-ai,organisational-design,tools-infrastructure">
+  <div class="card-title">AI policy interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How do pressures to reach a quick, definite answer under ambiguity and iterative prompt refinement influence acceptance of flawed Large Language Model (LLM) policy interpretations?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk.html" data-title="ai interpretation" data-question="how quickly do repeated unverified large language model (llm) interpretations create de facto policy norms that diverge from executive intent and board-level risk appetite?" data-tags="governance-policy,security-risk,organisational-design,tools-infrastructure,agentic-ai,benchmarks-eval">
+  <div class="card-title">AI interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How quickly do repeated unverified Large Language Model (LLM) interpretations create de facto policy norms that diverge from executive intent and board-level risk appetite?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk.html" data-title="adversarial prompting risks in policy assistants" data-question="how vulnerable are corporate compliance large language models (llms) to adversarial prompting that reframes restrictive policy as permissive guidance, and which controls detect or contain deliberate m" data-tags="agentic-ai,governance-policy,security-risk,llm-reasoning,organisational-design,benchmarks-eval">
+  <div class="card-title">Adversarial prompting risks in policy assistants</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How vulnerable are corporate compliance Large Language Models (LLMs) to adversarial prompting that reframes restrictive policy as permissive guidance, and which controls detect or contain deliberate m…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html" data-title="ai-assisted policy interpretation" data-question="how does integration of large language models (llms) into policy-ambiguity resolution change liability allocation, escalation behaviour, and an organisation&#39;s ability to justify the resulting decision" data-tags="governance-policy,security-risk,llm-reasoning,organisational-design,tools-infrastructure,agentic-ai">
+  <div class="card-title">AI-assisted policy interpretation</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">How does integration of Large Language Models (LLMs) into policy-ambiguity resolution change liability allocation, escalation behaviour, and an organisation&#39;s ability to justify the resulting decision…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-17-servicenow-ai-control-tower-capabilities.html" data-title="ai control tower" data-question="what is the complete set of features, functions, and capabilities offered by servicenow ai control tower, and how do those capabilities address enterprise artificial intelligence (ai) governance, obse" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure,observability-monitoring,agentic-ai">
+  <div class="card-title">AI Control Tower</div>
+  <div class="card-meta">2026-05-17</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/observability-monitoring.html">observability-monitoring</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What is the complete set of features, functions, and capabilities offered by ServiceNow AI Control Tower, and how do those capabilities address enterprise Artificial Intelligence (AI) governance, obse…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html" data-title="governance structures that support investment in delivery capability without…" data-question="under what governance conditions can investment in building durable delivery capability be made reliably without placing risk, cost, and benefits accountability under one owner, and what minimum autho" data-tags="governance-policy,security-risk,cost-performance,organisational-design">
+  <div class="card-title">Governance structures that support investment in delivery capability without…</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">Under what governance conditions can investment in building durable delivery capability be made reliably without placing risk, cost, and benefits accountability under one owner, and what minimum autho…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents.html" data-title="external dependency surface taxonomy for production llm agents" data-question="what is the complete taxonomy of external dependencies for a production large language model (llm)-based agent, how does each dependency class fail, what is the blast radius of each failure class, and" data-tags="agentic-ai,tools-infrastructure,security-risk,mlops-deployment,benchmarks-eval">
+  <div class="card-title">External Dependency Surface Taxonomy for Production LLM Agents</div>
+  <div class="card-meta">2026-05-16</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is the complete taxonomy of external dependencies for a production Large Language Model (LLM)-based agent, how does each dependency class fail, what is the blast radius of each failure class, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-15-uelgf-live-queryable-knowledge-graph.html" data-title="uelgf 8-layer organisational context model" data-question="what is the most suitable knowledge representation architecture for evolving the universal entity lifecycle governance framework (uelgf) 8-layer organisational context model from static classification" data-tags="governance-policy,knowledge-graphs,security-risk,knowledge-management,ai-architecture">
+  <div class="card-title">UELGF 8-layer organisational context model</div>
+  <div class="card-meta">2026-05-15</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/knowledge-graphs.html">knowledge-graphs</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What is the most suitable knowledge representation architecture for evolving the Universal Entity Lifecycle Governance Framework (UELGF) 8-layer organisational context model from static classification…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-15-declaration-independence-cyberspace-ai-risk.html" data-title="declaration of the independence of cyberspace" data-question="what are the historical origins and core claims of john perry barlow&#39;s *declaration of the independence of cyberspace*, how have those claims influenced modern research and technology governance, and" data-tags="agentic-ai,governance-policy,security-risk">
+  <div class="card-title">Declaration of the Independence of Cyberspace</div>
+  <div class="card-meta">2026-05-15</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What are the historical origins and core claims of John Perry Barlow&#39;s *Declaration of the Independence of Cyberspace*, how have those claims influenced modern research and technology governance, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-14-org-failure-modes-vendor-standards-gaps.html" data-title="organisational failure modes" data-question="what failure modes have been empirically observed in organisations where vendors do not comply with established implementation standards, or where implementation standards are absent or insufficiently" data-tags="governance-policy,security-risk,tools-infrastructure,organisational-design">
+  <div class="card-title">Organisational failure modes</div>
+  <div class="card-meta">2026-05-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What failure modes have been empirically observed in organisations where vendors do not comply with established implementation standards, or where implementation standards are absent or insufficiently…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability.html" data-title="organisational failure modes" data-question="what failure modes have been empirically observed in organisations where accountability for risk, operational cost, and benefits realisation are held in separate business units (bus) rather than co-lo" data-tags="governance-policy,security-risk,cost-performance,workforce-skills,organisational-design">
+  <div class="card-title">Organisational failure modes</div>
+  <div class="card-meta">2026-05-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What failure modes have been empirically observed in organisations where accountability for risk, operational cost, and benefits realisation are held in separate business units (BUs) rather than co-lo…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-12-iso-iec-42001-aims-controls-adoption-history.html" data-title="iso and iec 42001" data-question="what is international organization for standardization (iso) and international electrotechnical commission (iec) 42001:2023 for an artificial intelligence management system (aims), and which specific" data-tags="governance-policy,security-risk,regulatory-compliance">
+  <div class="card-title">ISO and IEC 42001</div>
+  <div class="card-meta">2026-05-12</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">What is International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 for an Artificial Intelligence Management System (AIMS), and which specific…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-10-m365-copilot-sensitive-data-security-governance-risks.html" data-title="security, compliance, and governance risks of using generative ai (genai) tools…" data-question="what are the documented security, compliance, and governance risks of using generative artificial intelligence (genai) tools such as microsoft 365 (m365) copilot for drafting memos, reports, and other" data-tags="governance-policy,security-risk,agentic-ai,llm-reasoning">
+  <div class="card-title">Security, Compliance, and Governance Risks of Using Generative AI (GenAI) Tools…</div>
+  <div class="card-meta">2026-05-10</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a></div>
+  <div class="card-excerpt">What are the documented security, compliance, and governance risks of using Generative Artificial Intelligence (GenAI) tools such as Microsoft 365 (M365) Copilot for drafting memos, reports, and other…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html" data-title="control deficiencies from bypassing designated workforce record platforms" data-question="what control deficiencies are most common when designated workforce record platforms are bypassed by spreadsheet, presentation, and list-based shadow workflows?" data-tags="governance-policy,security-risk,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">Control deficiencies from bypassing designated workforce record platforms</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What control deficiencies are most common when designated workforce record platforms are bypassed by spreadsheet, presentation, and list-based shadow workflows?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-process-inefficiency-vs-latent-risk-taxonomy.html" data-title="taxonomy criteria" data-question="which explicit criteria best distinguish ordinary process inefficiency from hidden control and dependency risk in workforce-capacity and skill-tracking workflows?" data-tags="governance-policy,security-risk,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">Taxonomy criteria</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">Which explicit criteria best distinguish ordinary process inefficiency from hidden control and dependency risk in workforce-capacity and skill-tracking workflows?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.html" data-title="prc scoring impacts from unstandardized workforce processes" data-question="how should inherent risk, meaning exposure before relying on controls, and control effectiveness, meaning the demonstrated reliability of the mitigating control, scores in a prc library change when wo" data-tags="governance-policy,security-risk,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">PRC scoring impacts from unstandardized workforce processes</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How should inherent risk, meaning exposure before relying on controls, and control effectiveness, meaning the demonstrated reliability of the mitigating control, scores in a PRC library change when wo…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-policy-lsp-capability-debt-detection.html" data-title="lsp-style policy surfaces and workforce taxonomies for automatic persistent…" data-question="how can workforce-capacity and skills-taxonomy structures integrate with a language server protocol (lsp)-style policy diagnostic surface to detect persistent capability mismatches automatically in en" data-tags="governance-policy,workforce-skills,tools-infrastructure,security-risk,organisational-design">
+  <div class="card-title">LSP-style policy surfaces and workforce taxonomies for automatic persistent…</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">How can workforce-capacity and skills-taxonomy structures integrate with a Language Server Protocol (LSP)-style policy diagnostic surface to detect persistent capability mismatches automatically in en…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts.html" data-title="nist sp 800-53" data-question="how do missing provenance, lineage, and change-history controls in microsoft lists, excel, and powerpoint workforce artifacts conflict with nist sp 800-53 rev. 5 integrity-related controls?" data-tags="governance-policy,security-risk,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">NIST SP 800-53</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How do missing provenance, lineage, and change-history controls in Microsoft Lists, Excel, and PowerPoint workforce artifacts conflict with NIST SP 800-53 Rev. 5 integrity-related controls?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html" data-title="key-person dependency and basel execution, delivery, and process-management…" data-question="how should key-person dependency in workforce-critical processes be mapped to execution, delivery, and process-management risk categories in basel committee framing?" data-tags="governance-policy,security-risk,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">Key-person dependency and Basel execution, delivery, and process-management…</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How should key-person dependency in workforce-critical processes be mapped to execution, delivery, and process-management risk categories in Basel Committee framing?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-cobit-cmmi-defined-process-risk-mitigation.html" data-title="cobit and cmmi" data-question="what minimum process-definition conditions do cobit 2019 and cmmi require before mitigation of workforce-process risk can be considered effective and sustainable?" data-tags="governance-policy,security-risk,knowledge-management,organisational-design,tools-infrastructure">
+  <div class="card-title">COBIT and CMMI</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What minimum process-definition conditions do COBIT 2019 and CMMI require before mitigation of workforce-process risk can be considered effective and sustainable?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html" data-title="bcbs, iso, and nist" data-question="how do basel committee on banking supervision (bcbs), international organization for standardization (iso) 31000, and national institute of standards and technology (nist) frameworks classify risk whe" data-tags="governance-policy,security-risk,workforce-skills,organisational-design,tools-infrastructure">
+  <div class="card-title">BCBS, ISO, and NIST</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How do Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO) 31000, and National Institute of Standards and Technology (NIST) frameworks classify risk whe…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-policy-as-code-guardrails-regulatory-ai-governance.html" data-title="implementation patterns for regulatory compliance in artificial…" data-question="what specific implementation patterns, including externalized machine-executable policy rules (policy-as-code (pac)), rules engines, input, tool-use, and output safety controls (guardrails), output va" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure,regulatory-compliance,agentic-ai">
+  <div class="card-title">Implementation Patterns for Regulatory Compliance in Artificial…</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What specific implementation patterns, including externalized machine-executable policy rules (Policy-as-Code (PaC)), rules engines, input, tool-use, and output safety controls (guardrails), output va…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-data-governance-frameworks-llm-nondeterminism-extension.html" data-title="llm non-determinism and uncertainty about deployed behavior" data-question="how can traditional data governance frameworks be extended or mapped to address the inherent non-determinism and uncertainty about whether deployed behavior remains aligned with intended use in modern" data-tags="governance-policy,security-risk,agentic-ai,organisational-design">
+  <div class="card-title">LLM Non-Determinism and Uncertainty About Deployed Behavior</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">How can traditional data governance frameworks be extended or mapped to address the inherent non-determinism and uncertainty about whether deployed behavior remains aligned with intended use in modern…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-compliance-risks-stochastic-llm-governance-decisions.html" data-title="llm outputs for governance, privacy, and regulatory decisions" data-question="what evidence or guidance exists on the compliance risks of relying primarily on stochastic large language model (llm) outputs for governance, privacy, or regulatory decisions?" data-tags="governance-policy,security-risk,llm-reasoning,agentic-ai">
+  <div class="card-title">LLM Outputs for Governance, Privacy, and Regulatory Decisions</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What evidence or guidance exists on the compliance risks of relying primarily on stochastic Large Language Model (LLM) outputs for governance, privacy, or regulatory decisions?</div>
+</a>
+<a class="card" href="/Research/research/2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk.html" data-title="llm training and post-training" data-question="how should the orthogonality thesis be interpreted for modern large language models (llms) given current pre-training and post-training methods, and what does that imply for enterprise risk when agent" data-tags="agentic-ai,security-risk,governance-policy,enterprise-adoption,ai-architecture">
+  <div class="card-title">LLM training and post-training</div>
+  <div class="card-meta">2026-05-09</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">How should the orthogonality thesis be interpreted for modern Large Language Models (LLMs) given current pre-training and post-training methods, and what does that imply for enterprise risk when agent…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html" data-title="what are the primary behavioural and structural drivers of unsanctioned ai…" data-question="what are the primary behavioural and structural drivers of shadow artificial intelligence (ai) adoption, meaning unsanctioned use of ai tools without formal approval or oversight, in enterprises after" data-tags="agentic-ai,governance-policy,security-risk,workforce-skills">
+  <div class="card-title">What are the primary behavioural and structural drivers of unsanctioned AI…</div>
+  <div class="card-meta">2026-05-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">What are the primary behavioural and structural drivers of shadow Artificial Intelligence (AI) adoption, meaning unsanctioned use of AI tools without formal approval or oversight, in enterprises after…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk.html" data-title="ai, meaning autonomous multi-step systems, versus generative ai deployments,…" data-question="how do the coupled enterprise risks, capability debt, incentive-driven shadow artificial intelligence (ai) adoption, skill decay, and oversight failure, manifest differently in agentic ai, meaning aut" data-tags="agentic-ai,security-risk,governance-policy,workforce-skills">
+  <div class="card-title">AI, meaning autonomous multi-step systems, versus generative AI deployments,…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">How do the coupled enterprise risks, capability debt, incentive-driven shadow Artificial Intelligence (AI) adoption, skill decay, and oversight failure, manifest differently in agentic AI, meaning aut…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-08-capability-debt-definition-measurement-ai-risk-amplification.html" data-title="ai-related enterprise risk, and how does pre-existing capability debt amplify…" data-question="how can capability debt, the accumulated organisational deficit in review quality, judgment, process maturity, and skill inventory, be rigorously defined, measured, and tracked as a leading indicator" data-tags="agentic-ai,security-risk,governance-policy,workforce-skills">
+  <div class="card-title">AI-related enterprise risk, and how does pre-existing capability debt amplify…</div>
+  <div class="card-meta">2026-05-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">How can capability debt, the accumulated organisational deficit in review quality, judgment, process maturity, and skill inventory, be rigorously defined, measured, and tracked as a leading indicator…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-08-ai-capability-reference-architecture-second-cycle-update.html" data-title="updating the enterprise artificial intelligence ecosystem capability reference…" data-question="how should the enterprise artificial intelligence (ai) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model`, `2026-05-05-enterprise-ai-capability-st" data-tags="ai-architecture,governance-policy,security-risk,benchmarks-eval,agentic-ai">
+  <div class="card-title">Updating the enterprise Artificial Intelligence ecosystem capability reference…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-08</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">How should the enterprise Artificial Intelligence (AI) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model`, `2026-05-05-enterprise-ai-capability-st…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-07-ai-production-incidents-deep-dive.html" data-title="production incidents linked to artificial intelligence systems" data-question="what documented production incidents over the last five years were caused or materially contributed to by artificial intelligence (ai) systems, and what recurring failure modes and mitigations were id" data-tags="agentic-ai,governance-policy,security-risk,mlops-deployment">
+  <div class="card-title">Production incidents linked to Artificial Intelligence systems</div>
+  <div class="card-meta">2026-05-07</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">What documented production incidents over the last five years were caused or materially contributed to by Artificial Intelligence (AI) systems, and what recurring failure modes and mitigations were id…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-07-ai-regulatory-guidance-update-gap-check.html" data-title="ai regulatory guidance delta check" data-question="since the completion of `2026-04-24-ai-agent-regulation-global-financial-services`, what newly issued regulatory advice, policy, guidance, or supervisory statements have been published on artificial i" data-tags="governance-policy,security-risk">
+  <div class="card-title">AI regulatory guidance delta check<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-07</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">Since the completion of `2026-04-24-ai-agent-regulation-global-financial-services`, what newly issued regulatory advice, policy, guidance, or supervisory statements have been published on Artificial I…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-07-five-eyes-ai-risks-and-advice.html" data-title="five eyes stance on artificial intelligence risk and policy advice" data-question="what is the current stance of the five eyes intelligence alliance (australia, canada, new zealand, united kingdom, united states) on artificial intelligence (ai) risks, and what concrete policy and op" data-tags="governance-policy,security-risk">
+  <div class="card-title">Five Eyes stance on Artificial Intelligence risk and policy advice</div>
+  <div class="card-meta">2026-05-07</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What is the current stance of the Five Eyes intelligence alliance (Australia, Canada, New Zealand, United Kingdom, United States) on Artificial Intelligence (AI) risks, and what concrete policy and op…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-ai-capability-reference-architecture-security-supply-chain-update.html" data-title="integrating 2026-05 security and supply chain findings into the enterprise…" data-question="how should the enterprise artificial intelligence (ai) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model` and the `2026-05-05-enterprise-ai-capabi" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture,benchmarks-eval">
+  <div class="card-title">Integrating 2026-05 security and supply chain findings into the enterprise…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How should the enterprise Artificial Intelligence (AI) ecosystem capability reference architecture (as expressed in `2026-04-22-enterprise-ai-capability-model` and the `2026-05-05-enterprise-ai-capabi…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight.html" data-title="how do open-weight policy enforcement reasoning models, exemplified by openai&#39;s…" data-question="how do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by openai&#39;s gpt-oss-safeguard, classify text against strict, customizable policies, and" data-tags="llm-reasoning,governance-policy,security-risk,mlops-deployment,cost-performance,benchmarks-eval,tools-infrastructure,agentic-ai">
+  <div class="card-title">How do open-weight policy enforcement reasoning models, exemplified by OpenAI&#39;s…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">How do open-weight, meaning released-weight and self-hostable, policy enforcement reasoning models, exemplified by OpenAI&#39;s gpt-oss-safeguard, classify text against strict, customizable policies, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-schema-design-standards-alignment.html" data-title="what is the minimal viable schema for an artificial intelligence bill of…" data-question="what is the minimal viable set of schema properties required to describe artificial intelligence (ai) system dependencies for systems that use prompts, retrieval knowledge bases, memory, and tools in" data-tags="agentic-ai,governance-policy,rag-retrieval,tools-infrastructure,security-risk">
+  <div class="card-title">What is the minimal viable schema for an Artificial Intelligence bill of…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What is the minimal viable set of schema properties required to describe Artificial Intelligence (AI) system dependencies for systems that use prompts, retrieval knowledge bases, memory, and tools in…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-sbom-conceptual-gaps-theory.html" data-title="sbom fail as a complete inventory model for agentic ai workloads, and what new…" data-question="why do traditional software bill of materials (sbom) concepts fail to adequately describe the dependency, provenance, and runtime composition of agentic artificial intelligence (ai) systems, and what" data-tags="agentic-ai,governance-policy,knowledge-graphs,security-risk,ai-architecture">
+  <div class="card-title">SBOM fail as a complete inventory model for agentic AI workloads, and what new…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/knowledge-graphs.html">knowledge-graphs</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">Why do traditional Software Bill of Materials (SBOM) concepts fail to adequately describe the dependency, provenance, and runtime composition of agentic Artificial Intelligence (AI) systems, and what…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-runtime-capture-opentelemetry-practice.html" data-title="aibom in practice using opentelemetry tracing and platform-native observability…" data-question="how do you instrument a real agentic artificial intelligence workload, meaning a tool-using workload that plans or acts across multiple steps, to capture a runtime-observed artificial intelligence bil" data-tags="agentic-ai,governance-policy,tools-infrastructure,security-risk">
+  <div class="card-title">AIBOM in practice using OpenTelemetry tracing and platform-native observability…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">How do you instrument a real agentic Artificial Intelligence workload, meaning a tool-using workload that plans or acts across multiple steps, to capture a runtime-observed Artificial Intelligence Bil…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html" data-title="eu ai systems?" data-question="- [fact; source: https://owaspaibom.org/] artificial intelligence bill of materials (aibom) is used here in the open worldwide application security project (owasp) sense of an artifact intended to mak" data-tags="agentic-ai,governance-policy,regulatory-compliance,security-risk,tools-infrastructure">
+  <div class="card-title">EU AI systems?</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">- [fact; source: https://owaspaibom.org/] Artificial Intelligence Bill of Materials (AIBOM) is used here in the Open Worldwide Application Security Project (OWASP) sense of an artifact intended to mak…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-identity-delegation-trust-theory.html" data-title="how should identity, delegation chains, and permission scopes be formally…" data-question="how should identity, delegation, and permission scopes be formally represented in an artificial intelligence bill of materials (aibom) schema to enable end-to-end attribution, &quot;who authorized what&quot;, a" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture">
+  <div class="card-title">How should identity, delegation chains, and permission scopes be formally…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">How should identity, delegation, and permission scopes be formally represented in an Artificial Intelligence Bill of Materials (AIBOM) schema to enable end-to-end attribution, &quot;who authorized what&quot;, a…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-identity-attribution-multiagent-practice.html" data-title="how do oauth 2.0, openid connect, and spiffe token propagation work in real…" data-question="how do oauth 2.0 (open authorisation), openid connect (oidc), and spiffe (secure production identity framework for everyone) token propagation mechanisms work in real multi-agent artificial intelligen" data-tags="agentic-ai,multi-agent,security-risk,tools-infrastructure">
+  <div class="card-title">How do OAuth 2.0, OpenID Connect, and SPIFFE token propagation work in real…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/multi-agent.html">multi-agent</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How do OAuth 2.0 (Open Authorisation), OpenID Connect (OIDC), and SPIFFE (Secure Production Identity Framework for Everyone) token propagation mechanisms work in real multi-agent Artificial Intelligen…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-effectiveness-risk-mitigation-limits.html" data-title="what security and governance risks can a declared and runtime-observed…" data-question="what categories of security and governance risk can an artificial intelligence bill of materials (aibom), an artifact intended to make artificial intelligence systems transparent, auditable, and secur" data-tags="agentic-ai,security-risk,governance-policy,ai-architecture">
+  <div class="card-title">What security and governance risks can a declared and runtime-observed…<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What categories of security and governance risk can an Artificial Intelligence Bill of Materials (AIBOM), an artifact intended to make artificial intelligence systems transparent, auditable, and secur…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-06-aibom-declared-construction-practice.html" data-title="aibom for a real tool-using, stateful ai workload? aws bedrock agents and…" data-question="how do you extract and construct a declared design-time artificial intelligence bill of materials (aibom), covering model, prompt or system instruction, tools, retrieval-augmented generation (rag) kno" data-tags="agentic-ai,security-risk,ai-architecture,tools-infrastructure,governance-policy">
+  <div class="card-title">AIBOM for a real tool-using, stateful AI workload? AWS Bedrock Agents and…</div>
+  <div class="card-meta">2026-05-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a></div>
+  <div class="card-excerpt">How do you extract and construct a declared design-time Artificial Intelligence Bill of Materials (AIBOM), covering model, prompt or system instruction, tools, Retrieval-Augmented Generation (RAG) kno…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-adversarial-review-methods-ai-research-quality.html" data-title="ai-generated research findings before finalisation, and how should they be…" data-question="what adversarial review and red-teaming methods, drawn from artificial intelligence (ai) safety research, debate-based evaluation, formal argumentation theory, and scientific peer review practice, are" data-tags="agentic-ai,llm-reasoning,benchmarks-eval,security-risk,tools-infrastructure">
+  <div class="card-title">AI-generated research findings before finalisation, and how should they be…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What adversarial review and red-teaming methods, drawn from Artificial Intelligence (AI) safety research, debate-based evaluation, formal argumentation theory, and scientific peer review practice, are…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html" data-title="ai system to address prompt injection, rag-based attacks, model supply chain…" data-question="what security capabilities are required in an enterprise artificial intelligence (ai) system, beyond basic application programming interface (api) access controls and audit logging, to address prompt" data-tags="security-risk,rag-retrieval,agentic-ai,tools-infrastructure,governance-policy">
+  <div class="card-title">AI system to address prompt injection, RAG-based attacks, model supply chain…</div>
+  <div class="card-meta">2026-05-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a></div>
+  <div class="card-excerpt">What security capabilities are required in an enterprise Artificial Intelligence (AI) system, beyond basic Application Programming Interface (API) access controls and audit logging, to address prompt…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-01-compound-error-accumulation-ai-codebases.html" data-title="ai-agent-heavy codebases, and what review strategies can manage this risk?" data-question="how do errors (&quot;boooos&quot;) compound in codebases developed with high volumes of ai agent-generated code, including how local patches cause global regressions, and what review and governance strategies c" data-tags="agentic-ai,governance-policy,security-risk,benchmarks-eval">
+  <div class="card-title">AI-agent-heavy codebases, and what review strategies can manage this risk?</div>
+  <div class="card-meta">2026-05-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">How do errors (&quot;boooos&quot;) compound in codebases developed with high volumes of AI agent-generated code, including how local patches cause global regressions, and what review and governance strategies c…</div>
+</a>
+<a class="card" href="/Research/research/2026-05-01-appropriate-task-selection-coding-agents.html" data-title="ai coding agents reliably add value versus where they introduce systemic risk?" data-question="what empirically grounded criteria define the characteristics of software development tasks where artificial intelligence (ai) coding agents reliably add value, versus tasks where agent autonomy intro" data-tags="agentic-ai,governance-policy,benchmarks-eval,security-risk,software-engineering">
+  <div class="card-title">AI coding agents reliably add value versus where they introduce systemic risk?</div>
+  <div class="card-meta">2026-05-01</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a></div>
+  <div class="card-excerpt">What empirically grounded criteria define the characteristics of software development tasks where Artificial Intelligence (AI) coding agents reliably add value, versus tasks where agent autonomy intro…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-deterministic-crr-mlr2017-risk-scoring.html" data-title="deterministic weighted scoring models for customer risk rating under mlr 2017" data-question="to what extent do deterministic weighted scoring models (based on the four main risk factors: customer, geographic, product/service, and delivery channel) effectively support a proportionate risk-base" data-tags="governance-policy,security-risk,ai-architecture,regulatory-compliance">
+  <div class="card-title">Deterministic weighted scoring models for customer risk rating under MLR 2017</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">To what extent do deterministic weighted scoring models (based on the four main risk factors: customer, geographic, product/service, and delivery channel) effectively support a proportionate risk-base…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-claude-vs-m365-copilot-cowork-comparison.html" data-title="anthropic claude teams or enterprise vs microsoft 365 copilot cowork" data-question="how do anthropic claude, specifically the team and enterprise plans, and microsoft 365 (m365) copilot cowork compare across capability, pricing, user experience, and guardrails, and what are the secur" data-tags="agentic-ai,governance-policy,security-risk,cost-performance,enterprise-adoption">
+  <div class="card-title">Anthropic Claude Teams or Enterprise vs Microsoft 365 Copilot Cowork<span class="badge badge-synthesis">synthesis</span> </div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a><a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a></div>
+  <div class="card-excerpt">How do Anthropic Claude, specifically the Team and Enterprise plans, and Microsoft 365 (M365) Copilot Cowork compare across capability, pricing, user experience, and guardrails, and what are the secur…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html" data-title="xai" data-question="what is the current state of explainable artificial intelligence (xai) research, who leads it and what are the primary techniques, and how does xai intersect with regulatory obligations, audit require" data-tags="governance-policy,security-risk,mlops-deployment,agentic-ai">
+  <div class="card-title">XAI</div>
+  <div class="card-meta">2026-04-30</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What is the current state of Explainable Artificial Intelligence (XAI) research, who leads it and what are the primary techniques, and how does XAI intersect with regulatory obligations, audit require…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-28-uelgf-tooling-reference-architecture.html" data-title="uelgf extension" data-question="what concrete reference architecture and tooling specification, covering policy-as-code engines such as open policy agent (opa) and cedar, observability pipelines such as opentelemetry (otel), and mod" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">UELGF extension</div>
+  <div class="card-meta">2026-04-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What concrete reference architecture and tooling specification, covering policy-as-code engines such as Open Policy Agent (OPA) and Cedar, observability pipelines such as OpenTelemetry (OTel), and mod…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html" data-title="uelgf extension" data-question="what explicit human oversight and accountability requirements, covering named human owners for every governed entity, defined escalation paths for high-risk autonomous actions, accountability designat" data-tags="agentic-ai,governance-policy,security-risk">
+  <div class="card-title">UELGF extension</div>
+  <div class="card-meta">2026-04-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What explicit human oversight and accountability requirements, covering named human owners for every governed entity, defined escalation paths for high-risk autonomous actions, accountability designat…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.html" data-title="uelgf extension" data-question="what agentic artificial intelligence (ai)-specific risk categories, specifically emergent behaviour, goal misalignment, multi-agent interaction failures, and hallucinations in decision loops, are insu" data-tags="agentic-ai,multi-agent,governance-policy,security-risk">
+  <div class="card-title">UELGF extension</div>
+  <div class="card-meta">2026-04-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/multi-agent.html">multi-agent</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What agentic Artificial Intelligence (AI)-specific risk categories, specifically emergent behaviour, goal misalignment, multi-agent interaction failures, and hallucinations in decision loops, are insu…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html" data-title="uelgf" data-question="what is the complete specification of the universal entity lifecycle governance framework (uelgf), integrating foundational definitions and principles, entity taxonomy and confidentiality, integrity," data-tags="agentic-ai,governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">UELGF</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What is the complete specification of the Universal Entity Lifecycle Governance Framework (UELGF), integrating foundational definitions and principles, entity taxonomy and Confidentiality, Integrity,…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html" data-title="uelgf" data-question="what policy architecture, covering policy administration point (pap), policy decision point (pdp), policy enforcement point (pep), and policy information point (pip), and what 8-layer organisational c" data-tags="governance-policy,ai-architecture,security-risk,tools-infrastructure">
+  <div class="card-title">UELGF</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What policy architecture, covering Policy Administration Point (PAP), Policy Decision Point (PDP), Policy Enforcement Point (PEP), and Policy Information Point (PIP), and what 8-layer organisational c…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html" data-title="uelgf" data-question="what canonical entity taxonomy and confidentiality, integrity, and availability (cia) classification system should the uelgf use to determine governance intensity, ensuring that every entity type, fro" data-tags="agentic-ai,governance-policy,security-risk,tools-infrastructure">
+  <div class="card-title">UELGF</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system should the UELGF use to determine governance intensity, ensuring that every entity type, fro…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-uelgf-decommission-lifecycle.html" data-title="uelgf" data-question="how should the uelgf formally specify the decommission lifecycle, including a complete trigger taxonomy, procedural requirements differentiated by cia tier, a ghost-entity detection and remediation me" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">UELGF</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How should the UELGF formally specify the decommission lifecycle, including a complete trigger taxonomy, procedural requirements differentiated by CIA tier, a ghost-entity detection and remediation me…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-pip-invariant-anomaly-detection.html" data-title="pip" data-question="how can the policy information point (pip) detect when a governed asset&#39;s transient operating context is being used, intentionally or through task creep, to suppress or obscure a permanent invariant," data-tags="agentic-ai,governance-policy,security-risk,ai-architecture">
+  <div class="card-title">PIP</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">How can the Policy Information Point (PIP) detect when a governed asset&#39;s transient operating context is being used, intentionally or through task creep, to suppress or obscure a permanent invariant,…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html" data-title="pap dynamic policy profiling and proportionality" data-question="how can a policy administration point (pap) dynamically map a governed asset&#39;s metadata, specifically its invariants and confidentiality, integrity, and availability (cia) ratings, to a proportional a" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture">
+  <div class="card-title">PAP dynamic policy profiling and proportionality</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">How can a Policy Administration Point (PAP) dynamically map a governed asset&#39;s metadata, specifically its invariants and Confidentiality, Integrity, and Availability (CIA) ratings, to a proportional a…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html" data-title="out-of-band policy invalidation and remediation" data-question="what consistency model governs [policy administration point (pap)](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html)-to-[policy enforcement point (pep)](https://docs.oasis-open.org" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture">
+  <div class="card-title">Out-of-band policy invalidation and remediation</div>
+  <div class="card-meta">2026-04-27</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What consistency model governs [Policy Administration Point (PAP)](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html)-to-[Policy Enforcement Point (PEP)](https://docs.oasis-open.org…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html" data-title="what is the precise technical distinction between code generation and other…" data-question="what is the precise technical distinction between code generation and other large language model (llm)-generated outputs in terms of external verifiability, specifically, that code operates in a forma" data-tags="agentic-ai,governance-policy,security-risk,mlops-deployment,formal-methods">
+  <div class="card-title">What is the precise technical distinction between code generation and other…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a></div>
+  <div class="card-excerpt">What is the precise technical distinction between code generation and other Large Language Model (LLM)-generated outputs in terms of external verifiability, specifically, that code operates in a forma…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html" data-title="what constraints do vendor platforms impose on governance, and how should…" data-question="what governance constraints are imposed by major vendor artificial intelligence (ai) and low-code platforms, specifically, what governance capabilities are natively supported versus where external con" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">What constraints do vendor platforms impose on governance, and how should…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What governance constraints are imposed by major vendor Artificial Intelligence (AI) and low-code platforms, specifically, what governance capabilities are natively supported versus where external con…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html" data-title="ai and visual, minimal-code application environments?" data-question="how can enterprise data governance frameworks be consistently enforced within artificial intelligence (ai) and visual, minimal-code application environments, specifically, how should data classificati" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">AI and visual, minimal-code application environments?</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments, specifically, how should data classificati…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html" data-title="ai and low-code use cases be classified into risk tiers, and how should…" data-question="what structured risk classification framework is appropriate for ai and low-code use cases in enterprise environments, specifically, how should categories such as informational, decision-support, and" data-tags="governance-policy,security-risk,ai-architecture">
+  <div class="card-title">AI and low-code use cases be classified into risk tiers, and how should…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What structured risk classification framework is appropriate for AI and low-code use cases in enterprise environments, specifically, how should categories such as informational, decision-support, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html" data-title="ai and low-code governance frameworks be aligned with regulatory and compliance…" data-question="how can enterprise artificial intelligence (ai) and low-code governance frameworks be aligned with external regulatory and compliance obligations, specifically, what is the mapping between governance" data-tags="governance-policy,security-risk,tools-infrastructure,regulatory-compliance">
+  <div class="card-title">AI and low-code governance frameworks be aligned with regulatory and compliance…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with external regulatory and compliance obligations, specifically, what is the mapping between governance…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-lowcode-governance-maturity-model.html" data-title="ai and low-code in enterprises?" data-question="what maturity model best describes the evolution of governance capabilities for ai and low-code in enterprises, specifically, what are the clearly defined maturity stages, capability benchmarks, and p" data-tags="governance-policy,security-risk,ai-architecture">
+  <div class="card-title">AI and low-code in enterprises?</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What maturity model best describes the evolution of governance capabilities for AI and low-code in enterprises, specifically, what are the clearly defined maturity stages, capability benchmarks, and p…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html" data-title="where should governance enforcement points be implemented within enterprise…" data-question="where should governance enforcement points be implemented within enterprise architecture for artificial intelligence (ai) and low-code systems, specifically, at which architectural layers (application" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">Where should governance enforcement points be implemented within enterprise…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">Where should governance enforcement points be implemented within enterprise architecture for Artificial Intelligence (AI) and low-code systems, specifically, at which architectural layers (Application…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html" data-title="ai and low-code deployments, and how can governance systems be designed to…" data-question="what are the primary failure modes in enterprise artificial intelligence (ai) and low-code deployments, including data leakage, conflicting automations, unintended actions by ai agents, and loss of au" data-tags="governance-policy,security-risk,mlops-deployment">
+  <div class="card-title">AI and low-code deployments, and how can governance systems be designed to…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, including data leakage, conflicting automations, unintended actions by AI agents, and loss of au…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html" data-title="how should decision rights, accountability, and liability be structured for ai…" data-question="how should decision rights, accountability, and liability be structured for ai systems and low-code applications in enterprise environments, specifically, who should be empowered to approve new use ca" data-tags="governance-policy,security-risk,mlops-deployment">
+  <div class="card-title">How should decision rights, accountability, and liability be structured for AI…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">How should decision rights, accountability, and liability be structured for AI systems and low-code applications in enterprise environments, specifically, who should be empowered to approve new use ca…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html" data-title="how do organisational incentives, culture, and behaviour influence adherence to…" data-question="how do organisational incentives, culture, and behaviour influence adherence to governance in artificial intelligence (ai) and low-code environments, specifically, what conditions drive teams to bypas" data-tags="governance-policy,security-risk,workforce-skills">
+  <div class="card-title">How do organisational incentives, culture, and behaviour influence adherence to…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">How do organisational incentives, culture, and behaviour influence adherence to governance in Artificial Intelligence (AI) and low-code environments, specifically, what conditions drive teams to bypas…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html" data-title="ai agents and low-code artefacts operating within enterprise systems?" data-question="what identity and access management (iam) model is required for non-human actors, ai agents and low-code artefacts, operating within enterprise systems, specifically: how should machine identities be" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture">
+  <div class="card-title">AI agents and low-code artefacts operating within enterprise systems?</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What identity and access management (IAM) model is required for non-human actors, AI agents and low-code artefacts, operating within enterprise systems, specifically: how should machine identities be…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html" data-title="ai" data-question="prior to agentic artificial intelligence (ai), the blast radius of ungoverned citizen development was implicitly bounded by human speed, attention, fatigue, and working hours, controls that are not do" data-tags="agentic-ai,security-risk,governance-policy,tools-infrastructure">
+  <div class="card-title">AI</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">Prior to agentic Artificial Intelligence (AI), the blast radius of ungoverned citizen development was implicitly bounded by human speed, attention, fatigue, and working hours, controls that are not do…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html" data-title="access control amplification under agentic operations" data-question="agents do not inherit a user&#39;s typical behaviour, they inherit the worst-case interpretation of that user&#39;s full permission set, because they operate without fatigue, attention limits, or working hour" data-tags="agentic-ai,governance-policy,security-risk">
+  <div class="card-title">Access control amplification under agentic operations</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">Agents do not inherit a user&#39;s typical behaviour, they inherit the worst-case interpretation of that user&#39;s full permission set, because they operate without fatigue, attention limits, or working hour…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html" data-title="rag in enterprise information architectures" data-question="what are the technical constraints on permission-safe retrieval-augmented generation (rag) in an enterprise information architecture with incoherent access controls, collaboration groups created ad ho" data-tags="rag-retrieval,governance-policy,security-risk,ai-architecture,knowledge-management,agentic-ai">
+  <div class="card-title">RAG in enterprise information architectures</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a></div>
+  <div class="card-excerpt">What are the technical constraints on permission-safe Retrieval-Augmented Generation (RAG) in an enterprise information architecture with incoherent access controls, collaboration groups created ad ho…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.html" data-title="ai deployment" data-question="the foundational conditions for safe agentic ai deployment in a regulated financial institution are not independent, they form a dependency graph in which policy coherence is a prerequisite for inform" data-tags="agentic-ai,governance-policy,security-risk,mlops-deployment,regulatory-compliance">
+  <div class="card-title">AI deployment</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">The foundational conditions for safe agentic AI deployment in a regulated financial institution are not independent, they form a dependency graph in which policy coherence is a prerequisite for inform…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html" data-title="systems capability debt as the root cause of citizen development" data-question="what empirical evidence exists that systems capability debt, the accumulated gap between what people need from their systems and what those systems deliver across integration, functionality, data acce" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure,workforce-skills">
+  <div class="card-title">Systems capability debt as the root cause of citizen development</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a></div>
+  <div class="card-excerpt">What empirical evidence exists that systems capability debt, the accumulated gap between what people need from their systems and what those systems deliver across integration, functionality, data acce…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html" data-title="systems capability debt, citizen development, and agentic ai risk" data-question="does the synthesis of technical debt literature (cunningham, kruchten), systems capability research, transaction cost economics (coase, williamson), operational risk frameworks (basel iii/iv, risk and" data-tags="agentic-ai,governance-policy,workforce-skills,security-risk,tools-infrastructure">
+  <div class="card-title">Systems capability debt, citizen development, and agentic AI risk</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">Does the synthesis of technical debt literature (Cunningham, Kruchten), systems capability research, transaction cost economics (Coase, Williamson), operational risk frameworks (Basel III/IV, Risk and…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html" data-title="ai systems that can take multi-step actions" data-question="under applicable regulatory and standards frameworks, including australian prudential regulation authority (apra) cps 230, the european union (eu) digital operational resilience act (dora), payment ca" data-tags="agentic-ai,governance-policy,security-risk,regulatory-compliance">
+  <div class="card-title">AI systems that can take multi-step actions</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">Under applicable regulatory and standards frameworks, including Australian Prudential Regulation Authority (APRA) CPS 230, the European Union (EU) Digital Operational Resilience Act (DORA), Payment Ca…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-multi-ai-provider-control-planes.html" data-title="multi-provider ai control planes" data-question="which platforms or architectural designs provide multi-provider artificial intelligence (ai) control planes that unify discoverability, oversight, logging, security, data-access control, financial ope" data-tags="governance-policy,security-risk,ai-architecture,tools-infrastructure,cost-performance">
+  <div class="card-title">Multi-provider AI control planes</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a></div>
+  <div class="card-excerpt">Which platforms or architectural designs provide multi-provider Artificial Intelligence (AI) control planes that unify discoverability, oversight, logging, security, data-access control, Financial Ope…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ms-copilot-cowork.html" data-title="what is microsoft 365 copilot cowork and what are its enterprise governance…" data-question="what is microsoft 365 (m365) copilot cowork, how does it technically differ from custom microsoft copilot skills, and what are the governance, legal, and shadow information technology (it) risks it in" data-tags="governance-policy,security-risk,knowledge-management,enterprise-adoption">
+  <div class="card-title">What is Microsoft 365 Copilot Cowork and what are its enterprise governance…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a></div>
+  <div class="card-excerpt">What is Microsoft 365 (M365) Copilot Cowork, how does it technically differ from custom Microsoft Copilot Skills, and what are the governance, legal, and shadow Information Technology (IT) risks it in…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html" data-title="global artificial intelligence agent regulation in financial services" data-question="what regulatory obligations do financial-services regulators globally, including the european union (eu), australia, new zealand (nz), the united states (us), and the united kingdom (uk), impose on ar" data-tags="agentic-ai,governance-policy,security-risk,tools-infrastructure">
+  <div class="card-title">Global artificial intelligence agent regulation in financial services</div>
+  <div class="card-meta">2026-04-24</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">What regulatory obligations do financial-services regulators globally, including the European Union (EU), Australia, New Zealand (NZ), the United States (US), and the United Kingdom (UK), impose on Ar…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-24-business-led-low-code-agent-governance.html" data-title="business-led low-code agent governance" data-question="under what conditions does business-led low-code artificial intelligence (ai) agent creation produce durable organisational value versus technical debt and governance fragmentation, and what foundatio" data-tags="agentic-ai,governance-policy,security-risk,workforce-skills,tools-infrastructure">
+  <div class="card-title">Business-led low-code agent governance</div>
+  <div class="card-meta">2026-04-24</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">Under what conditions does business-led low-code Artificial Intelligence (AI) agent creation produce durable organisational value versus technical debt and governance fragmentation, and what foundatio…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html" data-title="knowledge curation governance as an enterprise ai capability in regulated…" data-question="what operational models exist for governing authoritative knowledge as a managed enterprise capability for artificial intelligence (ai) consumption in regulated financial institutions, covering domain" data-tags="governance-policy,knowledge-management,rag-retrieval,security-risk,regulatory-compliance">
+  <div class="card-title">Knowledge curation governance as an enterprise AI capability in regulated…</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">What operational models exist for governing authoritative knowledge as a managed enterprise capability for Artificial Intelligence (AI) consumption in regulated financial institutions, covering domain…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html" data-title="enterprise ai use-case routing frameworks" data-question="what decision frameworks do enterprises use to route artificial intelligence (ai) use cases to the appropriate platform, implementation pattern, and risk tier, distinguishing low-code business-led, pr" data-tags="governance-policy,security-risk,ai-architecture,mlops-deployment">
+  <div class="card-title">Enterprise AI use-case routing frameworks</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">What decision frameworks do enterprises use to route Artificial Intelligence (AI) use cases to the appropriate platform, implementation pattern, and risk tier, distinguishing low-code business-led, pr…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.html" data-title="anthropic claude code leak" data-question="what does the accidental march 2026 leak of anthropic&#39;s claude code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruct" data-tags="agentic-ai,ai-architecture,tools-infrastructure,security-risk,llm-reasoning">
+  <div class="card-title">Anthropic Claude Code leak</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a></div>
+  <div class="card-excerpt">What does the accidental March 2026 leak of Anthropic&#39;s Claude Code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruct…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-claude-code-npm-source-map-leak.html" data-title="claude code npm source map leak" data-question="how did the march 2026 accidental leak of anthropic&#39;s claude code source code via an npm (node package manager) package occur, and what processes and protections can organisations adopt to prevent sim" data-tags="security-risk,tools-infrastructure,mlops-deployment">
+  <div class="card-title">Claude Code npm Source Map Leak</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">How did the March 2026 accidental leak of Anthropic&#39;s Claude Code source code via an npm (Node Package Manager) package occur, and what processes and protections can organisations adopt to prevent sim…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-31-llm-offensive-security-0days.html" data-title="large language models as offensive security tools" data-question="what is the current state of large language model (llm)-driven offensive security capability: can llms autonomously discover and exploit zero-day (0-day) vulnerabilities, what does the empirical evide" data-tags="agentic-ai,llm-reasoning,security-risk">
+  <div class="card-title">Large Language Models as offensive security tools</div>
+  <div class="card-meta">2026-03-31</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What is the current state of Large Language Model (LLM)-driven offensive security capability: can LLMs autonomously discover and exploit zero-day (0-day) vulnerabilities, what does the empirical evide…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-29-claude-code-web-submodule-credential.html" data-title="claude code on the web" data-question="does claude code on the web automatically initialise git submodules when cloning a repository, and if so, can it access private submodules (such as `davidamitchell/skills` referenced at `.github/skill" data-tags="agentic-ai,tools-infrastructure,security-risk">
+  <div class="card-title">Claude Code on the web</div>
+  <div class="card-meta">2026-03-29</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">Does Claude Code on the web automatically initialise git submodules when cloning a repository, and if so, can it access private submodules (such as `davidamitchell/Skills` referenced at `.github/skill…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions.html" data-title="public sentiment on ai in banking and high-trust institutions" data-question="what does current (2024–2025) survey data reveal about customer sentiment toward artificial intelligence (ai) in banking and high-trust financial services (fs) institutions — in australia, across asia" data-tags="agentic-ai,governance-policy,security-risk">
+  <div class="card-title">Public sentiment on AI in banking and high-trust institutions</div>
+  <div class="card-meta">2026-03-24</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What does current (2024–2025) survey data reveal about customer sentiment toward Artificial Intelligence (AI) in banking and high-trust Financial Services (FS) institutions — in Australia, across Asia…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html" data-title="cross-scanner compliance evidence and waiver normalisation in github actions" data-question="how should an organisation running multiple compliance scanners in github actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one" data-tags="governance-policy,security-risk,tools-infrastructure,regulatory-compliance">
+  <div class="card-title">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-compliance-scanning-gh-actions.html" data-title="compliance scanning via github actions — broad policy as code across a…" data-question="how can github actions (with github advanced security (ghas) and codeql already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura" data-tags="governance-policy,security-risk,tools-infrastructure">
+  <div class="card-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="apba" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="agentic-ai,governance-policy,security-risk,tools-infrastructure,regulatory-compliance">
+  <div class="card-title">APBA</div>
+  <div class="card-meta">2026-03-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html" data-title="trusting trust and ai corpus contamination" data-question="ken thompson&#39;s &quot;trusting trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin" data-tags="agentic-ai,security-risk,knowledge-management">
+  <div class="card-title">Trusting Trust and AI Corpus Contamination</div>
+  <div class="card-meta">2026-03-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a></div>
+  <div class="card-excerpt">Ken Thompson&#39;s &quot;Trusting Trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html" data-title="prompt injection threat landscape" data-question="what is the current state of the prompt injection threat in agentic artificial intelligence (ai) systems: who is exploiting it, who is defending against it, and what does the research community consid" data-tags="agentic-ai,security-risk,governance-policy,benchmarks-eval">
+  <div class="card-title">Prompt injection threat landscape</div>
+  <div class="card-meta">2026-03-19</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="agentic-ai,security-risk,mlops-deployment">
+  <div class="card-title">Failure mode taxonomy</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a></div>
+  <div class="card-excerpt">The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html" data-title="adversarial agents with shared goals" data-question="what is the design pattern for a system of agents — human or ai — that share a common goal but deliberately occupy different competency domains and time horizons? how does &quot;adversarial collaboration&quot;" data-tags="agentic-ai,multi-agent,benchmarks-eval,security-risk,organisational-design">
+  <div class="card-title">Adversarial agents with shared goals</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/multi-agent.html">multi-agent</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a></div>
+  <div class="card-excerpt">What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does &quot;adversarial collaboration&quot;…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html" data-title="guiding headless agents via lsp-like mechanisms for org policy conformance" data-question="who is building solutions that allow headless autonomous coding agents to be guided in real time by lsp-like mechanisms — rather than ci gates or pre-commit hooks — to conform to an organisation&#39;s sec" data-tags="agentic-ai,governance-policy,security-risk,ai-architecture,tools-infrastructure">
+  <div class="card-title">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</div>
+  <div class="card-meta">2026-03-07</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a></div>
+  <div class="card-excerpt">Who is building solutions that allow headless autonomous coding agents to be guided in real time by LSP-like mechanisms — rather than CI gates or pre-commit hooks — to conform to an organisation&#39;s sec…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html" data-title="rbnz ai supervisory expectations" data-question="what are the reserve bank of new zealand&#39;s specific supervisory expectations for ai use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (ap" data-tags="governance-policy,security-risk,mlops-deployment,regulatory-compliance">
+  <div class="card-title">RBNZ AI Supervisory Expectations</div>
+  <div class="card-meta">2026-03-07</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">What are the Reserve Bank of New Zealand&#39;s specific supervisory expectations for AI use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (AP…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html" data-title="pre-training origins of hallucination-associated neurons — implications for llm…" data-question="given that hallucination-associated neurons (h-neurons) emerge during pre-training rather than instruction tuning or rlhf, what does this reveal about how hallucination-prone behaviour is encoded duri" data-tags="llm-reasoning,ai-architecture,security-risk">
+  <div class="card-title">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM…</div>
+  <div class="card-meta">2026-03-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/llm-reasoning.html">llm-reasoning</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-over-compliance.html" data-title="over-compliance in llms — how h-neurons drive sycophancy and what interventions…" data-question="what exactly is over-compliance behaviour in llms, how do hallucination-associated neurons (h-neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou" data-tags="security-risk,ai-architecture">
+  <div class="card-title">Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions…</div>
+  <div class="card-meta">2026-03-06</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What exactly is over-compliance behaviour in LLMs, how do Hallucination-Associated Neurons (H-Neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm…" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="ai-architecture,security-risk">
+  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-in-llms.html" data-title="hallucination-associated neurons (h-neurons) in llms — identification,…" data-question="what are hallucination-associated neurons (h-neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for" data-tags="ai-architecture,security-risk">
+  <div class="card-title">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification,…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html" data-title="llm hallucinations — types, causes, and current mitigation approaches" data-question="what are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m" data-tags="rag-retrieval,benchmarks-eval,security-risk,ai-architecture">
+  <div class="card-title">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/ai-architecture.html">ai-architecture</a></div>
+  <div class="card-excerpt">What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-security-focus.html" data-title="ai strategy examples" data-question="which organisations have developed coherent ai strategies with security as the primary objective — either using ai to enhance security posture or governing the security risks that ai systems themselve" data-tags="security-risk,governance-policy">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a></div>
+  <div class="card-excerpt">Which organisations have developed coherent AI strategies with security as the primary objective — either using AI to enhance security posture or governing the security risks that AI systems themselve…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html" data-title="ai strategy examples" data-question="which organisations have developed ai strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric" data-tags="governance-policy,security-risk,benchmarks-eval">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a></div>
+  <div class="card-excerpt">Which organisations have developed AI strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html" data-title="ai line 1 and line 2 risk agents" data-question="who is currently building or deploying ai agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia" data-tags="agentic-ai,governance-policy,security-risk">
+  <div class="card-title">AI Line 1 and Line 2 Risk Agents</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">Who is currently building or deploying AI agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-control-testing-and-assurance.html" data-title="ai for control testing, gap identification, and policies/standards reviews" data-question="which organisations are using ai to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap" data-tags="agentic-ai,rag-retrieval,governance-policy,security-risk,regulatory-compliance">
+  <div class="card-title">AI for Control Testing, Gap Identification, and Policies/Standards Reviews</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a><a class="tag" href="/Research/themes/regulatory-compliance.html">regulatory-compliance</a></div>
+  <div class="card-excerpt">Which organisations are using AI to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy.html" data-title="ai strategy" data-question="what do leading global ai strategies look like, how does new zealand&#39;s regulatory and policy landscape (rbnz, dia, mbie, and others) compare, and what use-case typology — from human augmentation throu" data-tags="governance-policy,agentic-ai,security-risk">
+  <div class="card-title">AI Strategy</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a><a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a><a class="tag" href="/Research/themes/security-risk.html">security-risk</a></div>
+  <div class="card-excerpt">What do leading global AI strategies look like, how does New Zealand&#39;s regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation throu…</div>
+</a>
+
+  </div>
+</main>
+</body>
+</html>
