@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Funding authority and delivery-risk accountability split"
 added: 2026-05-23T10:24:15+00:00
 status: reviewing
