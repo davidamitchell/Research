@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-23T08:24:18Z",
+  "extracted_at": "2026-05-23T08:42:19Z",
   "items": {
     "2026-05-23-similarity-algorithms-controlled-vocabulary": {
       "named_concepts": [
@@ -66,6 +66,106 @@
         {
           "text": "Cosine TF-IDF, BM25, and embedding similarity are not appropriate for pairwise slug-label deduplication at vocabulary scales of 20–40 terms",
           "sources": []
+        }
+      ]
+    },
+    "2026-05-23-governance-controls-effectiveness-conditions": {
+      "named_concepts": [
+        "supervisory guidance",
+        "periodic review",
+        "review cadence",
+        "internal governance",
+        "material change",
+        "meaningful challenge",
+        "banking supervisory",
+        "authoritative inputs",
+        "governance controls",
+        "regulated enterprises",
+        "minimise coordination",
+        "bureaucratic overhead",
+        "nominal review",
+        "relationship-specific investment",
+        "control intensity",
+        "governance design",
+        "responsibilities authority",
+        "reporting lines",
+        "clearly allocated",
+        "governance framework"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1111/j.1468-0335.1937.tb00002.x",
+        "https://doi.org/10.1017/CBO9780511808678",
+        "https://www.jstor.org/stable/1925895",
+        "https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf",
+        "https://www.bis.org/bcbs/publ/d328.pdf",
+        "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf",
+        "https://eric.ed.gov/?id=EJ525938",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-hitl-capacity-thresholds-in-banking-compliance.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Internal governance controls are most likely to minimise coordination cost when they are reserved for transactions with high relationship-specific investment, also called asset specificity, meaning investments that lose value outside the focal relationship, high uncertainty, or high consequence, because those are the cases where contracting failure, hold-up risk, or costly error correction make tighter hierarchy economically justified",
+          "sources": [
+            "https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html"
+          ]
+        },
+        {
+          "text": "Banking supervisory guidance requires control intensity to be proportionate to the institution's size, complexity, risk profile, and business model in both governance design and periodic review",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf"
+          ]
+        },
+        {
+          "text": "Banking supervisory guidance also requires responsibilities, authority, and reporting lines to be clearly allocated across business lines, management, and control functions throughout the governance framework",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html"
+          ]
+        },
+        {
+          "text": "Banking supervisory guidance requires periodic review of governance arrangements and reassessment after material change, making review cadence a direct design condition for internal controls in regulated firms",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf"
+          ]
+        },
+        {
+          "text": "Controls are enabling rather than coercive when they help staff solve exceptions with authoritative information and intelligible authority, whereas controls that mainly add surveillance, repetitive approval, or low-signal checkpoints tend to create resistance and bureaucratic drag",
+          "sources": [
+            "https://eric.ed.gov/?id=EJ525938",
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20internal%20governance%20under%20CRD.pdf"
+          ]
+        },
+        {
+          "text": "High-volume line-by-line review is one of the clearest points where a control flips from coordination aid to overhead, because queue growth, latency, and very low effective disagreement or override indicate that nominal review is no longer producing meaningful challenge",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-20-hitl-capacity-thresholds-in-banking-compliance.html"
+          ]
+        },
+        {
+          "text": "Adjacent evidence from workforce-record control failures shows that when copied spreadsheets, presentations, or downstream artifacts become the working record, organisations lose authoritative-source control, complete audit evidence, governed change, and part of operational resilience",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html"
+          ]
+        },
+        {
+          "text": "A practical governance-effectiveness diagnostic is whether a control has a named risk owner, a clear escalation path, authoritative inputs, proportionate trigger conditions, and a scheduled or event-driven review path, because missing any of these shifts the burden from risk reduction toward coordination overhead",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20internal%20governance%20under%20CRD.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-system-of-record-bypass-control-deficiencies.html"
+          ]
         }
       ]
     },
