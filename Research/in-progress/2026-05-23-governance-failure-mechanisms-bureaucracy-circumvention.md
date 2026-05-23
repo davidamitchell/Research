@@ -1,5 +1,5 @@
 ---
-review_count: 0
+review_count: 1
 title: "Failure mechanisms of internal governance controls: bureaucratic inefficiency and informal circumvention in regulated enterprises"
 added: 2026-05-23T01:19:53+00:00
 status: reviewing
