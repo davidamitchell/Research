@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-05-25T10:52:02Z",
+  "extracted_at": "2026-05-25T11:38:12Z",
   "items": {
+    "2026-05-25-ontology-world-model-llm-prediction-forcing-functions": {
+      "named_concepts": [
+        "et al",
+        "world model",
+        "pan et",
+        "zhang et",
+        "fang et",
+        "schema org",
+        "ontology investment",
+        "representation-space mismatch",
+        "ontology completeness",
+        "continuous latent",
+        "multi-hop relational",
+        "expert-labour scarcity",
+        "incentive misalignment",
+        "standards fragmentation",
+        "kg completion",
+        "forcing function",
+        "construction difficulty",
+        "infrastructure economics",
+        "owl-s procedural",
+        "procedural attachments"
+      ],
+      "source_urls": [
+        "https://openreview.net/forum?id=BZ5a1r-kVsf",
+        "https://en.wikipedia.org/wiki/World_model",
+        "https://en.wikipedia.org/wiki/Ontology_(information_science",
+        "https://arxiv.org/abs/2306.08302",
+        "https://www.ijcai.org/proceedings/2023/734",
+        "https://arxiv.org/abs/2411.04393",
+        "https://arxiv.org/abs/2401.09334",
+        "https://www.nature.com/articles/nrn2787",
+        "https://davidamitchell.github.io/Research/research/2026-02-28-predictive-processing-active-inference.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-vl-jepa-concept-prediction.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html"
+      ],
+      "key_claims": [
+        {
+          "text": "LeCun's configurable predictive world model specifies seven minimum properties, of which a classical ontology satisfies at most two: hierarchical abstraction and relational structural constraints. The five unmet properties are continuous latent-state prediction, counterfactual configurability, temporal multi-step forecasting, robustness to partial observation, and self-supervised training from sensory data",
+          "sources": [
+            "https://openreview.net/forum?id=BZ5a1r-kVsf",
+            "https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html"
+          ]
+        },
+        {
+          "text": "Knowledge graph (KG)-enhanced LLMs show measurable factuality gains on structured question-answering and multi-hop relational tasks, confirming that ontology augmentation has a real but narrow prediction benefit. Pan et al. (2024) reviewed multiple integration frameworks and confirmed improvement in factuality and interpretability, and Fang et al. (2024) achieved 88% average symbolic task performance for LLM agents augmented with symbolic modules versus lower baselines without modules",
+          "sources": [
+            "https://arxiv.org/abs/2306.08302",
+            "https://arxiv.org/abs/2401.09334"
+          ]
+        },
+        {
+          "text": "Standard ontologies treat facts as static, and this assumption produces prediction errors in any domain where facts change, creating a structural temporal ceiling on world-model-like prediction. The IJCAI 2023 temporal KG completion survey confirms that standard KG completion methods assume a static graph and that incorporating temporal validity of facts yields improved prediction results",
+          "sources": [
+            "https://www.ijcai.org/proceedings/2023/734"
+          ]
+        },
+        {
+          "text": "The representation-space mismatch between the continuous neural embeddings in which LeCun's Joint Embedding Predictive Architecture (JEPA) operates and the discrete symbols of an ontology means the two systems are not natively interchangeable without bridging architectures. Zhang et al. (2024) classify this as the central limitation in neuro-symbolic artificial intelligence (AI) integration, requiring specialised bridging mechanisms",
+          "sources": [
+            "https://arxiv.org/abs/2411.04393",
+            "https://openreview.net/forum?id=BZ5a1r-kVsf"
+          ]
+        },
+        {
+          "text": "Expert-labour scarcity is the dominant technical forcing function slowing ontology completeness: building and maintaining a production-quality domain ontology requires simultaneous domain expertise and ontology engineering skill, and both are scarce relative to the breadth of world knowledge. The historically documented difficulty of large-scale commonsense and enterprise ontology projects to achieve general open-world coverage despite sustained investment illustrates the practical ceiling of manual curation at world scale",
+          "sources": [
+            "https://arxiv.org/abs/2306.08302",
+            "https://arxiv.org/abs/2411.04393"
+          ]
+        },
+        {
+          "text": "Standards fragmentation across OWL, schema.org, and domain-specific ontology namespaces creates a ceiling on cross-domain completeness because each cross-namespace boundary requires costly alignment work, reducing effective coverage below any single namespace's local completeness level. W3C OWL serves formal reasoning use cases while schema.org serves web annotation, and their overlap is structurally incomplete",
+          "sources": [
+            "https://www.w3.org/OWL/",
+            "https://schema.org/",
+            "https://arxiv.org/abs/2306.08302"
+          ]
+        },
+        {
+          "text": "Organisational incentive misalignment is a non-technical forcing function: ontology curation bears private expert cost while the benefit is shared across all downstream users, producing a public-goods under-provision dynamic that keeps ontology completeness at a local equilibrium well below what full world-model coverage would require. Without institutional mechanisms such as funded curation roles or tooling that reduces marginal annotation cost, this equilibrium persists independently of technical capability",
+          "sources": [
+            "https://arxiv.org/abs/2306.08302"
+          ]
+        },
+        {
+          "text": "Procedural, commonsense, and embodied knowledge cannot be encoded in any ontology at any completeness level, because ontologies represent declarative categorical relations while LeCun's world model requires predicting action consequences in continuous latent space. This is a categorical rather than quantitative gap: there is no level of ontology completeness that provides the sensorimotor grounding or continuous-state trajectory forecasting that LeCun's architecture requires",
+          "sources": [
+            "https://openreview.net/forum?id=BZ5a1r-kVsf",
+            "https://arxiv.org/abs/2411.04393"
+          ]
+        }
+      ]
+    },
     "2026-05-25-llm-math-programming-reasoning-substrate": {
       "named_concepts": [
         "formal symbolic",
