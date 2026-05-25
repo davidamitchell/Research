@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 75a93c888a3539b8971a420c42dc6eaca37be1ad
+    changed: 2026-05-25
+    progress: progress/2026-05-25-llm-math-programming-reasoning-substrate.md
+    summary: "Initial completion"
 ---
 
 # LLM reasoning in mathematics and programming tasks
