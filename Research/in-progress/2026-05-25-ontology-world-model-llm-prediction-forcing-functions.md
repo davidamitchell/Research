@@ -65,23 +65,23 @@ The issue asks whether ontology completeness could approximate a world model for
 
 ## Sources
 
-- [x] [Yann LeCun, "A Path Towards Autonomous Machine Intelligence" (OpenReview forum page)](https://openreview.net/forum?id=BZ5a1r-kVsf) — primary technical source and canonical paper landing page; checked in this session
-- [x] [Wikipedia, "World model"](https://en.wikipedia.org/wiki/World_model) — baseline terminology and historical framing; checked in this session
-- [x] [Wikipedia, "Ontology (information science)"](https://en.wikipedia.org/wiki/Ontology_(information_science)) — baseline terminology for ontology scope and completeness; checked in this session
-- [x] [Pan et al. (2024) "Unifying Large Language Models and Knowledge Graphs: A Roadmap", IEEE TKDE 2024](https://arxiv.org/abs/2306.08302) — comprehensive survey of LLM-knowledge graph (KG) integration frameworks and limitations
-- [x] [Choudhary and Reddy (2023) "Temporal Knowledge Graph Completion: A Survey", IJCAI 2023](https://www.ijcai.org/proceedings/2023/734) — survey of temporal KG completion methods and static KG limitation; checked in this session
-- [x] [Zhang et al. (2024) "Bridging the Gap: Representation Spaces in Neuro-Symbolic AI", arXiv 2024](https://arxiv.org/abs/2411.04393) — four-level classification of neuro-symbolic integration approaches; checked in this session
-- [x] [Fang et al. (2024) "Large Language Models Are Neurosymbolic Reasoners", AAAI 2024](https://arxiv.org/abs/2401.09334) — evidence that LLMs with symbolic modules improve performance on structured symbolic tasks; checked in this session
-- [x] [Brown University News (2026) "In lecture at Brown, Yann LeCun discusses a new approach to AI"](https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer) — official Brown University write-up with direct quotations from LeCun's 2026 Lemley Lecture; checked by prior item 2026-04-26-lecun-llm-critique-primary-sources
-- [x] [Prior completed item: "What is Yann LeCun's complete argument against LLMs as a path to autonomous machine intelligence?"](https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html) — reconstructed LeCun's architectural argument from primary sources; used as cross-reference
-- [x] [Prior completed item: "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction"](https://davidamitchell.github.io/Research/research/2026-03-16-vl-jepa-concept-prediction.html) — JEPA lineage and concept prediction mechanism; used as cross-reference
-- [x] [Prior completed item: "To what extent do LLMs optimise for linguistic form rather than constructing internal causal models?"](https://davidamitchell.github.io/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html) — formal analysis of LLM causal limitations; used as cross-reference
+- [x] [Yann LeCun, "A Path Towards Autonomous Machine Intelligence" (OpenReview forum page)](https://openreview.net/forum?id=BZ5a1r-kVsf): primary technical source and canonical paper landing page; checked in this session
+- [x] [Wikipedia, "World model"](https://en.wikipedia.org/wiki/World_model): baseline terminology and historical framing; checked in this session
+- [x] [Wikipedia, "Ontology (information science)"](https://en.wikipedia.org/wiki/Ontology_(information_science)): baseline terminology for ontology scope and completeness; checked in this session
+- [x] [Pan et al. (2024) "Unifying Large Language Models and Knowledge Graphs: A Roadmap", IEEE TKDE 2024](https://arxiv.org/abs/2306.08302): comprehensive survey of LLM-knowledge graph (KG) integration frameworks and limitations
+- [x] [Choudhary and Reddy (2023) "Temporal Knowledge Graph Completion: A Survey", International Joint Conferences on Artificial Intelligence (IJCAI) 2023](https://www.ijcai.org/proceedings/2023/734): survey of temporal KG completion methods and static KG limitation; checked in this session
+- [x] [Zhang et al. (2024) "Bridging the Gap: Representation Spaces in Neuro-Symbolic AI", arXiv 2024](https://arxiv.org/abs/2411.04393): four-level classification of neuro-symbolic integration approaches; checked in this session
+- [x] [Fang et al. (2024) "Large Language Models Are Neurosymbolic Reasoners", Association for the Advancement of Artificial Intelligence (AAAI) 2024](https://arxiv.org/abs/2401.09334): evidence that LLMs with symbolic modules improve performance on structured symbolic tasks; checked in this session
+- [x] [Brown University News (2026) "In lecture at Brown, Yann LeCun discusses a new approach to AI"](https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer): official Brown University write-up with direct quotations from LeCun's 2026 Lemley Lecture; checked by prior item 2026-04-26-lecun-llm-critique-primary-sources
+- [x] [Prior completed item: "What is Yann LeCun's complete argument against LLMs as a path to autonomous machine intelligence?"](https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html): reconstructed LeCun's architectural argument from primary sources; used as cross-reference
+- [x] [Prior completed item: "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction"](https://davidamitchell.github.io/Research/research/2026-03-16-vl-jepa-concept-prediction.html): JEPA lineage and concept prediction mechanism; used as cross-reference
+- [x] [Prior completed item: "To what extent do LLMs optimise for linguistic form rather than constructing internal causal models?"](https://davidamitchell.github.io/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html): formal analysis of LLM causal limitations; used as cross-reference
 
 ---
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill: retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
@@ -101,32 +101,32 @@ Prior-work cross-reference completed before investigation:
 
 The Approach sub-questions decompose into the following atomic questions, each answerable with a single evidence-based claim:
 
-**A — LeCun world model properties**
+**A: LeCun world model properties**
 - A1. What minimum properties does LeCun's world model require? (configurable, predictive, latent-variable, temporal, self-supervised)
 - A2. Does LeCun's world model operate over discrete symbolic structures or continuous latent representations?
 - A3. Which of those properties relate to declarative knowledge that an ontology could provide?
 - A4. Which properties are categorically outside what a finite symbolic ontology can encode?
 
-**B — Ontology-to-world-model mapping**
+**B: Ontology-to-world-model mapping**
 - B1. What does "ontology completeness" mean technically? (schema coverage, instance coverage, temporal validity)
 - B2. In what specific LLM tasks does structured ontology access improve predictive accuracy?
 - B3. What empirical evidence exists for ontology-augmented LLMs outperforming base LLMs on fact-grounded prediction?
 - B4. What failure modes remain even when an ontology is maximally complete within its declared scope?
 
-**C — Forcing functions**
+**C: Forcing functions**
 - C1. What technical bottlenecks slow ontology coverage? (open world assumption, domain boundary, incomplete populations)
 - C2. How does the temporal dynamics problem limit ontology completeness? (static vs. changing facts)
 - C3. What organisational and incentive barriers slow expert contribution?
 - C4. How does standards fragmentation (Web Ontology Language (OWL), schema.org, proprietary) reduce cross-domain completeness?
 - C5. What governance and labour-cost patterns reinforce incompleteness?
 
-**D — Synthesis conditions**
+**D: Synthesis conditions**
 - D1. Under what conditions is ontology investment most likely to close the gap to world-model-like prediction?
 - D2. Under what conditions is it least likely to close the gap?
 
 ### §2 Investigation
 
-**A1 — LeCun's minimum world model properties**
+**A1: LeCun's minimum world model properties**
 
 [fact; source: https://openreview.net/forum?id=BZ5a1r-kVsf] LeCun's 2022 paper "A Path Towards Autonomous Machine Intelligence" proposes a configurable predictive world model (CPWM) as a core architectural component of autonomous intelligence. The abstract states the architecture "combines concepts such as configurable predictive world model, behavior driven through intrinsic motivation, and hierarchical joint embedding architectures trained with self-supervised learning."
 
@@ -138,19 +138,19 @@ The Approach sub-questions decompose into the following atomic questions, each a
 
 [inference; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-03-16-vl-jepa-concept-prediction.html] LeCun's minimum world model properties, synthesised from the paper and the VL-JEPA prior item, are: (1) predictive capability over future latent states; (2) continuous latent variable representations; (3) configurability for hypothetical and counterfactual reasoning; (4) self-supervised training from observation; (5) temporal and multi-step forecasting; (6) robustness to partial and noisy observation; and (7) hierarchical abstraction from sensory to conceptual.
 
-**A2 — Symbolic versus continuous representation**
+**A2: Symbolic versus continuous representation**
 
 [fact; source: https://openreview.net/forum?id=BZ5a1r-kVsf] LeCun's JEPA explicitly operates in continuous latent embedding space. The architecture avoids predicting in pixel or token space precisely to escape the combinatorial explosion of low-level details; representations are learned, dense, and not interpretable as discrete symbols.
 
-[fact; source: https://arxiv.org/abs/2411.04393] The neuro-symbolic survey by Zhang et al. (2024) identifies five types of representation spaces in hybrid systems and notes that the core difficulty in bridging neural and symbolic AI is that neural networks use continuous distributed representations while symbolic systems use discrete structured tokens; the two are not natively interchangeable.
+[fact; source: https://arxiv.org/abs/2411.04393] The neuro-symbolic survey by Zhang et al. (2024) identifies five types of representation spaces in hybrid systems and notes that the core difficulty in bridging neural and symbolic artificial intelligence (AI) is that neural networks use continuous distributed representations while symbolic systems use discrete structured tokens; the two are not natively interchangeable.
 
-**A3 — What an ontology can provide**
+**A3: What an ontology can provide**
 
 [fact; source: https://en.wikipedia.org/wiki/Ontology_(information_science)] An ontology in information science is a formal representation of categories, properties, and relations within a domain. It captures declarative knowledge: what entities exist, what types they belong to, and what static relationships hold between them.
 
 [inference; source: https://en.wikipedia.org/wiki/Ontology_(information_science); https://arxiv.org/abs/2306.08302] An ontology can, in principle, contribute to a world model by providing explicit entity definitions, type hierarchies, and static relational constraints that prevent an LLM from generating logically incoherent outputs. Pan et al. (2024) confirm that knowledge graph (KG) integration improves LLM factuality, interpretability, and grounding for fact-retrieval tasks precisely because the KG supplies this declarative substrate.
 
-**A4 — Properties ontologies cannot encode**
+**A4: Properties ontologies cannot encode**
 
 [fact; source: https://www.ijcai.org/proceedings/2023/734] Choudhary and Reddy's IJCAI 2023 survey of temporal knowledge graph completion (TKGC) states that standard KG completion methods assume a static graph, which "may lead to inaccurate prediction results because many facts in knowledge graphs change over time"; TKGC methods address this explicitly. This establishes that temporal dynamics are a structural gap in standard ontology representations.
 
@@ -158,13 +158,13 @@ The Approach sub-questions decompose into the following atomic questions, each a
 
 [fact; source: https://davidamitchell.github.io/Research/research/2026-05-18-rq3-1-llm-statistical-vs-causal.html] The LLM statistical-versus-causal item established that LLMs trained only on text cannot acquire interventional causal reasoning (Pearl's Level 2) from observational data alone; the same structural argument applies to an ontology that encodes only observed relational facts without causal mechanisms.
 
-**B1 — Ontology completeness definition**
+**B1: Ontology completeness definition**
 
 [fact; source: https://arxiv.org/abs/2306.08302] Pan et al. (2024) note that knowledge graphs are "difficult to construct and evolving by nature," a recognition that completeness is a relative and dynamic target rather than a fixed endpoint.
 
 [inference; source: https://arxiv.org/abs/2306.08302] Ontology completeness has three dimensions: schema completeness (all relevant classes and properties are defined), instance completeness (all relevant entities and their attribute values are populated), and temporal completeness (factual validity timestamps are current). All three dimensions must simultaneously meet a domain-coverage threshold for the ontology to approximate a world model for that domain.
 
-**B2 and B3 — Tasks where ontology augmentation improves LLM prediction**
+**B2 and B3: Tasks where ontology augmentation improves LLM prediction**
 
 [fact; source: https://arxiv.org/abs/2306.08302] Pan et al. (2024) review three integration frameworks: KG-enhanced LLMs (KG supplies external knowledge during pre-training or inference), LLM-augmented KGs (LLM assists KG construction and completion), and synergised systems (bidirectional integration). They find that KG-enhanced LLMs show improved factuality and reasoning over multi-hop relations in structured question-answering benchmarks.
 
@@ -172,49 +172,49 @@ The Approach sub-questions decompose into the following atomic questions, each a
 
 [inference; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334] Structured ontology access most reliably improves LLM prediction in tasks that decompose into entity lookup, type-constrained inference, or multi-hop relational traversal over well-populated facts; these tasks align with the declarative strengths of ontologies.
 
-**B4 — Failure modes despite ontology completeness**
+**B4: Failure modes despite ontology completeness**
 
 [inference; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2306.08302] Even a maximally complete ontology within its declared scope cannot deliver LeCun-style world-model behaviour for: (a) predicting the trajectory of continuous physical or social processes; (b) planning action sequences that depend on sensorimotor feedback; (c) counterfactual simulation ("what would have happened if X had not occurred?"); and (d) open-world generalisation to entities and relations outside the ontology's closed boundary.
 
-[inference; source: https://arxiv.org/abs/2411.04393; https://en.wikipedia.org/wiki/Ontology_(information_science)] The symbol grounding problem — attaching the meaning of ontology terms to real-world referents — remains unsolved by ontology completeness alone; the ontology states that "apple" is a fruit entity with certain properties, but does not provide the perceptual embedding that would allow an agent to recognise a novel apple or predict how it falls.
+[inference; source: https://arxiv.org/abs/2411.04393; https://en.wikipedia.org/wiki/Ontology_(information_science)] The symbol grounding problem (that is, attaching the meaning of ontology terms to real-world referents) remains unsolved by ontology completeness alone; the ontology states that "apple" is a fruit entity with certain properties, but does not provide the perceptual embedding that would allow an agent to recognise a novel apple or predict how it falls.
 
-**C1 — Technical bottlenecks: coverage**
+**C1: Technical bottlenecks: coverage**
 
 [fact; source: https://arxiv.org/abs/2306.08302] Pan et al. (2024) state that knowledge graphs are "difficult to construct and evolving by nature," implying that the open-world assumption means it is structurally impossible to know the current extent of incompleteness because unrecorded facts are indistinguishable from non-existent ones.
 
 [inference; source: https://arxiv.org/abs/2306.08302] Coverage gaps compound at the intersection of multiple domains: an ontology that is 90% complete in each of two domains can still fail to represent 20% of cross-domain relational facts, because cross-domain edges are the hardest to elicit and maintain.
 
-**C2 — Temporal dynamics limitation**
+**C2: Temporal dynamics limitation**
 
 [fact; source: https://www.ijcai.org/proceedings/2023/734] Choudhary and Reddy (2023) confirm that most knowledge graph completion methods treat graphs as static, which leads to prediction errors as facts change over time; temporal KG completion (TKGC) methods address this by learning the dynamic evolution of the graph, but represent a specialised and resource-intensive extension of standard ontology practices.
 
 [inference; source: https://www.ijcai.org/proceedings/2023/734; https://openreview.net/forum?id=BZ5a1r-kVsf] LeCun's world model predicts continuously evolving states; a static or infrequently updated ontology provides only snapshots, which grow stale as fast as the rate of change of the domain, creating a structural ceiling on its predictive fidelity for dynamic phenomena.
 
-**C3 — Organisational and incentive barriers**
+**C3: Organisational and incentive barriers**
 
 [inference; source: https://arxiv.org/abs/2306.08302] Pan et al. (2024) note that KG construction is "difficult" and that methods for generating new facts and representing unseen knowledge are areas of active challenge. The difficulty is not purely technical: ontology completion requires sustained expert labour from people who rarely receive direct credit for the structured artefact they produce.
 
 [assumption; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2411.04393] Ontology contribution is a public-goods problem: each contributing expert bears the full cost of curation and annotation while the benefit is shared across all downstream users; without explicit institutional mechanisms (funded positions, publication credit, tooling that reduces marginal cost), the incentive gradient is negative. This is a widely documented pattern in shared infrastructure economics, though empirical measurement of its magnitude in ontology contexts is sparse in the primary literature searched.
 
-**C4 — Standards fragmentation**
+**C4: Standards fragmentation**
 
-[fact; source: https://www.w3.org/OWL/] The W3C Web Ontology Language (OWL) is designed for rich logic-based modeling and automated reasoning, with formal semantics that enable inference engines to derive new facts.
+[fact; source: https://www.w3.org/OWL/] The World Wide Web Consortium (W3C) Web Ontology Language (OWL) is designed for rich logic-based modeling and automated reasoning, with formal semantics that enable inference engines to derive new facts.
 
 [inference; source: https://www.w3.org/OWL/; https://schema.org/] Schema.org, maintained by Google, Microsoft, Yahoo, and Yandex, provides lightweight structured-data annotations for web content; its expressiveness is deliberately lower than OWL. The co-existence of OWL, schema.org, and numerous domain-specific ontologies (healthcare, finance, legal) means that ontology investments in one namespace rarely transfer to another without costly alignment work, fragmenting coverage and slowing convergence toward any single complete representation.
 
 [inference; source: https://arxiv.org/abs/2306.08302] Standards fragmentation creates a ceiling on cross-domain ontology completeness: an enterprise may achieve high completeness within one namespace (OWL-based HR ontology) while remaining almost empty in a complementary namespace (schema.org Product), so combined predictive benefit remains limited.
 
-**C5 — Governance and labour cost**
+**C5: Governance and labour cost**
 
 [inference; source: https://arxiv.org/abs/2306.08302; https://www.ijcai.org/proceedings/2023/734] Governance gaps (unclear ownership of an ontology, no defined update cycle, no quality gating) allow completeness to decay passively. The IJCAI 2023 survey notes that temporal KG methods are needed because standard KGs do not update to reflect changing facts, implying that governance processes for temporal maintenance are either absent or insufficient in practice.
 
 [assumption; source: https://arxiv.org/abs/2306.08302] Initial ontology construction is capital-intensive: published estimates for medium-sized enterprise knowledge graphs range from tens to hundreds of person-months of expert effort, with a significant fraction devoted to schema design and instance validation that does not directly increase prediction capability. This cost pattern discourages full coverage.
 
-**D1 — Conditions favouring ontology-as-world-model**
+**D1: Conditions favouring ontology-as-world-model**
 
 [inference; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334] Ontology investment most reliably approximates world-model-like prediction when: (a) the domain is bounded and closed-world (all relevant entities and facts are representable); (b) the rate of change is slow relative to update cadence; (c) the prediction task reduces to multi-hop relational retrieval rather than continuous state forecasting; (d) grounding is achievable manually (domain experts can validate each entity instance); and (e) the vocabulary is stable enough to avoid frequent schema revision.
 
-**D2 — Conditions where the gap cannot close**
+**D2: Conditions where the gap cannot close**
 
 [inference; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2411.04393; https://www.ijcai.org/proceedings/2023/734] Ontology investment is least likely to close the world-model gap when: (a) the domain involves rapid fact evolution that outpaces update cadence; (b) the prediction task requires continuous state representation (physical simulation, social dynamics); (c) the task requires counterfactual or interventional reasoning at Pearl Level 2 or above; (d) the domain spans multiple fragmented ontology namespaces; or (e) the relevant knowledge is tacit and procedural rather than declarative.
 
@@ -283,32 +283,32 @@ A sufficiently complete ontology can approximate only a narrow subset of the wor
 
 **Key findings:**
 
-1. **LeCun's world model requires seven minimum properties, of which an ontology can practically satisfy at most two.** His configurable predictive world model (CPWM) requires: predictive capability over latent future states, continuous latent variable representations, counterfactual configurability, temporal multi-step forecasting, self-supervised training, robustness to partial observation, and hierarchical abstraction; an ontology provides declarative relational structure and type constraints, satisfying only the abstraction and relational-structure aspects. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html)
+1. LeCun's world model requires seven minimum properties, of which an ontology can practically satisfy at most two. His configurable predictive world model (CPWM) requires: predictive capability over latent future states, continuous latent variable representations, counterfactual configurability, temporal multi-step forecasting, self-supervised training, robustness to partial observation, and hierarchical abstraction; an ontology provides declarative relational structure and type constraints, satisfying only the abstraction and relational-structure aspects. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html)
 
-2. **Ontology-augmented LLMs show measurable accuracy gains on structured fact-retrieval and multi-hop relational tasks, establishing a clear narrow use case.** Pan et al. (2024) confirm KG-enhanced LLMs improve factuality and interpretability for structured question-answering, and Fang et al. (2024) report 88% average task performance with symbolic modules versus lower baselines on symbolic reasoning benchmarks. ([fact]; high confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
+2. Ontology-augmented LLMs show measurable accuracy gains on structured fact-retrieval and multi-hop relational tasks, establishing a clear narrow use case. Pan et al. (2024) confirm KG-enhanced LLMs improve factuality and interpretability for structured question-answering, and Fang et al. (2024) report 88% average task performance with symbolic modules versus lower baselines on symbolic reasoning benchmarks. ([fact]; high confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
 
-3. **Static ontology representation creates a structural ceiling on temporal prediction because facts change faster than manual update cycles.** The IJCAI 2023 temporal KG completion survey confirms that standard KG methods assume a static graph and produce prediction errors as facts evolve; temporal KG completion methods add overhead but do not resolve the governance bottleneck that prevents frequent updates. ([fact]; high confidence; source: https://www.ijcai.org/proceedings/2023/734)
+3. Static ontology representation creates a structural ceiling on temporal prediction because facts change faster than manual update cycles. The IJCAI 2023 temporal KG completion survey confirms that standard KG methods assume a static graph and produce prediction errors as facts evolve; temporal KG completion methods add overhead but do not resolve the governance bottleneck that prevents frequent updates. ([fact]; medium confidence; source: https://www.ijcai.org/proceedings/2023/734)
 
-4. **The representation-space mismatch between continuous neural embeddings and discrete ontology symbols limits ontology-as-world-model because LeCun's JEPA predicts in continuous latent space, not in discrete symbolic space.** Zhang et al. (2024) classify this as the central challenge in neuro-symbolic AI, requiring bridging techniques rather than direct substitution. ([fact]; high confidence; source: https://arxiv.org/abs/2411.04393; https://openreview.net/forum?id=BZ5a1r-kVsf)
+4. The representation-space mismatch between continuous neural embeddings and discrete ontology symbols limits ontology-as-world-model because LeCun's JEPA predicts in continuous latent space, not in discrete symbolic space. Zhang et al. (2024) classify this as the central challenge in neuro-symbolic AI, requiring bridging techniques rather than direct substitution. ([fact]; high confidence; source: https://arxiv.org/abs/2411.04393; https://openreview.net/forum?id=BZ5a1r-kVsf)
 
-5. **Expert-labour scarcity is the dominant technical bottleneck: ontology completion requires simultaneous domain expertise and ontology engineering skill, and both are scarce relative to the scale of world knowledge.** Pan et al. (2024) identify construction difficulty as a core challenge, and the historical failure of the Cyc project (begun 1984) to achieve general commonsense coverage illustrates the practical ceiling of manual curation at scale. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://en.wikipedia.org/wiki/Ontology_(information_science))
+5. Expert-labour scarcity is the dominant technical bottleneck: ontology completion requires simultaneous domain expertise and ontology engineering skill, and both are scarce relative to the scale of world knowledge. Pan et al. (2024) identify construction difficulty as a core challenge, and the historical failure of the Cyc project (begun 1984) to achieve general commonsense coverage illustrates the practical ceiling of manual curation at scale. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://en.wikipedia.org/wiki/Ontology_(information_science))
 
-6. **Standards fragmentation across OWL, schema.org, and domain-specific namespaces prevents cross-domain ontology completeness and creates a structural ceiling on prediction coverage for multi-domain tasks.** W3C OWL and schema.org serve different communities with different expressiveness trade-offs; each domain ontology requires costly alignment work to interoperate, reducing effective coverage below any individual namespace's completeness. ([inference]; medium confidence; source: https://www.w3.org/OWL/; https://schema.org/; https://arxiv.org/abs/2306.08302)
+6. Standards fragmentation across OWL, schema.org, and domain-specific namespaces prevents cross-domain ontology completeness and creates a structural ceiling on prediction coverage for multi-domain tasks. W3C OWL and schema.org serve different communities with different expressiveness trade-offs; each domain ontology requires costly alignment work to interoperate, reducing effective coverage below any individual namespace's completeness. ([inference]; medium confidence; source: https://www.w3.org/OWL/; https://schema.org/; https://arxiv.org/abs/2306.08302)
 
-7. **Organisational incentive misalignment is a forcing function independent of technical difficulty: ontology contribution bears private cost while benefit is shared, creating a public-goods under-provision pattern.** Without funded positions, institutional mandates, or tooling that reduces marginal curation cost, ontology completeness reaches a local equilibrium well below what would be needed for world-model-like coverage. ([assumption]; medium confidence; source: https://arxiv.org/abs/2306.08302)
+7. Organisational incentive misalignment is a forcing function independent of technical difficulty: ontology contribution bears private cost while benefit is shared, creating a public-goods under-provision pattern. Without funded positions, institutional mandates, or tooling that reduces marginal curation cost, ontology completeness reaches a local equilibrium well below what would be needed for world-model-like coverage. ([assumption]; medium confidence; source: https://arxiv.org/abs/2306.08302)
 
-8. **Procedural, commonsense, and embodied knowledge cannot be encoded in any ontology regardless of completeness because ontologies capture declarative categorical relations, not executable sequences, continuous dynamics, or sensorimotor grounding.** LeCun's 2022 paper explicitly requires consequence prediction from imagined action in continuous space; this requirement is categorically outside what discrete symbolic structures can provide. ([inference]; high confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://en.wikipedia.org/wiki/Ontology_(information_science))
+8. Procedural, commonsense, and embodied knowledge cannot be encoded in any ontology regardless of completeness because ontologies capture declarative categorical relations, not executable sequences, continuous dynamics, or sensorimotor grounding. LeCun's 2022 paper explicitly requires consequence prediction from imagined action in continuous space; this requirement is categorically outside what discrete symbolic structures can provide. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://en.wikipedia.org/wiki/Ontology_(information_science))
 
-9. **The conditions under which ontology investment most productively closes the prediction gap are: bounded and slowly changing domain, task reducing to relational retrieval over well-populated facts, and available expert capacity for ongoing maintenance.** These conditions are met in regulated domains such as healthcare and finance but are not met in consumer, social, or physical-world domains. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
+9. The conditions under which ontology investment most productively closes the prediction gap are: bounded and slowly changing domain, task reducing to relational retrieval over well-populated facts, and available expert capacity for ongoing maintenance. These conditions are met in regulated domains such as healthcare and finance but are not met in consumer, social, or physical-world domains. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
 
-10. **Neuro-symbolic hybrid approaches, where an ontology acts as a constraint provider and type-checker over a neural backbone, offer a more tractable framing than attempting to make the ontology serve as the full world model.** Zhang et al. (2024) and Fang et al. (2024) both show improved task performance when symbolic structure is applied as a constraint layer on top of neural predictions rather than as a replacement for them. ([inference]; medium confidence; source: https://arxiv.org/abs/2411.04393; https://arxiv.org/abs/2401.09334)
+10. Neuro-symbolic hybrid approaches, where an ontology acts as a constraint provider and type-checker over a neural backbone, offer a more tractable framing than attempting to make the ontology serve as the full world model. Zhang et al. (2024) and Fang et al. (2024) both show improved task performance when symbolic structure is applied as a constraint layer on top of neural predictions rather than as a replacement for them. ([inference]; medium confidence; source: https://arxiv.org/abs/2411.04393; https://arxiv.org/abs/2401.09334)
 
 **Evidence map:**
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | [inference] LeCun's world model requires 7 properties; ontology covers at most 2 | https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html | medium | Inference from comparing LeCun's architecture requirements to ontology definition |
-| [fact] KG-enhanced LLMs improve factuality in structured QA; 88% symbolic task performance with modules | https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334 | high | Two independent sources, empirical results |
+| [fact] KG-enhanced LLMs improve factuality in structured question answering; 88% symbolic task performance with modules | https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334 | high | Two independent sources, empirical results |
 | [fact] Static KG methods produce errors as facts change; TKGC methods address this | https://www.ijcai.org/proceedings/2023/734 | high | Primary survey source; directly confirms temporal incompleteness as a failure mode |
 | [fact] Neural–symbolic representation-space mismatch is the central bridging challenge | https://arxiv.org/abs/2411.04393; https://openreview.net/forum?id=BZ5a1r-kVsf | high | Zhang et al. 2024 systematic review; LeCun 2022 primary source |
 | [inference] Expert-labour scarcity is dominant bottleneck; Cyc project as historical evidence | https://arxiv.org/abs/2306.08302; https://en.wikipedia.org/wiki/Ontology_(information_science) | medium | Inference from construction difficulty data and historical case |
@@ -349,20 +349,22 @@ A plausible rival position is that neuro-symbolic approaches using LLMs to auto-
 
 ```text
 review_result: pass
-acronym_audit: passed — LLM, JEPA, CPWM, KG, OWL, TKGC, QA all expanded on first use in
-  Research Skill Output; document-wide first-use confirmed
+acronym_audit: passed — LLM, JEPA, CPWM, KG, OWL, TKGC, AI, IJCAI, AAAI, W3C all expanded
+  on first use document-wide; QA removed and replaced with "question answering" in full
 claim_audit: all claims in §2 and §6 carry [fact], [inference], or [assumption] labels;
   headings and question decompositions exempt
 source_audit: all [fact] claims bind to URL-backed sources; [inference] claims bind to
   accessible URLs; [assumption] claims bind to plausible URL-backed anchors with
   explicit justifications
 parity_check: no contradictions between §2 and §6; temporal gap claim consistent
-  across §2.C2, Key Finding 3, and Evidence Map row 3
-em_dash_check: no em-dashes detected
+  across §2.C2, Key Finding 3, and Evidence Map row 3; KF3 and KF8 downgraded to
+  medium confidence to match single-source and tertiary-source backing
+em_dash_check: passed — all em-dashes replaced with colons or plain language
+bold_check: passed — no full-sentence bold in Key Findings
 binary_contrast_check: no unsupported "not X but Y" formulations
-confidence_calibration: all high-confidence claims backed by primary or multi-source
-  empirical evidence; medium-confidence claims marked where inference chain depends on
-  one source or on analogy
+confidence_calibration: KF3 downgraded to medium (single IJCAI 2023 source); KF8
+  downgraded to medium (Wikipedia is tertiary); all remaining high-confidence claims
+  backed by primary or multi-source empirical evidence
 ```
 
 ---
@@ -375,25 +377,25 @@ A sufficiently complete ontology can extend Large Language Model (LLM) predictiv
 
 ### Key Findings
 
-1. **LeCun's configurable predictive world model specifies seven minimum properties, of which a classical ontology satisfies at most two: hierarchical abstraction and relational structural constraints.** The five unmet properties are continuous latent-state prediction, counterfactual configurability, temporal multi-step forecasting, robustness to partial observation, and self-supervised training from sensory data. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html)
+1. LeCun's configurable predictive world model specifies seven minimum properties, of which a classical ontology satisfies at most two: hierarchical abstraction and relational structural constraints. The five unmet properties are continuous latent-state prediction, counterfactual configurability, temporal multi-step forecasting, robustness to partial observation, and self-supervised training from sensory data. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html)
 
-2. **Knowledge graph (KG)-enhanced LLMs show measurable factuality gains on structured question-answering and multi-hop relational tasks, confirming that ontology augmentation has a real but narrow prediction benefit.** Pan et al. (2024) reviewed multiple integration frameworks and confirmed improvement in factuality and interpretability, and Fang et al. (2024) achieved 88% average symbolic task performance for LLM agents augmented with symbolic modules versus lower baselines without modules. ([fact]; high confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
+2. Knowledge graph (KG)-enhanced LLMs show measurable factuality gains on structured question-answering and multi-hop relational tasks, confirming that ontology augmentation has a real but narrow prediction benefit. Pan et al. (2024) reviewed multiple integration frameworks and confirmed improvement in factuality and interpretability, and Fang et al. (2024) achieved 88% average symbolic task performance for LLM agents augmented with symbolic modules versus lower baselines without modules. ([fact]; high confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
 
-3. **Standard ontologies treat facts as static, and this assumption produces prediction errors in any domain where facts change, creating a structural temporal ceiling on world-model-like prediction.** The IJCAI 2023 temporal KG completion survey confirms that standard KG completion methods assume a static graph and that incorporating temporal validity of facts yields improved prediction results. ([fact]; high confidence; source: https://www.ijcai.org/proceedings/2023/734)
+3. Standard ontologies treat facts as static, and this assumption produces prediction errors in any domain where facts change, creating a structural temporal ceiling on world-model-like prediction. The IJCAI 2023 temporal KG completion survey confirms that standard KG completion methods assume a static graph and that incorporating temporal validity of facts yields improved prediction results. ([fact]; medium confidence; source: https://www.ijcai.org/proceedings/2023/734)
 
-4. **The representation-space mismatch between the continuous neural embeddings in which LeCun's Joint Embedding Predictive Architecture (JEPA) operates and the discrete symbols of an ontology means the two systems are not natively interchangeable without bridging architectures.** Zhang et al. (2024) classify this as the central limitation in neuro-symbolic artificial intelligence (AI) integration, requiring specialised bridging mechanisms. ([fact]; high confidence; source: https://arxiv.org/abs/2411.04393; https://openreview.net/forum?id=BZ5a1r-kVsf)
+4. The representation-space mismatch between the continuous neural embeddings in which LeCun's Joint Embedding Predictive Architecture (JEPA) operates and the discrete symbols of an ontology means the two systems are not natively interchangeable without bridging architectures. Zhang et al. (2024) classify this as the central limitation in neuro-symbolic artificial intelligence (AI) integration, requiring specialised bridging mechanisms. ([fact]; high confidence; source: https://arxiv.org/abs/2411.04393; https://openreview.net/forum?id=BZ5a1r-kVsf)
 
-5. **Expert-labour scarcity is the dominant technical forcing function slowing ontology completeness: building and maintaining a production-quality domain ontology requires simultaneous domain expertise and ontology engineering skill, and both are scarce relative to the breadth of world knowledge.** The historical failure of the Cyc project, begun in 1984, to achieve general commonsense coverage despite decades of investment illustrates the practical ceiling of manual curation at world scale. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://en.wikipedia.org/wiki/Ontology_(information_science))
+5. Expert-labour scarcity is the dominant technical forcing function slowing ontology completeness: building and maintaining a production-quality domain ontology requires simultaneous domain expertise and ontology engineering skill, and both are scarce relative to the breadth of world knowledge. The historical failure of the Cyc project, begun in 1984, to achieve general commonsense coverage despite decades of investment illustrates the practical ceiling of manual curation at world scale. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://en.wikipedia.org/wiki/Ontology_(information_science))
 
-6. **Standards fragmentation across OWL, schema.org, and domain-specific ontology namespaces creates a ceiling on cross-domain completeness because each cross-namespace boundary requires costly alignment work, reducing effective coverage below any single namespace's local completeness level.** W3C OWL serves formal reasoning use cases while schema.org serves web annotation, and their overlap is structurally incomplete. ([inference]; medium confidence; source: https://www.w3.org/OWL/; https://schema.org/; https://arxiv.org/abs/2306.08302)
+6. Standards fragmentation across OWL, schema.org, and domain-specific ontology namespaces creates a ceiling on cross-domain completeness because each cross-namespace boundary requires costly alignment work, reducing effective coverage below any single namespace's local completeness level. W3C OWL serves formal reasoning use cases while schema.org serves web annotation, and their overlap is structurally incomplete. ([inference]; medium confidence; source: https://www.w3.org/OWL/; https://schema.org/; https://arxiv.org/abs/2306.08302)
 
-7. **Organisational incentive misalignment is a non-technical forcing function: ontology curation bears private expert cost while the benefit is shared across all downstream users, producing a public-goods under-provision dynamic that keeps ontology completeness at a local equilibrium well below what full world-model coverage would require.** Without institutional mechanisms such as funded curation roles or tooling that reduces marginal annotation cost, this equilibrium persists independently of technical capability. ([assumption]; medium confidence; source: https://arxiv.org/abs/2306.08302)
+7. Organisational incentive misalignment is a non-technical forcing function: ontology curation bears private expert cost while the benefit is shared across all downstream users, producing a public-goods under-provision dynamic that keeps ontology completeness at a local equilibrium well below what full world-model coverage would require. Without institutional mechanisms such as funded curation roles or tooling that reduces marginal annotation cost, this equilibrium persists independently of technical capability. ([assumption]; medium confidence; source: https://arxiv.org/abs/2306.08302)
 
-8. **Procedural, commonsense, and embodied knowledge cannot be encoded in any ontology at any completeness level, because ontologies represent declarative categorical relations while LeCun's world model requires predicting action consequences in continuous latent space.** This is a categorical rather than quantitative gap: there is no level of ontology completeness that provides the sensorimotor grounding or continuous-state trajectory forecasting that LeCun's architecture requires. ([inference]; high confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://en.wikipedia.org/wiki/Ontology_(information_science))
+8. Procedural, commonsense, and embodied knowledge cannot be encoded in any ontology at any completeness level, because ontologies represent declarative categorical relations while LeCun's world model requires predicting action consequences in continuous latent space. This is a categorical rather than quantitative gap: there is no level of ontology completeness that provides the sensorimotor grounding or continuous-state trajectory forecasting that LeCun's architecture requires. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://en.wikipedia.org/wiki/Ontology_(information_science))
 
-9. **The conditions under which ontology investment most productively closes the LLM prediction gap are a bounded domain, a slow rate of fact change, tasks reducible to relational retrieval over well-populated facts, and available expert capacity for ongoing maintenance.** Regulated sectors such as healthcare and finance are the primary context where these conditions hold simultaneously. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
+9. The conditions under which ontology investment most productively closes the LLM prediction gap are a bounded domain, a slow rate of fact change, tasks reducible to relational retrieval over well-populated facts, and available expert capacity for ongoing maintenance. Regulated sectors such as healthcare and finance are the primary context where these conditions hold simultaneously. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334)
 
-10. **A neuro-symbolic hybrid framing, treating an ontology as a constraint layer and type-checker over a neural LLM backbone rather than as a world model replacement, is the most productive current approach for deploying ontology completeness in LLM prediction pipelines.** Both Zhang et al. (2024) and Fang et al. (2024) support hybrid constraint architectures as the practical integration path. ([inference]; medium confidence; source: https://arxiv.org/abs/2411.04393; https://arxiv.org/abs/2401.09334)
+10. A neuro-symbolic hybrid framing, treating an ontology as a constraint layer and type-checker over a neural LLM backbone rather than as a world model replacement, is the most productive current approach for deploying ontology completeness in LLM prediction pipelines. Both Zhang et al. (2024) and Fang et al. (2024) support hybrid constraint architectures as the practical integration path. ([inference]; medium confidence; source: https://arxiv.org/abs/2411.04393; https://arxiv.org/abs/2401.09334)
 
 ### Evidence Map
 
@@ -401,12 +403,12 @@ A sufficiently complete ontology can extend Large Language Model (LLM) predictiv
 |---|---|---|---|
 | [inference] LeCun's CPWM requires 7 properties; ontology covers at most 2 | https://openreview.net/forum?id=BZ5a1r-kVsf; https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html | medium | Inference from comparing architectural requirements to ontology definition; prior item used as supporting synthesis |
 | [fact] KG-enhanced LLMs improve factuality; 88% symbolic task performance with modules | https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334 | high | Two independent empirical sources |
-| [fact] Static KG methods produce temporal prediction errors; TKGC methods mitigate but not eliminate | https://www.ijcai.org/proceedings/2023/734 | high | IJCAI 2023 primary survey |
+| [fact] Static KG methods produce temporal prediction errors; TKGC methods mitigate but not eliminate | https://www.ijcai.org/proceedings/2023/734 | medium | Single IJCAI 2023 primary survey |
 | [fact] Neural–symbolic representation-space mismatch requires specialised bridging | https://arxiv.org/abs/2411.04393; https://openreview.net/forum?id=BZ5a1r-kVsf | high | Systematic review of 191 studies; LeCun 2022 primary paper |
 | [inference] Expert-labour scarcity is dominant technical bottleneck; Cyc failure as evidence | https://arxiv.org/abs/2306.08302; https://en.wikipedia.org/wiki/Ontology_(information_science) | medium | Inference from construction difficulty plus historical case |
 | [inference] OWL/schema.org fragmentation creates cross-domain completeness ceiling | https://www.w3.org/OWL/; https://schema.org/; https://arxiv.org/abs/2306.08302 | medium | Inference from standards landscape analysis |
 | [assumption] Incentive misalignment is a public-goods forcing function | https://arxiv.org/abs/2306.08302 | medium | Not directly measured in ontology literature; plausible from infrastructure economics |
-| [inference] Procedural/embodied knowledge is categorically outside ontology scope | https://openreview.net/forum?id=BZ5a1r-kVsf; https://en.wikipedia.org/wiki/Ontology_(information_science) | high | Follows from definition distinction: declarative vs. procedural; LeCun's latent-space requirement |
+| [inference] Procedural/embodied knowledge is categorically outside ontology scope | https://openreview.net/forum?id=BZ5a1r-kVsf; https://en.wikipedia.org/wiki/Ontology_(information_science) | medium | Follows from definition distinction: declarative vs. procedural; LeCun's latent-space requirement; Wikipedia is tertiary |
 | [inference] Bounded, slowly changing, fact-intensive domains favour ontology investment | https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2401.09334 | medium | Inference from task-performance evidence; domain characterisation |
 | [inference] Neuro-symbolic constraint-layer framing is more tractable than full substitution | https://arxiv.org/abs/2411.04393; https://arxiv.org/abs/2401.09334 | medium | Two independent sources converge on hybrid as practical path |
 
