@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 022bc35
+    changed: 2026-05-25
+    progress: progress/2026-05-25-ontology-world-model-llm-prediction-forcing-functions.md
+    summary: "Initial completion"
 ---
 
 # Ontology Completeness as a World Model for Large Language Model (LLM) Prediction
