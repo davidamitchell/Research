@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Ontology Completeness as a World Model for Large Language Model (LLM) Prediction"
 added: 2026-05-25T08:05:24+00:00
 status: reviewing
