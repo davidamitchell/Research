@@ -1,6 +1,98 @@
 {
-  "extracted_at": "2026-05-25T10:01:18Z",
+  "extracted_at": "2026-05-25T10:39:34Z",
   "items": {
+    "2026-05-25-llm-math-programming-reasoning-substrate": {
+      "named_concepts": [
+        "formal symbolic",
+        "formal verification",
+        "cot prompting",
+        "mathematical reasoning",
+        "compositional structure",
+        "external verifiability",
+        "verification infrastructure",
+        "test suites",
+        "proof assistants",
+        "informal generation",
+        "symbolic alignment",
+        "domain-specific pre-training",
+        "code generation",
+        "frontier models",
+        "lean verification",
+        "original paper",
+        "cot benefit",
+        "performance gap",
+        "imo performance",
+        "external verification"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2103.03874",
+        "https://arxiv.org/abs/2107.03374",
+        "https://arxiv.org/abs/2201.11903",
+        "https://arxiv.org/abs/2206.14858",
+        "https://cdn.openai.com/papers/gpt-4.pdf",
+        "https://arxiv.org/abs/2310.06780",
+        "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+        "https://arxiv.org/abs/2402.00157",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Mathematics and programming tasks show LLM benchmark performance substantially above early baselines, but a large portion of this advantage is attributable to domain-specific pre-training and fine-tuning rather than to formal symbolic language alignment as a structural property",
+          "sources": [
+            "https://arxiv.org/abs/2206.14858",
+            "https://arxiv.org/abs/2107.03374"
+          ]
+        },
+        {
+          "text": "Chain-of-thought (CoT) prompting disproportionately benefits mathematical reasoning tasks, raising GPT-3 175B performance on Grade School Math 8,000 (GSM8K) from 17.9% to 57.1%, with the benefit scaling with model size and being most pronounced in multi-step arithmetic and commonsense reasoning",
+          "sources": [
+            "https://arxiv.org/abs/2201.11903",
+            "https://arxiv.org/abs/2402.00157"
+          ]
+        },
+        {
+          "text": "External verifiability provides a qualitatively distinct operational advantage for code generation as an LLM deployment surface: compilers, type checkers, test suites, and formal proof assistants compute independent, reproducible verdicts over code artifacts before deployment, providing a correction loop absent in natural language generation",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html",
+            "https://arxiv.org/abs/2107.03374"
+          ]
+        },
+        {
+          "text": "Without formal verification infrastructure, LLMs generate incorrect mathematical proofs and make arithmetic errors even in frontier models, confirming that the formal domain advantage does not eliminate hallucination in informal generation settings",
+          "sources": [
+            "https://arxiv.org/abs/2402.00157",
+            "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/"
+          ]
+        },
+        {
+          "text": "AlphaProof achieved silver-medal standard at the 2024 International Mathematical Olympiad (IMO) by generating Lean-verified formal proofs using reinforcement learning (RL) with binary proof-checker feedback, demonstrating that LLM-based mathematical reasoning can reach elite human competition level when a formal verifier provides the reward signal",
+          "sources": [
+            "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-formal-proof-engineering-leanstral.md"
+          ]
+        },
+        {
+          "text": "Benchmark contamination inflates code and mathematics benchmark scores for frontier models: HumanEval problems appear in GitHub training data, and models that score highly on HumanEval score substantially lower on Software Engineering bench (SWE-bench)'s real-world repository bug-fixing tasks",
+          "sources": [
+            "https://arxiv.org/abs/2310.06780",
+            "https://arxiv.org/abs/2107.03374"
+          ]
+        },
+        {
+          "text": "Training data domain distribution is a confounding factor: Minerva 62B achieves 50.3% on the MATH dataset versus Pathways Language Model (PaLM)-540B's 8.8%, suggesting that domain-specific mathematical pre-training contributes more to performance than raw model scale in this pairing",
+          "sources": [
+            "https://arxiv.org/abs/2206.14858",
+            "https://arxiv.org/abs/2402.00157"
+          ]
+        },
+        {
+          "text": "CoT prompting provides minimal benefit for small models below approximately 100 billion parameters, indicating that the formal symbolic reasoning advantage in math and code emerges from model scale rather than from formal structure recognition per se",
+          "sources": [
+            "https://arxiv.org/abs/2201.11903"
+          ]
+        }
+      ]
+    },
     "2026-05-23-similarity-algorithms-controlled-vocabulary": {
       "named_concepts": [
         "token jaccard",
