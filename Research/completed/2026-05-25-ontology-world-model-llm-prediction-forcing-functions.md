@@ -2,12 +2,12 @@
 review_count: 2
 title: "Ontology Completeness as a World Model for Large Language Model (LLM) Prediction"
 added: 2026-05-25T08:05:24+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [llm-reasoning, knowledge-graphs, agentic-ai, ai-architecture]
 started: 2026-05-25T10:38:58+00:00
-completed: ~
+completed: 2026-05-25T11:34:27+00:00
 output: []
 cites:
   - 2026-04-26-lecun-llm-critique-primary-sources
