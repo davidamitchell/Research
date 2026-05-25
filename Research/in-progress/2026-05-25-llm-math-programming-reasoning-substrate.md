@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "LLM reasoning in mathematics and programming tasks"
 added: 2026-05-25T08:00:17+00:00
 status: reviewing
