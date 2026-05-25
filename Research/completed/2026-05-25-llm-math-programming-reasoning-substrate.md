@@ -2,12 +2,12 @@
 review_count: 2
 title: "LLM reasoning in mathematics and programming tasks"
 added: 2026-05-25T08:00:17+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [llm-reasoning, formal-methods, benchmarks-eval, software-engineering, ai-architecture]
 started: 2026-05-25T09:50:33+00:00
-completed: ~
+completed: 2026-05-25T10:35:38+00:00
 output: []
 cites: [2026-03-10-language-for-llm-agent-output, 2026-03-10-formal-spec-intent-alignment-agentic-coding]
 related: [2026-05-18-rq6-1-halting-problem-static-analysis, 2026-03-18-formal-proof-engineering-leanstral, 2026-04-26-llm-verifiability-asymmetry-code-world-action]
