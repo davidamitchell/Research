@@ -1,5 +1,5 @@
 ---
-title: "ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams"
+title: "Machine Learning (ML) technique taxonomy and selection criteria for analytics teams: supervised, unsupervised, and advanced methods with maturity benchmarks distinguishing routine from advanced practice"
 added: 2026-03-05T06:26:52+00:00
 status: completed
 priority: high
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams
+# Machine Learning (ML) technique taxonomy and selection criteria for analytics teams: supervised, unsupervised, and advanced methods with maturity benchmarks distinguishing routine from advanced practice
 
 ## Research Question
 

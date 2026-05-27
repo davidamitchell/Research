@@ -1,5 +1,5 @@
 ---
-title: "IT Throughput Constraint Magnitude and Debt Accumulation Rate"
+title: "Information Technology (IT) throughput capacity as a constraint on unmet operational capability demand accumulation: empirical evidence and Artificial Intelligence (AI)-assisted delivery absorption modelling"
 added: 2026-05-16T05:29:48+00:00
 status: completed
 review_count: 2
@@ -23,7 +23,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# IT Throughput Constraint Magnitude and Debt Accumulation Rate
+# Information Technology (IT) throughput capacity as a constraint on unmet operational capability demand accumulation: empirical evidence and Artificial Intelligence (AI)-assisted delivery absorption modelling
 
 ## Research Question
 

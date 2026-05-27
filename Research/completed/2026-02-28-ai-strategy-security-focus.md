@@ -1,5 +1,5 @@
 ---
-title: "AI Strategy Examples: Security Focus"
+title: "Artificial Intelligence (AI) security strategy: 1,265% AI-enhanced phishing growth, prompt injection as highest-severity agentic vulnerability, and the New Zealand (NZ) regulatory guidance gap"
 added: 2026-03-05T06:49:02+00:00
 status: completed
 priority: medium
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# AI Strategy Examples: Security Focus
+# Artificial Intelligence (AI) security strategy: 1,265% AI-enhanced phishing growth, prompt injection as highest-severity agentic vulnerability, and the New Zealand (NZ) regulatory guidance gap
 
 ## Research Question
 

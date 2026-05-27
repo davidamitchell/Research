@@ -1,6 +1,6 @@
 ---
 review_count: 1
-title: "Decommission Trigger Design for Temporary Bridge Agents"
+title: "Automated decommission of temporary bridge Artificial Intelligence (AI) agents: expiring exception registration, machine-observed supersession signals, and enforcement without manual intervention"
 added: 2026-05-16T05:29:48+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Decommission Trigger Design for Temporary Bridge Agents
+# Automated decommission of temporary bridge Artificial Intelligence (AI) agents: expiring exception registration, machine-observed supersession signals, and enforcement without manual intervention
 
 ## Research Question
 
