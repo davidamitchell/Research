@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks"
+title: "The Complexity Horizon: When Deeply Nested Microservice Architectures Become as Opaque to Operators as Neural Networks"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks
+# The Complexity Horizon: When Deeply Nested Microservice Architectures Become as Opaque to Operators as Neural Networks
 
 ## Research Question
 

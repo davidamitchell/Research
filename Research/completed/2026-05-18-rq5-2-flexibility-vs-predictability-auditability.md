@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 5.2: Flexibility vs. Predictability, How the Agentic Tradeoff Affects Auditability and Formal Verification in Production Pipelines"
+title: "Flexibility vs. Predictability: How the Agentic System Tradeoff Undermines Auditability and Formal Verification in Production Pipelines"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -31,7 +31,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 5.2: Flexibility vs. Predictability, How the Agentic Tradeoff Affects Auditability and Formal Verification in Production Pipelines
+# Flexibility vs. Predictability: How the Agentic System Tradeoff Undermines Auditability and Formal Verification in Production Pipelines
 
 ## Research Question
 

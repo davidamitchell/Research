@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation"
+title: "De Facto Policy Drift From Repeated Unverified LLM Interpretations: How AI-Mediated Norms Diverge From Executive Intent"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -23,7 +23,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Authority drift and policy decay from repeated Artificial Intelligence (AI) interpretation
+# De Facto Policy Drift From Repeated Unverified LLM Interpretations: How AI-Mediated Norms Diverge From Executive Intent
 
 ## Research Question
 

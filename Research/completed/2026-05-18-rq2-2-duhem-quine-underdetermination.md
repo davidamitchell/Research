@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism"
+title: "The Duhem-Quine Thesis and Underdetermination: Quantifying When a Model Has Matched the True Mechanism vs. an Observational Proxy"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -29,7 +29,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 2.2: The Duhem-Quine thesis and underdetermination, quantifying when a model has matched the true mechanism
+# The Duhem-Quine Thesis and Underdetermination: Quantifying When a Model Has Matched the True Mechanism vs. an Observational Proxy
 
 ## Research Question
 

@@ -1,6 +1,6 @@
 ---
 review_count: 1
-title: "RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation"
+title: "Formalising Popper's Falsifiability as a Mathematical Criterion for Distinguishing Mechanism from Interpolation"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: Initial completion
 ---
 
-# RQ 1.1: Formalising Popper's Falsifiability as a Criterion Between Mechanism and Interpolation
+# Formalising Popper's Falsifiability as a Mathematical Criterion for Distinguishing Mechanism from Interpolation
 
 ## Research Question
 

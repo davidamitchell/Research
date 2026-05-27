@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution"
+title: "Policy Quality Degradation and Cross-Institution Blind Spots When New Policy Versions Are Drafted From LLM Interpretations of Prior Versions"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -28,7 +28,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Feedback-loop and systemic homogenization risks in Artificial Intelligence (AI)-mediated policy evolution
+# Policy Quality Degradation and Cross-Institution Blind Spots When New Policy Versions Are Drafted From LLM Interpretations of Prior Versions
 
 ## Research Question
 

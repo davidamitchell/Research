@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers"
+title: "Overlapping and Absent Accountability at Strategic and IT Layers: Empirically Observed Organisational Failure Modes"
 added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high
@@ -18,7 +18,7 @@ confidence: medium
 versions: []
 ---
 
-# Organisational failure modes: overlapping and absent accountability at strategic and information technology (IT) layers
+# Overlapping and Absent Accountability at Strategic and IT Layers: Empirically Observed Organisational Failure Modes
 
 ## Research Question
 

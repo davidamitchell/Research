@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise"
+title: "Structural Stability vs. Predictive Fragility: Dynamical Systems Theory and the Cost of Noise in Mechanism-Free Models"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -28,7 +28,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 2.3: Structural Stability vs. Predictive Fragility, Dynamical Systems Theory and the Cost of Noise
+# Structural Stability vs. Predictive Fragility: Dynamical Systems Theory and the Cost of Noise in Mechanism-Free Models
 
 ## Research Question
 

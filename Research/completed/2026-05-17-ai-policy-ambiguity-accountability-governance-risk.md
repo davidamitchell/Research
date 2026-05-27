@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation"
+title: "AI-Assisted Policy Interpretation and Accountability Displacement: How LLM Integration Shifts Liability Allocation and Degrades Escalation Behaviour"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: Initial completion
 ---
 
-# Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation
+# AI-Assisted Policy Interpretation and Accountability Displacement: How LLM Integration Shifts Liability Allocation and Degrades Escalation Behaviour
 
 ## Research Question
 

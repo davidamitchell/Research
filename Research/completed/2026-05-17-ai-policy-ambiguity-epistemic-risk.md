@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Interpretation risks from ambiguous Artificial Intelligence (AI) policy guidance"
+title: "LLM Response Style and Confidence Signalling: How AI Fluency Degrades User Calibration on Uncertainty in Ambiguous Policy Compliance Contexts"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -23,7 +23,7 @@ versions:
     summary: Initial completion
 ---
 
-# Interpretation risks from ambiguous Artificial Intelligence (AI) policy guidance
+# LLM Response Style and Confidence Signalling: How AI Fluency Degrades User Calibration on Uncertainty in Ambiguous Policy Compliance Contexts
 
 ## Research Question
 

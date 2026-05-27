@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?"
+title: "Agentic Tool-Feedback Loops and Explanatory Reach: Does Wrapping an LLM in a Perception-Action Cycle Introduce Genuine Understanding or Just Delay Failure?"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -31,7 +31,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# RQ 4.1: Tool-feedback loops and explanatory reach, does wrapping a Large Language Model (LLM) introduce genuine understanding or just delay failure?
+# Agentic Tool-Feedback Loops and Explanatory Reach: Does Wrapping an LLM in a Perception-Action Cycle Introduce Genuine Understanding or Just Delay Failure?
 
 ## Research Question
 
