@@ -258,7 +258,7 @@ contradiction_scan: no internal contradictions detected
 claim_check: all factual claims tied to accessible sources
 scope_check: analysis stays within declared scope
 confidence_adjustment: both transition assessments kept at medium because V-JEPA 2-AC
-  empirical results are from one paper (Meta Fundamental AI Research (FAIR)) not yet independently replicated
+  empirical results are from one paper (Meta/FAIR) not yet independently replicated
 overlap_check: "same class" question answered directly in §3 and §6; no circular references
 ```
 
@@ -311,7 +311,7 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 | [inference] Text and JEPA video prediction are both passive, no causal agency | https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243; https://arxiv.org/abs/2506.09985 | medium | Based on objective function analysis; no comparative empirical ablation |
 | [fact] Prediction and control are distinct RL problem classes | http://incompleteideas.net/book/the-book-2nd.html | medium | Standard RL textbook definition; well-established, but single-source citation |
 | [fact] V-JEPA 2-AC requires action-labeled interaction data not in internet video | https://arxiv.org/abs/2506.09985 | medium | From V-JEPA 2 paper; single-lab result not independently replicated |
-| [inference] JEPA representations transfer to action-conditioning efficiently | https://arxiv.org/abs/2506.09985 | medium | Single lab result from Meta/FAIR; not independently replicated |
+| [inference] JEPA representations transfer to action-conditioning efficiently | https://arxiv.org/abs/2506.09985 | medium | Single lab result from Meta Fundamental AI Research (FAIR); not independently replicated |
 | [inference] Irreversibility and latency are absent from passive prediction | https://arxiv.org/abs/2301.04104; http://incompleteideas.net/book/the-book-2nd.html | medium | Structural inference from RL theory; not empirically quantified here |
 | [inference] Text→JEPA is within-class representation-quality improvement | https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243 | medium | Inferred from objective function structure; JEPA paper does not directly compare to LLM class |
 | [inference] Cognitive science parallel (perception vs. active inference) supports class distinction | https://www.nature.com/articles/nrn2787; https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A | medium | Analogy; may not map exactly to neural network architectures |
@@ -362,7 +362,7 @@ acronym_audit: passed
   - FEP (Free Energy Principle): expanded at first use in §5
   - RLHF (reinforcement learning from human feedback): expanded at first use in §5
   - MSE (mean-squared error): expanded at first use in §2.1B
-  - FAIR (Fundamental AI Research, Meta's AI research division): expanded at first use in §4
+  - FAIR (Fundamental AI Research, Meta's AI research division): expanded at first narrative prose use in §6 Evidence Map
 claim_labels: all factual/inferential claims in Research Skill Output carry labels
 parity_check: §6 Synthesis and Findings Executive Summary/Key Findings are aligned
 source_check: all sources accessible; V-JEPA 2 paper is primary; DreamerV3 is primary; LeCun 2022 is primary
