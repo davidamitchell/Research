@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 90c396456861dcec4eab924565eb8aa9b78b3852
+    changed: 2026-05-28
+    progress: progress/2026-05-28-plato-forms-map-territory-representation-reality.md
+    summary: "Initial completion"
 review_count: 2
 ---
 
