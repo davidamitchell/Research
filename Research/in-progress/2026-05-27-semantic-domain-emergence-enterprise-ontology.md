@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Domain Emergence in Semantic Networks, Cognition, and Organizational Structure"
 added: 2026-05-27T10:01:22+00:00
 status: reviewing
