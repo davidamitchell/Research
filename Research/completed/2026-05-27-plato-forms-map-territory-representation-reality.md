@@ -1,12 +1,12 @@
 ---
 title: "Plato's Forms and the 'Map Is Not the Territory': Tension, Symbiosis, and Cultural Echoes"
 added: 2026-05-27T19:13:50+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [consciousness-cognition, knowledge-management, knowledge-graphs]
 started: 2026-05-28T11:34:43+00:00
-completed: ~
+completed: 2026-05-28T12:14:23+00:00
 output: []
 cites: []
 related:
