@@ -2,12 +2,12 @@
 review_count: 2
 title: "Joint Embedding Predictive Architecture (JEPA) shift: text-to-video outcome prediction versus video-to-physical action"
 added: 2026-05-25T08:37:36+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [ai-architecture, agentic-ai, consciousness-cognition, benchmarks-eval, formal-methods]
 started: 2026-05-28T10:48:36+00:00
-completed: ~
+completed: 2026-05-28T11:31:23+00:00
 output: [knowledge]
 cites:
   - 2026-03-16-vl-jepa-concept-prediction
