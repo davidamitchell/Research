@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 2a8f2a1
+    changed: 2026-05-28
+    progress: progress/2026-05-28-jepa-video-outcome-prediction-physical-action-problem-class.md
+    summary: "Initial completion"
 ---
 
 # Joint Embedding Predictive Architecture (JEPA) shift: text-to-video outcome prediction versus video-to-physical action
