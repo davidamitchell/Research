@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Joint Embedding Predictive Architecture (JEPA) shift: text-to-video outcome prediction versus video-to-physical action"
 added: 2026-05-25T08:37:36+00:00
 status: reviewing
