@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-28T10:58:08Z",
+  "extracted_at": "2026-05-28T11:34:36Z",
   "items": {
     "2026-05-25-ontology-world-model-llm-prediction-forcing-functions": {
       "named_concepts": [
@@ -184,6 +184,97 @@
           "text": "CoT prompting provides minimal benefit for small models below approximately 100 billion parameters, indicating that the formal symbolic reasoning advantage in math and code emerges from model scale rather than from formal structure recognition per se",
           "sources": [
             "https://arxiv.org/abs/2201.11903"
+          ]
+        }
+      ]
+    },
+    "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class": {
+      "named_concepts": [
+        "prediction control",
+        "video pre-training",
+        "jepa representations",
+        "physical action",
+        "control distinction",
+        "jepa video",
+        "cognitive science",
+        "objective function",
+        "text-token prediction",
+        "video prediction",
+        "passive observational",
+        "select actions",
+        "fixed policy",
+        "closed-loop feedback",
+        "passive prediction",
+        "passive video",
+        "internet video",
+        "action-conditioned prediction",
+        "v-jepa paper",
+        "independently replicated"
+      ],
+      "source_urls": [
+        "https://openreview.net/forum?id=BZ5a1r-kVsf",
+        "https://arxiv.org/abs/2301.08243",
+        "https://arxiv.org/abs/2301.04104",
+        "https://arxiv.org/abs/2506.09985",
+        "https://about.fb.com/news/2025/06/our-new-model-helps-ai-think-before-it-acts/",
+        "https://arxiv.org/abs/2512.10942",
+        "https://www.nature.com/articles/nrn2787",
+        "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A",
+        "https://arxiv.org/abs/1706.03741"
+      ],
+      "key_claims": [
+        {
+          "text": "Text-token prediction and JEPA video-outcome prediction are both passive prediction paradigms: neither requires the model to select or commit to actions that affect a physical environment during training or inference",
+          "sources": [
+            "https://openreview.net/forum?id=BZ5a1r-kVsf",
+            "https://arxiv.org/abs/2301.08243",
+            "https://arxiv.org/abs/2506.09985"
+          ]
+        },
+        {
+          "text": "Reinforcement learning theory formally distinguishes prediction problems (estimating the value of a fixed policy) from control problems (optimising the policy itself), identifying them as structurally different classes with different algorithmic requirements and feedback dependencies",
+          "sources": [
+            "http://incompleteideas.net/book/the-book-2nd.html"
+          ]
+        },
+        {
+          "text": "V-JEPA 2 (2025) required a separate action-conditioned predictor trained on 62 hours of labeled robot-trajectory data after Stage 1 video pre-training, demonstrating that passive video JEPA prediction does not by itself yield physical action capability",
+          "sources": [
+            "https://arxiv.org/abs/2506.09985"
+          ]
+        },
+        {
+          "text": "JEPA representations learned from passive internet video transfer to the action-conditioned prediction stage efficiently, enabling zero-shot manipulation in new environments with minimal interaction data, meaning JEPA video pre-training is a necessary but not sufficient precondition for action grounding",
+          "sources": [
+            "https://arxiv.org/abs/2506.09985"
+          ]
+        },
+        {
+          "text": "Physical action introduces three requirements absent from passive video prediction: action-conditioned interaction data, closed-loop feedback at inference time using model predictive control (MPC), and irreversibility constraints that prevent simple error correction through retraining",
+          "sources": [
+            "https://arxiv.org/abs/2301.04104",
+            "https://arxiv.org/abs/2506.09985"
+          ]
+        },
+        {
+          "text": "The text-to-video-JEPA transition is an improvement in representation quality within the passive prediction class: it captures motion dynamics and causal structure rather than surface token statistics, but the fundamental problem structure (passive, observational, corpus-trained) is unchanged",
+          "sources": [
+            "https://openreview.net/forum?id=BZ5a1r-kVsf",
+            "https://arxiv.org/abs/2301.08243"
+          ]
+        },
+        {
+          "text": "Cognitive science research on predictive processing distinguishes passive perceptual prediction-error minimisation from active inference (action selection to confirm world-model predictions), independently supporting the inference that passive prediction and physical action belong to different problem classes even when they share a representational foundation",
+          "sources": [
+            "https://www.nature.com/articles/nrn2787",
+            "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A"
+          ]
+        },
+        {
+          "text": "For research planning purposes, improving video JEPA pre-training is primarily a data and compute scaling problem, while grounding JEPA representations in physical action requires safe interaction-data collection infrastructure, closed-loop evaluation environments, and robot-specific design",
+          "sources": [
+            "https://arxiv.org/abs/2506.09985",
+            "https://arxiv.org/abs/2301.04104"
           ]
         }
       ]
