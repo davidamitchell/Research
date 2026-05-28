@@ -72,6 +72,9 @@ The issue asks whether LeCun's move toward Joint Embedding Predictive Architectu
 - [x] [Assran et al. (2025) V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning](https://arxiv.org/abs/2506.09985): empirical demonstration of JEPA bridging video understanding to robotic planning.
 - [x] [Meta AI Blog (2025) Our New Model Helps AI Think Before it Acts](https://about.fb.com/news/2025/06/our-new-model-helps-ai-think-before-it-acts/): official Meta announcement of V-JEPA 2 with world model framing.
 - [x] [VL-JEPA paper (arXiv 2024)](https://arxiv.org/abs/2512.10942): vision-language extension of the JEPA lineage.
+- [x] [Friston (2010) The free-energy principle: a unified brain theory?](https://www.nature.com/articles/nrn2787): foundational paper on the Free Energy Principle and active inference in biological systems.
+- [x] [Clark (2013) Whatever next? Predictive brains, situated agents, and the future of cognitive science](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A): foundational paper on predictive processing and the perception/action distinction.
+- [x] [Christiano et al. (2017) Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/1706.03741): original reinforcement learning from human feedback (RLHF) paper demonstrating reward model plus policy gradient update as a distinct training paradigm from passive pre-training.
 
 ---
 
@@ -255,7 +258,7 @@ contradiction_scan: no internal contradictions detected
 claim_check: all factual claims tied to accessible sources
 scope_check: analysis stays within declared scope
 confidence_adjustment: both transition assessments kept at medium because V-JEPA 2-AC
-  empirical results are from one paper (Meta/FAIR) not yet independently replicated
+  empirical results are from one paper (Meta Fundamental AI Research (FAIR)) not yet independently replicated
 overlap_check: "same class" question answered directly in §3 and §6; no circular references
 ```
 
@@ -267,11 +270,11 @@ The prediction/control distinction in the RL literature (Sutton and Barto, Ch. 3
 
 **Historical lens:**
 
-The shift from language modelling to reinforcement learning from human feedback (RLHF)-style instruction following in LLMs shows an analogous class transition: pre-trained LLMs that predict tokens are adapted to action-selection (choose the response that satisfies the human) using reward signals from human preferences. This transition also required a new training component (the reward model, the policy gradient update) beyond passive pre-training. This historical parallel supports the inference that the text→JEPA and JEPA→action transitions have different structural requirements. [inference; source: https://openreview.net/forum?id=BZ5a1r-kVsf]
+The shift from language modelling to reinforcement learning from human feedback (RLHF)-style instruction following in Large Language Models (LLMs) shows an analogous class transition: pre-trained LLMs that predict tokens are adapted to action-selection (choose the response that satisfies the human) using reward signals from human preferences. This transition required a new training component (the reward model, the policy gradient update) beyond passive pre-training, as established by Christiano et al. (2017). This historical parallel supports the inference that the text→JEPA and JEPA→action transitions have different structural requirements. [inference; source: https://arxiv.org/abs/1706.03741]
 
 **Cognitive science lens:**
 
-The predictive processing and Free Energy Principle (FEP) literature (Friston, 2010; Clark, 2013) distinguishes perception (minimising prediction error about sensory inputs) from action (selecting actions that make sensory predictions come true, also called active inference). The brain uses both under the same mathematical framework, but they operate on different error signals: perceptual inference corrects beliefs; active inference corrects the world. This cognitive science parallel independently supports the inference that prediction and action are structurally distinct problem classes even if they share a common representational foundation. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-18-human-brain-prediction-machines.html]
+The predictive processing and Free Energy Principle (FEP) literature (Friston 2010; Clark 2013) distinguishes perception (minimising prediction error about sensory inputs) from action (selecting actions that make sensory predictions come true, also called active inference). The brain uses both under the same mathematical framework, but they operate on different error signals: perceptual inference corrects beliefs; active inference corrects the world. This cognitive science parallel independently supports the inference that prediction and action are structurally distinct problem classes even if they share a common representational foundation. [inference; source: https://www.nature.com/articles/nrn2787; https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A]
 
 **Research planning lens:**
 
@@ -287,9 +290,9 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 
 1. Text-token prediction and JEPA video-outcome prediction are both passive prediction problems trained on observational corpora; the shift between them changes modality and representation target without introducing causal agency or environment interaction. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243; https://arxiv.org/abs/2506.09985)
 
-2. JEPA-style prediction and physically grounded action selection belong to structurally distinct problem classes: the reinforcement learning literature distinguishes prediction (value estimation under a fixed policy) from control (policy optimisation) as requiring different algorithms and feedback types. ([fact]; high confidence; source: http://incompleteideas.net/book/the-book-2nd.html)
+2. JEPA-style prediction and physically grounded action selection belong to structurally distinct problem classes: the reinforcement learning literature distinguishes prediction (value estimation under a fixed policy) from control (policy optimisation) as requiring different algorithms and feedback types. ([fact]; medium confidence; source: http://incompleteideas.net/book/the-book-2nd.html)
 
-3. V-JEPA 2 requires a second training stage using action-conditioned robot-trajectory data that is structurally absent from internet video, confirming empirically that passive video prediction alone does not bridge to physical action. ([fact]; high confidence; source: https://arxiv.org/abs/2506.09985)
+3. V-JEPA 2 requires a second training stage using action-conditioned robot-trajectory data that is structurally absent from internet video, confirming empirically that passive video prediction alone does not bridge to physical action. ([fact]; medium confidence; source: https://arxiv.org/abs/2506.09985)
 
 4. JEPA representations trained on passive video transfer to action-conditioned prediction with substantially less interaction data than prior world-model approaches, suggesting JEPA video pre-training is a necessary but not sufficient precondition for action grounding. ([inference]; medium confidence; source: https://arxiv.org/abs/2506.09985)
 
@@ -297,7 +300,7 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 
 6. The text→video-JEPA transition is best characterised as a representation-quality improvement within the passive prediction class: it captures richer physical-world structure (motion, causality, object interaction) but does not require the model to select or commit to actions with real consequences. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243)
 
-7. The cognitive science parallel between perception (passive prediction-error minimisation) and active inference (action selection to satisfy predictions) independently supports the inference that passive prediction and physical action are different problem classes even when they share a common representational foundation. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-03-18-human-brain-prediction-machines.html)
+7. The cognitive science parallel between perception (passive prediction-error minimisation) and active inference (action selection to satisfy predictions) independently supports the inference that passive prediction and physical action are different problem classes even when they share a common representational foundation. ([inference]; medium confidence; source: https://www.nature.com/articles/nrn2787; https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A)
 
 8. For research planning, the two transitions have different engineering requirements: scaling video JEPA is primarily a data and compute problem, while grounding JEPA representations in physical action requires safe interaction data collection, closed-loop evaluation infrastructure, and embodiment-specific design. ([inference]; medium confidence; source: https://arxiv.org/abs/2506.09985; https://arxiv.org/abs/2301.04104)
 
@@ -306,12 +309,12 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | [inference] Text and JEPA video prediction are both passive, no causal agency | https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243; https://arxiv.org/abs/2506.09985 | medium | Based on objective function analysis; no comparative empirical ablation |
-| [fact] Prediction and control are distinct RL problem classes | http://incompleteideas.net/book/the-book-2nd.html | high | Standard RL textbook definition; well-established |
-| [fact] V-JEPA 2-AC requires action-labeled interaction data not in internet video | https://arxiv.org/abs/2506.09985 | high | Direct claim from V-JEPA 2 paper; empirically demonstrated |
+| [fact] Prediction and control are distinct RL problem classes | http://incompleteideas.net/book/the-book-2nd.html | medium | Standard RL textbook definition; well-established, but single-source citation |
+| [fact] V-JEPA 2-AC requires action-labeled interaction data not in internet video | https://arxiv.org/abs/2506.09985 | medium | From V-JEPA 2 paper; single-lab result not independently replicated |
 | [inference] JEPA representations transfer to action-conditioning efficiently | https://arxiv.org/abs/2506.09985 | medium | Single lab result from Meta/FAIR; not independently replicated |
 | [inference] Irreversibility and latency are absent from passive prediction | https://arxiv.org/abs/2301.04104; http://incompleteideas.net/book/the-book-2nd.html | medium | Structural inference from RL theory; not empirically quantified here |
 | [inference] Text→JEPA is within-class representation-quality improvement | https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243 | medium | Inferred from objective function structure; JEPA paper does not directly compare to LLM class |
-| [inference] Cognitive science parallel (perception vs. active inference) supports class distinction | https://davidamitchell.github.io/Research/research/2026-03-18-human-brain-prediction-machines.html | medium | Analogy; may not map exactly to neural network architectures |
+| [inference] Cognitive science parallel (perception vs. active inference) supports class distinction | https://www.nature.com/articles/nrn2787; https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A | medium | Analogy; may not map exactly to neural network architectures |
 | [inference] Engineering requirements differ for the two transitions | https://arxiv.org/abs/2506.09985; https://arxiv.org/abs/2301.04104 | medium | Practical inference from two-stage V-JEPA 2 architecture |
 
 **Assumptions:**
@@ -359,7 +362,7 @@ acronym_audit: passed
   - FEP (Free Energy Principle): expanded at first use in §5
   - RLHF (reinforcement learning from human feedback): expanded at first use in §5
   - MSE (mean-squared error): expanded at first use in §2.1B
-  - FAIR (Meta's Fundamental AI Research): not used as an acronym in text; only in notes cell
+  - FAIR (Fundamental AI Research, Meta's AI research division): expanded at first use in §4
 claim_labels: all factual/inferential claims in Research Skill Output carry labels
 parity_check: §6 Synthesis and Findings Executive Summary/Key Findings are aligned
 source_check: all sources accessible; V-JEPA 2 paper is primary; DreamerV3 is primary; LeCun 2022 is primary
@@ -380,9 +383,9 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 
 1. Text-token prediction and JEPA video-outcome prediction are both passive prediction paradigms: neither requires the model to select or commit to actions that affect a physical environment during training or inference. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243; https://arxiv.org/abs/2506.09985)
 
-2. Reinforcement learning theory formally distinguishes prediction problems (estimating the value of a fixed policy) from control problems (optimising the policy itself), identifying them as structurally different classes with different algorithmic requirements and feedback dependencies. ([fact]; high confidence; source: http://incompleteideas.net/book/the-book-2nd.html)
+2. Reinforcement learning theory formally distinguishes prediction problems (estimating the value of a fixed policy) from control problems (optimising the policy itself), identifying them as structurally different classes with different algorithmic requirements and feedback dependencies. ([fact]; medium confidence; source: http://incompleteideas.net/book/the-book-2nd.html)
 
-3. V-JEPA 2 (2025) required a separate action-conditioned predictor trained on 62 hours of labeled robot-trajectory data after Stage 1 video pre-training, demonstrating that passive video JEPA prediction does not by itself yield physical action capability. ([fact]; high confidence; source: https://arxiv.org/abs/2506.09985)
+3. V-JEPA 2 (2025) required a separate action-conditioned predictor trained on 62 hours of labeled robot-trajectory data after Stage 1 video pre-training, demonstrating that passive video JEPA prediction does not by itself yield physical action capability. ([fact]; medium confidence; source: https://arxiv.org/abs/2506.09985)
 
 4. JEPA representations learned from passive internet video transfer to the action-conditioned prediction stage efficiently, enabling zero-shot manipulation in new environments with minimal interaction data, meaning JEPA video pre-training is a necessary but not sufficient precondition for action grounding. ([inference]; medium confidence; source: https://arxiv.org/abs/2506.09985)
 
@@ -390,7 +393,7 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 
 6. The text-to-video-JEPA transition is an improvement in representation quality within the passive prediction class: it captures motion dynamics and causal structure rather than surface token statistics, but the fundamental problem structure (passive, observational, corpus-trained) is unchanged. ([inference]; medium confidence; source: https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243)
 
-7. Cognitive science research on predictive processing distinguishes passive perceptual prediction-error minimisation from active inference (action selection to confirm world-model predictions), independently supporting the inference that passive prediction and physical action belong to different problem classes even when they share a representational foundation. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-03-18-human-brain-prediction-machines.html)
+7. Cognitive science research on predictive processing distinguishes passive perceptual prediction-error minimisation from active inference (action selection to confirm world-model predictions), independently supporting the inference that passive prediction and physical action belong to different problem classes even when they share a representational foundation. ([inference]; medium confidence; source: https://www.nature.com/articles/nrn2787; https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A)
 
 8. For research planning purposes, improving video JEPA pre-training is primarily a data and compute scaling problem, while grounding JEPA representations in physical action requires safe interaction-data collection infrastructure, closed-loop evaluation environments, and robot-specific design. ([inference]; medium confidence; source: https://arxiv.org/abs/2506.09985; https://arxiv.org/abs/2301.04104)
 
@@ -399,12 +402,12 @@ The shift from text-token prediction to Joint Embedding Predictive Architecture 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | [inference] Text and JEPA video prediction both passive, no causal agency | https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243; https://arxiv.org/abs/2506.09985 | medium | Inferred from objective function structure; no comparative ablation between text and JEPA |
-| [fact] Prediction and control are distinct RL problem classes | http://incompleteideas.net/book/the-book-2nd.html | high | Standard RL definition in Sutton and Barto (2018), Ch. 3 |
-| [fact] V-JEPA 2-AC requires action-labeled interaction data not in internet video | https://arxiv.org/abs/2506.09985 | high | Direct claim from V-JEPA 2 paper; 62 hours Droid robot data; demonstrated empirically |
+| [fact] Prediction and control are distinct RL problem classes | http://incompleteideas.net/book/the-book-2nd.html | medium | Standard RL definition in Sutton and Barto (2018), Ch. 3; single-source citation |
+| [fact] V-JEPA 2-AC requires action-labeled interaction data not in internet video | https://arxiv.org/abs/2506.09985 | medium | Direct claim from V-JEPA 2 paper; single-lab result not independently replicated |
 | [inference] JEPA representations transfer to action conditioning efficiently | https://arxiv.org/abs/2506.09985 | medium | Single-lab result from Meta/FAIR; not independently replicated as of May 2026 |
 | [inference] Physical action requires MPC, closed-loop feedback, irreversibility management | https://arxiv.org/abs/2301.04104; https://arxiv.org/abs/2506.09985 | medium | Structural inference from both DreamerV3 and V-JEPA 2-AC architectures |
 | [inference] Text→JEPA is within-class representation-quality improvement | https://openreview.net/forum?id=BZ5a1r-kVsf; https://arxiv.org/abs/2301.08243 | medium | Inferred from objective function analysis; LeCun paper does not explicitly compare to LLM problem class |
-| [inference] Cognitive science perception/active inference parallel supports class distinction | https://davidamitchell.github.io/Research/research/2026-03-18-human-brain-prediction-machines.html | medium | Analogical argument; cognitive science mapping to neural networks is approximate |
+| [inference] Cognitive science perception/active inference parallel supports class distinction | https://www.nature.com/articles/nrn2787; https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/whatever-next-predictive-brains-situated-agents-and-the-future-of-cognitive-science/E37E33A9E60B93A39DDBF83DA7EA5B7A | medium | Analogical argument; cognitive science mapping to neural networks is approximate |
 | [inference] Engineering requirements differ for the two transitions | https://arxiv.org/abs/2506.09985; https://arxiv.org/abs/2301.04104 | medium | Practical inference from two-stage V-JEPA 2 design and DreamerV3 data requirements |
 
 ### Assumptions
