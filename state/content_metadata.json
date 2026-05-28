@@ -1,6 +1,94 @@
 {
-  "extracted_at": "2026-05-28T11:47:28Z",
+  "extracted_at": "2026-05-28T12:16:08Z",
   "items": {
+    "2026-05-27-plato-forms-map-territory-representation-reality": {
+      "named_concepts": [
+        "structural parallel",
+        "participation theory",
+        "structural isomorphism",
+        "failure mode",
+        "cognitive science",
+        "map territory",
+        "physical world",
+        "moon-finger teaching",
+        "hypostasis failure",
+        "consulted directly",
+        "intelligible forms",
+        "pre-linguistic event",
+        "physical things",
+        "structural correspondence",
+        "mediation representations",
+        "cognitively necessary",
+        "territory claim",
+        "ontologically prior",
+        "physical event",
+        "territory lies"
+      ],
+      "source_urls": [
+        "https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%207.514a",
+        "https://archive.org/details/scienceandsanity00korb",
+        "https://www.lacma.org/art/collection/object/treachery-images-ceci-nest-pas-une-pipe",
+        "https://www.britannica.com/topic/The-Temple-of-the-Golden-Pavilion",
+        "https://www.britannica.com/topic/The-Sun-Also-Rises",
+        "https://www.britannica.com/topic/Fight-Club-novel-by-Palahniuk",
+        "https://www.britannica.com/topic/Dhammapada",
+        "https://www.gutenberg.org/ebooks/3296"
+      ],
+      "key_claims": [
+        {
+          "text": "Plato's theory of Forms holds that abstract, unchanging universals are ontologically prior to and more real than the physical particulars that participate in them, making the Forms the \"territory\" and physical things secondary representations",
+          "sources": [
+            "https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%207.514a",
+            "https://plato.stanford.edu/entries/forms-plato/"
+          ]
+        },
+        {
+          "text": "Korzybski's \"map is not the territory\" principle holds that all human abstractions, models, and linguistic representations are structurally distinct from and less rich than the physical-neurological events they describe, making the physical event the \"territory\" that maps can only approximate",
+          "sources": [
+            "https://archive.org/details/scienceandsanity00korb",
+            "https://en.wikipedia.org/wiki/Map%E2%80%93territory_relation"
+          ]
+        },
+        {
+          "text": "The apparent Plato-Korzybski opposition dissolves when their respective \"territories\" are distinguished: Plato's territory lies above the physical world (intelligible Forms), while Korzybski's territory lies below the conceptual level (pre-linguistic event), so their warnings about representational confusion operate at different levels of the same abstraction hierarchy",
+          "sources": [
+            "https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%207.514a",
+            "https://archive.org/details/scienceandsanity00korb"
+          ]
+        },
+        {
+          "text": "Plato's participation theory (*methexis*) and Korzybski's structural isomorphism are functionally parallel: both ground the legitimacy of a representation in its preservation of structural correspondence with what it represents, rather than in identity with it",
+          "sources": [
+            "https://www.perseus.tufts.edu/hopper/text?doc=Plat.%20Rep.%207.514a",
+            "https://archive.org/details/scienceandsanity00korb"
+          ]
+        },
+        {
+          "text": "Zen Buddhism's moon-finger teaching and the Dhammapada's critique of attachment to views express the same disciplinary demand: teachings (*upaya*, or skillful means) are maps to be used and then released, not ontological termini to be clung to",
+          "sources": [
+            "https://www.britannica.com/topic/Dhammapada"
+          ]
+        },
+        {
+          "text": "Augustine's sign theory in the *Confessions* explicitly Christianises Platonic participation: temporal signs (*signa*) genuinely point toward and partially participate in eternal truth (*res*), but mistaking sign for substance constitutes idolatry, which is structurally identical to Korzybski's \"identification\" error",
+          "sources": [
+            "https://www.gutenberg.org/ebooks/3296"
+          ]
+        },
+        {
+          "text": "Mishima's hypostasis failure: the protagonist treats the temple-representation as though it were the Form of Beauty itself, and when the representation cannot sustain that weight, he destroys the object rather than revising the map",
+          "sources": [
+            "https://www.britannica.com/topic/The-Temple-of-the-Golden-Pavilion"
+          ]
+        },
+        {
+          "text": "Hemingway's map-collapse: the characters suffer the failure mode in which representational systems (honor, romantic love, Christian salvation) were discredited by the First World War, and without replacement maps the territory of experience becomes unnavigable",
+          "sources": [
+            "https://www.britannica.com/topic/The-Sun-Also-Rises"
+          ]
+        }
+      ]
+    },
     "2026-05-25-ontology-world-model-llm-prediction-forcing-functions": {
       "named_concepts": [
         "et al",
