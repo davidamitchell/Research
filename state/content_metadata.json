@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-28T12:32:45Z",
+  "extracted_at": "2026-05-28T12:53:07Z",
   "items": {
+    "2026-05-27-semantic-domain-emergence-enterprise-ontology": {
+      "named_concepts": [
+        "domain boundaries",
+        "enterprise ontology",
+        "prediction error",
+        "concept duplication",
+        "enterprise knowledge",
+        "domain boundary",
+        "graph density",
+        "free-energy principle",
+        "stable domains",
+        "failure signatures",
+        "conceptual fragmentation",
+        "translation-layer proliferation",
+        "enterprise metadata",
+        "cascade sequence",
+        "fragmentation precedes",
+        "network science",
+        "failure cascade",
+        "emergent domain",
+        "organizational knowledge",
+        "knowledge systems"
+      ],
+      "source_urls": [
+        "https://www.pnas.org/doi/10.1073/pnas.0601602103",
+        "https://www.nature.com/articles/30918",
+        "https://www.nature.com/articles/nrn2787",
+        "https://mitpress.mit.edu/9780262680530/parallel-distributed-processing-volume-1/",
+        "https://www.panmacmillan.com/authors/jeff-hawkins/on-intelligence/9780805074567",
+        "https://onlinelibrary.wiley.com/doi/10.1111/j.1468-0335.1937.tb00002.x",
+        "https://www.jstor.org/stable/2778934",
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://doi.org/10.1287/orsc.1040.0094",
+        "https://en.wikipedia.org/wiki/Louvain_method",
+        "https://iopscience.iop.org/article/10.1088/1742-5468/2008/10/P10008",
+        "https://mitpress.mit.edu/9780262082310/cognition-in-the-wild/",
+        "https://davidamitchell.github.io/Research/research/2026-02-28-free-energy-entropy-and-life.html",
+        "https://davidamitchell.github.io/Research/research/2026-02-28-predictive-processing-active-inference.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-19-which-network-structures-bottleneck-or-accelerate-knowledge-flow.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Dense semantic networks with modularity Q above 0.3 exhibit stable community structures that serve as measurable domain boundaries in enterprise ontology graphs, making the modularity quality function the primary graph-level diagnostic for domain emergence",
+          "sources": [
+            "https://www.pnas.org/doi/10.1073/pnas.0601602103"
+          ]
+        },
+        {
+          "text": "Small-world network properties of high local clustering combined with short average path lengths, as described by Watts and Strogatz (1998), characterize healthy enterprise knowledge graphs, and domain boundaries emerge as the sparse bridge edges separating high-clustering regions",
+          "sources": [
+            "https://www.nature.com/articles/30918",
+            "https://www.pnas.org/doi/10.1073/pnas.0601602103"
+          ]
+        },
+        {
+          "text": "Repeated concept co-activation in Parallel Distributed Processing (PDP) systems creates attractor-like stable states that map to domain boundaries when co-activation patterns are analyzed over enterprise artifacts such as schema field co-occurrence, Application Programming Interface (API) dependency clusters, and workflow participation matrices",
+          "sources": [
+            "https://mitpress.mit.edu/9780262680530/parallel-distributed-processing-volume-1/"
+          ]
+        },
+        {
+          "text": "Friston's free-energy principle predicts that any system maintaining a boundary with its environment will act to minimize prediction error, providing a formal framing for why organizational domain boundaries stabilize around areas of high mutual predictability among concepts and destabilize when prediction error at the boundary rises",
+          "sources": [
+            "https://www.nature.com/articles/nrn2787",
+            "https://davidamitchell.github.io/Research/research/2026-02-28-free-energy-entropy-and-life.html"
+          ]
+        },
+        {
+          "text": "Conway's Law, that system design mirrors organizational communication structure, implies that stable semantic domains require alignment among semantic boundaries, ownership boundaries, and communication flow boundaries; misalignment between any two of these three is a leading observable cause of domain incoherence in enterprise knowledge systems",
+          "sources": [
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://doi.org/10.1287/orsc.1040.0094"
+          ]
+        },
+        {
+          "text": "Coase and Williamson's transaction-cost framework establishes that organizational boundaries form where the cost of internal coordination exceeds the cost of maintaining an explicit external interface; applied to semantic domains, this predicts that domain boundary stability is an equilibrium determined by cross-domain coupling costs rather than by top-down design choices alone",
+          "sources": [
+            "https://onlinelibrary.wiley.com/doi/10.1111/j.1468-0335.1937.tb00002.x",
+            "https://www.jstor.org/stable/2778934"
+          ]
+        },
+        {
+          "text": "Three observable failure signatures indicate domain boundary breakdown in enterprise ontology systems: conceptual fragmentation producing orphaned bridge nodes without domain assignment, concept duplication arising from parallel vocabulary development in disjoint subgraphs, and translation-layer proliferation reflecting governance substitution for shared semantic ownership",
+          "sources": [
+            "https://doi.org/10.1287/orsc.1040.0094",
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://www.pnas.org/doi/10.1073/pnas.0601602103"
+          ]
+        },
+        {
+          "text": "Distributed ownership alignment, defined as the co-location of semantic boundary, governance responsibility, and primary communication flow for a knowledge domain, is a stronger predictor of domain persistence than structural graph density alone because governance misalignment enables semantic drift even in initially dense, high-Q subgraphs",
+          "sources": [
+            "https://www.jstor.org/stable/2778934",
+            "https://doi.org/10.1287/orsc.1040.0094",
+            "https://www.melconway.com/Home/Conways_Law.html"
+          ]
+        }
+      ]
+    },
     "2026-05-27-plato-forms-map-territory-representation-reality": {
       "named_concepts": [
         "structural parallel",
