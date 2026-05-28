@@ -20,7 +20,7 @@ supersedes: ~
 item_type: primary
 confidence: medium
 versions: []
-review_count: 1
+review_count: 2
 ---
 
 # Plato's Forms and the 'Map Is Not the Territory': Tension, Symbiosis, and Cultural Echoes
