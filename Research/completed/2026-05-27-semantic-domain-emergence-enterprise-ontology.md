@@ -2,12 +2,12 @@
 review_count: 1
 title: "Domain Emergence in Semantic Networks, Cognition, and Organizational Structure"
 added: 2026-05-27T10:01:22+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [knowledge-graphs, consciousness-cognition, organisational-design, enterprise-adoption, knowledge-management]
 started: 2026-05-28T12:18:38+00:00
-completed: ~
+completed: 2026-05-28T12:49:20+00:00
 output: [knowledge]
 cites:
   - 2026-02-28-free-energy-entropy-and-life
