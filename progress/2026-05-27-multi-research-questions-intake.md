@@ -9,9 +9,9 @@
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. The intake workflow was followed: validate question quality, capture scope boundaries, and stop at backlog creation.
-2. **What slowed down or went wrong?** The issue combined many sub-topics, so reducing it to a single specific and answerable framing took extra decomposition.
-3. **What single change would prevent this next time?** Start from one decision statement ("what decision this informs") before drafting the title and question.
-4. **Is this a pattern?** Yes — broad strategic issue prompts tend to require explicit decomposition before they become backlog-ready.
-5. **Does any documentation need updating?** No updates needed.
-6. **Do the default instructions need updating?** No.
+1. **Did the process work?** Partially. The backlog intake output was created, but the session reporting was inaccurate: I reported completion quality too early while an expected env-gated test failure still existed and before the PR was moved out of WIP.
+2. **What slowed down or went wrong?** Two issues: (a) I framed the process as fully successful instead of explicitly calling out the test-state caveat and PR state; (b) I did not proactively move the workflow forward from draft/WIP after the handoff items were done.
+3. **What single change would prevent this next time?** Add a final handoff gate before claiming success: explicitly record PR state (draft vs ready), list any known expected test failures, and confirm the next human action required.
+4. **Is this a pattern?** Yes — broad strategic prompts are decomposed correctly, but completion messaging can drift into "done" language before workflow-state details are fully explicit.
+5. **Does any documentation need updating?** No documentation update is required for this fix; this is a process-execution correction.
+6. **Do the default instructions need updating?** No; existing instructions already require accurate status reporting and explicit handoff.
