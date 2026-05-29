@@ -867,16 +867,27 @@ def escape(text: str) -> str:
 
 
 def make_display_title(title: str) -> str:
-    """Shorten title for display: collapse acronym expansions, colon-truncate, length limit."""
+    """Shorten title for display: colon-truncate long prefixes, length limit.
+
+    The ``Long Form (ABBR)`` pattern signals that the abbreviation is
+    domain-coined and cannot stand alone (NLP: acronym sense disambiguation /
+    expansion-in-text heuristic — Charbonnier & Wartena 2018).  Well-known
+    acronyms almost never appear with their expansion in a title; domain-coined
+    ones always do, precisely because they are meaningless without it.  We
+    therefore do *not* collapse such expansions.
+
+    Two length-reduction steps are applied instead:
+
+    1. Colon-truncation: drop everything after the first ``:`` when the
+       before-colon segment is already a self-contained phrase (≥ 20 chars).
+       Short prefixes (e.g. ``XAI:``, ``UELGF:``, ``AI agents:``) stay joined
+       with their subtitle so each item remains meaningful and distinguishable.
+    2. Hard-truncation at 80 characters, breaking at the last word boundary.
+    """
     result = title
-    abbr_pattern = re.compile(r"[A-Z][a-zA-Z\-]*(?:\s+[A-Za-z][a-zA-Z\-]*)*\s+\(([A-Z]{2,8})\)")
-    prev = None
-    while prev != result:
-        prev = result
-        result = abbr_pattern.sub(lambda m: m.group(1), result)
     if ":" in result:
         before_colon = result.split(":", 1)[0].strip()
-        if len(before_colon) < 80:
+        if 20 <= len(before_colon) < 80:
             result = before_colon
     if len(result) > 80:
         truncated = result[:80]

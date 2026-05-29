@@ -38,6 +38,7 @@ from build_site import (
     html_nav,
     load_items,
     load_knowledge_items,
+    make_display_title,
     render_card,
     strip_evidence_labels,
 )
