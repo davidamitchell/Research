@@ -1889,3 +1889,73 @@ def test_build_synthesis_candidates_page_links_to_items() -> None:
     html = build_synthesis_candidates_page(items)
     assert "item-alpha" in html
     assert "item-beta" in html
+
+
+# ---------------------------------------------------------------------------
+# make_display_title — acronym handling (W-0082)
+# ---------------------------------------------------------------------------
+
+
+def test_make_display_title_coined_acronym_uelgf_preserved() -> None:
+    """Coined acronym defined in-text: full expansion kept, colon-subtitle stripped."""
+    from build_site import make_display_title
+
+    title = "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle"
+    result = make_display_title(title)
+    assert result == "Universal Entity Lifecycle Governance Framework (UELGF)"
+
+
+def test_make_display_title_coined_acronym_xai_preserved() -> None:
+    """XAI: library falls back to paren-pattern check; expansion preserved."""
+    from build_site import make_display_title
+
+    title = "Explainable Artificial Intelligence (XAI): current research state"
+    result = make_display_title(title)
+    assert result == "Explainable Artificial Intelligence (XAI)"
+
+
+def test_make_display_title_coined_acronym_apba_preserved() -> None:
+    """APBA: expansion preserved even when Schwartz-Hearst cannot match all letters."""
+    from build_site import make_display_title
+
+    title = "Adaptive Policy-Based Authorization (APBA): compliance alignment"
+    result = make_display_title(title)
+    assert result == "Adaptive Policy-Based Authorization (APBA)"
+
+
+def test_make_display_title_coined_acronym_ai_in_context_preserved() -> None:
+    """AI defined in-text is treated as coined; full title preserved then colon-cut."""
+    from build_site import make_display_title
+
+    title = "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius"
+    result = make_display_title(title)
+    assert "(AI)" in result
+    assert result != "AI"
+
+
+def test_make_display_title_plain_title_no_acronym_unchanged() -> None:
+    """Title with no acronym definition passes through colon-cut only."""
+    from build_site import make_display_title
+
+    result = make_display_title("Multi-AI Provider Control Planes: Governance and Architecture")
+    assert result == "Multi-AI Provider Control Planes"
+
+
+def test_make_display_title_long_coined_acronym_title_truncated() -> None:
+    """Coined acronym title longer than 80 chars after colon-cut is word-truncated."""
+    from build_site import make_display_title
+
+    # 85 chars — over the 80-char limit
+    long_title = "A Very Long Expansion That Goes Way Beyond The Eighty Character Display Limit (AVLETGWBTDL)"
+    result = make_display_title(long_title)
+    assert len(result) <= 83  # 80 chars + "…"
+    assert result.endswith("…")
+
+
+def test_make_display_title_no_colon_coined_acronym() -> None:
+    """Coined acronym with no subtitle: full title returned as-is (within length)."""
+    from build_site import make_display_title
+
+    title = "Policy Information Point (PIP) anomaly detection"
+    result = make_display_title(title)
+    assert "(PIP)" in result

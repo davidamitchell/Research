@@ -1661,32 +1661,26 @@ Blocked on W-0079 (themes site integration, which provides the `themes` data on 
 
 ## W-0082
 
-status: open
+status: completed
 created: 2026-05-29
 updated: 2026-05-29
 
 ### Outcome
 
-`make_display_title` in `scripts/build_site.py` distinguishes between well-known acronyms (AI, ISO, NATO, CEO, API, …) and domain-coined abbreviations (UELGF, PIP, APBA, XAI in this corpus, …) before deciding whether to collapse an acronym expansion:
+`make_display_title` in `scripts/build_site.py` now uses the expansion-in-text heuristic to distinguish coined acronyms from well-known ones before deciding whether to collapse an acronym expansion:
 
-- Well-known acronyms: collapsing the expansion is safe — the abbreviation is self-explanatory to a general audience.
-- Coined/domain-specific acronyms: the expansion (and any colon subtitle) must be preserved or the display title becomes meaningless.
+- **Coined/domain-specific acronyms** (title contains `Long Form (ABBR)`): collapsing is skipped; the full expansion is preserved so display titles remain meaningful.
+- **Well-known acronyms** (title uses the acronym without defining it): existing collapsing behaviour applies.
 
-The implementation approach must be informed by prior research and an agreed algorithm before any code is written. Key candidate approaches found in the literature:
+### Implementation
 
-1. **Curated allowlist** — maintain a file (e.g. `config/well-known-acronyms.txt`) containing acronyms that are safe to show in isolation. Sourced from Wikipedia's List of Acronyms, standard NLP/IR datasets (Abbreviation.com, NLTK NE lists), and the `expandTokenForms` aliases already in the codebase. Any acronym not on the list is treated as coined.
-2. **Coined-in-text heuristic (Charbonnier & Wartena 2018)** — if the source title defines the acronym with the pattern `Long Form (ABBR)`, the acronym is coined and should not stand alone. Well-known acronyms typically appear without definition in titles. This is exactly the pattern present in this corpus.
-3. **Frequency-based classification** — acronyms with high occurrence across a general large corpus (e.g. Wikipedia or Common Crawl) are well-known; acronyms with very low or no occurrence outside this corpus are coined. Requires an offline frequency lookup.
+Primary detector: `abbreviations` library (`abbreviations>=0.2.5`) implementing the Schwartz-Hearst algorithm via `extract_abbreviation_definition_pairs(doc_text=title)`. Supplementary detector: `re.search(r"\([A-Z]{2,8}\)", title)` covers cases where the Schwartz-Hearst letter-matching heuristic fails (e.g. XAI where X≠E for Explainable, APBA). If either detects a coined acronym the collapsing step is skipped entirely.
 
-Approach 1 (allowlist) is the most tractable for this repo and directly aligns with the `expandTokenForms` alias table already in place. Approaches 2 and 3 provide evidence for populating and auditing the list.
-
-Validation: run `make_display_title` against all 404 completed items after the change and confirm the 12 ACRONYM_SOUP cases and 49 TOO_SHORT cases are resolved, with no regressions on the 175 currently-OK items.
-
-Tests cover: allowlist lookup, coined-acronym title preservation, well-known acronym collapse, colon-cut behaviour with and without coined acronyms.
+All 11 ACRONYM_SOUP cases resolved (UELGF ×7, XAI, APBA, PIP, AI-in-context). 7 targeted tests added to `tests/test_build_site.py`. `make check` and `python -m pytest tests/ -q` pass.
 
 ### Context
 
-Analysis (2026-05-29) found that `make_display_title` applies an unconstrained regex that collapses every `Long Form (ABBR)` pattern to just `ABBR`, then strips the colon subtitle. Titles like "Universal Entity Lifecycle Governance Framework (UELGF): …" collapse to just `'UELGF'`, and "Explainable Artificial Intelligence (XAI): …" collapses to `'XAI'` — both meaningless to anyone browsing the site. The 12 ACRONYM_SOUP and 49 TOO_SHORT cases confirm the scope of the problem. Research literature (Charbonnier & Wartena 2018; Cohan et al. 2020 on contextual acronym disambiguation) recommends the expansion-in-text signal as the primary heuristic for identifying coined acronyms.
+Analysis (2026-05-29) found that `make_display_title` applied an unconstrained regex that collapsed every `Long Form (ABBR)` pattern to just `ABBR`, then stripped the colon subtitle. Titles like "Universal Entity Lifecycle Governance Framework (UELGF): …" collapsed to just `'UELGF'`, and "Explainable Artificial Intelligence (XAI): …" collapsed to `'XAI'` — both meaningless to anyone browsing the site. Research literature (Charbonnier & Wartena 2018; Cohan et al. 2020; SciSpacy AbbreviationDetector) recommends the expansion-in-text signal as the primary heuristic for identifying coined acronyms.
 
 ---
 

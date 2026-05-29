@@ -37,6 +37,7 @@ from datetime import UTC, date, datetime
 from pathlib import Path
 
 import yaml
+from abbreviations.schwartz_hearst import extract_abbreviation_definition_pairs
 from generate_index import build_vector_search_index
 from markdown_it import MarkdownIt
 
@@ -866,14 +867,34 @@ def escape(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _has_coined_acronym(title: str) -> bool:
+    """Return True if the title defines an acronym in-text (coined; should not be collapsed).
+
+    Uses the Schwartz-Hearst algorithm (via the ``abbreviations`` library) as the primary
+    detector, supplemented by a simple parenthesis-pattern check for cases where the
+    acronym letters do not map letter-for-letter to the long form (e.g. XAI, APBA).
+    """
+    if extract_abbreviation_definition_pairs(doc_text=title):
+        return True
+    # Supplementary: any (2–8 all-caps) group in the title signals an in-text definition
+    return bool(re.search(r"\([A-Z]{2,8}\)", title))
+
+
 def make_display_title(title: str) -> str:
-    """Shorten title for display: collapse acronym expansions, colon-truncate, length limit."""
+    """Shorten title for display: collapse acronym expansions, colon-truncate, length limit.
+
+    Acronym collapsing is skipped when the title defines its own acronym via the
+    ``Long Form (ABBR)`` pattern (coined acronym).  Such titles are preserved so that
+    display titles remain meaningful (e.g. "Universal Entity Lifecycle Governance
+    Framework (UELGF)" rather than the opaque "UELGF").
+    """
     result = title
-    abbr_pattern = re.compile(r"[A-Z][a-zA-Z\-]*(?:\s+[A-Za-z][a-zA-Z\-]*)*\s+\(([A-Z]{2,8})\)")
-    prev = None
-    while prev != result:
-        prev = result
-        result = abbr_pattern.sub(lambda m: m.group(1), result)
+    if not _has_coined_acronym(title):
+        abbr_pattern = re.compile(r"[A-Z][a-zA-Z\-]*(?:\s+[A-Za-z][a-zA-Z\-]*)*\s+\(([A-Z]{2,8})\)")
+        prev = None
+        while prev != result:
+            prev = result
+            result = abbr_pattern.sub(lambda m: m.group(1), result)
     if ":" in result:
         before_colon = result.split(":", 1)[0].strip()
         if len(before_colon) < 80:
