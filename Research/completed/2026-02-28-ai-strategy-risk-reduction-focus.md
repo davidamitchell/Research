@@ -1,5 +1,5 @@
 ---
-title: "AI Strategy Examples: Risk Reduction Focus"
+title: "Artificial Intelligence (AI) risk-reduction deployments in financial services: fraud and Anti-Money Laundering (AML) outcome evidence, regulatory framework mapping, and model bias as dominant failure mode"
 added: 2026-03-03T07:52:49+00:00
 status: completed
 priority: high
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# AI Strategy Examples: Risk Reduction Focus
+# Artificial Intelligence (AI) risk-reduction deployments in financial services: fraud and Anti-Money Laundering (AML) outcome evidence, regulatory framework mapping, and model bias as dominant failure mode
 
 ## Research Question
 

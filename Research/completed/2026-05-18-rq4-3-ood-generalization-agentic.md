@@ -1,6 +1,6 @@
 ---
 review_count: 1
-title: "Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs"
+title: "Formal Generalisation Bounds for Tool-Using LLM Systems When Tools Return Non-Deterministic Outputs Outside the Training Distribution"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -31,7 +31,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 4.3: Formal bounds on generalisation outside the training distribution for tool-using Large Language Model systems under non-deterministic tool outputs
+# Formal Generalisation Bounds for Tool-Using LLM Systems When Tools Return Non-Deterministic Outputs Outside the Training Distribution
 
 ## Research Question
 

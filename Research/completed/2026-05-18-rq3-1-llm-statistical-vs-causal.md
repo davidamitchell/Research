@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality"
+title: "Large Language Models as Statistical Optimisers: Token Distribution Matching vs. Invariant Causal Modelling of Reality"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# RQ 3.1: Large Language Models as Statistical Optimisers, Token Distribution vs. Invariant Causal Models of Reality
+# Large Language Models as Statistical Optimisers: Token Distribution Matching vs. Invariant Causal Modelling of Reality
 
 ## Research Question
 

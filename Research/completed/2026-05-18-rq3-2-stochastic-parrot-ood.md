@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention"
+title: "The Stochastic Parrot Under Pressure: LLM Failures on Out-of-Distribution Logical Prompts That Require Structural Intervention"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -23,7 +23,7 @@ confidence: medium
 versions: []
 ---
 
-# RQ 3.2: The Stochastic Parrot Under Pressure, Large Language Model Failures on Out-of-Distribution Logical Prompts Requiring Structural Intervention
+# The Stochastic Parrot Under Pressure: LLM Failures on Out-of-Distribution Logical Prompts That Require Structural Intervention
 
 ## Research Question
 

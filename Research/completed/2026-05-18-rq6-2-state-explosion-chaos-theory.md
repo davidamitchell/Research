@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 6.2: State Space Explosion and Deterministic Chaos, Fragility Shared Between Concurrent Coded Systems and Machine Learning Models"
+title: "State Space Explosion and Deterministic Chaos: How Concurrent System Fragility and ML Model Sensitivity to Perturbation Mirror Each Other"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -27,7 +27,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 6.2: State Space Explosion and Deterministic Chaos, Fragility Shared Between Concurrent Coded Systems and Machine Learning Models
+# State Space Explosion and Deterministic Chaos: How Concurrent System Fragility and ML Model Sensitivity to Perturbation Mirror Each Other
 
 ## Research Question
 

@@ -1,5 +1,5 @@
 ---
-title: "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?"
+title: "Artificial Intelligence (AI) agents in financial services line 1 and line 2 functions: vendor platform dominance, existing regulatory framework application, and the unresolved nominal-review accountability problem"
 added: 2026-03-03T06:16:53+00:00
 status: completed
 priority: high
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# AI Line 1 and Line 2 Risk Agents: Who Is Building Them?
+# Artificial Intelligence (AI) agents in financial services line 1 and line 2 functions: vendor platform dominance, existing regulatory framework application, and the unresolved nominal-review accountability problem
 
 ## Research Question
 

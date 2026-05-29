@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Neurological Basis of Contextual Reasoning and Relevance Filtering"
+title: "Working memory architecture, prefrontal cortex contextual gating, and predictive processing as neurological design principles for Artificial Intelligence (AI) context management"
 added: 2026-03-22T09:14:01+00:00
 status: completed
 priority: medium  # low | medium | high
@@ -18,7 +18,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# Neurological Basis of Contextual Reasoning and Relevance Filtering
+# Working memory architecture, prefrontal cortex contextual gating, and predictive processing as neurological design principles for Artificial Intelligence (AI) context management
 
 ## Research Question
 

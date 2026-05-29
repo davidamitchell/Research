@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence"
+title: "David Deutsch's Hard-to-Vary Criterion: Measuring the Internal Logical Constraints of Explanatory Mechanisms"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -27,7 +27,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 1.2: Deutsch's criterion for explanations whose details cannot be changed without loss of coherence
+# David Deutsch's Hard-to-Vary Criterion: Measuring the Internal Logical Constraints of Explanatory Mechanisms
 
 ## Research Question
 

@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift"
+title: "Failure Modes of Instrumentalist Epistemology When Applied to Complex Dynamic Systems Under Distribution Shift"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -26,7 +26,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 1.3: Failure Modes of Instrumentalism When Applied to Complex Dynamic Systems Under Distribution Shift
+# Failure Modes of Instrumentalist Epistemology When Applied to Complex Dynamic Systems Under Distribution Shift
 
 ## Research Question
 

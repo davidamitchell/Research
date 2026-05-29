@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning"
+title: "Pearl's Causal Hierarchy: Formal Information-Theoretic Limits on Deriving Interventional and Counterfactual Reasoning from Observational Data"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -29,7 +29,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 2.4: Pearl's Causal Hierarchy and the formal limits of observational data for intervention and counterfactual reasoning
+# Pearl's Causal Hierarchy: Formal Information-Theoretic Limits on Deriving Interventional and Counterfactual Reasoning from Observational Data
 
 ## Research Question
 

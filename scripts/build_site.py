@@ -869,20 +869,16 @@ def escape(text: str) -> str:
 def make_display_title(title: str) -> str:
     """Shorten title for display: colon-truncate long prefixes, length limit.
 
-    The ``Long Form (ABBR)`` pattern signals that the abbreviation is
-    domain-coined and cannot stand alone (NLP: acronym sense disambiguation /
-    expansion-in-text heuristic — Charbonnier & Wartena 2018).  Well-known
-    acronyms almost never appear with their expansion in a title; domain-coined
-    ones always do, precisely because they are meaningless without it.  We
-    therefore do *not* collapse such expansions.
+    Acronym collapsing is omitted entirely.  The ``Long Form (ABBR)`` pattern
+    signals that the acronym is domain-coined and meaningless without its
+    expansion (NLP: expansion-in-text heuristic — Charbonnier & Wartena 2018).
+    Well-known acronyms that appear without being defined in the title have
+    nothing to collapse anyway.
 
-    Two length-reduction steps are applied instead:
-
-    1. Colon-truncation: drop everything after the first ``:`` when the
-       before-colon segment is already a self-contained phrase (≥ 20 chars).
-       Short prefixes (e.g. ``XAI:``, ``UELGF:``, ``AI agents:``) stay joined
-       with their subtitle so each item remains meaningful and distinguishable.
-    2. Hard-truncation at 80 characters, breaking at the last word boundary.
+    Colon-truncation only fires when the before-colon segment is a
+    self-contained phrase (≥ 20 chars).  Short prefixes like ``AI agents:``
+    or ``UELGF extension:`` (< 20 chars) are kept joined with their subtitle
+    so each item remains meaningful and distinguishable.
     """
     result = title
     if ":" in result:
