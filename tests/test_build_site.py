@@ -1924,13 +1924,14 @@ def test_make_display_title_coined_acronym_apba_preserved() -> None:
 
 
 def test_make_display_title_coined_acronym_ai_in_context_preserved() -> None:
-    """AI defined in-text is treated as coined; full title preserved then colon-cut."""
+    """AI defined in-text: full expansion kept, colon-subtitle stripped."""
     from build_site import make_display_title
 
     title = "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius"
     result = make_display_title(title)
-    assert "(AI)" in result
-    assert result != "AI"
+    assert (
+        result == "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI)"
+    )
 
 
 def test_make_display_title_plain_title_no_acronym_unchanged() -> None:
@@ -1959,3 +1960,23 @@ def test_make_display_title_no_colon_coined_acronym() -> None:
     title = "Policy Information Point (PIP) anomaly detection"
     result = make_display_title(title)
     assert "(PIP)" in result
+
+
+def test_make_display_title_short_colon_prefix_not_truncated() -> None:
+    """Before-colon fragment shorter than 20 chars: kept joined with subtitle."""
+    from build_site import make_display_title
+
+    # "AI agents" is 9 chars — must not be stripped to just "AI agents"
+    assert (
+        make_display_title("AI agents: exploring autonomy in decision-making")
+        == "AI agents: exploring autonomy in decision-making"
+    )
+    # "UELGF extension" is 15 chars — must not be stripped
+    assert (
+        make_display_title("UELGF extension: feature A enhancements")
+        == "UELGF extension: feature A enhancements"
+    )
+    # Exactly 20 chars before colon — boundary: should truncate at colon
+    assert (
+        make_display_title("Exactly twenty chars: subtitle detail here") == "Exactly twenty chars"
+    )
