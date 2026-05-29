@@ -1,12 +1,12 @@
 [
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "ai-rmf-nist-ai-ai-act",
+    "title": "ai rmf / nist ai / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "ai act"
     ],
     "item_count": 10,
@@ -62,17 +62,17 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
-    "slug": "nist-ai-ai-act-ai-rmf",
-    "title": "nist ai / ai act / ai rmf",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai act",
-      "ai rmf"
+      "ai rmf",
+      "ai act"
     ],
     "item_count": 7,
     "items": [
@@ -83,7 +83,7 @@
       },
       {
         "slug": "2026-02-28-ai-strategy-security-focus",
-        "title": "AI Strategy Examples: Security Focus",
+        "title": "Artificial Intelligence (AI) security strategy: 1,265% AI-enhanced phishing growth, prompt injection as highest-severity agentic vulnerability, and the New Zealand (NZ) regulatory guidance gap",
         "added": "2026-03-05"
       },
       {
@@ -112,16 +112,16 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -152,7 +152,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
     "slug": "cost-allocation-financial-services-tbm-council",
@@ -195,20 +195,20 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "github copilot"
+      "coding agent",
+      "agents md"
     ],
     "item_count": 5,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy-swe-focus",
-        "title": "AI Strategy Examples: Software Engineering Focus",
+        "title": "Artificial Intelligence (AI) coding assistant deployment outcomes: individual productivity evidence, Google's 25% code disclosure, DORA stability degradation, and the Type 2 to Type 3 governance boundary",
         "added": "2026-03-05"
       },
       {
@@ -232,23 +232,23 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
-    "slug": "coding-agent-github-copilot-ai-adoption",
-    "title": "coding agent / github copilot / ai adoption",
+    "slug": "copilot-coding-ai-coding-ai-adoption",
+    "title": "copilot coding / ai coding / ai adoption",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
-      "github copilot",
+      "copilot coding",
+      "ai coding",
       "ai adoption"
     ],
     "item_count": 5,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy-swe-focus",
-        "title": "AI Strategy Examples: Software Engineering Focus",
+        "title": "Artificial Intelligence (AI) coding assistant deployment outcomes: individual productivity evidence, Google's 25% code disclosure, DORA stability degradation, and the Type 2 to Type 3 governance boundary",
         "added": "2026-03-05"
       },
       {
@@ -272,16 +272,16 @@
         "added": "2026-05-27"
       }
     ],
-    "url": "/Research/threads/coding-agent-github-copilot-ai-adoption.html"
+    "url": "/Research/threads/copilot-coding-ai-coding-ai-adoption.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -307,17 +307,17 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
-    "slug": "fly-io-contents-api-github-contents",
-    "title": "fly io / contents api / github contents",
+    "slug": "github-contents-fly-io-contents-api",
+    "title": "github contents / fly io / contents api",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
+      "github contents",
       "fly io",
-      "contents api",
-      "github contents"
+      "contents api"
     ],
     "item_count": 4,
     "items": [
@@ -342,23 +342,23 @@
         "added": "2026-03-10"
       }
     ],
-    "url": "/Research/threads/fly-io-contents-api-github-contents.html"
+    "url": "/Research/threads/github-contents-fly-io-contents-api.html"
   },
   {
-    "slug": "ai-systems-prompt-injection-agentic-ai",
-    "title": "ai systems / prompt injection / agentic ai",
+    "slug": "ai-systems-agentic-ai-prompt-injection",
+    "title": "ai systems / agentic ai / prompt injection",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai systems",
-      "prompt injection",
-      "agentic ai"
+      "agentic ai",
+      "prompt injection"
     ],
     "item_count": 4,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy-security-focus",
-        "title": "AI Strategy Examples: Security Focus",
+        "title": "Artificial Intelligence (AI) security strategy: 1,265% AI-enhanced phishing growth, prompt injection as highest-severity agentic vulnerability, and the New Zealand (NZ) regulatory guidance gap",
         "added": "2026-03-05"
       },
       {
@@ -377,28 +377,28 @@
         "added": "2026-05-02"
       }
     ],
-    "url": "/Research/threads/ai-systems-prompt-injection-agentic-ai.html"
+    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
   },
   {
-    "slug": "deterministic-systems-language-model-local-replayability",
-    "title": "deterministic systems / language model / local replayability",
+    "slug": "local-replayability-deterministic-systems-language-model",
+    "title": "local replayability / deterministic systems / language model",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
+      "local replayability",
       "deterministic systems",
-      "language model",
-      "local replayability"
+      "language model"
     ],
     "item_count": 3,
     "items": [
       {
         "slug": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
-        "title": "Research Question 6.3: The Complexity Horizon, When Classical Microservice Architectures Become as Opaque as Neural Networks",
+        "title": "The Complexity Horizon: When Deeply Nested Microservice Architectures Become as Opaque to Operators as Neural Networks",
         "added": "2026-05-18"
       },
       {
         "slug": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
-        "title": "RQ 5.1: Stochastic versus Deterministic Failure Modes on Identical Unvalidated Inputs",
+        "title": "Stochastic LLM Agent vs. Deterministic Coded System: Comparative Failure Mode Analysis on Identical Unvalidated Inputs",
         "added": "2026-05-18"
       },
       {
@@ -407,7 +407,7 @@
         "added": "2026-05-18"
       }
     ],
-    "url": "/Research/threads/deterministic-systems-language-model-local-replayability.html"
+    "url": "/Research/threads/local-replayability-deterministic-systems-language-model.html"
   },
   {
     "slug": "ai-control-control-tower-ai-agent",
@@ -440,13 +440,13 @@
     "url": "/Research/threads/ai-control-control-tower-ai-agent.html"
   },
   {
-    "slug": "banking-supervision-basel-committee-critical-operations",
-    "title": "banking supervision / basel committee / critical operations",
+    "slug": "basel-committee-banking-supervision-critical-operations",
+    "title": "basel committee / banking supervision / critical operations",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "banking supervision",
       "basel committee",
+      "banking supervision",
       "critical operations"
     ],
     "item_count": 3,
@@ -467,17 +467,17 @@
         "added": "2026-05-09"
       }
     ],
-    "url": "/Research/threads/banking-supervision-basel-committee-critical-operations.html"
+    "url": "/Research/threads/basel-committee-banking-supervision-critical-operations.html"
   },
   {
-    "slug": "verification-intensity-meaningful-human-queue-depth",
-    "title": "verification intensity / meaningful human / queue depth",
+    "slug": "verification-intensity-artificial-intelligence-human-review",
+    "title": "verification intensity / artificial intelligence / human review",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "verification intensity",
-      "meaningful human",
-      "queue depth"
+      "artificial intelligence",
+      "human review"
     ],
     "item_count": 3,
     "items": [
@@ -493,11 +493,11 @@
       },
       {
         "slug": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
-        "title": "Accountability and governance risks in Artificial Intelligence (AI)-assisted policy interpretation",
+        "title": "AI-Assisted Policy Interpretation and Accountability Displacement: How LLM Integration Shifts Liability Allocation and Degrades Escalation Behaviour",
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/verification-intensity-meaningful-human-queue-depth.html"
+    "url": "/Research/threads/verification-intensity-artificial-intelligence-human-review.html"
   },
   {
     "slug": "copilot-studio-power-platform-direct-publish",
@@ -530,14 +530,14 @@
     "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   },
   {
-    "slug": "revenue-per-ai-native-companies-private-saas",
-    "title": "revenue per / ai-native companies / private saas",
+    "slug": "mythical-man-month-tke-memo-coordination-overhead",
+    "title": "mythical man-month / tke memo / coordination overhead",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "revenue per",
-      "ai-native companies",
-      "private saas"
+      "mythical man-month",
+      "tke memo",
+      "coordination overhead"
     ],
     "item_count": 3,
     "items": [
@@ -557,17 +557,17 @@
         "added": "2026-03-14"
       }
     ],
-    "url": "/Research/threads/revenue-per-ai-native-companies-private-saas.html"
+    "url": "/Research/threads/mythical-man-month-tke-memo-coordination-overhead.html"
   },
   {
-    "slug": "fly-io-write-path-claude-ios",
-    "title": "fly io / write path / claude ios",
+    "slug": "fly-io-github-contents-cloudflare-workers",
+    "title": "fly io / github contents / cloudflare workers",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "fly io",
-      "write path",
-      "claude ios"
+      "github contents",
+      "cloudflare workers"
     ],
     "item_count": 3,
     "items": [
@@ -587,17 +587,17 @@
         "added": "2026-03-15"
       }
     ],
-    "url": "/Research/threads/fly-io-write-path-claude-ios.html"
+    "url": "/Research/threads/fly-io-github-contents-cloudflare-workers.html"
   },
   {
-    "slug": "fine-grained-pat-ios-shortcuts-issue-creation",
-    "title": "fine-grained pat / ios shortcuts / issue creation",
+    "slug": "ios-shortcuts-fine-grained-pat-github-contents",
+    "title": "ios shortcuts / fine-grained pat / github contents",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "fine-grained pat",
       "ios shortcuts",
-      "issue creation"
+      "fine-grained pat",
+      "github contents"
     ],
     "item_count": 3,
     "items": [
@@ -617,17 +617,17 @@
         "added": "2026-03-10"
       }
     ],
-    "url": "/Research/threads/fine-grained-pat-ios-shortcuts-issue-creation.html"
+    "url": "/Research/threads/ios-shortcuts-fine-grained-pat-github-contents.html"
   },
   {
-    "slug": "gao-et-parameter-inertia-ntp-objective",
-    "title": "gao et / parameter inertia / ntp objective",
+    "slug": "gao-et-parameter-inertia-al-arxiv",
+    "title": "gao et / parameter inertia / al arxiv",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "gao et",
       "parameter inertia",
-      "ntp objective"
+      "al arxiv"
     ],
     "item_count": 3,
     "items": [
@@ -647,16 +647,16 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/gao-et-parameter-inertia-ntp-objective.html"
+    "url": "/Research/threads/gao-et-parameter-inertia-al-arxiv.html"
   },
   {
-    "slug": "gao-et-ntp-objective-h-neuron-suppression",
-    "title": "gao et / ntp objective / h-neuron suppression",
+    "slug": "gao-et-inference-time-intervention-h-neuron-suppression",
+    "title": "gao et / inference-time intervention / h-neuron suppression",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "gao et",
-      "ntp objective",
+      "inference-time intervention",
       "h-neuron suppression"
     ],
     "item_count": 3,
@@ -677,17 +677,17 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/gao-et-ntp-objective-h-neuron-suppression.html"
+    "url": "/Research/threads/gao-et-inference-time-intervention-h-neuron-suppression.html"
   },
   {
-    "slug": "controlled-hallucination-predictive-processing-prediction-error",
-    "title": "controlled hallucination / predictive processing / prediction error",
+    "slug": "controlled-hallucination-prediction-error-predictive-processing",
+    "title": "controlled hallucination / prediction error / predictive processing",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "controlled hallucination",
-      "predictive processing",
-      "prediction error"
+      "prediction error",
+      "predictive processing"
     ],
     "item_count": 3,
     "items": [
@@ -707,17 +707,17 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/controlled-hallucination-predictive-processing-prediction-error.html"
+    "url": "/Research/threads/controlled-hallucination-prediction-error-predictive-processing.html"
   },
   {
-    "slug": "free-energy-beast-machine-predictive-processing",
-    "title": "free energy / beast machine / predictive processing",
+    "slug": "free-energy-predictive-processing-schr-dinger",
+    "title": "free energy / predictive processing / schr dinger",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "free energy",
-      "beast machine",
-      "predictive processing"
+      "predictive processing",
+      "schr dinger"
     ],
     "item_count": 3,
     "items": [
@@ -737,6 +737,6 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/free-energy-beast-machine-predictive-processing.html"
+    "url": "/Research/threads/free-energy-predictive-processing-schr-dinger.html"
   }
 ]
