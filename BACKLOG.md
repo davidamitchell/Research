@@ -1656,3 +1656,91 @@ Tests cover: cluster computation, minimum-theme threshold, ranking determinism, 
 ### Context
 
 Blocked on W-0079 (themes site integration, which provides the `themes` data on items). Supersedes the dependency note in W-0061 on W-0069/W-0070. Once W-0081 is done, W-0061 should be marked done (superseded).
+
+---
+
+## W-0082
+
+status: open
+created: 2026-05-29
+updated: 2026-05-29
+
+### Outcome
+
+`make_display_title` in `scripts/build_site.py` distinguishes between well-known acronyms (AI, ISO, NATO, CEO, API, …) and domain-coined abbreviations (UELGF, PIP, APBA, XAI in this corpus, …) before deciding whether to collapse an acronym expansion:
+
+- Well-known acronyms: collapsing the expansion is safe — the abbreviation is self-explanatory to a general audience.
+- Coined/domain-specific acronyms: the expansion (and any colon subtitle) must be preserved or the display title becomes meaningless.
+
+The implementation approach must be informed by prior research and an agreed algorithm before any code is written. Key candidate approaches found in the literature:
+
+1. **Curated allowlist** — maintain a file (e.g. `config/well-known-acronyms.txt`) containing acronyms that are safe to show in isolation. Sourced from Wikipedia's List of Acronyms, standard NLP/IR datasets (Abbreviation.com, NLTK NE lists), and the `expandTokenForms` aliases already in the codebase. Any acronym not on the list is treated as coined.
+2. **Coined-in-text heuristic (Charbonnier & Wartena 2018)** — if the source title defines the acronym with the pattern `Long Form (ABBR)`, the acronym is coined and should not stand alone. Well-known acronyms typically appear without definition in titles. This is exactly the pattern present in this corpus.
+3. **Frequency-based classification** — acronyms with high occurrence across a general large corpus (e.g. Wikipedia or Common Crawl) are well-known; acronyms with very low or no occurrence outside this corpus are coined. Requires an offline frequency lookup.
+
+Approach 1 (allowlist) is the most tractable for this repo and directly aligns with the `expandTokenForms` alias table already in place. Approaches 2 and 3 provide evidence for populating and auditing the list.
+
+Validation: run `make_display_title` against all 404 completed items after the change and confirm the 12 ACRONYM_SOUP cases and 49 TOO_SHORT cases are resolved, with no regressions on the 175 currently-OK items.
+
+Tests cover: allowlist lookup, coined-acronym title preservation, well-known acronym collapse, colon-cut behaviour with and without coined acronyms.
+
+### Context
+
+Analysis (2026-05-29) found that `make_display_title` applies an unconstrained regex that collapses every `Long Form (ABBR)` pattern to just `ABBR`, then strips the colon subtitle. Titles like "Universal Entity Lifecycle Governance Framework (UELGF): …" collapse to just `'UELGF'`, and "Explainable Artificial Intelligence (XAI): …" collapses to `'XAI'` — both meaningless to anyone browsing the site. The 12 ACRONYM_SOUP and 49 TOO_SHORT cases confirm the scope of the problem. Research literature (Charbonnier & Wartena 2018; Cohan et al. 2020 on contextual acronym disambiguation) recommends the expansion-in-text signal as the primary heuristic for identifying coined acronyms.
+
+---
+
+## W-0083
+
+status: open
+created: 2026-05-29
+updated: 2026-05-29
+
+### Outcome
+
+All search surfaces across the site use the same field as the primary searchable title. Currently:
+
+- `BROWSE_JS` (used on `browse.html` and `all-items.html`) populates `data-title` from `item["display_title"]` — the `make_display_title`-shortened version.
+- `search-runtime.js` (used on `index.html` landing and `search.html` full-search) constructs its search blob from `item.title` — the full, unshortened title from the front matter.
+
+After W-0082 is resolved (so `display_title` is reliably descriptive), both paths should search the same field. Either:
+  - `BROWSE_JS` is updated to embed `data-title` from the full title, or
+  - `search-runtime.js` is updated to use `display_title` from the search index, or
+  - Both use a new dedicated `search_title` field that is the full title normalised for search but not necessarily display.
+
+The chosen approach must be documented and applied consistently. A regression test should confirm that searching for a term present only in the full title (but stripped by `make_display_title`) returns results on all search surfaces.
+
+### Context
+
+Identified 2026-05-29 during search consistency audit. The discrepancy means a search for "UELGF" on Browse will match the (already-bad) display title `'UELGF'`, but a search on the full search page will match the complete title text. Conversely, searching for a term in the subtitle that `make_display_title` discards will produce results on the full search page but zero results on Browse/all-items. Blocked on W-0082 to understand what `display_title` will contain after the fix.
+
+---
+
+## W-0084
+
+status: open
+created: 2026-05-29
+updated: 2026-05-29
+
+### Outcome
+
+The scoring logic used by all search surfaces is identical. Currently the two implementations diverge:
+
+| Feature | `SEARCH_MATCH_UTILS_JS` (Browse, All Items) | `search-runtime.js` (Landing, Full Search) |
+|---|---|---|
+| Phrase bonus | +80 if full query is substring of text | absent |
+| Acronym aliases | `ai`, `ml`, `llm`, `nlp`, `ux`, `ui` expand to full forms | absent |
+| Stem forms | `ies→y`, `es`, `s`, `ing`, `ed` | `ies→y`, `es`, `s` only (`ing`, `ed` absent) |
+| Sort on results | none (DOM order preserved) | score descending, then index ascending |
+
+The fix requires one of:
+  - Extract the shared scoring logic into a single canonical JS module imported by both `SEARCH_MATCH_UTILS_JS` and `search-runtime.js`, or
+  - Copy the missing features (phrase bonus, alias table, additional stem forms) from `SEARCH_MATCH_UTILS_JS` into `search-runtime.js`.
+
+The alias table should be expanded to cover additional common acronyms from this corpus (e.g. `rag`, `ai`, `iam`, `apm`, `itsm`). Result sorting on Browse/all-items should also be introduced so that higher-scoring matches surface first rather than relying on DOM (date-descending) order.
+
+Tests cover: phrase bonus applies on all surfaces, alias expansion consistent across surfaces, stem forms consistent, search for `"llm"` returns items containing `"large language model"` on all pages.
+
+### Context
+
+Identified 2026-05-29 during search consistency audit. A user searching for `"artificial intelligence"` on Browse gets results (alias expands `ai` to match); the same search on the full search page gets zero results unless the literal string `"artificial intelligence"` appears in the title or question excerpt. The phrase bonus means Browse rewards exact phrase matches with a much higher score threshold than the full search page. The stem-form gap (`ing`, `ed`) means `"governing"` matches on Browse but not on the full search page.
