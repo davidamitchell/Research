@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-29T10:57:26Z",
+  "extracted_at": "2026-05-29T11:36:45Z",
   "items": {
     "2026-05-27-semantic-domain-emergence-enterprise-ontology": {
       "named_concepts": [
@@ -185,6 +185,105 @@
           "text": "Hemingway's map-collapse: the characters suffer the failure mode in which representational systems (honor, romantic love, Christian salvation) were discredited by the First World War, and without replacement maps the territory of experience becomes unnavigable",
           "sources": [
             "https://www.britannica.com/topic/The-Sun-Also-Rises"
+          ]
+        }
+      ]
+    },
+    "2026-05-27-ai-first-software-ecology-developer-ecosystems": {
+      "named_concepts": [
+        "ai tools",
+        "software engineering",
+        "platform engineering",
+        "productivity gains",
+        "faros ai",
+        "ai coding",
+        "coding tools",
+        "ai productivity",
+        "ai-generated code",
+        "ai code",
+        "experienced developers",
+        "ai adoption",
+        "ai telemetry",
+        "pr review",
+        "review time",
+        "organisational conditions",
+        "tools amplify",
+        "quality degradation",
+        "agentic ai",
+        "individual throughput"
+      ],
+      "source_urls": [
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://itrevolution.com/product/accelerate/",
+        "https://abseil.io/resources/swe-book",
+        "https://sre.google/books/",
+        "https://www.anthropic.com/research/anthropic-economic-index-september-2025-report",
+        "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/",
+        "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization",
+        "https://oecd.ai/",
+        "https://arxiv.org/abs/2507.09089",
+        "https://arxiv.org/abs/2410.12944",
+        "https://mit-genai.pubpub.org/pub/v5iixksv",
+        "https://www.microsoft.com/en-us/research/publication/the-impact-of-ai-on-developer-productivity-evidence-from-github-copilot/",
+        "https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report",
+        "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+        "https://queue.acm.org/detail.cfm?id=3454124",
+        "https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/",
+        "https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://teamtopologies.com/key-concepts",
+        "https://doi.org/10.1518/001872097778543886"
+      ],
+      "key_claims": [
+        {
+          "text": "AI coding tools produce measurable productivity gains in controlled conditions but cause slowdowns for experienced developers on realistic, complex tasks in their own codebases - productivity effects are heterogeneous by experience level and task complexity, not uniformly positive",
+          "sources": [
+            "https://arxiv.org/abs/2507.09089",
+            "https://arxiv.org/abs/2410.12944",
+            "https://mit-genai.pubpub.org/pub/v5iixksv"
+          ]
+        },
+        {
+          "text": "Individual throughput metrics increase with AI adoption, but organisational quality metrics degrade sharply - Faros AI telemetry of 22,000+ developers found PR review time up 441%, bugs per developer up 54%, and incidents per PR up 242.7% by 2026, creating a misleading productivity signal.  (; medium-high confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)",
+          "sources": [
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+          ]
+        },
+        {
+          "text": "Developers systematically overestimate AI productivity gains: in the METR Randomised Controlled Trial, participants forecasted a 24% speedup and reported feeling 20% faster, while the measured outcome was 19% slower - an automation bias that undermines effective code review governance",
+          "sources": [
+            "https://arxiv.org/abs/2507.09089"
+          ]
+        },
+        {
+          "text": "DORA 2025 identifies seven organisational capabilities that determine whether AI amplifies strengths or weaknesses: clear leadership AI stance, healthy data ecosystems, AI-accessible internal data, strong version control, small-batch work discipline, user-centric focus, and quality internal platforms",
+          "sources": [
+            "https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report"
+          ]
+        },
+        {
+          "text": "Platform engineering capability is the strongest single predictor of AI productivity amplification, with 90% of large organisations now possessing some platform capability and those with higher-quality Internal Developer Platforms seeing meaningfully stronger AI return on investment",
+          "sources": [
+            "https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report"
+          ]
+        },
+        {
+          "text": "Google has scaled AI-generated code from 25% of new code in late 2023 to approximately 75% by early 2026, demonstrating that AI tools embedded naturally into developer workflows achieve large-scale adoption without requiring deliberate triggering",
+          "sources": [
+            "https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/",
+            "https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html"
+          ]
+        },
+        {
+          "text": "Organisational factors - team structure, governance, and platform quality - account for approximately 2× the AI productivity impact of individual tool choice and usage, making systemic investment more critical than individual tooling decisions",
+          "sources": [
+            "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
+          ]
+        },
+        {
+          "text": "The Open Web Application Security Project LLM Top 10 documents AI code generation security risks - prompt injection, insecure output handling, and supply chain vulnerabilities - that require explicit governance controls absent from traditional development pipelines, creating a governance gap in most organisations",
+          "sources": [
+            "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
           ]
         }
       ]

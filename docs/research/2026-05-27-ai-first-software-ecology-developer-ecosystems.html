@@ -1,0 +1,1186 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI-first software ecology in large engineering organisations (2025-2030) — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+          <style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI-first software ecology in large engineering organisations (2025-2030)</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI-first software ecology in large engineering organisations (2025-2030)</h1>
+    <div class="meta-bar">
+    <span>2026-05-27</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a> <a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-27-ai-first-software-ecology-developer-ecosystems.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-27-ai-first-software-ecology-developer-ecosystems" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>AI coding tools produce measurable productivity gains in controlled conditions but cause slowdowns for experienced developers on realistic, complex tasks in their own codebases - productivity effects are heterogeneous by experience level and task complexity, not uniformly positive<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener" title="https://arxiv.org/abs/2507.09089">METR et al. (2025)</a><a class="claim-source-link" href="https://arxiv.org/abs/2410.12944" target="_blank" rel="noopener" title="https://arxiv.org/abs/2410.12944">Paradis et al. (2024)</a><a class="claim-source-link" href="https://mit-genai.pubpub.org/pub/v5iixksv" target="_blank" rel="noopener" title="https://mit-genai.pubpub.org/pub/v5iixksv">Microsoft (2024)</a></span></li>
+<li>Individual throughput metrics increase with AI adoption, but organisational quality metrics degrade sharply - Faros AI telemetry of 22,000+ developers found PR review time up 441%, bugs per developer up 54%, and incidents per PR up 242.7% by 2026, creating a misleading productivity signal.  (; medium-high confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)<span class="claim-sources"><a class="claim-source-link" href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025" target="_blank" rel="noopener" title="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025">AI (2026)</a></span></li>
+<li>Developers systematically overestimate AI productivity gains: in the METR Randomised Controlled Trial, participants forecasted a 24% speedup and reported feeling 20% faster, while the measured outcome was 19% slower - an automation bias that undermines effective code review governance<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener" title="https://arxiv.org/abs/2507.09089">METR et al. (2025)</a></span></li>
+<li>DORA 2025 identifies seven organisational capabilities that determine whether AI amplifies strengths or weaknesses: clear leadership AI stance, healthy data ecosystems, AI-accessible internal data, strong version control, small-batch work discipline, user-centric focus, and quality internal platforms<span class="claim-sources"><a class="claim-source-link" href="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report" target="_blank" rel="noopener" title="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report">DORA (2025)</a></span></li>
+<li>Platform engineering capability is the strongest single predictor of AI productivity amplification, with 90% of large organisations now possessing some platform capability and those with higher-quality Internal Developer Platforms seeing meaningfully stronger AI return on investment<span class="claim-sources"><a class="claim-source-link" href="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report" target="_blank" rel="noopener" title="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report">DORA (2025)</a></span></li>
+<li>Google has scaled AI-generated code from 25% of new code in late 2023 to approximately 75% by early 2026, demonstrating that AI tools embedded naturally into developer workflows achieve large-scale adoption without requiring deliberate triggering<span class="claim-sources"><a class="claim-source-link" href="https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/" target="_blank" rel="noopener" title="https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/">Blog (2024)</a><a class="claim-source-link" href="https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html" target="_blank" rel="noopener" title="https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html">TechSpot (2026)</a></span></li>
+<li>Organisational factors - team structure, governance, and platform quality - account for approximately 2× the AI productivity impact of individual tool choice and usage, making systemic investment more critical than individual tooling decisions<span class="claim-sources"><a class="claim-source-link" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank" rel="noopener" title="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization">Microsoft (2026)</a></span></li>
+<li>The Open Web Application Security Project LLM Top 10 documents AI code generation security risks - prompt injection, insecure output handling, and supply chain vulnerabilities - that require explicit governance controls absent from traditional development pipelines, creating a governance gap in most organisations<span class="claim-sources"><a class="claim-source-link" href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener" title="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP (2024)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What operating model, architecture strategy, and governance practices best improve developer productivity with Artificial Intelligence (AI) assistance in large software organisations, while preserving quality, security, maintainability, and socio-technical resilience through 2030?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>AI coding tools produce reliably positive productivity gains in isolated, well-defined tasks (21-55% faster in controlled studies) but produce a 19% slowdown for experienced developers working on realistic complex tasks in mature codebases - the dominant work category in large software organisations. At the organisational level, AI adoption increases individual throughput metrics while quality signals degrade sharply: Faros AI telemetry found PR review time +441%, defects per developer +54%, and incidents per PR +242.7% by 2026, a pattern called &quot;Acceleration Whiplash.&quot; DORA 2025 and the <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization">Microsoft Work Trend Index 2026</a> independently conclude that AI amplifies existing organisational conditions rather than transforming them: organisations with strong platforms, clear AI governance, and healthy data ecosystems see sustained productivity gains; organisations with weak processes see those weaknesses amplified. The operating model best suited to AI-first software engineering treats platform engineering as the primary investment lever, quality governance as the primary risk control, and developer judgment as the scarcest human resource to cultivate.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p>AI coding tools produce measurable productivity gains in controlled conditions but cause slowdowns for experienced developers on realistic, complex tasks in their own codebases - productivity effects are heterogeneous by experience level and task complexity, not uniformly positive.</p>
+</li>
+<li>
+<p>Individual throughput metrics increase with AI adoption, but organisational quality metrics degrade sharply - Faros AI telemetry of 22,000+ developers found PR review time up 441%, bugs per developer up 54%, and incidents per PR up 242.7% by 2026, creating a misleading productivity signal.  ([fact]; medium-high confidence; source: <a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025">Faros AI (2026) Key Takeaways from the DORA Report 2025</a></p>
+</li>
+<li>
+<p>Developers systematically overestimate AI productivity gains: in the METR Randomised Controlled Trial, participants forecasted a 24% speedup and reported feeling 20% faster, while the measured outcome was 19% slower - an automation bias that undermines effective code review governance.</p>
+</li>
+<li>
+<p>DORA 2025 identifies seven organisational capabilities that determine whether AI amplifies strengths or weaknesses: clear leadership AI stance, healthy data ecosystems, AI-accessible internal data, strong version control, small-batch work discipline, user-centric focus, and quality internal platforms.</p>
+</li>
+<li>
+<p>Platform engineering capability is the strongest single predictor of AI productivity amplification, with 90% of large organisations now possessing some platform capability and those with higher-quality Internal Developer Platforms seeing meaningfully stronger AI return on investment.</p>
+</li>
+<li>
+<p>Google has scaled AI-generated code from 25% of new code in late 2023 to approximately 75% by early 2026, demonstrating that AI tools embedded naturally into developer workflows achieve large-scale adoption without requiring deliberate triggering.</p>
+</li>
+<li>
+<p>Organisational factors - team structure, governance, and platform quality - account for approximately 2× the AI productivity impact of individual tool choice and usage, making systemic investment more critical than individual tooling decisions.</p>
+</li>
+<li>
+<p>The Open Web Application Security Project LLM Top 10 documents AI code generation security risks - prompt injection, insecure output handling, and supply chain vulnerabilities - that require explicit governance controls absent from traditional development pipelines, creating a governance gap in most organisations.</p>
+</li>
+<li>
+<p>Developer judgment, critical evaluation of AI outputs, and architectural thinking are identified across METR, Microsoft Work Trend Index, and DORA 2025 as the human competencies most scarce and most critical in AI-first software engineering organisations.</p>
+</li>
+<li>
+<p>The Anthropic Economic Index identifies software engineering as the profession most impacted by AI adoption, with 36-37% of Claude enterprise usage on coding tasks in primarily augmentation mode rather than full automation, suggesting the human-AI collaboration model in software engineering is stable through the near term.</p>
+</li>
+<li>
+<p>Conway's Law creates structural tension with AI code generation: AI tools generating code without awareness of team ownership boundaries or architectural conventions accelerate architectural drift in organisations that rely on team topology as their primary architectural control mechanism.</p>
+</li>
+<li>
+<p>Only 19% of organisations surveyed by Microsoft have reached the &quot;Frontier Firm&quot; AI operating model - structured around on-demand AI intelligence with aligned governance and platforms - indicating the majority of large organisations are in an early adoption phase where quality and security risks exceed realised productivity gains.</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ol>
+<li>
+<p>Study findings from large technology organisations (Google, Microsoft partner firms) are broadly transferable to other large engineering organisations (500+ engineers) with similar technical maturity levels, with expected attenuation of effect sizes. [Justification: DORA 2025 includes diverse organisations beyond Big Tech; cross-industry transferability is standard in software engineering research; source: <a href="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report]">cloud.google.com</a></p>
+</li>
+<li>
+<p>Faros AI telemetry data (22,000+ developers) is representative of enterprise AI adoption patterns despite not being peer-reviewed, because the directional findings are consistent with METR RCT and DORA survey results from independent sources. [Justification: convergent validity with independent studies; source: <a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025]">www.faros.ai</a></p>
+</li>
+<li>
+<p>The period 2025-2030 will not see a capability discontinuity (e.g., Artificial General Intelligence (AGI) deployment) that renders this analysis obsolete. [Justification: mainstream AI research consensus places AGI beyond 2030 for most definitions; this is a scope constraint assumption with no single definitive source]</p>
+</li>
+</ol>
+<h3>Analysis</h3>
+<p>The evidence consistently supports an &quot;AI amplifier&quot; model of software productivity: AI tools amplify existing organisational conditions rather than overriding them. This is evident from three independent sources - DORA 2025 (survey-based), Microsoft WTI 2026 (survey-based), and Faros AI 2026 (telemetry-based) - all reaching the same directional conclusion through different methods.</p>
+<p>The critical implication for large engineering organisations is that establishing strong organisational conditions - platform capability, governance, data quality - is the primary lever for realising AI productivity gains. DORA's seven capabilities provide the most evidence-grounded diagnostic framework currently available.</p>
+<p>The METR finding of a 19% slowdown for experienced developers is counterintuitive but logically consistent with the contextual knowledge model: experienced developers in their own codebases hold deep contextual knowledge that AI tools cannot access via code completion context windows. When AI suggestions depart from that deep context, the experienced developer spends time reviewing and correcting AI suggestions. A less-experienced developer (with lower contextual expectations) accepts or discards suggestions without the same scrutiny cost.</p>
+<p>The automation bias risk - developers systematically overestimating AI correctness and reducing critical scrutiny - is a governance problem, not merely individual behaviour. The METR finding that even expert economists and ML researchers predicted wrong shows this is not a developer knowledge gap but a structural prediction failure. Governance structures must explicitly counteract automation bias through code review standards, mandatory security scanning of AI-generated code, and architectural conformance checks embedded in CI/CD pipelines.</p>
+<p>Platform engineering as a prerequisite for AI amplification is the most actionable finding: organisations that invest in Internal Developer Platforms providing self-service CI/CD, security scanning, and observability see AI tools amplify that investment. Organisations that deploy AI tools into fragmented, inconsistent toolchains see fragmentation amplified.</p>
+<p>An important alternative explanation for the Faros telemetry quality degradation pattern (PR review time +441%, incidents per PR +242.7%) is that increased development velocity alone - independent of AI tools - can cause the same quality regression, a well-established pattern in software engineering research. The Faros data does not include a matched control group of non-AI-adopting organisations with comparable velocity increases, which means the quality degradation cannot be causally attributed to AI tools alone rather than to velocity acceleration as such. The governance implication is the same regardless of causal attribution: quality controls must be calibrated to velocity, not held constant as velocity increases.</p>
+<p>This item's findings extend the conclusions of <code>2026-03-08-ai-coding-harnesses-agent-philosophy</code> (available at <a href="https://davidamitchell.github.io/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html">davidamitchell.github.io</a> which argues that agentic AI coding tools require harness infrastructure to operate safely. The platform engineering finding here provides the organisational-level evidence base for that thesis: without the platform controls that an AI harness assumes are present, agentic AI tools amplify instability.</p>
+<p>The throughput-constraint and debt-accumulation analysis in <code>2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate</code> (available at <a href="https://davidamitchell.github.io/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html">davidamitchell.github.io</a> provides complementary context: the same dependency topology and queue dynamics that constrain central IT throughput are the dynamics that AI tools acting without architectural awareness can worsen, validating the Conway's Law architectural-drift inference in Key Finding 11.</p>
+<p>This item's findings are consistent with and extend the conclusions of completed items <code>2026-03-14-reliable-software-llm-era</code> (cognitive debt risk from AI-generated code) and <code>2026-03-12-volume-vs-correctness-ai-era</code> (correctness as scarce resource), providing quantitative telemetry evidence that these theoretical risks are manifesting in observable organisational outcomes.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ol>
+<li>
+<p><strong>Measurement scope gap:</strong> Most RCT evidence measures individual task completion time. Long-term effects on architectural coherence, codebase maintainability, and team knowledge depth are not yet measured in peer-reviewed studies. Faros AI telemetry partially addresses this but is not peer-reviewed.</p>
+</li>
+<li>
+<p><strong>Experience-level gap:</strong> The METR RCT used 16 developers. Larger RCTs disaggregating productivity effects by experience level, task type, and codebase familiarity are needed to firmly establish the heterogeneity hypothesis.</p>
+</li>
+<li>
+<p><strong>AI capabilities trajectory:</strong> All studies used AI tools available in 2024-2025 (Copilot, Claude 3.5/3.7 Sonnet, Gemini). Newer agentic AI tools (autonomous code agents, multi-step planning) may have different productivity and quality profiles not captured in current evidence.</p>
+</li>
+<li>
+<p><strong>Conway's Law empirical gap:</strong> The inference that AI-generated code accelerates architectural drift is theoretically well-grounded but lacks direct empirical measurement. Studies measuring architectural conformance of AI-generated vs human-generated code are not yet available.</p>
+</li>
+<li>
+<p><strong>Google data independence:</strong> Google's AI code generation statistics are self-reported; no independent verification of the 75% figure exists. The RCT evidence from Google is independently reviewed (arXiv) but the adoption statistics are not.</p>
+</li>
+</ol>
+<h3>Open Questions</h3>
+<ol>
+<li>
+<p>Do AI coding tools improve or degrade codebase architectural coherence over 12-24 month horizons in production codebases? Candidate for <code>Research/backlog/</code>.</p>
+</li>
+<li>
+<p>What is the minimum platform engineering maturity threshold below which AI tool adoption produces net negative organisational outcomes? DORA shows correlation but not threshold.</p>
+</li>
+<li>
+<p>How do agentic AI tools - autonomous code agents executing multi-step tasks without real-time human supervision - change the productivity and quality picture compared to suggestion-based copilot tools? Current evidence is almost entirely from suggestion-based tools.</p>
+</li>
+<li>
+<p>How should organisations redesign junior engineer career paths and onboarding when entry-level automation tasks are increasingly AI-handled? Anthropic Economic Index raises this gap; no organisational solutions identified in scope.</p>
+</li>
+<li>
+<p>What validated measurement instrument best captures cognitive debt accumulation from AI-generated code adoption? The SPACE framework is too coarse; no validated instrument was found in this investigation.</p>
+</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge</li>
+<li><strong>Description:</strong> This item establishes that AI coding tools amplify existing organisational conditions rather than transforming them, that quality degradation at system level accompanies individual throughput gains in the absence of governance controls, and that platform engineering is the primary investment lever for sustainable AI-first software engineering.</li>
+<li><strong>Most important sources:</strong>
+<ol>
+<li><a href="https://arxiv.org/abs/2507.09089">METR et al. (2025) Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity</a> - primary RCT evidence for experienced-developer slowdown</li>
+<li><a href="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report">DORA (2025) AI-Assisted Software Development Report</a> - seven org capabilities framework; amplifier thesis</li>
+<li><a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025">Faros AI (2026) Key Takeaways from the DORA Report 2025</a> - telemetry evidence of quality degradation at scale</li>
+</ol>
+</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.melconway.com/Home/Conways_Law.html">Conway (1968) How Do Committees Invent?</a> - original Conway's Law framing</li>
+<li>[x] <a href="https://itrevolution.com/product/accelerate/">Forsgren, Humble, Kim (2018) Accelerate</a> - evidence-based software delivery performance model</li>
+<li>[x] <a href="https://abseil.io/resources/swe-book">Google Engineering Practices / Software Engineering at Google</a> - large-scale engineering practices and trade-offs</li>
+<li>[x] <a href="https://sre.google/books/">Beyer et al. Site Reliability Engineering</a> - reliability and shared-fate operational principles</li>
+<li>[x] <a href="https://www.anthropic.com/research/anthropic-economic-index-september-2025-report">Anthropic Economic Index (2025)</a> - AI usage patterns and labour/task impacts</li>
+<li>[x] <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub Octoverse 2025</a> - ecosystem-level software development trend data</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization">Microsoft Work Trend Index 2026</a> - organisational AI adoption effects; Frontier Firm archetype</li>
+<li>[x] <a href="https://oecd.ai/">OECD AI Policy Observatory</a> - governance, risk, and policy context for AI deployment</li>
+<li>[x] <a href="https://arxiv.org/abs/2507.09089">METR et al. (2025) Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity</a> - primary RCT evidence for experienced-developer slowdown</li>
+<li>[x] <a href="https://arxiv.org/abs/2410.12944">Paradis et al. (2024) How much does AI impact development speed? Google RCT</a> - Google 96-engineer enterprise RCT; 21% time reduction</li>
+<li>[x] <a href="https://mit-genai.pubpub.org/pub/v5iixksv">MIT GenAI / Microsoft (2024) RCT of GitHub Copilot</a> - 4,867 developer RCT; 26% more PRs per week</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/research/publication/the-impact-of-ai-on-developer-productivity-evidence-from-github-copilot/">Microsoft Research (2023) The Impact of AI on Developer Productivity: Evidence from GitHub Copilot</a> - lab study; 55.8% faster task completion</li>
+<li>[x] <a href="https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report">DORA (2025) AI-Assisted Software Development Report</a> - 5,000 developer survey; 7 capabilities; AI amplifier thesis</li>
+<li>[x] <a href="https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025">Faros AI (2026) Key Takeaways from the DORA Report 2025</a> - telemetry 22,000+ developers; Acceleration Whiplash pattern</li>
+<li>[x] <a href="https://queue.acm.org/detail.cfm?id=3454124">Forsgren et al. (2021) The SPACE of Developer Productivity</a> - SPACE framework; five dimensions of productivity</li>
+<li>[x] <a href="https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/">Google Research Blog (2024) AI in software engineering at Google: Progress and the path ahead</a> - Google internal AI tooling deployment learnings</li>
+<li>[x] <a href="https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html">TechSpot (2026) Google says AI now generates 75% of its new code</a> - Google AI code generation scale statistics</li>
+<li>[x] <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 (2024)</a> - security risks from LLM code generation</li>
+<li>[x] <a href="https://teamtopologies.com/key-concepts">Skelton and Pais Team Topologies (key concepts)</a> - four team types; cognitive load; platform teams</li>
+<li>[x] <a href="https://doi.org/10.1518/001872097778543886">Parasuraman and Riley (1997) Humans and Automation</a> - automation bias definition; over-trust in automated system outputs</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-02-28-ai-strategy-swe-focus.html">AI Strategy Examples: Software Engineering Focus</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html">IT Throughput Constraint Magnitude and Debt Accumulation Rate</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html">Formal intent specification and language choice for AI alignment in agentic coding systems</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-21-monolith-vs-cohesive-portfolio-tco.html">Long-term total cost of ownership trade-offs: few tightly coupled monoliths vs many tightly cohesive systems</a></div>
+</div>
+
+  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-29</td><td><a href="https://github.com/davidamitchell/Research/commit/6300ea699672d011fad7f1b5ab8ad05b2caff8ec" target="_blank" rel="noopener">6300ea6</a></td><td>Initial completion</td></tr>
+</tbody></table></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-27-plato-forms-map-territory-representation-reality.html">Plato&#39;s Forms and the &#39;Map Is Not the Territory&#39;</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-27-semantic-domain-emergence-enterprise-ontology.html">Domain Emergence in Semantic Networks, Cognition, and Organizational Structure</a></div>
+  </div>
+</main>
+<section id="mini-graph-section">
+<h2>Connected items</h2>
+<p class="mini-graph-meta" id="mini-graph-count">Loading…</p>
+<div class="mini-graph-wrap">
+<canvas id="mini-graph-canvas"></canvas>
+</div>
+<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
+</section>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-27-ai-first-software-ecology-developer-ecosystems";</script>
+<script>
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+
+</script>
+</body>
+</html>
