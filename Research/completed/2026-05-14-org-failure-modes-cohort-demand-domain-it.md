@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams"
+title: "Customer-Segment Demand Prioritisation Against Domain-Based IT Teams: Empirically Observed Organisational Failure Modes"
 added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high  # low | medium | high
@@ -18,7 +18,7 @@ confidence: medium
 versions: []
 ---
 
-# Organisational failure modes: customer-segment demand vs domain-based information technology (IT) teams
+# Customer-Segment Demand Prioritisation Against Domain-Based IT Teams: Empirically Observed Organisational Failure Modes
 
 ## Research Question
 

@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Organisational failure modes: vendor non-compliance with or absence of implementation standards"
+title: "Vendor Non-Compliance With or Absence of Implementation Standards: Empirically Observed Organisational Failure Modes"
 added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high  # low | medium | high
@@ -18,7 +18,7 @@ confidence: medium
 versions: []
 ---
 
-# Organisational failure modes: vendor non-compliance with or absence of implementation standards
+# Vendor Non-Compliance With or Absence of Implementation Standards: Empirically Observed Organisational Failure Modes
 
 ## Research Question
 

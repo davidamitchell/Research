@@ -1,5 +1,5 @@
 ---
-title: "General Agent Optimization Framework"
+title: "Self-improving Artificial Intelligence (AI) agent evaluation loop architecture: DSPy and MIPRO for inner-loop prompt optimisation, adversarial outer-loop variation, and benchmark harness selection"
 added: 2026-03-05T20:22:11+00:00
 status: completed
 priority: high
@@ -17,7 +17,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# General Agent Optimization Framework
+# Self-improving Artificial Intelligence (AI) agent evaluation loop architecture: DSPy and MIPRO for inner-loop prompt optimisation, adversarial outer-loop variation, and benchmark harness selection
 
 ## Research Question
 

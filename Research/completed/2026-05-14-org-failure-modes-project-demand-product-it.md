@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Organisational failure modes: project-based demand with product-based information technology (IT) teams"
+title: "Project-Based Demand Governance With Product-Structured IT Teams: Empirically Observed Organisational Failure Modes"
 added: 2026-05-14T18:48:56+00:00
 status: completed
 priority: high  # low | medium | high
@@ -23,7 +23,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Organisational failure modes: project-based demand with product-based information technology (IT) teams
+# Project-Based Demand Governance With Product-Structured IT Teams: Empirically Observed Organisational Failure Modes
 
 ## Research Question
 

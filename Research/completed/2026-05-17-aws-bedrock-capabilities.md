@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "AWS Bedrock: full feature and capability survey"
+title: "Amazon Web Services (AWS) Bedrock platform capabilities: model access, agents, knowledge bases, guardrails, evaluation, and enterprise governance primitives for regulated environments"
 added: 2026-05-17T10:17:56+00:00
 status: completed
 priority: high
@@ -23,7 +23,7 @@ versions:
     summary: Initial completion
 ---
 
-# AWS Bedrock: full feature and capability survey
+# Amazon Web Services (AWS) Bedrock platform capabilities: model access, agents, knowledge bases, guardrails, evaluation, and enterprise governance primitives for regulated environments
 
 ## Research Question
 

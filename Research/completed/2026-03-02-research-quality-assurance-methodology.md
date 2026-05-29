@@ -1,5 +1,5 @@
 ---
-title: "Research Quality Assurance and Knowledge Integration Methodology"
+title: "Coverage gaps in automated research review skills, peer review patterns for Artificial Intelligence (AI) agents, and cross-item integration methodology using the Data, Information, Knowledge, Wisdom (DIKW) hierarchy"
 added: 2026-03-08T01:34:31+00:00
 status: completed
 priority: medium
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# Research Quality Assurance and Knowledge Integration Methodology
+# Coverage gaps in automated research review skills, peer review patterns for Artificial Intelligence (AI) agents, and cross-item integration methodology using the Data, Information, Knowledge, Wisdom (DIKW) hierarchy
 
 ## Research Question
 

@@ -1,6 +1,6 @@
 ---
 review_count: 1
-title: "Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation"
+title: "LLM Training Prior Contamination in Compliance Interpretation: Failure Modes When Generic Legal Knowledge Overrides Proprietary Organisational Policy"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -31,7 +31,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Context mismatch and hallucination risks in Artificial Intelligence (AI) policy interpretation
+# LLM Training Prior Contamination in Compliance Interpretation: Failure Modes When Generic Legal Knowledge Overrides Proprietary Organisational Policy
 
 ## Research Question
 

@@ -1,5 +1,5 @@
 ---
-title: "AI Strategy Examples: Software Engineering Focus"
+title: "Artificial Intelligence (AI) coding assistant deployment outcomes: individual productivity evidence, Google's 25% code disclosure, DORA stability degradation, and the Type 2 to Type 3 governance boundary"
 added: 2026-03-05T06:57:04+00:00
 status: completed
 priority: medium
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# AI Strategy Examples: Software Engineering Focus
+# Artificial Intelligence (AI) coding assistant deployment outcomes: individual productivity evidence, Google's 25% code disclosure, DORA stability degradation, and the Type 2 to Type 3 governance boundary
 
 ## Research Question
 

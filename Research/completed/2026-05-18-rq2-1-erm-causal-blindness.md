@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees"
+title: "Empirical Risk Minimisation's Causal Blindness: Why In-Distribution Accuracy Guarantees Break Under Environment Change"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -27,7 +27,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Research Question 2.1: Empirical Risk Minimisation's Causal Blindness and the Limits of In-Distribution Guarantees
+# Empirical Risk Minimisation's Causal Blindness: Why In-Distribution Accuracy Guarantees Break Under Environment Change
 
 ## Research Question
 

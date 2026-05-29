@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?"
+title: "In-Context Learning and Chain-of-Thought Prompting: Empirical Boundaries When Pushing a Statistical Architecture Toward Causal and Counterfactual Questions"
 added: 2026-05-18T19:40:00+00:00
 status: completed
 priority: high
@@ -24,7 +24,7 @@ confidence: medium
 versions: []
 ---
 
-# RQ 3.3: In-Context Learning and chain-of-thought (CoT) Prompting, Genuine Causal Reasoning or Extended Statistical Interpolation?
+# In-Context Learning and Chain-of-Thought Prompting: Empirical Boundaries When Pushing a Statistical Architecture Toward Causal and Counterfactual Questions
 
 ## Research Question
 

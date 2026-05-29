@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation"
+title: "Cognitive Closure Under Ambiguity and Confirmation Bias: How Pressure to Reach a Quick Answer Drives Acceptance of Flawed LLM Policy Interpretations"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Pressure for quick closure and confirmation-bias risks in Artificial Intelligence (AI) policy interpretation
+# Cognitive Closure Under Ambiguity and Confirmation Bias: How Pressure to Reach a Quick Answer Drives Acceptance of Flawed LLM Policy Interpretations
 
 ## Research Question
 

@@ -1,5 +1,5 @@
 ---
-title: "AI Strategy Examples: Business Efficiency Focus"
+title: "Enterprise Artificial Intelligence (AI) efficiency programme outcomes: why 74% fail to scale, three success conditions, and evidence from ANZ Bank's $1.9 billion productivity programme"
 added: 2026-03-03T07:47:23+00:00
 status: completed
 priority: high
@@ -16,7 +16,7 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# AI Strategy Examples: Business Efficiency Focus
+# Enterprise Artificial Intelligence (AI) efficiency programme outcomes: why 74% fail to scale, three success conditions, and evidence from ANZ Bank's $1.9 billion productivity programme
 
 ## Research Question
 

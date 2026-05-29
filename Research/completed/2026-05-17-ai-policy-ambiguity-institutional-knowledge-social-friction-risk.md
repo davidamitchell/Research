@@ -1,6 +1,6 @@
 ---
 review_count: 2
-title: "Institutional knowledge and social-friction risks in Artificial Intelligence (AI)-first policy clarification"
+title: "LLM-First Policy Clarification and Institutional Knowledge Atrophy: Loss of Peer Consultation, Mentoring, and Long-Term Policy Expertise"
 added: 2026-05-17T20:33:05+00:00
 status: completed
 priority: high
@@ -30,7 +30,7 @@ versions:
     summary: "Initial completion"
 ---
 
-# Institutional knowledge and social-friction risks in Artificial Intelligence (AI)-first policy clarification
+# LLM-First Policy Clarification and Institutional Knowledge Atrophy: Loss of Peer Consultation, Mentoring, and Long-Term Policy Expertise
 
 ## Research Question
 
