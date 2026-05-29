@@ -78,6 +78,7 @@ This research will inform strategic decisions about how to design an AI-first de
 - [x] [TechSpot (2026) Google says AI now generates 75% of its new code](https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html) - Google AI code generation scale statistics
 - [x] [OWASP LLM Top 10 (2024)](https://owasp.org/www-project-top-10-for-large-language-model-applications/) - security risks from LLM code generation
 - [x] [Skelton and Pais Team Topologies (key concepts)](https://teamtopologies.com/key-concepts) - four team types; cognitive load; platform teams
+- [x] [Parasuraman and Riley (1997) Humans and Automation](https://doi.org/10.1518/001872097778543886) - automation bias definition; over-trust in automated system outputs
 
 ---
 
@@ -126,7 +127,7 @@ From the six Approach sub-questions, the following atomic questions are derived:
 **Sub-question 2: Systems-thinking tools for developer workflows**
 - 2a. What are the key feedback loops in modern AI-assisted developer workflows?
 - 2b. Where are the highest-leverage intervention points in these feedback loops?
-- 2c. What measurement frameworks (e.g., SPACE, DevOps Research and Assessment (DORA) metrics) are most diagnostic?
+- 2c. What measurement frameworks (e.g., Satisfaction, Performance, Activity, Communication, Efficiency (SPACE), DevOps Research and Assessment (DORA) metrics) are most diagnostic?
 
 **Sub-question 3: Empirical evidence for AI productivity effects**
 - 3a. What Randomised Controlled Trial (RCT) evidence exists for AI coding tools in professional settings?
@@ -317,7 +318,7 @@ acronym_check:
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** At high code-generation velocity, static analysis tools, automated test coverage gates, and Continuous Integration/Continuous Delivery (CI/CD) pipelines become proportionally more critical - they are the last systematic defence against quality degradation when code review becomes a bottleneck. The shift from author to reviewer role also requires developers to maintain deep architectural context even when not writing code directly.
+**Technical lens:** At high code-generation velocity, static analysis tools, automated test coverage gates, and Continuous Integration/Continuous Delivery (CI/CD) pipelines become proportionally more critical because they represent the last systematic defence against quality degradation when code review becomes a bottleneck. [inference; source: https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025] The shift from author to reviewer role also requires developers to maintain deep architectural context even when not writing code directly. [inference; source: https://arxiv.org/abs/2507.09089; https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/]
 
 **Organisational lens:** The "Transformation Paradox" (WTI 2026) and the Faros "Acceleration Whiplash" both point to the same systemic failure: tools are deployed without corresponding changes to process, governance, and team cognitive load management. [inference; source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025] If AI tools increase the pace of change faster than teams can absorb, net productivity decreases even if individual throughput increases, consistent with Team Topologies' cognitive load ceiling principle. [inference; source: https://teamtopologies.com/key-concepts; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025]
 
@@ -327,7 +328,7 @@ acronym_check:
 
 **Historical lens:** DORA multi-year research showed organisations took 3-5 years to move from "medium" to "elite" on delivery metrics with sustained investment. [fact; source: https://itrevolution.com/product/accelerate/] By analogy, the 19% Frontier Firm adoption rate (WTI 2026) is consistent with that historical pace, suggesting AI-first operating model adoption is likely a multi-year programme rather than a single-year transformation. [inference; source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization; https://itrevolution.com/product/accelerate/]
 
-**Behavioural lens:** METR's finding that developers systematically overestimate AI productivity gains (perceived 20% gain vs measured 19% loss) indicates an automation bias risk - the tendency to over-trust automated system outputs, reducing critical scrutiny. This is directly relevant to code review quality: developers accepting AI-generated code without sufficient scrutiny because they expect it to be correct.
+**Behavioural lens:** METR's finding that developers systematically overestimate AI productivity gains (perceived 20% gain vs measured 19% loss) illustrates automation bias (defined in research on human factors as the tendency to over-trust automated system outputs, reducing critical evaluation), a pattern documented in human-computer interaction literature as a systemic risk when people delegate tasks to automated systems. [inference; source: https://arxiv.org/abs/2507.09089; https://doi.org/10.1518/001872097778543886] This is directly relevant to code review quality: developers who expect AI-generated code to be correct exercise less scrutiny, reducing the effectiveness of code review as a quality gate. [inference; source: https://arxiv.org/abs/2507.09089; https://owasp.org/www-project-top-10-for-large-language-model-applications/]
 
 ### §6 Synthesis
 
@@ -443,7 +444,7 @@ acronym_audit:
   DORA: expanded at first use in §1 "DevOps Research and Assessment (DORA)"
   METR: expanded at first use in §2.C "Model Evaluation and Threat Research (METR)"
   PR: expanded at first use in §1 "pull requests (PRs)"
-  SPACE: expanded at first use in §2.B "SPACE framework (Forsgren et al., 2021)"
+  SPACE: expanded at first prose use in §1 "Satisfaction, Performance, Activity, Communication, Efficiency (SPACE)" at sub-question 2c
   SRE: expanded at first use in §2.E "Site Reliability Engineering (SRE)"
   CI/CD: expanded at first use in §2.E "Continuous Integration (CI) and Continuous Delivery (CD)"
   IDP: expanded at first use in §2.D "Internal Developer Platforms (IDPs)"
@@ -461,14 +462,14 @@ domain_term_audit:
   Conway's Law: defined in §2.A with source
   Team Topologies: defined in §2.A with source
   cognitive debt: defined in §2.E with source
-  automation bias: defined in §5 Behavioural lens
+  automation bias: defined in §5 Behavioural lens with authoritative source (Parasuraman and Riley 1997 DOI)
   Frontier Firm: defined in §2.F with source
   Acceleration Whiplash: defined in §2.C with source
   stream-aligned/platform/enabling/complicated-subsystem teams: defined in §2.A
   SPACE dimensions: defined in §2.B with source
   architectural drift: defined in §2.A
 
-claim_audit: all claims in §2 and §5 carry [fact]/[inference]/[assumption] labels including §5 lens inferences
+kf_bold_audit: Key Findings 1-12 have full-sentence bold removed; plain text claim sentences with trailing parenthetical labels
 parity_check: §6 Synthesis and Findings are aligned; Analysis sections updated consistently
 contradiction_resolution: METR/MIT contradiction resolved; DORA/Faros alternative-explanation caution added
 alternative_explanation_audit: Faros telemetry velocity-vs-AI causal ambiguity added to §6 and Findings Analysis
@@ -486,29 +487,29 @@ AI coding tools produce reliably positive productivity gains in isolated, well-d
 
 ### Key Findings
 
-1. **AI coding tools produce measurable productivity gains in controlled conditions but cause slowdowns for experienced developers on realistic, complex tasks in their own codebases - productivity effects are heterogeneous by experience level and task complexity, not uniformly positive.** ([inference]; medium confidence; source: https://arxiv.org/abs/2507.09089; https://arxiv.org/abs/2410.12944; https://mit-genai.pubpub.org/pub/v5iixksv)
+1. AI coding tools produce measurable productivity gains in controlled conditions but cause slowdowns for experienced developers on realistic, complex tasks in their own codebases - productivity effects are heterogeneous by experience level and task complexity, not uniformly positive.  ([inference]; medium confidence; source: https://arxiv.org/abs/2507.09089; https://arxiv.org/abs/2410.12944; https://mit-genai.pubpub.org/pub/v5iixksv)
 
-2. **Individual throughput metrics increase with AI adoption, but organisational quality metrics degrade sharply - Faros AI telemetry of 22,000+ developers found PR review time up 441%, bugs per developer up 54%, and incidents per PR up 242.7% by 2026, creating a misleading productivity signal.** ([fact]; medium-high confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
+2. Individual throughput metrics increase with AI adoption, but organisational quality metrics degrade sharply - Faros AI telemetry of 22,000+ developers found PR review time up 441%, bugs per developer up 54%, and incidents per PR up 242.7% by 2026, creating a misleading productivity signal.  ([fact]; medium-high confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
 
-3. **Developers systematically overestimate AI productivity gains: in the METR Randomised Controlled Trial, participants forecasted a 24% speedup and reported feeling 20% faster, while the measured outcome was 19% slower - an automation bias that undermines effective code review governance.** ([fact]; high confidence; source: https://arxiv.org/abs/2507.09089)
+3. Developers systematically overestimate AI productivity gains: in the METR Randomised Controlled Trial, participants forecasted a 24% speedup and reported feeling 20% faster, while the measured outcome was 19% slower - an automation bias that undermines effective code review governance.  ([fact]; high confidence; source: https://arxiv.org/abs/2507.09089)
 
-4. **DORA 2025 identifies seven organisational capabilities that determine whether AI amplifies strengths or weaknesses: clear leadership AI stance, healthy data ecosystems, AI-accessible internal data, strong version control, small-batch work discipline, user-centric focus, and quality internal platforms.** ([fact]; medium confidence; source: https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report)
+4. DORA 2025 identifies seven organisational capabilities that determine whether AI amplifies strengths or weaknesses: clear leadership AI stance, healthy data ecosystems, AI-accessible internal data, strong version control, small-batch work discipline, user-centric focus, and quality internal platforms.  ([fact]; medium confidence; source: https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report)
 
-5. **Platform engineering capability is the strongest single predictor of AI productivity amplification, with 90% of large organisations now possessing some platform capability and those with higher-quality Internal Developer Platforms seeing meaningfully stronger AI return on investment.** ([inference]; medium confidence; source: https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report)
+5. Platform engineering capability is the strongest single predictor of AI productivity amplification, with 90% of large organisations now possessing some platform capability and those with higher-quality Internal Developer Platforms seeing meaningfully stronger AI return on investment.  ([inference]; medium confidence; source: https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report)
 
-6. **Google has scaled AI-generated code from 25% of new code in late 2023 to approximately 75% by early 2026, demonstrating that AI tools embedded naturally into developer workflows achieve large-scale adoption without requiring deliberate triggering.** ([fact]; high confidence; source: https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/; https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html)
+6. Google has scaled AI-generated code from 25% of new code in late 2023 to approximately 75% by early 2026, demonstrating that AI tools embedded naturally into developer workflows achieve large-scale adoption without requiring deliberate triggering.  ([fact]; high confidence; source: https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/; https://www.techspot.com/news/112152-google-ai-now-generates-75-new-code-up.html)
 
-7. **Organisational factors - team structure, governance, and platform quality - account for approximately 2× the AI productivity impact of individual tool choice and usage, making systemic investment more critical than individual tooling decisions.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)
+7. Organisational factors - team structure, governance, and platform quality - account for approximately 2× the AI productivity impact of individual tool choice and usage, making systemic investment more critical than individual tooling decisions.  ([inference]; medium confidence; source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)
 
-8. **The Open Web Application Security Project LLM Top 10 documents AI code generation security risks - prompt injection, insecure output handling, and supply chain vulnerabilities - that require explicit governance controls absent from traditional development pipelines, creating a governance gap in most organisations.** ([fact]; high confidence; source: https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+8. The Open Web Application Security Project LLM Top 10 documents AI code generation security risks - prompt injection, insecure output handling, and supply chain vulnerabilities - that require explicit governance controls absent from traditional development pipelines, creating a governance gap in most organisations.  ([fact]; high confidence; source: https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
-9. **Developer judgment, critical evaluation of AI outputs, and architectural thinking are identified across METR, Microsoft Work Trend Index, and DORA 2025 as the human competencies most scarce and most critical in AI-first software engineering organisations.** ([inference]; medium confidence; source: https://arxiv.org/abs/2507.09089; https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization; https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report)
+9. Developer judgment, critical evaluation of AI outputs, and architectural thinking are identified across METR, Microsoft Work Trend Index, and DORA 2025 as the human competencies most scarce and most critical in AI-first software engineering organisations.  ([inference]; medium confidence; source: https://arxiv.org/abs/2507.09089; https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization; https://cloud.google.com/resources/content/2025-dora-ai-assisted-software-development-report)
 
-10. **The Anthropic Economic Index identifies software engineering as the profession most impacted by AI adoption, with 36-37% of Claude enterprise usage on coding tasks in primarily augmentation mode rather than full automation, suggesting the human-AI collaboration model in software engineering is stable through the near term.** ([fact]; medium confidence; source: https://www.anthropic.com/research/anthropic-economic-index-september-2025-report)
+10. The Anthropic Economic Index identifies software engineering as the profession most impacted by AI adoption, with 36-37% of Claude enterprise usage on coding tasks in primarily augmentation mode rather than full automation, suggesting the human-AI collaboration model in software engineering is stable through the near term.  ([fact]; medium confidence; source: https://www.anthropic.com/research/anthropic-economic-index-september-2025-report)
 
-11. **Conway's Law creates structural tension with AI code generation: AI tools generating code without awareness of team ownership boundaries or architectural conventions accelerate architectural drift in organisations that rely on team topology as their primary architectural control mechanism.** ([inference]; medium confidence; source: https://www.melconway.com/Home/Conways_Law.html; https://arxiv.org/abs/2410.12944; https://teamtopologies.com/key-concepts)
+11. Conway's Law creates structural tension with AI code generation: AI tools generating code without awareness of team ownership boundaries or architectural conventions accelerate architectural drift in organisations that rely on team topology as their primary architectural control mechanism.  ([inference]; medium confidence; source: https://www.melconway.com/Home/Conways_Law.html; https://arxiv.org/abs/2410.12944; https://teamtopologies.com/key-concepts)
 
-12. **Only 19% of organisations surveyed by Microsoft have reached the "Frontier Firm" AI operating model - structured around on-demand AI intelligence with aligned governance and platforms - indicating the majority of large organisations are in an early adoption phase where quality and security risks exceed realised productivity gains.** ([inference]; medium confidence; source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)
+12. Only 19% of organisations surveyed by Microsoft have reached the "Frontier Firm" AI operating model - structured around on-demand AI intelligence with aligned governance and platforms - indicating the majority of large organisations are in an early adoption phase where quality and security risks exceed realised productivity gains.  ([inference]; medium confidence; source: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization)
 
 ### Evidence Map
 
