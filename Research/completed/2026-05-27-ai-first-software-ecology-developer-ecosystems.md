@@ -2,12 +2,12 @@
 review_count: 2
 title: "AI-first software ecology in large engineering organisations (2025-2030)"
 added: 2026-05-27T18:39:02+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [software-engineering, organisational-design, agentic-ai, tools-infrastructure, enterprise-adoption]
 started: 2026-05-29T10:40:20+00:00
-completed: ~
+completed: 2026-05-29T11:31:43+00:00
 output: [knowledge]
 cites: [2026-02-28-ai-strategy-swe-focus, 2026-03-14-reliable-software-llm-era, 2026-03-12-volume-vs-correctness-ai-era, 2026-03-08-ai-coding-harnesses-agent-philosophy, 2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate]
 related: [2026-03-12-ai-team-size-strike-team-thesis, 2026-03-10-formal-spec-intent-alignment-agentic-coding, 2026-05-21-monolith-vs-cohesive-portfolio-tco]
@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: ""
+    changed: "2026-05-29"
+    progress: "progress/2026-05-29-ai-first-software-ecology-developer-ecosystems.md"
+    summary: "Initial completion"
 ---
 
 # AI-first software ecology in large engineering organisations (2025-2030)
