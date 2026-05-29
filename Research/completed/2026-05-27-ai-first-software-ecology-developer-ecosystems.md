@@ -17,7 +17,7 @@ item_type: primary
 confidence: medium
 versions:
   - version: "1.0"
-    sha: ""
+    sha: "6300ea699672d011fad7f1b5ab8ad05b2caff8ec"
     changed: "2026-05-29"
     progress: "progress/2026-05-29-ai-first-software-ecology-developer-ecosystems.md"
     summary: "Initial completion"
