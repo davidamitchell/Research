@@ -34,7 +34,12 @@ themes:
   - cost-performance
   - enterprise-adoption
   - tools-infrastructure
-versions: []
+versions:
+  - version: "1.0"
+    sha: "2768798"
+    changed: "2026-05-30"
+    progress: "progress/2026-05-30-split-authority-p1-operating-model-synthesis.md"
+    summary: "Initial completion"
 ---
 
 # Operating model synthesis for split-authority delivery systems
