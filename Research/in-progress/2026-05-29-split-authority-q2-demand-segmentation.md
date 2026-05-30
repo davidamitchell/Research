@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 0
 title: "Q2: Demand segmentation for fast-path vs controlled-path flow"
 added: 2026-05-29
 status: reviewing
@@ -161,7 +161,7 @@ The cost of delay framework provides the economic rationale for segmentation: di
 
 #### B4: Healthcare triage parallels
 
-Emergency department triage systems such as the Emergency Severity Index (ESI) used in the United States and the Canadian Triage and Acuity Scale (CTAS) segment patients into urgency classes (typically five levels) using acuity criteria: immediate threat to life, potential serious deterioration without rapid intervention, or stable enough for standard throughput processing. [fact; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html] Fast track pathways in emergency departments are designated streams for lower-acuity patients who can be assessed and discharged quickly, reducing congestion on the main care path without diverting resources from high-acuity cases. [fact; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html]
+Emergency department triage systems such as the Emergency Severity Index (ESI) used in the United States segment patients into urgency classes (typically five levels) using acuity criteria: immediate threat to life, potential serious deterioration without rapid intervention, or stable enough for standard throughput processing. [fact; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html] Fast track pathways in emergency departments are designated streams for lower-acuity patients who can be assessed and discharged quickly, reducing congestion on the main care path without diverting resources from high-acuity cases. [fact; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html]
 
 The clinical triage principle is that misclassifying a high-acuity patient as low-acuity (under-triage) is a safety failure, whereas misclassifying a low-acuity patient as high-acuity (over-triage) wastes capacity. [inference; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html] The cost of routing a genuinely high-risk item to the fast path exceeds the cost of routing a genuinely low-risk item to the controlled path. [inference; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html] Conservative classification at boundaries is therefore a safety property, not a throughput property. [inference; source: https://www.ahrq.gov/patient-safety/settings/emergency/esi.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html]
 
@@ -237,9 +237,9 @@ triage_asymmetry_claim: confirmed consistent with governance controls
 
 **Economic lens:** Reinertsen's cost of delay framework provides the economic rationale for investing in the classification infrastructure itself: the cost of building and maintaining a managed template catalogue and blast radius tooling is justified when the throughput gain from routing Class 1 items without per-instance approval exceeds the classification infrastructure cost. [inference; source: https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009; https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html]
 
-**Organisational lens:** The completed item on do-mode demand persistence showed that delivery-operations (Business As Usual (BAU)) demand and build-mode demand accumulate independently and that treating them as a single undifferentiated queue is a driver of build-mode displacement. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html] Demand class assignment intersects with demand stream assignment: Class 1 work should predominantly be BAU demand flowing through operational automation, whereas Class 3 work includes novel build-mode scope or high-consequence BAU exceptions. A segmentation scheme that ignores demand stream origin risks misclassifying high-volume BAU change as Class 3 simply because it arrives without a pre-approved template.
+**Organisational lens:** The completed item on do-mode demand persistence showed that delivery-operations (Business As Usual (BAU)) demand and build-mode demand accumulate independently and that treating them as a single undifferentiated queue is a driver of build-mode displacement. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html] Demand class assignment intersects with demand stream assignment: Class 1 work should predominantly be BAU demand flowing through operational automation, whereas Class 3 work includes novel build-mode scope or high-consequence BAU exceptions. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html; https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html] A segmentation scheme that ignores demand stream origin risks misclassifying high-volume BAU change as Class 3 simply because it arrives without a pre-approved template. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html]
 
-**Historical lens:** The ITIL change classification model was developed iteratively from the early 2000s through ITIL v3 and ITIL 4 and has been adopted across regulated industries globally. The persistence of the three-type model (standard, normal, emergency) across multiple framework generations and independent industry adoption provides indirect evidence for its robustness as a minimal viable classification. [inference; source: https://www.axelos.com/certifications/itil-service-management/what-is-itil]
+**Historical lens:** The ITIL change classification model was developed iteratively from the early 2000s through ITIL v3 and ITIL 4. [inference; source: https://www.axelos.com/certifications/itil-service-management/what-is-itil] The persistence of the three-type model (standard, normal, emergency) across multiple framework generations and independent industry adoption provides indirect evidence for its robustness as a minimal viable classification. [inference; source: https://www.axelos.com/certifications/itil-service-management/what-is-itil]
 
 ### §6 Synthesis
 
@@ -333,7 +333,7 @@ acronym_audit: passed
   - WIP: Work in Progress (WIP) -- expanded in §0 prior items
   - DORA: DevOps Research and Assessment (DORA) -- expanded at first prose use in §B2
   - ESI: Emergency Severity Index (ESI) -- expanded at first prose use
-  - CTAS: Canadian Triage and Acuity Scale (CTAS) -- expanded at first prose use
+  - ESI: Emergency Severity Index (ESI) -- expanded at first prose use in §2 B4
   - BAU: Business As Usual (BAU) -- expanded at first prose use in §5
   - BCBS: Basel Committee on Banking Supervision (BCBS) -- expanded at first prose use in §5
   - FIFO: first-in, first-out (FIFO) -- expanded at first prose use
