@@ -1,5 +1,5 @@
 ---
-review_count: 2
+review_count: 0
 title: "Q2: Demand segmentation for fast-path vs controlled-path flow"
 added: 2026-05-29
 status: reviewing
@@ -233,7 +233,7 @@ triage_asymmetry_claim: confirmed consistent with governance controls
 
 **Technical lens:** The three boundary-condition tests (template, recovery, blast radius) can each be operationalised as machine-checkable criteria in a continuous integration and continuous delivery (CI/CD) pipeline. Template existence can be verified against a managed change catalogue. Recovery procedure existence can be verified against a runbook register. Blast radius can be assessed using dependency graphs and impact analysis tools. [inference; source: https://sre.google/workbook/eliminating-toil/; https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html]
 
-**Regulatory lens:** ITIL 4's explicit alignment with DevOps and automated approvals for low-risk changes is consistent with the Basel Committee on Banking Supervision (BCBS) requirement that control intensity be proportionate to institution size, complexity, and risk profile (BCBS 328). [fact; source: https://www.bis.org/bcbs/publ/d328.pdf] Banking institutions subject to BCBS 328 should not interpret regulatory change governance requirements as mandating uniform pre-approval for all change types; the proportionality principle is explicit in that standard. [inference; source: https://www.bis.org/bcbs/publ/d328.pdf]
+**Regulatory lens:** ITIL 4's explicit alignment with DevOps and automated approvals for low-risk changes is consistent with the Basel Committee on Banking Supervision (BCBS) requirement that control intensity be proportionate to institution size, complexity, and risk profile (BCBS 328). [inference; source: https://www.bis.org/bcbs/publ/d328.pdf] Banking institutions subject to BCBS 328 should not interpret regulatory change governance requirements as mandating uniform pre-approval for all change types; the proportionality principle is explicit in that standard. [inference; source: https://www.bis.org/bcbs/publ/d328.pdf]
 
 **Economic lens:** Reinertsen's cost of delay framework provides the economic rationale for investing in the classification infrastructure itself: the cost of building and maintaining a managed template catalogue and blast radius tooling is justified when the throughput gain from routing Class 1 items without per-instance approval exceeds the classification infrastructure cost. [inference; source: https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009; https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html]
 
