@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Q2: Demand segmentation for fast-path vs controlled-path flow"
 added: 2026-05-29
 status: reviewing
