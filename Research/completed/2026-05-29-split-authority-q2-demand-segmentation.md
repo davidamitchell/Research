@@ -31,7 +31,12 @@ themes:
   - cost-performance
   - tools-infrastructure
   - enterprise-adoption
-versions: []
+versions:
+  - version: "1.0"
+    sha: a525c3dd79cd5c0750f54966d0c8ae7a52ec5590
+    changed: 2026-05-30
+    progress: progress/2026-05-30-split-authority-q2-demand-segmentation.md
+    summary: "Initial completion"
 gaps: []
 ---
 
