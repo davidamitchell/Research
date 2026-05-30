@@ -2,12 +2,12 @@
 review_count: 1
 title: "Q2: Demand segmentation for fast-path vs controlled-path flow"
 added: 2026-05-29
-status: reviewing
+status: completed
 priority: high
 tags: [demand-segmentation, triage, flow-design, governance]
 blocks: [2026-05-29-split-authority-q1-flow-constraint]
 started: 2026-05-30T03:51:41+00:00
-completed: ~
+completed: 2026-05-30T05:21:54+00:00
 output: [knowledge]
 cites:
   - 2026-05-29-split-authority-p1-operating-model-synthesis
