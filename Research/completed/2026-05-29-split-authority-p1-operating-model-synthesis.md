@@ -2,12 +2,12 @@
 review_count: 2
 title: "Operating model synthesis for split-authority delivery systems"
 added: 2026-05-29
-status: reviewing
+status: completed
 priority: high
 tags: [operating-model, governance, throughput, delivery-risk]
 blocks: [2026-05-29-split-authority-q1-flow-constraint, 2026-05-29-split-authority-q2-demand-segmentation, 2026-05-29-split-authority-q3-routing-exception-isolation, 2026-05-29-split-authority-q4-decision-rights-placement, 2026-05-29-split-authority-q5-control-model-tradeoff, 2026-05-29-split-authority-q6-instability-leading-indicators]
 started: 2026-05-30T03:10:30+00:00
-completed: ~
+completed: 2026-05-30T03:48:31+00:00
 output: [knowledge]
 cites:
   - 2026-04-01-backpressure-theory-of-constraints
