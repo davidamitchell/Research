@@ -1,6 +1,100 @@
 {
-  "extracted_at": "2026-05-30T04:01:24Z",
+  "extracted_at": "2026-05-30T05:25:20Z",
   "items": {
+    "2026-05-29-split-authority-q2-demand-segmentation": {
+      "named_concepts": [
+        "distinct control",
+        "boundary tests",
+        "axes risk",
+        "risk level",
+        "classification overhead",
+        "itil change",
+        "change enablement",
+        "product development",
+        "development flow",
+        "clinical triage",
+        "itil sre",
+        "sre reinertsen",
+        "blast radius",
+        "level reversibility",
+        "controlled path",
+        "control actions",
+        "safety property",
+        "split-authority delivery",
+        "three-class demand",
+        "three axes"
+      ],
+      "source_urls": [
+        "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+        "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+        "https://sre.google/workbook/eliminating-toil/",
+        "https://sre.google/sre-book/embracing-risk/",
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://www.tocinstitute.org/five-focusing-steps.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Three classification axes (risk level, reversibility, and standardisation) appear independently across ITIL 4, SRE, Reinertsen's product development flow, and healthcare triage as the operative criteria for segmenting fast-path from controlled-path demand",
+          "sources": [
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+            "https://sre.google/workbook/eliminating-toil/",
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+            "https://www.ahrq.gov/patient-safety/settings/emergency/esi.html"
+          ]
+        },
+        {
+          "text": "ITIL 4 Change Enablement defines three change types (standard, normal, and emergency) where standard changes are pre-authorised because they are low-risk, documented, and repeatable, and normal changes require per-instance risk and impact assessment with Change Advisory Board approval",
+          "sources": [
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil"
+          ]
+        },
+        {
+          "text": "Reinertsen's four classes of service (expedite, fixed-date, standard, and intangible) are defined by cost of delay profile and each implies a handling policy that cannot be derived from organisational status or requester seniority",
+          "sources": [
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009"
+          ]
+        },
+        {
+          "text": "DORA research shows that elite technology delivery teams achieve high deployment frequency and low change failure rate simultaneously, a result consistent with demand segmentation that routes low-risk standard work through automated pre-approved lanes and high-risk novel work through controlled review lanes",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics-four-keys/",
+            "https://sre.google/sre-book/embracing-risk/"
+          ]
+        },
+        {
+          "text": "Three observable boundary tests (template test: a pre-approved documented pattern exists; recovery test: the failure mode has been tested with a validated rollback procedure; blast radius test: potential impact is contained within a defined boundary) operationalise class assignment without requiring specialist risk knowledge at intake time",
+          "sources": [
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+            "https://sre.google/sre-book/embracing-risk/",
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009"
+          ]
+        },
+        {
+          "text": "The healthcare triage principle that under-triage (routing a high-acuity patient to the fast track) is a patient safety failure while over-triage (routing a low-acuity patient to the main track) is only a capacity waste translates directly to work intake design, establishing conservative boundary classification as a safety property",
+          "sources": [
+            "https://www.ahrq.gov/patient-safety/settings/emergency/esi.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+          ]
+        },
+        {
+          "text": "Two-class segmentation (fast and controlled only) is insufficient in a split-authority delivery system because it collapses routine assessed work and genuinely exceptional high-consequence items onto the same controlled path, intensifying the bottleneck and reproducing the queue fragmentation failure mode identified in the organisational failure modes evidence",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html"
+          ]
+        },
+        {
+          "text": "Applying full pre-approval controls to Class 1 (fast-path) work converts an enabling governance control into a coercive one, generating queue congestion without proportionate risk reduction because the control intensity no longer matches the transaction hazard",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+            "https://eric.ed.gov/?id=EJ525938"
+          ]
+        }
+      ]
+    },
     "2026-05-29-split-authority-p1-operating-model-synthesis": {
       "named_concepts": [
         "demand segmentation",
