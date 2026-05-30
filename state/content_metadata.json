@@ -1,6 +1,114 @@
 {
-  "extracted_at": "2026-05-30T03:20:46Z",
+  "extracted_at": "2026-05-30T03:52:11Z",
   "items": {
+    "2026-05-29-split-authority-p1-operating-model-synthesis": {
+      "named_concepts": [
+        "demand segmentation",
+        "lead time",
+        "governance-generated queueing",
+        "bounded delegation",
+        "governance structure",
+        "technical quality",
+        "dominant flow",
+        "flow constraint",
+        "operating model",
+        "named integrator",
+        "indicator families",
+        "completed repository",
+        "split-authority delivery",
+        "high-frequency execution",
+        "execution decisions",
+        "delivery teams",
+        "control intensity",
+        "post-hoc audit",
+        "four leading",
+        "leading indicator"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-build-vs-improve-throughput-tradeoff.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-project-demand-product-it.html",
+        "https://www.tocinstitute.org/five-focusing-steps.html",
+        "https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387",
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://teamtopologies.com/key-concepts",
+        "https://www.bis.org/bcbs/publ/d328.pdf",
+        "https://eric.ed.gov/?id=EJ525938",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://www.bain.com/insights/decisions-who-does-what/"
+      ],
+      "key_claims": [
+        {
+          "text": "Governance-generated queueing, specifically approval latency, multi-party coordination overhead, and fragmented decision rights, is the dominant flow constraint in split-authority delivery systems, and adding headcount to non-constraints does not improve system-level throughput",
+          "sources": [
+            "https://www.tocinstitute.org/five-focusing-steps.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html"
+          ]
+        },
+        {
+          "text": "Little's Law implies that excess Work in Progress (WIP) extends lead time and reduces predictability, so controlling the work entry rate into split-authority queues is a prerequisite for throughput improvement rather than a scheduling convenience",
+          "sources": [
+            "https://econpapers.repec.org/RePEc:inm/oropre:v:9:y:1961:i:3:p:383-387",
+            "https://davidamitchell.github.io/Research/research/2026-05-09-build-vs-improve-throughput-tradeoff.html"
+          ]
+        },
+        {
+          "text": "A three-class demand segmentation that assigns standard reversible work to a fast path with post-hoc audit, routine bounded work to a standard path with lightweight pre-approval or bounded delegation, and novel or high-consequence work to an exception path with full pre-approval, prevents exception work from contaminating routine flow lanes without creating unsustainable classification overhead",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+          ]
+        },
+        {
+          "text": "High-frequency execution decisions including daily sequencing, minor scope adjustment, local environment spend, and incident response should be delegated to delivery teams because centralised pre-approval of these decisions generates approval-queue congestion without a risk-reduction return proportionate to the coordination cost incurred",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html",
+            "https://www.bain.com/insights/decisions-who-does-what/"
+          ]
+        },
+        {
+          "text": "Pre-approval controls minimise coordination cost only when reserved for transactions with high uncertainty, high consequence, or high relationship-specific investment; applying pre-approval uniformly to all demand converts governance from a coordination aid into the primary throughput constraint and generates workaround and circumvention behaviour among teams that experience controls as coercive barriers to legitimate work",
+          "sources": [
+            "https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+            "https://eric.ed.gov/?id=EJ525938",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html"
+          ]
+        },
+        {
+          "text": "Banking supervisory guidance requires control intensity to be proportionate to risk profile and all material responsibilities to have named owners with escalation paths, which is structurally consistent with the three-class segmentation and named-integrator requirement and sets the minimum compliance standard for the authority bundle",
+          "sources": [
+            "https://www.bis.org/bcbs/publ/d328.pdf",
+            "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2021/1016721/Final%20report%20on%20Guidelines%20on%20internal%20governance%20under%20CRD.pdf"
+          ]
+        },
+        {
+          "text": "An integrator without budget-recommendation rights, explicit escalation authority, and a benefits-reporting mandate remains only a coordinator and will reproduce queue-fragmentation and cost-shifting failure patterns observed across multiple completed repository items in this corpus",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html"
+          ]
+        },
+        {
+          "text": "Conway's Law and Team Topologies research jointly imply that authority fragmentation embeds itself in delivery-system dependency coupling, so a governance redesign that does not address team boundary alignment will face recurring re-emergence of the same coordination queues it was intended to eliminate",
+          "sources": [
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://teamtopologies.com/key-concepts",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        }
+      ]
+    },
     "2026-05-27-semantic-domain-emergence-enterprise-ontology": {
       "named_concepts": [
         "domain boundaries",
