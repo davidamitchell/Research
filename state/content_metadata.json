@@ -1,6 +1,113 @@
 {
-  "extracted_at": "2026-05-31T10:58:53Z",
+  "extracted_at": "2026-05-31T11:29:36Z",
   "items": {
+    "2026-05-29-split-authority-q4-decision-rights-placement": {
+      "named_concepts": [
+        "bounded delegation",
+        "delivery teams",
+        "blast radius",
+        "cost ceiling",
+        "mit cisr",
+        "delegation model",
+        "technical debt",
+        "incident response",
+        "escalation triggers",
+        "daily sequencing",
+        "scope adjustment",
+        "parameters cost",
+        "per-decision approval",
+        "central approval",
+        "governance parameters",
+        "execution decision",
+        "debt prioritisation",
+        "capacity band",
+        "approval-queue latency",
+        "ceiling blast"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1287/opre.9.3.383",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://teamtopologies.com/key-concepts",
+        "https://www.bain.com/insights/rapid-decision-making/",
+        "https://www.bain.com/insights/decisions-who-does-what/",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+        "https://sre.google/workbook/incident-response/",
+        "https://sre.google/sre-book/being-on-call/",
+        "https://sre.google/workbook/eliminating-toil/",
+        "https://sre.google/sre-book/embracing-risk/",
+        "https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://eric.ed.gov/?id=EJ525938",
+        "https://www.bis.org/bcbs/publ/d328.pdf",
+        "https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Daily task sequencing within an approved iteration must sit with delivery teams, because it is fully reversible, has zero blast radius, and produces only approval-queue latency when centralised",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://teamtopologies.com/key-concepts",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html"
+          ]
+        },
+        {
+          "text": "Minor sprint-level scope adjustment (swapping items within the same priority band without changing external commitments) must sit with delivery teams; escalation is triggered only when the adjustment changes an external stakeholder commitment or exceeds the team's priority-band boundary",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.bain.com/insights/rapid-decision-making/"
+          ]
+        },
+        {
+          "text": "Reliability decisions within an already-approved Service Level Objective must sit with delivery teams, because the SLO approval itself constitutes pre-authorised governance; decisions that change the SLO or accept reliability trade-offs with measurable external customer impact require escalation",
+          "sources": [
+            "https://sre.google/sre-book/embracing-risk/",
+            "https://sre.google/sre-book/being-on-call/"
+          ]
+        },
+        {
+          "text": "Technical debt prioritisation within a pre-authorised capacity band must sit with delivery teams, because deferring this decision through central approval compounds the future cost of the debt faster than the governance cost of per-decision review adds risk-reduction value",
+          "sources": [
+            "https://sre.google/workbook/eliminating-toil/",
+            "https://cisr.mit.edu/content/simplifying-decision-rights-growth",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        },
+        {
+          "text": "Local environment spend below a defined cost ceiling must sit with delivery teams, because the cost ceiling itself is the risk control; central pre-approval of spend below the ceiling produces approval latency without providing additional risk reduction beyond what the ceiling already provides",
+          "sources": [
+            "https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/",
+            "https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html"
+          ]
+        },
+        {
+          "text": "Live incident response decisions must sit with delivery teams under the Incident Command System authority structure, because external approval latency during an active incident is structurally incompatible with the five-minute response time required for services targeting four nines of availability (99.99%)",
+          "sources": [
+            "https://sre.google/workbook/incident-response/",
+            "https://sre.google/sre-book/being-on-call/"
+          ]
+        },
+        {
+          "text": "DORA research shows that teams authorised to make large-scale changes without external permission achieve higher software delivery performance across throughput and stability metrics simultaneously, indicating that team autonomy over execution decisions correlates positively with delivery outcomes",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://dora.dev/guides/dora-metrics-four-keys/"
+          ]
+        },
+        {
+          "text": "The Bain RAPID framework places the Decide role as close to implementation as possible and restricts the Agree role to mandatory legal or regulatory requirements, providing a practitioner-validated design principle for moving decision authority toward execution rather than upward",
+          "sources": [
+            "https://www.bain.com/insights/rapid-decision-making/",
+            "https://www.bain.com/insights/decisions-who-does-what/"
+          ]
+        }
+      ]
+    },
     "2026-05-29-split-authority-q3-routing-exception-isolation": {
       "named_concepts": [
         "exception lane",

@@ -1,0 +1,1151 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Q4: Decision rights that should move closer to execution — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+          <style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Q4: Decision rights that should move closer to execution</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Q4: Decision rights that should move closer to execution</h1>
+    <div class="meta-bar">
+    <span>2026-05-29</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a> <a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a> <a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a> <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-29-split-authority-q4-decision-rights-placement.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-29-split-authority-q4-decision-rights-placement" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Daily task sequencing within an approved iteration must sit with delivery teams, because it is fully reversible, has zero blast radius, and produces only approval-queue latency when centralised<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/capabilities/loosely-coupled-teams/" target="_blank" rel="noopener" title="https://dora.dev/capabilities/loosely-coupled-teams/">DORA (2024)</a><a class="claim-source-link" href="https://teamtopologies.com/key-concepts" target="_blank" rel="noopener" title="https://teamtopologies.com/key-concepts">Pais (2019)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html">Mitchell (2026)</a></span></li>
+<li>Minor sprint-level scope adjustment (swapping items within the same priority band without changing external commitments) must sit with delivery teams; escalation is triggered only when the adjustment changes an external stakeholder commitment or exceeds the team&#39;s priority-band boundary<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/capabilities/loosely-coupled-teams/" target="_blank" rel="noopener" title="https://dora.dev/capabilities/loosely-coupled-teams/">DORA (2024)</a><a class="claim-source-link" href="https://www.bain.com/insights/rapid-decision-making/" target="_blank" rel="noopener" title="https://www.bain.com/insights/rapid-decision-making/">Company (2022)</a></span></li>
+<li>Reliability decisions within an already-approved Service Level Objective must sit with delivery teams, because the SLO approval itself constitutes pre-authorised governance; decisions that change the SLO or accept reliability trade-offs with measurable external customer impact require escalation<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/sre-book/embracing-risk/" target="_blank" rel="noopener" title="https://sre.google/sre-book/embracing-risk/">SRE (2016)</a><a class="claim-source-link" href="https://sre.google/sre-book/being-on-call/" target="_blank" rel="noopener" title="https://sre.google/sre-book/being-on-call/">SRE (2016)</a></span></li>
+<li>Technical debt prioritisation within a pre-authorised capacity band must sit with delivery teams, because deferring this decision through central approval compounds the future cost of the debt faster than the governance cost of per-decision review adds risk-reduction value<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/eliminating-toil/" target="_blank" rel="noopener" title="https://sre.google/workbook/eliminating-toil/">SRE (2018)</a><a class="claim-source-link" href="https://cisr.mit.edu/content/simplifying-decision-rights-growth" target="_blank" rel="noopener" title="https://cisr.mit.edu/content/simplifying-decision-rights-growth">CISR (2023)</a><a class="claim-source-link" href="https://dora.dev/capabilities/loosely-coupled-teams/" target="_blank" rel="noopener" title="https://dora.dev/capabilities/loosely-coupled-teams/">DORA (2024)</a></span></li>
+<li>Local environment spend below a defined cost ceiling must sit with delivery teams, because the cost ceiling itself is the risk control; central pre-approval of spend below the ceiling produces approval latency without providing additional risk reduction beyond what the ceiling already provides<span class="claim-sources"><a class="claim-source-link" href="https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/" target="_blank" rel="noopener" title="https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/">Amazon (2025)</a><a class="claim-source-link" href="https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html" target="_blank" rel="noopener" title="https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html">Mitchell (2026)</a></span></li>
+<li>Live incident response decisions must sit with delivery teams under the Incident Command System authority structure, because external approval latency during an active incident is structurally incompatible with the five-minute response time required for services targeting four nines of availability (99.99%)<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/incident-response/" target="_blank" rel="noopener" title="https://sre.google/workbook/incident-response/">SRE (2018)</a><a class="claim-source-link" href="https://sre.google/sre-book/being-on-call/" target="_blank" rel="noopener" title="https://sre.google/sre-book/being-on-call/">SRE (2016)</a></span></li>
+<li>DORA research shows that teams authorised to make large-scale changes without external permission achieve higher software delivery performance across throughput and stability metrics simultaneously, indicating that team autonomy over execution decisions correlates positively with delivery outcomes<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/capabilities/loosely-coupled-teams/" target="_blank" rel="noopener" title="https://dora.dev/capabilities/loosely-coupled-teams/">DORA (2024)</a><a class="claim-source-link" href="https://dora.dev/guides/dora-metrics-four-keys/" target="_blank" rel="noopener" title="https://dora.dev/guides/dora-metrics-four-keys/">DORA (2024)</a></span></li>
+<li>The Bain RAPID framework places the Decide role as close to implementation as possible and restricts the Agree role to mandatory legal or regulatory requirements, providing a practitioner-validated design principle for moving decision authority toward execution rather than upward<span class="claim-sources"><a class="claim-source-link" href="https://www.bain.com/insights/rapid-decision-making/" target="_blank" rel="noopener" title="https://www.bain.com/insights/rapid-decision-making/">Company (2022)</a><a class="claim-source-link" href="https://www.bain.com/insights/decisions-who-does-what/" target="_blank" rel="noopener" title="https://www.bain.com/insights/decisions-who-does-what/">Company (2011)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Which decisions about sequencing, scope, reliability, technical debt, local spend, and incident response must sit with delivery teams to reduce delay without losing control?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Delivery teams must own all six categories of execution decision (daily sequencing, minor scope adjustment, reliability choices within an approved Service Level Objective, technical debt prioritisation within a pre-authorised capacity band, local environment spend below a cost ceiling, and live incident response) when those decisions are high-frequency, reversible, and bounded in blast radius. Centralising these decisions generates approval-queue latency with no proportionate governance value and, in the incident-response case, is structurally incompatible with the response times required to meet availability targets. The appropriate governance mechanism is bounded delegation: three pre-defined parameters (cost ceiling, blast radius limit, approved technology catalog) and four binary escalation triggers (catalog deviation, ceiling breach, blast radius overflow, external commitment) replace per-decision approval while preserving central oversight for genuinely high-consequence choices. DORA, Bain RAPID, MIT CISR, and the Incident Command System all independently converge on the same design principle: the Decide role should sit as close to implementation as possible, and the Agree role should be used only for mandatory legal or regulatory requirements.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p>Daily task sequencing within an approved iteration must sit with delivery teams, because it is fully reversible, has zero blast radius, and produces only approval-queue latency when centralised.</p>
+</li>
+<li>
+<p>Minor sprint-level scope adjustment (swapping items within the same priority band without changing external commitments) must sit with delivery teams; escalation is triggered only when the adjustment changes an external stakeholder commitment or exceeds the team's priority-band boundary.</p>
+</li>
+<li>
+<p>Reliability decisions within an already-approved Service Level Objective must sit with delivery teams, because the SLO approval itself constitutes pre-authorised governance; decisions that change the SLO or accept reliability trade-offs with measurable external customer impact require escalation.</p>
+</li>
+<li>
+<p>Technical debt prioritisation within a pre-authorised capacity band must sit with delivery teams, because deferring this decision through central approval compounds the future cost of the debt faster than the governance cost of per-decision review adds risk-reduction value.</p>
+</li>
+<li>
+<p>Local environment spend below a defined cost ceiling must sit with delivery teams, because the cost ceiling itself is the risk control; central pre-approval of spend below the ceiling produces approval latency without providing additional risk reduction beyond what the ceiling already provides.</p>
+</li>
+<li>
+<p>Live incident response decisions must sit with delivery teams under the Incident Command System authority structure, because external approval latency during an active incident is structurally incompatible with the five-minute response time required for services targeting four nines of availability (99.99%).</p>
+</li>
+<li>
+<p>DORA research shows that teams authorised to make large-scale changes without external permission achieve higher software delivery performance across throughput and stability metrics simultaneously, indicating that team autonomy over execution decisions correlates positively with delivery outcomes.</p>
+</li>
+<li>
+<p>The Bain RAPID framework places the Decide role as close to implementation as possible and restricts the Agree role to mandatory legal or regulatory requirements, providing a practitioner-validated design principle for moving decision authority toward execution rather than upward.</p>
+</li>
+<li>
+<p>MIT CISR research distinguishes what decisions (owned by business leaders) from how decisions (owned by delivery teams); daily sequencing, technical approach within an approved architecture, and technical debt prioritisation are all how decisions that belong with delivery teams, not with central approval functions.</p>
+</li>
+<li>
+<p>A bounded delegation boundary defined by three parameters (cost ceiling, blast radius limit, approved technology catalog) and four escalation triggers (catalog deviation, ceiling breach, blast radius overflow, external commitment) preserves governance outcomes for high-consequence decisions while eliminating per-decision approval overhead for all six routine execution decision categories.</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>
+<p><strong>Delivery team competence:</strong> The delivery team has the technical competence to make reliable execution decisions within each category. If capability gaps exist, the bounded delegation model requires capability-building before delegation, not permanent centralisation.</p>
+</li>
+<li>
+<p><strong>Parameter maintenance:</strong> Governance parameters (cost ceilings, blast radius limits, approved catalogs) are maintained and updated on a regular cadence by the central function; stale parameters are a governance risk in the bounded delegation model.</p>
+</li>
+<li>
+<p><strong>Binary escalation trigger clarity:</strong> Escalation triggers are objective and binary; if trigger conditions are ambiguous, teams will either over-escalate (recreating approval latency) or under-escalate (creating governance gaps). The bounded delegation model is only as good as the precision of its trigger definitions.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The six decision types in scope share a structural property: their governance risk is bounded before the decision is made, not during it. Daily sequencing risk is bounded by the iteration boundary. Scope adjustment risk is bounded by the priority-band definition. Reliability risk is bounded by the SLO. Technical debt risk is bounded by the capacity allocation. Spend risk is bounded by the cost ceiling. Incident response risk is bounded by the incident-scope definition. When governance parameters pre-bound the risk, the residual governance value of per-decision approval falls to near zero, while the coordination cost of that approval remains proportional to the decision frequency.</p>
+<p>The four independent evidence sources (DORA, ICS, RAPID, MIT CISR) converge on this same structural conclusion from different starting points. DORA reaches it from empirical measurement of delivery outcomes. ICS reaches it from operational analysis of time-critical coordination failures. RAPID reaches it from practitioner case studies of decision quality and speed. MIT CISR reaches it from strategic governance research in digital transformation. This convergence from independent sources is the primary reason the key findings are held at medium rather than low confidence, despite the absence of controlled experimental evidence.</p>
+<p>The behavioural dimension reinforces the structural argument. Adler and Borys (1996) show that controls perceived as coercive generate workaround behaviour; the bounded delegation model shifts formalisation from coercive (centrally approved per-decision) to enabling (team-owned within pre-agreed bounds). The governance failure mechanisms item in this corpus documents that the workaround patterns (shadow workflows, deliberate mis-classification, informal approval channels) emerge specifically when controls are applied uniformly to all work regardless of transaction hazard. The bounded delegation model disrupts this pattern by differentiating control intensity by risk category.</p>
+<p>The one rival remedy worth noting is adding central approval capacity rather than delegating. This approach preserves the central-control model while attempting to reduce its latency by adding reviewers. Evidence from queueing theory (Little's Law) and the Theory of Constraints shows that adding capacity to a non-bottleneck position does not reduce system lead time: if the constraint is the serial nature of the approval gate, adding reviewers does not remove the serial dependency. Delegation removes the dependency; capacity addition does not.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Competence prerequisite:</strong> The bounded delegation model assumes delivery team competence in each decision category. No primary evidence was gathered in this item on how competence gaps manifest in practice or how to diagnose them before delegation. This is an evidence gap.</li>
+<li><strong>Parameter calibration:</strong> The three governance parameters (cost ceiling, blast radius limit, approved catalog) require calibration for each organisation and each team. No empirical evidence on typical calibration values or calibration failure modes was gathered. This is an evidence gap.</li>
+<li><strong>DORA causal direction:</strong> DORA data is observational. The correlation between team autonomy and delivery performance could reflect reverse causation (high-performing teams are granted more autonomy) rather than autonomy driving performance. The item treats DORA as corroborative evidence rather than proof of causation.</li>
+<li><strong>Regulated sectors:</strong> The BCBS 328 analysis in §5 is an inference from the regulatory text, not a confirmed interpretation by a regulator. Application in highly regulated sectors (banking, healthcare) requires legal review of whether pre-approved blueprint governance satisfies applicable independent-review requirements.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>How should cost ceilings and blast radius limits be calibrated for teams at different maturity levels? (Potential backlog item for Q5 or a standalone item.)</li>
+<li>What monitoring design detects under-escalation before it becomes a governance failure, without recreating approval-queue latency through surveillance overhead?</li>
+<li>At what organisation scale does the parameter-maintenance cost of bounded delegation exceed its throughput benefit compared to alternative control models?</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge</li>
+<li><strong>Description:</strong> A bounded delegation map for six execution decision categories, with three governance parameters and four escalation triggers, synthesised from DORA, ICS, RAPID, MIT CISR, and AWS governance evidence.</li>
+<li><strong>Key sources:</strong>
+<ul>
+<li><a href="https://dora.dev/capabilities/loosely-coupled-teams/">DORA Loosely Coupled Teams</a></li>
+<li><a href="https://sre.google/workbook/incident-response/">Google SRE Workbook: Incident Response</a></li>
+<li><a href="https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/">AWS: Empower Your Teams with Modern Architecture Governance</a></li>
+</ul>
+</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://doi.org/10.1287/opre.9.3.383">Little (1961) A Proof of the Queuing Formula L = λW, Operations Research</a> -- queueing theorem: average items in system equals throughput rate times average time in system; foundational basis for WIP-to-lead-time relationship</li>
+<li>[x] <a href="https://dora.dev/capabilities/loosely-coupled-teams/">DORA (2024) Loosely Coupled Teams Capability</a> -- empirical research on team autonomy and delivery performance</li>
+<li>[x] <a href="https://dora.dev/guides/dora-metrics-four-keys/">DORA (2024) DORA Metrics and Four Keys</a> -- change lead time, deployment frequency, and change failure rate</li>
+<li>[x] <a href="https://teamtopologies.com/key-concepts">Skelton and Pais (2019) Team Topologies Key Concepts</a> -- stream-aligned teams, cognitive load limits, and inter-team interaction modes</li>
+<li>[x] <a href="https://www.bain.com/insights/rapid-decision-making/">Bain and Company (2022) RAPID Decision Making</a> -- Recommend, Agree, Perform, Input, and Decide framework role definitions</li>
+<li>[x] <a href="https://www.bain.com/insights/decisions-who-does-what/">Bain and Company (2011) Decisions: Who Does What?</a> -- single decision owner, decision placement close to implementation</li>
+<li>[x] <a href="https://cisr.mit.edu/content/classic-topics-decision-rights">Massachusetts Institute of Technology Center for Information Systems Research (MIT CISR) (n.d.) Classic Topics: Decision Rights</a> -- governance as allocation of decision rights and accountabilities</li>
+<li>[x] <a href="https://cisr.mit.edu/content/simplifying-decision-rights-growth">MIT CISR (2023) Simplifying Decision Rights for Growth</a> -- what vs. how decisions, investment prioritisation, exception handling</li>
+<li>[x] <a href="https://sre.google/workbook/incident-response/">Google SRE (2018) Workbook: Incident Response</a> -- Incident Command System (ICS) authority structure during live incidents</li>
+<li>[x] <a href="https://sre.google/sre-book/being-on-call/">Google SRE (2016) Site Reliability Engineering: Being On-Call</a> -- on-call decision authority, escalation tiers, response-time constraints</li>
+<li>[x] <a href="https://sre.google/workbook/eliminating-toil/">Google SRE (2018) Workbook: Eliminating Toil</a> -- toil characteristics and the operational cost of repetitive manual decisions</li>
+<li>[x] <a href="https://sre.google/sre-book/embracing-risk/">Google SRE (2016) Site Reliability Engineering: Embracing Risk</a> -- risk continuum and cost-benefit trade-offs in reliability decisions</li>
+<li>[x] <a href="https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/">Amazon Web Services (AWS) (2025) Empower Your Teams with Modern Architecture Governance</a> -- preapproved blueprints, distributed governance, automated controls</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html">Mitchell (2026) Operating Model Synthesis for Split-Authority Delivery Systems</a> -- five design principles including bounded delegation</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html">Mitchell (2026) Q2: Demand Segmentation for Fast-Path vs Controlled-Path Flow</a> -- three demand classes and boundary tests this item builds on</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html">Mitchell (2026) Q3: Routing Design that Isolates Exceptions from Routine Flow</a> -- physical lane separation and escalation thresholds</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html">Mitchell (2026) Governance Designs where Explicit Integrator Rights Substitute for Co-location</a> -- integrator authority bundle and boundary conditions</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html">Mitchell (2026) Internal Governance Controls: Effectiveness Conditions in Regulated Enterprises</a> -- control proportionality to transaction hazard</li>
+<li>[x] <a href="https://eric.ed.gov/?id=EJ525938">Adler and Borys (1996) Two Types of Bureaucracy: Enabling and Coercive</a> -- enabling vs. coercive formalisation and team behavioural responses</li>
+<li>[x] <a href="https://www.bis.org/bcbs/publ/d328.pdf">Basel Committee on Banking Supervision (BCBS) (2015) Corporate Governance Principles for Banks</a> -- independent risk challenge and second-line-of-defence role</li>
+<li>[x] <a href="https://ageconsearch.umn.edu/record/294665/files/ipr018.pdf">Williamson (1991) Comparative Economic Organization, working paper version</a> -- transaction cost economics and governance choice</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html">Operating model synthesis for split-authority delivery systems</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html">Conditions under which internal governance controls minimise coordination costs in regulated enterprises</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance.html">Governance designs where explicit integrator rights substitute for co-location of risk, cost, and benefits</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html">Q2: Demand segmentation for fast-path vs controlled-path flow</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html">Q3: Routing design that isolates exceptions from routine flow</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html">Failure mechanisms of internal governance controls: bureaucratic inefficiency and informal circumvention in regulated enterprises</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-23-funding-authority-delivery-capability-risk-accountability-split.html">Funding authority and delivery-risk accountability split</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-01-backpressure-theory-of-constraints.html">Backpressure Infrastructure and the Theory of Constraints</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html">Q3: Routing design that isolates exceptions from routine flow</a></div>
+  </div>
+</main>
+<section id="mini-graph-section">
+<h2>Connected items</h2>
+<p class="mini-graph-meta" id="mini-graph-count">Loading…</p>
+<div class="mini-graph-wrap">
+<canvas id="mini-graph-canvas"></canvas>
+</div>
+<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
+</section>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-29-split-authority-q4-decision-rights-placement";</script>
+<script>
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+
+</script>
+</body>
+</html>
