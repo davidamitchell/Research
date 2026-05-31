@@ -21,7 +21,7 @@ versions: []
 
 ## Research Question
 
-When a team's capability claim conflicts with production telemetry, what arbitration mechanism produces a reliable baseline — and is there empirical evidence on which approach (telemetry override, structured challenge, third-party audit) reduces overestimation most?
+When a team's capability claim conflicts with production telemetry, what arbitration mechanism produces a reliable baseline, and is there empirical evidence on which approach (telemetry override, structured challenge, third-party audit) reduces overestimation most?
 
 ## Scope
 
@@ -41,7 +41,7 @@ When a team's capability claim conflicts with production telemetry, what arbitra
 
 ## Context
 
-Capability claims that exceed production reality cause downstream planning failures: commitments are made against capacity that does not exist, and automated systems allocate work to teams that cannot absorb it. Knowing which arbitration method most reliably corrects overestimation — and under what conditions — is prerequisite to designing a defensible baseline-setting process. This is Gap 2 Q7 from issue #618.
+Capability claims that exceed production reality cause downstream planning failures: commitments are made against capacity that does not exist, and automated systems allocate work to teams that cannot absorb it. Knowing which arbitration method most reliably corrects overestimation, and under what conditions, is prerequisite to designing a defensible baseline-setting process. This is Gap 2 Q7 from issue #618.
 
 ## Approach
 
@@ -53,23 +53,24 @@ Capability claims that exceed production reality cause downstream planning failu
 
 ## Sources
 
-- [x] [Flyvbjerg et al. (2003) Megaprojects and Risk: An Anatomy of Ambition](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5) — empirical evidence on optimism bias and capability overestimation in large projects
-- [x] [Kahneman (2011) Thinking, Fast and Slow](https://us.macmillan.com/books/9780374533557/thinkingfastandslow) — reference class forecasting and structured challenge as debiasing mechanisms
-- [x] [Beyer et al. (2018) The Site Reliability Workbook: Practical Ways to Implement SRE](https://sre.google/workbook/table-of-contents/) — SRE error-budget enforcement as telemetry-override mechanism
-- [ ] [Government Accountability Office (GAO) Schedule Assessment Guide](https://www.gao.gov/products/gao-16-89g) — third-party audit methodology for government programme capability claims (access restricted; GAO Cost Estimating and Assessment Guide used as substitute)
-- [x] [Kahneman and Lovallo (1993) Timid Choices and Bold Forecasts](https://www.jstor.org/stable/2632676) — inside view vs. outside view; reference class forecasting as debiasing mechanism
-- [x] [Flyvbjerg (2006) From Nobel Prize to Project Management: Getting Risks Right](https://bentflyvbjerg.com/publications/) — empirical evidence on RCF accuracy improvement in UK Department for Transport application
-- [x] [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) — documented telemetry override mechanism with escalation path
-- [x] [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) — SLO and SLI definitions as basis for telemetry override
-- [x] [GAO Cost Estimating and Assessment Guide (GAO-20-195G)](https://www.gao.gov/assets/gao-20-195g.pdf) — independent cost estimate requirements and methodology for US federal programs
-- [x] [DORA 2023 State of DevOps Report](https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf) — self-report accuracy limitations and recommendation for automated telemetry
-- [x] [Mitchell, Russo and Pennington (1989) Back to the Future: Temporal Perspective in the Explanation of Events](https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918) — controlled experiment showing pre-mortem reduces overconfidence
+- [x] [Flyvbjerg et al. (2003) Megaprojects and Risk: An Anatomy of Ambition](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5): empirical evidence on optimism bias and capability overestimation in large projects
+- [x] [Kahneman (2011) Thinking, Fast and Slow](https://us.macmillan.com/books/9780374533557/thinkingfastandslow): reference class forecasting and structured challenge as debiasing mechanisms
+- [x] [Beyer et al. (2018) The Site Reliability Workbook: Practical Ways to Implement SRE](https://sre.google/workbook/table-of-contents/): SRE error-budget enforcement as telemetry-override mechanism
+- [ ] [Government Accountability Office (GAO) Schedule Assessment Guide](https://www.gao.gov/products/gao-16-89g): third-party audit methodology for government programme capability claims (access restricted; GAO Cost Estimating and Assessment Guide used as substitute)
+- [x] [Kahneman and Lovallo (1993) Timid Choices and Bold Forecasts](https://www.jstor.org/stable/2632676): inside view vs. outside view; reference class forecasting as debiasing mechanism
+- [x] [Flyvbjerg (2006) From Nobel Prize to Project Management: Getting Risks Right](https://bentflyvbjerg.com/publications/): empirical evidence on RCF accuracy improvement in UK Department for Transport application
+- [x] [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/): documented telemetry override mechanism with escalation path
+- [x] [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/): SLO and SLI definitions as basis for telemetry override
+- [x] [GAO Cost Estimating and Assessment Guide (GAO-20-195G)](https://www.gao.gov/assets/gao-20-195g.pdf): independent cost estimate requirements and methodology for US federal programs
+- [x] [DORA 2023 State of DevOps Report](https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf): self-report accuracy limitations and recommendation for automated telemetry
+- [x] [Mitchell, Russo and Pennington (1989) Back to the Future: Temporal Perspective in the Explanation of Events](https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918): controlled experiment showing pre-mortem reduces overconfidence
+- [x] [Kahneman and Tversky (1979) Prospect Theory: An Analysis of Decision under Risk](https://www.jstor.org/stable/1914185): original identification of optimism bias and planning fallacy as cognitive phenomenon
 
 ---
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill; retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
@@ -107,7 +108,7 @@ Domain-term definitions for first use in this item:
 - **Telemetry override**: the organisational mechanism by which production telemetry data overrides a team's self-stated capability claim when the two conflict, rendering the telemetry signal authoritative for baseline-setting purposes.
 - **Structured challenge** (in the context of forecasting and planning): a formal facilitated process, such as reference class forecasting (RCF), pre-mortem analysis, or red-team review, designed to surface and correct optimism bias in a team's own capability estimate by forcing engagement with outside-view evidence.
 - **Third-party audit**: independent assessment of a team's capability claim by a party with no stake in the outcome, using documented methodology, as exemplified by the Independent Cost Estimate (ICE) process used in US government acquisition programs.
-- **Optimism bias**: the systematic cognitive tendency for planners to predict better-than-realistic outcomes for their own projects, identified by Kahneman and Tversky (1979) as the primary driver of the planning fallacy.
+- **Optimism bias**: the systematic cognitive tendency for planners to predict better-than-realistic outcomes for their own projects, identified by Kahneman and Tversky (1979) as the primary driver of the planning fallacy. [fact; source: https://www.jstor.org/stable/1914185]
 - **Strategic misrepresentation**: the deliberate inflation of capability claims or understatement of resource requirements to secure approval or funding, distinguished from optimism bias by its intentional character (Flyvbjerg, 2003).
 - **Reference class forecasting (RCF)**: a structured debiasing method in which a team's project is placed in a statistical reference class of comparable past projects, and the forecast is anchored to the empirical distribution of outcomes in that class rather than to inside-view planning assumptions.
 
@@ -155,7 +156,7 @@ Reference class forecasting (RCF) is the structured challenge mechanism with the
 
 Kahneman and Lovallo (1993) describe the inside-view and outside-view distinction: "The inside view is based on the specific details of the case at hand... The outside view, by contrast, is essentially statistical and comparative." They find the outside view is "frequently superior to predictions derived from the inside view." [fact; source: https://www.jstor.org/stable/2632676]
 
-The pre-mortem is a structured challenge variant introduced by Klein (2007) that requires a team to imagine the project has failed and generate explanations for that failure before committing to capability estimates. Mitchell, Russo, and Pennington (1989) found that groups using pre-mortem approaches were more accurate in forecasting problems and less prone to overconfidence compared to traditional groups. [fact; source: https://hbr.org/2007/09/performing-a-project-premortem]
+The pre-mortem is a structured challenge variant introduced by Klein (2007) that requires a team to imagine the project has failed and generate explanations for that failure before committing to capability estimates. Mitchell, Russo, and Pennington (1989) found that groups using pre-mortem approaches were more accurate in forecasting problems and less prone to overconfidence compared to traditional groups. [fact; source: https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918]
 
 #### D. Third-party audit mechanism
 
@@ -268,12 +269,12 @@ No single controlled study directly compares all three arbitration mechanisms (t
 
 1. Capability overestimation is systematic and persistent across domains, with cost overruns documented in 86% of large infrastructure projects at an average of 20 to 44% above initial estimates, indicating a structural problem rather than individual error. ([fact]; high confidence; source: https://bentflyvbjerg.com/publications/)
 2. Capability overestimation has two empirically distinct root causes: optimism bias (cognitive, unintentional) and strategic misrepresentation (incentive-driven, intentional), which require different remedies, specifically debiasing techniques for the former and accountability structures for the latter. ([fact]; high confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5)
-3. Telemetry override, as operationalised in SRE error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes. ([fact]; high confidence; source: https://sre.google/workbook/error-budget-policy/)
+3. Telemetry override, as operationalised in SRE error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes. ([inference]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
 4. SRE error budget enforcement lacks a published controlled before-after study measuring its overestimation-reduction effect; its effectiveness rests on Google's documented internal practice and broader SRE adoption evidence, making a precise quantification unavailable. ([assumption]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
 5. Reference class forecasting, a form of structured challenge, is empirically supported as a debiasing technique, with Flyvbjerg documenting reduced forecast error in UK Department for Transport applications and Kahneman calling it "the single most important debiasing procedure available." ([fact]; high confidence; source: https://bentflyvbjerg.com/publications/)
 6. Pre-mortem analysis, another structured challenge variant, was shown in controlled experiments by Mitchell, Russo, and Pennington (1989) to produce significantly more accurate problem forecasting and less overconfidence compared to control groups. ([fact]; high confidence; source: https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918)
 7. Third-party independent estimates, as required by GAO for federal programs, consistently identify higher costs and longer schedules than program office estimates, confirming systematic program-office optimism and demonstrating that an independent artefact can surface it. ([fact]; high confidence; source: https://www.gao.gov/assets/gao-20-195g.pdf)
-8. No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on domain-separated evidence and inference rather than controlled measurement. ([fact]; high confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5; https://sre.google/workbook/error-budget-policy/; https://www.gao.gov/assets/gao-20-195g.pdf)
+8. No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on domain-separated evidence and inference rather than controlled measurement. ([assumption]; medium confidence; source: https://bentflyvbjerg.com/publications/; https://www.gao.gov/assets/gao-20-195g.pdf; https://dora.dev/research/publications/)
 9. All three mechanisms fail when accountability structures are absent: a team can complete a structured challenge, pass a third-party audit, or nominally accept telemetry data while preserving the overestimated claim through reference-class selection, data-provision control, or measurement scope manipulation. ([inference]; medium confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5)
 10. The DORA 2023 State of DevOps Report, based on 36,000 respondents, acknowledges that self-reported metrics introduce variability and optimism bias, and recommends automated telemetry as a higher-accuracy alternative, directly supporting the telemetry override approach. ([fact]; high confidence; source: https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf)
 11. Telemetry override is most effective when SLOs are defined, instrumentation is complete, and measurement is independent of the team; structured challenge is most effective when a reference class exists; third-party audit is most effective for initial baseline-setting with no prior data. ([inference]; medium confidence; source: https://sre.google/workbook/implementing-slos/; https://www.jstor.org/stable/2632676; https://www.gao.gov/assets/gao-20-195g.pdf)
@@ -289,7 +290,7 @@ No single controlled study directly compares all three arbitration mechanisms (t
 | [fact] RCF is "the single most important debiasing procedure available" (Kahneman) | [Flyvbjerg (2006) PMJ](https://bentflyvbjerg.com/publications/); [Kahneman and Lovallo (1993)](https://www.jstor.org/stable/2632676) | high | Validated in UK DfT programme |
 | [fact] Pre-mortem groups significantly more accurate and less overconfident than controls | [Mitchell, Russo and Pennington (1989)](https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918) | high | Controlled experiment |
 | [fact] GAO ICEs consistently exceed program office estimates, confirming systematic optimism | [GAO Cost Estimating Guide](https://www.gao.gov/assets/gao-20-195g.pdf) | high | Used for US federal acquisition programs |
-| [fact] No head-to-head comparison study across all three mechanisms in software delivery | [Flyvbjerg (2003)](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5); [SRE Workbook](https://sre.google/workbook/error-budget-policy/); [GAO](https://www.gao.gov/assets/gao-20-195g.pdf) | high | Gap in evidence base |
+| [assumption] No head-to-head comparison study across all three mechanisms in software delivery | [Flyvbjerg (2003)](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5); [DORA Research Publications](https://dora.dev/research/publications/); [GAO](https://www.gao.gov/assets/gao-20-195g.pdf) | medium | Primary evidence gap |
 | [inference] All mechanisms fail without accountability structures | [Flyvbjerg (2003)](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5) | medium | Strategic misrepresentation is not addressed by debiasing alone |
 | [fact] DORA 2023 recommends automated telemetry over self-report for accuracy | [DORA 2023 State of DevOps](https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf) | high | 36,000+ respondents |
 | [inference] Mechanism-effectiveness conditions depend on data availability and incentive structure | [SRE Workbook](https://sre.google/workbook/implementing-slos/); [Kahneman (2011)](https://us.macmillan.com/books/9780374533557/thinkingfastandslow); [GAO](https://www.gao.gov/assets/gao-20-195g.pdf) | medium | Contingent on deployment context |
@@ -339,7 +340,7 @@ acronym_audit: passed
   - ICE: expanded in §0 domain-term definitions as "Independent Cost Estimate (ICE)"
   - DORA: expanded in §2.B as "DevOps Research and Assessment (DORA)"
   - GAO: expanded in §2.D as "Government Accountability Office (GAO)"
-  - CTO: appears in §2.B — expanded as required context; first use is "CTO" with full
+  - CTO: appears in §2.B; expanded as required context; first use is "CTO" with full
     meaning clear from source quote; added expansion "Chief Technology Officer (CTO)"
     would apply to a future edit pass
 domain_term_audit: passed
@@ -354,7 +355,7 @@ findings_inline_label_audit: passed
   - Key Findings each carry ([fact]/[inference]/[assumption]; confidence; source: URL)
   - Analysis sentences carry suffix [inference; source: URL] labels
 parity_check: §6 Synthesis and ## Findings mirror each other
-em_dash_scan: no em-dashes found
+em_dash_scan: em-dashes found and replaced with commas or semicolons throughout (Research Question, Context, Sources list, intro note)
 ai_slop_scan: no "Furthermore", "Additionally", "It is important to note" found
 vague_quantifier_check: "most" and "more" usages are source-backed or qualified as [inference]
 ```
@@ -371,30 +372,30 @@ No single controlled study directly compares all three arbitration mechanisms (t
 
 ### Key Findings
 
-1. **Capability overestimation is systematic and persistent across domains, with cost overruns documented in 86% of large infrastructure projects at an average of 20 to 44% above initial estimates, indicating a structural problem rather than individual error.** ([fact]; high confidence; source: https://bentflyvbjerg.com/publications/)
-2. **Capability overestimation has two empirically distinct root causes, optimism bias (cognitive, unintentional) and strategic misrepresentation (incentive-driven, intentional), which require different remedies.** ([fact]; high confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5)
-3. **Telemetry override, as operationalised in Site Reliability Engineering (SRE) error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes.** ([fact]; high confidence; source: https://sre.google/workbook/error-budget-policy/)
-4. **SRE error budget enforcement lacks a published controlled before-after study measuring its overestimation-reduction effect; its effectiveness rests on Google's documented internal practice and broader SRE adoption evidence, making a precise quantification unavailable.** ([assumption]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
-5. **Reference class forecasting, a structured challenge form where a project is positioned within the empirical distribution of comparable past projects, is supported as a debiasing technique, with Kahneman calling it "the single most important debiasing procedure available."** ([fact]; high confidence; source: https://bentflyvbjerg.com/publications/; https://www.jstor.org/stable/2632676)
-6. **Pre-mortem analysis was shown in controlled experiments to produce significantly more accurate problem forecasting and less overconfidence compared to control groups, providing direct experimental support for structured challenge approaches.** ([fact]; high confidence; source: https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918)
-7. **Third-party independent estimates, as required by the Government Accountability Office (GAO) for US federal programs, consistently identify higher costs and longer schedules than program office estimates, confirming systematic program-office optimism.** ([fact]; high confidence; source: https://www.gao.gov/assets/gao-20-195g.pdf)
-8. **No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on cross-domain inference rather than controlled measurement.** ([fact]; high confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5; https://sre.google/workbook/error-budget-policy/; https://www.gao.gov/assets/gao-20-195g.pdf)
-9. **All three arbitration mechanisms fail when accountability structures are absent, because a team can formally comply while preserving overestimated claims through reference-class selection, data-provision control, or measurement-scope manipulation.** ([inference]; medium confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5)
-10. **The DevOps Research and Assessment (DORA) 2023 State of DevOps Report, based on 36,000 respondents, acknowledges that self-reported metrics introduce optimism bias and recommends automated telemetry as a higher-accuracy alternative, directly supporting the telemetry override approach for software delivery.** ([fact]; high confidence; source: https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf)
-11. **Telemetry override is most effective when Service Level Objectives (SLOs) are defined and instrumentation is complete, structured challenge is most effective when a reference class of comparable projects exists, and third-party audit is most effective for initial baseline-setting with no prior data.** ([inference]; medium confidence; source: https://sre.google/workbook/implementing-slos/; https://www.jstor.org/stable/2632676; https://www.gao.gov/assets/gao-20-195g.pdf)
+1. Capability overestimation is systematic and persistent across domains, with cost overruns documented in 86% of large infrastructure projects at an average of 20 to 44% above initial estimates, indicating a structural problem rather than individual error. ([fact]; high confidence; source: https://bentflyvbjerg.com/publications/)
+2. Capability overestimation has two empirically distinct root causes, optimism bias (cognitive, unintentional) and strategic misrepresentation (incentive-driven, intentional), which require different remedies. ([fact]; high confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5)
+3. Telemetry override, as operationalised in Site Reliability Engineering (SRE) error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes. ([inference]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
+4. SRE error budget enforcement lacks a published controlled before-after study measuring its overestimation-reduction effect; its effectiveness rests on Google's documented internal practice and broader SRE adoption evidence, making a precise quantification unavailable. ([assumption]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
+5. Reference class forecasting, a structured challenge form where a project is positioned within the empirical distribution of comparable past projects, is supported as a debiasing technique, with Kahneman calling it "the single most important debiasing procedure available." ([fact]; high confidence; source: https://bentflyvbjerg.com/publications/; https://www.jstor.org/stable/2632676)
+6. Pre-mortem analysis was shown in controlled experiments to produce significantly more accurate problem forecasting and less overconfidence compared to control groups, providing direct experimental support for structured challenge approaches. ([fact]; high confidence; source: https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918)
+7. Third-party independent estimates, as required by the Government Accountability Office (GAO) for US federal programs, consistently identify higher costs and longer schedules than program office estimates, confirming systematic program-office optimism. ([fact]; high confidence; source: https://www.gao.gov/assets/gao-20-195g.pdf)
+8. No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on cross-domain inference rather than controlled measurement. ([assumption]; medium confidence; source: https://bentflyvbjerg.com/publications/; https://www.gao.gov/assets/gao-20-195g.pdf; https://dora.dev/research/publications/)
+9. All three arbitration mechanisms fail when accountability structures are absent, because a team can formally comply while preserving overestimated claims through reference-class selection, data-provision control, or measurement-scope manipulation. ([inference]; medium confidence; source: https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5)
+10. The DevOps Research and Assessment (DORA) 2023 State of DevOps Report, based on 36,000 respondents, acknowledges that self-reported metrics introduce optimism bias and recommends automated telemetry as a higher-accuracy alternative, directly supporting the telemetry override approach for software delivery. ([fact]; high confidence; source: https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf)
+11. Telemetry override is most effective when Service Level Objectives (SLOs) are defined and instrumentation is complete, structured challenge is most effective when a reference class of comparable projects exists, and third-party audit is most effective for initial baseline-setting with no prior data. ([inference]; medium confidence; source: https://sre.google/workbook/implementing-slos/; https://www.jstor.org/stable/2632676; https://www.gao.gov/assets/gao-20-195g.pdf)
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] 86% of large infrastructure projects overrun costs; average 20-44% | [Flyvbjerg et al. (2002)](https://bentflyvbjerg.com/publications/) | high | [inference] 258-project dataset across 20 nations |
+| [fact] 86% of large infrastructure projects overrun costs; average 20-44% | [Flyvbjerg et al. (2002)](https://bentflyvbjerg.com/publications/) | high | 258-project dataset across 20 nations |
 | [fact] Optimism bias and strategic misrepresentation are distinct causes requiring different remedies | [Flyvbjerg (2003) Megaprojects and Risk](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5) | high | Strategic misrepresentation requires accountability structures |
 | [fact] SRE error budget enforcement overrides team self-assessment with production telemetry | [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | high | Includes dispute escalation to Chief Technology Officer (CTO) |
 | [assumption] SRE error budget effectiveness lacks controlled before-after overestimation study | [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Rests on documented practice |
 | [fact] RCF is "the single most important debiasing procedure available" (Kahneman endorsement) | [Flyvbjerg (2006) Project Management Journal](https://bentflyvbjerg.com/publications/); [Kahneman and Lovallo (1993)](https://www.jstor.org/stable/2632676) | high | Validated in UK Department for Transport programme |
 | [fact] Pre-mortem groups significantly more accurate and less overconfident than controls | [Mitchell, Russo and Pennington (1989)](https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918) | high | Controlled experiment |
 | [fact] GAO ICEs consistently exceed program office estimates | [GAO Cost Estimating Guide](https://www.gao.gov/assets/gao-20-195g.pdf) | high | US federal acquisition programs |
-| [fact] No head-to-head comparison across all three mechanisms in software delivery | [Flyvbjerg (2003)](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5); [SRE Workbook](https://sre.google/workbook/error-budget-policy/); [GAO Guide](https://www.gao.gov/assets/gao-20-195g.pdf) | high | Primary evidence gap |
+| [assumption] No head-to-head comparison across all three mechanisms in software delivery | [Flyvbjerg (2003)](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5); [DORA Research Publications](https://dora.dev/research/publications/); [GAO Guide](https://www.gao.gov/assets/gao-20-195g.pdf) | medium | Primary evidence gap |
 | [inference] All mechanisms fail without accountability structures | [Flyvbjerg (2003)](https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5) | medium | Strategic misrepresentation is not addressed by debiasing alone |
 | [fact] DORA 2023 recommends automated telemetry over self-report | [DORA 2023 State of DevOps](https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf) | high | 36,000+ respondents |
 | [inference] Mechanism effectiveness is contingent on data availability and incentive structure | [SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/); [Kahneman (2011)](https://us.macmillan.com/books/9780374533557/thinkingfastandslow); [GAO Guide](https://www.gao.gov/assets/gao-20-195g.pdf) | medium | Conditions vary by deployment context |
