@@ -28,7 +28,12 @@ themes:
   - tools-infrastructure
   - enterprise-adoption
 gaps: []
-versions: []
+versions:
+  - version: "1.0"
+    sha: "0f3dd408698a6907deabfeaa8f9bcd42371b3701"
+    changed: "2026-05-31"
+    progress: "progress/2026-05-31-split-authority-q3-routing-exception-isolation.md"
+    summary: "Initial completion"
 ---
 
 # Q3: Routing design that isolates exceptions from routine flow
