@@ -2,12 +2,12 @@
 review_count: 2
 title: "Q1: Dominant flow constraint in split-authority delivery systems"
 added: 2026-05-29
-status: reviewing
+status: completed
 priority: high
 tags: [constraint-analysis, flow, governance, queueing]
 blocks: []
 started: 2026-05-31T21:21:16+00:00
-completed: ~
+completed: 2026-05-31T21:55:02+00:00
 output: [knowledge]
 cites:
   - 2026-04-01-backpressure-theory-of-constraints
