@@ -1,6 +1,105 @@
 {
-  "extracted_at": "2026-05-31T12:17:58Z",
+  "extracted_at": "2026-05-31T20:36:19Z",
   "items": {
+    "2026-05-29-split-authority-q6-instability-leading-indicators": {
+      "named_concepts": [
+        "threshold values",
+        "lead time",
+        "rework rate",
+        "queue age",
+        "exception volume",
+        "shadow-work growth",
+        "deployment-to-ticket gap",
+        "sre error",
+        "exception share",
+        "approval queue",
+        "indicator bundle",
+        "per lane",
+        "compliance risk",
+        "approval-gate congestion",
+        "wait time",
+        "time growth",
+        "q3 circuit-breaker",
+        "error budget",
+        "rising exception",
+        "declining rework"
+      ],
+      "source_urls": [
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://sre.google/workbook/alerting-on-slos/",
+        "https://sre.google/workbook/eliminating-toil/",
+        "https://econpapers.repec.org/RePEc:inm/oropre:v:9:y:1961:i:3:p:383-387",
+        "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+        "https://www.tocinstitute.org/five-focusing-steps.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q5-control-model-tradeoff.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-variance-control-comparison-across-delivery-modes.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Queue age at the 75th percentile per lane is the earliest observable warning of approval-gate congestion because Little's Law implies that queue length and wait time growth co-move, and the P75 responds to developing congestion before the median or mean",
+          "sources": [
+            "https://econpapers.repec.org/RePEc:inm/oropre:v:9:y:1961:i:3:p:383-387",
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009"
+          ]
+        },
+        {
+          "text": "Exception volume expressed as the four-week rolling Class 3 share of total intake is the most direct precursor to exception lane saturation and provides an estimated one to two weeks of warning before the Q3 circuit-breaker fires",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html"
+          ]
+        },
+        {
+          "text": "DORA's change lead time, measured as a four-week moving average per lane, integrates approval-gate congestion and pipeline health into one observable and functions as a composite confirmation metric rather than a first-line signal; it is most useful when it rises in combination with earlier Tier 1 and Tier 2 signals",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics-four-keys/",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html"
+          ]
+        },
+        {
+          "text": "A deployment rework rate sustained above 20% of total deployments for two or more consecutive sprints signals that unplanned remediation work is consuming capacity that would otherwise be available for planned delivery, consistent with the SRE toil threshold at which reactive work becomes structurally damaging",
+          "sources": [
+            "https://sre.google/workbook/eliminating-toil/",
+            "https://dora.dev/guides/dora-metrics-four-keys/"
+          ]
+        },
+        {
+          "text": "A persistent deployment-to-ticket gap exceeding 10% for three or more consecutive sprints signals systematic shadow-work growth, which predicts either escalating compliance risk from undisclosed changes or a future formal-queue surge when the informal backlog is regularised under audit pressure",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html"
+          ]
+        },
+        {
+          "text": "Multi-window threshold design, requiring simultaneous breach of a short-window (one to two weeks) and a long-window (four weeks) check before an alert fires, reduces false positives from batch-arrival spikes while preserving detection speed for sustained congestion, applying the same alerting design principle demonstrated in SRE error budget burn-rate practice",
+          "sources": [
+            "https://sre.google/workbook/alerting-on-slos/",
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009"
+          ]
+        },
+        {
+          "text": "Rising exception share combined with a stable or declining rework rate signals deliberate misclassification of exception-path work as fast-path work, a behavioural coping response to governance friction that undermines routing integrity without triggering the standard exception volume alarm",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html"
+          ]
+        },
+        {
+          "text": "Pre-agreed thresholds aligned to Q3 circuit-breaker conditions and Q5 control-regime shift points enable automatic regime adjustments without per-incident negotiation, following the same operational logic as the SRE error budget policy, which removed deliberation cost from the high-stakes decision of whether to continue feature deployment or switch to reliability-first operations",
+          "sources": [
+            "https://sre.google/workbook/alerting-on-slos/",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q5-control-model-tradeoff.html"
+          ]
+        }
+      ]
+    },
     "2026-05-29-split-authority-q5-control-model-tradeoff": {
       "named_concepts": [
         "post-hoc review",
