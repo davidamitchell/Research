@@ -1,6 +1,97 @@
 {
-  "extracted_at": "2026-05-31T22:12:04Z",
+  "extracted_at": "2026-05-31T22:39:49Z",
   "items": {
+    "2026-05-31-capability-claim-telemetry-conflict-arbitration": {
+      "named_concepts": [
+        "telemetry override",
+        "structured challenge",
+        "strategic misrepresentation",
+        "error budget",
+        "software delivery",
+        "reference class",
+        "optimism bias",
+        "sre error",
+        "third-party audit",
+        "accountability structures",
+        "budget enforcement",
+        "three arbitration",
+        "arbitration mechanisms",
+        "capability overestimation",
+        "team self-assessment",
+        "class forecasting",
+        "infrastructure projects",
+        "controlled study",
+        "overestimation reduction",
+        "delivery settings"
+      ],
+      "source_urls": [
+        "https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5",
+        "https://us.macmillan.com/books/9780374533557/thinkingfastandslow",
+        "https://sre.google/workbook/table-of-contents/",
+        "https://www.gao.gov/products/gao-16-89g",
+        "https://www.jstor.org/stable/2632676",
+        "https://bentflyvbjerg.com/publications/",
+        "https://sre.google/workbook/error-budget-policy/",
+        "https://sre.google/workbook/implementing-slos/",
+        "https://www.gao.gov/assets/gao-20-195g.pdf",
+        "https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf",
+        "https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918",
+        "https://www.jstor.org/stable/1914185"
+      ],
+      "key_claims": [
+        {
+          "text": "Capability overestimation is systematic and persistent across domains, with cost overruns documented in 86% of large infrastructure projects at an average of 20 to 44% above initial estimates, indicating a structural problem rather than individual error",
+          "sources": [
+            "https://bentflyvbjerg.com/publications/"
+          ]
+        },
+        {
+          "text": "Capability overestimation has two empirically distinct root causes, optimism bias (cognitive, unintentional) and strategic misrepresentation (incentive-driven, intentional), which require different remedies",
+          "sources": [
+            "https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5"
+          ]
+        },
+        {
+          "text": "Telemetry override, as operationalised in Site Reliability Engineering (SRE) error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes",
+          "sources": [
+            "https://sre.google/workbook/error-budget-policy/"
+          ]
+        },
+        {
+          "text": "SRE error budget enforcement lacks a published controlled before-after study measuring its overestimation-reduction effect; its effectiveness rests on Google's documented internal practice and broader SRE adoption evidence, making a precise quantification unavailable",
+          "sources": [
+            "https://sre.google/workbook/error-budget-policy/"
+          ]
+        },
+        {
+          "text": "Reference class forecasting, a structured challenge form where a project is positioned within the empirical distribution of comparable past projects, is supported as a debiasing technique, with Kahneman calling it \"the single most important debiasing procedure available.\"",
+          "sources": [
+            "https://bentflyvbjerg.com/publications/",
+            "https://www.jstor.org/stable/2632676"
+          ]
+        },
+        {
+          "text": "Pre-mortem analysis was shown in controlled experiments to produce significantly more accurate problem forecasting and less overconfidence compared to control groups, providing direct experimental support for structured challenge approaches",
+          "sources": [
+            "https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918"
+          ]
+        },
+        {
+          "text": "Third-party independent estimates, as required by the Government Accountability Office (GAO) for US federal programs, consistently identify higher costs and longer schedules than program office estimates, confirming systematic program-office optimism",
+          "sources": [
+            "https://www.gao.gov/assets/gao-20-195g.pdf"
+          ]
+        },
+        {
+          "text": "No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on cross-domain inference rather than controlled measurement",
+          "sources": [
+            "https://bentflyvbjerg.com/publications/",
+            "https://www.gao.gov/assets/gao-20-195g.pdf",
+            "https://dora.dev/research/publications/"
+          ]
+        }
+      ]
+    },
     "2026-05-29-split-authority-q6-instability-leading-indicators": {
       "named_concepts": [
         "threshold values",

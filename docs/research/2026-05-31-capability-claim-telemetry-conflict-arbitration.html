@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>How have software-development commit trends shifted across repository creation,… — Research</title>
+          <title>Capability claim vs. production telemetry — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -680,160 +680,112 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>How have software-development commit trends shifted across repository creation,…</span>
+    <span>Capability claim vs. production telemetry</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>How have software-development commit trends shifted across repository creation,…</h1>
-  <p class="full-title-subtitle">How have software-development commit trends shifted across repository creation, LOC velocity, rework, abandonment, slop, test utility, and shipment rates?</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Capability claim vs. production telemetry</h1>
+  <p class="full-title-subtitle">Capability claim vs. production telemetry: arbitration mechanisms and overestimation</p>
   <div class="meta-bar">
-    <span>2026-05-29</span>
+    <span>2026-05-31</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a> <a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a> <a class="tag" href="/Research/themes/workforce-skills.html">workforce-skills</a> <a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a> 
+    <a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a> <a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a> <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-29-commit-trends-repo-velocity-rework-abandonment.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-capability-claim-telemetry-conflict-arbitration.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-29-commit-trends-repo-velocity-rework-abandonment" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-31-capability-claim-telemetry-conflict-arbitration" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Repository creation on GitHub more than doubled between 2019 and 2024, growing from approximately 44 million new repositories per year to over 121 million per year<span class="claim-sources"><a class="claim-source-link" href="https://octoverse.github.com/2019/" target="_blank" rel="noopener" title="https://octoverse.github.com/2019/">GitHub (2019)</a><a class="claim-source-link" href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/" target="_blank" rel="noopener" title="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub (2025)</a></span></li>
-<li>Annual commit volume on GitHub reached nearly 1 billion in 2024, a 25% year-over-year increase, with a record of nearly 100 million commits in a single month<span class="claim-sources"><a class="claim-source-link" href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/" target="_blank" rel="noopener" title="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub (2025)</a></span></li>
-<li>Short-cycle code churn (lines revised within two weeks of creation) rose 84% relative within the GitClear dataset, from 3.1% of changed lines in 2020 to 5.7% in 2024, coinciding with the period of widespread AI coding assistant adoption<span class="claim-sources"><a class="claim-source-link" href="https://www.gitclear.com/ai_assistant_code_quality_2025_research" target="_blank" rel="noopener" title="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear (2025)</a><a class="claim-source-link" href="https://www.devclass.com/ai-ml/2025/02/20/ai-is-eroding-code-quality-states-new-in-depth-report/1626250" target="_blank" rel="noopener" title="https://www.devclass.com/ai-ml/2025/02/20/ai-is-eroding-code-quality-states-new-in-depth-report/1626250">Devclass (n.d.)</a></span></li>
-<li>The share of code classified as deliberately refactored (&quot;moved code&quot;) fell 61% relative in the GitClear dataset, from 24.1% in 2020 to 9.5% in 2024, eroding the structural quality improvement that refactoring provides to long-lived codebases<span class="claim-sources"><a class="claim-source-link" href="https://www.gitclear.com/ai_assistant_code_quality_2025_research" target="_blank" rel="noopener" title="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear (2025)</a></span></li>
-<li>The DORA 2024 report found that every 25% increase in AI adoption on a software team is associated with a 7.2% decrease in delivery stability and a 1.5% decrease in delivery throughput, despite a 2.1% individual productivity increase<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/research/2024/dora-report/" target="_blank" rel="noopener" title="https://dora.dev/research/2024/dora-report/">DORA (2024)</a></span></li>
-<li>Copy-pasted code blocks rose from 8.3% to 12.3% of all code changes in the GitClear dataset between 2020 and 2024, and duplicated code blocks of five or more identical lines became eight times more common during 2024<span class="claim-sources"><a class="claim-source-link" href="https://www.gitclear.com/ai_assistant_code_quality_2025_research" target="_blank" rel="noopener" title="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear (2025)</a></span></li>
-<li>Among popular open source GitHub projects, 16% were abandoned (with 41% of those rescued by new maintainers), while industry estimates for newly created projects place the 12-month inactivity rate at 60-95% depending on the definition used<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/1906.08058" target="_blank" rel="noopener" title="https://arxiv.org/abs/1906.08058">Avelino et al. (2019)</a><a class="claim-source-link" href="https://gitnux.org/git-repository-statistics/" target="_blank" rel="noopener" title="https://gitnux.org/git-repository-statistics/">Gitnux (n.d.)</a></span></li>
-<li>The Standish Group CHAOS 2020 report found software project cancellation rates stable at approximately 19%, with 50% of projects challenged and 31% successful, a distribution consistent with secondary summaries spanning the 2020-2023 window; the primary report is paywalled<span class="claim-sources"><a class="claim-source-link" href="https://thestory.is/en/journal/chaos-report/" target="_blank" rel="noopener" title="https://thestory.is/en/journal/chaos-report/">Standish (2020)</a></span></li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Capability overestimation is systematic and persistent across domains, with cost overruns documented in 86% of large infrastructure projects at an average of 20 to 44% above initial estimates, indicating a structural problem rather than individual error<span class="claim-sources"><a class="claim-source-link" href="https://bentflyvbjerg.com/publications/" target="_blank" rel="noopener" title="https://bentflyvbjerg.com/publications/">Flyvbjerg (2006)</a></span></li>
+<li>Capability overestimation has two empirically distinct root causes, optimism bias (cognitive, unintentional) and strategic misrepresentation (incentive-driven, intentional), which require different remedies<span class="claim-sources"><a class="claim-source-link" href="https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5" target="_blank" rel="noopener" title="https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5">Flyvbjerg et al. (2003)</a></span></li>
+<li>Telemetry override, as operationalised in Site Reliability Engineering (SRE) error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/error-budget-policy/" target="_blank" rel="noopener" title="https://sre.google/workbook/error-budget-policy/">Google SRE Workbook (n.d.)</a></span></li>
+<li>SRE error budget enforcement lacks a published controlled before-after study measuring its overestimation-reduction effect; its effectiveness rests on Google&#39;s documented internal practice and broader SRE adoption evidence, making a precise quantification unavailable<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/error-budget-policy/" target="_blank" rel="noopener" title="https://sre.google/workbook/error-budget-policy/">Google SRE Workbook (n.d.)</a></span></li>
+<li>Reference class forecasting, a structured challenge form where a project is positioned within the empirical distribution of comparable past projects, is supported as a debiasing technique, with Kahneman calling it &quot;the single most important debiasing procedure available.&quot;<span class="claim-sources"><a class="claim-source-link" href="https://bentflyvbjerg.com/publications/" target="_blank" rel="noopener" title="https://bentflyvbjerg.com/publications/">Flyvbjerg (2006)</a><a class="claim-source-link" href="https://www.jstor.org/stable/2632676" target="_blank" rel="noopener" title="https://www.jstor.org/stable/2632676">Lovallo (1993)</a></span></li>
+<li>Pre-mortem analysis was shown in controlled experiments to produce significantly more accurate problem forecasting and less overconfidence compared to control groups, providing direct experimental support for structured challenge approaches<span class="claim-sources"><a class="claim-source-link" href="https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918" target="_blank" rel="noopener" title="https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918">Pennington (1989)</a></span></li>
+<li>Third-party independent estimates, as required by the Government Accountability Office (GAO) for US federal programs, consistently identify higher costs and longer schedules than program office estimates, confirming systematic program-office optimism<span class="claim-sources"><a class="claim-source-link" href="https://www.gao.gov/assets/gao-20-195g.pdf" target="_blank" rel="noopener" title="https://www.gao.gov/assets/gao-20-195g.pdf">GAO (n.d.)</a></span></li>
+<li>No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on cross-domain inference rather than controlled measurement<span class="claim-sources"><a class="claim-source-link" href="https://bentflyvbjerg.com/publications/" target="_blank" rel="noopener" title="https://bentflyvbjerg.com/publications/">Flyvbjerg (2006)</a><a class="claim-source-link" href="https://www.gao.gov/assets/gao-20-195g.pdf" target="_blank" rel="noopener" title="https://www.gao.gov/assets/gao-20-195g.pdf">GAO (n.d.)</a><a class="claim-source-link" href="https://dora.dev/research/publications/" target="_blank" rel="noopener" title="https://dora.dev/research/publications/">Dora (n.d.)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>What do high-quality longitudinal studies (2019–2026) show about directional shifts and current baseline ranges for repository creation rate, Lines of Code (LOC) velocity, rework share, project abandonment, Artificial Intelligence (AI) slop indicators, useless-test prevalence, and unshipped-project rates?</p>
+<p>When a team's capability claim conflicts with production telemetry, what arbitration mechanism produces a reliable baseline, and is there empirical evidence on which approach (telemetry override, structured challenge, third-party audit) reduces overestimation most?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p>Across seven software-delivery metrics tracked from 2019 to 2025, raw volume indicators rose sharply while quality-composition indicators degraded, and project-to-production conversion rates remained persistently low. Repository creation on GitHub grew from approximately 44 million per year (2019) to over 121 million per year (2024), and commit volume reached nearly 1 billion in 2024 at 25% year-over-year growth, but this volume surge coincides with measurable quality erosion: short-cycle code churn rose 84% relative and copy-paste code share rose 48% within the GitClear dataset between 2020 and 2024. The DORA 2024 report found that every 25% increase in AI adoption is associated with a 7.2% drop in delivery stability despite individual productivity gains. This creates a governance tension for organisations mandating AI coding tools, where productivity mandates may degrade delivery reliability. Project failure rates for general software have remained structurally stable at approximately 19% cancelled (Standish CHAOS), while AI/ML projects face a structurally different non-deployment rate of 87-90% attributed to the operationalisation gap between proof-of-concept and production service. Useless-test prevalence and long-tail repository abandonment rates lack rigorous population-level longitudinal data, representing the two largest evidence gaps.</p>
+<p>No single controlled study directly compares all three arbitration mechanisms (telemetry override, structured challenge, and third-party audit) for capability overestimation reduction in software delivery settings. The best-supported conclusion from domain-separated empirical evidence is that telemetry override, when fully instrumented and enforced, addresses both cognitive and strategic causes of overestimation most directly, because it removes team self-assessment from the baseline-setting process. Structured challenge through reference class forecasting (RCF) is empirically effective against optimism bias but does not protect against strategic misrepresentation when teams control reference-class selection. Third-party audit provides the most defensible initial baseline when telemetry or reference-class data is unavailable, but cannot provide continuous correction. All three mechanisms fail when accountability structures are absent.</p>
 <h3>Key Findings</h3>
 <ol>
-<li>
-<p>Repository creation on GitHub more than doubled between 2019 and 2024, growing from approximately 44 million new repositories per year to over 121 million per year.</p>
-</li>
-<li>
-<p>Annual commit volume on GitHub reached nearly 1 billion in 2024, a 25% year-over-year increase, with a record of nearly 100 million commits in a single month.</p>
-</li>
-<li>
-<p>Short-cycle code churn (lines revised within two weeks of creation) rose 84% relative within the GitClear dataset, from 3.1% of changed lines in 2020 to 5.7% in 2024, coinciding with the period of widespread AI coding assistant adoption.</p>
-</li>
-<li>
-<p>The share of code classified as deliberately refactored (&quot;moved code&quot;) fell 61% relative in the GitClear dataset, from 24.1% in 2020 to 9.5% in 2024, eroding the structural quality improvement that refactoring provides to long-lived codebases.</p>
-</li>
-<li>
-<p>The DORA 2024 report found that every 25% increase in AI adoption on a software team is associated with a 7.2% decrease in delivery stability and a 1.5% decrease in delivery throughput, despite a 2.1% individual productivity increase.</p>
-</li>
-<li>
-<p>Copy-pasted code blocks rose from 8.3% to 12.3% of all code changes in the GitClear dataset between 2020 and 2024, and duplicated code blocks of five or more identical lines became eight times more common during 2024.</p>
-</li>
-<li>
-<p>Among popular open source GitHub projects, 16% were abandoned (with 41% of those rescued by new maintainers), while industry estimates for newly created projects place the 12-month inactivity rate at 60-95% depending on the definition used. ([inference]; medium confidence for popular project figure, low confidence for new-project estimate; source: <a href="https://arxiv.org/abs/1906.08058">Avelino et al. (2019) &quot;On the abandonment and survival of open source projects&quot;</a> <a href="https://gitnux.org/git-repository-statistics/">gitnux.org</a></p>
-</li>
-<li>
-<p>The Standish Group CHAOS 2020 report found software project cancellation rates stable at approximately 19%, with 50% of projects challenged and 31% successful, a distribution consistent with secondary summaries spanning the 2020-2023 window; the primary report is paywalled.</p>
-</li>
-<li>
-<p>AI and ML projects face a structurally higher non-deployment rate of 87-90%, with IDC/Lenovo finding that of every 33 AI proof-of-concept projects only four reached production, reflecting an operationalisation gap that is distinct from project cancellation; both figures are drawn from secondary media coverage of paywalled primary reports.</p>
-</li>
-<li>
-<p>AI-generated test suites frequently produce tautological tests that achieve high line coverage without effective fault detection; practitioner analyses report mutation scores below 5% in suites with 100% line coverage, though no population-level longitudinal dataset for this metric exists.</p>
-</li>
-<li>
-<p>Baltes et al. (2026) characterise AI slop in software development as a tragedy of the commons: individual productivity gains from AI-generated code externalise review and maintenance costs onto the broader team, with Quality Degradation, Review Friction, and Forces and Consequences as the three empirically identified impact clusters.</p>
-</li>
+<li>Capability overestimation is systematic and persistent across domains, with cost overruns documented in 86% of large infrastructure projects at an average of 20 to 44% above initial estimates, indicating a structural problem rather than individual error.</li>
+<li>Capability overestimation has two empirically distinct root causes, optimism bias (cognitive, unintentional) and strategic misrepresentation (incentive-driven, intentional), which require different remedies.</li>
+<li>Telemetry override, as operationalised in Site Reliability Engineering (SRE) error budget enforcement, is the most structurally direct mechanism because it replaces team self-assessment with independent production measurement and provides a defined escalation path for disputes.</li>
+<li>SRE error budget enforcement lacks a published controlled before-after study measuring its overestimation-reduction effect; its effectiveness rests on Google's documented internal practice and broader SRE adoption evidence, making a precise quantification unavailable.</li>
+<li>Reference class forecasting, a structured challenge form where a project is positioned within the empirical distribution of comparable past projects, is supported as a debiasing technique, with Kahneman calling it &quot;the single most important debiasing procedure available.&quot;</li>
+<li>Pre-mortem analysis was shown in controlled experiments to produce significantly more accurate problem forecasting and less overconfidence compared to control groups, providing direct experimental support for structured challenge approaches.</li>
+<li>Third-party independent estimates, as required by the Government Accountability Office (GAO) for US federal programs, consistently identify higher costs and longer schedules than program office estimates, confirming systematic program-office optimism.</li>
+<li>No direct head-to-head comparison study exists across all three arbitration mechanisms in software delivery settings, making a definitive ranking dependent on cross-domain inference rather than controlled measurement.</li>
+<li>All three arbitration mechanisms fail when accountability structures are absent, because a team can formally comply while preserving overestimated claims through reference-class selection, data-provision control, or measurement-scope manipulation.</li>
+<li>The DevOps Research and Assessment (DORA) 2023 State of DevOps Report, based on 36,000 respondents, acknowledges that self-reported metrics introduce optimism bias and recommends automated telemetry as a higher-accuracy alternative, directly supporting the telemetry override approach for software delivery.</li>
+<li>Telemetry override is most effective when Service Level Objectives (SLOs) are defined and instrumentation is complete, structured challenge is most effective when a reference class of comparable projects exists, and third-party audit is most effective for initial baseline-setting with no prior data.</li>
 </ol>
 <h3>Assumptions</h3>
-<ol>
-<li>
-<p>The GitClear dataset (211M changed lines, enterprise and high-profile open source codebases) is broadly representative of enterprise software development trends, though it likely underrepresents personal, student, and AI-generated throw-away repositories. Justification: the dataset includes named large-scale production codebases (Google, Meta, Microsoft, Chromium, VS Code) with transparent methodology. Source: <a href="https://www.devclass.com/ai-ml/2025/02/20/ai-is-eroding-code-quality-states-new-in-depth-report/1626250">www.devclass.com</a></p>
-</li>
-<li>
-<p>GitHub Octoverse repository counts include a substantial fraction of experimental, student, and AI-generated repositories. The headline count growth therefore overstates the growth in commercially maintained software projects. Justification: the Octoverse 2025 report explicitly notes that 80% of new developers use Copilot in their first week, suggesting a large proportion of new repositories are tutorial or experimental. Source: <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub Octoverse 2025 (2024/2025 data)</a></p>
-</li>
-<li>
-<p>The AI/ML non-deployment rate (87-90%) reflects a structural deployment barrier that predates the current AI coding assistant era. It is a persistent characteristic rather than a new 2022-2025 trend, though the growth in AI POC project creation increases the absolute number of unshipped projects. Justification: the VentureBeat figure dates to 2019; the IDC/Lenovo 2025 figure is consistent, suggesting stability in the rate. Source: <a href="https://teaminnovatics.com/blogs/machine-learning-deployment-why-fail/">teaminnovatics.com</a> <a href="https://www.cio.com/article/3850763/88-of-ai-pilots-fail-to-reach-production-but-thats-not-all-on-it.html">www.cio.com</a></p>
-</li>
-</ol>
+<ul>
+<li><strong>Assumption A1:</strong> The self-report overestimation ratio of 2 to 5 times attributed to DORA-aligned practitioner analysis is not from a controlled study and may not generalise. <strong>Justification:</strong> No aggregate controlled comparison of self-reported versus automated DORA metrics has been published; this figure reflects practitioner observation. [source: <a href="https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf]">dora.dev</a></li>
+<li><strong>Assumption A2:</strong> SRE error budget enforcement reduces overestimation in practice even though no controlled before-after study has measured this effect. <strong>Justification:</strong> Google's published error budget policy documents the mechanism and its enforcement rationale; the practice is widely adopted with reported reliability improvements. [source: <a href="https://sre.google/workbook/error-budget-policy/]">sre.google</a></li>
+<li><strong>Assumption A3:</strong> No head-to-head comparison study exists across all three mechanisms in software delivery settings. <strong>Justification:</strong> A search across Flyvbjerg, Kahneman, GAO, DORA, and SRE literature did not locate such a study. [source: <a href="https://bentflyvbjerg.com/publications/">Flyvbjerg (2006) From Nobel Prize to Project Management: Getting Risks Right</a> <a href="https://www.gao.gov/assets/gao-20-195g.pdf">GAO Cost Estimating and Assessment Guide (GAO-20-195G)</a> <a href="https://dora.dev/research/publications/]">dora.dev</a></li>
+</ul>
 <h3>Analysis</h3>
-<p>The seven metrics fall into two structural groups when assessed against the available evidence.</p>
-<p>The first group (repository creation, commit volume, LOC output) shows clear upward trends that are well-documented by primary sources. These metrics are supply-side: they measure what developers are producing, not whether that production has quality or business value. The growth in these metrics is largely explained by developer community growth (40M to 180M+ on GitHub over the study period) compounded by AI coding assistant adoption lowering the marginal cost of generating code.</p>
-<p>The second group (rework, refactor share, AI slop indicators, delivery stability) shows degradation in the 2020-2024 period. The GitClear and DORA data converge in direction: AI coding assistant adoption appears to accelerate code production at the cost of code composition quality. Two competing explanations must be acknowledged. First, the GitClear dataset is enterprise-skewed and the DORA signal may represent teams that have not yet adapted review processes to AI-generated volume, a transient adaptation lag rather than a structural degradation. Second, developer community growth from 40M to 180M+ on GitHub over the study period brought a substantially larger proportion of less-experienced practitioners into the ecosystem independently of AI tool adoption; this demographic shift could account for some of the quality metric decline without any causal role for AI tools. The available evidence cannot definitively separate these explanations, and both are consistent with the observed data.</p>
-<p>Project non-delivery (abandonment, cancellation, non-deployment) has two distinct regimes. General software cancellation rates (Standish CHAOS at approximately 19%) have remained broadly stable across the 2020-2023 window covered by available secondary summaries. This stability implies a structural organisational constraint rather than a technology-driven trend, though this interpretation is an inference from the stable rate data. AI/ML non-deployment rates (87-90%) reflect an additional barrier: the gap between building an AI model or proof-of-concept and operating it reliably as a production service.</p>
-<p>Useless-test prevalence remains the weakest-evidenced metric area. The mechanism (AI-generated tests optimise for coverage metrics rather than fault detection) is theoretically coherent and supported by qualitative practitioner accounts, but lacks a population-level quantitative baseline. Teams relying on line coverage as their quality gate may be systematically unaware of how far their effective test coverage has declined.</p>
-<p>The related completed item on productivity incentive metrics (2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai, <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.md">github.com</a> addresses the governance implication of this pattern in detail: speed-focused incentives create hidden quality costs, and code acceptance rate is an insufficient organisational metric. The rising rework rates (KF3) and declining refactor share (KF4) documented here have direct implications for technical debt accumulation rates; the related completed item on IT throughput constraint magnitude and debt accumulation rate (2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate, <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.md">github.com</a> quantifies how short-cycle churn and quality degradation compound into throughput constraints over multi-year horizons.</p>
+<p>The evidence base separates across domains: Flyvbjerg's data is concentrated in infrastructure megaprojects; DORA's data is from software delivery surveys; GAO's data is from government procurement. This domain separation makes a direct ranking of the three mechanisms inferential rather than empirical.</p>
+<p>The strongest structural argument for telemetry override is its independence from the assessed team: production instrumentation operated by a central platform team cannot be altered by the product team being measured, provided separation of duties is maintained. Structured challenge and third-party audit both require the assessed team to provide inputs (reference class selection, scope documentation), creating a surface for misrepresentation that telemetry override does not.</p>
+<p>A rival explanation for why telemetry override appears more effective is survivorship: SRE practices are most mature in organisations already committed to measurement culture, meaning overestimation is less prevalent at baseline in such organisations. In organisations where measurement culture is weakest, and where overestimation is most problematic, the prerequisites for telemetry override (defined SLOs, complete instrumentation, neutral measurement authority) are least likely to be in place.</p>
+<p>Structured challenge through RCF is the most portable mechanism: it requires only access to historical comparable-project data and a facilitator willing to enforce outside-view discipline. For organisations without telemetry infrastructure, RCF is both cheaper to deploy and empirically validated, making it the practical choice for initial deployment.</p>
+<p>Flyvbjerg's distinction between optimism bias and strategic misrepresentation has a direct practical implication: organisations facing genuine capability misassessment (cognitive) should prioritise structured challenge, while organisations facing deliberate inflation (political or incentive-driven) must combine any technical mechanism with an accountability structure. Without the accountability structure, the mechanism provides a false assurance of correction. Neither structured challenge, telemetry override, nor third-party audit eliminates strategic misrepresentation on its own.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
-<ol>
-<li>
-<p>No peer-reviewed longitudinal study covers all seven metrics in a single consistent dataset over the 2019-2026 window. The evidence base is a patchwork of industry reports (Octoverse, DORA, GitClear, Standish), vendor benchmarks (LinearB), one peer-reviewed academic study on abandonment (Avelino 2019), and one qualitative arXiv preprint on AI slop (Baltes 2026).</p>
-</li>
-<li>
-<p>Useless-test prevalence has no population-level quantitative baseline. The practitioner reports and mutation score case studies are directionally consistent but not representative.</p>
-</li>
-<li>
-<p>The Avelino et al. abandonment study (2019) is the most rigorous source for the popular-project abandonment figure, but it predates AI coding assistant adoption and has not been replicated over the 2022-2025 window.</p>
-</li>
-<li>
-<p>The GitClear dataset is enterprise-skewed and vendor-produced. While the methodology is transparent and the dataset large, independent replication has not been published within the scope of this investigation.</p>
-</li>
-<li>
-<p>LOC per unit of meaningful functionality remains unmeasured at scale. The divergence between raw commit volume growth (+25% YoY) and delivery stability decline (DORA -7.2% per 25% AI adoption) implies that the relationship between volume and value has changed, but the precise magnitude of this decoupling is not quantified.</p>
-</li>
-</ol>
+<ul>
+<li>The absence of a controlled comparison study across all three mechanisms in software delivery is the primary evidence gap; all comparative claims are cross-domain inferences.</li>
+<li>SRE error budget enforcement requires organisational prerequisites (SLO definition, measurement independence, named escalation authority) that many organisations lack, limiting the mechanism's applicability to organisations with mature measurement cultures.</li>
+<li>The overestimation ratio attributed to self-report versus telemetry in DORA-aligned analysis is not from a controlled study and cannot be treated as a quantified effect size.</li>
+<li>Reference class forecasting requires a valid reference class, which may not exist for novel project types, limiting its applicability in genuinely novel situations.</li>
+<li>Flyvbjerg's infrastructure megaproject data may not generalise to software delivery teams, where incentive structures, accountability mechanisms, and capability definitions differ materially.</li>
+</ul>
 <h3>Open Questions</h3>
 <ul>
-<li>Has the per-developer repository creation rate changed since AI coding assistant adoption, or does headline repository growth track developer count growth proportionally?</li>
-<li>What does a longitudinal mutation-score analysis across a representative repository population show for 2019-2025?</li>
-<li>Do repositories created in 2022-2025 (post-AI coding assistant era) show different abandonment or inactivity rates at 12 months compared to pre-AI cohorts?</li>
-<li>Is the DORA AI adoption stability degradation (-7.2% per 25% adoption) a one-time adjustment cost or a persistent steady-state effect?</li>
+<li>Is there empirical evidence from software delivery (not infrastructure projects) that directly measures overestimation reduction from any single mechanism, using telemetry as the outcome variable? This would address the primary evidence gap directly.</li>
+<li>What is the minimum instrumentation coverage required for a telemetry override to be resistant to measurement-scope manipulation by the assessed team?</li>
+<li>Do organisations typically face optimism bias or strategic misrepresentation as the dominant overestimation cause, and does this differ by industry or team size? The answer would determine whether debiasing or accountability structures should be prioritised first.</li>
 </ul>
-<h3>Output</h3>
-<p>Type: knowledge</p>
-<p>Description: Seven software-delivery metrics are tabulated with baseline values (2019-2020), current values (2023-2025), trend direction, and confidence levels. Key data: repository creation up 175% (44M to 121M/year); commit volume near 1 billion/year (+25% YoY); short-cycle churn up 84% (3.1% to 5.7%); refactor share down 61% (24.1% to 9.5%); AI adoption correlates with 7.2% stability drop (DORA 2024); general software cancellation rate stable at 19%; AI/ML POC non-deployment rate 87-90%.</p>
-<p>Three most important sources:</p>
-<ul>
-<li><a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub Octoverse 2025</a> - primary data on repository creation and commit volume</li>
-<li><a href="https://dora.dev/research/2024/dora-report/">DORA Accelerate State of DevOps Report 2024</a> - primary data on delivery performance and AI impact</li>
-<li><a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear AI Copilot Code Quality Report 2025</a> - primary data on code composition quality trends</li>
-</ul>
+<hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li><a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/">GitHub Octoverse 2025 (2024/2025 data)</a> - large-scale repository and contribution trend baselines.</li>
-<li><a href="https://dora.dev/research/2024/dora-report/">DORA Accelerate State of DevOps Report 2024</a> - DevOps Research and Assessment (DORA) software-delivery outcomes and performance metrics.</li>
-<li><a href="https://services.google.com/fh/files/misc/2023_final_report_sodr.pdf">DORA Accelerate State of DevOps Report 2023</a> - longitudinal engineering performance evidence.</li>
-<li><a href="https://www.gitclear.com/ai_assistant_code_quality_2025_research">GitClear AI Copilot Code Quality Report 2025</a> - 211 million changed LOC dataset on AI impact on churn and rework.</li>
-<li><a href="https://arxiv.org/abs/1906.08058">Avelino et al. (2019) &quot;On the abandonment and survival of open source projects&quot;</a> - empirical study of 1,932 popular GitHub projects.</li>
-<li><a href="https://arxiv.org/abs/2603.27249">Baltes et al. (2026) &quot;An Endless Stream of AI Slop&quot;</a> - qualitative analysis of community perceptions of AI slop in software development.</li>
-<li><a href="https://linearb.io/resources/engineering-benchmarks">LinearB Engineering Metrics Benchmarks</a> - rework, refactor, and pull request benchmarks from 4,800+ teams.</li>
-<li><a href="https://thestory.is/en/journal/chaos-report/">Standish Group CHAOS Report 2020 summary</a> - software project completion and cancellation rates.</li>
-<li><a href="https://octoverse.github.com/2019/">GitHub Octoverse 2019</a> - historical baseline for repository and developer counts.</li>
-<li><a href="https://octoverse.github.com/2020/">GitHub Octoverse 2020</a> - pandemic-era baseline for repository and developer counts.</li>
+<li>[x] <a href="https://www.cambridge.org/core/books/megaprojects-and-risk/8F00E73ECA08DCF7888B2B5B0FCDE8D5">Flyvbjerg et al. (2003) Megaprojects and Risk: An Anatomy of Ambition</a>: empirical evidence on optimism bias and capability overestimation in large projects</li>
+<li>[x] <a href="https://us.macmillan.com/books/9780374533557/thinkingfastandslow">Kahneman (2011) Thinking, Fast and Slow</a>: reference class forecasting and structured challenge as debiasing mechanisms</li>
+<li>[x] <a href="https://sre.google/workbook/table-of-contents/">Beyer et al. (2018) The Site Reliability Workbook: Practical Ways to Implement SRE</a>: SRE error-budget enforcement as telemetry-override mechanism</li>
+<li>[ ] <a href="https://www.gao.gov/products/gao-16-89g">Government Accountability Office (GAO) Schedule Assessment Guide</a>: third-party audit methodology for government programme capability claims (access restricted; GAO Cost Estimating and Assessment Guide used as substitute)</li>
+<li>[x] <a href="https://www.jstor.org/stable/2632676">Kahneman and Lovallo (1993) Timid Choices and Bold Forecasts</a>: inside view vs. outside view; reference class forecasting as debiasing mechanism</li>
+<li>[x] <a href="https://bentflyvbjerg.com/publications/">Flyvbjerg (2006) From Nobel Prize to Project Management: Getting Risks Right</a>: empirical evidence on RCF accuracy improvement in UK Department for Transport application</li>
+<li>[x] <a href="https://sre.google/workbook/error-budget-policy/">Google SRE Workbook: Error Budget Policy</a>: documented telemetry override mechanism with escalation path</li>
+<li>[x] <a href="https://sre.google/workbook/implementing-slos/">Google SRE Workbook: Implementing SLOs</a>: SLO and SLI definitions as basis for telemetry override</li>
+<li>[x] <a href="https://www.gao.gov/assets/gao-20-195g.pdf">GAO Cost Estimating and Assessment Guide (GAO-20-195G)</a>: independent cost estimate requirements and methodology for US federal programs</li>
+<li>[x] <a href="https://dora.dev/research/2023/dora-report/2023-dora-accelerate-state-of-devops-report.pdf">DORA 2023 State of DevOps Report</a>: self-report accuracy limitations and recommendation for automated telemetry</li>
+<li>[x] <a href="https://journals.sagepub.com/doi/10.1287/mnsc.35.8.918">Mitchell, Russo and Pennington (1989) Back to the Future: Temporal Perspective in the Explanation of Events</a>: controlled experiment showing pre-mortem reduces overconfidence</li>
+<li>[x] <a href="https://www.jstor.org/stable/1914185">Kahneman and Tversky (1979) Prospect Theory: An Analysis of Decision under Risk</a>: original identification of optimism bias and planning fallacy as cognitive phenomenon</li>
 </ul>
+<hr />
 
 
   </div>
   
-  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-27-ai-first-software-ecology-developer-ecosystems.html">AI-first software ecology in large engineering organisations (2025-2030)</a></div>
-<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai.html">What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?</a></div>
-<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></div>
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-08-capability-debt-definition-measurement-ai-risk-amplification.html">How can organisational capability debt be rigorously defined and measured as a leading indicator of Artificial Intelligence (AI)-related enterprise risk, and how does pre-existing capability debt amplify risks from autonomous AI systems when human rate limits are removed?</a></div>
 </div>
-<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html">Information Technology (IT) throughput capacity as a constraint on unmet operational capability demand accumulation: empirical evidence and Artificial Intelligence (AI)-assisted delivery absorption modelling</a></div>
-<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-28-software-demand-shift-ai-coding-era.html">Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?</a></div>
-<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-01-human-oversight-ai-software-development.html">What is the evidence for human oversight as an effective quality gate in Artificial Intelligence (AI)-assisted software development?</a></div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <span>2026-05-31-sre-slo-threshold-justification</span></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <span>2026-05-31-itil-capacity-baseline-assertion-vs-telemetry</span></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</a></div>
 </div>
 
-  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-05-31</td><td><a href="https://github.com/davidamitchell/Research/commit/cf650d7" target="_blank" rel="noopener">cf650d7</a></td><td>Initial completion</td></tr>
-</tbody></table></div>
-
+  
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-31-capability-claim-telemetry-conflict-arbitration.html">Capability claim vs. production telemetry</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-29-split-authority-q6-instability-leading-indicators.html">Q6: Leading indicators of instability in split-authority flow systems</a></div>
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-29-commit-trends-repo-velocity-rework-abandonment.html">How have software-development commit trends shifted across repository creation,…</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -844,7 +796,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-05-29-commit-trends-repo-velocity-rework-abandonment";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-31-capability-claim-telemetry-conflict-arbitration";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;
