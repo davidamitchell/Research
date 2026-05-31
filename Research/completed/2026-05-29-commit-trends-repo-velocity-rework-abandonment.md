@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: cf650d7
+    changed: 2026-05-31
+    progress: progress/2026-05-31-commit-trends-repo-velocity-rework-abandonment.md
+    summary: "Initial completion"
 ---
 
 # How have software-development commit trends shifted across repository creation, LOC velocity, rework, abandonment, slop, test utility, and shipment rates?
