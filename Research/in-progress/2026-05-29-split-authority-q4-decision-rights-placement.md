@@ -30,7 +30,7 @@ themes:
   - software-engineering
 gaps: []
 versions: []
-review_count: 1
+review_count: 2
 ---
 
 # Q4: Decision rights that should move closer to execution
