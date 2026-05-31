@@ -2,12 +2,12 @@
 review_count: 2
 title: "How have software-development commit trends shifted across repository creation, LOC velocity, rework, abandonment, slop, test utility, and shipment rates?"
 added: 2026-05-29T08:49:18+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [software-engineering, benchmarks-eval, tools-infrastructure, workforce-skills, cost-performance]
 started: 2026-05-31T20:35:29+00:00
-completed: ~
+completed: 2026-05-31T21:18:15+00:00
 output: [knowledge]
 cites: [2026-05-27-ai-first-software-ecology-developer-ecosystems, 2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai, 2026-03-12-volume-vs-correctness-ai-era]
 related: [2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate, 2026-04-28-software-demand-shift-ai-coding-era, 2026-05-01-human-oversight-ai-software-development]
