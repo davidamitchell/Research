@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Q3: Routing design that isolates exceptions from routine flow"
 added: 2026-05-29
 status: reviewing
