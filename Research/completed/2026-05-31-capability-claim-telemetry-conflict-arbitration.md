@@ -2,12 +2,12 @@
 review_count: 2
 title: "Capability claim vs. production telemetry: arbitration mechanisms and overestimation"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [benchmarks-eval, governance-policy, software-engineering, organisational-design]
 started: 2026-05-31T21:57:08+00:00
-completed: ~
+completed: 2026-05-31T22:36:35+00:00
 output: [knowledge]
 cites: [2026-05-08-capability-debt-definition-measurement-ai-risk-amplification]
 related: [2026-05-31-sre-slo-threshold-justification, 2026-05-31-itil-capacity-baseline-assertion-vs-telemetry, 2026-03-13-financial-forecasting-it-run-costs]
