@@ -1,6 +1,102 @@
 {
-  "extracted_at": "2026-05-31T11:39:44Z",
+  "extracted_at": "2026-05-31T12:07:29Z",
   "items": {
+    "2026-05-29-split-authority-q5-control-model-tradeoff": {
+      "named_concepts": [
+        "post-hoc review",
+        "error budget",
+        "bounded delegation",
+        "blast radius",
+        "sre error",
+        "exception volume",
+        "boundary tests",
+        "budget policy",
+        "volume ratio",
+        "detection velocity",
+        "automated monitoring",
+        "correct control",
+        "q2 boundary",
+        "two observable",
+        "one level",
+        "decision velocity",
+        "failure mode",
+        "uniform pre-approval",
+        "control regime",
+        "observable conditions"
+      ],
+      "source_urls": [
+        "https://sre.google/workbook/error-budget-policy/",
+        "https://sre.google/sre-book/embracing-risk/",
+        "https://www.coso.org/guidance-on-ic",
+        "https://www.jstor.org/stable/725118",
+        "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+        "https://eric.ed.gov/?id=EJ525938",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Post-hoc review (a detective control operating after the event) is the correct and sufficient control for Class 1 work because the three Q2 boundary tests already provide the ex-ante governance: a passing template test confirms pattern adherence, a passing recovery test confirms reversibility, and a passing blast radius test confirms contained impact, leaving post-hoc review to confirm adherence and update the template catalogue",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html",
+            "https://www.coso.org/guidance-on-ic",
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil"
+          ]
+        },
+        {
+          "text": "Bounded delegation with guardrails (a hybrid governance structure in TCE terms) is the correct control for Class 2 work, in which the three Q4 parameters (cost ceiling, blast radius limit, approved technology catalog) and four escalation triggers (catalog deviation, ceiling breach, blast radius overflow, external commitment) together constitute the control, replacing per-decision pre-approval while preserving governance outcomes for the boundary cases that matter",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html",
+            "https://www.jstor.org/stable/725118"
+          ]
+        },
+        {
+          "text": "Pre-approval is the correct control for Class 3 work (novel, irreversible, or system-wide blast radius), where high uncertainty and high consequence of contracting failure justify the throughput cost of ex-ante review, consistent with TCE hierarchical governance and ITIL 4's Emergency Change Advisory Board (ECAB) model for emergency and novel-consequence changes",
+          "sources": [
+            "https://www.jstor.org/stable/725118",
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil"
+          ]
+        },
+        {
+          "text": "Decision velocity is an override criterion: time-critical decisions (incident response, emergency mitigation) cannot use pre-approval regardless of class assignment because approval latency is structurally incompatible with the five-minute response window for services targeting four nines (99.99%) availability, and must instead use pre-delegated Incident Command System (ICS) authority with post-hoc review",
+          "sources": [
+            "https://sre.google/workbook/incident-response/",
+            "https://sre.google/sre-book/being-on-call/"
+          ]
+        },
+        {
+          "text": "Detection velocity sets the boundary condition for post-hoc review acceptability: post-hoc review is risk-acceptable only when automated monitoring can detect failure before material harm accumulates, as demonstrated by the SRE error budget burn rate as a near-real-time detection mechanism for Class 1 deployment failures",
+          "sources": [
+            "https://sre.google/sre-book/embracing-risk/",
+            "https://sre.google/workbook/error-budget-policy/"
+          ]
+        },
+        {
+          "text": "The SRE error budget policy operationalises a trigger-based shift from bounded delegation (normal operations, below Service Level Objective (SLO) budget threshold) to pre-approval (deployment freeze when error budget is exhausted), providing a concrete real-world example of automatic control-pattern escalation governed by a measurable threshold rather than a subjective judgment",
+          "sources": [
+            "https://sre.google/workbook/error-budget-policy/"
+          ]
+        },
+        {
+          "text": "Applying pre-approval to Class 1 work generates approval-queue latency without proportionate risk reduction, because the work is reversible and contained by definition; this pattern constitutes a coercive formalisation in Adler and Borys (1996) terms and predictably generates mis-classification and workaround behaviour as documented in the governance failure mechanisms item in this corpus",
+          "sources": [
+            "https://eric.ed.gov/?id=EJ525938",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+          ]
+        },
+        {
+          "text": "Two observable conditions trigger temporary tightening of the control regime by one level: exception volume ratio above a calibrated threshold (from the Q3 circuit-breaker model), and error budget exhaustion (from the SRE error budget policy); both conditions indicate that the current class boundary tests are failing to contain risk at their defined levels",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html",
+            "https://sre.google/workbook/error-budget-policy/"
+          ]
+        }
+      ]
+    },
     "2026-05-29-split-authority-q4-decision-rights-placement": {
       "named_concepts": [
         "bounded delegation",
