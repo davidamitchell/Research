@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-31T20:49:18Z",
+  "extracted_at": "2026-05-31T21:21:29Z",
   "items": {
     "2026-05-29-split-authority-q6-instability-leading-indicators": {
       "named_concepts": [
@@ -601,6 +601,95 @@
             "https://www.melconway.com/Home/Conways_Law.html",
             "https://teamtopologies.com/key-concepts",
             "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        }
+      ]
+    },
+    "2026-05-29-commit-trends-repo-velocity-rework-abandonment": {
+      "named_concepts": [
+        "repository creation",
+        "commit volume",
+        "gitclear dataset",
+        "ai coding",
+        "coding assistant",
+        "ai adoption",
+        "ai ml",
+        "assistant adoption",
+        "per year",
+        "delivery stability",
+        "non-deployment rate",
+        "line coverage",
+        "ai slop",
+        "million per",
+        "code churn",
+        "report found",
+        "individual productivity",
+        "general software",
+        "standish chaos",
+        "useless-test prevalence"
+      ],
+      "source_urls": [
+        "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://services.google.com/fh/files/misc/2023_final_report_sodr.pdf",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://arxiv.org/abs/1906.08058",
+        "https://arxiv.org/abs/2603.27249",
+        "https://linearb.io/resources/engineering-benchmarks",
+        "https://thestory.is/en/journal/chaos-report/",
+        "https://octoverse.github.com/2019/",
+        "https://octoverse.github.com/2020/"
+      ],
+      "key_claims": [
+        {
+          "text": "Repository creation on GitHub more than doubled between 2019 and 2024, growing from approximately 44 million new repositories per year to over 121 million per year",
+          "sources": [
+            "https://octoverse.github.com/2019/",
+            "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/"
+          ]
+        },
+        {
+          "text": "Annual commit volume on GitHub reached nearly 1 billion in 2024, a 25% year-over-year increase, with a record of nearly 100 million commits in a single month",
+          "sources": [
+            "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/"
+          ]
+        },
+        {
+          "text": "Short-cycle code churn (lines revised within two weeks of creation) rose 84% relative within the GitClear dataset, from 3.1% of changed lines in 2020 to 5.7% in 2024, coinciding with the period of widespread AI coding assistant adoption",
+          "sources": [
+            "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+            "https://www.devclass.com/ai-ml/2025/02/20/ai-is-eroding-code-quality-states-new-in-depth-report/1626250"
+          ]
+        },
+        {
+          "text": "The share of code classified as deliberately refactored (\"moved code\") fell 61% relative in the GitClear dataset, from 24.1% in 2020 to 9.5% in 2024, eroding the structural quality improvement that refactoring provides to long-lived codebases",
+          "sources": [
+            "https://www.gitclear.com/ai_assistant_code_quality_2025_research"
+          ]
+        },
+        {
+          "text": "The DORA 2024 report found that every 25% increase in AI adoption on a software team is associated with a 7.2% decrease in delivery stability and a 1.5% decrease in delivery throughput, despite a 2.1% individual productivity increase",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "Copy-pasted code blocks rose from 8.3% to 12.3% of all code changes in the GitClear dataset between 2020 and 2024, and duplicated code blocks of five or more identical lines became eight times more common during 2024",
+          "sources": [
+            "https://www.gitclear.com/ai_assistant_code_quality_2025_research"
+          ]
+        },
+        {
+          "text": "Among popular open source GitHub projects, 16% were abandoned (with 41% of those rescued by new maintainers), while industry estimates for newly created projects place the 12-month inactivity rate at 60-95% depending on the definition used",
+          "sources": [
+            "https://arxiv.org/abs/1906.08058",
+            "https://gitnux.org/git-repository-statistics/"
+          ]
+        },
+        {
+          "text": "The Standish Group CHAOS 2020 report found software project cancellation rates stable at approximately 19%, with 50% of projects challenged and 31% successful, a distribution consistent with secondary summaries spanning the 2020-2023 window; the primary report is paywalled",
+          "sources": [
+            "https://thestory.is/en/journal/chaos-report/"
           ]
         }
       ]

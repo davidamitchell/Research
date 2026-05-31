@@ -65,14 +65,14 @@
     "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -112,16 +112,61 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "ai-coding-ai-adoption-copilot-coding",
+    "title": "ai coding / ai adoption / copilot coding",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
+      "ai coding",
+      "ai adoption",
+      "copilot coding"
+    ],
+    "item_count": 6,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy-swe-focus",
+        "title": "Artificial Intelligence (AI) coding assistant deployment outcomes: individual productivity evidence, Google's 25% code disclosure, DORA stability degradation, and the Type 2 to Type 3 governance boundary",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+        "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
+        "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
+        "added": "2026-03-23"
+      },
+      {
+        "slug": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+        "title": "What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?",
+        "added": "2026-05-08"
+      },
+      {
+        "slug": "2026-05-27-ai-first-software-ecology-developer-ecosystems",
+        "title": "AI-first software ecology in large engineering organisations (2025-2030)",
+        "added": "2026-05-27"
+      },
+      {
+        "slug": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
+        "title": "How have software-development commit trends shifted across repository creation, LOC velocity, rework, abandonment, slop, test utility, and shipment rates?",
+        "added": "2026-05-29"
+      }
+    ],
+    "url": "/Research/threads/ai-coding-ai-adoption-copilot-coding.html"
+  },
+  {
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -152,17 +197,17 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -192,17 +237,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "github copilot"
+      "coding agent",
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -232,56 +277,16 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
-    "slug": "ai-coding-coding-agent-github-copilot",
-    "title": "ai coding / coding agent / github copilot",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai coding",
-      "coding agent",
-      "github copilot"
-    ],
-    "item_count": 5,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy-swe-focus",
-        "title": "Artificial Intelligence (AI) coding assistant deployment outcomes: individual productivity evidence, Google's 25% code disclosure, DORA stability degradation, and the Type 2 to Type 3 governance boundary",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
-        "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
-        "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
-        "added": "2026-03-23"
-      },
-      {
-        "slug": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
-        "title": "What metrics beyond code acceptance rates best capture net organisational value when Artificial Intelligence (AI) coding tools are adopted with productivity mandates, and how do speed-focused incentives create hidden quality costs in high-volume agentic AI workflows?",
-        "added": "2026-05-08"
-      },
-      {
-        "slug": "2026-05-27-ai-first-software-ecology-developer-ecosystems",
-        "title": "AI-first software ecology in large engineering organisations (2025-2030)",
-        "added": "2026-05-27"
-      }
-    ],
-    "url": "/Research/threads/ai-coding-coding-agent-github-copilot.html"
-  },
-  {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
-    "kind": "concept",
-    "tag_cluster": [],
-    "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -307,17 +312,17 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
-    "slug": "fly-io-github-contents-contents-api",
-    "title": "fly io / github contents / contents api",
+    "slug": "github-contents-contents-api-fly-io",
+    "title": "github contents / contents api / fly io",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "fly io",
       "github contents",
-      "contents api"
+      "contents api",
+      "fly io"
     ],
     "item_count": 4,
     "items": [
@@ -342,7 +347,7 @@
         "added": "2026-03-10"
       }
     ],
-    "url": "/Research/threads/fly-io-github-contents-contents-api.html"
+    "url": "/Research/threads/github-contents-contents-api-fly-io.html"
   },
   {
     "slug": "ai-systems-agentic-ai-prompt-injection",
@@ -380,13 +385,13 @@
     "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
   },
   {
-    "slug": "exception-volume-blast-radius-sre-error",
-    "title": "exception volume / blast radius / sre error",
+    "slug": "exception-volume-error-budget-sre-error",
+    "title": "exception volume / error budget / sre error",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "exception volume",
-      "blast radius",
+      "error budget",
       "sre error"
     ],
     "item_count": 3,
@@ -407,17 +412,17 @@
         "added": "2026-05-29"
       }
     ],
-    "url": "/Research/threads/exception-volume-blast-radius-sre-error.html"
+    "url": "/Research/threads/exception-volume-error-budget-sre-error.html"
   },
   {
-    "slug": "language-model-local-replayability-deterministic-systems",
-    "title": "language model / local replayability / deterministic systems",
+    "slug": "deterministic-systems-language-model-local-replayability",
+    "title": "deterministic systems / language model / local replayability",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
+      "deterministic systems",
       "language model",
-      "local replayability",
-      "deterministic systems"
+      "local replayability"
     ],
     "item_count": 3,
     "items": [
@@ -437,17 +442,17 @@
         "added": "2026-05-18"
       }
     ],
-    "url": "/Research/threads/language-model-local-replayability-deterministic-systems.html"
+    "url": "/Research/threads/deterministic-systems-language-model-local-replayability.html"
   },
   {
-    "slug": "control-tower-ai-control-runtime-observability",
-    "title": "control tower / ai control / runtime observability",
+    "slug": "control-tower-ai-control-ai-agent",
+    "title": "control tower / ai control / ai agent",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "control tower",
       "ai control",
-      "runtime observability"
+      "ai agent"
     ],
     "item_count": 3,
     "items": [
@@ -467,7 +472,7 @@
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/control-tower-ai-control-runtime-observability.html"
+    "url": "/Research/threads/control-tower-ai-control-ai-agent.html"
   },
   {
     "slug": "basel-committee-banking-supervision-critical-operations",
@@ -500,14 +505,14 @@
     "url": "/Research/threads/basel-committee-banking-supervision-critical-operations.html"
   },
   {
-    "slug": "verification-intensity-meaningful-human-queue-depth",
-    "title": "verification intensity / meaningful human / queue depth",
+    "slug": "verification-intensity-meaningful-human-artificial-intelligence",
+    "title": "verification intensity / meaningful human / artificial intelligence",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "verification intensity",
       "meaningful human",
-      "queue depth"
+      "artificial intelligence"
     ],
     "item_count": 3,
     "items": [
@@ -527,17 +532,17 @@
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/verification-intensity-meaningful-human-queue-depth.html"
+    "url": "/Research/threads/verification-intensity-meaningful-human-artificial-intelligence.html"
   },
   {
-    "slug": "power-platform-copilot-studio-native-governance",
-    "title": "power platform / copilot studio / native governance",
+    "slug": "copilot-studio-power-platform-direct-publish",
+    "title": "copilot studio / power platform / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "power platform",
       "copilot studio",
-      "native governance"
+      "power platform",
+      "direct publish"
     ],
     "item_count": 3,
     "items": [
@@ -557,17 +562,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
+    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
   },
   {
-    "slug": "productivity-gains-team-size-tke-memo",
-    "title": "productivity gains / team size / tke memo",
+    "slug": "saas-median-tke-memo-team-size",
+    "title": "saas median / tke memo / team size",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "productivity gains",
-      "team size",
-      "tke memo"
+      "saas median",
+      "tke memo",
+      "team size"
     ],
     "item_count": 3,
     "items": [
@@ -587,16 +592,16 @@
         "added": "2026-03-14"
       }
     ],
-    "url": "/Research/threads/productivity-gains-team-size-tke-memo.html"
+    "url": "/Research/threads/saas-median-tke-memo-team-size.html"
   },
   {
-    "slug": "fly-io-write-path-free-tier",
-    "title": "fly io / write path / free tier",
+    "slug": "fly-io-github-contents-free-tier",
+    "title": "fly io / github contents / free tier",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "fly io",
-      "write path",
+      "github contents",
       "free tier"
     ],
     "item_count": 3,
@@ -617,17 +622,17 @@
         "added": "2026-03-15"
       }
     ],
-    "url": "/Research/threads/fly-io-write-path-free-tier.html"
+    "url": "/Research/threads/fly-io-github-contents-free-tier.html"
   },
   {
-    "slug": "fine-grained-pat-ios-shortcuts-issue-creation",
-    "title": "fine-grained pat / ios shortcuts / issue creation",
+    "slug": "fine-grained-pat-ios-shortcuts-github-contents",
+    "title": "fine-grained pat / ios shortcuts / github contents",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "fine-grained pat",
       "ios shortcuts",
-      "issue creation"
+      "github contents"
     ],
     "item_count": 3,
     "items": [
@@ -647,17 +652,17 @@
         "added": "2026-03-10"
       }
     ],
-    "url": "/Research/threads/fine-grained-pat-ios-shortcuts-issue-creation.html"
+    "url": "/Research/threads/fine-grained-pat-ios-shortcuts-github-contents.html"
   },
   {
-    "slug": "parameter-inertia-gao-et-h-neuron-formation",
-    "title": "parameter inertia / gao et / h-neuron formation",
+    "slug": "gao-et-parameter-inertia-al-arxiv",
+    "title": "gao et / parameter inertia / al arxiv",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "parameter inertia",
       "gao et",
-      "h-neuron formation"
+      "parameter inertia",
+      "al arxiv"
     ],
     "item_count": 3,
     "items": [
@@ -677,17 +682,17 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/parameter-inertia-gao-et-h-neuron-formation.html"
+    "url": "/Research/threads/gao-et-parameter-inertia-al-arxiv.html"
   },
   {
-    "slug": "gao-et-h-neuron-suppression-h-neuron-activation",
-    "title": "gao et / h-neuron suppression / h-neuron activation",
+    "slug": "gao-et-ntp-objective-h-neuron-suppression",
+    "title": "gao et / ntp objective / h-neuron suppression",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "gao et",
-      "h-neuron suppression",
-      "h-neuron activation"
+      "ntp objective",
+      "h-neuron suppression"
     ],
     "item_count": 3,
     "items": [
@@ -707,16 +712,16 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/gao-et-h-neuron-suppression-h-neuron-activation.html"
+    "url": "/Research/threads/gao-et-ntp-objective-h-neuron-suppression.html"
   },
   {
-    "slug": "controlled-hallucination-predictive-processing-visual-cortex",
-    "title": "controlled hallucination / predictive processing / visual cortex",
+    "slug": "controlled-hallucination-free-energy-visual-cortex",
+    "title": "controlled hallucination / free energy / visual cortex",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "controlled hallucination",
-      "predictive processing",
+      "free energy",
       "visual cortex"
     ],
     "item_count": 3,
@@ -737,17 +742,17 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/controlled-hallucination-predictive-processing-visual-cortex.html"
+    "url": "/Research/threads/controlled-hallucination-free-energy-visual-cortex.html"
   },
   {
-    "slug": "free-energy-energy-principle-predictive-processing",
-    "title": "free energy / energy principle / predictive processing",
+    "slug": "free-energy-schr-dinger-energy-principle",
+    "title": "free energy / schr dinger / energy principle",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "free energy",
-      "energy principle",
-      "predictive processing"
+      "schr dinger",
+      "energy principle"
     ],
     "item_count": 3,
     "items": [
@@ -767,6 +772,6 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/free-energy-energy-principle-predictive-processing.html"
+    "url": "/Research/threads/free-energy-schr-dinger-energy-principle.html"
   }
 ]
