@@ -30,6 +30,7 @@ themes:
   - software-engineering
 gaps: []
 versions: []
+review_count: 1
 ---
 
 # Q4: Decision rights that should move closer to execution
@@ -52,18 +53,19 @@ Which decisions about sequencing, scope, reliability, technical debt, local spen
 
 ## Context
 
-Q4 isolates the split-authority placement problem: which decision rights must move nearer execution to reduce queueing delay while preserving governance outcomes. It enables Q5 and P1. A split-authority delivery environment is one in which authority is divided among at least two stakeholder groups with independent veto or approval power, typically a business owner, a technology delivery team, and an independent risk or compliance function. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html]
+Q4 isolates the split-authority placement problem: which decision rights must move nearer execution to reduce queueing delay while preserving governance outcomes. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html] (Prerequisite for Q5 and P1.) A split-authority delivery environment is one in which authority is divided among at least two stakeholder groups with independent veto or approval power, typically a business owner, a technology delivery team, and an independent risk or compliance function. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html; https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html]
 
-The P1 synthesis established that fragmented decision rights and approval gates generate work-in-progress (WIP) accumulation, that WIP accumulation extends lead time by Little's Law, and that extending lead time reduces predictability and throughput. Q4 investigates which specific decision categories must move to delivery teams to break this causal chain, and what guardrails make that delegation safe. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html]
+The P1 synthesis established that fragmented decision rights and approval gates generate work-in-progress (WIP) accumulation, that WIP accumulation extends lead time by Little's Law (the queueing theorem stating that the average number of items in a system equals the average throughput rate multiplied by the average time an item spends in the system; [Little (1961) Operations Research](https://doi.org/10.1287/opre.9.3.383)), and that extending lead time reduces predictability and throughput. Q4 investigates which specific decision categories must move to delivery teams to break this causal chain, and what guardrails make that delegation safe. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html]
 
 ## Approach
 
 1. Map decision categories by frequency, reversibility, and risk.
 2. Evaluate centralised vs delegated placement outcomes.
-3. Propose a bounded delegation map with escalation triggers.
+3. Propose a bounded-delegation map (bounded delegation: authority exercised within predefined scope, cost, and technology guardrails, with mandatory escalation paths triggered when a decision crosses a threshold) with escalation triggers.
 
 ## Sources
 
+- [x] [Little (1961) A Proof of the Queuing Formula L = λW, Operations Research](https://doi.org/10.1287/opre.9.3.383) -- queueing theorem: average items in system equals throughput rate times average time in system; foundational basis for WIP-to-lead-time relationship
 - [x] [DORA (2024) Loosely Coupled Teams Capability](https://dora.dev/capabilities/loosely-coupled-teams/) -- empirical research on team autonomy and delivery performance
 - [x] [DORA (2024) DORA Metrics and Four Keys](https://dora.dev/guides/dora-metrics-four-keys/) -- change lead time, deployment frequency, and change failure rate
 - [x] [Skelton and Pais (2019) Team Topologies Key Concepts](https://teamtopologies.com/key-concepts) -- stream-aligned teams, cognitive load limits, and inter-team interaction modes
@@ -93,7 +95,7 @@ The P1 synthesis established that fragmented decision rights and approval gates 
 
 Question: Which decisions about sequencing, scope, reliability, technical debt, local spend, and incident response must sit with delivery teams to reduce delay without losing control?
 
-A split-authority delivery environment is one in which authority is divided among at least two stakeholder groups with independent veto or approval power. The P1 synthesis established that governance-generated queueing (approval latency, multi-party coordination, fragmented decision rights) is the dominant flow constraint in such systems, and proposed bounded delegation as the primary remedy. Q2 established a three-class demand segmentation. Q3 established physical lane separation and escalation thresholds. Q4 asks which specific decision categories belong in each delegation tier, and what guardrails make that delegation safe.
+A split-authority delivery environment is one in which authority is divided among at least two stakeholder groups with independent veto or approval power. The P1 synthesis established that governance-generated queueing (approval latency, multi-party coordination, fragmented decision rights) is the dominant flow constraint in such systems, and proposed bounded delegation (authority exercised within predefined scope, cost, and technology guardrails with mandatory escalation paths — a pattern independently described in [Bain RAPID](https://www.bain.com/insights/rapid-decision-making/) as execution authority within agreed parameters and in [AWS governance guardrails](https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/) as preapproved decision boundaries) as the primary remedy. Q2 established a three-class demand segmentation. Q3 established physical lane separation and escalation thresholds. Q4 asks which specific decision categories belong in each delegation tier, and what guardrails make that delegation safe.
 
 Scope: In scope are the six decision types named in the Research Question (sequencing, scope, reliability, technical debt, local spend, incident response), the criteria that determine their appropriate delegation tier, and the guardrail and escalation designs that preserve governance outcomes. Out of scope is the full operating-model synthesis (P1) and the control model trade-off selection between pre-approval, bounded delegation, and post-hoc review (Q5).
 
@@ -107,7 +109,7 @@ Constraints:
 
 The research question decomposes into three atomic question groups:
 
-**A. Decision taxonomy: how do the six decision types differ in frequency, reversibility, and blast radius?**
+**A. Decision taxonomy: how do the six decision types differ in frequency, reversibility, and blast radius (downstream impact scope outside the team boundary)?**
 - A1. What is the frequency and reversibility of daily task sequencing?
 - A2. What is the frequency and reversibility of sprint-level scope adjustment?
 - A3. What is the frequency and reversibility of reliability decisions (Service Level Objective (SLO) trade-offs, rollback authority)?
@@ -209,7 +211,7 @@ This model shows that the choice between central control and team autonomy is no
 
 **C1. Parameters that define a delegation boundary**
 
-A bounded delegation boundary (delegation within defined guardrails with pre-agreed escalation paths, as defined in the P1 synthesis) requires at least three parameters: a cost ceiling (the maximum spend the team may authorise without external approval), a blast radius limit (the maximum scope of impact the team may accept without escalation), and an approved catalog (the set of technologies, vendors, or architectural patterns the team may use without a new review). [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://www.bain.com/insights/rapid-decision-making/]
+A bounded delegation boundary requires at least three parameters: a cost ceiling (the maximum spend the team may authorise without external approval), a blast radius limit (the maximum scope of impact the team may accept without escalation), and an approved catalog (the set of technologies, vendors, or architectural patterns the team may use without a new review). [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/; https://www.bain.com/insights/rapid-decision-making/]
 
 These three parameters replace per-decision approval with per-parameter governance: the governance work is front-loaded into setting the parameters rather than distributed across every individual decision. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html; https://aws.amazon.com/blogs/architecture/empower-your-teams-with-modern-architecture-governance/]
 
@@ -312,6 +314,11 @@ acronym_audit: passed
 - BCBS: Basel Committee on Banking Supervision (BCBS) -- expanded at first narrative prose use in §5 Regulatory lens
 - AWS: Amazon Web Services (AWS) -- expanded in Sources section and §1.B5
 - RAPID R/A/P/I/D: each role expanded at first use in §2.B3
+domain_term_audit: passed
+- bounded delegation: defined at first document use in Approach section (line 64) with plain-language parenthetical; external sources cited in §0 (Bain RAPID, AWS governance guardrails)
+- blast radius: defined at first document use in §1.A section heading as "downstream impact scope outside the team boundary"
+- Little's Law: defined at first use in Context section with authoritative source (Little 1961, doi:10.1287/opre.9.3.383)
+- approval latency: plain-language compound noun; no specialised definition required
 parity_check: passed -- §6 Synthesis key findings match Findings Key Findings 1-10 verbatim
 claim_label_audit: all claims in §2-§6 carry [fact], [inference], or [assumption] labels with URL-backed sources
 em_dash_audit: no em-dashes (U+2014) present
