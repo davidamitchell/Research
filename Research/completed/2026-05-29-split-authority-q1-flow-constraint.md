@@ -32,7 +32,12 @@ themes:
   - organisational-design
   - cost-performance
   - software-engineering
-versions: []
+versions:
+  - version: "1.0"
+    sha: 3ce7ba6
+    changed: "2026-05-31"
+    progress: progress/2026-05-31-split-authority-q1-flow-constraint.md
+    summary: "Initial completion"
 ---
 
 # Q1: Dominant flow constraint in split-authority delivery systems
