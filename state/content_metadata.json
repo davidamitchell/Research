@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-05-31T21:31:20Z",
+  "extracted_at": "2026-05-31T21:57:46Z",
   "items": {
     "2026-05-29-split-authority-q6-instability-leading-indicators": {
       "named_concepts": [
@@ -493,6 +493,102 @@
           "sources": [
             "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
             "https://eric.ed.gov/?id=EJ525938"
+          ]
+        }
+      ]
+    },
+    "2026-05-29-split-authority-q1-flow-constraint": {
+      "named_concepts": [
+        "approval latency",
+        "capacity shortage",
+        "governance overhead",
+        "wait time",
+        "decision rights",
+        "fragmented decision",
+        "dependency coupling",
+        "funding gates",
+        "delivery performance",
+        "split-authority systems",
+        "feedback loop",
+        "split-authority organisations",
+        "external change",
+        "negatively correlated",
+        "performance metrics",
+        "case study",
+        "organisational root",
+        "root cause",
+        "partially endogenous",
+        "overhead consumes"
+      ],
+      "source_urls": [
+        "https://dora.dev/capabilities/streamlining-change-approval/",
+        "https://dora.dev/research/2019/dora-report/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://www.tocinstitute.org/five-focusing-steps.html",
+        "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile",
+        "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-funding-authority-delivery-capability-risk-accountability-split.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-14-org-failure-modes-cohort-demand-domain-it.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Approval latency is a policy constraint in the Theory of Constraints (TOC) sense, meaning it is rule-imposed rather than capacity-limited, and therefore blocks throughput even when physical execution capacity is sufficient",
+          "sources": [
+            "https://www.tocinstitute.org/five-focusing-steps.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html"
+          ]
+        },
+        {
+          "text": "DORA multi-year, multi-firm survey research finds that external change approval processes are negatively correlated with all four software delivery performance metrics, confirming that governance-type constraints suppress measured delivery performance across diverse organisations",
+          "sources": [
+            "https://dora.dev/capabilities/streamlining-change-approval/",
+            "https://dora.dev/research/2019/dora-report/"
+          ]
+        },
+        {
+          "text": "Value stream mapping (VSM) analysis applied to a 200-engineer organisation with tightly coupled component teams found 97% waste or wait time, meaning months of calendar time for work requiring only 2 to 3 days of active effort, demonstrating the system-level magnitude of governance-generated queue latency",
+          "sources": [
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        },
+        {
+          "text": "Fragmented decision rights are the organisational root cause of approval latency in split-authority systems: when no party holds sufficient authority to commit unilaterally, every substantive decision creates a multi-party approval circuit that adds queue wait time at each step",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        },
+        {
+          "text": "Dependency coupling amplifies governance-generated queueing by adding one or more cross-team synchronisation queues to every work item that crosses a team boundary, compounding the total wait time produced by the governance approval chain",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.orgtopologies.com/post/case-study-from-component-teams-to-team-topologies-to-fast-agile"
+          ]
+        },
+        {
+          "text": "Funding gates create throughput instability through a batch demand spike mechanism: demand accumulates during gate closure and enters the delivery system simultaneously at gate opening, overwhelming execution capacity even in organisations with adequate steady-state bandwidth",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-23-funding-authority-delivery-capability-risk-accountability-split.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html"
+          ]
+        },
+        {
+          "text": "Capacity shortage is secondary and partially endogenous in split-authority systems: governance overhead consumes productive delivery capacity and the approval queue conceals latent capacity, so the constraint appears to be execution bandwidth when the binding limiter is actually governance-generated blocking",
+          "sources": [
+            "https://www.tocinstitute.org/five-focusing-steps.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html"
+          ]
+        },
+        {
+          "text": "TOC warns that adding capacity before identifying and exploiting the actual constraint is the most common improvement failure, and organisations that add headcount without reducing governance overhead typically find that throughput improves less than expected because the governance constraint absorbs the new capacity",
+          "sources": [
+            "https://www.tocinstitute.org/five-focusing-steps.html",
+            "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html"
           ]
         }
       ]
