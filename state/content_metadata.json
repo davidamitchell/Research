@@ -1,6 +1,106 @@
 {
-  "extracted_at": "2026-05-31T10:14:03Z",
+  "extracted_at": "2026-05-31T10:46:07Z",
   "items": {
+    "2026-05-29-split-authority-q3-routing-exception-isolation": {
+      "named_concepts": [
+        "exception lane",
+        "wip limit",
+        "routing model",
+        "priority ordering",
+        "exception volume",
+        "boundary tests",
+        "minimum viable",
+        "blast radius",
+        "escalation authority",
+        "escalation triggers",
+        "hybrid scheduling",
+        "lead time",
+        "three observable",
+        "observable item-level",
+        "recovery test",
+        "radius breach",
+        "template deviation",
+        "incident command",
+        "command system",
+        "two system-level"
+      ],
+      "source_urls": [
+        "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+        "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+        "https://www.invensislearning.com/blog/itil-change-management/",
+        "https://sre.google/workbook/incident-response/",
+        "https://sre.google/sre-book/being-on-call/",
+        "https://www.tocinstitute.org/five-focusing-steps.html",
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://econpapers.repec.org/RePEc:inm:oropre:v:9:y:1961:i:3:p:383-387",
+        "https://eric.ed.gov/?id=EJ525938",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-governance-controls-effectiveness-conditions.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Physical lane separation with dedicated minimum capacity per lane is necessary for throughput protection, because priority ordering alone does not prevent exception work from reducing effective capacity available to the routine lane and raising its lead time in proportion to exception volume, as Little's Law implies",
+          "sources": [
+            "https://econpapers.repec.org/RePEc:inm/oropre:v:9:y:1961:i:3:p:383-387",
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009"
+          ]
+        },
+        {
+          "text": "A WIP limit on the exception lane is the primary mechanism preventing exception inflation, whereby stakeholders route work as Class 3 to receive priority service, which erodes the throughput protection that lane separation was designed to provide; without this limit, the exception lane becomes an uncontrolled second fast path",
+          "sources": [
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+            "https://www.tocinstitute.org/five-focusing-steps.html"
+          ]
+        },
+        {
+          "text": "In-flight escalation should be triggered by three observable, self-evident item-level conditions: a failed recovery test during execution, a blast radius breach revealing dependencies not identified at intake, and a template deviation confirming the item no longer matches its pre-approved pattern; all three conditions require no specialist judgment to identify",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q2-demand-segmentation.html",
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+            "https://www.invensislearning.com/blog/itil-change-management/"
+          ]
+        },
+        {
+          "text": "Escalation authority for item-level reclassification should be held by a named single decision point, the delivery team lead or a designated on-call authority, following the Incident Command System principle that unambiguous command authority is a prerequisite for rapid exception response and that committee formation for time-sensitive decisions reintroduces the approval latency the routing model is designed to avoid",
+          "sources": [
+            "https://sre.google/workbook/incident-response/",
+            "https://sre.google/sre-book/being-on-call/"
+          ]
+        },
+        {
+          "text": "System-level escalation, meaning temporarily tightening the fast-path gate or rationing all-lane intake, requires the named integrator authority established in the P1 operating model because system-level changes affect multiple teams and require cross-functional visibility beyond the scope of a single team lead",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-p1-operating-model-synthesis.html",
+            "https://sre.google/workbook/incident-response/"
+          ]
+        },
+        {
+          "text": "Two system-level circuit-breaker triggers are supported by the evidence: a sustained exception volume ratio above a calibrated threshold, which signals that fast-path gate criteria should be temporarily tightened; and exception lane WIP limit saturation, which signals that all-lane intake should be rationed to prevent system-wide WIP accumulation consistent with the Theory of Constraints subordination step",
+          "sources": [
+            "https://www.tocinstitute.org/five-focusing-steps.html",
+            "https://dora.dev/guides/dora-metrics-four-keys/"
+          ]
+        },
+        {
+          "text": "The Drum-Buffer-Rope scheduling pattern provides a minimum viable hybrid capacity allocation design: the exception review function is the drum setting the pace, a buffer of pre-approved standard path items protects the drum from starvation, and the rope controls upstream work release to prevent WIP accumulation beyond the drum's pace, yielding a model that avoids both the lead time inflation of pure priority ordering and the resource stranding of fully dedicated pools",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+            "https://www.tocinstitute.org/five-focusing-steps.html"
+          ]
+        },
+        {
+          "text": "The ITIL 4 Emergency Change Advisory Board and the SRE Incident Command System both implement exception lane isolation through a standing authority with pre-agreed rapid convening protocol rather than through ad-hoc committee formation, confirming that exception isolation requires a dedicated escalation authority structure, not only a policy permitting faster processing",
+          "sources": [
+            "https://www.axelos.com/certifications/itil-service-management/what-is-itil",
+            "https://www.invensislearning.com/blog/itil-change-management/",
+            "https://sre.google/workbook/incident-response/"
+          ]
+        }
+      ]
+    },
     "2026-05-29-split-authority-q2-demand-segmentation": {
       "named_concepts": [
         "distinct control",
