@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How have software-development commit trends shifted across repository creation, LOC velocity, rework, abandonment, slop, test utility, and shipment rates?"
 added: 2026-05-29T08:49:18+00:00
 status: reviewing
