@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 67e4ba315d484d5e70b4d94c474e7ad9179b3b00
+    changed: 2026-05-31
+    progress: progress/2026-05-31-capability-claim-telemetry-conflict-arbitration.md
+    summary: "Initial completion"
 ---
 
 # Capability claim vs. production telemetry: arbitration mechanisms and overestimation
