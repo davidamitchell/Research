@@ -29,7 +29,12 @@ themes:
   - cost-performance
   - enterprise-adoption
   - regulatory-compliance
-versions: []
+versions:
+  - version: "1.0"
+    sha: "4f1954794cfd0f9b991296294dbd5736523c1ef3"
+    changed: "2026-05-31"
+    progress: "progress/2026-05-31-split-authority-q5-control-model-tradeoff.md"
+    summary: "Initial completion"
 review_count: 2
 ---
 
