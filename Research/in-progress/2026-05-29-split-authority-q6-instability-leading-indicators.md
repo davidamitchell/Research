@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Q6: Leading indicators of instability in split-authority flow systems"
 added: 2026-05-29
 status: reviewing
