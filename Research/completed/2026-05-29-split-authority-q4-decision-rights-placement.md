@@ -29,7 +29,12 @@ themes:
   - enterprise-adoption
   - software-engineering
 gaps: []
-versions: []
+versions:
+  - version: "1.0"
+    sha: dbdf8e8c
+    changed: 2026-05-31
+    progress: progress/2026-05-31-split-authority-q4-decision-rights-placement.md
+    summary: "Initial completion"
 review_count: 2
 ---
 
