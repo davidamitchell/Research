@@ -1,12 +1,12 @@
 [
   {
-    "slug": "ai-rmf-nist-ai-ai-act",
-    "title": "ai rmf / nist ai / ai act",
+    "slug": "nist-ai-ai-rmf-ai-act",
+    "title": "nist ai / ai rmf / ai act",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "ai act"
     ],
     "item_count": 10,
@@ -62,17 +62,17 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-ai-act",
-    "title": "nist ai / ai rmf / ai act",
+    "slug": "nist-ai-ai-act-ai-rmf",
+    "title": "nist ai / ai act / ai rmf",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
-      "ai rmf",
-      "ai act"
+      "ai act",
+      "ai rmf"
     ],
     "item_count": 7,
     "items": [
@@ -112,16 +112,16 @@
         "added": "2026-05-06"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-ai-act.html"
+    "url": "/Research/threads/nist-ai-ai-act-ai-rmf.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-claude-code",
-    "title": "coding agent / copilot coding / claude code",
+    "slug": "copilot-coding-coding-agent-claude-code",
+    "title": "copilot coding / coding agent / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "claude code"
     ],
     "item_count": 5,
@@ -152,7 +152,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
   },
   {
     "slug": "cost-allocation-tbm-council-financial-services",
@@ -195,13 +195,13 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "github copilot"
     ],
     "item_count": 5,
@@ -232,16 +232,16 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
-    "slug": "github-copilot-ai-adoption-coding-agent",
-    "title": "github copilot / ai adoption / coding agent",
+    "slug": "github-copilot-copilot-coding-coding-agent",
+    "title": "github copilot / copilot coding / coding agent",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "github copilot",
-      "ai adoption",
+      "copilot coding",
       "coding agent"
     ],
     "item_count": 5,
@@ -272,7 +272,7 @@
         "added": "2026-05-27"
       }
     ],
-    "url": "/Research/threads/github-copilot-ai-adoption-coding-agent.html"
+    "url": "/Research/threads/github-copilot-copilot-coding-coding-agent.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
@@ -345,14 +345,14 @@
     "url": "/Research/threads/fly-io-github-contents-contents-api.html"
   },
   {
-    "slug": "ai-systems-agentic-ai-prompt-injection",
-    "title": "ai systems / agentic ai / prompt injection",
+    "slug": "ai-systems-prompt-injection-agentic-ai",
+    "title": "ai systems / prompt injection / agentic ai",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai systems",
-      "agentic ai",
-      "prompt injection"
+      "prompt injection",
+      "agentic ai"
     ],
     "item_count": 4,
     "items": [
@@ -377,17 +377,17 @@
         "added": "2026-05-02"
       }
     ],
-    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
+    "url": "/Research/threads/ai-systems-prompt-injection-agentic-ai.html"
   },
   {
-    "slug": "deterministic-systems-local-replayability-language-model",
-    "title": "deterministic systems / local replayability / language model",
+    "slug": "language-model-local-replayability-deterministic-systems",
+    "title": "language model / local replayability / deterministic systems",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "deterministic systems",
+      "language model",
       "local replayability",
-      "language model"
+      "deterministic systems"
     ],
     "item_count": 3,
     "items": [
@@ -407,16 +407,16 @@
         "added": "2026-05-18"
       }
     ],
-    "url": "/Research/threads/deterministic-systems-local-replayability-language-model.html"
+    "url": "/Research/threads/language-model-local-replayability-deterministic-systems.html"
   },
   {
-    "slug": "control-tower-ai-control-ai-agent",
-    "title": "control tower / ai control / ai agent",
+    "slug": "ai-control-control-tower-ai-agent",
+    "title": "ai control / control tower / ai agent",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "control tower",
       "ai control",
+      "control tower",
       "ai agent"
     ],
     "item_count": 3,
@@ -437,16 +437,16 @@
         "added": "2026-05-17"
       }
     ],
-    "url": "/Research/threads/control-tower-ai-control-ai-agent.html"
+    "url": "/Research/threads/ai-control-control-tower-ai-agent.html"
   },
   {
-    "slug": "basel-committee-banking-supervision-critical-operations",
-    "title": "basel committee / banking supervision / critical operations",
+    "slug": "banking-supervision-basel-committee-critical-operations",
+    "title": "banking supervision / basel committee / critical operations",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "basel committee",
       "banking supervision",
+      "basel committee",
       "critical operations"
     ],
     "item_count": 3,
@@ -467,7 +467,7 @@
         "added": "2026-05-09"
       }
     ],
-    "url": "/Research/threads/basel-committee-banking-supervision-critical-operations.html"
+    "url": "/Research/threads/banking-supervision-basel-committee-critical-operations.html"
   },
   {
     "slug": "verification-intensity-artificial-intelligence-human-review",
@@ -500,13 +500,13 @@
     "url": "/Research/threads/verification-intensity-artificial-intelligence-human-review.html"
   },
   {
-    "slug": "copilot-studio-power-platform-native-governance",
-    "title": "copilot studio / power platform / native governance",
+    "slug": "power-platform-copilot-studio-native-governance",
+    "title": "power platform / copilot studio / native governance",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "native governance"
     ],
     "item_count": 3,
@@ -527,17 +527,17 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-native-governance.html"
+    "url": "/Research/threads/power-platform-copilot-studio-native-governance.html"
   },
   {
-    "slug": "per-employee-productivity-gains-team-size",
-    "title": "per employee / productivity gains / team size",
+    "slug": "productivity-gains-tke-memo-revenue-per",
+    "title": "productivity gains / tke memo / revenue per",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "per employee",
       "productivity gains",
-      "team size"
+      "tke memo",
+      "revenue per"
     ],
     "item_count": 3,
     "items": [
@@ -557,17 +557,17 @@
         "added": "2026-03-14"
       }
     ],
-    "url": "/Research/threads/per-employee-productivity-gains-team-size.html"
+    "url": "/Research/threads/productivity-gains-tke-memo-revenue-per.html"
   },
   {
-    "slug": "fly-io-free-tier-write-path",
-    "title": "fly io / free tier / write path",
+    "slug": "fly-io-github-contents-free-tier",
+    "title": "fly io / github contents / free tier",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "fly io",
-      "free tier",
-      "write path"
+      "github contents",
+      "free tier"
     ],
     "item_count": 3,
     "items": [
@@ -587,16 +587,16 @@
         "added": "2026-03-15"
       }
     ],
-    "url": "/Research/threads/fly-io-free-tier-write-path.html"
+    "url": "/Research/threads/fly-io-github-contents-free-tier.html"
   },
   {
-    "slug": "fine-grained-pat-ios-shortcuts-github-contents",
-    "title": "fine-grained pat / ios shortcuts / github contents",
+    "slug": "ios-shortcuts-fine-grained-pat-github-contents",
+    "title": "ios shortcuts / fine-grained pat / github contents",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "fine-grained pat",
       "ios shortcuts",
+      "fine-grained pat",
       "github contents"
     ],
     "item_count": 3,
@@ -617,17 +617,17 @@
         "added": "2026-03-10"
       }
     ],
-    "url": "/Research/threads/fine-grained-pat-ios-shortcuts-github-contents.html"
+    "url": "/Research/threads/ios-shortcuts-fine-grained-pat-github-contents.html"
   },
   {
-    "slug": "gao-et-parameter-inertia-ntp-objective",
-    "title": "gao et / parameter inertia / ntp objective",
+    "slug": "parameter-inertia-gao-et-h-neuron-formation",
+    "title": "parameter inertia / gao et / h-neuron formation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "gao et",
       "parameter inertia",
-      "ntp objective"
+      "gao et",
+      "h-neuron formation"
     ],
     "item_count": 3,
     "items": [
@@ -647,17 +647,17 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/gao-et-parameter-inertia-ntp-objective.html"
+    "url": "/Research/threads/parameter-inertia-gao-et-h-neuron-formation.html"
   },
   {
-    "slug": "gao-et-ntp-objective-inference-time-intervention",
-    "title": "gao et / ntp objective / inference-time intervention",
+    "slug": "gao-et-h-neuron-activation-ntp-objective",
+    "title": "gao et / h-neuron activation / ntp objective",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "gao et",
-      "ntp objective",
-      "inference-time intervention"
+      "h-neuron activation",
+      "ntp objective"
     ],
     "item_count": 3,
     "items": [
@@ -677,17 +677,17 @@
         "added": "2026-03-06"
       }
     ],
-    "url": "/Research/threads/gao-et-ntp-objective-inference-time-intervention.html"
+    "url": "/Research/threads/gao-et-h-neuron-activation-ntp-objective.html"
   },
   {
-    "slug": "controlled-hallucination-predictive-processing-visual-cortex",
-    "title": "controlled hallucination / predictive processing / visual cortex",
+    "slug": "controlled-hallucination-prediction-error-free-energy",
+    "title": "controlled hallucination / prediction error / free energy",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "controlled hallucination",
-      "predictive processing",
-      "visual cortex"
+      "prediction error",
+      "free energy"
     ],
     "item_count": 3,
     "items": [
@@ -707,17 +707,17 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/controlled-hallucination-predictive-processing-visual-cortex.html"
+    "url": "/Research/threads/controlled-hallucination-prediction-error-free-energy.html"
   },
   {
-    "slug": "free-energy-schr-dinger-predictive-processing",
-    "title": "free energy / schr dinger / predictive processing",
+    "slug": "free-energy-hard-problem-beast-machine",
+    "title": "free energy / hard problem / beast machine",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "free energy",
-      "schr dinger",
-      "predictive processing"
+      "hard problem",
+      "beast machine"
     ],
     "item_count": 3,
     "items": [
@@ -737,6 +737,6 @@
         "added": "2026-03-05"
       }
     ],
-    "url": "/Research/threads/free-energy-schr-dinger-predictive-processing.html"
+    "url": "/Research/threads/free-energy-hard-problem-beast-machine.html"
   }
 ]
