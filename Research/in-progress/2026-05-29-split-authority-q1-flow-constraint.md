@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Q1: Dominant flow constraint in split-authority delivery systems"
 added: 2026-05-29
 status: reviewing
