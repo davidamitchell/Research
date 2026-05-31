@@ -1,12 +1,12 @@
 ---
 title: "Q4: Decision rights that should move closer to execution"
 added: 2026-05-29
-status: reviewing
+status: completed
 priority: high
 tags: [decision-rights, delegation, governance, execution]
 blocks: [2026-05-29-split-authority-q1-flow-constraint]
 started: 2026-05-31T10:45:25+00:00
-completed: ~
+completed: 2026-05-31T11:26:10+00:00
 output: [knowledge]
 cites:
   - 2026-05-29-split-authority-p1-operating-model-synthesis
