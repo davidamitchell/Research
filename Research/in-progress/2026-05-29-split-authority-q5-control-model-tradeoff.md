@@ -30,7 +30,7 @@ themes:
   - enterprise-adoption
   - regulatory-compliance
 versions: []
-review_count: 1
+review_count: 2
 ---
 
 # Q5: Control model for the best throughput-risk trade-off
