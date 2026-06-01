@@ -1,6 +1,99 @@
 {
-  "extracted_at": "2026-06-01T12:07:20Z",
+  "extracted_at": "2026-06-01T12:46:11Z",
   "items": {
+    "2026-05-31-goal-constraint-feedback-convergence-vs-cycling": {
+      "named_concepts": [
+        "gain condition",
+        "revision scope",
+        "review cadence",
+        "delay condition",
+        "feasibility condition",
+        "constraint space",
+        "bounded cycling",
+        "software delivery",
+        "revision loop",
+        "control theory",
+        "specification cycling",
+        "structural change",
+        "design rules",
+        "unbounded divergence",
+        "delivery stability",
+        "constraint infeasibility",
+        "structural analogy",
+        "specification loop",
+        "three conditions",
+        "constraint violations"
+      ],
+      "source_urls": [
+        "https://www.pearson.com/en-us/subject-catalog/p/nonlinear-systems/P200000003456",
+        "https://www.pearson.com/en-us/subject-catalog/p/modern-control-engineering/P200000003186",
+        "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+        "https://www.penguinrandomhouse.com/books/158736/the-fifth-discipline-by-peter-m-senge/",
+        "https://www.pearsonhighered.com/assets/preface/0/1/3/4/0134682947.pdf",
+        "https://dora.dev/research/2023/dora-report/",
+        "https://dora.dev/guides/dora-metrics-four-keys/",
+        "https://davidamitchell.github.io/Research/research/2026-05-31-formal-methods-interdependent-inputs-feasibility.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q6-instability-leading-indicators.html",
+        "https://store.doverpublications.com/0486462781.html",
+        "https://www.wiley.com/en-us/Requirements+Engineering%3A+Processes+and+Techniques-p-9780471972082"
+      ],
+      "key_claims": [
+        {
+          "text": "A closed-loop specification system converges to a stable specification when each review cycle produces a net reduction in total constraint violations, the review cadence exceeds the rate of constraint-surface change, and a feasible specification exists within the constraint space",
+          "sources": [
+            "https://www.cds.caltech.edu/~murray/books/AM08/pdf/fbs-public_24Jul2020.pdf",
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009"
+          ]
+        },
+        {
+          "text": "In control theory, convergence of a Linear Time-Invariant (LTI) system requires that all closed-loop poles have strictly negative real parts, and for nonlinear systems Lyapunov's direct method provides the equivalent condition: a positive-definite function V(x) whose time derivative V̇(x) is negative definite along all trajectories",
+          "sources": [
+            "https://www.cds.caltech.edu/~murray/books/AM08/pdf/fbs-public_24Jul2020.pdf",
+            "https://www.pearson.com/en-us/subject-catalog/p/nonlinear-systems/P200000003456"
+          ]
+        },
+        {
+          "text": "Feedback delay reduces phase margin by ωτ radians at each operating frequency ω, where τ is the delay length, making cycling progressively more likely as review cycle time increases relative to the rate of specification change",
+          "sources": [
+            "https://www.cds.caltech.edu/~murray/books/AM08/pdf/fbs-public_24Jul2020.pdf",
+            "https://www.pearson.com/en-us/subject-catalog/p/modern-control-engineering/P200000003186"
+          ]
+        },
+        {
+          "text": "Bounded cycling (a limit cycle recoverable by reducing gain or delay) is distinguishable from unbounded divergence by whether the amplitude of constraint violations decreases, stays constant, or increases across successive review cycles, corresponding respectively to convergence, limit cycling, and divergence in control theory",
+          "sources": [
+            "https://www.pearson.com/en-us/subject-catalog/p/modern-control-engineering/P200000003186",
+            "https://www.cds.caltech.edu/~murray/books/AM08/pdf/fbs-public_24Jul2020.pdf"
+          ]
+        },
+        {
+          "text": "In a software delivery specification loop, high gain corresponds to comprehensive goal revisions in response to targeted constraint signals, and long delay corresponds to infrequent review cycles; both increase cycling risk independently of each other, and together they represent the most tractable combination of drivers to address through process design",
+          "sources": [
+            "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+            "https://www.pearsonhighered.com/assets/preface/0/1/3/4/0134682947.pdf"
+          ]
+        },
+        {
+          "text": "DevOps Research and Assessment (DORA) research provides empirical support for the delay condition: continuous integration, fast code reviews, and loosely coupled teams all reduce feedback delay and are correlated with significantly better delivery stability and throughput",
+          "sources": [
+            "https://dora.dev/research/2023/dora-report/"
+          ]
+        },
+        {
+          "text": "Senge's systems dynamics analysis of balancing loops with time delays demonstrates that organisational systems oscillate when decision-makers apply additional corrections before prior corrections have taken effect, which is the organisational equivalent of integrator windup and produces the same cycling pattern as excess delay in a control system",
+          "sources": [
+            "https://www.penguinrandomhouse.com/books/158736/the-fifth-discipline-by-peter-m-senge/"
+          ]
+        },
+        {
+          "text": "Sequential approval chains in delivery systems amplify effective gain by compounding reviewer corrections, making the cumulative revision larger than any single reviewer's correction would predict, which increases cycling risk beyond what either the delay or the gain of individual reviewers would suggest in isolation",
+          "sources": [
+            "https://www.pearsonhighered.com/assets/preface/0/1/3/4/0134682947.pdf",
+            "https://dora.dev/research/2023/dora-report/"
+          ]
+        }
+      ]
+    },
     "2026-05-31-formal-methods-interdependent-inputs-feasibility": {
       "named_concepts": [
         "feasibility checking",
