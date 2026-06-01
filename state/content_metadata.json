@@ -1,6 +1,95 @@
 {
-  "extracted_at": "2026-06-01T15:02:06Z",
+  "extracted_at": "2026-06-01T15:47:33Z",
   "items": {
+    "2026-05-31-gore-strategic-intent-to-delivery-decomposition": {
+      "named_concepts": [
+        "et al",
+        "nfr framework",
+        "horkoff et",
+        "formal completeness",
+        "abstraction gap",
+        "contribution links",
+        "systematic mapping",
+        "completeness check",
+        "van lamsweerde",
+        "conflicting contribution",
+        "gore decomposition",
+        "temporal constraint",
+        "constraint propagation",
+        "chung et",
+        "temporal constraints",
+        "industrial gore",
+        "gore applications",
+        "missing operationalisation",
+        "automated system",
+        "operationalisation completeness"
+      ],
+      "source_urls": [
+        "https://www.wiley.com/en-gb/Requirements+Engineering%3A+From+System+Goals+to+UML+Models+to+Software+Specifications-p-9780470012703",
+        "https://doi.org/10.1109/ISRE.1997.582369",
+        "https://link.springer.com/book/10.1007/978-1-4615-5269-7",
+        "https://doi.org/10.1007/s00766-014-0210-5",
+        "https://doi.org/10.1109/32.879317",
+        "https://link.springer.com/article/10.1007/s00766-017-0280-z",
+        "https://pubs.opengroup.org/architecture/togaf9-doc/arch/chap08.html"
+      ],
+      "key_claims": [
+        {
+          "text": "KAOS AND-refinement requires bidirectional logical entailment between the parent goal and its sub-goals: the conjunction of sub-goals must imply the parent, and the parent must imply the conjunction, forming the most rigorous formal completeness condition across the three major GORE frameworks",
+          "sources": [
+            "https://doi.org/10.1109/ISRE.2001.948567",
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z"
+          ]
+        },
+        {
+          "text": "KAOS OR-refinement requires logical equivalence between the parent goal and the disjunction of its alternatives, ensuring that any one selected alternative is both sufficient and necessary within the scope of the decomposition",
+          "sources": [
+            "https://doi.org/10.1109/ISRE.2001.948567"
+          ]
+        },
+        {
+          "text": "i-star decomposes goals through means-end links, task decomposition, and actor-boundary contribution links in its Strategic Rationale (SR) model, but applies no formal completeness condition: correctness relies on analyst judgment and stakeholder walkthroughs rather than proof obligations",
+          "sources": [
+            "https://doi.org/10.1109/ISRE.1997.582369",
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z"
+          ]
+        },
+        {
+          "text": "The NFR Framework represents non-functional requirements as softgoals in a Softgoal Interdependency Graph evaluated through satisficing using Make, Help, Hurt, and Break contribution links, but an incomplete SIG produces no detectable error signal; it yields an incorrect satisficing result",
+          "sources": [
+            "https://link.springer.com/book/10.1007/978-1-4615-5269-7",
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z"
+          ]
+        },
+        {
+          "text": "No major GORE framework (KAOS, i-star, or the NFR Framework) treats delivery timelines, sprint boundaries, or time-boxed delivery windows as first-class metamodel constructs; temporal constraints are attached as informal annotations at the leaf-requirement level only",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z",
+            "https://doi.org/10.1109/ISRE.2001.948567"
+          ]
+        },
+        {
+          "text": "KAOS obstacle analysis, formalised by Van Lamsweerde and Letier (2000), provides a proof-theoretic completeness check for individual goal refinements, but its scope is limited to verifying that all failure modes for one goal are catalogued and does not verify end-to-end coverage from strategic intent to leaf-level requirements",
+          "sources": [
+            "https://doi.org/10.1109/32.879317",
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z"
+          ]
+        },
+        {
+          "text": "Empirical systematic mapping of 231 GORE publications identifies the abstraction gap (the point where strategic goals cannot be further decomposed without domain expertise that GORE rules do not supply) as occurring in roughly 40-60% of industrial GORE applications, making it the most frequently reported decomposition breakdown",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z"
+          ]
+        },
+        {
+          "text": "Missing operationalisation, where leaf goals are declared complete but lack an assigned agent or a verification criterion, is the second most frequently reported breakdown pattern and is structurally undetectable in i-star and the NFR Framework without external tooling or an imposed schema check",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s00766-017-0280-z",
+            "https://link.springer.com/book/10.1007/978-1-4615-5269-7"
+          ]
+        }
+      ]
+    },
     "2026-05-31-goal-specification-completeness-schema": {
       "named_concepts": [
         "success criterion",
