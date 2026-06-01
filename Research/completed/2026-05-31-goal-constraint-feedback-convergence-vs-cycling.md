@@ -2,12 +2,12 @@
 review_count: 2
 title: "Goal-constraint feedback: convergence conditions vs. specification cycling"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [formal-methods, software-engineering, organisational-design]
 started: 2026-06-01T11:53:37+00:00
-completed: ~
+completed: 2026-06-01T12:43:11+00:00
 output: [knowledge]
 cites:
   - 2026-05-31-formal-methods-interdependent-inputs-feasibility
