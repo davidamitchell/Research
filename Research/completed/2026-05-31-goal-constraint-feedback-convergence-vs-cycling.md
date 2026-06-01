@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "a0e804e34bfdd309c5787bdfd029a1cc812ea2a1"
+    changed: "2026-06-01"
+    progress: "progress/2026-06-01-goal-constraint-feedback-convergence-vs-cycling.md"
+    summary: "Initial completion"
 ---
 
 # Goal-constraint feedback: convergence conditions vs. specification cycling
