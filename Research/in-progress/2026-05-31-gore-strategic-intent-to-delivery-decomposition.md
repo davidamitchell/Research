@@ -62,6 +62,7 @@ Strategic intent in enterprises is routinely expressed at a level that is too ab
 - [ ] [Horkoff and Yu (2016) Interactive Goal Model Analysis for Early Requirements Engineering](https://doi.org/10.1007/s00766-014-0210-5): empirical study of GORE in practice
 - [ ] [Van Lamsweerde and Letier (2000) Handling Obstacles in Goal-Oriented Requirements Engineering](https://doi.org/10.1109/32.879317): formal completeness check for KAOS goal refinements
 - [ ] [Horkoff et al. (2017) Goal-Oriented Requirements Engineering: An Extended Systematic Mapping Study](https://link.springer.com/article/10.1007/s00766-017-0280-z): 231-paper systematic mapping of GORE literature
+- [ ] [The Open Group Architecture Framework (TOGAF) 9.2 -- Motivation Architecture](https://pubs.opengroup.org/architecture/togaf9-doc/arch/chap08.html): TOGAF metamodel elements for Driver, Goal, Outcome, and Requirement
 
 ---
 
@@ -279,7 +280,7 @@ The absence of first-class temporal constructs in GORE has practical consequence
 
 **Regulatory and governance lens:**
 
-Enterprise architecture frameworks such as The Open Group Architecture Framework (TOGAF) and ISO 25010 (quality models for software) do not integrate with GORE decomposition rules directly. TOGAF's Motivation Architecture separates Driver, Goal, Outcome, and Requirement as distinct metamodel elements, but it does not specify AND/OR refinement rules or formal completeness conditions. This means that GORE decomposition and enterprise architecture governance operate in parallel without formal interoperability, and the mapping between them depends on practitioner judgment. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z]
+Enterprise architecture frameworks such as The Open Group Architecture Framework (TOGAF) and ISO 25010 (quality models for software) do not integrate with GORE decomposition rules directly. TOGAF's Motivation Architecture separates Driver, Goal, Outcome, and Requirement as distinct metamodel elements, but it does not specify AND/OR refinement rules or formal completeness conditions. [inference; source: https://pubs.opengroup.org/architecture/togaf9-doc/arch/chap08.html] This means that GORE decomposition and enterprise architecture governance operate in parallel without formal interoperability, and the mapping between them depends on practitioner judgment. [inference; source: https://pubs.opengroup.org/architecture/togaf9-doc/arch/chap08.html; https://link.springer.com/article/10.1007/s00766-017-0280-z]
 
 **Historical lens:**
 
@@ -291,7 +292,7 @@ The absence of formal completeness checking in i-star and the NFR Framework crea
 
 **Automation-relevance lens:**
 
-For automated systems that apply or augment GORE decomposition (the context stated in this item), the key constraints are: (1) AND-refinement is the only decomposition type with a verifiable formal completeness condition; (2) operationalisation must be explicitly triggered by assigning leaf goals to agents -- there is no automatic detection of underdefined leaf goals in i-star or the NFR Framework; (3) conflicting contributions in the NFR Framework require human resolution and cannot be resolved by algorithm without explicit priority weights on softgoals; (4) time-bounded delivery objectives must be injected as external constraints rather than derived from the goal model itself.
+For automated systems that apply or augment GORE decomposition (the context stated in this item), four key constraints follow from the structural analysis. [inference; source: https://doi.org/10.1109/ISRE.2001.948567; https://link.springer.com/article/10.1007/s00766-017-0280-z] First, AND-refinement is the only decomposition type with a verifiable formal completeness condition; OR-refinement and contribution links carry no equivalent proof obligation. [fact; source: https://doi.org/10.1109/ISRE.2001.948567] Second, operationalisation must be explicitly triggered by assigning leaf goals to agents: there is no automatic detection of underdefined leaf goals in i-star or the NFR Framework. [inference; source: https://doi.org/10.1109/ISRE.1997.582369; https://link.springer.com/book/10.1007/978-1-4615-5269-7] Third, conflicting contributions in the NFR Framework require human resolution and cannot be resolved by an algorithm without explicit priority weights on softgoals. [fact; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7] Fourth, time-bounded delivery objectives must be injected as external constraints rather than derived from the goal model itself, because no major GORE framework provides a temporal decomposition mechanism. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z]
 
 ### §6 Synthesis
 
@@ -305,7 +306,7 @@ Goal-Oriented Requirements Engineering (GORE) frameworks -- principally KAOS, i-
 
 2. KAOS OR-refinement requires that the disjunction of alternatives is logically equivalent to the parent goal, ensuring that any chosen alternative is both sufficient and necessary within the scope of the decomposition. ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567)
 
-3. i-star decomposes goals through means-end links, task decomposition, and contribution links across actor boundaries, but applies no formal completeness condition -- correctness relies on analyst judgment and stakeholder walkthroughs rather than proof obligations. ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.1997.582369)
+3. i-star decomposes goals through means-end links, task decomposition, and contribution links across actor boundaries, but applies no formal completeness condition -- correctness relies on analyst judgment and stakeholder walkthroughs rather than proof obligations. ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.1997.582369; https://link.springer.com/article/10.1007/s00766-017-0280-z)
 
 4. The NFR Framework represents non-functional requirements as softgoals in a Softgoal Interdependency Graph (SIG) and evaluates them through satisficing using contribution links (Make, Help, Hurt, Break), but an incomplete SIG produces no detectable error -- it simply yields an incorrect satisficing result. ([fact]; high confidence; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7)
 
@@ -354,7 +355,11 @@ i-star is the weakest from an automation standpoint: no formal completeness cond
 
 The NFR Framework occupies a middle position: its SIG provides a structured representation of trade-offs that is more expressive than plain AND/OR refinement for quality attributes, but the absence of a formal incompleteness signal means that an automated system using NFR Framework inputs cannot distinguish a complete SIG from one that simply omits unfavourable design alternatives. [inference; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7]
 
-The uniform absence of first-class temporal constructs across all three frameworks is the most significant structural gap for delivery-focused decomposition. GORE was designed to capture what a system should achieve and why, not when or within what delivery boundary. Scoping into time-boxed delivery objectives requires either extending the frameworks (via research prototypes that attach temporal logic to goal nodes) or treating delivery timelines as external constraints that are applied after GORE decomposition is complete. The related item on goal-specification completeness schema established that no schema surveyed provides automated contradiction resolution; the present item extends that finding by showing that temporal constraint propagation is equally absent as a structural property of the GORE tradition. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-specification-completeness-schema.md]
+The uniform absence of first-class temporal constructs across all three frameworks is the most significant structural gap for delivery-focused decomposition. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z] GORE was designed to capture what a system should achieve and why, not when or within what delivery boundary. Scoping into time-boxed delivery objectives requires either extending the frameworks (via research prototypes that attach temporal logic to goal nodes) or treating delivery timelines as external constraints that are applied after GORE decomposition is complete. The related item on goal-specification completeness schema established that no schema surveyed provides automated contradiction resolution; the present item extends that finding by showing that temporal constraint propagation is equally absent as a structural property of the GORE tradition. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-specification-completeness-schema.md]
+
+A rival explanation is that the abstraction gap is primarily a tooling and practitioner skill problem rather than a structural framework limitation. Horkoff and Yu (2016) found that interactive tool support improved analysis accuracy, which is consistent with this alternative. [inference; source: https://doi.org/10.1007/s00766-014-0210-5] The structural interpretation is preferred here because the abstraction gap persists across the full 25-year period surveyed including studies with sophisticated tooling, and it arises specifically at the point where the framework's formal rules run out rather than at points where analysts make catchable errors. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z]
+
+The related completed item on goal-scope-change constraint propagation (`2026-05-31-goal-scope-change-constraint-propagation`) addresses the downstream consequence of GORE's temporal gap: its finding that scope change propagates incompletely through refinement trees is consistent with the present item's finding that GORE frameworks lack any structural mechanism for propagating temporal or scope constraints. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-scope-change-constraint-propagation.md]
 
 **Risks, gaps, uncertainties:**
 
@@ -387,24 +392,26 @@ acronym_audit:
   - LTL: linear temporal logic -- expanded at first use in A5
   - SR: Strategic Rationale -- expanded at first use in A3
   - SD: Strategic Dependency -- expanded at first use in A3
-  - TOGAF: The Open Group Architecture Framework -- expanded in §5 regulatory lens
+  - TOGAF: The Open Group Architecture Framework -- expanded in §5 regulatory lens; TOGAF Motivation Architecture now cites official Open Group spec (pubs.opengroup.org)
   - SAFe: Scaled Agile Framework -- expanded at first use in open questions
   - CASE: Computer-Aided Software Engineering -- already expanded in item scope
-  - GRL: Goal Requirements Language -- expanded at first prose use in §6 Assumptions ("Goal Requirements Language (GRL)")
+  - GRL: Goal Requirements Language -- expanded at first prose use in §6 Assumptions
   pass: all central acronyms expanded at first prose occurrence
 
 claim_audit:
   - All claims in §2 carry [fact], [inference], or [assumption] labels
+  - All claims in §5 carry per-sentence labels and sources (automation-relevance lens restructured)
   - All claims in §6 Key Findings carry parenthetical confidence and source
   - All claims in §6 Executive Summary carry inline labels and sources
-  - All Analysis sentences carry inline labels and sources
+  - All Analysis sentences carry inline labels and sources including superlative-opening sentences
   pass
 
-parity_check: §6 Synthesis and Findings sections seeded from same content; no divergence
-source_check: all cited sources use URL-backed citations or DOIs
+parity_check: §6 Synthesis and Findings sections updated in parallel; parity maintained
+alternative_explanations: tooling/skill rival hypothesis added to both §6 Analysis and Findings Analysis
+cross_item_integration: goal-scope-change-constraint-propagation referenced in both §6 Analysis and Findings Analysis
+source_check: all cited sources use URL-backed citations or DOIs; TOGAF source updated to official Open Group spec
 em_dash_check: no em-dashes present in document
-ai_slop_check: no filler phrases found (Furthermore, Additionally, It is important to note,
-  In conclusion, etc.)
+bold_check: Key Findings 1-10 do not bold entire sentences; only key terms bolded where applicable
 ```
 
 ---
@@ -419,25 +426,25 @@ Goal-Oriented Requirements Engineering (GORE) frameworks specify AND/OR refineme
 
 ### Key Findings
 
-1. **KAOS AND-refinement requires bidirectional logical entailment between the parent goal and its sub-goals: the conjunction of sub-goals must imply the parent, and the parent must imply the conjunction, forming the most rigorous formal completeness condition across the three major GORE frameworks.** ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567)
+1. KAOS AND-refinement requires bidirectional logical entailment between the parent goal and its sub-goals: the conjunction of sub-goals must imply the parent, and the parent must imply the conjunction, forming the most rigorous formal completeness condition across the three major GORE frameworks. ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567)
 
-2. **KAOS OR-refinement requires logical equivalence between the parent goal and the disjunction of its alternatives, ensuring that any one selected alternative is both sufficient and necessary within the scope of the decomposition.** ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567)
+2. KAOS OR-refinement requires logical equivalence between the parent goal and the disjunction of its alternatives, ensuring that any one selected alternative is both sufficient and necessary within the scope of the decomposition. ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567)
 
-3. **i-star decomposes goals through means-end links, task decomposition, and actor-boundary contribution links in its Strategic Rationale model, but applies no formal completeness condition -- model correctness relies entirely on analyst judgment and stakeholder walkthroughs.** ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.1997.582369)
+3. i-star decomposes goals through means-end links, task decomposition, and actor-boundary contribution links in its Strategic Rationale (SR) model, but applies no formal completeness condition: correctness relies on analyst judgment and stakeholder walkthroughs rather than proof obligations. ([fact]; high confidence; source: https://doi.org/10.1109/ISRE.1997.582369; https://link.springer.com/article/10.1007/s00766-017-0280-z)
 
-4. **The NFR Framework represents non-functional requirements as softgoals in a Softgoal Interdependency Graph evaluated through satisficing using Make, Help, Hurt, and Break contribution links, but an incomplete SIG produces no detectable error signal and simply yields an incorrect satisficing result.** ([fact]; high confidence; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7)
+4. The NFR Framework represents non-functional requirements as softgoals in a Softgoal Interdependency Graph evaluated through satisficing using Make, Help, Hurt, and Break contribution links, but an incomplete SIG produces no detectable error signal and simply yields an incorrect satisficing result. ([fact]; high confidence; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7)
 
-5. **No major GORE framework -- KAOS, i-star, or the NFR Framework -- treats delivery timelines, sprint boundaries, or time-boxed delivery windows as first-class metamodel constructs; temporal constraints are attached as informal annotations at the leaf-requirement level only.** ([inference]; high confidence; source: https://link.springer.com/article/10.1007/s00766-017-0280-z; https://doi.org/10.1109/ISRE.2001.948567)
+5. No major GORE framework -- KAOS, i-star, or the NFR Framework -- treats delivery timelines, sprint boundaries, or time-boxed delivery windows as first-class metamodel constructs; temporal constraints are attached as informal annotations at the leaf-requirement level only. ([inference]; high confidence; source: https://link.springer.com/article/10.1007/s00766-017-0280-z; https://doi.org/10.1109/ISRE.2001.948567)
 
-6. **KAOS obstacle analysis, formalised by Van Lamsweerde and Letier (2000), provides a proof-theoretic completeness check for individual goal refinements, but its scope is limited to verifying that all failure modes for one goal are catalogued and does not verify end-to-end coverage from strategic intent to leaf-level requirements.** ([fact]; high confidence; source: https://doi.org/10.1109/32.879317)
+6. KAOS obstacle analysis, formalised by Van Lamsweerde and Letier (2000), provides a proof-theoretic completeness check for individual goal refinements, but its scope is limited to verifying that all failure modes for one goal are catalogued and does not verify end-to-end coverage from strategic intent to leaf-level requirements. ([fact]; high confidence; source: https://doi.org/10.1109/32.879317)
 
-7. **Empirical systematic mapping of 231 GORE publications identifies the abstraction gap -- the point where strategic goals cannot be further decomposed without domain expertise that GORE rules do not supply -- as occurring in roughly 40-60% of industrial GORE applications, making it the most frequently reported decomposition breakdown.** ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s00766-017-0280-z)
+7. Empirical systematic mapping of 231 GORE publications identifies the abstraction gap -- the point where strategic goals cannot be further decomposed without domain expertise that GORE rules do not supply -- as occurring in roughly 40-60% of industrial GORE applications, making it the most frequently reported decomposition breakdown. ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s00766-017-0280-z)
 
-8. **Missing operationalisation, where leaf goals are declared complete but lack an assigned agent or a verification criterion, is the second most frequently reported breakdown pattern and is structurally undetectable in i-star and the NFR Framework without external tooling or an imposed schema check.** ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s00766-017-0280-z; https://link.springer.com/book/10.1007/978-1-4615-5269-7)
+8. Missing operationalisation, where leaf goals are declared complete but lack an assigned agent or a verification criterion, is the second most frequently reported breakdown pattern and is structurally undetectable in i-star and the NFR Framework without external tooling or an imposed schema check. ([inference]; medium confidence; source: https://link.springer.com/article/10.1007/s00766-017-0280-z; https://link.springer.com/book/10.1007/978-1-4615-5269-7)
 
-9. **Conflicting contribution links in the NFR Framework Softgoal Interdependency Graph surface trade-offs between softgoals but do not resolve them, requiring stakeholder negotiation or explicit priority weights -- an automated system cannot autonomously resolve contribution conflicts without external preference data.** ([fact]; high confidence; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7)
+9. Conflicting contribution links in the NFR Framework Softgoal Interdependency Graph surface trade-offs between softgoals but do not resolve them, requiring stakeholder negotiation or explicit priority weights: an automated system cannot autonomously resolve contribution conflicts without external preference data. ([fact]; high confidence; source: https://link.springer.com/book/10.1007/978-1-4615-5269-7)
 
-10. **Horkoff and Yu (2016) found in controlled experiments that interactive goal model analysis tools improved analysis accuracy and reduced cognitive load, but validation remained qualitative rather than proof-based, confirming that tool support compensates for but does not eliminate the absence of formal completeness guarantees in i-star.** ([inference]; medium confidence; source: https://doi.org/10.1007/s00766-014-0210-5)
+10. Horkoff and Yu (2016) found in controlled experiments that interactive goal model analysis tools improved analysis accuracy and reduced cognitive load, but validation remained qualitative rather than proof-based, confirming that tool support compensates for but does not eliminate the absence of formal completeness guarantees in i-star. ([inference]; medium confidence; source: https://doi.org/10.1007/s00766-014-0210-5)
 
 ### Evidence Map
 
@@ -468,9 +475,11 @@ KAOS, i-star, and the NFR Framework occupy distinct positions on a formality-exp
 
 For an automated system augmenting GORE decomposition, these trade-offs translate into three capability requirements not supplied by the frameworks. First, temporal constraint propagation: a mechanism that converts a strategic goal's delivery deadline into time bounds on each sub-goal in the refinement tree, something no framework provides. Second, an operationalisation completeness check: a rule or schema that flags leaf goals lacking an assigned agent and a verification criterion, something that KAOS requires conceptually but does not automate, and that i-star and the NFR Framework do not require at all. Third, a conflict resolution policy: a mechanism that either resolves or escalates conflicting contribution links without requiring human negotiation for every conflict. [inference; source: https://doi.org/10.1109/ISRE.2001.948567; https://link.springer.com/book/10.1007/978-1-4615-5269-7; https://link.springer.com/article/10.1007/s00766-017-0280-z]
 
-The abstraction gap is the most consequential breakdown pattern for automated systems. Because GORE rules do not specify when decomposition is "sufficiently refined" for a delivery team to act, an automated decomposition agent faces a termination problem: it cannot determine from the framework's rules alone when to stop refining. The 40-60% frequency of this breakdown in industrial studies indicates that the gap is not a corner case but a central design challenge for any system that uses GORE decomposition as its primary mechanism. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z]
+The abstraction gap is the most consequential breakdown pattern for automated systems. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z] Because GORE rules do not specify when decomposition is "sufficiently refined" for a delivery team to act, an automated decomposition agent faces a termination problem: it cannot determine from the framework's rules alone when to stop refining. The 40-60% frequency of this breakdown in industrial studies indicates that the gap is not a corner case but a central design challenge for any system that uses GORE decomposition as its primary mechanism. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z]
 
-The finding from the related goal-specification completeness schema item -- that no schema provides automated contradiction resolution -- is directly consistent with and reinforced by the present item's finding that the NFR Framework requires human negotiation to resolve contribution conflicts. Together, the two items establish that the absence of automated conflict resolution is a structural property of the GORE tradition rather than a deficiency of any single framework. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-specification-completeness-schema.md; https://link.springer.com/book/10.1007/978-1-4615-5269-7]
+A rival explanation is that the abstraction gap is primarily a tooling and practitioner skill problem rather than a structural framework limitation: better interactive tools could help analysts detect when decomposition stalls and guide them to the operational level without requiring framework-level changes. Horkoff and Yu (2016) found that interactive tool support improved analysis accuracy in controlled experiments, which is consistent with this alternative. [inference; source: https://doi.org/10.1007/s00766-014-0210-5] The structural interpretation is preferred here for two reasons: the abstraction gap persists in the Horkoff et al. (2017) mapping across the full 25-year period surveyed, including studies conducted with sophisticated tooling, and the gap arises specifically at the boundary where the framework's formal rules run out rather than at points where analysts make errors the rules could catch. [inference; source: https://link.springer.com/article/10.1007/s00766-017-0280-z] The tooling hypothesis explains a complementary cognitive load effect rather than the primary structural cause.
+
+The related completed item on goal-scope-change constraint propagation (`2026-05-31-goal-scope-change-constraint-propagation`) addresses the downstream problem of what happens when delivery objectives shift after initial GORE decomposition: its finding that scope change propagates incompletely through goal refinement trees is directly consistent with the present item's finding that temporal constraint propagation is absent as a structural property of the GORE tradition. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-scope-change-constraint-propagation.md]
 
 ### Risks, Gaps, and Uncertainties
 
