@@ -26,7 +26,7 @@ versions: []
 
 ## Research Question
 
-In formal specification methods (Z notation, Alloy, TLA+), how are systems with interdependent inputs specified so that an automated solver can determine feasibility without human arbitration at each step — and what are the known limits of that approach at the scale of an enterprise delivery system?
+In formal specification methods (Z notation, Alloy, TLA+), how are systems with interdependent inputs specified so that an automated solver can determine feasibility without human arbitration at each step, and what are the known limits of that approach at the scale of an enterprise delivery system?
 
 ## Scope
 
@@ -59,25 +59,25 @@ Automated delivery systems that validate goal-constraint combinations need a for
 
 ## Sources
 
-- [x] [Woodcock & Davies (1996) Using Z: Specification, Refinement and Proof](https://www.cs.ox.ac.uk/publications/books/PJ/) — Z notation specification and constraint expression
-- [x] [Jackson (2012) Software Abstractions: Logic, Language, and Analysis](https://mitpress.mit.edu/9780262017039/software-abstractions/) — Alloy language, Alloy Analyzer, and bounded feasibility checking
-- [x] [Lamport (2002) Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers](https://lamport.azurewebsites.net/tla/book.html) — Temporal Logic of Actions (TLA+) specification and TLC model checker scale characteristics
-- [x] [Newcombe et al. (2015) How Amazon Web Services Uses Formal Methods](https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext) — empirical Amazon Web Services (AWS) case study on formal methods at enterprise scale (Access note: ACM page returned HTTP 403 in this session; content corroborated via TLA+ Foundation industry page at https://foundation.tlapl.us/industry/index.html and secondary summaries)
-- [x] [TLA+ Foundation Industry Use Cases](https://foundation.tlapl.us/industry/index.html) — documented industrial TLA+ adoption at Amazon, Microsoft, MongoDB, and Intel
-- [x] [Alloy Documentation and Tutorials](https://alloytools.org/documentation.html) — Alloy 6 tool capabilities including SAT-based bounded model checking and scope semantics
-- [x] [Alloy Tools Case Studies](https://alloytools.org/) — documented enterprise and academic Alloy adoption cases
+- [x] [Woodcock & Davies (1996) Using Z: Specification, Refinement and Proof](https://www.cs.ox.ac.uk/publications/books/PJ/): Z notation specification and constraint expression
+- [x] [Jackson (2012) Software Abstractions: Logic, Language, and Analysis](https://mitpress.mit.edu/9780262017039/software-abstractions/): Alloy language, Alloy Analyzer, and bounded feasibility checking
+- [x] [Lamport (2002) Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers](https://lamport.azurewebsites.net/tla/book.html): Temporal Logic of Actions (TLA+) specification and TLC model checker scale characteristics
+- [x] [Newcombe et al. (2015) How Amazon Web Services Uses Formal Methods](https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext): empirical Amazon Web Services (AWS) case study on formal methods at enterprise scale (Access note: ACM page returned HTTP 403 in this session; content corroborated via TLA+ Foundation industry page at https://foundation.tlapl.us/industry/index.html and secondary summaries)
+- [x] [TLA+ Foundation Industry Use Cases](https://foundation.tlapl.us/industry/index.html): documented industrial TLA+ adoption at Amazon, Microsoft, MongoDB, and Intel
+- [x] [Alloy Documentation and Tutorials](https://alloytools.org/documentation.html): Alloy 6 tool capabilities including SAT-based bounded model checking and scope semantics
+- [x] [Alloy Tools Case Studies](https://alloytools.org/): documented enterprise and academic Alloy adoption cases
 
 ---
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill, retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
 ```text
-Question: In formal specification methods (Z notation, Alloy, and TLA+ — Temporal Logic
-  of Actions), how are systems with interdependent inputs specified so that an automated
+Question: In formal specification methods (Z notation, Alloy, and TLA+ (Temporal Logic
+  of Actions)), how are systems with interdependent inputs specified so that an automated
   solver can determine feasibility without human arbitration at each step, and what are
   the known limits of that approach at the scale of an enterprise delivery system?
 
@@ -160,7 +160,7 @@ Temporal Logic of Actions (TLA+) is a formal specification language based on tem
 
 The TLC (TLC model checker) performs explicit-state enumeration: it generates and stores all reachable states from the initial state, checking invariants and liveness properties against every state and transition. [fact; source: https://lamport.azurewebsites.net/tla/book.html]
 
-Decidability for TLA+: safety properties (invariants that must hold in every reachable state) are decidable for finite-state specifications, because TLC can exhaustively enumerate the state space. [fact; source: https://lamport.azurewebsites.net/tla/book.html] Liveness properties (properties that assert something eventually happens) are undecidable in general for infinite-state systems, as checking arbitrary liveness reduces to the halting problem. [fact; source: https://lamport.azurewebsites.net/tla/book.html] TLC supports liveness checking for finite-state models using lasso-shaped witness detection.
+Decidability for TLA+: safety properties (invariants that must hold in every reachable state) are decidable for finite-state specifications, because TLC can exhaustively enumerate the state space. [fact; source: https://lamport.azurewebsites.net/tla/book.html] Liveness properties (properties that assert something eventually happens) are undecidable in general for infinite-state systems, as checking arbitrary liveness reduces to the halting problem. [fact; source: https://lamport.azurewebsites.net/tla/book.html] TLC supports liveness checking for finite-state models using lasso-shaped witness detection. [fact; source: https://lamport.azurewebsites.net/tla/book.html]
 
 **Q4: Empirical scale limits**
 
@@ -188,11 +188,11 @@ Design strategies used in practice: (1) model abstraction, specifying only the c
 
 The three methods address different aspects of the feasibility-checking problem:
 
-Z notation provides the most expressive constraint language (full FOL over sets) but at the cost of decidability. Feasibility checking in Z is only automatable for restricted decidable fragments; general schema feasibility requires human-guided theorem proving. [inference; source: https://www.cs.ox.ac.uk/publications/books/PJ/]
+Z notation provides the most expressive constraint language (full FOL over sets) but at the cost of decidability. [inference; source: https://www.cs.ox.ac.uk/publications/books/PJ/] Feasibility checking in Z is only automatable for restricted decidable fragments; general schema feasibility requires human-guided theorem proving. [inference; source: https://www.cs.ox.ac.uk/publications/books/PJ/]
 
-Alloy trades expressiveness for tractability by bounding the problem scope and encoding it as SAT. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/] For problems where the small scope hypothesis holds, Alloy provides practically complete automated feasibility checking without human arbitration. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/] The trade-off is that completeness is bounded: the guarantee does not extend to larger scopes, and enterprise constraint problems with hundreds of interdependent objects fall outside tractable scope.
+Alloy trades expressiveness for tractability by bounding the problem scope and encoding it as SAT. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/] For problems where the small scope hypothesis holds, Alloy provides practically complete automated feasibility checking without human arbitration. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/] The trade-off is that completeness is bounded: the guarantee does not extend to larger scopes, and enterprise constraint problems with hundreds of interdependent objects fall outside tractable scope. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/; https://alloytools.org/documentation.html]
 
-TLA+ provides automation for safety properties of finite-state designs, making it well-suited for protocol-level invariants in distributed systems. [inference; source: https://foundation.tlapl.us/industry/index.html] The AWS, Microsoft, and Intel case studies demonstrate that this is tractable and valuable at enterprise scale when the problem is scoped to distributed protocol design. [fact; source: https://foundation.tlapl.us/industry/index.html] However, TLA+ explicit-state enumeration does not scale to full enterprise constraint matrices with hundreds of variables.
+TLA+ provides automation for safety properties of finite-state designs, making it well-suited for protocol-level invariants in distributed systems. [inference; source: https://foundation.tlapl.us/industry/index.html] The AWS, Microsoft, and Intel case studies demonstrate that this is tractable and valuable at enterprise scale when the problem is scoped to distributed protocol design. [fact; source: https://foundation.tlapl.us/industry/index.html] However, TLA+ explicit-state enumeration does not scale to full enterprise constraint matrices with hundreds of variables. [inference; source: https://lamport.azurewebsites.net/tla/book.html; https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf]
 
 The tractable class for enterprise delivery is therefore: design-level protocol invariants (TLA+), structural consistency of bounded configuration schemas (Alloy), and linear-arithmetic constraint checking over finite sets (Z restricted fragments or Satisfiability Modulo Theories (SMT) solvers). [inference; source: https://foundation.tlapl.us/industry/index.html; https://mitpress.mit.edu/9780262017039/software-abstractions/]
 
@@ -265,9 +265,9 @@ Automated feasibility checking without human arbitration is tractable for bounde
 
 6. Liveness properties (properties asserting that something eventually happens) are undecidable in general for infinite-state TLA+ specifications, because checking arbitrary liveness reduces to the halting problem; TLC supports liveness only for finite-state models via lasso-shaped witness detection. ([fact]; high confidence; source: https://lamport.azurewebsites.net/tla/book.html)
 
-7. The AWS case study documented approximately ten subtle design bugs per distributed system found by TLA+ specification before any code was written, confirming return on investment for design-level protocol verification at enterprise cloud scale. ([fact]; high confidence; source: https://foundation.tlapl.us/industry/index.html)
+7. The AWS case study documented approximately ten subtle design bugs per distributed system found by TLA+ specification before any code was written, confirming return on investment for design-level protocol verification at enterprise cloud scale. ([inference]; medium confidence; source: https://foundation.tlapl.us/industry/index.html)
 
-8. All documented enterprise formal-methods successes (AWS, Microsoft Azure, Intel) share a common scope restriction: they model design-level protocol correctness for small, high-stakes distributed algorithms, not full enterprise constraint-matrix verification. ([inference]; high confidence; source: https://foundation.tlapl.us/industry/index.html)
+8. All documented enterprise formal-methods successes (AWS, Microsoft Azure, Intel) share a common scope restriction: they model design-level protocol correctness for small, high-stakes distributed algorithms, not full enterprise constraint-matrix verification. ([inference]; medium confidence; source: https://foundation.tlapl.us/industry/index.html)
 
 9. State-space explosion remains the primary practical barrier to formal-methods adoption at enterprise scale, confirmed by a 2023 survey of formal verification scalability; current mitigation strategies include abstraction, symmetry reduction, compositional reasoning, and partial-order reduction, but none eliminates the fundamental exponential growth. ([fact]; high confidence; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf)
 
@@ -285,8 +285,8 @@ Automated feasibility checking without human arbitration is tractable for bounde
 | [inference] Alloy practical limit: 10 to 20 objects per signature for complex models | https://alloytools.org/documentation.html | medium | Derived from documented scale characteristics; no single empirical benchmark cited |
 | [inference] TLC checks safety decidably for finite-state models; scales to ~10^8 states | https://foundation.tlapl.us/industry/index.html; https://lamport.azurewebsites.net/tla/book.html | medium | Upper bound varies by model complexity and hardware |
 | [fact] TLA+ liveness undecidable for infinite-state systems | https://lamport.azurewebsites.net/tla/book.html | high | Reduces to halting problem |
-| [fact] AWS found ~10 design bugs per system using TLA+ before code was written | https://foundation.tlapl.us/industry/index.html | high | Corroborated by multiple AWS engineers' accounts |
-| [inference] All enterprise cases scope to design-level protocol slices, not full constraint matrix | https://foundation.tlapl.us/industry/index.html | high | Consistent pattern across AWS, Microsoft, Intel |
+| [inference] AWS found ~10 design bugs per system using TLA+ before code was written | https://foundation.tlapl.us/industry/index.html | medium | Primary CACM source inaccessible (HTTP 403); corroborated via secondary TLA+ Foundation page |
+| [inference] All enterprise cases scope to design-level protocol slices, not full constraint matrix | https://foundation.tlapl.us/industry/index.html | medium | AWS, Microsoft, Intel pattern consistent; single secondary aggregation source |
 | [fact] State-space explosion is primary barrier to enterprise formal-methods adoption (2023 survey) | https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf | high | Confirmed by recent literature survey |
 | [inference] SMT provides complete automated checking for quantifier-free linear arithmetic | https://microsoft.github.io/z3guide/ | medium | Practical middle ground between Alloy SAT and Z FOL |
 | [inference] Tractable enterprise class: bounded finite-state, typed, decomposed into small modules | https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html | medium | Derived synthesis from all three method characterisations |
@@ -300,11 +300,11 @@ Automated feasibility checking without human arbitration is tractable for bounde
 
 Z notation, Alloy, and TLA+ each occupy a distinct position on the expressiveness-decidability trade-off. Z notation is the most expressive but requires human-guided proof for general feasibility checking; Alloy sacrifices unbounded completeness for automated checking within bounded scope; TLA+ occupies a middle position for protocol safety (decidable and automatable) while sacrificing automated liveness checking for infinite-state systems. [inference; source: https://www.cs.ox.ac.uk/publications/books/PJ/; https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html]
 
-The enterprise case studies are unanimous: formal methods deliver value through scoped application to critical protocol slices, not monolithic verification. AWS's experience over a decade is the most comprehensive documented evidence base; it shows that design-level TLA+ is tractable and high-return, but that the method requires skilled engineers and careful abstraction choices. [inference; source: https://foundation.tlapl.us/industry/index.html]
+The enterprise case studies are unanimous: formal methods deliver value through scoped application to critical protocol slices, not monolithic verification. AWS's published experience across S3, DynamoDB, EBS, and other services provides detailed public evidence for TLA+ at enterprise scale; it shows that design-level TLA+ is tractable and high-return, but that the method requires skilled engineers and careful abstraction choices. [inference; source: https://foundation.tlapl.us/industry/index.html]
 
 The gap between "tractable for a bounded module" and "tractable for an enterprise delivery system" is bridged only by decomposition: if the constraint problem can be factored into modules with bounded interfaces, each module is verifiable independently. If the constraint matrix cannot be decomposed because all variables are globally coupled, no current formal method scales to automated feasibility checking without human arbitration at each decomposition boundary. [inference; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf; https://foundation.tlapl.us/industry/index.html]
 
-A plausible rival to the decomposition strategy is replacing explicit-state enumeration with symbolic model checking or SMT-based constraint solving, which can handle larger state spaces without full enumeration. For delivery system constraint problems that map to quantifier-free linear arithmetic (checking whether a combination of integer-valued feature flags satisfies a set of linear constraints), Z3 or CVC5 can be applied directly. The limit of this approach is that it handles a narrower problem class than TLA+ or Alloy: pure constraint satisfaction without temporal or behavioural properties. [inference; source: https://microsoft.github.io/z3guide/]
+A plausible rival to the decomposition strategy is replacing explicit-state enumeration with symbolic model checking or SMT-based constraint solving, which can handle larger state spaces without full enumeration. For delivery system constraint problems that map to quantifier-free linear arithmetic (checking whether a combination of integer-valued feature flags satisfies a set of linear constraints), Z3 or CVC5 can be applied directly. The limit of this approach is that it handles a narrower problem class than TLA+ or Alloy: pure constraint satisfaction without temporal or behavioural properties. [inference; source: https://microsoft.github.io/z3guide/] This SMT-based approach is corroborated by the completed companion item on policy enforcement and formal verification as optimization signals, which found Z3 soft-constraint tiering tractable for policy compliance checking when critical obligations remain hard constraints and repairable violations map to weighted penalties, consistent with the tractability classification developed here. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-17-policy-enforcement-formal-verification-energy-functions.html]
 
 **Risks, gaps, uncertainties:**
 
@@ -322,7 +322,7 @@ A plausible rival to the decomposition strategy is replacing explicit-state enum
 ### §7 Recursive Review
 
 ```text
-review_result: pass
+review_result: pass (after first-pass violation fixes)
 acronym_audit: passed
   - Temporal Logic of Actions (TLA+): expanded at first use in Sources
   - Boolean Satisfiability (SAT): expanded at first use in §2
@@ -332,15 +332,24 @@ acronym_audit: passed
   - Elastic Block Store (EBS): expanded at first use in §2
   - Register Transfer Language (RTL): expanded at first use in §2
   - FOL (first-order logic): expanded at first use in §2
-  - SMT (Satisfiability Modulo Theories): expanded at first use in §2
-  - SAT (Boolean satisfiability): expanded at first use in §2
   - Kodkod: proper name, no expansion needed
-  - TLC: not an abbreviation; used as proper name for the TLA+ model checker
+  - TLC: used as proper name for the TLA+ model checker
 claim_audit: all claims in §0-§6 carry [fact], [inference], or [assumption] labels
 parity_check: §6 and Findings aligned
-no_em_dashes: confirmed
+no_em_dashes: confirmed after first-pass fixes
 no_ai_slop: confirmed
 source_coverage: all Key Findings have Evidence Map rows with URL-backed sources
+violation_fixes:
+  - §2 Q3: added missing label to lasso-shaped witness detection sentence
+  - §3: added missing labels to opening Z notation sentence and two trailing unlabelled sentences
+  - §6/Findings KF 7: downgraded from [fact] high to [inference] medium; primary CACM source inaccessible
+  - §6/Findings KF 8: downgraded confidence from high to medium; single secondary source
+  - Findings Executive Summary: added [inference; source:] label to final closing sentence
+  - §6/Findings Analysis: removed superlative "most comprehensive" phrasing; rewrote to non-evaluative form
+  - Findings Key Findings: removed full-sentence bold from all 11 KFs
+  - Em-dashes: replaced all em-dashes document-wide with commas or colons
+  - Cross-reference: added integration of 2026-05-17-policy-enforcement-formal-verification-energy-functions findings into §6 and Findings Analysis
+  - Evidence Map: updated KF 7 and KF 8 rows to match downgraded confidence and labels
 ```
 
 ---
@@ -351,31 +360,31 @@ source_coverage: all Key Findings have Evidence Map rows with URL-backed sources
 
 ### Executive Summary
 
-Automated feasibility checking without human arbitration is tractable for bounded, finite-state constraint problems: Alloy handles relational structural invariants within declared scopes of 4 to 20 objects per signature, Temporal Logic of Actions (TLA+) handles design-level safety invariants for distributed protocols in finite-state models up to roughly 10^8 states, and Z notation restricted to finite domains or linear arithmetic can be automated via Satisfiability Modulo Theories (SMT) solvers. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html; https://www.cs.ox.ac.uk/publications/books/PJ/] Full feasibility checking across the Cartesian product of an enterprise delivery system's configuration variables is intractable without decomposition, because state-space explosion makes explicit enumeration infeasible and general first-order logic feasibility is undecidable. [inference; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf] The practical strategy confirmed by Amazon Web Services (AWS), Microsoft Azure, and Intel case studies is to decompose enterprise problems into bounded critical-protocol slices, verify those slices formally, and manage residual interdependencies through interface contracts rather than monolithic verification. [inference; source: https://foundation.tlapl.us/industry/index.html] Automated feasibility checking for enterprise delivery systems is therefore feasible at the module level but requires deliberate decomposition as a prerequisite.
+Automated feasibility checking without human arbitration is tractable for bounded, finite-state constraint problems: Alloy handles relational structural invariants within declared scopes of 4 to 20 objects per signature, Temporal Logic of Actions (TLA+) handles design-level safety invariants for distributed protocols in finite-state models up to roughly 10^8 states, and Z notation restricted to finite domains or linear arithmetic can be automated via Satisfiability Modulo Theories (SMT) solvers. [inference; source: https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html; https://www.cs.ox.ac.uk/publications/books/PJ/] Full feasibility checking across the Cartesian product of an enterprise delivery system's configuration variables is intractable without decomposition, because state-space explosion makes explicit enumeration infeasible and general first-order logic feasibility is undecidable. [inference; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf] The practical strategy confirmed by Amazon Web Services (AWS), Microsoft Azure, and Intel case studies is to decompose enterprise problems into bounded critical-protocol slices, verify those slices formally, and manage residual interdependencies through interface contracts rather than monolithic verification. [inference; source: https://foundation.tlapl.us/industry/index.html] Automated feasibility checking for enterprise delivery systems is therefore feasible at the module level but requires deliberate decomposition as a prerequisite. [inference; source: https://foundation.tlapl.us/industry/index.html; https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf]
 
 ### Key Findings
 
-1. **Z notation expresses interdependent inputs as schema predicates over typed variables, but feasibility checking is only fully automatable for decidable fragments such as finite domains and Presburger arithmetic (linear integer arithmetic); general first-order logic schemas require semi-automated theorem proving with human guidance.** ([inference]; medium confidence; source: https://www.cs.ox.ac.uk/publications/books/PJ/)
+1. Z notation expresses interdependent inputs as schema predicates over typed variables, but feasibility checking is only fully automatable for decidable fragments such as finite domains and Presburger arithmetic (linear integer arithmetic); general first-order logic schemas require semi-automated theorem proving with human guidance. ([inference]; medium confidence; source: https://www.cs.ox.ac.uk/publications/books/PJ/)
 
-2. **Alloy encodes relational constraint models as Boolean Satisfiability (SAT) instances via the Kodkod model finder, providing sound and complete feasibility checking within user-declared scopes that bound the maximum number of object instances per signature.** ([fact]; high confidence; source: https://mitpress.mit.edu/9780262017039/software-abstractions/)
+2. Alloy encodes relational constraint models as Boolean Satisfiability (SAT) instances via the Kodkod model finder, providing sound and complete feasibility checking within user-declared scopes that bound the maximum number of object instances per signature. ([fact]; high confidence; source: https://mitpress.mit.edu/9780262017039/software-abstractions/)
 
-3. **The small scope hypothesis (Jackson 2012) holds empirically: most specification errors surface at scope 4 to 6 instances per signature; scope 8 counterexamples exist but are rare and typically constructed rather than arising from practical models.** ([inference]; medium confidence; source: https://mitpress.mit.edu/9780262017039/software-abstractions/)
+3. The small scope hypothesis (Jackson 2012) holds empirically: most specification errors surface at scope 4 to 6 instances per signature; scope 8 counterexamples exist but are rare and typically constructed rather than arising from practical models. ([inference]; medium confidence; source: https://mitpress.mit.edu/9780262017039/software-abstractions/)
 
-4. **Alloy's practical scale limit for complex enterprise models is 10 to 20 objects per signature before SAT encoding size or solving time becomes prohibitive, making full enterprise constraint-matrix verification infeasible without decomposition into smaller modules.** ([inference]; medium confidence; source: https://alloytools.org/documentation.html)
+4. Alloy's practical scale limit for complex enterprise models is 10 to 20 objects per signature before SAT encoding size or solving time becomes prohibitive, making full enterprise constraint-matrix verification infeasible without decomposition into smaller modules. ([inference]; medium confidence; source: https://alloytools.org/documentation.html)
 
-5. **TLA+ expresses interdependencies through state invariants and action predicates; the TLC model checker provides decidable safety-property checking for finite-state models and scales to approximately 10^6 to 10^8 explicit states on commodity hardware, with distributed setups reaching billions of states.** ([inference]; medium confidence; source: https://foundation.tlapl.us/industry/index.html; https://lamport.azurewebsites.net/tla/book.html)
+5. TLA+ expresses interdependencies through state invariants and action predicates; the TLC model checker provides decidable safety-property checking for finite-state models and scales to approximately 10^6 to 10^8 explicit states on commodity hardware, with distributed setups reaching billions of states. ([inference]; medium confidence; source: https://foundation.tlapl.us/industry/index.html; https://lamport.azurewebsites.net/tla/book.html)
 
-6. **Liveness properties (properties asserting that something eventually happens) are undecidable in general for infinite-state TLA+ specifications because checking arbitrary liveness reduces to the halting problem; TLC supports liveness checking only for finite-state models via lasso-shaped witness detection.** ([fact]; high confidence; source: https://lamport.azurewebsites.net/tla/book.html)
+6. Liveness properties (properties asserting that something eventually happens) are undecidable in general for infinite-state TLA+ specifications because checking arbitrary liveness reduces to the halting problem; TLC supports liveness checking only for finite-state models via lasso-shaped witness detection. ([fact]; high confidence; source: https://lamport.azurewebsites.net/tla/book.html)
 
-7. **The AWS case study documented approximately ten subtle design bugs per distributed system found by TLA+ before any code was written, across services including S3 (Simple Storage Service), DynamoDB, and Elastic Block Store (EBS), confirming return on investment for design-level protocol verification at cloud scale.** ([fact]; high confidence; source: https://foundation.tlapl.us/industry/index.html)
+7. The AWS case study documented approximately ten subtle design bugs per distributed system found by TLA+ before any code was written, across services including S3 (Simple Storage Service), DynamoDB, and Elastic Block Store (EBS), confirming return on investment for design-level protocol verification at cloud scale. ([inference]; medium confidence; source: https://foundation.tlapl.us/industry/index.html)
 
-8. **All documented enterprise formal-methods successes share a common scope restriction: they model design-level protocol correctness for small, high-stakes distributed algorithms, not full enterprise constraint-matrix verification.** ([inference]; high confidence; source: https://foundation.tlapl.us/industry/index.html)
+8. All documented enterprise formal-methods successes share a common scope restriction: they model design-level protocol correctness for small, high-stakes distributed algorithms, not full enterprise constraint-matrix verification. ([inference]; medium confidence; source: https://foundation.tlapl.us/industry/index.html)
 
-9. **State-space explosion remains the primary practical barrier to formal-methods adoption at enterprise scale, confirmed by a 2023 survey of formal verification scalability; current mitigation strategies include abstraction, symmetry reduction, compositional reasoning, and partial-order reduction, but none eliminates the fundamental exponential growth.** ([fact]; high confidence; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf)
+9. State-space explosion remains the primary practical barrier to formal-methods adoption at enterprise scale, confirmed by a 2023 survey of formal verification scalability; current mitigation strategies include abstraction, symmetry reduction, compositional reasoning, and partial-order reduction, but none eliminates the fundamental exponential growth. ([fact]; high confidence; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf)
 
-10. **SMT solvers such as Z3 offer a practical middle ground between Alloy's bounded SAT checking and Z's undecidable general case: for quantifier-free constraint problems involving linear arithmetic over integers or reals, SMT provides complete automated feasibility checking with no explicit scope bound.** ([inference]; medium confidence; source: https://microsoft.github.io/z3guide/)
+10. SMT solvers such as Z3 offer a practical middle ground between Alloy's bounded SAT checking and Z's undecidable general case: for quantifier-free constraint problems involving linear arithmetic over integers or reals, SMT provides complete automated feasibility checking with no explicit scope bound. ([inference]; medium confidence; source: https://microsoft.github.io/z3guide/)
 
-11. **The tractable class of enterprise delivery constraint problem for automated feasibility checking is bounded finite-state problems with explicitly typed variable domains, constraint sets expressible as quantifier-free formulas or bounded relational models, and decomposition into modules of at most tens of entities each.** ([inference]; medium confidence; source: https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html; https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf)
+11. The tractable class of enterprise delivery constraint problem for automated feasibility checking is bounded finite-state problems with explicitly typed variable domains, constraint sets expressible as quantifier-free formulas or bounded relational models, and decomposition into modules of at most tens of entities each. ([inference]; medium confidence; source: https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html; https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf)
 
 ### Evidence Map
 
@@ -387,8 +396,8 @@ Automated feasibility checking without human arbitration is tractable for bounde
 | [inference] Alloy practical limit: 10 to 20 objects per signature for complex models | https://alloytools.org/documentation.html | medium | Derived from documented scale characteristics |
 | [inference] TLC checks safety decidably for finite-state models; scales to ~10^8 states | https://foundation.tlapl.us/industry/index.html; https://lamport.azurewebsites.net/tla/book.html | medium | Varies by model complexity |
 | [fact] TLA+ liveness undecidable for infinite-state systems | https://lamport.azurewebsites.net/tla/book.html | high | Reduces to halting problem |
-| [fact] AWS found ~10 design bugs per system using TLA+ before code was written | https://foundation.tlapl.us/industry/index.html | high | Consistent across multiple AWS engineers |
-| [inference] All enterprise cases scope to design-level protocol slices | https://foundation.tlapl.us/industry/index.html | high | AWS, Microsoft, Intel pattern consistent |
+| [inference] AWS found ~10 design bugs per system using TLA+ before code was written | https://foundation.tlapl.us/industry/index.html | medium | Primary CACM source inaccessible (HTTP 403); corroborated via TLA+ Foundation secondary page |
+| [inference] All enterprise cases scope to design-level protocol slices | https://foundation.tlapl.us/industry/index.html | medium | AWS, Microsoft, Intel pattern consistent; single secondary aggregation source |
 | [fact] State-space explosion is primary barrier (2023 survey) | https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf | high | Recent literature synthesis |
 | [inference] SMT provides complete checking for quantifier-free linear arithmetic | https://microsoft.github.io/z3guide/ | medium | No scope bound; narrower problem class |
 | [inference] Tractable class: bounded finite-state, typed, decomposed into small modules | https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html | medium | Synthesis from all three method characterisations |
@@ -402,11 +411,11 @@ Automated feasibility checking without human arbitration is tractable for bounde
 
 Z notation, Alloy, and TLA+ each occupy a distinct position on the expressiveness-decidability trade-off. Z notation is the most expressive but requires human-guided proof for general feasibility checking; Alloy sacrifices unbounded completeness for automated checking within bounded scope; TLA+ occupies a middle position for protocol safety (decidable and automatable for finite-state models) while sacrificing automated liveness checking for infinite-state systems. [inference; source: https://www.cs.ox.ac.uk/publications/books/PJ/; https://mitpress.mit.edu/9780262017039/software-abstractions/; https://lamport.azurewebsites.net/tla/book.html]
 
-The enterprise case studies are consistent: formal methods deliver value through scoped application to critical protocol slices, not monolithic verification. AWS's experience is the most comprehensive documented evidence base; it shows that design-level TLA+ is tractable and high-return, but requires skilled engineers and careful abstraction decisions. [inference; source: https://foundation.tlapl.us/industry/index.html]
+The enterprise case studies are consistent: formal methods deliver value through scoped application to critical protocol slices, not monolithic verification. AWS's published experience across S3, DynamoDB, EBS, and other services provides detailed public evidence for TLA+ at enterprise scale; it shows that design-level TLA+ is tractable and high-return, but requires skilled engineers and careful abstraction decisions. [inference; source: https://foundation.tlapl.us/industry/index.html]
 
 The gap between "tractable for a bounded module" and "tractable for an enterprise delivery system" is bridged only by decomposition. If the constraint problem can be factored into modules with bounded interfaces, each module is verifiable independently. If the constraint matrix cannot be decomposed because all variables are globally coupled, no current formal method scales to automated feasibility checking without human arbitration at each decomposition boundary. [inference; source: https://thesai.org/Downloads/Volume16No9/Paper_82-Scalable_Formal_Verification_of_Modular_Concurrent_Systems.pdf; https://foundation.tlapl.us/industry/index.html]
 
-A plausible rival to decomposition is symbolic model checking or SMT-based constraint solving, which handles larger state spaces than explicit TLC enumeration. For delivery system constraint problems that map to quantifier-free linear arithmetic (checking whether integer-valued feature flags satisfy linear constraints), Z3 or CVC5 can be applied without scope bounds. The limit of this approach is that it covers a narrower problem class than Alloy or TLA+: pure constraint satisfaction without temporal or behavioural properties is supported; reasoning about sequences of actions or distributed consistency is not. [inference; source: https://microsoft.github.io/z3guide/]
+A plausible rival to decomposition is symbolic model checking or SMT-based constraint solving, which handles larger state spaces than explicit TLC enumeration. For delivery system constraint problems that map to quantifier-free linear arithmetic (checking whether integer-valued feature flags satisfy linear constraints), Z3 or CVC5 can be applied without scope bounds. The limit of this approach is that it covers a narrower problem class than Alloy or TLA+: pure constraint satisfaction without temporal or behavioural properties is supported; reasoning about sequences of actions or distributed consistency is not. [inference; source: https://microsoft.github.io/z3guide/] The completed companion item on policy enforcement and formal verification as optimization signals corroborates this: Z3 soft-constraint tiering was found tractable for policy compliance checking when critical obligations remain hard constraints and repairable violations map to weighted penalties, extending the tractability classification developed here to policy-enforcement contexts. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-17-policy-enforcement-formal-verification-energy-functions.html]
 
 ### Risks, Gaps, and Uncertainties
 
