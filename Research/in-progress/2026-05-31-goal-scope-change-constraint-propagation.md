@@ -194,7 +194,7 @@ Failed primary-source search note: Searched for arXiv preprints and DOIs providi
 
 The Gotel and Finkelstein (1994) study documented industrial cases where requirements changed without propagation to downstream artifacts, leading to defect escapes and rework. The canonical example in their analysis is a constraint that governed a system boundary condition remaining unchanged in the model while the goal it served was redefined. The constraint then either over-restricted the redesigned goal (causing unnecessary rejections) or under-restricted it (allowing violations to pass validation undetected). [fact; source: https://dl.acm.org/doi/10.1109/ICRE.1994.292997]
 
-Nuseibeh and Easterbrook (2000) identified requirements change management and constraint propagation as two of the most pressing unsolved problems in requirements engineering as of 2000, confirming that the propagation gap was not a minority observation but a structural characteristic of the field. [fact; source: https://dl.acm.org/doi/10.1145/336512.336523]
+Nuseibeh and Easterbrook (2000) identified requirements change management and constraint propagation as two of the most pressing unsolved problems in requirements engineering as of 2000, confirming that the propagation gap was not a minority observation but a structural characteristic of the field. [inference; source: https://dl.acm.org/doi/10.1145/336512.336523]
 
 ### §3 Reasoning
 
@@ -263,7 +263,7 @@ No existing Model-Based Requirements Engineering (MBRE) framework or industrial 
 
 5. **Mäder and Gotel (2012) found empirically that manual traceability maintenance in evolving systems produces persistent stale trace links across multiple release cycles, confirming that the propagation gap is not transient but structural.** ([fact]; high confidence; source: https://doi.org/10.1007/s00766-011-0135-3)
 
-6. **Cleland-Huang et al.'s (2003) event-based traceability approach is the most automated available mechanism: change events trigger rule-based notifications to stakeholders holding impacted trace links, but the approach still requires analyst validation and does not achieve 100% recall.** ([fact]; high confidence; source: https://doi.org/10.1109/TSE.2003.1232285)
+6. **Cleland-Huang et al.'s (2003) event-based traceability approach is the most automated available mechanism: change events trigger rule-based notifications to stakeholders holding impacted trace links, but the approach still requires analyst validation and does not achieve 100% recall.** ([inference]; high confidence; source: https://doi.org/10.1109/TSE.2003.1232285)
 
 7. **Scope expansion is structurally harder to handle than scope narrowing: a narrowed goal may leave orphaned constraints detectable by link inspection, but an expanded goal implies new constraints that have no trace link yet and are invisible to any link-traversal algorithm.** ([inference]; medium confidence; source: https://dl.acm.org/doi/10.1109/ICRE.1994.292997)
 
@@ -298,11 +298,11 @@ No existing Model-Based Requirements Engineering (MBRE) framework or industrial 
 
 **Analysis:**
 
-The evidence converges on a single structural finding: constraint re-enumeration in MBRE frameworks requires a human trigger because the computation required for completeness exceeds what model structure alone can supply.
+The evidence converges on a single structural finding: constraint re-enumeration in MBRE frameworks requires a human trigger because the computation required for completeness exceeds what model structure alone can supply. [inference; source: https://doi.org/10.1007/s00766-011-0135-3; https://doi.org/10.1109/TSE.2003.1232285]
 
 The progression from SysML v1 to SysML v2 illustrates this clearly. SysML v1 provides traceability links that a human must inspect on demand. SysML v2 adds event subscription so the tool can notify the human when an inspection is warranted. Neither eliminates the human decision. The event-based approach of Cleland-Huang et al. (2003) extends this by making the notification more timely and systematic, but the analyst still confirms or rejects each flagged impact. [inference; source: https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/; https://doi.org/10.1109/TSE.2003.1232285]
 
-The scope-expansion case is worse than the scope-narrowing case and deserves a separate design response. For scope narrowing, existing links that now apply to removed scope can be detected and either retired or flagged as orphaned. For scope expansion, the model contains no information about what constraints the new scope requires. The only way to address this is through domain-specific constraint generation rules keyed to goal categories (for example, "if a goal now includes personal data, enumerate GDPR (General Data Protection Regulation) constraints"), or through mandatory human review keyed to scope change magnitude. [inference; source: https://dl.acm.org/doi/10.1109/ICRE.1994.292997; https://doi.org/10.1007/s00766-011-0135-3]
+The scope-expansion case is worse than the scope-narrowing case and deserves a separate design response. For scope narrowing, existing links that now apply to removed scope can be detected and either retired or flagged as orphaned. For scope expansion, the model contains no information about what constraints the new scope requires. The only way to address this is through domain-specific constraint generation rules keyed to goal categories (for example, "if a goal now includes personal data, enumerate General Data Protection Regulation (GDPR) constraints"), or through mandatory human review keyed to scope change magnitude. [inference; source: https://dl.acm.org/doi/10.1109/ICRE.1994.292997; https://doi.org/10.1007/s00766-011-0135-3]
 
 Mäder and Gotel's (2012) empirical finding that stale links persist across release cycles in practice confirms that even the partial automation available in SysML v1 tools is not routinely used. The organisational finding from Gotel and Finkelstein (1994) that no one owns traceability maintenance remains the most important practical constraint: tools can provide automation only if the automation is triggered, and it is not triggered if no role is assigned to trigger it. [inference; source: https://doi.org/10.1007/s00766-011-0135-3; https://dl.acm.org/doi/10.1109/ICRE.1994.292997]
 
@@ -368,7 +368,7 @@ No existing Model-Based Requirements Engineering (MBRE) framework or industrial 
 
 5. **Mäder and Gotel (2012) found empirically that manual traceability maintenance in evolving systems produces persistent stale trace links across multiple release cycles, confirming that the propagation gap is structural rather than transient.** ([fact]; high confidence; source: https://doi.org/10.1007/s00766-011-0135-3)
 
-6. **Cleland-Huang, Settimi, and Berenbach's (2003) event-based traceability approach represents the most automated available mechanism, triggering rule-based notifications on change events, but it still requires analyst validation and does not achieve 100% recall in documented evaluations.** ([fact]; high confidence; source: https://doi.org/10.1109/TSE.2003.1232285)
+6. **Cleland-Huang, Settimi, and Berenbach's (2003) event-based traceability approach represents the most automated available mechanism, triggering rule-based notifications on change events, but it still requires analyst validation and does not achieve 100% recall in documented evaluations.** ([inference]; high confidence; source: https://doi.org/10.1109/TSE.2003.1232285)
 
 7. **Scope expansion is structurally harder than scope narrowing for constraint propagation: a narrowed goal may leave orphaned constraints detectable by link inspection, but an expanded goal implies new constraints that have no trace link and are invisible to any link-traversal algorithm.** ([inference]; medium confidence; source: https://dl.acm.org/doi/10.1109/ICRE.1994.292997)
 
@@ -403,7 +403,7 @@ No existing Model-Based Requirements Engineering (MBRE) framework or industrial 
 
 ### Analysis
 
-The evidence converges on a single structural finding: constraint re-enumeration in MBRE frameworks requires a human trigger because completeness exceeds what model structure alone can supply.
+The evidence converges on a single structural finding: constraint re-enumeration in MBRE frameworks requires a human trigger because completeness exceeds what model structure alone can supply. [inference; source: https://doi.org/10.1007/s00766-011-0135-3; https://doi.org/10.1109/TSE.2003.1232285]
 
 The progression from SysML v1 to SysML v2 illustrates the automation ceiling. SysML v1 provides traceability links that a human must inspect on demand. SysML v2 adds event subscription so the tool can notify the human when an inspection is warranted. Neither eliminates the human decision about whether those constraints remain valid or what new constraints should be added. The event-based approach of Cleland-Huang et al. (2003) extends this by making the notification more timely and systematic, but the analyst still confirms or rejects each flagged impact. [inference; source: https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/; https://doi.org/10.1109/TSE.2003.1232285]
 
