@@ -1,6 +1,96 @@
 {
-  "extracted_at": "2026-06-01T14:03:51Z",
+  "extracted_at": "2026-06-01T14:47:59Z",
   "items": {
+    "2026-05-31-goal-specification-completeness-schema": {
+      "named_concepts": [
+        "success criterion",
+        "human-mediated schemas",
+        "human arbitration",
+        "four schemas",
+        "goal schema",
+        "gore kaos",
+        "five-field minimum",
+        "goal specification",
+        "five minimum",
+        "intent statement",
+        "five fields",
+        "kaos togaf",
+        "togaf archimate",
+        "archimate ieee",
+        "degraded mode",
+        "automated contradiction",
+        "contradiction resolution",
+        "cross-schema minimum",
+        "missing success",
+        "severe absent"
+      ],
+      "source_urls": [
+        "https://www.wiley.com/en-gb/Requirements+Engineering%3A+From+System+Goals+to+UML+Models+to+Software+Specifications-p-9780470012703",
+        "https://pubs.opengroup.org/architecture/togaf9-doc/arch/chap08.html",
+        "https://standards.ieee.org/ieee/29148/6696/",
+        "https://aima.cs.berkeley.edu/"
+      ],
+      "key_claims": [
+        {
+          "text": "The cross-schema minimum Goal schema contains five fields: intent statement, initial or context conditions, success criterion, unique identity, and scope boundary -- all of which appear in equivalent form across GORE/KAOS, TOGAF/ArchiMate, IEEE 29148, and PDDL",
+          "sources": [
+            "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb",
+            "https://standards.ieee.org/ieee/29148/6696/",
+            "https://planning.wiki/ref/pddl/problem",
+            "https://pubs.opengroup.org/architecture/archimate32-doc/chap04.html"
+          ]
+        },
+        {
+          "text": "A sixth field -- agent or responsibility assignment -- is mandatory in GORE/KAOS for leaf goals and recommended in IEEE 29148, but is not a required goal-level attribute in PDDL or ArchiMate, making it consensus-strong but not universal across all four schemas",
+          "sources": [
+            "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb",
+            "https://standards.ieee.org/ieee/29148/6696/"
+          ]
+        },
+        {
+          "text": "Automated planning schemas (PDDL) enforce a hard-error model: a missing :goal block or an undeclared predicate in the planning domain causes an immediate parse error and the planner refuses to execute any plan",
+          "sources": [
+            "https://planning.wiki/ref/pddl/problem",
+            "https://github.com/KCL-Planning/VAL"
+          ]
+        },
+        {
+          "text": "Human-mediated schemas (KAOS, IEEE 29148, ArchiMate) use a degraded-mode model: an incomplete specification is flagged but the system continues processing other goals, allowing partial models to exist and authoring workflows to proceed",
+          "sources": [
+            "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb",
+            "https://standards.ieee.org/ieee/29148/6696/"
+          ]
+        },
+        {
+          "text": "A missing success criterion is the most operationally severe absent field: without it no schema can verify plan completion, and automated planners halt while human-mediated schemas leave the goal permanently in an unverifiable state",
+          "sources": [
+            "https://planning.wiki/ref/pddl/problem",
+            "https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/"
+          ]
+        },
+        {
+          "text": "KAOS explicitly models contradictions between goals using obstacle analysis and conflict links, making contradiction detection a designed feature of the KAOS specification tooling rather than an ad-hoc check",
+          "sources": [
+            "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb"
+          ]
+        },
+        {
+          "text": "PDDL detects contradictory goals through planning search: a :goal conjunction of mutually exclusive predicates is syntactically valid but returns UNSOLVABLE at plan-search time, meaning the contradiction is not caught until execution is attempted",
+          "sources": [
+            "https://planning.wiki/ref/pddl/problem",
+            "https://github.com/KCL-Planning/VAL"
+          ]
+        },
+        {
+          "text": "No schema surveyed provides automated contradiction resolution; the consistent escalation path across all four schemas is to detect the contradiction, identify the conflicting fields, and require human arbitration before the specification can be acted on",
+          "sources": [
+            "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb",
+            "https://standards.ieee.org/ieee/29148/6696/",
+            "https://planning.wiki/ref/pddl/problem"
+          ]
+        }
+      ]
+    },
     "2026-05-31-goal-scope-change-constraint-propagation": {
       "named_concepts": [
         "sysml v1",
