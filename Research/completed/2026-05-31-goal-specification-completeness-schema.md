@@ -2,12 +2,12 @@
 review_count: 2
 title: "Goal specification: minimum schema and completeness validation"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [formal-methods, software-engineering, governance-policy]
 started: 2026-06-01T13:48:43+00:00
-completed: ~
+completed: 2026-06-01T14:43:54+00:00
 output: [knowledge]
 cites:
   - 2026-05-31-formal-methods-interdependent-inputs-feasibility
