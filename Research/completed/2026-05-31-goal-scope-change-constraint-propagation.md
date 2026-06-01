@@ -2,12 +2,12 @@
 review_count: 2
 title: "Model-based requirements engineering: goal scope change propagation to constraints"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [software-engineering, formal-methods, governance-policy]
 started: 2026-06-01T12:45:15+00:00
-completed: ~
+completed: 2026-06-01T13:32:33+00:00
 output: [knowledge]
 cites:
   - 2026-05-31-formal-methods-interdependent-inputs-feasibility
@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b6450fc4
+    changed: 2026-06-01
+    progress: progress/2026-06-01-goal-scope-change-constraint-propagation.md
+    summary: "Initial completion"
 ---
 
 # Model-based requirements engineering: goal scope change propagation to constraints
