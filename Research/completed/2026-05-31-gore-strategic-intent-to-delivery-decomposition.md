@@ -2,12 +2,12 @@
 review_count: 2
 title: "GORE: translating strategic intent to scoped delivery objectives"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [formal-methods, software-engineering, governance-policy]
 started: 2026-06-01T14:47:11+00:00
-completed: ~
+completed: 2026-06-01T15:43:29+00:00
 output: [knowledge]
 cites:
   - 2026-05-31-goal-specification-completeness-schema
