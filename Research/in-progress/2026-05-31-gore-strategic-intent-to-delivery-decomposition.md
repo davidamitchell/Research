@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "GORE: translating strategic intent to scoped delivery objectives"
 added: 2026-05-31T09:42:57+00:00
 status: reviewing
