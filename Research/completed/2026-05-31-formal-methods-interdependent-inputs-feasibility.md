@@ -2,12 +2,12 @@
 review_count: 2
 title: "Formal methods: specifying interdependent inputs for automated feasibility checking"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [formal-methods, enterprise-adoption, software-engineering]
 started: 2026-05-31T22:39:11+00:00
-completed: ~
+completed: 2026-06-01T11:51:03+00:00
 output: [knowledge]
 cites:
   - 2026-03-10-formal-spec-intent-alignment-agentic-coding
