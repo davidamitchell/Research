@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "SRE: establishing SLOs as contractual capability boundaries"
 added: 2026-05-31T09:42:57+00:00
 status: reviewing
