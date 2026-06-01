@@ -1,6 +1,96 @@
 {
-  "extracted_at": "2026-06-01T12:58:09Z",
+  "extracted_at": "2026-06-01T13:37:09Z",
   "items": {
+    "2026-05-31-goal-scope-change-constraint-propagation": {
+      "named_concepts": [
+        "sysml v1",
+        "sysml v2",
+        "scope expansion",
+        "constraint re-enumeration",
+        "impact flagging",
+        "release cycles",
+        "human review",
+        "goal scope",
+        "trace link",
+        "traceability maintenance",
+        "stale-link detection",
+        "completeness checking",
+        "industrial tool",
+        "automatic constraint",
+        "static model",
+        "model assertions",
+        "event-triggered impact",
+        "domain knowledge",
+        "scope change",
+        "modified goal"
+      ],
+      "source_urls": [
+        "https://www.elsevier.com/books/a-practical-guide-to-sysml/friedenthal/978-0-12-800202-1",
+        "https://www.wiley.com/en-gb/Requirements+Engineering%3A+From+System+Goals+to+UML+Models+to+Software+Specifications-p-9780470012703",
+        "https://dl.acm.org/doi/10.1145/336512.336523",
+        "https://ieeexplore.ieee.org/document/1048533",
+        "https://doi.org/10.1007/s00766-011-0135-3",
+        "https://dl.acm.org/doi/10.1109/ICRE.1994.292997",
+        "https://doi.org/10.1109/TSE.2003.1232285",
+        "https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/",
+        "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb",
+        "https://se.cs.toronto.edu/istar/istar-tools/",
+        "https://davidamitchell.github.io/Research/research/2026-05-31-formal-methods-interdependent-inputs-feasibility.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-31-goal-constraint-feedback-convergence-vs-cycling.html"
+      ],
+      "key_claims": [
+        {
+          "text": "SysML v1 constraint-satisfaction links are static model assertions: no automatic re-check occurs after a goal scope change and the analyst must manually invoke impact analysis to identify affected constraints",
+          "sources": [
+            "https://www.omg.org/spec/SysML/1.6/PDF"
+          ]
+        },
+        {
+          "text": "SysML v2's digital-thread `satisfy` construct adds event-triggered impact flagging that identifies which linked design elements and constraints are affected when a requirement changes, reducing manual discovery effort for constraints with existing trace links",
+          "sources": [
+            "https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/",
+            "https://www.omg.org/spec/SysML/"
+          ]
+        },
+        {
+          "text": "SysML v2's impact flagging addresses stale-link detection but not completeness: constraints with no pre-existing trace link to the modified goal are not surfaced, so scope expansion can introduce a set of new applicable constraints that the model cannot identify without human domain knowledge",
+          "sources": [
+            "https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/"
+          ]
+        },
+        {
+          "text": "KAOS obstacle analysis and the Objectiver tool notify the analyst of potentially affected goals and obstacles after a model change, but new constraint derivation is not automated; the analyst must manually re-run obstacle analysis for the modified goal scope",
+          "sources": [
+            "https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb"
+          ]
+        },
+        {
+          "text": "Mäder and Gotel (2012) found empirically that manual traceability maintenance in evolving systems produces persistent stale trace links across multiple release cycles, confirming that the propagation gap is structural rather than transient",
+          "sources": [
+            "https://doi.org/10.1007/s00766-011-0135-3"
+          ]
+        },
+        {
+          "text": "Cleland-Huang, Settimi, and Berenbach's (2003) event-based traceability approach represents the most automated available mechanism, triggering rule-based notifications on change events, but it still requires analyst validation and does not achieve 100% recall in documented evaluations",
+          "sources": [
+            "https://doi.org/10.1109/TSE.2003.1232285"
+          ]
+        },
+        {
+          "text": "Scope expansion is structurally harder than scope narrowing for constraint propagation: a narrowed goal may leave orphaned constraints detectable by link inspection, but an expanded goal implies new constraints that have no trace link and are invisible to any link-traversal algorithm",
+          "sources": [
+            "https://dl.acm.org/doi/10.1109/ICRE.1994.292997"
+          ]
+        },
+        {
+          "text": "An automated goal-constraint validation system must treat stale-link detection and completeness checking as two separate sub-problems: stale-link detection is automatable via change-timestamp comparison and link inspection; completeness checking after scope expansion requires domain-specific generation rules or a mandatory human review gate",
+          "sources": [
+            "https://doi.org/10.1007/s00766-011-0135-3",
+            "https://doi.org/10.1109/TSE.2007.70716"
+          ]
+        }
+      ]
+    },
     "2026-05-31-goal-constraint-feedback-convergence-vs-cycling": {
       "named_concepts": [
         "gain condition",
