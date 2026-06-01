@@ -18,7 +18,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: de56966f
+    changed: 2026-06-01
+    progress: progress/2026-06-01-gore-strategic-intent-to-delivery-decomposition.md
+    summary: "Initial completion"
 ---
 
 # GORE: translating strategic intent to scoped delivery objectives
