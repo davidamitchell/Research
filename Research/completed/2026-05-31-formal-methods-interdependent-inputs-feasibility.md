@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: d9f9f2d0f32486fa0b565245bb93cf4b8aae6a1b
+    changed: 2026-06-01
+    progress: progress/2026-06-01-formal-methods-interdependent-inputs-feasibility.md
+    summary: "Initial completion"
 ---
 
 # Formal methods: specifying interdependent inputs for automated feasibility checking
