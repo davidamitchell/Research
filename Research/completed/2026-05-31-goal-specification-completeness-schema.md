@@ -20,7 +20,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 46754dc10254f7700522ea7bb76269d43460618b
+    changed: 2026-06-01
+    progress: progress/2026-06-01-goal-specification-completeness-schema.md
+    summary: "Initial completion"
 ---
 
 # Goal specification: minimum schema and completeness validation
