@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Model-based requirements engineering: goal scope change propagation to constraints"
 added: 2026-05-31T09:42:57+00:00
 status: reviewing
