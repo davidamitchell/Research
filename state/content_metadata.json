@@ -1,6 +1,91 @@
 {
-  "extracted_at": "2026-05-31T22:48:58Z",
+  "extracted_at": "2026-06-01T11:54:17Z",
   "items": {
+    "2026-05-31-formal-methods-interdependent-inputs-feasibility": {
+      "named_concepts": [
+        "feasibility checking",
+        "enterprise delivery",
+        "delivery system",
+        "automated feasibility",
+        "per signature",
+        "finite-state models",
+        "linear arithmetic",
+        "human arbitration",
+        "constraint problems",
+        "delivery systems",
+        "bounded finite-state",
+        "objects per",
+        "state-space explosion",
+        "scope hypothesis",
+        "case study",
+        "design-level protocol",
+        "formal verification",
+        "delivery constraint",
+        "quantifier-free linear",
+        "problem class"
+      ],
+      "source_urls": [
+        "https://www.cs.ox.ac.uk/publications/books/PJ/",
+        "https://mitpress.mit.edu/9780262017039/software-abstractions/",
+        "https://lamport.azurewebsites.net/tla/book.html",
+        "https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext",
+        "https://foundation.tlapl.us/industry/index.html",
+        "https://alloytools.org/documentation.html",
+        "https://alloytools.org/"
+      ],
+      "key_claims": [
+        {
+          "text": "Z notation expresses interdependent inputs as schema predicates over typed variables, but feasibility checking is only fully automatable for decidable fragments such as finite domains and Presburger arithmetic (linear integer arithmetic); general first-order logic schemas require semi-automated theorem proving with human guidance",
+          "sources": [
+            "https://www.cs.ox.ac.uk/publications/books/PJ/"
+          ]
+        },
+        {
+          "text": "Alloy encodes relational constraint models as Boolean Satisfiability (SAT) instances via the Kodkod model finder, providing sound and complete feasibility checking within user-declared scopes that bound the maximum number of object instances per signature",
+          "sources": [
+            "https://mitpress.mit.edu/9780262017039/software-abstractions/",
+            "https://alloytools.org/documentation.html"
+          ]
+        },
+        {
+          "text": "The small scope hypothesis (Jackson 2012) holds empirically: most specification errors surface at scope 4 to 6 instances per signature; scope 8 counterexamples exist but are rare and typically constructed rather than arising from practical models",
+          "sources": [
+            "https://mitpress.mit.edu/9780262017039/software-abstractions/"
+          ]
+        },
+        {
+          "text": "Alloy's practical scale limit for complex enterprise models is 10 to 20 objects per signature before SAT encoding size or solving time becomes prohibitive, making full enterprise constraint-matrix verification infeasible without decomposition into smaller modules",
+          "sources": [
+            "https://alloytools.org/documentation.html"
+          ]
+        },
+        {
+          "text": "TLA+ expresses interdependencies through state invariants and action predicates; the TLC model checker provides decidable safety-property checking for finite-state models and scales to approximately 10^6 to 10^8 explicit states on commodity hardware, with distributed setups reaching billions of states",
+          "sources": [
+            "https://foundation.tlapl.us/industry/index.html",
+            "https://lamport.azurewebsites.net/tla/book.html"
+          ]
+        },
+        {
+          "text": "Liveness properties (properties asserting that something eventually happens) are undecidable in general for infinite-state TLA+ specifications because checking arbitrary liveness reduces to the halting problem; TLC supports liveness checking only for finite-state models via lasso-shaped witness detection",
+          "sources": [
+            "https://lamport.azurewebsites.net/tla/book.html"
+          ]
+        },
+        {
+          "text": "The AWS case study documented approximately ten subtle design bugs per distributed system found by TLA+ before any code was written, across services including S3 (Simple Storage Service), DynamoDB, and Elastic Block Store (EBS), confirming return on investment for design-level protocol verification at cloud scale",
+          "sources": [
+            "https://foundation.tlapl.us/industry/index.html"
+          ]
+        },
+        {
+          "text": "All documented enterprise formal-methods successes share a common scope restriction: they model design-level protocol correctness for small, high-stakes distributed algorithms, not full enterprise constraint-matrix verification",
+          "sources": [
+            "https://foundation.tlapl.us/industry/index.html"
+          ]
+        }
+      ]
+    },
     "2026-05-31-capability-claim-telemetry-conflict-arbitration": {
       "named_concepts": [
         "telemetry override",
