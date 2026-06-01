@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Goal specification: minimum schema and completeness validation"
 added: 2026-05-31T09:42:57+00:00
 status: reviewing
