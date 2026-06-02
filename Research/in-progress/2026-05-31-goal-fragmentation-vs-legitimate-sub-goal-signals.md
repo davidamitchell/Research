@@ -57,13 +57,13 @@ Deliberate or accidental goal fragmentation is a recurring dysfunction in delive
 
 ## Sources
 
-- [x] [Van Lamsweerde et al. (2001) Handling Obstacles in Goal-Oriented Requirements Engineering](https://doi.org/10.1109/ISRE.2001.948567) — KAOS AND-refinement completeness and bidirectional entailment requirement
-- [x] [Wake (2003) INVEST in Good Stories, and SMART Tasks](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/) — INVEST criteria; horizontal slicing as anti-pattern; "Valuable" and "Testable" signals
+- [x] [Van Lamsweerde et al. (2001) Handling Obstacles in Goal-Oriented Requirements Engineering](https://doi.org/10.1109/ISRE.2001.948567) — Knowledge Acquisition in Automated Specification (KAOS) AND-refinement completeness and bidirectional entailment requirement
+- [x] [Wake (2003) INVEST in Good Stories, and SMART Tasks](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/) — Independent, Negotiable, Valuable, Estimable, Small, Testable (INVEST) criteria; horizontal slicing as anti-pattern; "Valuable" and "Testable" signals
 - [x] [Agile Alliance (2023) INVEST Glossary](https://www.agilealliance.org/glossary/invest/) — canonical definition of INVEST criteria
-- [x] [Pinsent Masons (2023) Bridge ruling — warning for English planning applications](https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications) — EIA Ashchurch ruling; functional interdependence test; three-part salami-slicing detection framework
-- [x] [planning.wiki PDDL Problem Reference](https://planning.wiki/ref/pddl/problem) — Planning Domain Definition Language goal block; mutual precondition chains
+- [x] [Pinsent Masons (2023) Bridge ruling — warning for English planning applications](https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications) — Environmental Impact Assessment (EIA) Ashchurch ruling; functional interdependence test; three-part salami-slicing detection framework
+- [x] [planning.wiki PDDL Problem Reference](https://planning.wiki/ref/pddl/problem) — Planning Domain Definition Language (PDDL) goal block; mutual precondition chains
 - [x] [Reinertsen (2009) The Principles of Product Development Flow](https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009) — batch-size and scope fragmentation; secondary access only
-- [x] [AXELOS Managing Successful Programmes (MSP)](https://www.axelos.com/certifications/propath/managing-successful-programmes-msp) — Benefit Dependency Network orphaned-node concept; product page access only
+- [x] [AXELOS Managing Successful Programmes (MSP)](https://www.axelos.com/certifications/propath/managing-successful-programmes-msp) — Benefit Dependency Network (BDN) orphaned-node concept; product page access only
 - [x] [Firesmith (2004) Specifying Reusable Security Requirements](https://www.jot.fm/issues/issue_2004_01/column6.pdf) — goal granularity and scope-coherence; PDF retrieved as binary only
 - [x] [Yu (1997) Towards Modelling and Reasoning Support for Early-Phase Requirements Engineering](https://doi.org/10.1109/ISRE.1997.582369) — i-star means-end links; structural orphan in strategic dependency models
 
@@ -152,8 +152,9 @@ The research question decomposes into five atomic clusters:
 **Cluster A — Conceptual distinction**
 - A1: What is the established definition of salami-slicing in requirements engineering
   and programme governance?
-- A2: What structural properties define a legitimately scoped sub-goal in formal GORE
-  frameworks (KAOS, i-star)?
+- A2: What structural properties define a legitimately scoped sub-goal in formal
+  Goal-Oriented Requirements Engineering (GORE) frameworks (Knowledge Acquisition in
+  Automated Specification (KAOS), i-star)?
 - A3: What is the boundary condition between "principled decomposition" and "artificial
   fragmentation"?
 
@@ -168,7 +169,8 @@ The research question decomposes into five atomic clusters:
 
 **Cluster C — Semantic signals**
 - C1: Is outcome-realisability-in-isolation a meaningful semantic distinction?
-- C2: Does the INVEST "Valuable" and "Independent" criteria in product management provide
+- C2: Does the Independent, Negotiable, Valuable, Estimable, Small, Testable (INVEST)
+  "Valuable" and "Independent" criteria in product management provide
   a documented semantic test?
 - C3: Are there semantic signals from goal granularity and scope-coherence theory
   (Firesmith 2004)?
