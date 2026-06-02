@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Enterprise software pricing concessions, switching costs, and exit leverage"
 added: 2026-05-30T21:51:23+00:00
 status: reviewing
