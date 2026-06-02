@@ -2,12 +2,12 @@
 review_count: 2
 title: "Enterprise software pricing concessions, switching costs, and exit leverage"
 added: 2026-05-30T21:51:23+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [enterprise-adoption, cost-performance, governance-policy, software-engineering]
 started: 2026-06-02T11:29:22+00:00
-completed: ~
+completed: 2026-06-02T12:15:51+00:00
 output: [knowledge]
 cites: [transaction-costs, financial-forecasting-it-run-costs, vendor-platform-governance-constraints-compensating-controls]
 related: [transaction-costs, financial-forecasting-it-run-costs, vendor-platform-governance-constraints-compensating-controls]
