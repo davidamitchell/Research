@@ -117,7 +117,7 @@ The process requires stakeholder agreement across three roles: product managers 
 
 **B1-B3: Evidence types for threshold selection**
 
-The SRE book states: "Start by thinking about (or finding out!) what your users care about, not what you can measure." [fact; source: https://sre.google/sre-book/service-level-objectives/] This positions user-experience evidence as the primary input, with measurable proxies as implementation compromises.
+The SRE book states: "Start by thinking about (or finding out!) what your users care about, not what you can measure." [fact; source: https://sre.google/sre-book/service-level-objectives/] This positions user-experience evidence as the primary input, with measurable proxies as implementation compromises. [inference; source: https://sre.google/sre-book/service-level-objectives/]
 
 Three evidence types are described: (i) historical telemetry from production systems (the most accessible first-pass input); (ii) user experience data, which is described as the ideal starting point but difficult to measure; (iii) business negotiation, as product managers and product developers must agree the threshold is appropriate for users and achievable in production. [fact; source: https://sre.google/workbook/implementing-slos/]
 
@@ -125,7 +125,7 @@ The SRE book explicitly warns against basing SLOs solely on current performance:
 
 No evidence type is specified as strictly required in a mandatory technical sense; the three-party stakeholder agreement process is the procedural requirement. [inference; source: https://sre.google/workbook/implementing-slos/]
 
-The Evernote case study describes setting an initial SLO at 99.95% "based upon discussions with our internal customer support and product teams and, more importantly, user feedback," using uptime as the simplest available proxy, demonstrating that practitioner implementations typically rely primarily on negotiation supplemented by available telemetry. [fact; source: https://sre.google/workbook/slo-engineering-case-studies/]
+The Evernote case study describes setting an initial SLO at 99.95% "based upon discussions with our internal customer support and product teams and, more importantly, user feedback," using uptime as the simplest available proxy, illustrating that at least one practitioner implementation began with negotiation supplemented by available telemetry rather than rigorous user-impact studies. [inference; source: https://sre.google/workbook/slo-engineering-case-studies/]
 
 **C1-C3: Error budget as quantified capability boundary**
 
@@ -147,7 +147,7 @@ The SRE book documents the Chubby global planned outage as a case where absence 
 
 The SRE book notes that aspirational SLOs "can result in wasted work if a team uses heroic efforts to meet an overly aggressive SLO, or a bad product if the SLO is too lax." [fact; source: https://sre.google/sre-book/service-level-objectives/]
 
-The risk tolerance chapter in the SRE book documents Google's practice of aligning YouTube's SLO with its business lifecycle stage, setting a lower availability target during rapid growth because "rapid feature development was correspondingly more important." Purely aspirational SLOs misaligned with business context impose unnecessary constraints, as this case illustrates. [fact; source: https://sre.google/sre-book/embracing-risk/]
+The risk tolerance chapter in the SRE book documents Google's practice of aligning YouTube's SLO with its business lifecycle stage, setting a lower availability target during rapid growth because "rapid feature development was correspondingly more important." Purely aspirational SLOs misaligned with business context impose unnecessary constraints, as this case illustrates. [inference; source: https://sre.google/sre-book/embracing-risk/]
 
 **E1-E2: SLO as contractual boundary vs. observed average**
 
@@ -188,11 +188,11 @@ scope_guardrail: maintained; SLA legal enforceability, vendor tooling comparison
 
 **Technical lens:** The SRE model treats SLI measurement implementation as a reliability concern in its own right. A single SLI specification can have multiple implementations with different accuracy and coverage trade-offs. The choice of SLI implementation affects how faithfully the SLO boundary represents the user experience, meaning the threshold can be evidence-backed but the measurement proxy can still under-represent actual user impact. [inference; source: https://sre.google/workbook/implementing-slos/]
 
-**Regulatory/governance lens:** The Google SRE embracing-risk chapter describes a cost/benefit framework for setting the availability target: for a service with $1M revenue, improving from 99.9% to 99.99% availability adds at most $900 in value; if the cost exceeds $900, the higher target is economically unjustified. [fact; source: https://sre.google/sre-book/embracing-risk/] This introduces an economic constraint on the contractual boundary: the SLO threshold should not exceed what the business can justify investing to defend.
+**Regulatory/governance lens:** The Google SRE embracing-risk chapter describes a cost/benefit framework for setting the availability target: for a service with $1M revenue, improving from 99.9% to 99.99% availability adds at most $900 in value; if the cost exceeds $900, the higher target is economically unjustified. [fact; source: https://sre.google/sre-book/embracing-risk/] This introduces an economic constraint on the contractual boundary: the SLO threshold should not exceed what the business can justify investing to defend. [inference; source: https://sre.google/sre-book/embracing-risk/]
 
 **Behavioural lens:** The SRE book documents a planning fallacy analogue: without an explicit SLO, users develop their own beliefs about service availability, which "may be unrelated to the beliefs held by the people designing and operating the service." [fact; source: https://sre.google/sre-book/service-level-objectives/] This mirrors the capability overestimation dynamic documented in the companion item on telemetry arbitration. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-31-capability-claim-telemetry-conflict-arbitration.html]
 
-**Historical lens:** The SRE book documents Google's deliberate decision to plan outages for the Chubby distributed lock service because without an explicit downtime target, service teams built critical dependencies on Chubby with the implicit assumption of near-100% availability, creating a fragility the team had not committed to supporting. This is an empirical case study demonstrating that the absence of a contractual boundary enables capability overestimation. [fact; source: https://sre.google/sre-book/service-level-objectives/]
+**Historical lens:** The SRE book documents Google's deliberate decision to plan outages for the Chubby distributed lock service because without an explicit downtime target, service teams built critical dependencies on Chubby with the implicit assumption of near-100% availability, creating a fragility the team had not committed to supporting. This is an empirical case study demonstrating that the absence of a contractual boundary enables capability overestimation. [inference; source: https://sre.google/sre-book/service-level-objectives/]
 
 **Comparison with related item:** The companion completed item on capability claim vs. telemetry arbitration (2026-05-31-capability-claim-telemetry-conflict-arbitration) establishes that telemetry override is the most structurally direct mechanism for correcting capability overestimation. The SRE error budget policy is the specific operationalisation of that override: the SLO threshold is set through the evidence and negotiation process, and the error budget policy enforces it through telemetry measurement and prescribed organisational responses. [inference; source: https://sre.google/workbook/error-budget-policy/; https://davidamitchell.github.io/Research/research/2026-05-31-capability-claim-telemetry-conflict-arbitration.html]
 
@@ -218,7 +218,7 @@ SRE establishes Service Level Objectives (SLOs) as contractual capability bounda
 
 7. SLOs adopted without an enforced error budget policy become passive reporting metrics rather than decision-making tools, the documented "SLO without teeth" failure mode that the SRE Workbook explicitly identifies. ([fact]; medium confidence; source: https://sre.google/workbook/implementing-slos/)
 
-8. Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, showing that practitioner implementations typically begin with negotiation rather than rigorous user-impact studies. ([fact]; medium confidence; source: https://sre.google/workbook/slo-engineering-case-studies/)
+8. Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, illustrating that at least one practitioner implementation began with negotiation rather than rigorous user-impact studies. ([inference]; medium confidence; source: https://sre.google/workbook/slo-engineering-case-studies/)
 
 9. The SRE book documents the Chubby planned-outage case as empirical evidence that absence of an explicit SLO threshold allows users to develop incorrect availability expectations, generating fragile dependencies on reliability levels the service had not committed to providing. ([fact]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/)
 
@@ -317,7 +317,7 @@ SRE establishes SLOs as contractual capability boundaries through a combined evi
 
 7. SLOs adopted without an enforced error budget policy become passive reporting metrics (the "SLO without teeth" failure mode) because compliance becomes another key performance indicator rather than a decision-making tool with prescribed consequences. ([fact]; medium confidence; source: https://sre.google/workbook/implementing-slos/)
 
-8. Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, showing that practitioner implementations typically begin with negotiation rather than rigorous user-impact studies. ([fact]; medium confidence; source: https://sre.google/workbook/slo-engineering-case-studies/)
+8. Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, illustrating that at least one practitioner implementation began with negotiation rather than rigorous user-impact studies. ([inference]; medium confidence; source: https://sre.google/workbook/slo-engineering-case-studies/)
 
 9. The SRE book documents the Chubby planned-outage case as empirical evidence that the absence of an explicit SLO threshold allows users to develop availability expectations that exceed what the service has committed to, creating fragile dependencies on unguaranteed reliability levels. ([fact]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/)
 
