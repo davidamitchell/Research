@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: c612b04
+    changed: 2026-06-02
+    progress: progress/2026-06-02-enterprise-pricing-concessions-switching-costs-exit-leverage.md
+    summary: "Initial completion"
 ---
 
 # Enterprise software pricing concessions, switching costs, and exit leverage
