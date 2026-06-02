@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Goal fragmentation: signals distinguishing salami-slicing from legitimate sub-goals"
 added: 2026-05-31T09:42:57+00:00
 status: reviewing
