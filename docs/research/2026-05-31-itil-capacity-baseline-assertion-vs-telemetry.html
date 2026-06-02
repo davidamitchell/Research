@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>SRE: establishing SLOs as contractual capability boundaries — Research</title>
+          <title>ITIL capacity management — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -680,123 +680,107 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>SRE: establishing SLOs as contractual capability boundaries</span>
+    <span>ITIL capacity management</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>SRE: establishing SLOs as contractual capability boundaries</h1>
-    <div class="meta-bar">
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>ITIL capacity management</h1>
+  <p class="full-title-subtitle">ITIL capacity management: baseline measurement and assertion vs. telemetry</p>
+  <div class="meta-bar">
     <span>2026-05-31</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a> <a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a> <a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a> 
+    <a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a> <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/mlops-deployment.html">mlops-deployment</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-sre-slo-threshold-justification.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-itil-capacity-baseline-assertion-vs-telemetry.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-31-sre-slo-threshold-justification" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-31-itil-capacity-baseline-assertion-vs-telemetry" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>SRE defines the SLO threshold as the reliability level below which users are likely to start complaining or stop using the service, grounding the contractual boundary in user-impact evidence rather than in technical capability assertion alone<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/implementing-slos/" target="_blank" rel="noopener" title="https://sre.google/workbook/implementing-slos/">Sre (n.d.)</a></span></li>
-<li>The SRE SLO-setting process requires three-party stakeholder agreement across product manager, development team, and SRE team as a procedural safeguard ensuring the threshold reflects both user needs and production achievability before it becomes operative<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/implementing-slos/" target="_blank" rel="noopener" title="https://sre.google/workbook/implementing-slos/">Sre (n.d.)</a></span></li>
-<li>The error budget (100% minus the SLO target) converts the threshold into a quantified resource: when it is exhausted over a four-week window, all releases other than highest-priority or security fixes are halted until the service returns within its SLO<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/error-budget-policy/" target="_blank" rel="noopener" title="https://sre.google/workbook/error-budget-policy/">Sre (n.d.)</a></span></li>
-<li>The Google SRE Workbook explicitly advises against basing SLO thresholds solely on current observed performance because this can commit a service to unnecessarily strict targets; user-impact evidence is the specified primary input, with telemetry as the practical first-pass proxy<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/implementing-slos/" target="_blank" rel="noopener" title="https://sre.google/workbook/implementing-slos/">Sre (n.d.)</a></span></li>
-<li>Google SRE frames the SLO target as both a minimum and a maximum: consistently exceeding the SLO wastes engineering capacity, establishing the threshold as a specific agreed capability range rather than an aspirational upper bound<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/sre-book/embracing-risk/" target="_blank" rel="noopener" title="https://sre.google/sre-book/embracing-risk/">Sre (n.d.)</a></span></li>
-<li>The SRE model distinguishes the contractual SLO boundary from the observed operational average through the error budget measurement loop: the SLO is the target, the Service Level Indicator (SLI) measurement is the observed value, and the error budget tracks the accumulated difference with mandated organisational responses<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/implementing-slos/" target="_blank" rel="noopener" title="https://sre.google/workbook/implementing-slos/">Sre (n.d.)</a><a class="claim-source-link" href="https://sre.google/workbook/error-budget-policy/" target="_blank" rel="noopener" title="https://sre.google/workbook/error-budget-policy/">Sre (n.d.)</a></span></li>
-<li>SLOs adopted without an enforced error budget policy become passive reporting metrics (the &quot;SLO without teeth&quot; failure mode) because compliance becomes another key performance indicator rather than a decision-making tool with prescribed consequences<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/implementing-slos/" target="_blank" rel="noopener" title="https://sre.google/workbook/implementing-slos/">Sre (n.d.)</a></span></li>
-<li>Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, illustrating that at least one practitioner implementation began with negotiation rather than rigorous user-impact studies<span class="claim-sources"><a class="claim-source-link" href="https://sre.google/workbook/slo-engineering-case-studies/" target="_blank" rel="noopener" title="https://sre.google/workbook/slo-engineering-case-studies/">Sre (n.d.)</a></span></li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>ITIL v3/2011 and ITIL 4 both use &quot;should&quot; not &quot;shall&quot; for all capacity measurement data collection requirements, making telemetry-based baseline establishment a recommendation rather than a binding obligation under ITIL compliance alone<span class="claim-sources"><a class="claim-source-link" href="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html" target="_blank" rel="noopener" title="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html">ITIL v3 Service Design Chapter 4.3 (n.d.)</a><a class="claim-source-link" href="https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023" target="_blank" rel="noopener" title="https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023">PeopleCert (2023)</a></span></li>
+<li>The official ITIL Capacity Plan template formally accommodates assertion-based baselines by including an &quot;Assumptions and database&quot; section that explicitly states initial values for new services may be &quot;assumed/estimated/agreed values, to be validated once operational.&quot;<span class="claim-sources"><a class="claim-source-link" href="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan" target="_blank" rel="noopener" title="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan">IT Process Wiki (n.d.)</a></span></li>
+<li>ITIL v3 defines three sub-processes (BCM, SCM, CCM) each with a different measurement focus: Business Capacity Management (BCM) translates business demand plans into service requirements using forecasts and is more dependent on projected estimates, while Component Capacity Management (CCM) monitors individual infrastructure component utilisation directly, making CCM more telemetry-dependent than BCM<span class="claim-sources"><a class="claim-source-link" href="https://wiki.en.it-processmaps.com/index.php/Capacity_Management" target="_blank" rel="noopener" title="https://wiki.en.it-processmaps.com/index.php/Capacity_Management">IT Process Wiki (n.d.)</a><a class="claim-source-link" href="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html" target="_blank" rel="noopener" title="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html">ITIL v3 Service Design Chapter 4.3 (n.d.)</a></span></li>
+<li>ITIL 4 consolidated BCM, SCM, and CCM into a single &quot;Capacity and Performance Management&quot; practice, removing the explicit sub-process structure of ITIL v3 and making the assertion-to-telemetry gradient less visible to practitioners working from ITIL 4 guidance alone<span class="claim-sources"><a class="claim-source-link" href="https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023" target="_blank" rel="noopener" title="https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023">PeopleCert (2023)</a><a class="claim-source-link" href="https://wiki.en.it-processmaps.com/index.php/Capacity_Management" target="_blank" rel="noopener" title="https://wiki.en.it-processmaps.com/index.php/Capacity_Management">IT Process Wiki (n.d.)</a></span></li>
+<li>ITIL specifies no mandatory validation gate, deadline, or escalation mechanism requiring that assertion-based baselines be superseded by telemetry-derived values after a service enters operational use, leaving the transition entirely at practitioner discretion<span class="claim-sources"><a class="claim-source-link" href="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan" target="_blank" rel="noopener" title="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan">IT Process Wiki (n.d.)</a><a class="claim-source-link" href="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html" target="_blank" rel="noopener" title="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html">ITIL v3 Service Design Chapter 4.3 (n.d.)</a></span></li>
+<li>ISO/IEC 20000-1:2018 Clause 8.6 uses mandatory &quot;shall&quot; language requiring organisations to monitor, measure, review, and report on capacity and performance, imposing a stricter measurement obligation than ITIL&#39;s &quot;should&quot; stance and excluding assertion-only baselines for ISO 20000-certified organisations<span class="claim-sources"><a class="claim-source-link" href="https://www.iso.org/standard/70636.html" target="_blank" rel="noopener" title="https://www.iso.org/standard/70636.html">ISO/IEC 20000-1:2018 (2018)</a></span></li>
+<li>Iden and Eikebrokk&#39;s 2013 systematic literature review of ITIL implementations found that capacity management is consistently among the least mature ITIL processes in practice, with data collection challenges and difficulty of predictive analysis identified as the primary barriers to maturity investment<span class="claim-sources"><a class="claim-source-link" href="https://www.sciencedirect.com/science/article/pii/S0268401212001700" target="_blank" rel="noopener" title="https://www.sciencedirect.com/science/article/pii/S0268401212001700">Eikebrokk (2013)</a></span></li>
+<li>ITIL&#39;s combination of assertion tolerance and the absence of a mandatory validation gate means that organisations relying solely on ITIL can remain in an assertion-based baseline posture indefinitely without formal non-compliance, and empirical implementation evidence indicates this pattern occurs in practice<span class="claim-sources"><a class="claim-source-link" href="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan" target="_blank" rel="noopener" title="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan">IT Process Wiki (n.d.)</a><a class="claim-source-link" href="https://www.sciencedirect.com/science/article/pii/S0268401212001700" target="_blank" rel="noopener" title="https://www.sciencedirect.com/science/article/pii/S0268401212001700">Eikebrokk (2013)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>How do Site Reliability Engineering (SRE) practices establish what a system can safely do, expressed as a contractual boundary rather than an observed average: specifically, how are Service Level Objectives (SLOs) set, and what evidence justifies the chosen threshold?</p>
+<p>What does IT Infrastructure Library (ITIL) capacity management specify as the measurement practice for establishing a platform capability baseline, and where does it rely on assertion rather than telemetry?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p>SRE establishes SLOs as contractual capability boundaries through a combined evidence-gathering, three-party stakeholder-negotiation, and error-budget-enforcement process, not through the threshold number alone. User-impact evidence is the specified primary input for threshold selection, with historical telemetry as the practical first-pass proxy when user-impact data is unavailable. The error budget converts the SLO threshold into a measurable resource consumed by failures, and exhaustion of that resource triggers prescribed organisational responses that give the threshold its contractual force. SLOs adopted without an enforced error budget policy become passive reporting metrics, the &quot;SLO without teeth&quot; failure mode the SRE Workbook explicitly identifies as a documented adoption risk.</p>
+<p>IT Infrastructure Library (ITIL) capacity management specifies telemetry-based measurement as a recommended practice using &quot;should&quot; not &quot;shall&quot; throughout, in both ITIL v3/2011 and ITIL 4, which means telemetry is never a binding obligation under ITIL compliance alone. ITIL explicitly accommodates assertion-based baselines: the official Capacity Plan template includes an &quot;Assumptions and database&quot; section and specifically permits &quot;assumed/estimated/agreed values&quot; for new services, pending operational validation that ITIL itself never mandates. The boundary between assertion-acceptable and telemetry-required zones follows a gradient across ITIL v3's three sub-processes (Business, Service, and Component Capacity Management), with assertion tolerance highest at the business planning layer and lowest at the infrastructure component monitoring layer, but this gradient is implicit rather than explicitly governed in either ITIL version. ISO/IEC 20000-1:2018 Clause 8.6 imposes a stricter measurement obligation by mandating (&quot;shall&quot;) ongoing empirical measurement of capacity and performance, but ISO 20000 certification is a separate requirement not implied by ITIL alignment.</p>
 <h3>Key Findings</h3>
 <ol>
 <li>
-<p>SRE defines the SLO threshold as the reliability level below which users are likely to start complaining or stop using the service, grounding the contractual boundary in user-impact evidence rather than in technical capability assertion alone.</p>
+<p>ITIL v3/2011 and ITIL 4 both use &quot;should&quot; not &quot;shall&quot; for all capacity measurement data collection requirements, making telemetry-based baseline establishment a recommendation rather than a binding obligation under ITIL compliance alone.</p>
 </li>
 <li>
-<p>The SRE SLO-setting process requires three-party stakeholder agreement across product manager, development team, and SRE team as a procedural safeguard ensuring the threshold reflects both user needs and production achievability before it becomes operative.</p>
+<p>The official ITIL Capacity Plan template formally accommodates assertion-based baselines by including an &quot;Assumptions and database&quot; section that explicitly states initial values for new services may be &quot;assumed/estimated/agreed values, to be validated once operational.&quot;</p>
 </li>
 <li>
-<p>The error budget (100% minus the SLO target) converts the threshold into a quantified resource: when it is exhausted over a four-week window, all releases other than highest-priority or security fixes are halted until the service returns within its SLO.</p>
+<p>ITIL v3 defines three sub-processes (BCM, SCM, CCM) each with a different measurement focus: Business Capacity Management (BCM) translates business demand plans into service requirements using forecasts and is more dependent on projected estimates, while Component Capacity Management (CCM) monitors individual infrastructure component utilisation directly, making CCM more telemetry-dependent than BCM.</p>
 </li>
 <li>
-<p>The Google SRE Workbook explicitly advises against basing SLO thresholds solely on current observed performance because this can commit a service to unnecessarily strict targets; user-impact evidence is the specified primary input, with telemetry as the practical first-pass proxy.</p>
+<p>ITIL 4 consolidated BCM, SCM, and CCM into a single &quot;Capacity and Performance Management&quot; practice, removing the explicit sub-process structure of ITIL v3 and making the assertion-to-telemetry gradient less visible to practitioners working from ITIL 4 guidance alone.</p>
 </li>
 <li>
-<p>Google SRE frames the SLO target as both a minimum and a maximum: consistently exceeding the SLO wastes engineering capacity, establishing the threshold as a specific agreed capability range rather than an aspirational upper bound.</p>
+<p>ITIL specifies no mandatory validation gate, deadline, or escalation mechanism requiring that assertion-based baselines be superseded by telemetry-derived values after a service enters operational use, leaving the transition entirely at practitioner discretion.</p>
 </li>
 <li>
-<p>The SRE model distinguishes the contractual SLO boundary from the observed operational average through the error budget measurement loop: the SLO is the target, the Service Level Indicator (SLI) measurement is the observed value, and the error budget tracks the accumulated difference with mandated organisational responses.</p>
+<p>ISO/IEC 20000-1:2018 Clause 8.6 uses mandatory &quot;shall&quot; language requiring organisations to monitor, measure, review, and report on capacity and performance, imposing a stricter measurement obligation than ITIL's &quot;should&quot; stance and excluding assertion-only baselines for ISO 20000-certified organisations.</p>
 </li>
 <li>
-<p>SLOs adopted without an enforced error budget policy become passive reporting metrics (the &quot;SLO without teeth&quot; failure mode) because compliance becomes another key performance indicator rather than a decision-making tool with prescribed consequences.</p>
+<p>Iden and Eikebrokk's 2013 systematic literature review of ITIL implementations found that capacity management is consistently among the least mature ITIL processes in practice, with data collection challenges and difficulty of predictive analysis identified as the primary barriers to maturity investment.</p>
 </li>
 <li>
-<p>Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, illustrating that at least one practitioner implementation began with negotiation rather than rigorous user-impact studies.</p>
-</li>
-<li>
-<p>The SRE book documents the Chubby planned-outage case as empirical evidence that the absence of an explicit SLO threshold allows users to develop availability expectations that exceed what the service has committed to, creating fragile dependencies on unguaranteed reliability levels.</p>
-</li>
-<li>
-<p>Google SRE applies an economic constraint to SLO threshold selection: the marginal cost of each additional nine of availability must be justified against marginal revenue or user-value gain, providing a quantitative ceiling on justifiable threshold stringency.</p>
-</li>
-<li>
-<p>The error budget policy specifies escalation to the CTO for disputes about error budget calculation or required actions, demonstrating that the contractual force of the SLO boundary is backed by an explicit organisational authority structure rather than by engineering convention alone.</p>
+<p>ITIL's combination of assertion tolerance and the absence of a mandatory validation gate means that organisations relying solely on ITIL can remain in an assertion-based baseline posture indefinitely without formal non-compliance, and empirical implementation evidence indicates this pattern occurs in practice.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
 <li>
-<p><strong>Assumption:</strong> Google SRE documentation is representative of established SRE practice across the industry, not only within Google. <strong>Justification:</strong> The SRE book and SRE Workbook are the canonical primary references cited by organisations adopting SRE practices; the Evernote and Home Depot case studies in the SRE Workbook provide cross-organisation corroboration from organisations of different sizes and sectors. [source: <a href="https://sre.google/workbook/slo-engineering-case-studies/]">sre.google</a></p>
+<p><strong>Assumption:</strong> ITIL 4 practice guides use &quot;should&quot; language consistently for capacity measurement data collection requirements. <strong>Justification:</strong> The ITIL 4 design philosophy explicitly emphasises adaptable guidance over prescriptive rules, as documented in PeopleCert's 2023 practices update; the &quot;should&quot; convention is confirmed for the practice's data collection requirements by multiple sources reproducing ITIL 4 practice content. Source: <a href="https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023">PeopleCert ITIL 4 Management Practices 2023</a></p>
 </li>
 <li>
-<p><strong>Assumption:</strong> The Hidalgo (2020) &quot;Implementing Service Level Objectives&quot; book provides guidance consistent with Google SRE sources on evidence-based threshold selection. <strong>Justification:</strong> Hidalgo was a co-author on the SRE Workbook chapter on implementing SLOs; the O'Reilly book is described as extending the same methodology with statistical analysis tools. [source: <a href="https://www.oreilly.com/library/view/implementing-service-level/9781492076803/]">www.oreilly.com</a></p>
+<p><strong>Assumption:</strong> The IT Process Wiki ITIL v3/2011 Capacity Plan template accurately represents the structure of AXELOS's published template. <strong>Justification:</strong> IT Process Wiki is widely cited by ITIL training providers and practitioners as a reference for ITIL v3/2011 process templates; no contradicting primary source was available within the access constraints of this investigation. Source: <a href="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan">IT Process Wiki: Capacity Plan Checklist</a></p>
 </li>
 </ul>
 <h3>Analysis</h3>
-<p>The SRE model provides a specific answer to how a threshold becomes a contractual boundary: through the combination of evidence-based threshold selection and an enforced error budget policy; neither component alone is sufficient. A well-evidenced threshold without an enforced error budget policy produces an &quot;SLO without teeth,&quot; and an enforced error budget policy with an inadequately evidenced threshold produces enforcement of an arbitrary number, which can result in heroic efforts to meet an overly aggressive target or a degraded product if the target is too lax.</p>
-<p>The error budget loop is the structural mechanism that distinguishes a contractual boundary from an observed average. An observed average is computed from past measurements and carries no enforcement consequences; an SLO threshold carries them through the error budget policy, making the distinction structural rather than merely semantic: the same reliability number can be a passive average or an enforced boundary depending on whether the error budget policy exists and is acted upon.</p>
-<p>The three-party stakeholder agreement requirement ensures that user-impact evidence reaches the threshold-setting process. The product manager's agreement criterion is explicitly that the threshold must be &quot;good enough for users.&quot; Without this criterion, a threshold could be set based on technical achievability or administrative convenience rather than on user requirements.</p>
-<p>The tension between the advice to avoid basing SLOs on current performance and the practical starting point of current telemetry is resolved through an iterative refinement process: start with an achievable threshold, observe whether it correlates with user satisfaction, and tighten iteratively. Organisational commitment to acting on the error budget policy at each iteration is a necessary precondition for this refinement process to produce an accurate, user-grounded threshold over time.</p>
-<p>The economic constraint framework for threshold selection provides a quantitative ceiling on SLO stringency: a threshold set above what the business can economically justify defending is structurally aspirational rather than contractual, because the organisation lacks the incentive to enforce it consistently.</p>
+<p>ITIL's capacity management framework creates a two-zone structure for baseline evidence, though this structure is never explicitly named or governed in ITIL text.</p>
+<p>The first zone corresponds to Business Capacity Management: it is dominated by planning-stage inputs including transaction volume forecasts, growth projections, and stakeholder agreements. At this layer, assertion is structurally necessary because future business demands cannot be empirically measured in advance. The ITIL guidance explicitly relies on &quot;trend, forecast, model or predict&quot; techniques that combine historical telemetry with forward-looking assumptions.</p>
+<p>The second zone corresponds to Component Capacity Management: monitoring individual infrastructure components (CPU, memory, storage, network) provides the directly observable data on which operational baselines are built. Even here, ITIL uses &quot;should&quot; rather than mandatory language.</p>
+<p>ITIL provides no mandatory mechanism to enforce the transition from assertion to telemetry once a service is operational. The Capacity Plan template's &quot;to be validated once operational&quot; note carries no attached control: no specified deadline, no escalation trigger, and no formal review gate. This means the intended validation is an aspiration rather than a control.</p>
+<p>ISO 20000's &quot;shall&quot; language imposes a stronger measurement obligation than ITIL's &quot;should&quot; stance on this control surface. An ISO 20000 audit requires demonstrable evidence of ongoing measurement: a Capacity Plan containing only agreed or assumed values without supporting operational telemetry would not satisfy Clause 8.6. The practical consequence is that the assertion tolerance permitted by ITIL alone is incompatible with ISO 20000 certification once a service is in operation.</p>
+<p>The Iden and Eikebrokk (2013) empirical finding is consistent with this inference: organisations defer capacity management maturity because data collection is costly, and ITIL provides no mandatory gate that would force that investment. The primary driver the authors identify is the cost and difficulty of telemetry implementation, not the absence of a mandate; ITIL's lack of a mandatory validation gate removes the structural pressure that might otherwise force organisations to bear that cost. A plausible rival explanation is that organisations would defer telemetry investment regardless of what ITIL requires, because data collection is expensive; the absence of evidence that ISO 20000-certified organisations achieve measurably higher capacity management maturity than ITIL-only organisations would support that rival, but this comparison is outside the scope of the empirical literature reviewed here.</p>
+<p>The companion completed research item on capability claim vs. production telemetry arbitration (<a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-capability-claim-telemetry-conflict-arbitration.md">github.com</a> identified telemetry override as the most reliable arbitration mechanism for capability claim conflicts. The present findings establish that ITIL-aligned organisations may legitimately have no operational telemetry to override against, because ITIL does not require it to be collected. Where an organisation relies on an ITIL-compliant assertion-based baseline and has never established operational telemetry, the telemetry override pathway described in the arbitration item is structurally unavailable.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>
-<p>No controlled before-after studies comparing SLO threshold-setting methods (evidence-based vs. negotiated vs. telemetry-only) and their subsequent reliability, user satisfaction, or engineering efficiency outcomes are cited in the Google SRE sources. Effectiveness claims rest on documented practice and case studies rather than controlled measurement.</p>
-</li>
-<li>
-<p>The SRE model assumes organisations are willing and able to enforce the error budget policy. [assumption; justification: The SRE Workbook presents the error budget policy as the intended mechanism but does not report empirical data on adoption rates; source: <a href="https://sre.google/workbook/implementing-slos/]">sre.google</a> The Workbook acknowledges that SLOs remain passive reporting metrics without this enforcement but provides no empirical data on the prevalence of the &quot;SLO without teeth&quot; failure mode in practice.</p>
-</li>
-<li>
-<p>The Evernote case study is a single vendor account from a consumer application; it may not represent SLO-setting practice in regulated, safety-critical, or infrastructure-service contexts.</p>
-</li>
-<li>
-<p>The economic framework for availability target selection is presented with one illustrative example and no empirical validation of the cost function shape across service types.</p>
-</li>
+<li>The ITIL 4 Capacity and Performance Management practice guide is available only via PeopleCert/AXELOS subscription. This investigation relied on secondary sources and official PeopleCert communications. If the primary practice text contains mandatory language not reflected in summaries, the inference about &quot;should&quot; dominance would require revision.</li>
+<li>ISO/IEC 20000-1:2018 is a paywalled standard. The Clause 8.6 text reproduced in this item is sourced from secondary guidance and cannot be independently verified without the purchased standard. All ISO 20000 &quot;shall&quot; language claims are therefore labeled [inference].</li>
+<li>The Iden and Eikebrokk (2013) journal article is access-restricted at the ScienceDirect URL. The finding about capacity management implementation maturity is widely cited in secondary sources, but verbatim confirmation requires journal access.</li>
+<li>Betz (2011) was a seeded source but the Pearson catalogue page does not reproduce content. That practitioner analysis is excluded from the evidence base.</li>
+<li>The investigation does not cover ITIL v2 (pre-2007) or sector-specific ITIL extensions that may impose stronger measurement requirements in regulated industries.</li>
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li>
-<p>What is the empirical distribution of SLO-setting methods across industry, and do evidence-based methods produce measurably better outcomes than negotiated or telemetry-only approaches? (Potential backlog item.)</p>
-</li>
-<li>
-<p>In practice, how often do organisations adopt the SLO threshold without implementing an enforced error budget policy, and what measurable reliability outcomes result from the &quot;SLO without teeth&quot; state?</p>
-</li>
-<li>
-<p>How should SLO thresholds be set for services with no prior production history, where neither telemetry nor historical user-impact data is available?</p>
-</li>
+<li>Does assertion-vs-telemetry maturity differ across industry sectors (finance, public sector, technology), and does ISO 20000 certification adoption correlate with reduced assertion-based baseline use?</li>
+<li>What proportion of organisations claiming ITIL-aligned capacity management have established operational telemetry for their baselines rather than retaining assertion-based values?</li>
+<li>Does ITIL 4's removal of the BCM, SCM, CCM sub-process labels affect practitioner measurement decisions in observable ways, or do practitioners reconstruct the same gradient under the unified practice name?</li>
 </ul>
 <hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[ ] <a href="https://sre.google/sre-book/table-of-contents/">Beyer et al. (2016) Site Reliability Engineering: How Google Runs Production Systems</a>: primary Google SRE reference: SLO definition, error budgets, and threshold selection</li>
-<li>[ ] <a href="https://sre.google/workbook/table-of-contents/">Beyer et al. (2018) The Site Reliability Workbook: Practical Ways to Implement SRE</a>: practical SLO setting guidance and worked examples</li>
-<li>[ ] <a href="https://www.oreilly.com/library/view/implementing-service-level/9781492076803/">Hidalgo (2020) Implementing Service Level Objectives</a>: practitioner guide to evidence-based SLO threshold selection</li>
-<li>[ ] <a href="https://dora.dev/research/">DORA State of DevOps Reports</a>: empirical data on SLO adoption and associated reliability outcomes</li>
+<li>[x] <a href="https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023">PeopleCert ITIL 4 Management Practices 2023</a>: official ITIL 4 practice guidance update describing the Capacity and Performance Management practice and its 2023 revisions</li>
+<li>[x] <a href="https://wiki.en.it-processmaps.com/index.php/Capacity_Management">IT Process Wiki: Capacity Management</a>: secondary reference documenting ITIL v3/2011 Capacity Management sub-processes and information flows</li>
+<li>[x] <a href="https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan">IT Process Wiki: Capacity Plan Checklist</a>: secondary reference containing the official ITIL Capacity Plan template including the &quot;Assumptions and database&quot; section</li>
+<li>[x] <a href="https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html">ITIL v3 Service Design Chapter 4.3: Capacity Management</a>: secondary source reproducing ITIL v3 Service Design capacity management chapter text</li>
+<li>[x] <a href="https://www.iso.org/standard/70636.html">ISO/IEC 20000-1:2018: IT Service Management System Requirements</a>: ISO/IEC (International Electrotechnical Commission) standard codifying IT service management (ITSM) requirements including capacity management; uses &quot;shall&quot; language</li>
+<li>[x] <a href="https://www.sciencedirect.com/science/article/pii/S0268401212001700">Iden and Eikebrokk (2013) Implementing IT Service Management: A Systematic Literature Review</a>: empirical systematic review of ITIL implementation evidence; found capacity management among the least mature processes</li>
 </ul>
 <hr />
 
@@ -804,14 +788,16 @@ main {
   </div>
   
   <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-31-capability-claim-telemetry-conflict-arbitration.html">Capability claim vs. production telemetry: arbitration mechanisms and overestimation</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-31-sre-slo-threshold-justification.html">SRE: establishing SLOs as contractual capability boundaries</a></div>
 </div>
-<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-capability-claim-telemetry-conflict-arbitration.html">Capability claim vs. production telemetry: arbitration mechanisms and overestimation</a></div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-sre-slo-threshold-justification.html">SRE: establishing SLOs as contractual capability boundaries</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-capability-claim-telemetry-conflict-arbitration.html">Capability claim vs. production telemetry: arbitration mechanisms and overestimation</a></div>
 </div>
 
   
   <div class="item-nav">
-    
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-31-itil-capacity-baseline-assertion-vs-telemetry.html">ITIL capacity management</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-31-sre-slo-threshold-justification.html">SRE: establishing SLOs as contractual capability boundaries</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html">GORE: translating strategic intent to scoped delivery objectives</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -822,7 +808,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-05-31-sre-slo-threshold-justification";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-06-02T13:29:40Z",
+  "extracted_at": "2026-06-02T20:46:28Z",
   "items": {
     "2026-05-31-sre-slo-threshold-justification": {
       "named_concepts": [
@@ -78,6 +78,93 @@
           "text": "Evernote set its initial SLO at 99.95% through negotiation with customer support and product teams supplemented by available uptime telemetry, then iterated as evidence accumulated, illustrating that at least one practitioner implementation began with negotiation rather than rigorous user-impact studies",
           "sources": [
             "https://sre.google/workbook/slo-engineering-case-studies/"
+          ]
+        }
+      ]
+    },
+    "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry": {
+      "named_concepts": [
+        "capacity management",
+        "itil v3",
+        "capacity plan",
+        "plan template",
+        "assertion tolerance",
+        "bcm scm",
+        "mandatory validation",
+        "validation gate",
+        "operational telemetry",
+        "itil capacity",
+        "assertion-based baselines",
+        "assumed estimated",
+        "estimated agreed",
+        "agreed values",
+        "component capacity",
+        "iso iec",
+        "measurement obligation",
+        "iso certification",
+        "capacity measurement",
+        "collection requirements"
+      ],
+      "source_urls": [
+        "https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023",
+        "https://wiki.en.it-processmaps.com/index.php/Capacity_Management",
+        "https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan",
+        "https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html",
+        "https://www.iso.org/standard/70636.html",
+        "https://www.sciencedirect.com/science/article/pii/S0268401212001700"
+      ],
+      "key_claims": [
+        {
+          "text": "ITIL v3/2011 and ITIL 4 both use \"should\" not \"shall\" for all capacity measurement data collection requirements, making telemetry-based baseline establishment a recommendation rather than a binding obligation under ITIL compliance alone",
+          "sources": [
+            "https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html",
+            "https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023"
+          ]
+        },
+        {
+          "text": "The official ITIL Capacity Plan template formally accommodates assertion-based baselines by including an \"Assumptions and database\" section that explicitly states initial values for new services may be \"assumed/estimated/agreed values, to be validated once operational.\"",
+          "sources": [
+            "https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan"
+          ]
+        },
+        {
+          "text": "ITIL v3 defines three sub-processes (BCM, SCM, CCM) each with a different measurement focus: Business Capacity Management (BCM) translates business demand plans into service requirements using forecasts and is more dependent on projected estimates, while Component Capacity Management (CCM) monitors individual infrastructure component utilisation directly, making CCM more telemetry-dependent than BCM",
+          "sources": [
+            "https://wiki.en.it-processmaps.com/index.php/Capacity_Management",
+            "https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html"
+          ]
+        },
+        {
+          "text": "ITIL 4 consolidated BCM, SCM, and CCM into a single \"Capacity and Performance Management\" practice, removing the explicit sub-process structure of ITIL v3 and making the assertion-to-telemetry gradient less visible to practitioners working from ITIL 4 guidance alone",
+          "sources": [
+            "https://www.peoplecert.org/news-and-announcements/2023/itil-4-management-practices-2023",
+            "https://wiki.en.it-processmaps.com/index.php/Capacity_Management"
+          ]
+        },
+        {
+          "text": "ITIL specifies no mandatory validation gate, deadline, or escalation mechanism requiring that assertion-based baselines be superseded by telemetry-derived values after a service enters operational use, leaving the transition entirely at practitioner discretion",
+          "sources": [
+            "https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan",
+            "https://hci-itil.com/ITIL_v3/books/2_service_design/service_design_ch4_3.html"
+          ]
+        },
+        {
+          "text": "ISO/IEC 20000-1:2018 Clause 8.6 uses mandatory \"shall\" language requiring organisations to monitor, measure, review, and report on capacity and performance, imposing a stricter measurement obligation than ITIL's \"should\" stance and excluding assertion-only baselines for ISO 20000-certified organisations",
+          "sources": [
+            "https://www.iso.org/standard/70636.html"
+          ]
+        },
+        {
+          "text": "Iden and Eikebrokk's 2013 systematic literature review of ITIL implementations found that capacity management is consistently among the least mature ITIL processes in practice, with data collection challenges and difficulty of predictive analysis identified as the primary barriers to maturity investment",
+          "sources": [
+            "https://www.sciencedirect.com/science/article/pii/S0268401212001700"
+          ]
+        },
+        {
+          "text": "ITIL's combination of assertion tolerance and the absence of a mandatory validation gate means that organisations relying solely on ITIL can remain in an assertion-based baseline posture indefinitely without formal non-compliance, and empirical implementation evidence indicates this pattern occurs in practice",
+          "sources": [
+            "https://wiki.en.it-processmaps.com/index.php/Checklist_Capacity_Plan",
+            "https://www.sciencedirect.com/science/article/pii/S0268401212001700"
           ]
         }
       ]
