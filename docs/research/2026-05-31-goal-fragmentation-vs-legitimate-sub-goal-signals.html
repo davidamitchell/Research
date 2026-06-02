@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Model-based requirements engineering — Research</title>
+          <title>Goal fragmentation: signals distinguishing salami-slicing from legitimate… — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -680,138 +680,179 @@ main {
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
-    <span>Model-based requirements engineering</span>
+    <span>Goal fragmentation: signals distinguishing salami-slicing from legitimate…</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Model-based requirements engineering</h1>
-  <p class="full-title-subtitle">Model-based requirements engineering: goal scope change propagation to constraints</p>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Goal fragmentation: signals distinguishing salami-slicing from legitimate…</h1>
+  <p class="full-title-subtitle">Goal fragmentation: signals distinguishing salami-slicing from legitimate sub-goals</p>
   <div class="meta-bar">
     <span>2026-05-31</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a> 
+    <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/governance-policy.html">governance-policy</a> <a class="tag" href="/Research/themes/formal-methods.html">formal-methods</a> 
     <span class="meta-sep">·</span>
     <span class="badge badge-confidence-medium">medium</span> 
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-scope-change-constraint-propagation.md" target="_blank" rel="noopener">source →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
-    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-31-goal-scope-change-constraint-propagation" target="_blank" rel="noopener">wiki →</a>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>SysML v1 constraint-satisfaction links are static model assertions: no automatic re-check occurs after a goal scope change and the analyst must manually invoke impact analysis to identify affected constraints<span class="claim-sources"><a class="claim-source-link" href="https://www.omg.org/spec/SysML/1.6/PDF" target="_blank" rel="noopener" title="https://www.omg.org/spec/SysML/1.6/PDF">Omg (n.d.)</a></span></li>
-<li>SysML v2&#39;s digital-thread `satisfy` construct adds event-triggered impact flagging that identifies which linked design elements and constraints are affected when a requirement changes, reducing manual discovery effort for constraints with existing trace links<span class="claim-sources"><a class="claim-source-link" href="https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/" target="_blank" rel="noopener" title="https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/">Studio (2026)</a><a class="claim-source-link" href="https://www.omg.org/spec/SysML/" target="_blank" rel="noopener" title="https://www.omg.org/spec/SysML/">Omg (n.d.)</a></span></li>
-<li>SysML v2&#39;s impact flagging addresses stale-link detection but not completeness: constraints with no pre-existing trace link to the modified goal are not surfaced, so scope expansion can introduce a set of new applicable constraints that the model cannot identify without human domain knowledge<span class="claim-sources"><a class="claim-source-link" href="https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/" target="_blank" rel="noopener" title="https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/">Studio (2026)</a></span></li>
-<li>KAOS obstacle analysis and the Objectiver tool notify the analyst of potentially affected goals and obstacles after a model change, but new constraint derivation is not automated; the analyst must manually re-run obstacle analysis for the modified goal scope<span class="claim-sources"><a class="claim-source-link" href="https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb" target="_blank" rel="noopener" title="https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb">Lamsweerde (2001)</a></span></li>
-<li>Mäder and Gotel (2012) found empirically that manual traceability maintenance in evolving systems produces persistent stale trace links across multiple release cycles, confirming that the propagation gap is structural rather than transient<span class="claim-sources"><a class="claim-source-link" href="https://doi.org/10.1007/s00766-011-0135-3" target="_blank" rel="noopener" title="https://doi.org/10.1007/s00766-011-0135-3">Gotel (2012)</a></span></li>
-<li>Cleland-Huang, Settimi, and Berenbach&#39;s (2003) event-based traceability approach represents the most automated available mechanism, triggering rule-based notifications on change events, but it still requires analyst validation and does not achieve 100% recall in documented evaluations<span class="claim-sources"><a class="claim-source-link" href="https://doi.org/10.1109/TSE.2003.1232285" target="_blank" rel="noopener" title="https://doi.org/10.1109/TSE.2003.1232285">Cleland-Huang et al. (2003)</a></span></li>
-<li>Scope expansion is structurally harder than scope narrowing for constraint propagation: a narrowed goal may leave orphaned constraints detectable by link inspection, but an expanded goal implies new constraints that have no trace link and are invisible to any link-traversal algorithm<span class="claim-sources"><a class="claim-source-link" href="https://dl.acm.org/doi/10.1109/ICRE.1994.292997" target="_blank" rel="noopener" title="https://dl.acm.org/doi/10.1109/ICRE.1994.292997">Finkelstein (1994)</a></span></li>
-<li>An automated goal-constraint validation system must treat stale-link detection and completeness checking as two separate sub-problems: stale-link detection is automatable via change-timestamp comparison and link inspection; completeness checking after scope expansion requires domain-specific generation rules or a mandatory human review gate<span class="claim-sources"><a class="claim-source-link" href="https://doi.org/10.1007/s00766-011-0135-3" target="_blank" rel="noopener" title="https://doi.org/10.1007/s00766-011-0135-3">Gotel (2012)</a><a class="claim-source-link" href="https://doi.org/10.1109/TSE.2007.70716" target="_blank" rel="noopener" title="https://doi.org/10.1109/TSE.2007.70716">Doi (n.d.)</a></span></li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Salami-slicing is the splitting of a single coherent goal into multiple fragments, each below a governance or approval threshold, such that the aggregate intent is never visible in any single specification artefact, as established in Environmental Impact Assessment (EIA) case law and programme governance practice<span class="claim-sources"><a class="claim-source-link" href="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications" target="_blank" rel="noopener" title="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications">Masons (2023)</a></span></li>
+<li>KAOS AND-refinement completeness provides the most formally precise structural signal for legitimate sub-goal scoping: the conjunction of sub-goals must bidirectionally imply the parent goal, and a goal with no declared parent cannot pass this test, making absent parent reference a necessary precondition for applying any fragmentation check<span class="claim-sources"><a class="claim-source-link" href="https://doi.org/10.1109/ISRE.2001.948567" target="_blank" rel="noopener" title="https://doi.org/10.1109/ISRE.2001.948567">Doi (n.d.)</a><a class="claim-source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md" target="_blank" rel="noopener" title="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md">Github (n.d.)</a></span></li>
+<li>INVEST criteria (Wake, 2003) encode the two strongest semantic fragmentation signals as questions usable without formal logic competence: &quot;Valuable&quot; asks whether the goal delivers customer value in isolation, and &quot;Testable&quot; asks whether acceptance can be determined without completing another goal first<span class="claim-sources"><a class="claim-source-link" href="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/" target="_blank" rel="noopener" title="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">Wake (2003)</a><a class="claim-source-link" href="https://www.agilealliance.org/glossary/invest/" target="_blank" rel="noopener" title="https://www.agilealliance.org/glossary/invest/">Alliance (2023)</a></span></li>
+<li>Ashchurch three-part test: the UK Court of Appeal (2023) establishes a functional interdependence test for detecting artificial project splitting: a goal is a fragment if it cannot be justified on its own merit, if documentation reveals it forms part of a wider scheme, and if it would not be used until the wider scheme is complete<span class="claim-sources"><a class="claim-source-link" href="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications" target="_blank" rel="noopener" title="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications">Masons (2023)</a></span></li>
+<li>Technical prerequisites and infrastructure enablers are the primary false positive class for fragmentation signals: they fail the INVEST &quot;Valuable&quot; criterion yet are legitimate sub-goals when the dependency on a declared parent goal is explicitly stated in the specification<span class="claim-sources"><a class="claim-source-link" href="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/" target="_blank" rel="noopener" title="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">Wake (2003)</a></span></li>
+<li>Conditional acceptance criterion: a goal whose acceptance depends on another goal&#39;s completion fails the independent testability test and is a semantic fragmentation signal; in Planning Domain Definition Language (PDDL), such a mutual precondition chain may render the entire goal set unsolvable at plan-search time, making the fragmentation computationally detectable<span class="claim-sources"><a class="claim-source-link" href="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/" target="_blank" rel="noopener" title="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">Wake (2003)</a><a class="claim-source-link" href="https://planning.wiki/ref/pddl/problem" target="_blank" rel="noopener" title="https://planning.wiki/ref/pddl/problem">Planning (n.d.)</a></span></li>
+<li>Horizontal slicing (scoping a goal entirely within one technical layer without delivering an end-to-end customer-observable outcome) is a documented anti-pattern in agile product management that fails both the INVEST &quot;Valuable&quot; criterion and the EIA standalone justifiability test<span class="claim-sources"><a class="claim-source-link" href="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/" target="_blank" rel="noopener" title="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">Wake (2003)</a></span></li>
+<li>Contextual signals (approval threshold proximity, temporal clustering of related fragment submissions, absence of disclosure of the wider scheme) are the most specific indicators of deliberate salami-slicing but require governance metadata absent from the goal specification text and cannot be evaluated from specification content alone<span class="claim-sources"><a class="claim-source-link" href="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications" target="_blank" rel="noopener" title="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications">Masons (2023)</a></span></li>
 </ol></div>
 
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
-<p>Is there evidence from model-based requirements engineering on how scope changes to a Goal propagate to the constraint surface: specifically, does constraint re-enumeration happen automatically, or does it require a human trigger?</p>
+<p>When a Goal is a fragment of a larger intent (salami-sliced deliberately or accidentally), what signals distinguish it from a legitimately scoped sub-goal?</p>
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p>No existing Model-Based Requirements Engineering (MBRE) framework or industrial tool provides guaranteed automatic constraint re-enumeration when a Goal scope changes; constraint re-enumeration always requires a human trigger to be complete. Systems Modeling Language (SysML) v1 represents constraint-satisfaction links as static model assertions that a human analyst must manually re-evaluate after any goal change. SysML v2 advances to event-triggered impact flagging that identifies which existing constraints are connected to a changed requirement, but this mechanism cannot identify new constraints implied by an expanded scope, because those new constraints have no pre-existing trace link in the model. Knowledge Acquisition in Automated Specification (KAOS) and i-star (i*) tools offer semi-automatic impact notification bounded by the same existing-link coverage limitation. Empirical evidence from Mäder and Gotel (2012) confirms that stale constraints persist across multiple release cycles when propagation is not mandatory; Gotel and Finkelstein (1994) trace this structural gap to the absence of domain knowledge in the model and the lack of organisational ownership for traceability maintenance.</p>
+<p>Salami-slicing (artificial goal fragmentation to evade approval thresholds) and
+legitimate sub-goal scoping produce identical-looking specifications in isolation;
+the distinction is detectable through a three-tier signal battery: structural, semantic,
+and contextual.
+The strongest single signal is semantic: a goal that cannot deliver a customer-observable
+outcome in isolation fails the INVEST &quot;Valuable&quot; criterion and the EIA standalone
+justifiability test, regardless of whether its specification text is structurally complete.
+Technical prerequisites and infrastructure enablers are the main false positive class:
+they fail the &quot;Valuable&quot; criterion yet are legitimate sub-goals when the dependency on
+a declared parent is explicitly stated.
+A reliable minimum check requires at least three conditions to be satisfied simultaneously:
+(a) the goal carries an explicit parent reference, (b) its success criterion is verifiable
+in isolation, and (c) it delivers at least one customer-observable outcome without requiring
+other goals to be completed first.</p>
 <h3>Key Findings</h3>
 <ol>
 <li>
-<p>SysML v1 constraint-satisfaction links are static model assertions: no automatic re-check occurs after a goal scope change and the analyst must manually invoke impact analysis to identify affected constraints.</p>
+<p><strong>Salami-slicing</strong> is the splitting of a single coherent goal into multiple fragments, each below a governance or approval threshold, such that the aggregate intent is never visible in any single specification artefact, as established in Environmental Impact Assessment (EIA) case law and programme governance practice.</p>
 </li>
 <li>
-<p>SysML v2's digital-thread <code>satisfy</code> construct adds event-triggered impact flagging that identifies which linked design elements and constraints are affected when a requirement changes, reducing manual discovery effort for constraints with existing trace links.</p>
+<p><strong>KAOS AND-refinement completeness</strong> provides the most formally precise structural signal for legitimate sub-goal scoping: the conjunction of sub-goals must bidirectionally imply the parent goal, and a goal with no declared parent cannot pass this test, making absent parent reference a necessary precondition for applying any fragmentation check.</p>
 </li>
 <li>
-<p>SysML v2's impact flagging addresses stale-link detection but not completeness: constraints with no pre-existing trace link to the modified goal are not surfaced, so scope expansion can introduce a set of new applicable constraints that the model cannot identify without human domain knowledge.</p>
+<p><strong>INVEST criteria</strong> (Wake, 2003) encode the two strongest semantic fragmentation signals as questions usable without formal logic competence: &quot;Valuable&quot; asks whether the goal delivers customer value in isolation, and &quot;Testable&quot; asks whether acceptance can be determined without completing another goal first.</p>
 </li>
 <li>
-<p>KAOS obstacle analysis and the Objectiver tool notify the analyst of potentially affected goals and obstacles after a model change, but new constraint derivation is not automated; the analyst must manually re-run obstacle analysis for the modified goal scope.</p>
+<p><strong>Ashchurch three-part test:</strong> the UK Court of Appeal (2023) establishes a functional interdependence test for detecting artificial project splitting: a goal is a fragment if it cannot be justified on its own merit, if documentation reveals it forms part of a wider scheme, and if it would not be used until the wider scheme is complete.</p>
 </li>
 <li>
-<p>Mäder and Gotel (2012) found empirically that manual traceability maintenance in evolving systems produces persistent stale trace links across multiple release cycles, confirming that the propagation gap is structural rather than transient.</p>
+<p><strong>Technical prerequisites</strong> and infrastructure enablers are the primary false positive class for fragmentation signals: they fail the INVEST &quot;Valuable&quot; criterion yet are legitimate sub-goals when the dependency on a declared parent goal is explicitly stated in the specification.</p>
 </li>
 <li>
-<p>Cleland-Huang, Settimi, and Berenbach's (2003) event-based traceability approach represents the most automated available mechanism, triggering rule-based notifications on change events, but it still requires analyst validation and does not achieve 100% recall in documented evaluations.</p>
+<p><strong>Conditional acceptance criterion:</strong> a goal whose acceptance depends on another goal's completion fails the independent testability test and is a semantic fragmentation signal; in Planning Domain Definition Language (PDDL), such a mutual precondition chain may render the entire goal set unsolvable at plan-search time, making the fragmentation computationally detectable.</p>
 </li>
 <li>
-<p>Scope expansion is structurally harder than scope narrowing for constraint propagation: a narrowed goal may leave orphaned constraints detectable by link inspection, but an expanded goal implies new constraints that have no trace link and are invisible to any link-traversal algorithm.</p>
+<p><strong>Horizontal slicing</strong> (scoping a goal entirely within one technical layer without delivering an end-to-end customer-observable outcome) is a documented anti-pattern in agile product management that fails both the INVEST &quot;Valuable&quot; criterion and the EIA standalone justifiability test.</p>
 </li>
 <li>
-<p>An automated goal-constraint validation system must treat stale-link detection and completeness checking as two separate sub-problems: stale-link detection is automatable via change-timestamp comparison and link inspection; completeness checking after scope expansion requires domain-specific generation rules or a mandatory human review gate.</p>
+<p><strong>Contextual signals</strong> (approval threshold proximity, temporal clustering of related fragment submissions, absence of disclosure of the wider scheme) are the most specific indicators of deliberate salami-slicing but require governance metadata absent from the goal specification text and cannot be evaluated from specification content alone.</p>
 </li>
 <li>
-<p>No i* industrial tool as of 2024 provides fully automatic constraint re-enumeration after a goal scope change; the most capable available tool is GoalSet's semi-automatic propagation, which requires analyst confirmation at each propagation step.</p>
+<p><strong>Benefit Dependency Network (BDN)</strong> orphaned-node concept in Managing Successful Programmes (MSP) encodes a structural fragmentation signal: any benefit or capability node with no traceability path to a strategic objective is structurally fragmented and must be re-linked or retired.</p>
 </li>
 <li>
-<p>The traceability gap identified by Gotel and Finkelstein (1994) remains structurally present in 2024 despite incremental automation advances in SysML v2 and event-based approaches, because the root cause is the absence of domain knowledge in the model rather than a tooling deficiency.</p>
+<p>No single structural, semantic, or contextual signal is sufficient to determine fragmentation; the literature across requirements engineering, product management, programme governance, and EIA case law consistently supports a combined minimum check requiring an explicit parent reference, an independently verifiable success criterion, and at least one customer-observable outcome delivered without requiring other goals to be completed.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
 <li>
-<p><strong>Assumption 1:</strong> The Nuseibeh and Easterbrook (2000) roadmap findings about change propagation as an unsolved problem in requirements engineering accurately represent the state of practice at the time. <strong>Justification:</strong> Peer-reviewed IEEE/ICSE 2000 publication by leading researchers in the field; findings are consistent with the independent Gotel and Finkelstein (1994) empirical study.</p>
+<p><strong>Assumption 1:</strong> The EIA functional interdependence test is applicable to requirements governance beyond planning law. <strong>Justification:</strong> The logical structure of the test is domain-agnostic; its criteria (can this artefact be justified on its own merit? does documentation reveal it is part of a larger scheme?) apply wherever a governance threshold exists.</p>
 </li>
 <li>
-<p><strong>Assumption 2:</strong> The Objectiver tool's behaviour described in Van Lamsweerde's guide and vendor documentation accurately reflects production capability for KAOS-based constraint propagation. <strong>Justification:</strong> The tool has been the primary KAOS implementation for over two decades; the secondary descriptions are internally consistent across multiple sources.</p>
+<p><strong>Assumption 2:</strong> The INVEST criteria, designed for agile user stories, are applicable at the level of Goal specifications as used in this item's scope. <strong>Justification:</strong> The &quot;Valuable&quot; and &quot;Testable&quot; criteria address the semantic properties of any well-formed goal specification regardless of delivery methodology.</p>
 </li>
 <li>
-<p><strong>Assumption 3:</strong> The SysML v1 limitation (no automatic satisfaction re-check after change) reported in tool documentation and practitioner sources reflects the standard capability across major SysML v1 tools (MagicDraw, Enterprise Architect, IBM Rhapsody). <strong>Justification:</strong> Multiple independent practitioner sources report the same limitation across different tools; the SysML v1 specification does not mandate automatic satisfaction re-checking.</p>
+<p><strong>Assumption 3:</strong> Reinertsen (2009) connects legitimate batch-size reduction to parent-goal traceability. <strong>Justification:</strong> This claim is drawn from secondary summaries; primary access was not obtained. It is consistent with the documented batch-size optimisation principle but is treated as an assumption pending direct source verification.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
-<p>The evidence converges on a single structural finding: constraint re-enumeration in MBRE frameworks requires a human trigger because completeness exceeds what model structure alone can supply.</p>
-<p>The progression from SysML v1 to SysML v2 illustrates the automation ceiling. SysML v1 provides traceability links that a human must inspect on demand. SysML v2 adds event subscription so the tool can notify the human when an inspection is warranted. Neither eliminates the human decision about whether those constraints remain valid or what new constraints should be added. The event-based approach of Cleland-Huang et al. (2003) extends this by making the notification more timely and systematic, but the analyst still confirms or rejects each flagged impact.</p>
-<p>The scope-expansion case requires a different design response from the stale-link case. For scope narrowing, existing links now applying to removed scope are detectable by link inspection and can be retired or flagged as orphaned. For scope expansion, the model contains no information about what constraints the new scope requires. The only available approaches are domain-specific constraint generation rules keyed to goal categories (for example: if a goal now includes personal data processing, enumerate General Data Protection Regulation (GDPR) constraints), or mandatory human review keyed to the magnitude of the scope change.</p>
-<p>Mäder and Gotel's (2012) empirical finding that stale links persist across release cycles in practice confirms that partial automation available in SysML v1 tools is not routinely used. The organisational finding from Gotel and Finkelstein (1994) that no role owns traceability maintenance is the dominant practical constraint: tools can provide automation only if the automation is triggered.</p>
-<p>A rival response would be to invest in better models rather than human review gates: if the model were rich enough to encode domain rules about which constraint categories apply to which goal categories, automated completeness checking could approach reliability. This is the direction suggested by domain-specific constraint pattern libraries. The evidence does not rule this out for narrow domains, but no production implementation of this approach exists for enterprise-scale systems. A human review gate for scope expansions remains the only approach with empirical support for completeness in the current state of tools.</p>
+<p>The three signal tiers form a detection ladder in which each tier catches a different
+fragmentation mechanism.
+Structural signals cost the least to evaluate but carry the highest false-positive
+rate because legitimate prerequisites and infrastructure goals routinely lack
+standalone value.
+The semantic tier is more discriminating because the &quot;Valuable&quot; test is explicitly
+about customer-observable outcomes rather than implementation structure, which is
+harder to fake without revealing the wider scheme.
+Governance metadata unlocks the contextual tier, which is the most specific to
+deliberate intent but cannot be evaluated from specification content alone, making
+it complementary rather than primary.</p>
+<p>A rival interpretation is that structural signals alone are sufficient: a goal without
+a declared parent cannot pass the KAOS AND-refinement entailment check, which is itself
+conclusive.
+The structural interpretation is weaker for two reasons: (a) a legitimate root goal
+also lacks a parent, so the signal is not specific to fragments; and (b) a declared
+but fictitious parent can be added to a fragmented goal, satisfying the structural
+check while preserving the fragmentation effect at the semantic level.
+Semantic signals are therefore the most robust primary layer; structural and
+contextual signals serve as supporting evidence.</p>
+<p>The GORE completed item (2026-05-31-gore-strategic-intent-to-delivery-decomposition)
+establishes that the abstraction gap in GORE decomposition occurs in roughly 40-60%
+of industrial applications.
+This finding sharpens the current item's conclusion: at the abstraction boundary,
+GORE formal rules stop providing guidance, making semantic signals (INVEST, EIA)
+particularly valuable as the primary detection layer precisely where formal checks
+break down.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>Quantitative propagation latency data (how long stale constraints persist in sprint-cycle or calendar-time terms) was not found in this investigation. Mäder and Gotel (2012) confirm persistence across release cycles but do not provide a distribution. This limits the ability to specify a latency threshold for a validation system design.</li>
-<li>The Objectiver tool's exact propagation algorithm is not documented in publicly accessible primary sources; the inference about semi-automatic notification behaviour relies on Van Lamsweerde's published descriptions.</li>
-<li>Direct access to the Nuseibeh and Easterbrook (2000) paper (doi: 10.1145/336512.336523) returned 403; content attributed to that source is based on secondary descriptions and consistent cross-referencing with other primary sources.</li>
-<li>i* tool capabilities are an active research area; the capability summary as of 2024 may understate recent research prototypes not yet in production.</li>
+<li>The Horkoff et al. (2017) systematic mapping was not directly accessed; its content
+is drawn from the completed prior item on GORE decomposition.</li>
+<li>Primary access to Reinertsen (2009) was not obtained; the batch-size/parent-goal
+traceability characterisation is from secondary summaries.</li>
+<li>The Firesmith (2004) article was retrieved as a binary PDF only; scope-coherence
+claims are characterised from abstract-level search results.</li>
+<li>The AXELOS MSP source was inaccessible in useful content; the BDN orphaned-node
+claim is based on secondary characterisation.</li>
+<li>No empirical study was found measuring false-positive and false-negative rates of the
+proposed signal taxonomy on a labelled dataset of goal specifications.</li>
 </ul>
 <h3>Open Questions</h3>
 <ol>
-<li>Can domain-specific constraint generation rules, keyed to goal category changes, provide reliable completeness for well-scoped domains such as data privacy (GDPR) or financial compliance? This is a candidate for a new backlog item.</li>
-<li>What is the empirical false-negative rate of event-based traceability for constraint completeness in scope-expansion scenarios specifically? This would directly inform the human review gate design requirement.</li>
-<li>How does the constraint-staleness window interact with the convergence/cycling risk documented in the companion item on goal-constraint feedback (Mitchell 2026, <a href="https://davidamitchell.github.io/Research/research/2026-05-31-goal-constraint-feedback-convergence-vs-cycling.html)?">davidamitchell.github.io</a> A stale constraint surface not detected before the next review cycle could shift the system from convergence to cycling.</li>
+<li>Can the combined three-check minimum be encoded as a formal schema validation rule
+that an automated planner can apply at goal submission time? This would be a natural
+extension of the five-field minimum schema from the completed item
+2026-05-31-goal-specification-completeness-schema.</li>
+<li>Is there empirical evidence on false-negative rates for semantic signals in industrial
+requirements databases?</li>
+<li>Can the EIA functional interdependence test be operationalised as a machine-readable
+check without requiring natural language understanding of the &quot;wider scheme&quot;?</li>
 </ol>
 <hr />
 
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
-<li>[x] <a href="https://www.elsevier.com/books/a-practical-guide-to-sysml/friedenthal/978-0-12-800202-1">Friedenthal et al. (2015) A Practical Guide to SysML: The Systems Modeling Language</a>: SysML requirement and constraint relationship traceability; SysML v1 static assertion limitation</li>
-<li>[x] <a href="https://www.wiley.com/en-gb/Requirements+Engineering%3A+From+System+Goals+to+UML+Models+to+Software+Specifications-p-9780470012703">Van Lamsweerde (2009) Requirements Engineering: From System Goals to UML Models to Software Specifications</a>: KAOS obstacle analysis and constraint-goal linkage; Objectiver tool behaviour</li>
-<li>[x] <a href="https://dl.acm.org/doi/10.1145/336512.336523">Nuseibeh &amp; Easterbrook (2000) Requirements Engineering: A Roadmap</a>: requirements change propagation as an unsolved problem (access restricted; content confirmed via secondary summaries)</li>
-<li>[x] <a href="https://ieeexplore.ieee.org/document/1048533">Egyed &amp; Grünbacher (2002) Automating Requirements Traceability: Beyond the Records-and-Replay Paradigm</a>: empirical study of automated traceability; absence of automatic re-checking as motivation</li>
-<li>[x] <a href="https://doi.org/10.1007/s00766-011-0135-3">Mäder &amp; Gotel (2012) Towards Automated Traceability Maintenance</a>: empirical study on stale trace links in evolving systems</li>
-<li>[x] <a href="https://dl.acm.org/doi/10.1109/ICRE.1994.292997">Gotel &amp; Finkelstein (1994) An Analysis of the Requirements Traceability Problem</a>: traceability gap; organisational root cause; scope expansion as structural problem</li>
-<li>[x] <a href="https://doi.org/10.1109/TSE.2003.1232285">Cleland-Huang et al. (2003) Event-Based Traceability for Managing Evolutionary Change</a>: most automated available mechanism; precision/recall limitations</li>
-<li>[x] <a href="https://sysml.visual-paradigm.com/docs/sysml-v2-studio-kick-start-guide/cohesive-system-model-in-8-views/step-7-the-digital-thread-requirement-traceability-satisfaction/">SysML v2 Studio (2026) Step 8: The Digital Thread: Requirement Traceability Satisfaction</a>: SysML v2 <code>satisfy</code> construct and impact flagging</li>
-<li>[x] <a href="https://www.semanticscholar.org/paper/Goal-oriented-Requirements-Engineering%3A-A-Guide-Lamsweerde/12f2af790c31c99d41b6d1b7a752b2c759cebfbb">Van Lamsweerde (2001) Goal-Oriented Requirements Engineering: A Guided Tour</a>: KAOS guide; obstacle analysis and Objectiver tool behaviour</li>
-<li>[x] <a href="https://se.cs.toronto.edu/istar/istar-tools/">OpenOME Tool, University of Toronto i* Research Group</a>: i* tool landscape; absence of fully automatic constraint re-enumeration</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-31-formal-methods-interdependent-inputs-feasibility.html">Mitchell (2026) Formal methods: specifying interdependent inputs for automated feasibility checking</a>: complementary: constraint infeasibility as distinct from constraint staleness</li>
-<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-31-goal-constraint-feedback-convergence-vs-cycling.html">Mitchell (2026) Goal-constraint feedback: convergence conditions vs specification cycling</a>: complementary: how stale constraints interact with convergence/cycling risk</li>
+<li>[x] <a href="https://doi.org/10.1109/ISRE.2001.948567">Van Lamsweerde et al. (2001) Handling Obstacles in Goal-Oriented Requirements Engineering</a>: Knowledge Acquisition in Automated Specification (KAOS) AND-refinement completeness and bidirectional entailment requirement</li>
+<li>[x] <a href="https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">Wake (2003) INVEST in Good Stories, and SMART Tasks</a>: Independent, Negotiable, Valuable, Estimable, Small, Testable (INVEST) criteria; horizontal slicing as anti-pattern; &quot;Valuable&quot; and &quot;Testable&quot; signals</li>
+<li>[x] <a href="https://www.agilealliance.org/glossary/invest/">Agile Alliance (2023) INVEST Glossary</a>: canonical definition of INVEST criteria</li>
+<li>[x] <a href="https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications">Pinsent Masons (2023) Bridge ruling: warning for English planning applications</a>: Environmental Impact Assessment (EIA) Ashchurch ruling; functional interdependence test; three-part salami-slicing detection framework</li>
+<li>[x] <a href="https://planning.wiki/ref/pddl/problem">planning.wiki PDDL Problem Reference</a>: Planning Domain Definition Language (PDDL) goal block; mutual precondition chains</li>
+<li>[x] <a href="https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009">Reinertsen (2009) The Principles of Product Development Flow</a>: batch-size and scope fragmentation; secondary access only</li>
+<li>[x] <a href="https://www.axelos.com/certifications/propath/managing-successful-programmes-msp">AXELOS Managing Successful Programmes (MSP)</a>: Benefit Dependency Network (BDN) orphaned-node concept; product page access only</li>
+<li>[x] <a href="https://www.jot.fm/issues/issue_2004_01/column6.pdf">Firesmith (2004) Specifying Reusable Security Requirements</a>: goal granularity and scope-coherence; PDF retrieved as binary only</li>
+<li>[x] <a href="https://doi.org/10.1109/ISRE.1997.582369">Yu (1997) Towards Modelling and Reasoning Support for Early-Phase Requirements Engineering</a>: i-star means-end links; structural orphan in strategic dependency models</li>
 </ul>
 <hr />
 
 
   </div>
   
-  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-31-formal-methods-interdependent-inputs-feasibility.html">Formal methods: specifying interdependent inputs for automated feasibility checking</a></div>
-<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-31-goal-constraint-feedback-convergence-vs-cycling.html">Goal-constraint feedback: convergence conditions vs. specification cycling</a></div>
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html">GORE: translating strategic intent to scoped delivery objectives</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-31-goal-specification-completeness-schema.html">Goal specification: minimum schema and completeness validation</a></div>
 </div>
-<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-goal-specification-completeness-schema.html">Goal specification: minimum schema and completeness validation</a></div>
-<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html">GORE: translating strategic intent to scoped delivery objectives</a></div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-goal-scope-change-constraint-propagation.html">Model-based requirements engineering: goal scope change propagation to constraints</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-31-goal-constraint-feedback-convergence-vs-cycling.html">Goal-constraint feedback: convergence conditions vs. specification cycling</a></div>
 </div>
 
-  <div class="versions-section"><div class="versions-label">version history</div><table><thead><tr><th>version</th><th>date</th><th>commit</th><th>summary</th></tr></thead><tbody><tr><td>1.0</td><td>2026-06-01</td><td><a href="https://github.com/davidamitchell/Research/commit/b6450fc4" target="_blank" rel="noopener">b6450fc</a></td><td>Initial completion</td></tr>
-</tbody></table></div>
-
+  
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-31-goal-specification-completeness-schema.html">Goal specification: minimum schema and completeness validation</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals.html">Goal fragmentation: signals distinguishing salami-slicing from legitimate…</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-05-31-goal-scope-change-constraint-propagation.html">Model-based requirements engineering</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-05-31-goal-constraint-feedback-convergence-vs-cycling.html">Goal-constraint feedback</a></div>
   </div>
 </main>
 <section id="mini-graph-section">
@@ -822,7 +863,7 @@ main {
 </div>
 <a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
 </section>
-<script>window.GRAPH_FOCAL_SLUG = "2026-05-31-goal-scope-change-constraint-propagation";</script>
+<script>window.GRAPH_FOCAL_SLUG = "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals";</script>
 <script>
 (function () {
   var FOCAL = window.GRAPH_FOCAL_SLUG;

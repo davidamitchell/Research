@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-06-02T12:33:01Z",
+  "extracted_at": "2026-06-02T13:15:35Z",
   "items": {
     "2026-05-31-sre-slo-threshold-justification": {
       "named_concepts": [
@@ -347,6 +347,94 @@
           "sources": [
             "https://doi.org/10.1007/s00766-011-0135-3",
             "https://doi.org/10.1109/TSE.2007.70716"
+          ]
+        }
+      ]
+    },
+    "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals": {
+      "named_concepts": [
+        "invest valuable",
+        "wider scheme",
+        "customer-observable outcome",
+        "valuable criterion",
+        "declared parent",
+        "parent reference",
+        "semantic fragmentation",
+        "functional interdependence",
+        "interdependence test",
+        "technical prerequisites",
+        "false positive",
+        "kaos and-refinement",
+        "fragmentation signals",
+        "fragmentation signal",
+        "contextual signals",
+        "governance metadata",
+        "semantic signals",
+        "legitimate sub-goal",
+        "sub-goal scoping",
+        "structural semantic"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1109/ISRE.2001.948567",
+        "https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/",
+        "https://www.agilealliance.org/glossary/invest/",
+        "https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications",
+        "https://planning.wiki/ref/pddl/problem",
+        "https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009",
+        "https://www.axelos.com/certifications/propath/managing-successful-programmes-msp",
+        "https://www.jot.fm/issues/issue_2004_01/column6.pdf",
+        "https://doi.org/10.1109/ISRE.1997.582369"
+      ],
+      "key_claims": [
+        {
+          "text": "Salami-slicing is the splitting of a single coherent goal into multiple fragments, each below a governance or approval threshold, such that the aggregate intent is never visible in any single specification artefact, as established in Environmental Impact Assessment (EIA) case law and programme governance practice",
+          "sources": [
+            "https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications"
+          ]
+        },
+        {
+          "text": "KAOS AND-refinement completeness provides the most formally precise structural signal for legitimate sub-goal scoping: the conjunction of sub-goals must bidirectionally imply the parent goal, and a goal with no declared parent cannot pass this test, making absent parent reference a necessary precondition for applying any fragmentation check",
+          "sources": [
+            "https://doi.org/10.1109/ISRE.2001.948567",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md"
+          ]
+        },
+        {
+          "text": "INVEST criteria (Wake, 2003) encode the two strongest semantic fragmentation signals as questions usable without formal logic competence: \"Valuable\" asks whether the goal delivers customer value in isolation, and \"Testable\" asks whether acceptance can be determined without completing another goal first",
+          "sources": [
+            "https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/",
+            "https://www.agilealliance.org/glossary/invest/"
+          ]
+        },
+        {
+          "text": "Ashchurch three-part test: the UK Court of Appeal (2023) establishes a functional interdependence test for detecting artificial project splitting: a goal is a fragment if it cannot be justified on its own merit, if documentation reveals it forms part of a wider scheme, and if it would not be used until the wider scheme is complete",
+          "sources": [
+            "https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications"
+          ]
+        },
+        {
+          "text": "Technical prerequisites and infrastructure enablers are the primary false positive class for fragmentation signals: they fail the INVEST \"Valuable\" criterion yet are legitimate sub-goals when the dependency on a declared parent goal is explicitly stated in the specification",
+          "sources": [
+            "https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/"
+          ]
+        },
+        {
+          "text": "Conditional acceptance criterion: a goal whose acceptance depends on another goal's completion fails the independent testability test and is a semantic fragmentation signal; in Planning Domain Definition Language (PDDL), such a mutual precondition chain may render the entire goal set unsolvable at plan-search time, making the fragmentation computationally detectable",
+          "sources": [
+            "https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/",
+            "https://planning.wiki/ref/pddl/problem"
+          ]
+        },
+        {
+          "text": "Horizontal slicing (scoping a goal entirely within one technical layer without delivering an end-to-end customer-observable outcome) is a documented anti-pattern in agile product management that fails both the INVEST \"Valuable\" criterion and the EIA standalone justifiability test",
+          "sources": [
+            "https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/"
+          ]
+        },
+        {
+          "text": "Contextual signals (approval threshold proximity, temporal clustering of related fragment submissions, absence of disclosure of the wider scheme) are the most specific indicators of deliberate salami-slicing but require governance metadata absent from the goal specification text and cannot be evaluated from specification content alone",
+          "sources": [
+            "https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications"
           ]
         }
       ]
