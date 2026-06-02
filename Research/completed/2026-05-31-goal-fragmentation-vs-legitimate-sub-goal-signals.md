@@ -2,12 +2,12 @@
 review_count: 2
 title: "Goal fragmentation: signals distinguishing salami-slicing from legitimate sub-goals"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [software-engineering, governance-policy, formal-methods]
 started: 2026-06-02T12:18:31+00:00
-completed: ~
+completed: 2026-06-02T13:11:51+00:00
 output: [knowledge]
 cites:
   - 2026-05-31-gore-strategic-intent-to-delivery-decomposition
