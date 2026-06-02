@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b5b38c07
+    changed: "2026-06-02"
+    progress: progress/2026-06-02-goal-fragmentation-vs-legitimate-sub-goal-signals.md
+    summary: "Initial completion"
 ---
 
 # Goal fragmentation: signals distinguishing salami-slicing from legitimate sub-goals
