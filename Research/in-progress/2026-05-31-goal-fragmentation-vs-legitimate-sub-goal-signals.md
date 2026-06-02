@@ -26,7 +26,7 @@ versions: []
 
 ## Research Question
 
-When a Goal is a fragment of a larger intent — salami-sliced deliberately or accidentally — what signals distinguish it from a legitimately scoped sub-goal?
+When a Goal is a fragment of a larger intent (salami-sliced deliberately or accidentally), what signals distinguish it from a legitimately scoped sub-goal?
 
 ## Scope
 
@@ -58,27 +58,27 @@ Deliberate or accidental goal fragmentation is a recurring dysfunction in delive
 
 ## Sources
 
-- [x] [Van Lamsweerde et al. (2001) Handling Obstacles in Goal-Oriented Requirements Engineering](https://doi.org/10.1109/ISRE.2001.948567) — Knowledge Acquisition in Automated Specification (KAOS) AND-refinement completeness and bidirectional entailment requirement
-- [x] [Wake (2003) INVEST in Good Stories, and SMART Tasks](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/) — Independent, Negotiable, Valuable, Estimable, Small, Testable (INVEST) criteria; horizontal slicing as anti-pattern; "Valuable" and "Testable" signals
-- [x] [Agile Alliance (2023) INVEST Glossary](https://www.agilealliance.org/glossary/invest/) — canonical definition of INVEST criteria
-- [x] [Pinsent Masons (2023) Bridge ruling — warning for English planning applications](https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications) — Environmental Impact Assessment (EIA) Ashchurch ruling; functional interdependence test; three-part salami-slicing detection framework
-- [x] [planning.wiki PDDL Problem Reference](https://planning.wiki/ref/pddl/problem) — Planning Domain Definition Language (PDDL) goal block; mutual precondition chains
-- [x] [Reinertsen (2009) The Principles of Product Development Flow](https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009) — batch-size and scope fragmentation; secondary access only
-- [x] [AXELOS Managing Successful Programmes (MSP)](https://www.axelos.com/certifications/propath/managing-successful-programmes-msp) — Benefit Dependency Network (BDN) orphaned-node concept; product page access only
-- [x] [Firesmith (2004) Specifying Reusable Security Requirements](https://www.jot.fm/issues/issue_2004_01/column6.pdf) — goal granularity and scope-coherence; PDF retrieved as binary only
-- [x] [Yu (1997) Towards Modelling and Reasoning Support for Early-Phase Requirements Engineering](https://doi.org/10.1109/ISRE.1997.582369) — i-star means-end links; structural orphan in strategic dependency models
+- [x] [Van Lamsweerde et al. (2001) Handling Obstacles in Goal-Oriented Requirements Engineering](https://doi.org/10.1109/ISRE.2001.948567): Knowledge Acquisition in Automated Specification (KAOS) AND-refinement completeness and bidirectional entailment requirement
+- [x] [Wake (2003) INVEST in Good Stories, and SMART Tasks](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/): Independent, Negotiable, Valuable, Estimable, Small, Testable (INVEST) criteria; horizontal slicing as anti-pattern; "Valuable" and "Testable" signals
+- [x] [Agile Alliance (2023) INVEST Glossary](https://www.agilealliance.org/glossary/invest/): canonical definition of INVEST criteria
+- [x] [Pinsent Masons (2023) Bridge ruling: warning for English planning applications](https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications): Environmental Impact Assessment (EIA) Ashchurch ruling; functional interdependence test; three-part salami-slicing detection framework
+- [x] [planning.wiki PDDL Problem Reference](https://planning.wiki/ref/pddl/problem): Planning Domain Definition Language (PDDL) goal block; mutual precondition chains
+- [x] [Reinertsen (2009) The Principles of Product Development Flow](https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009): batch-size and scope fragmentation; secondary access only
+- [x] [AXELOS Managing Successful Programmes (MSP)](https://www.axelos.com/certifications/propath/managing-successful-programmes-msp): Benefit Dependency Network (BDN) orphaned-node concept; product page access only
+- [x] [Firesmith (2004) Specifying Reusable Security Requirements](https://www.jot.fm/issues/issue_2004_01/column6.pdf): goal granularity and scope-coherence; PDF retrieved as binary only
+- [x] [Yu (1997) Towards Modelling and Reasoning Support for Early-Phase Requirements Engineering](https://doi.org/10.1109/ISRE.1997.582369): i-star means-end links; structural orphan in strategic dependency models
 
 ---
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill, retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
 ```text
-Question: When a Goal is a fragment of a larger intent — salami-sliced deliberately or
-  accidentally — what signals distinguish it from a legitimately scoped sub-goal?
+Question: When a Goal is a fragment of a larger intent: salami-sliced deliberately or
+  accidentally: what signals distinguish it from a legitimately scoped sub-goal?
 
 Scope in: (a) Conceptual distinction between salami-slicing (artificial fragmentation
   to evade scope or approval thresholds) and legitimate goal decomposition (principled
@@ -95,7 +95,7 @@ Constraints: Prioritise empirical evidence and documented heuristics over purely
   theoretical classification. Domains: software delivery, programme management, enterprise
   architecture, public sector procurement.
 
-Output format: knowledge item — signal taxonomy (structural, semantic, contextual),
+Output format: knowledge item: signal taxonomy (structural, semantic, contextual),
   false-positive and false-negative catalogue, formal-method encoding assessment.
 
 Domain terms:
@@ -109,7 +109,7 @@ Domain terms:
 - Legitimate sub-goal: a goal that is principally derived from a parent goal via AND-
   or OR-refinement (GORE terminology), delivers value independently or as a clearly
   bounded phase, and whose relationship to the parent is explicitly declared.
-- INVEST: Independent, Negotiable, Valuable, Estimable, Small, Testable — a checklist
+- INVEST: Independent, Negotiable, Valuable, Estimable, Small, Testable: a checklist
   for well-formed user stories in agile product management, introduced by Bill Wake
   (2003).
 - Environmental Impact Assessment (EIA): a regulatory process requiring that projects
@@ -150,7 +150,7 @@ Working hypotheses:
 
 The research question decomposes into five atomic clusters:
 
-**Cluster A — Conceptual distinction**
+**Cluster A: Conceptual distinction**
 - A1: What is the established definition of salami-slicing in requirements engineering
   and programme governance?
 - A2: What structural properties define a legitimately scoped sub-goal in formal
@@ -159,7 +159,7 @@ The research question decomposes into five atomic clusters:
 - A3: What is the boundary condition between "principled decomposition" and "artificial
   fragmentation"?
 
-**Cluster B — Structural signals**
+**Cluster B: Structural signals**
 - B1: Does a missing parent-goal reference distinguish a fragment from a sub-goal?
 - B2: Does a missing independent verification criterion (success criterion only verifiable
   in combination with other goals) signal fragmentation?
@@ -168,7 +168,7 @@ The research question decomposes into five atomic clusters:
 - B4: Does GORE AND-refinement completeness (bidirectional entailment) provide a formal
   structural test?
 
-**Cluster C — Semantic signals**
+**Cluster C: Semantic signals**
 - C1: Is outcome-realisability-in-isolation a meaningful semantic distinction?
 - C2: Does the Independent, Negotiable, Valuable, Estimable, Small, Testable (INVEST)
   "Valuable" and "Independent" criteria in product management provide
@@ -176,7 +176,7 @@ The research question decomposes into five atomic clusters:
 - C3: Are there semantic signals from goal granularity and scope-coherence theory
   (Firesmith 2004)?
 
-**Cluster D — Contextual signals**
+**Cluster D: Contextual signals**
 - D1: Does approval-threshold proximity constitute a detectable signal in governance
   literature?
 - D2: Does the environmental planning (EIA) "functional interdependence" test translate
@@ -184,7 +184,7 @@ The research question decomposes into five atomic clusters:
 - D3: Does timing clustering of related fragment submissions constitute a documented
   signal?
 
-**Cluster E — Signal reliability**
+**Cluster E: Signal reliability**
 - E1: Are false positives documented in the literature (legitimate sub-goals that
   exhibit fragmentation signals)?
 - E2: Are false negatives documented (fragmented goals that pass structural and semantic
@@ -193,7 +193,7 @@ The research question decomposes into five atomic clusters:
 
 ### §2 Investigation
 
-#### §2.A — Conceptual distinction (Clusters A1–A3)
+#### §2.A: Conceptual distinction (Clusters A1–A3)
 
 **Salami-slicing in procurement and governance**
 
@@ -223,7 +223,7 @@ consistently; the equivalent concept appears under the labels "artificial decomp
 [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 
 Searched for "salami-slicing requirements engineering" in primary requirements engineering
-literature (IEEE TSE, ICSRE, RE conference). The Horkoff et al. (2017) systematic mapping
+literature (Institute of Electrical and Electronics Engineers (IEEE) Transactions on Software Engineering (TSE), International Conference on Software Requirements Engineering (ICSRE), RE conference). The Horkoff et al. (2017) systematic mapping
 (https://link.springer.com/article/10.1007/s00766-017-0280-z) covers 231 GORE publications
 and reports goal fragmentation as a manifestation of the "abstraction gap" rather than as
 a distinct anti-pattern; the mapping does not provide a per-fragmentation-type frequency.
@@ -247,9 +247,9 @@ node with no means-end or decomposition link is structurally orphaned in the i-s
 model, which is a defined incompleteness rather than a deliberate fragmentation.
 [inference; source: https://doi.org/10.1109/ISRE.1997.582369]
 
-#### §2.B — Structural signals (Cluster B)
+#### §2.B: Structural signals (Cluster B)
 
-**B1 — Missing parent reference**
+**B1: Missing parent reference**
 
 A goal specification that contains no traceability link to a higher-level goal is
 structurally untethered. In GORE KAOS notation, a goal without a refinement link to
@@ -264,7 +264,7 @@ boundary is defined in terms of what a parent goal achieves is dependent on that
 Missing parent reference is therefore a necessary but not sufficient signal for
 fragmentation: it is absent in genuinely top-level goals and in fragmented goals alike.
 
-**B2 — No independent verification criterion**
+**B2: No independent verification criterion**
 
 A goal that cannot be verified in isolation (i.e., whose success criterion requires
 another goal to be satisfied first) is structurally dependent. PDDL (Planning Domain
@@ -278,7 +278,7 @@ If the acceptance criterion contains the phrase "when [other goal] is also done"
 a conditional reference to another goal's output, the goal fails the independent
 testability test. [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 
-**B3 — Technical layer only (horizontal slicing)**
+**B3: Technical layer only (horizontal slicing)**
 
 In agile product management, "horizontal slicing" is the anti-pattern of splitting a
 story by technical layer (front-end, back-end, database) rather than by end-to-end
@@ -294,7 +294,7 @@ is not a reusable security requirement because it lacks scope coherence across t
 full protection surface it is supposed to cover.
 [inference; source: https://www.jot.fm/issues/issue_2004_01/column6.pdf]
 
-**B4 — GORE AND-refinement entailment**
+**B4: GORE AND-refinement entailment**
 
 KAOS AND-refinement provides a formal structural test: if the conjunction of sub-goals
 does not imply the parent, the decomposition is incomplete and the sub-goals are
@@ -306,9 +306,9 @@ decomposition (missing sub-goals, over-specification) unless the full parent goa
 declared; without a declared parent, the entailment cannot be checked.
 [inference; source: https://doi.org/10.1109/ISRE.2001.948567]
 
-#### §2.C — Semantic signals (Cluster C)
+#### §2.C: Semantic signals (Cluster C)
 
-**C1 — Outcome realisability in isolation**
+**C1: Outcome realisability in isolation**
 
 The functional interdependence test from EIA case law is semantically equivalent to
 the question "can this specification be justified on its own merit?". The Ashchurch
@@ -322,7 +322,7 @@ about value to just anybody; it needs to be valuable to the customer."
 A goal that produces no customer-observable outcome in isolation fails the Valuable
 criterion and is a candidate fragment. [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 
-**C2 — INVEST Independent and Valuable criteria**
+**C2: INVEST Independent and Valuable criteria**
 
 The INVEST model (Bill Wake, 2003) provides two semantically distinct tests:
 - "Independent": the goal should not overlap in concept with others and should be
@@ -336,7 +336,7 @@ order is required by the domain (e.g., a database migration must precede a schem
 change). Failing "Valuable" with no declaration of why is a stronger fragmentation
 signal. [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 
-**C3 — Granularity and scope coherence (Firesmith 2004)**
+**C3: Granularity and scope coherence (Firesmith 2004)**
 
 Firesmith (2004) argues that for security requirements to be reusable, their scope
 must be coherent: each requirement must apply consistently to a well-defined scope
@@ -349,9 +349,9 @@ taxonomy, a goal is at the correct granularity when it can be directly traced to
 an abstract security requirement pattern and to a concrete mechanism.
 [inference; source: https://www.jot.fm/issues/issue_2004_01/column6.pdf]
 
-#### §2.D — Contextual signals (Cluster D)
+#### §2.D: Contextual signals (Cluster D)
 
-**D1 — Approval threshold proximity**
+**D1: Approval threshold proximity**
 
 In procurement and programme governance, threshold proximity is documented as the
 primary contextual signal for salami-slicing: multiple submissions each just below
@@ -367,7 +367,7 @@ This signal is contextual rather than intrinsic: it requires governance metadata
 the goal specification text itself.
 [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
 
-**D2 — EIA functional interdependence test**
+**D2: EIA functional interdependence test**
 
 The EIA functional interdependence test considers: (a) physical or logical contiguity
 of the components, (b) common purpose or objective, (c) linked timing or phasing,
@@ -377,9 +377,9 @@ and usefully, and (f) common ownership or control.
 Points (b), (c), and (e) translate directly to requirements governance: if two goals
 share a stated strategic objective, are phased consecutively without independent value
 in early phases, and neither can deliver value without the other being complete, the
-functional interdependence test is met. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-english-planning-applications]
+functional interdependence test is met. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
 
-**D3 — Timing clustering**
+**D3: Timing clustering**
 
 Temporal clustering of related goal submissions within a short time window is a
 documented procurement signal for artificial fragmentation. The equivalent requirement
@@ -394,9 +394,9 @@ Note: direct primary source access to Reinertsen (2009) was not obtained; the
 characterisation is drawn from secondary summaries describing the batch-size trade-off
 framework.
 
-#### §2.E — Signal reliability (Cluster E)
+#### §2.E: Signal reliability (Cluster E)
 
-**E1 — False positives (legitimate sub-goals that exhibit fragmentation signals)**
+**E1: False positives (legitimate sub-goals that exhibit fragmentation signals)**
 
 1. Technical prerequisites: A database migration story has no direct user-observable
    outcome but is a genuine prerequisite that enables subsequent goals. It fails the
@@ -407,8 +407,7 @@ framework.
    is required before any delivery can be verified. Treating infrastructure enablers
    as fragments would misclassify them.
    [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
-3. Sequential phased delivery with declared phases: A first phase of an MVP
-   (Minimum Viable Product) may have modest standalone value but be legitimate because
+3. Sequential phased delivery with declared phases: A first phase of a Minimum Viable Product (MVP) may have modest standalone value but be legitimate because
    the phasing is declared and the accumulation of value across phases is planned.
    The key distinguishing factor is whether the phasing is declared upfront.
    [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
@@ -417,7 +416,7 @@ framework.
    failure case) but are formally derived from the parent goal's satisfiability
    requirement. [inference; source: https://doi.org/10.1109/32.879317]
 
-**E2 — False negatives (fragmented goals that pass signals)**
+**E2: False negatives (fragmented goals that pass signals)**
 
 1. Goals with plausible-sounding standalone acceptance criteria that are semantically
    hollow: a goal such as "user can submit form" appears testable in isolation but
@@ -434,7 +433,7 @@ framework.
    specification text alone; it requires disclosure of the full expected capability.
    [assumption; no direct source; inferred from EIA case law pattern]
 
-**E3 — Formal methods encoding these signals**
+**E3: Formal methods encoding these signals**
 
 1. KAOS AND-refinement completeness: the bidirectional entailment check provides a
    formal structural test that a goal is a legitimate sub-goal given a declared parent.
@@ -518,7 +517,7 @@ replace "planning permission" with "change approval" and the test structure is t
 same. The three-part test (functional interdependence, standalone justifiability,
 documentary disclosure of the wider scheme) is the most defensible contextual
 signal battery because it has been tested at Court of Appeal level.
-[fact; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
+[inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
 
 **Programme governance lens**
 
@@ -581,7 +580,7 @@ customer-observable outcome delivered independently.
    goal into multiple fragments, each below a governance or approval threshold, such
    that the aggregate intent is never visible in any single specification artefact,
    as established in EIA case law and programme governance practice.
-   ([fact]; high confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
+   ([fact]; medium confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
 
 2. KAOS AND-refinement completeness provides the most formally precise structural
    test for legitimate sub-goal scoping: the conjunction of sub-goals must
@@ -603,7 +602,7 @@ customer-observable outcome delivered independently.
    translates directly to requirements governance: a goal is a fragment if it cannot
    be justified on its own merit, if documentation reveals it forms part of a wider
    scheme, and if it would not be used until the wider scheme is complete.
-   ([fact]; high confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
+   ([fact]; medium confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
 
 5. Technical prerequisites (e.g., database migrations, CI pipeline setup) and
    infrastructure enablers are the primary false positive class for fragmentation
@@ -624,7 +623,7 @@ customer-observable outcome delivered independently.
    management; a goal scoped entirely within one technical layer delivers no
    customer-observable outcome and therefore fails both the "Valuable" INVEST criterion
    and the EIA standalone justifiability test.
-   ([inference]; high confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
+   ([inference]; medium confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
 
 8. Contextual signals (approval threshold proximity, temporal clustering of related
    fragment submissions, absence of disclosure of the wider scheme) are the most
@@ -653,13 +652,13 @@ customer-observable outcome delivered independently.
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] Salami-slicing as goal splitting below approval threshold | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | high | Court of Appeal 2023 primary ruling |
+| [fact] Salami-slicing as goal splitting below approval threshold | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | Court of Appeal 2023 via Pinsent Masons commentary; primary ruling not directly accessible |
 | [inference] KAOS AND-refinement: missing parent reference as fragmentation precondition | https://doi.org/10.1109/ISRE.2001.948567; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md | high | Van Lamsweerde (2001); prior completed item |
-| [fact] INVEST "Valuable" and "Testable" as semantic fragmentation signals | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.agilealliance.org/glossary/invest/ | high | Wake (2003) original article |
-| [fact] EIA three-part functional interdependence test | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | high | Ashchurch ruling 2023; Court of Appeal primary |
+| [inference] INVEST "Valuable" and "Testable" as strongest semantic fragmentation signals | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.agilealliance.org/glossary/invest/ | high | Wake (2003) original; Agile Alliance; evaluative ranking |
+| [fact] EIA three-part functional interdependence test (Ashchurch 2023) | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | Court of Appeal 2023 via Pinsent Masons commentary; single source |
 | [inference] Technical prerequisites as primary false positive | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/ | medium | Inferred from INVEST "Valuable" discussion |
 | [inference] Conditional acceptance criterion as semantic fragmentation signal | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://planning.wiki/ref/pddl/problem | medium | INVEST testability + PDDL mutual precondition |
-| [inference] Horizontal slicing as documented fragmentation anti-pattern | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/ | high | Wake (2003) multi-layer-cake analogy |
+| [inference] Horizontal slicing as documented fragmentation anti-pattern | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/ | medium | Wake (2003) single practitioner source |
 | [inference] Contextual signals require governance metadata, not specification text | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | EIA signals; procurement context |
 | [inference] BDN orphaned node as structural fragmentation signal | https://www.axelos.com/certifications/propath/managing-successful-programmes-msp | medium | MSP product page; no detailed content accessible |
 | [inference] Combined three-check minimum for fragmentation determination | https://doi.org/10.1109/ISRE.2001.948567; https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | Cross-domain inference |
@@ -816,37 +815,37 @@ other goals to be completed first. [inference; source: https://doi.org/10.1109/I
 
 ### Key Findings
 
-1. **Salami-slicing is the splitting of a single coherent goal into multiple fragments each below a governance or approval threshold, such that the aggregate intent is never visible in any single specification artefact, as established in Environmental Impact Assessment (EIA) case law and programme governance practice.** ([fact]; high confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
+1. **Salami-slicing** is the splitting of a single coherent goal into multiple fragments, each below a governance or approval threshold, such that the aggregate intent is never visible in any single specification artefact, as established in Environmental Impact Assessment (EIA) case law and programme governance practice. ([fact]; medium confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
 
-2. **KAOS AND-refinement completeness provides the most formally precise structural signal for legitimate sub-goal scoping: the conjunction of sub-goals must bidirectionally imply the parent goal, and a goal with no declared parent cannot pass this test, making absent parent reference a necessary precondition for applying any fragmentation check.** ([inference]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md)
+2. **KAOS AND-refinement completeness** provides the most formally precise structural signal for legitimate sub-goal scoping: the conjunction of sub-goals must bidirectionally imply the parent goal, and a goal with no declared parent cannot pass this test, making absent parent reference a necessary precondition for applying any fragmentation check. ([inference]; high confidence; source: https://doi.org/10.1109/ISRE.2001.948567; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md)
 
-3. **The INVEST criteria (Wake, 2003) encode the two strongest semantic fragmentation signals as questions usable without formal logic competence: "Valuable" asks whether the goal delivers customer value in isolation, and "Testable" asks whether acceptance can be determined without completing another goal first.** ([fact]; high confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.agilealliance.org/glossary/invest/)
+3. **INVEST criteria** (Wake, 2003) encode the two strongest semantic fragmentation signals as questions usable without formal logic competence: "Valuable" asks whether the goal delivers customer value in isolation, and "Testable" asks whether acceptance can be determined without completing another goal first. ([inference]; high confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.agilealliance.org/glossary/invest/)
 
-4. **The UK Court of Appeal (2023) Ashchurch ruling establishes a three-part functional interdependence test for detecting artificial project splitting: a goal is a fragment if it cannot be justified on its own merit, if documentation reveals it forms part of a wider scheme, and if it would not be used until the wider scheme is complete.** ([fact]; high confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
+4. **Ashchurch three-part test:** the UK Court of Appeal (2023) establishes a functional interdependence test for detecting artificial project splitting: a goal is a fragment if it cannot be justified on its own merit, if documentation reveals it forms part of a wider scheme, and if it would not be used until the wider scheme is complete. ([fact]; medium confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
 
-5. **Technical prerequisites and infrastructure enablers are the primary false positive class for fragmentation signals: they fail the INVEST "Valuable" criterion yet are legitimate sub-goals when the dependency on a declared parent goal is explicitly stated in the specification.** ([inference]; medium confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
+5. **Technical prerequisites** and infrastructure enablers are the primary false positive class for fragmentation signals: they fail the INVEST "Valuable" criterion yet are legitimate sub-goals when the dependency on a declared parent goal is explicitly stated in the specification. ([inference]; medium confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
 
-6. **A goal whose acceptance criterion is conditional on another goal's completion fails the independent testability test and is a semantic fragmentation signal; in PDDL, such a mutual precondition chain may render the entire goal set unsolvable at plan-search time, making the fragmentation computationally detectable.** ([inference]; medium confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://planning.wiki/ref/pddl/problem)
+6. **Conditional acceptance criterion:** a goal whose acceptance depends on another goal's completion fails the independent testability test and is a semantic fragmentation signal; in Planning Domain Definition Language (PDDL), such a mutual precondition chain may render the entire goal set unsolvable at plan-search time, making the fragmentation computationally detectable. ([inference]; medium confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://planning.wiki/ref/pddl/problem)
 
-7. **Horizontal slicing, scoping a goal entirely within one technical layer without delivering an end-to-end customer-observable outcome, is a documented anti-pattern in agile product management and fails both the INVEST "Valuable" criterion and the EIA standalone justifiability test.** ([inference]; high confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
+7. **Horizontal slicing** (scoping a goal entirely within one technical layer without delivering an end-to-end customer-observable outcome) is a documented anti-pattern in agile product management that fails both the INVEST "Valuable" criterion and the EIA standalone justifiability test. ([inference]; medium confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
 
-8. **Contextual signals, including approval threshold proximity, temporal clustering of related fragment submissions, and absence of disclosure of the wider scheme, are the most specific indicators of deliberate salami-slicing but require governance metadata that is not present in the goal specification text and cannot be evaluated from specification content alone.** ([inference]; medium confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
+8. **Contextual signals** (approval threshold proximity, temporal clustering of related fragment submissions, absence of disclosure of the wider scheme) are the most specific indicators of deliberate salami-slicing but require governance metadata absent from the goal specification text and cannot be evaluated from specification content alone. ([inference]; medium confidence; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
 
-9. **The Benefit Dependency Network (BDN) methodology in Managing Successful Programmes (MSP) encodes a structural fragmentation signal through the orphaned-node concept: any benefit or capability node with no traceability path to a strategic objective is structurally fragmented and must be re-linked or retired.** ([inference]; medium confidence; source: https://www.axelos.com/certifications/propath/managing-successful-programmes-msp)
+9. **Benefit Dependency Network (BDN)** orphaned-node concept in Managing Successful Programmes (MSP) encodes a structural fragmentation signal: any benefit or capability node with no traceability path to a strategic objective is structurally fragmented and must be re-linked or retired. ([inference]; medium confidence; source: https://www.axelos.com/certifications/propath/managing-successful-programmes-msp)
 
-10. **No single structural, semantic, or contextual signal is sufficient to determine fragmentation; the literature across requirements engineering, product management, programme governance, and EIA case law consistently supports a combined minimum check requiring an explicit parent reference, an independently verifiable success criterion, and at least one customer-observable outcome delivered without requiring other goals to be completed.** ([inference]; medium confidence; source: https://doi.org/10.1109/ISRE.2001.948567; https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
+10. No single structural, semantic, or contextual signal is sufficient to determine fragmentation; the literature across requirements engineering, product management, programme governance, and EIA case law consistently supports a combined minimum check requiring an explicit parent reference, an independently verifiable success criterion, and at least one customer-observable outcome delivered without requiring other goals to be completed. ([inference]; medium confidence; source: https://doi.org/10.1109/ISRE.2001.948567; https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications)
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [fact] Salami-slicing as below-threshold goal splitting | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | high | Court of Appeal Ashchurch 2023 primary ruling |
+| [fact] Salami-slicing as below-threshold goal splitting | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | Court of Appeal 2023 via Pinsent Masons commentary; single source |
 | [inference] KAOS AND-refinement: missing parent reference as fragmentation precondition | https://doi.org/10.1109/ISRE.2001.948567; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md | high | Van Lamsweerde (2001); prior completed item |
-| [fact] INVEST "Valuable" and "Testable" as semantic fragmentation signals | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.agilealliance.org/glossary/invest/ | high | Wake (2003) original; Agile Alliance glossary |
-| [fact] EIA three-part functional interdependence test (Ashchurch) | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | high | Court of Appeal 2023 primary |
+| [inference] INVEST "Valuable" and "Testable" as strongest semantic fragmentation signals | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.agilealliance.org/glossary/invest/ | high | Wake (2003) original; Agile Alliance; evaluative ranking |
+| [fact] EIA three-part functional interdependence test (Ashchurch 2023) | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | Court of Appeal 2023 via Pinsent Masons; single source |
 | [inference] Technical prerequisites as primary false positive | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/ | medium | Inferred from INVEST "Valuable" discussion |
 | [inference] Conditional acceptance criterion as semantic fragmentation signal | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://planning.wiki/ref/pddl/problem | medium | INVEST testability + Planning Domain Definition Language (PDDL) precondition |
-| [inference] Horizontal slicing as fragmentation anti-pattern | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/ | high | Wake (2003) multi-layer-cake analogy |
+| [inference] Horizontal slicing as documented fragmentation anti-pattern | https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/ | medium | Wake (2003) single practitioner source |
 | [inference] Contextual signals require governance metadata | https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | EIA procurement context |
 | [inference] Benefit Dependency Network orphaned node as structural signal | https://www.axelos.com/certifications/propath/managing-successful-programmes-msp | medium | MSP product page; characterised from secondary description |
 | [inference] Combined three-check minimum | https://doi.org/10.1109/ISRE.2001.948567; https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications | medium | Cross-domain synthesis |
@@ -863,15 +862,15 @@ other goals to be completed first. [inference; source: https://doi.org/10.1109/I
 
 The three signal tiers form a detection ladder in which each tier catches a different
 fragmentation mechanism. [inference; source: https://doi.org/10.1109/ISRE.2001.948567; https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/; https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
-Structural signals are the cheapest to evaluate but have the highest false-positive
+Structural signals cost the least to evaluate but carry the highest false-positive
 rate because legitimate prerequisites and infrastructure goals routinely lack
 standalone value. [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
-Semantic signals are more discriminating because the "Valuable" test is explicitly
+The semantic tier is more discriminating because the "Valuable" test is explicitly
 about customer-observable outcomes rather than implementation structure, which is
 harder to fake without revealing the wider scheme. [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
-Contextual signals are the most specific to deliberate intent but require governance
-metadata that is outside the goal specification text, making them complementary rather
-than primary. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
+Governance metadata unlocks the contextual tier, which is the most specific to
+deliberate intent but cannot be evaluated from specification content alone, making
+it complementary rather than primary. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
 
 A rival interpretation is that structural signals alone are sufficient: a goal without
 a declared parent cannot pass the KAOS AND-refinement entailment check, which is itself
