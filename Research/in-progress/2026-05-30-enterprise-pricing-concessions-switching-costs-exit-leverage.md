@@ -9,7 +9,7 @@ themes: [enterprise-adoption, cost-performance, governance-policy, software-engi
 started: 2026-06-02T11:29:22+00:00
 completed: ~
 output: [knowledge]
-cites: []
+cites: [transaction-costs, financial-forecasting-it-run-costs, vendor-platform-governance-constraints-compensating-controls]
 related: [transaction-costs, financial-forecasting-it-run-costs, vendor-platform-governance-constraints-compensating-controls]
 superseded_by: ~
 supersedes: ~
@@ -120,13 +120,13 @@ The research question decomposes into three sub-questions, each decomposed furth
 
 [fact; source: https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf] Microsoft and Amazon Web Services (AWS) each hold approximately 30-40% of UK cloud infrastructure spend; Google Cloud holds approximately 5-10%. The CMA concluded that market concentration is expected to endure, reinforcing provider market power.
 
-[fact; source: https://datacentrereview.com/2025/08/aws-microsoft-to-face-competition-probe-as-cma-concludes-uk-cloud-market-investigation/] The CMA found that even a 5% overcharge in a less competitive market could cost UK organisations approximately £500 million in additional annual costs on a £10.5 billion cloud spend base.
+[fact; source: https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf] The CMA found that even a 5% overcharge in a less competitive market could cost UK organisations approximately £500 million in additional annual costs on a £10.5 billion cloud spend base.
 
 [inference; source: https://www.gov.uk/cma-cases/cloud-services-market-investigation] The CMA recommended that its digital markets powers be used to consider Strategic Market Status (SMS) designations for AWS and Microsoft, which could enable binding conduct remedies on egress fees and switching-related practices from 2026 onward.
 
 **A3. Post-discount revenue recovery mechanisms: maintenance fees and egress fees**
 
-[inference; source: https://cepr.org/publications/dp5798; https://www.arionerp.com/news/productivity/beyond-the-sticker-price-unpacking-the-true-total-cost-of-ownership-tco-for-erp-systems.html] Enterprise software vendors including Oracle and SAP have historically structured annual maintenance and support fees at approximately 20-22% of the initial licence price, with annual escalation clauses of 3-5%. Because these fees are calculated on the original licence value rather than current market rates, they represent a predictable aftermarket revenue stream that does not require the vendor to remain price-competitive with alternatives.
+[inference; source: https://www.arionerp.com/news/productivity/beyond-the-sticker-price-unpacking-the-true-total-cost-of-ownership-tco-for-erp-systems.html] Enterprise software vendors including Oracle and SAP have historically structured annual maintenance and support fees at approximately 20-22% of the initial licence price, with annual escalation clauses of 3-5%. Because these fees are calculated on the original licence value rather than current market rates, they represent a predictable aftermarket revenue stream that does not require the vendor to remain price-competitive with alternatives.
 
 [fact; source: https://assets.publishing.service.gov.uk/media/688b8143d8da16bcb8469523/Appendix_M_-_Egress_fees___analysis_of_customers__cost_scenarios.pdf] The CMA found that egress fees (charges for transferring data out of a cloud provider) constitute a key commercial barrier to switching. Customers find it difficult to anticipate full switching costs because egress fees are complex, non-transparent, and significant, and are often excluded from initial migration cost analyses.
 
@@ -137,6 +137,8 @@ Access note: The CMA Appendix M on egress-fee cost scenarios was accessible via 
 [inference; source: https://www.erpresearch.com/en-us/erp-tco-calculator; https://www.arionerp.com/news/productivity/beyond-the-sticker-price-unpacking-the-true-total-cost-of-ownership-tco-for-erp-systems.html] Industry TCO analysis consistently finds that software licensing accounts for only 20-30% of the true TCO of an ERP or large enterprise software platform over a five-to-ten year lifecycle. The remaining 70-80% comprises implementation services, customisation, data migration, integration maintenance, user retraining, and ongoing support costs.
 
 [inference; source: https://www.erpresearch.com/en-us/erp-tco-calculator; https://www.arionerp.com/news/productivity/beyond-the-sticker-price-unpacking-the-true-total-cost-of-ownership-tco-for-erp-systems.html] Organisations that rely on vendor-quoted licensing costs when comparing platforms underestimate true TCO by 40-60%, because post-signing costs are invisible at the time of the sourcing decision. This information asymmetry structurally favours vendors offering lower headline prices with higher expected lifecycle lock-in.
+
+[inference; source: https://www.erpresearch.com/en-us/erp-tco-calculator; https://davidamitchell.github.io/Research/research/2026-03-13-financial-forecasting-it-run-costs.html] TCO forecast uncertainty compounds further over multi-year horizons: the completed research item on IT run-cost forecasting found that forecast error can compound to ±75% under correlated cost inputs over a five-year period, which reinforces why enterprises that anchor their evaluation to vendor-quoted initial prices underestimate not only the expected lifecycle cost but also the range of possible outcomes.
 
 [inference; source: https://www.erpresearch.com/en-us/erp-tco-calculator] When migration to an alternative vendor is considered, switching costs including data extraction, business process redesign, integration re-platforming, and productivity loss during transition can reach 25-50% of the original platform investment, making the threat of switching non-credible unless the cost difference with the incumbent is substantial.
 
@@ -157,6 +159,8 @@ Access note: The CMA Appendix M on egress-fee cost scenarios was accessible via 
 [inference; source: https://github.com/cncf/toc/blob/main/DEFINITION.md] Container-based deployment using standardised orchestration (specifically Kubernetes) decouples application workloads from cloud-provider-specific execution environments, reducing the technical component of switching costs by enabling workloads to run identically across providers.
 
 [inference; source: https://github.com/cncf/toc/blob/main/DEFINITION.md] Open-standards-based integration using declarative APIs rather than proprietary connectors reduces the interface coupling category of lock-in because the interface contract is defined by the standard rather than by the vendor.
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html; https://github.com/cncf/toc/blob/main/DEFINITION.md] The completed research item on vendor platform governance constraints found that keeping policy, approval logic, and control objectives outside the vendor plane is the architectural design principle that most reliably reduces lock-in and roadmap volatility. This is directly complementary to the CNCF cloud-native approach: both position ownership of control surfaces at the enterprise layer, with vendor infrastructure as an execution environment rather than a policy authority.
 
 **C2. Regulatory evidence on mandated portability and switching behaviour**
 
@@ -189,6 +193,8 @@ The causal chain from upfront discount to lock-in to renegotiation disadvantage 
 5. [inference; source: https://digital-strategy.ec.europa.eu/en/policies/data-act; https://www.gov.uk/cma-cases/cloud-services-market-investigation] Regulatory response (EU Data Act, CMA SMS designation process) confirms that market forces alone are insufficient to correct the pricing distortion created by high switching costs.
 
 Rival explanation: competitive dynamic pricing without lock-in exploitation. An alternative interpretation is that vendors offer initial discounts to demonstrate product value (a signalling story) rather than to build lock-in. This interpretation is inconsistent with the CMA evidence of sub-1% annual switching rates and the documented escalation of maintenance fees and egress charges after onboarding. [inference; source: https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf; https://cepr.org/publications/dp5798]
+
+Complementary explanation: network effects. The primary theoretical source, Farrell and Klemperer (2007), explicitly treats network effects as a distinct lock-in mechanism that can independently explain low switching rates and installed-base pricing power. In markets where the value of a platform increases with the number of users (such as collaboration tools, marketplaces, and cloud ecosystems with large ecosystems of compatible third-party services), network effects can sustain incumbent positions even after switching costs are reduced. For cloud infrastructure markets, the CMA investigation treated both switching costs and network effects as material factors in market structure. The two mechanisms are complementary rather than substitutes: switching costs explain why individual enterprises do not switch even when alternatives are available; network effects explain why the market as a whole converges on a small number of providers. [inference; source: https://cepr.org/publications/dp5798; https://www.gov.uk/cma-cases/cloud-services-market-investigation]
 
 ### §4 Consistency Check
 
@@ -253,7 +259,7 @@ Enterprise software vendors systematically use upfront pricing concessions to bu
 **Risks and Gaps**
 
 - The ERP TCO figures (20-30% licensing, 70-80% lifecycle) are drawn from industry practitioner sources rather than peer-reviewed academic studies. No systematic quantitative study of switching costs across enterprise software categories was identified in this investigation. A primary empirical study with a defined sample would strengthen these estimates.
-- The CMA findings apply to cloud infrastructure (Infrastructure as a Service and Platform as a Service categories) in the UK. It is not established that the sub-1% switching rate applies equally to SaaS platforms, ERP systems, or enterprise collaboration tools; these are separately structured markets.
+- The CMA findings apply to cloud infrastructure (Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) categories) in the UK. It is not established that the sub-1% switching rate applies equally to SaaS platforms, ERP systems, or enterprise collaboration tools; these are separately structured markets.
 - The EU Data Act switching rights (Article 25) entered into application in September 2025, which is recent enough that empirical evidence on their effect on switching behaviour is not yet available. The predicted reduction in commercial exit costs is theoretically grounded but not yet empirically confirmed.
 - Architectural investment in portability increases short-term implementation cost and complexity. No empirical study was identified that directly measures the return on investment (ROI) of portability investment versus expected lock-in cost savings; this remains a decision that enterprises must make under uncertainty.
 
@@ -285,6 +291,8 @@ acronym_audit: passed
   AWS: expanded at first use in §2 Investigation (A2)
   UK: expanded at first use in §2 Investigation (A2)
   ROI: expanded as "return on investment (ROI)" at first use in §6 Risks
+  IaaS: expanded as "Infrastructure as a Service (IaaS)" at first use in §6 Risks/Gaps
+  PaaS: expanded as "Platform as a Service (PaaS)" at first use in §6 Risks/Gaps
   CEPR: expanded at first use in §0 source correction
   NBER: expanded at first use in §0 source correction
   IoT: not used in body text
@@ -292,7 +300,8 @@ claim_audit: every factual or inferential claim carries [fact], [inference], or 
 source_audit: every claim binds to an accessible URL; seeded NBER URL corrected in Sources
 style_audit: em-dashes removed from Sources section; no bold full-sentence claims in Findings
 scope_guardrail: consumer markets and purely-theoretical architecture excluded throughout
-rival_explanation: signalling alternative addressed in §3 and dismissed on CMA evidence
+rival_explanation: signalling alternative addressed in §3; network effects complementary explanation addressed in §3 (Farrell/Klemperer paper covers both switching costs and network effects; item explains why switching costs are the primary focus for architectural and contractual remediation)
+cross_item_integration: financial-forecasting-it-run-costs cross-referenced in §2 B1; vendor-platform-governance-constraints-compensating-controls cross-referenced in §2 C1
 parity_check: §6 Synthesis and Findings are aligned
 ```
 
@@ -351,13 +360,15 @@ Enterprise software vendors systematically use upfront pricing concessions to bu
 
 The upfront-discount-to-lock-in dynamic is a rational equilibrium in any market where switching costs are high, predictable, and accumulate post-onboarding. [inference; source: https://cepr.org/publications/dp5798] Farrell and Klemperer's model predicts that, from a social welfare perspective, such markets can be competitive in total (vendors compete for new customers), but the welfare is distributed unfavourably: the discounts go to new customers who have not yet been locked in, while the incumbents recoup the investment from existing customers who cannot credibly exit. [inference; source: https://cepr.org/publications/dp5798; https://www.jstor.org/stable/1885068]
 
-The CMA evidence confirms the theoretical prediction quantitatively in a specific, well-documented market (UK cloud infrastructure). The sub-1% annual switching rate is consistent with the theoretical prediction of near-zero switching in high-switching-cost markets, and the CMA's estimate of £500M additional cost at 5% overcharge provides a concrete scale of the welfare distortion. [fact; source: https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf]
+CMA evidence from the 2025 final decision confirms the theoretical prediction quantitatively in a specific, well-documented market (UK cloud infrastructure). A sub-1% annual switching rate is consistent with the theoretical prediction of near-zero switching in high-switching-cost markets, and the CMA's estimate of £500M additional cost at 5% overcharge provides a concrete scale of the welfare distortion. [fact; source: https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf]
 
-The TCO distribution evidence (20-30% licensing, 70-80% lifecycle) is supported by consistent industry practitioner estimates rather than peer-reviewed academic literature. The economic mechanism explaining this distribution is clear (post-onboarding costs accumulate as lock-in deepens), but the specific numbers should be treated as indicative rather than precise. [inference; source: https://www.erpresearch.com/en-us/erp-tco-calculator]
+TCO distribution evidence (20-30% licensing, 70-80% lifecycle) is supported by consistent industry practitioner estimates rather than peer-reviewed academic literature. The economic mechanism explaining this distribution is clear (post-onboarding costs accumulate as lock-in deepens), but the specific numbers should be treated as indicative rather than precise. [inference; source: https://www.erpresearch.com/en-us/erp-tco-calculator]
 
-The architectural interventions (CNCF cloud-native, open APIs, portable data models) address the technical layer of switching costs but not the commercial layer. Enterprises operating under EU Data Act obligations have a regulatory backstop that reduces commercial exit costs over time, but for enterprises outside EU/UK regulatory scope or using non-cloud enterprise software categories, the architectural investment path is the primary available mechanism. [inference; source: https://github.com/cncf/toc/blob/main/DEFINITION.md; https://digital-strategy.ec.europa.eu/en/policies/data-act]
+Architectural interventions (CNCF cloud-native, open APIs, portable data models) address the technical layer of switching costs but not the commercial layer. Enterprises operating under EU Data Act obligations have a regulatory backstop that reduces commercial exit costs over time, but for enterprises outside EU/UK regulatory scope or using non-cloud enterprise software categories, the architectural investment path is the primary available mechanism. [inference; source: https://github.com/cncf/toc/blob/main/DEFINITION.md; https://digital-strategy.ec.europa.eu/en/policies/data-act]
 
 Three rival approaches to preserving exit leverage deserve consideration. First, investing in switching-infrastructure (migration playbooks, portable data models, open integrations) before onboarding, at a cost that is proportional to the expected switching cost to be avoided. Second, negotiating contractual portability and exit rights at signing when the enterprise has maximum leverage (before lock-in accumulates). Third, regulatory reliance where EU or UK jurisdiction applies, allowing the Data Act and CMA regime to enforce minimum switching rights without enterprise-side investment. These approaches are complementary rather than substitutes, and the most robust exit-leverage strategy combines all three. [inference; source: https://cepr.org/publications/dp5798; https://data-act-law.eu/article/25/; https://github.com/cncf/toc/blob/main/DEFINITION.md]
+
+Network effects (the tendency of platform value to increase with user count) are a complementary mechanism in cloud markets: the Farrell and Klemperer paper explicitly models both switching costs and network effects as sources of installed-base pricing power. In cloud infrastructure, network effects manifest through ecosystem depth (availability of compatible third-party tools and integrations) rather than direct user-to-user value. This item focuses on switching costs because they are the primary mechanism targeted by the EU Data Act and CMA investigation, and because architectural portability strategies directly address switching costs but do not reduce network-effect-driven advantages. Network effects are therefore out of scope for the architectural intervention recommendations but are relevant context for understanding why cloud market concentration may persist even after switching costs are reduced. [inference; source: https://cepr.org/publications/dp5798; https://www.gov.uk/cma-cases/cloud-services-market-investigation]
 
 ### Risks, Gaps, and Uncertainties
 
