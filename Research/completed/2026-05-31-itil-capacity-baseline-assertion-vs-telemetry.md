@@ -2,12 +2,12 @@
 review_count: 2
 title: "ITIL capacity management: baseline measurement and assertion vs. telemetry"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [governance-policy, software-engineering, mlops-deployment]
 started: 2026-06-02T13:15:03+00:00
-completed: ~
+completed: 2026-06-02T20:42:34+00:00
 output: []
 cites: [2026-05-31-capability-claim-telemetry-conflict-arbitration, 2026-05-31-sre-slo-threshold-justification]
 related: [2026-05-31-sre-slo-threshold-justification, 2026-05-31-capability-claim-telemetry-conflict-arbitration]
