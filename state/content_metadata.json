@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-06-02T11:41:26Z",
+  "extracted_at": "2026-06-02T12:19:02Z",
   "items": {
     "2026-05-31-sre-slo-threshold-justification": {
       "named_concepts": [
@@ -616,6 +616,93 @@
             "https://bentflyvbjerg.com/publications/",
             "https://www.gao.gov/assets/gao-20-195g.pdf",
             "https://dora.dev/research/publications/"
+          ]
+        }
+      ]
+    },
+    "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage": {
+      "named_concepts": [
+        "switching costs",
+        "cloud infrastructure",
+        "enterprise software",
+        "industry practitioner",
+        "final decision",
+        "uk cloud",
+        "open standards",
+        "exit threats",
+        "theoretical prediction",
+        "architectural portability",
+        "switching cost",
+        "network effects",
+        "annual switching",
+        "egress fees",
+        "software licensing",
+        "commercial exit",
+        "cncf cloud-native",
+        "credible exit",
+        "practitioner sources",
+        "technical switching"
+      ],
+      "source_urls": [
+        "https://cepr.org/publications/dp5798",
+        "https://www.jstor.org/stable/1885068",
+        "https://www.gov.uk/cma-cases/cloud-services-market-investigation",
+        "https://digital-strategy.ec.europa.eu/en/policies/data-act",
+        "https://data-act-law.eu/article/25/",
+        "https://github.com/cncf/toc/blob/main/DEFINITION.md",
+        "https://www.erpresearch.com/en-us/erp-tco-calculator",
+        "https://www.arionerp.com/news/productivity/beyond-the-sticker-price-unpacking-the-true-total-cost-of-ownership-tco-for-erp-systems.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The theoretical model of two-period pricing in switching-cost markets predicts that vendors set below-cost initial prices to build installed bases and recoup profit through higher installed-base prices at renewal, a prediction corroborated by the sub-1% annual switching rates documented by the CMA and by documented maintenance-fee structures",
+          "sources": [
+            "https://cepr.org/publications/dp5798",
+            "https://www.jstor.org/stable/1885068"
+          ]
+        },
+        {
+          "text": "The CMA 2025 final decision found that fewer than 1% of enterprise cloud customers switch cloud infrastructure providers annually in the United Kingdom, attributing this low rate to egress fees, lack of interoperability, and technical lock-in as the primary commercial barriers that depress competitive pressure on incumbents",
+          "sources": [
+            "https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf"
+          ]
+        },
+        {
+          "text": "Microsoft and Amazon Web Services (AWS) each hold approximately 30-40% of UK cloud infrastructure spend, and the CMA estimated that even a 5% overcharge due to reduced competition would cost UK organisations approximately £500 million in additional annual expenditure on a total cloud spend base of £10.5 billion",
+          "sources": [
+            "https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf"
+          ]
+        },
+        {
+          "text": "Software licensing typically represents only 20-30% of the lifecycle TCO of enterprise software such as an Enterprise Resource Planning (ERP) platform; implementation, migration, integration maintenance, and support costs account for 70-80%, and organisations relying on vendor-quoted licensing prices underestimate true TCO by 40-60%",
+          "sources": [
+            "https://www.erpresearch.com/en-us/erp-tco-calculator",
+            "https://www.arionerp.com/news/productivity/beyond-the-sticker-price-unpacking-the-true-total-cost-of-ownership-tco-for-erp-systems.html"
+          ]
+        },
+        {
+          "text": "Direct enterprise switching costs including data extraction, process redesign, integration re-platforming, and productivity loss during transition are estimated at 25-50% of the original platform investment, making exit threats non-credible at renewal unless the cost differential with the incumbent is large enough to justify that expenditure",
+          "sources": [
+            "https://www.erpresearch.com/en-us/erp-tco-calculator"
+          ]
+        },
+        {
+          "text": "The EU Data Act (Regulation (EU) 2023/2854), applicable from September 2025, mandates that cloud and data-processing service providers reduce switching fees to cost-based levels by end 2026 and eliminate them entirely by January 2027, providing a legislated floor for commercial exit rights for EU-based enterprise customers",
+          "sources": [
+            "https://digital-strategy.ec.europa.eu/en/policies/data-act",
+            "https://data-act-law.eu/article/25/"
+          ]
+        },
+        {
+          "text": "EU Data Act Article 25 requires provider contracts to include 30-calendar-day portability windows, maximum two-month notice periods, 30-day data-retrieval minimums, and exit-strategy support obligations, establishing contractual switching rights that apply to all new and existing contracts from September 2025",
+          "sources": [
+            "https://data-act-law.eu/article/25/"
+          ]
+        },
+        {
+          "text": "The Cloud Native Computing Foundation (CNCF) cloud-native approach using container orchestration and declarative Application Programming Interfaces (APIs) reduces the technical component of switching costs by decoupling workloads from provider-specific infrastructure, but does not address commercial lock-in created by data model dependencies or proprietary managed-service integrations",
+          "sources": [
+            "https://github.com/cncf/toc/blob/main/DEFINITION.md"
           ]
         }
       ]
