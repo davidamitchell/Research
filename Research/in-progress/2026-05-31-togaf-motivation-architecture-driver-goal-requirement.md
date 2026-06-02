@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "TOGAF motivation architecture: business driver to goal to requirement chain"
 added: 2026-05-31T09:42:57+00:00
 status: reviewing
