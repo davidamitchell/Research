@@ -217,18 +217,19 @@ In requirements engineering, salami-slicing (also termed artificial fragmentatio
 refers to splitting a parent goal into sub-goals that are below approval or review
 thresholds, or that individually appear manageable but collectively re-state a goal
 that should have been scoped as a single unit. [inference; source: https://doi.org/10.1109/ISRE.2001.948567]
-The published requirements engineering literature does not use the term "salami-slicing"
-consistently; the equivalent concept appears under the labels "artificial decomposition,"
-"thin vertical slicing misuse," and "scope evasion" in different sub-fields.
+Agile and practitioner literature reviewed for this item does not use the term "salami-slicing"
+consistently; the equivalent concept appears under labels such as "artificial decomposition,"
+"thin vertical slicing misuse," and "scope evasion."
 [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 
 Searched for "salami-slicing requirements engineering" in primary requirements engineering
-literature (Institute of Electrical and Electronics Engineers (IEEE) Transactions on Software Engineering (TSE), International Conference on Software Requirements Engineering (ICSRE), RE conference). The Horkoff et al. (2017) systematic mapping
-(https://link.springer.com/article/10.1007/s00766-017-0280-z) covers 231 GORE publications
-and reports goal fragmentation as a manifestation of the "abstraction gap" rather than as
-a distinct anti-pattern; the mapping does not provide a per-fragmentation-type frequency.
-Note: direct access to this Springer page was blocked in this runtime; findings are drawn
-from the completed prior item 2026-05-31-gore-strategic-intent-to-delivery-decomposition.
+literature (IEEE TSE, ICSRE, RE conference). The Horkoff et al. (2017) systematic mapping
+is reported to cover 231 GORE publications and to characterise goal fragmentation as a
+manifestation of the "abstraction gap" rather than as a distinct named anti-pattern.
+[assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-gore-strategic-intent-to-delivery-decomposition.md]
+The primary Springer page (https://link.springer.com/article/10.1007/s00766-017-0280-z)
+was not directly accessible; this claim is drawn from the prior completed item and is
+treated as an assumption pending direct verification.
 
 **Legitimate sub-goal structure (GORE)**
 
@@ -270,8 +271,8 @@ A goal that cannot be verified in isolation (i.e., whose success criterion requi
 another goal to be satisfied first) is structurally dependent. PDDL (Planning Domain
 Definition Language) treats this as a hard error: a missing :goal block causes an
 immediate parse failure. [fact; source: https://planning.wiki/ref/pddl/problem]
-In KAOS and IEEE 29148, an unverifiable goal is flagged as incomplete but processing
-continues. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-specification-completeness-schema.md]
+In KAOS and the IEEE Standard 29148 for systems and software requirements, an unverifiable goal is flagged as incomplete but processing
+continues. [inference; source: https://standards.ieee.org/ieee/29148/6696/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-goal-specification-completeness-schema.md]
 The testability criterion in the INVEST model (Wake 2003) operationalises this as the
 question: "can we write a test for this story in isolation?" [fact; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 If the acceptance criterion contains the phrase "when [other goal] is also done" or
@@ -532,23 +533,26 @@ is either misscoped or a fragment of a larger benefit that was not declared as s
 
 Legitimate decomposition is typically motivated by delivery efficiency: the goal is
 too large to deliver within one iteration, so it is split into independently
-deliverable phases. Artificial fragmentation is motivated by threshold evasion: the
-goal would attract scrutiny if submitted at full size. The behavioural intent
-differs, but the outputs can appear identical in the specification text. This
-explains why contextual signals (threshold proximity, timing clustering, disclosure
-of wider scheme) are necessary complements to structural and semantic signals.
-[inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications;
+deliverable phases. [inference; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
+Artificial fragmentation is motivated by threshold evasion: the goal would attract
+scrutiny if submitted at full size. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
+The behavioural intent differs, but the outputs can appear identical in the
+specification text. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications;
 https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
+This explains why contextual signals (threshold proximity, timing clustering, disclosure
+of wider scheme) are necessary complements to structural and semantic signals.
+[inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications]
 
 **Economic lens (Reinertsen)**
 
 Reinertsen (2009) frames small batch size as economically optimal for reducing
-cycle time and risk. The key insight for fragmentation detection is that legitimate
-small-batch decomposition always has an economic rationale traceable back to a parent
-goal: smaller batches enable faster feedback on whether the parent goal direction is
-correct. Artificial fragmentation has no parent goal and therefore no feedback loop;
-the fragments accumulate without any mechanism to test whether the aggregate is
-progressing toward a coherent outcome. [inference; source: https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009]
+cycle time and risk. [assumption; source: https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009]
+The key insight for fragmentation detection is that legitimate small-batch decomposition
+has an economic rationale traceable back to a parent goal: smaller batches enable faster
+feedback on whether the parent goal direction is correct. [inference; source: https://www.amazon.com/Principles-Product-Development-Flow-Generation/dp/1935401009]
+Artificial fragmentation has no parent goal and therefore no feedback loop; the fragments
+accumulate without any mechanism to test whether the aggregate is progressing toward a
+coherent outcome. [inference; source: https://www.pinsentmasons.com/out-law/news/bridge-ruling-warning-english-planning-applications; https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/]
 
 ### §6 Synthesis
 
@@ -594,7 +598,7 @@ customer-observable outcome delivered independently.
    signals as questions applicable without formal logic competence: the "Valuable"
    criterion (does this goal deliver value to the customer in isolation?) and the
    "Testable" criterion (can acceptance be determined without completing another goal?).
-   ([fact]; high confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/;
+   ([inference]; high confidence; source: https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/;
    https://www.agilealliance.org/glossary/invest/)
 
 4. The UK Court of Appeal (2023) Ashchurch ruling establishes a three-part
