@@ -2,12 +2,12 @@
 review_count: 2
 title: "SRE: establishing SLOs as contractual capability boundaries"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [software-engineering, governance-policy, mlops-deployment, organisational-design]
 started: 2026-06-01T15:46:51+00:00
-completed: ~
+completed: 2026-06-02T11:27:02+00:00
 output: [knowledge]
 cites: [2026-05-31-capability-claim-telemetry-conflict-arbitration]
 related: [2026-05-31-capability-claim-telemetry-conflict-arbitration]
@@ -121,7 +121,7 @@ The SRE book states: "Start by thinking about (or finding out!) what your users 
 
 Three evidence types are described: (i) historical telemetry from production systems (the most accessible first-pass input); (ii) user experience data, which is described as the ideal starting point but difficult to measure; (iii) business negotiation, as product managers and product developers must agree the threshold is appropriate for users and achievable in production. [fact; source: https://sre.google/workbook/implementing-slos/]
 
-The SRE book explicitly warns against basing SLOs solely on current performance: "we advise against picking an SLO based upon current performance, because this can commit you to unnecessarily strict SLOs." [fact; source: https://sre.google/workbook/implementing-slos/] However, it simultaneously acknowledges that current performance is often the practical starting point when no other information is available. [fact; source: https://sre.google/workbook/implementing-slos/]
+The SRE Workbook explicitly warns against basing SLOs solely on current performance: "we advise against picking an SLO based upon current performance, because this can commit you to unnecessarily strict SLOs." [fact; source: https://sre.google/workbook/implementing-slos/] However, it simultaneously acknowledges that current performance is often the practical starting point when no other information is available. [fact; source: https://sre.google/workbook/implementing-slos/]
 
 No evidence type is specified as strictly required in a mandatory technical sense; the three-party stakeholder agreement process is the procedural requirement. [inference; source: https://sre.google/workbook/implementing-slos/]
 
@@ -141,7 +141,7 @@ A single incident consuming more than 20% of error budget over four weeks requir
 
 **D1-D2: Failure modes of inadequate threshold evidence**
 
-The SRE book identifies "an SLO without teeth" as a specific failure mode: a system with an SLO below 100% but "without a common understanding about its importance or how to leverage it to make continuous improvement choices." [fact; source: https://sre.google/workbook/implementing-slos/] Without the four preconditions (stakeholder approval, production agreement, error-budget commitment, refinement process), "SLO compliance will simply be another KPI (key performance indicator) or reporting metric, rather than a decision-making tool." [fact; source: https://sre.google/workbook/implementing-slos/]
+The SRE Workbook identifies "an SLO without teeth" as a specific failure mode: a system with an SLO below 100% but "without a common understanding about its importance or how to leverage it to make continuous improvement choices." [fact; source: https://sre.google/workbook/implementing-slos/] Without the four preconditions (stakeholder approval, production agreement, error-budget commitment, refinement process), "SLO compliance will simply be another KPI (key performance indicator) or reporting metric, rather than a decision-making tool." [fact; source: https://sre.google/workbook/implementing-slos/]
 
 The SRE book documents the Chubby global planned outage as a case where absence of an explicit SLO led to over-reliance: users developed beliefs about service availability that were incorrect because no SLO had been published to calibrate expectations. [fact; source: https://sre.google/sre-book/service-level-objectives/]
 
@@ -210,9 +210,9 @@ SRE establishes Service Level Objectives (SLOs) as contractual capability bounda
 
 3. The error budget converts the SLO threshold into a quantified resource consumed by failures, making the threshold enforceable: when the error budget is exhausted, all releases are halted until the service returns within its SLO. ([fact]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
 
-4. The SRE book advises against basing SLOs solely on current observed performance because doing so can commit a service to unnecessarily strict targets; user-impact evidence is specified as the ideal primary input, with telemetry as the practical first-pass proxy. ([fact]; medium confidence; source: https://sre.google/workbook/implementing-slos/)
+4. The SRE Workbook advises against basing SLOs solely on current observed performance because doing so can commit a service to unnecessarily strict targets; user-impact evidence is specified as the ideal primary input, with telemetry as the practical first-pass proxy. ([fact]; medium confidence; source: https://sre.google/workbook/implementing-slos/)
 
-5. Google SRE frames the SLO target as both a minimum and a maximum: exceeding it significantly wastes engineering resources, establishing the SLO as a specific agreed capability range rather than an aspirational upper bound. ([fact]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
+5. Google SRE frames the SLO target as both a minimum and a maximum: exceeding it significantly wastes engineering resources, establishing the SLO as a specific agreed capability range rather than an aspirational upper bound. ([inference]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
 
 6. The SRE model distinguishes contractual boundary from observed average through the error budget measurement loop: the SLO is the target, the SLI measurement is the observed value, and the error budget tracks the difference with mandated organisational responses. ([inference]; medium confidence; source: https://sre.google/workbook/implementing-slos/; https://sre.google/workbook/error-budget-policy/)
 
@@ -222,7 +222,7 @@ SRE establishes Service Level Objectives (SLOs) as contractual capability bounda
 
 9. The SRE book documents the Chubby planned-outage case as empirical evidence that absence of an explicit SLO threshold allows users to develop incorrect availability expectations, generating fragile dependencies on reliability levels the service had not committed to providing. ([fact]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/)
 
-10. Google SRE introduces an economic constraint on SLO threshold selection: the marginal cost of each additional nine of availability must be compared against the marginal revenue or user-value gain, providing a quantitative upper bound on justifiable threshold stringency. ([fact]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
+10. Google SRE introduces an economic constraint on SLO threshold selection: the marginal cost of each additional nine of availability must be compared against the marginal revenue or user-value gain, providing a quantitative upper bound on justifiable threshold stringency. ([inference]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
 
 11. The SRE error budget policy specifies an escalation path to the CTO for disputes about error budget calculation or required actions, demonstrating that the contractual force of the SLO boundary is backed by an organisational authority structure. ([fact]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
 
@@ -234,12 +234,12 @@ SRE establishes Service Level Objectives (SLOs) as contractual capability bounda
 | [fact] Three-party stakeholder agreement required: product manager, development team, SRE team | [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) | medium | Procedural safeguard against unilateral threshold setting |
 | [fact] Error budget = 100% minus SLO; exhaustion halts all releases | [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Specific policy document with enforcement mechanism |
 | [fact] SRE advises against basing SLO solely on current performance | [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) | medium | Direct quotation; user evidence specified as primary input |
-| [fact] SLO target treated as both minimum and maximum | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Explicit framing in risk chapter |
+| [inference] SLO target functions as both minimum and maximum; consistently exceeding it wastes capacity | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Min/max framing is explicit; capability-range conclusion is derived |
 | [inference] Error budget loop distinguishes contractual boundary from observed average | [Implementing SLOs](https://sre.google/workbook/implementing-slos/); [Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Derived from error budget mechanics; not directly stated as a distinction |
 | [fact] SLO without teeth: SLO without enforced error budget policy is a passive reporting metric | [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) | medium | Direct statement of failure mode |
 | [fact] Evernote SLO set at 99.95% based on user feedback and internal discussions | [SRE Workbook: SLO Engineering Case Studies](https://sre.google/workbook/slo-engineering-case-studies/) | medium | Single vendor case study; practitioner corroboration |
 | [fact] Chubby planned-outage case: absence of explicit SLO creates incorrect user expectations | [Google SRE Book: Service Level Objectives](https://sre.google/sre-book/service-level-objectives/) | medium | Google-documented empirical case |
-| [fact] Economic framework: marginal cost of additional nine vs. marginal value gain | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Qualitative framework with one quantified example |
+| [inference] Economic framework: marginal cost of additional nine vs. marginal value gain provides a ceiling on justifiable stringency | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Qualitative framework with one quantified example; ceiling conclusion is derived |
 | [fact] Escalation to CTO for disputes about error budget calculation or required actions | [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Specific policy document |
 
 **Assumptions:**
@@ -299,7 +299,7 @@ open_questions_check: three open questions identified for potential backlog
 
 ### Executive Summary
 
-SRE establishes SLOs as contractual capability boundaries through a combined evidence-gathering, three-party stakeholder-negotiation, and error-budget-enforcement process, not through the threshold number alone. [inference; source: https://sre.google/workbook/implementing-slos/; https://sre.google/workbook/error-budget-policy/] User-impact evidence is the specified primary input for threshold selection, with historical telemetry as the practical first-pass proxy when user-impact data is unavailable. [fact; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/workbook/implementing-slos/] The error budget converts the SLO threshold into a measurable resource consumed by failures, and exhaustion of that resource triggers prescribed organisational responses that give the threshold its contractual force. [inference; source: https://sre.google/workbook/error-budget-policy/] SLOs adopted without an enforced error budget policy become passive reporting metrics, the "SLO without teeth" failure mode the SRE Workbook explicitly identifies as the primary adoption risk. [fact; source: https://sre.google/workbook/implementing-slos/]
+SRE establishes SLOs as contractual capability boundaries through a combined evidence-gathering, three-party stakeholder-negotiation, and error-budget-enforcement process, not through the threshold number alone. [inference; source: https://sre.google/workbook/implementing-slos/; https://sre.google/workbook/error-budget-policy/] User-impact evidence is the specified primary input for threshold selection, with historical telemetry as the practical first-pass proxy when user-impact data is unavailable. [fact; source: https://sre.google/sre-book/service-level-objectives/; https://sre.google/workbook/implementing-slos/] The error budget converts the SLO threshold into a measurable resource consumed by failures, and exhaustion of that resource triggers prescribed organisational responses that give the threshold its contractual force. [inference; source: https://sre.google/workbook/error-budget-policy/] SLOs adopted without an enforced error budget policy become passive reporting metrics, the "SLO without teeth" failure mode the SRE Workbook explicitly identifies as a documented adoption risk. [fact; source: https://sre.google/workbook/implementing-slos/]
 
 ### Key Findings
 
@@ -311,7 +311,7 @@ SRE establishes SLOs as contractual capability boundaries through a combined evi
 
 4. The Google SRE Workbook explicitly advises against basing SLO thresholds solely on current observed performance because this can commit a service to unnecessarily strict targets; user-impact evidence is the specified primary input, with telemetry as the practical first-pass proxy. ([fact]; medium confidence; source: https://sre.google/workbook/implementing-slos/)
 
-5. Google SRE frames the SLO target as both a minimum and a maximum: consistently exceeding the SLO wastes engineering capacity, establishing the threshold as a specific agreed capability range rather than an aspirational upper bound. ([fact]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
+5. Google SRE frames the SLO target as both a minimum and a maximum: consistently exceeding the SLO wastes engineering capacity, establishing the threshold as a specific agreed capability range rather than an aspirational upper bound. ([inference]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
 
 6. The SRE model distinguishes the contractual SLO boundary from the observed operational average through the error budget measurement loop: the SLO is the target, the Service Level Indicator (SLI) measurement is the observed value, and the error budget tracks the accumulated difference with mandated organisational responses. ([inference]; medium confidence; source: https://sre.google/workbook/implementing-slos/; https://sre.google/workbook/error-budget-policy/)
 
@@ -321,7 +321,7 @@ SRE establishes SLOs as contractual capability boundaries through a combined evi
 
 9. The SRE book documents the Chubby planned-outage case as empirical evidence that the absence of an explicit SLO threshold allows users to develop availability expectations that exceed what the service has committed to, creating fragile dependencies on unguaranteed reliability levels. ([fact]; medium confidence; source: https://sre.google/sre-book/service-level-objectives/)
 
-10. Google SRE applies an economic constraint to SLO threshold selection: the marginal cost of each additional nine of availability must be justified against marginal revenue or user-value gain, providing a quantitative ceiling on justifiable threshold stringency. ([fact]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
+10. Google SRE applies an economic constraint to SLO threshold selection: the marginal cost of each additional nine of availability must be justified against marginal revenue or user-value gain, providing a quantitative ceiling on justifiable threshold stringency. ([inference]; medium confidence; source: https://sre.google/sre-book/embracing-risk/)
 
 11. The error budget policy specifies escalation to the CTO for disputes about error budget calculation or required actions, demonstrating that the contractual force of the SLO boundary is backed by an explicit organisational authority structure rather than by engineering convention alone. ([fact]; medium confidence; source: https://sre.google/workbook/error-budget-policy/)
 
@@ -333,12 +333,12 @@ SRE establishes SLOs as contractual capability boundaries through a combined evi
 | [fact] Three-party stakeholder agreement required: product manager, development team, SRE team | [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) | medium | Procedural safeguard; required before error budget policy can be adopted |
 | [fact] Error budget = 100% minus SLO; exhaustion halts all releases except highest-priority or security fixes | [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Specific policy document with enforcement mechanism and CTO escalation |
 | [fact] SRE advises against basing SLO solely on current performance; user evidence is primary input | [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) | medium | Direct quotation; acknowledged as tension with telemetry-first practice |
-| [fact] SLO target treated as both minimum and maximum; exceeding it wastes engineering capacity | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Explicit in risk chapter; not merely implied |
+| [inference] SLO target functions as both minimum and maximum; consistently exceeding it wastes engineering capacity | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Min/max framing is explicit in source; capability-range conclusion is derived |
 | [inference] Error budget loop distinguishes contractual boundary from observed average | [Implementing SLOs](https://sre.google/workbook/implementing-slos/); [Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Derived from mechanics; not stated as an explicit distinction in a single source sentence |
 | [fact] SLO without enforced error budget policy is a passive reporting metric (SLO without teeth) | [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/) | medium | Direct statement in workbook |
 | [fact] Evernote 99.95% SLO set from user feedback and internal stakeholder discussions | [SRE Workbook: SLO Engineering Case Studies](https://sre.google/workbook/slo-engineering-case-studies/) | medium | Single vendor case study |
 | [fact] Chubby planned outage: absence of explicit SLO creates incorrect user availability expectations | [Google SRE Book: Service Level Objectives](https://sre.google/sre-book/service-level-objectives/) | medium | Google-documented empirical case |
-| [fact] Economic framework: marginal cost of additional nine vs. marginal revenue gain | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Qualitative framework with one illustrative quantified example |
+| [inference] Economic framework: marginal cost of additional nine vs. marginal revenue gain provides a quantitative ceiling on justifiable stringency | [Google SRE Book: Embracing Risk](https://sre.google/sre-book/embracing-risk/) | medium | Qualitative framework with one illustrative quantified example; ceiling is derived |
 | [fact] CTO escalation path for error budget calculation disputes | [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/) | medium | Specific policy document |
 
 ### Assumptions
@@ -363,7 +363,7 @@ The economic constraint framework for threshold selection provides a quantitativ
 
 - No controlled before-after studies comparing SLO threshold-setting methods (evidence-based vs. negotiated vs. telemetry-only) and their subsequent reliability, user satisfaction, or engineering efficiency outcomes are cited in the Google SRE sources. Effectiveness claims rest on documented practice and case studies rather than controlled measurement.
 
-- The SRE model assumes organisations are willing and able to enforce the error budget policy. The Workbook acknowledges that SLOs remain passive reporting metrics without this enforcement but provides no empirical data on the prevalence of the "SLO without teeth" failure mode in practice.
+- The SRE model assumes organisations are willing and able to enforce the error budget policy. [assumption; justification: The SRE Workbook presents the error budget policy as the intended mechanism but does not report empirical data on adoption rates; source: https://sre.google/workbook/implementing-slos/] The Workbook acknowledges that SLOs remain passive reporting metrics without this enforcement but provides no empirical data on the prevalence of the "SLO without teeth" failure mode in practice. [inference; source: https://sre.google/workbook/implementing-slos/]
 
 - The Evernote case study is a single vendor account from a consumer application; it may not represent SLO-setting practice in regulated, safety-critical, or infrastructure-service contexts.
 
