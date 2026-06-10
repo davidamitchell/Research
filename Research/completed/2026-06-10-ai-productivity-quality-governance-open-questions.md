@@ -2,12 +2,12 @@
 review_count: 1
 title: "AI productivity, quality, and governance open questions"
 added: 2026-06-10T09:29:28+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 themes: [benchmarks-eval, software-engineering, enterprise-adoption, governance-policy, agentic-ai]  # 3-5 canonical slugs from docs/themes-vocabulary.md
 started: 2026-06-10T11:02:04+00:00
-completed: ~
+completed: 2026-06-10T11:43:14+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-30-ai-code-entropy-quality-metrics, 2026-05-08-ai-skill-decay-deskilling-measurement-interventions, 2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls, 2026-05-07-ai-production-incidents-deep-dive, 2026-04-30-tdd-feedback-loops-ai-augmented-dev, 2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates, 2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator]
 related: [2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator, 2026-05-31-itil-capacity-baseline-assertion-vs-telemetry, 2026-04-30-tdd-feedback-loops-ai-augmented-dev]        # slugs of thematically connected items
