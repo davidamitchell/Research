@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-06-10T11:14:20Z",
+  "extracted_at": "2026-06-10T11:47:17Z",
   "items": {
+    "2026-06-10-ai-productivity-quality-governance-open-questions": {
+      "named_concepts": [
+        "ai adoption",
+        "code churn",
+        "ai coding",
+        "maintenance cost",
+        "rework rate",
+        "platform engineering",
+        "experienced developers",
+        "code review",
+        "delivery stability",
+        "refactoring ratio",
+        "throughput metrics",
+        "tool adoption",
+        "organizational delivery",
+        "pr size",
+        "randomized controlled",
+        "controlled trial",
+        "metr rct",
+        "net-positive ai",
+        "adoption outcomes",
+        "junior engineer"
+      ],
+      "source_urls": [
+        "https://url",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+        "https://arxiv.org/abs/2507.09089",
+        "https://www.faros.ai/blog/ai-software-engineering",
+        "https://research.ibm.com/publications/examining-the-use-and-impact-of-an-ai-code-assistant-on-developer-productivity-and-experience-in-the-enterprise",
+        "https://github.blog/ai-and-ml/github-copilot/60-million-copilot-code-reviews-and-counting/",
+        "https://arxiv.org/html/2601.13597",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-ai-code-entropy-quality-metrics.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-ai-skill-decay-deskilling-measurement-interventions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-07-ai-production-incidents-deep-dive.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Artificial Intelligence (AI) coding assistant adoption increases individual developer task throughput (21–98% more pull requests (PRs) merged) while leaving organizational delivery velocity unchanged, because downstream PR review time increases 91% and PR size increases 154% in high-AI-adoption teams, absorbing the upstream acceleration",
+          "sources": [
+            "https://www.faros.ai/blog/ai-software-engineering",
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "The DORA 2024 report found that each 25% increase in AI adoption correlates with a 7.2% decrease in delivery stability and a 1.5% decrease in throughput at the organizational level, attributing these effects primarily to larger batch sizes enabled by AI rather than to lower per-unit code quality",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "GitClear's 2025 analysis of 211 million code changes (2020–2024) found code churn up 84%, copy-pasted lines up 48%, refactoring down 60%, and estimated maintenance costs up 30–41% in AI-adopted repositories, indicating that the primary hidden cost of AI adoption is architectural coherence degradation rather than defect rate alone",
+          "sources": [
+            "https://www.gitclear.com/ai_assistant_code_quality_2025_research"
+          ]
+        },
+        {
+          "text": "The METR 2025 randomized controlled trial (RCT) found that experienced developers on large open-source repositories completed issues 19% slower when using frontier AI tools, despite expecting a 24% speedup beforehand, revealing a systematic perception bias that makes self-reported AI productivity data unreliable without complementary telemetry measurement",
+          "sources": [
+            "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+            "https://arxiv.org/abs/2507.09089"
+          ]
+        },
+        {
+          "text": "Autonomous coding agents produce larger initial velocity gains than suggestion-based copilots but introduce 18% more static-analysis warnings and 39% higher code complexity according to the Agarwal et al. 2026 study, representing a higher-risk profile that requires stronger review controls to maintain acceptable quality outcomes",
+          "sources": [
+            "https://arxiv.org/html/2601.13597"
+          ]
+        },
+        {
+          "text": "DORA 2024 introduced rework rate as its fifth key delivery metric alongside the original four, found it highly correlated with change failure rate, and DORA researchers interpreted this as a proxy for the deferred quality cost of AI-enabled large-batch deployments",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "AI-authored pull requests carried 1.7 times the issue density of non-AI PRs in the GitClear 2025 dataset, and developers in the METR 2025 RCT accepted fewer than 44% of AI-generated code, together indicating that AI output requires substantive human review rather than simple rubber-stamp approval to maintain quality",
+          "sources": [
+            "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+            "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/"
+          ]
+        },
+        {
+          "text": "Platform engineering with an Internal Developer Platform (IDP) improves individual productivity and team performance but can reduce delivery stability unless accompanied by small-batch-size discipline and robust automated testing, making platform maturity a precondition for net-positive AI outcomes rather than a guarantee of them",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        }
+      ]
+    },
     "2026-05-31-togaf-motivation-architecture-driver-goal-requirement": {
       "named_concepts": [
         "validation rules",
