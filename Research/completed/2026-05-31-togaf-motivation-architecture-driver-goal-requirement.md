@@ -19,7 +19,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 5d9ef6341db8337bff5c964cf839c960a25133b4
+    changed: 2026-06-10
+    progress: progress/2026-06-10-togaf-motivation-architecture-driver-goal-requirement.md
+    summary: "Initial completion"
 gaps: []
 ---
 
