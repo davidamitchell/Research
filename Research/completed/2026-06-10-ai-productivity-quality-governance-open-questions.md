@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: 2ca3c903b1a6e840867ea8aa268ec5ca8d86bf63
+    changed: 2026-06-10
+    progress: progress/2026-06-10-ai-productivity-quality-governance-open-questions.md
+    summary: "Initial completion"
 ---
 
 # AI productivity, quality, and governance open questions
