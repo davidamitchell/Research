@@ -2,12 +2,12 @@
 review_count: 1
 title: "TOGAF motivation architecture: business driver to goal to requirement chain"
 added: 2026-05-31T09:42:57+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [enterprise-adoption, governance-policy, software-engineering, formal-methods, tools-infrastructure]
 started: 2026-06-02T20:45:26+00:00
-completed: ~
+completed: 2026-06-10T10:52:38+00:00
 output: [knowledge]
 cites:
   - 2026-05-31-goal-specification-completeness-schema
