@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "AI productivity, quality, and governance open questions"
 added: 2026-06-10T09:29:28+00:00
 status: reviewing
