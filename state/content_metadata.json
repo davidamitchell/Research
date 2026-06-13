@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-06-13T19:48:17Z",
+  "extracted_at": "2026-06-13T20:10:49Z",
   "items": {
+    "2026-06-13-local-global-optima-knowledge-work-throughput": {
+      "named_concepts": [
+        "local tooling",
+        "shared constraint",
+        "tooling optimisation",
+        "software delivery",
+        "platform engineering",
+        "faros ai",
+        "pr review",
+        "review time",
+        "small-batch discipline",
+        "ai telemetry",
+        "task completion",
+        "shared review",
+        "shared approval",
+        "wip limits",
+        "tooling gains",
+        "ai gains",
+        "global throughput",
+        "local gains",
+        "global gains",
+        "non-constraint resources"
+      ],
+      "source_urls": [
+        "https://fortelabs.com/blog/theory-of-constraints-102-local-optima/",
+        "https://fortelabs.com/blog/theory-of-constraints-101/",
+        "https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/",
+        "https://en.wikipedia.org/wiki/Theory_of_constraints",
+        "https://dora.dev/research/2025/dora-report/",
+        "https://www.infoq.com/news/2026/03/ai-dora-report/",
+        "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-16-do-mode-demand-persistence-and-build-mode-displacement.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Local tooling optimisation in a knowledge-work pipeline does not improve total throughput unless the shared constraint's capacity is increased, because throughput is bounded by the constraint and not by the sum of individual resource outputs, as TOC established in 1984",
+          "sources": [
+            "https://fortelabs.com/blog/theory-of-constraints-101/"
+          ]
+        },
+        {
+          "text": "Faros AI telemetry across 22,000 developers in 2026 measured individual task completion up 33.7% and epics completed up 66.2%, while PR review time rose 441%, bugs per developer rose 54%, and production incidents per PR rose 242.7%; this pattern is consistent with queue overflow at shared review infrastructure from local tooling gains",
+          "sources": [
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+          ]
+        },
+        {
+          "text": "The DORA 2025 report, based on nearly 5,000 technology professionals, found that Artificial Intelligence (AI) acts as an amplifier of existing organisational conditions rather than a universal productivity booster: teams with mature platform engineering and loose coupling convert AI gains into system-level improvement, while teams with fragmented tooling experience increased instability",
+          "sources": [
+            "https://dora.dev/research/2025/dora-report/",
+            "https://www.infoq.com/news/2026/03/ai-dora-report/"
+          ]
+        },
+        {
+          "text": "Shared approval and review queues are the primary interdependency surface that converts local speed gains into global throughput losses, because they represent a constraint whose capacity is fixed by personnel, policy, or regulatory mandate rather than by technical infrastructure alone",
+          "sources": [
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        },
+        {
+          "text": "Tightly-coupled architectures amplify local-to-global throughput losses by forcing coordination at every dependency boundary: a speed increase in one team generates cascading coordination demand from adjacent teams, compressing the constraint's capacity for productive work",
+          "sources": [
+            "https://dora.dev/capabilities/loosely-coupled-teams/",
+            "https://www.infoq.com/news/2026/03/ai-dora-report/"
+          ]
+        },
+        {
+          "text": "Platform engineering is the single most evidence-backed intervention for converting local gains into global gains, by providing shared, standardised infrastructure through which increased local output can flow without accumulating in ad hoc queues; DORA 2025 found 90% of organisations now have platform engineering capabilities but quality varies",
+          "sources": [
+            "https://dora.dev/research/2025/dora-report/",
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+            "https://www.infoq.com/news/2026/03/ai-dora-report/"
+          ]
+        },
+        {
+          "text": "WIP limits and small-batch discipline are the structural mechanism by which non-constraint resources are subordinated to the constraint, preventing the queue-flooding dynamic, and DORA 2025 identifies working in small batches as one of seven capabilities required for AI gains to translate to organisational performance",
+          "sources": [
+            "https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/",
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+          ]
+        },
+        {
+          "text": "In regulated environments such as banking, local department automation that raises technical throughput predictably shifts the visible bottleneck to compliance, validation, and incident-response queues that cannot be removed without regulatory redesign, making the local-to-global throughput loss more durable than in unregulated contexts",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html",
+            "https://dora.dev/capabilities/loosely-coupled-teams/"
+          ]
+        }
+      ]
+    },
     "2026-06-10-ai-productivity-quality-governance-open-questions": {
       "named_concepts": [
         "ai adoption",
