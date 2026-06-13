@@ -2,12 +2,12 @@
 review_count: 2
 title: "At what scale or under what operating conditions do the aggregate costs of fragmented local tooling exceed the productivity gains from customization, and which metrics let organisations detect that crossover early?"
 added: 2026-06-13T13:03:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [benchmarks-eval, tools-infrastructure, organisational-design, enterprise-adoption, governance-policy]
 started: 2026-06-13T20:09:54+00:00
-completed: ~
+completed: 2026-06-13T20:50:05+00:00
 output: [knowledge]
 cites:
   - 2026-05-08-capability-debt-definition-measurement-ai-risk-amplification
