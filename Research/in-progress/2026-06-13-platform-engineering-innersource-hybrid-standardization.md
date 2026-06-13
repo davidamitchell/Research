@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How do platform engineering, InnerSource, and standard-core plus local-extension operating models balance team autonomy with organisational standardisation, and which patterns most reliably preserve local agility without creating fragmentation?"
 added: 2026-06-13T13:03:37+00:00
 status: reviewing
