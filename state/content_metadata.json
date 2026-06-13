@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-06-13T20:22:44Z",
+  "extracted_at": "2026-06-13T20:55:21Z",
   "items": {
+    "2026-06-13-local-tooling-fragmentation-threshold-measurement": {
+      "named_concepts": [
+        "growth rate",
+        "faros ai",
+        "local tooling",
+        "three structural",
+        "structural multipliers",
+        "pr review",
+        "shared constraint",
+        "bus factor",
+        "productivity gains",
+        "locally owned",
+        "task completion",
+        "review time",
+        "code quality",
+        "quality degradation",
+        "shared dependency",
+        "dependency density",
+        "staff turnover",
+        "rate relative",
+        "ai telemetry",
+        "individual task"
+      ],
+      "source_urls": [
+        "https://aisel.aisnet.org/ijispm/vol7/iss1/3/",
+        "https://www.annfammed.org/content/19/2/171",
+        "https://fortelabs.co/blog/theory-of-constraints-102-local-optima/",
+        "https://dora.dev/research/2025/dora-report/",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-capability-debt-definition-measurement-ai-risk-amplification.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://link.springer.com/article/10.1007/s10257-020-00472-6",
+        "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://www.infoq.com/news/2026/03/ai-dora-report/",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://www.techfinitive.com/features/how-to-keep-shadow-it-costs-under-control/",
+        "https://www.valencesecurity.com/resources/blogs/gartner-saas-applications-outside-of-it",
+        "https://platformengineering.com/features/dora-2025-ai-wont-save-you-without-a-solid-platform/"
+      ],
+      "key_claims": [
+        {
+          "text": "Local tooling creates four categories of benefit (agility, fit-for-purpose solutions, reduced central-IT dependency, innovation velocity) and five categories of cost (maintenance burden, integration friction, key-person concentration, security and compliance exposure, duplicate spend) that are not captured symmetrically in most organisations' measurement systems, with the four hidden cost categories absorbed into undifferentiated overhead rather than attributed to the originating tool",
+          "sources": [
+            "https://aisel.aisnet.org/ijispm/vol7/iss1/3/",
+            "https://link.springer.com/article/10.1007/s10257-020-00472-6"
+          ]
+        },
+        {
+          "text": "Secondary sources citing Gartner research estimate shadow IT at 30 to 40 percent of total IT spend in large enterprises and project that 75 percent of employees will create or modify technology outside IT visibility by 2027, suggesting the aggregate cost is already economically material before any crossover calculation is applied",
+          "sources": [
+            "https://www.techfinitive.com/features/how-to-keep-shadow-it-costs-under-control/",
+            "https://www.valencesecurity.com/resources/blogs/gartner-saas-applications-outside-of-it"
+          ]
+        },
+        {
+          "text": "Three structural multipliers accelerate the crossover from net-positive to net-negative: team scale, where each additional team that creates local tooling adds its own maintenance surface; shared dependency density, where tools feeding downstream processes impose integration complexity on all consumers; and staff turnover, where bus factor declines with each undocumented key-person departure",
+          "sources": [
+            "https://aisel.aisnet.org/ijispm/vol7/iss1/3/",
+            "https://link.springer.com/article/10.1007/s10257-020-00472-6"
+          ]
+        },
+        {
+          "text": "Faros AI telemetry across 22,000 developers measured individual task completion rising 33.7% while PR review time rose 441% and production incidents per PR rose 242.7%, a pattern consistent with local productivity gains flooding shared constraint infrastructure, though AI-generated code quality degradation is a competing explanation for the same data pattern",
+          "sources": [
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+          ]
+        },
+        {
+          "text": "The DORA 2025 report, surveying nearly 5,000 technology professionals, found that AI acts as an amplifier of existing organisational conditions, with fragmented tooling accelerating instability rather than being resolved by AI productivity gains",
+          "sources": [
+            "https://dora.dev/research/2025/dora-report/",
+            "https://www.infoq.com/news/2026/03/ai-dora-report/"
+          ]
+        },
+        {
+          "text": "Five leading indicators are detectable with data most knowledge-work organisations already collect before the crossover has been formally calculated: support-ticket volume growth per non-standard tool, new-hire time-to-productivity relative to team complexity, shadow-spend growth rate relative to headcount, integration failure frequency, and downstream queue growth rate relative to upstream delivery rate growth",
+          "sources": [
+            "https://aisel.aisnet.org/ijispm/vol7/iss1/3/",
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+          ]
+        },
+        {
+          "text": "A sixth leading indicator specific to knowledge concentration is bus factor distribution across the locally owned tool estate, measurable via a tool-by-knowledge-holder matrix tracking the number of tools with a bus factor of 1 or 2 as a portfolio-level concentration index over time",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s10257-020-00472-6"
+          ]
+        },
+        {
+          "text": "Governance maturity (documented ownership, exit procedures, security review) reduces the coordination cost of a locally owned tool more than any individual capability feature of the tool itself, because ownership maturity determines whether the tool can be rapidly decommissioned or transitioned when the key person leaves",
+          "sources": [
+            "https://link.springer.com/article/10.1007/s10257-020-00472-6"
+          ]
+        }
+      ]
+    },
     "2026-06-13-local-global-optima-knowledge-work-throughput": {
       "named_concepts": [
         "local tooling",
