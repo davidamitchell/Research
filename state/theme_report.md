@@ -1,9 +1,9 @@
 # Theme Report
 
 **Canonical themes in vocabulary:** 22  
-**Items scanned:** 426  
-**Items with themes:** 425  
-**Uncovered items (no themes:):** 1  
+**Items scanned:** 433  
+**Items with themes:** 431  
+**Uncovered items (no themes:):** 2  
 **Near-duplicate vocabulary candidates:** 0  
 **Stray (non-vocabulary) themes in corpus:** 38  
 **Unused canonical themes:** 0
@@ -16,6 +16,7 @@
 > If count is 0, coverage is complete.
 
 - `2026-05-19-align-strategic-relevance-with-low-effort-knowledge-pathways`
+- `2026-06-10-ai-productivity-quality-governance-open-questions`
 
 ---
 
@@ -50,25 +51,25 @@ _All canonical themes are in use._
 
 | Theme | Item count |
 |---|---|
-| `agentic-ai` | 225 |
-| `tools-infrastructure` | 209 |
-| `governance-policy` | 202 |
+| `agentic-ai` | 226 |
+| `tools-infrastructure` | 214 |
+| `governance-policy` | 207 |
 | `ai-architecture` | 154 |
-| `security-risk` | 116 |
-| `knowledge-management` | 99 |
+| `security-risk` | 117 |
+| `knowledge-management` | 100 |
 | `benchmarks-eval` | 86 |
-| `organisational-design` | 81 |
+| `organisational-design` | 86 |
 | `workforce-skills` | 73 |
-| `cost-performance` | 56 |
-| `mlops-deployment` | 48 |
+| `cost-performance` | 57 |
+| `mlops-deployment` | 49 |
 | `llm-reasoning` | 46 |
+| `software-engineering` | 42 |
 | `memory-context` | 39 |
-| `software-engineering` | 39 |
 | `rag-retrieval` | 38 |
 | `knowledge-graphs` | 32 |
 | `consciousness-cognition` | 24 |
-| `enterprise-adoption` | 20 |
-| `formal-methods` | 20 |
+| `enterprise-adoption` | 24 |
+| `formal-methods` | 24 |
 | `regulatory-compliance` | 18 |
 | `multi-agent` | 12 |
 | `human-ai-interaction` | 11 |
