@@ -23,7 +23,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a19874f
+    changed: 2026-06-13
+    progress: progress/2026-06-13-local-tooling-fragmentation-threshold-measurement.md
+    summary: "Initial completion"
 ---
 
 # At what scale or under what operating conditions do the aggregate costs of fragmented local tooling exceed the productivity gains from customization, and which metrics let organisations detect that crossover early?
