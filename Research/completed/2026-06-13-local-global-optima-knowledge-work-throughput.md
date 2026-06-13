@@ -2,12 +2,12 @@
 review_count: 2
 title: "How does local optimisation of team- and role-level tooling in knowledge work reduce organisation-level throughput, and which interdependencies determine when local gains become global losses?"
 added: 2026-06-13T13:03:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [organisational-design, tools-infrastructure, cost-performance, software-engineering, enterprise-adoption]
 started: 2026-06-13T19:09:40+00:00
-completed: ~
+completed: 2026-06-13T20:07:35+00:00
 output: [knowledge]
 cites:
   - 2026-04-01-backpressure-theory-of-constraints
