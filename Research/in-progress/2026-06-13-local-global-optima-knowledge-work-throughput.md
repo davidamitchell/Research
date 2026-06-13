@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How does local optimisation of team- and role-level tooling in knowledge work reduce organisation-level throughput, and which interdependencies determine when local gains become global losses?"
 added: 2026-06-13T13:03:37+00:00
 status: reviewing
