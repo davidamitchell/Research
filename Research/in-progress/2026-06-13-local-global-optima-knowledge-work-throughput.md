@@ -206,7 +206,7 @@ D3. What governance and standards patterns reduce coordination overhead without 
 
 **D1. What platform engineering does to convert local gains into global gains**
 
-[fact] DORA 2025 found 90% of surveyed organisations now have platform engineering capabilities, with a direct correlation between platform quality and AI's amplification of organisational performance. Source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025
+[inference] DORA 2025 found 90% of surveyed organisations now have platform engineering capabilities, with a direct correlation between platform quality and AI's amplification of organisational performance. Source: https://dora.dev/research/2025/dora-report/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025
 
 [inference] Platform engineering converts local gains into global gains by providing a shared, standardised substrate that includes integrated test pipelines, deployment automation, and monitoring, so that the increased volume of work produced by locally-faster teams flows through a common gate with known, governed capacity rather than accumulating in ad hoc queues. Source: https://www.infoq.com/news/2026/03/ai-dora-report/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025
 
@@ -232,7 +232,7 @@ D3. What governance and standards patterns reduce coordination overhead without 
 
 Causal chain (each item bears its own label and source):
 
-1. In a knowledge-work pipeline with shared dependencies, total throughput is bounded by the shared constraint's capacity, not by the sum of individual resource capacities. [fact; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/]
+1. In a knowledge-work pipeline with shared dependencies, total throughput is bounded by the shared constraint's capacity, not by the sum of individual resource capacities. [inference; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/]
 
 2. Local tooling optimisation raises the output rate of non-constraint resources, increasing the rate at which work arrives at the constraint. [inference; source: https://fortelabs.com/blog/theory-of-constraints-102-local-optima/]
 
@@ -310,7 +310,7 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 **Key findings:**
 
-1. Local tooling optimisation in a knowledge-work pipeline does not improve total throughput unless the shared constraint's capacity is increased, because throughput is bounded by the constraint, not by the sum of individual resource outputs, as TOC established in 1984. ([inference]; high confidence; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/)
+1. Local tooling optimisation in a knowledge-work pipeline does not improve total throughput unless the shared constraint's capacity is increased, because throughput is bounded by the constraint, not by the sum of individual resource outputs, as TOC established in 1984. ([inference]; medium confidence; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/)
 
 2. Faros AI telemetry across 22,000 developers in 2026 measured individual task completion up 33.7% and epics completed up 66.2%, while PR review time rose 441%, bugs per developer rose 54%, and production incidents per PR rose 242.7%, providing large-scale empirical confirmation of queue overflow caused by local tooling gains. ([fact]; medium confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
 
@@ -320,7 +320,7 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 5. Tightly-coupled architectures amplify local-to-global throughput losses by forcing coordination at every dependency boundary: a speed increase in one team generates cascading coordination demand from adjacent teams, compressing the constraint's capacity for productive work. ([inference]; medium confidence; source: https://dora.dev/capabilities/loosely-coupled-teams/; https://www.infoq.com/news/2026/03/ai-dora-report/)
 
-6. Platform engineering is the single most evidence-backed intervention for converting local gains into global gains, by providing shared, standardised infrastructure through which increased local output can flow without accumulating in ad hoc queues; DORA 2025 found 90% of organisations now have platform engineering capabilities but quality varies. ([inference]; medium confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/)
+6. Platform engineering is the single most evidence-backed intervention for converting local gains into global gains, by providing shared, standardised infrastructure through which increased local output can flow without accumulating in ad hoc queues; DORA 2025 found 90% of organisations now have platform engineering capabilities but quality varies. ([inference]; medium confidence; source: https://dora.dev/research/2025/dora-report/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/)
 
 7. WIP limits and small-batch discipline are the structural mechanism by which non-constraint resources are subordinated to the constraint, preventing the queue-flooding dynamic; DORA 2025 identifies working in small batches as one of seven capabilities required for AI gains to translate to organisational performance. ([inference]; medium confidence; source: https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
 
@@ -334,12 +334,12 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] TOC bounds throughput at the constraint; non-constraint improvements do not raise total throughput | https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/ | high | Established management science since 1984; consistent across practitioner and secondary sources |
+| [inference] TOC bounds throughput at the constraint; non-constraint improvements do not raise total throughput | https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/ | medium | Established theory (1984); cited sources are tertiary (Wikipedia) and secondary-practitioner (Forte Labs); no peer-reviewed primary citation |
 | [fact] Faros 2026: individual tasks +33.7%, PR review time +441%, bugs +54%, incidents/PR +242.7% | https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025 | medium | Telemetry from 22,000 developers; single commercial vendor source; direction consistent with DORA survey |
 | [fact] DORA 2025: AI amplifies existing conditions; fragmented tooling leads to increased instability | https://dora.dev/research/2025/dora-report/; https://www.infoq.com/news/2026/03/ai-dora-report/ | high | Based on nearly 5,000 respondents; consistent with prior DORA findings |
 | [inference] Shared approval queues are the primary interdependency surface for local-to-global loss | https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://dora.dev/capabilities/loosely-coupled-teams/ | medium | Inferred from queue-overflow data; no direct experiment isolating approval-queue capacity |
 | [inference] Tight architectural coupling amplifies the loss | https://dora.dev/capabilities/loosely-coupled-teams/; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | DORA finds strong correlation between coupling and delivery performance; direction consistent with TOC |
-| [inference] Platform engineering converts local gains into global gains | https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | DORA 2025 identifies platform quality as required capability; causal direction inferred |
+| [inference] Platform engineering converts local gains into global gains | https://dora.dev/research/2025/dora-report/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | DORA 2025 identifies platform quality as required capability; causal direction inferred |
 | [inference] WIP limits and small-batch discipline subordinate non-constraint resources | https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025 | medium | TOC prescription plus DORA empirical finding; not a controlled experiment |
 | [inference] Regulated-environment bottleneck migration to compliance queues | https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html | medium | Prior repository item; mechanism consistent with TOC but no direct cross-sector empirical study |
 | [inference] "Stay busy" norm is cultural amplifier of local-optima failure | https://fortelabs.com/blog/theory-of-constraints-102-local-optima/ | medium | Practitioner synthesis; no independent peer-reviewed study of this specific norm |
@@ -357,7 +357,7 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 The evidence converges on a single structural pattern: local tooling gains become global losses at the shared constraint. [inference; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-102-local-optima/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025]
 
-TOC provides the theoretical frame: throughput is bounded by the constraint, so non-constraint gains cannot raise global throughput; they can only accumulate as WIP in front of the constraint, reducing its effective capacity via coordination overhead. [fact; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/]
+TOC provides the theoretical frame: throughput is bounded by the constraint, so non-constraint gains cannot raise global throughput; they can only accumulate as WIP in front of the constraint, reducing its effective capacity via coordination overhead. [inference; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/]
 
 The Faros telemetry provides the most direct empirical test in this body of evidence, comparing individual output against shared-infrastructure outcomes simultaneously. [inference; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025] A simultaneous measurement of individual output (rising) and shared-infrastructure outcomes (PR review time, bugs, incidents) shows the queue-overflow signature. The 441% increase in PR review time against a 33.7% increase in task completion is inconsistent with a scenario where local gains are translating into global gains; instead, the shared review gate is absorbing the throughput increase as queue depth rather than producing faster delivery. [inference; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025]
 
@@ -433,7 +433,7 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 ### Key Findings
 
-1. Local tooling optimisation in a knowledge-work pipeline does not improve total throughput unless the shared constraint's capacity is increased, because throughput is bounded by the constraint and not by the sum of individual resource outputs, as TOC established in 1984. ([inference]; high confidence; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/)
+1. Local tooling optimisation in a knowledge-work pipeline does not improve total throughput unless the shared constraint's capacity is increased, because throughput is bounded by the constraint and not by the sum of individual resource outputs, as TOC established in 1984. ([inference]; medium confidence; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/)
 
 2. Faros AI telemetry across 22,000 developers in 2026 measured individual task completion up 33.7% and epics completed up 66.2%, while PR review time rose 441%, bugs per developer rose 54%, and production incidents per PR rose 242.7%, providing large-scale empirical confirmation of queue overflow caused by local tooling gains. ([fact]; medium confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
 
@@ -443,7 +443,7 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 5. Tightly-coupled architectures amplify local-to-global throughput losses by forcing coordination at every dependency boundary: a speed increase in one team generates cascading coordination demand from adjacent teams, compressing the constraint's capacity for productive work. ([inference]; medium confidence; source: https://dora.dev/capabilities/loosely-coupled-teams/; https://www.infoq.com/news/2026/03/ai-dora-report/)
 
-6. Platform engineering is the single most evidence-backed intervention for converting local gains into global gains, by providing shared, standardised infrastructure through which increased local output can flow without accumulating in ad hoc queues; DORA 2025 found 90% of organisations now have platform engineering capabilities but quality varies. ([inference]; medium confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/)
+6. Platform engineering is the single most evidence-backed intervention for converting local gains into global gains, by providing shared, standardised infrastructure through which increased local output can flow without accumulating in ad hoc queues; DORA 2025 found 90% of organisations now have platform engineering capabilities but quality varies. ([inference]; medium confidence; source: https://dora.dev/research/2025/dora-report/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/)
 
 7. WIP limits and small-batch discipline are the structural mechanism by which non-constraint resources are subordinated to the constraint, preventing the queue-flooding dynamic, and DORA 2025 identifies working in small batches as one of seven capabilities required for AI gains to translate to organisational performance. ([inference]; medium confidence; source: https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025)
 
@@ -457,12 +457,12 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] TOC bounds throughput at the constraint; non-constraint improvements do not raise total throughput | https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/ | high | Established management science since 1984; consistent across practitioner and academic sources |
+| [inference] TOC bounds throughput at the constraint; non-constraint improvements do not raise total throughput | https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/ | medium | Established theory (1984); cited sources are tertiary (Wikipedia) and secondary-practitioner (Forte Labs); no peer-reviewed primary citation |
 | [fact] Faros 2026: individual tasks +33.7%, PR review time +441%, bugs +54%, incidents/PR +242.7% | https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025 | medium | Telemetry from 22,000 developers; single commercial vendor source; direction consistent with DORA survey |
 | [fact] DORA 2025: AI amplifies existing conditions; fragmented tooling leads to increased instability | https://dora.dev/research/2025/dora-report/; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | Primary report and secondary coverage of same study; same DORA 2025 study, not independent sources |
 | [inference] Shared approval queues are the primary interdependency surface for local-to-global loss | https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://dora.dev/capabilities/loosely-coupled-teams/ | medium | Inferred from queue-overflow data; no direct experiment isolating approval-queue capacity |
 | [inference] Tight architectural coupling amplifies the loss by forcing coordination at every boundary | https://dora.dev/capabilities/loosely-coupled-teams/; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | DORA finds strong correlation between coupling and delivery performance |
-| [inference] Platform engineering converts local gains into global gains | https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | DORA 2025 identifies platform quality as required capability; causal direction inferred |
+| [inference] Platform engineering converts local gains into global gains | https://dora.dev/research/2025/dora-report/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://www.infoq.com/news/2026/03/ai-dora-report/ | medium | DORA 2025 identifies platform quality as required capability; causal direction inferred |
 | [inference] WIP limits and small-batch discipline subordinate non-constraint resources to the constraint | https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025 | medium | TOC prescription confirmed as DORA capability requirement |
 | [inference] Regulated-environment bottleneck migration to compliance queues after local automation | https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html | medium | Prior repository item; mechanism consistent with TOC; no direct cross-sector empirical study |
 | [inference] "Stay busy" norm is cultural amplifier of local-optima failure | https://fortelabs.com/blog/theory-of-constraints-102-local-optima/ | medium | Practitioner synthesis; no independent peer-reviewed study of this specific norm |
@@ -480,7 +480,7 @@ In knowledge-work pipelines with shared dependencies, local tooling optimisation
 
 The evidence converges on a single structural pattern: local tooling gains become global losses at the shared constraint. [inference; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-102-local-optima/; https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025]
 
-TOC provides the theoretical frame: throughput is bounded by the constraint, so non-constraint gains cannot raise global throughput; they can only accumulate as WIP in front of the constraint, reducing its effective capacity via coordination overhead. [fact; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/]
+TOC provides the theoretical frame: throughput is bounded by the constraint, so non-constraint gains cannot raise global throughput; they can only accumulate as WIP in front of the constraint, reducing its effective capacity via coordination overhead. [inference; source: https://en.wikipedia.org/wiki/Theory_of_constraints; https://fortelabs.com/blog/theory-of-constraints-101/]
 
 The Faros telemetry provides the most direct empirical test in this body of evidence, comparing individual output against shared-infrastructure outcomes simultaneously. [inference; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025] The 441% increase in PR review time against a 33.7% increase in task completion is inconsistent with local gains translating into global gains; instead, the shared review gate is absorbing the throughput increase as queue depth rather than producing faster delivery. [inference; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025]
 
