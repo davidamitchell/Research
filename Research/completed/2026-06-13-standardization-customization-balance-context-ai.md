@@ -2,7 +2,7 @@
 review_count: 2
 title: "How should the balance between standardized and customized internal tooling shift across industries, organisation sizes, maturity levels, and Artificial Intelligence (AI) agent adoption patterns, and what evidence exists for effects on productivity, innovation, and employee experience?"
 added: 2026-06-13T13:03:37+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks:
   - 2026-06-13-local-tooling-fragmentation-threshold-measurement
@@ -11,7 +11,7 @@ blocks:
   - 2026-06-13-platform-engineering-innersource-hybrid-standardization
 themes: [enterprise-adoption, organisational-design, agentic-ai, benchmarks-eval, governance-policy]
 started: 2026-07-01T09:17:43+00:00
-completed: ~
+completed: 2026-07-01T09:39:45+00:00
 output: [knowledge]
 cites:
   - 2026-06-13-local-tooling-fragmentation-threshold-measurement
