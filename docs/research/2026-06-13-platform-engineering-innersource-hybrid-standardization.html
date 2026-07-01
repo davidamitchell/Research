@@ -1,0 +1,1133 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>How do platform engineering, InnerSource, and standard-core plus… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+          <style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>How do platform engineering, InnerSource, and standard-core plus…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>How do platform engineering, InnerSource, and standard-core plus…</h1>
+  <p class="full-title-subtitle">How do platform engineering, InnerSource, and standard-core plus local-extension operating models balance team autonomy with organisational standardisation, and which patterns most reliably preserve local agility without creating fragmentation?</p>
+  <div class="meta-bar">
+    <span>2026-06-13</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a> <a class="tag" href="/Research/themes/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/themes/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-06-13-platform-engineering-innersource-hybrid-standardization.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-06-13-platform-engineering-innersource-hybrid-standardization" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The golden path pattern reduces ecosystem fragmentation by solving the discovery problem first: Spotify&#39;s six-year transition from rumour-driven development to a multi-discipline golden path ecosystem demonstrates that voluntary adoption of a well-documented opinionated path is achievable at scale<span class="claim-sources"><a class="claim-source-link" href="https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem" target="_blank" rel="noopener" title="https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem">Engineering (2020)</a></span></li>
+<li>Self-service with guardrails, where automation and policy replace manual approval gates, preserves team velocity while maintaining governance coverage, because teams that can execute decisions without requesting permission are less likely to route around the platform under delivery pressure<span class="claim-sources"><a class="claim-source-link" href="https://learn.microsoft.com/en-us/platform-engineering/about/self-service" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/platform-engineering/about/self-service">Learn (2025)</a><a class="claim-source-link" href="https://learn.microsoft.com/en-us/platform-engineering/about/principles" target="_blank" rel="noopener" title="https://learn.microsoft.com/en-us/platform-engineering/about/principles">Microsoft (n.d.)</a></span></li>
+<li>Voluntary adoption is a diagnostic for platform quality: the CNCF Platform Engineering Maturity Model identifies platforms whose adoption moves from mandate-driven to self-selected as reaching Level 3 maturity, meaning any platform requiring mandates to sustain use has not yet solved the user&#39;s actual problems<span class="claim-sources"><a class="claim-source-link" href="https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/" target="_blank" rel="noopener" title="https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/">Delivery (2023)</a></span></li>
+<li>The InnerSource Trusted Committer pattern scales shared-code governance from a single owning team to a distributed network of contributing-team members with commit rights, which increases review capacity and embeds local knowledge in shared assets without centralising all decisions<span class="claim-sources"><a class="claim-source-link" href="https://patterns.innersourcecommons.org/p/trusted-committer" target="_blank" rel="noopener" title="https://patterns.innersourcecommons.org/p/trusted-committer">InnerSource (n.d.)</a></span></li>
+<li>Discoverability is a prerequisite for reuse: the InnerSource Portal pattern documents the failure mode where shared assets exist but teams cannot find them and therefore duplicate them locally, producing fragmentation even when a shared solution is available<span class="claim-sources"><a class="claim-source-link" href="https://patterns.innersourcecommons.org/p/innersource-portal" target="_blank" rel="noopener" title="https://patterns.innersourcecommons.org/p/innersource-portal">InnerSource (n.d.)</a><a class="claim-source-link" href="https://patterns.innersourcecommons.org/p/base-documentation" target="_blank" rel="noopener" title="https://patterns.innersourcecommons.org/p/base-documentation">InnerSource (n.d.)</a></span></li>
+<li>The DORA 2024 report found that internal developer platform adoption improves individual productivity and organisational performance but can decrease change stability and throughput, with the stated mitigation being careful implementation focused on developer independence rather than mandatory single-path designs<span class="claim-sources"><a class="claim-source-link" href="https://dora.dev/research/2024/dora-report/" target="_blank" rel="noopener" title="https://dora.dev/research/2024/dora-report/">DORA (2024)</a></span></li>
+<li>Bartlett and Ghoshal&#39;s transnational model, prescribing simultaneous global integration and local responsiveness with bidirectional knowledge flows, maps directly onto the platform engineering plus InnerSource combination: the platform provides integration, InnerSource provides bidirectional contribution, and extension points provide local responsiveness<span class="claim-sources"><a class="claim-source-link" href="https://hbsp.harvard.edu/product/9498-PDF-ENG" target="_blank" rel="noopener" title="https://hbsp.harvard.edu/product/9498-PDF-ENG">Bartlett (1989)</a><a class="claim-source-link" href="https://patterns.innersourcecommons.org/p/trusted-committer" target="_blank" rel="noopener" title="https://patterns.innersourcecommons.org/p/trusted-committer">InnerSource (n.d.)</a><a class="claim-source-link" href="https://patterns.innersourcecommons.org/p/common-requirements" target="_blank" rel="noopener" title="https://patterns.innersourcecommons.org/p/common-requirements">InnerSource (n.d.)</a></span></li>
+<li>The InnerSource Common Requirements pattern establishes that shared library reuse across teams with divergent needs requires stakeholder negotiation to align requirements before technical refactoring, because incompatible requirements cannot be resolved by code changes alone<span class="claim-sources"><a class="claim-source-link" href="https://patterns.innersourcecommons.org/p/common-requirements" target="_blank" rel="noopener" title="https://patterns.innersourcecommons.org/p/common-requirements">InnerSource (n.d.)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How do platform engineering, InnerSource, and standard-core plus local-extension operating models balance team autonomy with organisational standardisation, and which patterns most reliably preserve local agility without creating fragmentation?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Platform engineering (the discipline of building self-service internal delivery platforms), InnerSource (the use of open-source collaboration principles inside an organisation), and standard-core plus local-extension models each address a distinct layer of the fragmentation-versus-standardisation problem, and the most reliable anti-fragmentation designs combine all three rather than treating any one as sufficient. The golden path pattern (opinionated, supported default with unsupported but permitted deviation) is the most consistently documented pattern for preserving local agility, because it removes the incentive for teams to fork local copies of shared assets by making the standard option easier and more discoverable than building locally. Mandatory centralisation without extension points produces a bypass response that recreates fragmentation outside governance visibility, which the Bartlett and Ghoshal (1989) transnational model explains as the predictable outcome of high integration pressure without local responsiveness capacity. The DORA 2024 report's finding that platform engineering can decrease change stability adds a concrete operational risk: extension points serve not only local agility but also resilience, because shared single-path dependencies increase blast radius when a platform component fails.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p>The golden path pattern reduces ecosystem fragmentation by solving the discovery problem first: Spotify's six-year transition from rumour-driven development to a multi-discipline golden path ecosystem demonstrates that voluntary adoption of a well-documented opinionated path is achievable at scale.</p>
+</li>
+<li>
+<p>Self-service with guardrails, where automation and policy replace manual approval gates, preserves team velocity while maintaining governance coverage, because teams that can execute decisions without requesting permission are less likely to route around the platform under delivery pressure.</p>
+</li>
+<li>
+<p>Voluntary adoption is a diagnostic for platform quality: the CNCF Platform Engineering Maturity Model identifies platforms whose adoption moves from mandate-driven to self-selected as reaching Level 3 maturity, meaning any platform requiring mandates to sustain use has not yet solved the user's actual problems.</p>
+</li>
+<li>
+<p>The InnerSource Trusted Committer pattern scales shared-code governance from a single owning team to a distributed network of contributing-team members with commit rights, which increases review capacity and embeds local knowledge in shared assets without centralising all decisions.</p>
+</li>
+<li>
+<p>Discoverability is a prerequisite for reuse: the InnerSource Portal pattern documents the failure mode where shared assets exist but teams cannot find them and therefore duplicate them locally, producing fragmentation even when a shared solution is available.</p>
+</li>
+<li>
+<p>The DORA 2024 report found that internal developer platform adoption improves individual productivity and organisational performance but can decrease change stability and throughput, with the stated mitigation being careful implementation focused on developer independence rather than mandatory single-path designs.</p>
+</li>
+<li>
+<p>Bartlett and Ghoshal's transnational model, prescribing simultaneous global integration and local responsiveness with bidirectional knowledge flows, maps directly onto the platform engineering plus InnerSource combination: the platform provides integration, InnerSource provides bidirectional contribution, and extension points provide local responsiveness.</p>
+</li>
+<li>
+<p>The InnerSource Common Requirements pattern establishes that shared library reuse across teams with divergent needs requires stakeholder negotiation to align requirements before technical refactoring, because incompatible requirements cannot be resolved by code changes alone.</p>
+</li>
+<li>
+<p>The CNCF Level 4 optimising state and the InnerSource Trusted Committer model converge structurally: both describe the highest maturity state as enabling specialist teams to extend shared capabilities directly rather than routing all changes through a central backlog, confirming that distributed governance is the natural endpoint of both frameworks.</p>
+</li>
+<li>
+<p>Mandatory centralisation without extension points causes high-capability teams to route around the platform, recreating fragmentation outside governance visibility and weakening control authority rather than only adding administrative overhead.</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>Golden path adoption succeeds via convenience rather than mandate. Justification: Spotify's account attributes success to tutorial quality and discoverability, not enforcement; the golden path explicitly allows deviation, just without support.</li>
+<li>InnerSource requires discoverability infrastructure before contribution patterns work. Justification: Both the Portal and Base Documentation patterns describe discoverability failure as the primary adoption blocker; without a portal or catalogue, teams default to local duplication.</li>
+<li>The Bartlett and Ghoshal transnational framework applies to internal tooling governance. Justification: The core tension (integration versus local responsiveness) is structurally identical across both domains; scale and legal context differ but the equilibrium logic is the same.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence across platform engineering, InnerSource, and strategic management literature converges on a consistent structural prescription: organisations that preserve local agility without creating fragmentation do so by providing a well-supported default path, a sanctioned extension path, discoverability infrastructure, and distributed governance roles rather than centralised review queues.</p>
+<p>The evidence for the golden path as a well-documented pattern for managing fragmentation comes from Spotify's six-year experience: it resolved the discovery and compliance problems in sequence through voluntary adoption, with clarity of purpose, step-by-step completeness, and accuracy to the actual supported path as the documented success factors. The DORA 2024 caution about platform-induced stability decreases qualifies this finding: the golden path must preserve developer independence via extension points and self-service rather than creating shared single-component dependencies that increase blast radius.</p>
+<p>The InnerSource patterns address a layer of governance that platform engineering alone cannot reach: shared application code and libraries above the platform layer. The Trusted Committer pattern is structurally important because it converts the governance bottleneck of a single owning team into a distributed network, analogous to the CNCF Level 4 model and Bartlett-Ghoshal bidirectional knowledge flow. The Common Requirements pattern reveals a structural limit: when consuming team requirements are substantively incompatible, technical refactoring alone is insufficient and requires stakeholder negotiation that the Common Requirements pattern explicitly notes may involve sales and customer engagement.</p>
+<p>The rival model, pure central platform ownership with mandated adoption, is faster to implement initially but produces the ivory tower anti-pattern at CNCF Level 2, where teams forced to use a platform that does not meet their needs eventually bypass it. The prior completed item on AI and low-code governance integration identified fragmentation as weakening control authority and evidence coherence rather than only adding overhead, which strengthens the case for the extension-point design as a governance investment, not only a developer-experience improvement. A companion completed item on local optima in knowledge-work throughput identifies a mechanism that qualifies the extension-point recommendation: local tooling optimisation degrades whole-system throughput specifically when a shared constraint's capacity is not increased at the same rate, meaning extension points that raise local team speed without a corresponding increase in shared review or platform capacity can reproduce the same bottleneck the golden path was meant to prevent. This means the standard-core plus local-extension design is not sufficient on its own; it must be paired with monitoring of the shared constraint (review queues, platform team capacity) so that local extension gains do not silently flood a downstream bottleneck.</p>
+<p>A significant constraint on all tooling governance patterns is Conway's Law, the observation that organisations tend to design systems that mirror their own communication structures, meaning fragmentation may be driven by team topology rather than tooling and governance choices alone. Team Topologies (Skelton and Pais, 2019) operationalises Conway's Law by prescribing that platform teams should reduce cognitive load for stream-aligned teams through self-service platforms, which is structurally consistent with the golden path and self-service with guardrails patterns. The Team Topologies analysis implies that tooling governance patterns alone cannot close the fragmentation gap if underlying team topology is misaligned: two teams that do not communicate will build incompatible systems regardless of whether a golden path exists, making team topology a prerequisite or co-requisite of effective platform engineering rather than a downstream outcome of it.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The DORA 2024 mechanism for platform-induced stability decrease is under-specified: it is unclear whether the cause is shared single-component dependencies, poor rollout process, or inadequate extension-point design; the available report summary does not distinguish these.</li>
+<li>Quantitative evidence on InnerSource adoption rates, fragmentation reduction percentages, or Trusted Committer network scaling limits is absent; all InnerSource pattern evidence reviewed is case-study based with named instances rather than large-scale empirical studies.</li>
+<li>The Bartlett and Ghoshal (1989) primary source is not openly accessible; secondary-source accounts of the four archetypes are consistent but the specific causal mechanisms may not transfer exactly to software tooling governance.</li>
+<li>The discoverability-drives-duplication hypothesis has not been directly measured; it is consistent with the InnerSource Portal pattern documentation but could be confounded by trust in external teams' code quality or local speed-to-market pressures.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Is there a measurable threshold at which the number of tools in use makes a single golden path infeasible, and if so, what is the structural alternative? A companion completed item in this repository directly investigates this crossover: it finds the aggregate cost of fragmented local tooling exceeds customization benefits when tool footprint, shared-dependency density, and staff turnover jointly cross an administrative-absorption threshold, detectable through proxy metrics such as support-ticket growth and shadow-spend growth rather than a single tool-count number. This reframes the open question from &quot;how many tools&quot; to &quot;which leading indicators an organisation should monitor to detect the crossover before a single golden path becomes infeasible.&quot;</li>
+<li>How should organisations measure the rate of sanctioned extension versus unsanctioned forking as a leading indicator that the golden path is losing voluntary adoption?</li>
+<li>Can the InnerSource Common Requirements negotiation step be partially automated, or does it always require direct stakeholder engagement?</li>
+<li>Does the DORA 2024 platform stability decrease finding apply primarily to early-stage CNCF Level 1-2 platforms, or does it persist at Level 3-4?</li>
+</ol>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://learn.microsoft.com/en-us/platform-engineering/">Microsoft Learn (2026) Platform engineering guide</a> - official platform-engineering guidance and case studies.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/platform-engineering/about/self-service">Microsoft Learn (2025) Empower Developers Through Self-Service</a> - self-service with guardrails principles.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/platform-engineering/platform-engineering-capability-model">Microsoft Learn (2025) Platform Engineering Capability Model</a> - six-capability maturity model.</li>
+<li>[x] <a href="https://patterns.innersourcecommons.org">InnerSource Commons (n.d.) Patterns</a> - canonical InnerSource patterns for shared internal development.</li>
+<li>[x] <a href="https://patterns.innersourcecommons.org/p/trusted-committer">InnerSource Commons (n.d.) Trusted Committer pattern</a> - governance role for cross-team shared code.</li>
+<li>[x] <a href="https://patterns.innersourcecommons.org/p/common-requirements">InnerSource Commons (n.d.) Common Requirements pattern</a> - requirements alignment before code reuse.</li>
+<li>[x] <a href="https://patterns.innersourcecommons.org/p/base-documentation">InnerSource Commons (n.d.) Standard Base Documentation pattern</a> - self-service documentation for contributors.</li>
+<li>[x] <a href="https://patterns.innersourcecommons.org/p/innersource-portal">InnerSource Commons (n.d.) InnerSource Portal pattern</a> - discoverability infrastructure.</li>
+<li>[x] <a href="https://patterns.innersourcecommons.org/p/30-day-warranty">InnerSource Commons (n.d.) 30 Day Warranty pattern</a> - contribution trust mechanism.</li>
+<li>[x] <a href="https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem">Spotify Engineering (2020) How we use Golden Paths to solve fragmentation in our software ecosystem</a> - origin and success factors of the golden path concept.</li>
+<li>[x] <a href="https://backstage.io/docs/overview/what-is-backstage/">Backstage (n.d.) What is Backstage?</a> - Internal Developer Portal (IDP) reference architecture.</li>
+<li>[x] <a href="https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/">CNCF TAG App Delivery (2023) Platform Engineering Maturity Model</a> - Cloud Native Computing Foundation (CNCF) maturity framework.</li>
+<li>[x] <a href="https://dora.dev/research/2024/dora-report/">DORA (2024) Accelerate State of DevOps Report</a> - empirical findings on platform engineering and delivery performance.</li>
+<li>[x] <a href="https://hbsp.harvard.edu/product/9498-PDF-ENG">Bartlett, C.A. and Ghoshal, S. (1989) Managing Across Borders: The Transnational Solution</a> - classic dual-integration-and-responsiveness framework applied to tooling governance.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">Mitchell (2026) AI and low-code governance integration with platform engineering</a> - prior repository synthesis on platform engineering and governance.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html">Mitchell (2026) Governed golden rails for LLM and agent tooling</a> - prior repository work on governed standard paths.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html">Mitchell (2026) Bank department-level agent sprawl and governance</a> - regulated-domain case for balancing local autonomy with shared controls.</li>
+<li>[x] <a href="https://teamtopologies.com/book">Skelton, M. and Pais, M. (2019) Team Topologies</a> - Conway's Law operationalisation for platform and stream-aligned teams.</li>
+</ul>
+
+
+  </div>
+  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">How should AI and low-code governance integrate with existing software development and platform engineering practices?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-27-uelgf-governed-golden-rails.html">Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html">How should banks govern department-level agent sprawl and bottleneck shifts across divisions?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html">At what scale or under what operating conditions do the aggregate costs of fragmented local tooling exceed the productivity gains from customization, and which metrics let organisations detect that crossover early?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html">How does local optimisation of team- and role-level tooling in knowledge work reduce organisation-level throughput, and which interdependencies determine when local gains become global losses?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <span>2026-06-13-shadow-it-custom-tooling-governance-transition</span></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <span>2026-06-13-standardization-customization-balance-context-ai</span></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html">At what scale or under what operating conditions do the aggregate costs of…</a></div>
+  </div>
+</main>
+<section id="mini-graph-section">
+<h2>Connected items</h2>
+<p class="mini-graph-meta" id="mini-graph-count">Loading…</p>
+<div class="mini-graph-wrap">
+<canvas id="mini-graph-canvas"></canvas>
+</div>
+<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
+</section>
+<script>window.GRAPH_FOCAL_SLUG = "2026-06-13-platform-engineering-innersource-hybrid-standardization";</script>
+<script>
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+
+</script>
+</body>
+</html>

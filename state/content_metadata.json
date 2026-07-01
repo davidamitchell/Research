@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-06-13T21:08:03Z",
+  "extracted_at": "2026-07-01T08:38:06Z",
   "items": {
+    "2026-06-13-platform-engineering-innersource-hybrid-standardization": {
+      "named_concepts": [
+        "golden path",
+        "trusted committer",
+        "platform engineering",
+        "extension points",
+        "committer pattern",
+        "local responsiveness",
+        "voluntary adoption",
+        "common requirements",
+        "cncf level",
+        "tooling governance",
+        "local agility",
+        "shared assets",
+        "requirements pattern",
+        "directly measured",
+        "team topology",
+        "standard-core plus",
+        "plus local-extension",
+        "path pattern",
+        "mandatory centralisation",
+        "fragmentation outside"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/platform-engineering/",
+        "https://learn.microsoft.com/en-us/platform-engineering/about/self-service",
+        "https://learn.microsoft.com/en-us/platform-engineering/platform-engineering-capability-model",
+        "https://patterns.innersourcecommons.org",
+        "https://patterns.innersourcecommons.org/p/trusted-committer",
+        "https://patterns.innersourcecommons.org/p/common-requirements",
+        "https://patterns.innersourcecommons.org/p/base-documentation",
+        "https://patterns.innersourcecommons.org/p/innersource-portal",
+        "https://patterns.innersourcecommons.org/p/30-day-warranty",
+        "https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem",
+        "https://backstage.io/docs/overview/what-is-backstage/",
+        "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://hbsp.harvard.edu/product/9498-PDF-ENG",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html",
+        "https://teamtopologies.com/book"
+      ],
+      "key_claims": [
+        {
+          "text": "The golden path pattern reduces ecosystem fragmentation by solving the discovery problem first: Spotify's six-year transition from rumour-driven development to a multi-discipline golden path ecosystem demonstrates that voluntary adoption of a well-documented opinionated path is achievable at scale",
+          "sources": [
+            "https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem"
+          ]
+        },
+        {
+          "text": "Self-service with guardrails, where automation and policy replace manual approval gates, preserves team velocity while maintaining governance coverage, because teams that can execute decisions without requesting permission are less likely to route around the platform under delivery pressure",
+          "sources": [
+            "https://learn.microsoft.com/en-us/platform-engineering/about/self-service",
+            "https://learn.microsoft.com/en-us/platform-engineering/about/principles"
+          ]
+        },
+        {
+          "text": "Voluntary adoption is a diagnostic for platform quality: the CNCF Platform Engineering Maturity Model identifies platforms whose adoption moves from mandate-driven to self-selected as reaching Level 3 maturity, meaning any platform requiring mandates to sustain use has not yet solved the user's actual problems",
+          "sources": [
+            "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/"
+          ]
+        },
+        {
+          "text": "The InnerSource Trusted Committer pattern scales shared-code governance from a single owning team to a distributed network of contributing-team members with commit rights, which increases review capacity and embeds local knowledge in shared assets without centralising all decisions",
+          "sources": [
+            "https://patterns.innersourcecommons.org/p/trusted-committer"
+          ]
+        },
+        {
+          "text": "Discoverability is a prerequisite for reuse: the InnerSource Portal pattern documents the failure mode where shared assets exist but teams cannot find them and therefore duplicate them locally, producing fragmentation even when a shared solution is available",
+          "sources": [
+            "https://patterns.innersourcecommons.org/p/innersource-portal",
+            "https://patterns.innersourcecommons.org/p/base-documentation"
+          ]
+        },
+        {
+          "text": "The DORA 2024 report found that internal developer platform adoption improves individual productivity and organisational performance but can decrease change stability and throughput, with the stated mitigation being careful implementation focused on developer independence rather than mandatory single-path designs",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "Bartlett and Ghoshal's transnational model, prescribing simultaneous global integration and local responsiveness with bidirectional knowledge flows, maps directly onto the platform engineering plus InnerSource combination: the platform provides integration, InnerSource provides bidirectional contribution, and extension points provide local responsiveness",
+          "sources": [
+            "https://hbsp.harvard.edu/product/9498-PDF-ENG",
+            "https://patterns.innersourcecommons.org/p/trusted-committer",
+            "https://patterns.innersourcecommons.org/p/common-requirements"
+          ]
+        },
+        {
+          "text": "The InnerSource Common Requirements pattern establishes that shared library reuse across teams with divergent needs requires stakeholder negotiation to align requirements before technical refactoring, because incompatible requirements cannot be resolved by code changes alone",
+          "sources": [
+            "https://patterns.innersourcecommons.org/p/common-requirements"
+          ]
+        }
+      ]
+    },
     "2026-06-13-local-tooling-fragmentation-threshold-measurement": {
       "named_concepts": [
         "growth rate",
