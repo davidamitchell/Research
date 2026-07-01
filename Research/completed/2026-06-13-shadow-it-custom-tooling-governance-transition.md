@@ -2,12 +2,12 @@
 review_count: 2
 title: "What benefits, risks, and lifecycle costs of shadow Information Technology (IT) and custom local tooling are documented, and which governance approaches successfully transition covert local solutions into sanctioned business-managed platforms without destroying useful innovation?"
 added: 2026-06-13T13:03:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [governance-policy, security-risk, knowledge-management, tools-infrastructure, enterprise-adoption]
 started: 2026-07-01T08:37:18+00:00
-completed: ~
+completed: 2026-07-01T09:15:16+00:00
 output: [knowledge]
 cites:
   - 2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness
