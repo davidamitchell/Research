@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-07-01T08:51:20Z",
+  "extracted_at": "2026-07-01T09:18:20Z",
   "items": {
+    "2026-06-13-shadow-it-custom-tooling-governance-transition": {
+      "named_concepts": [
+        "companion repository",
+        "et al",
+        "continuity lack",
+        "continuity failure",
+        "risk taxonomy",
+        "staged identify-evaluate-allocate",
+        "golden path",
+        "two independent",
+        "available quantification",
+        "benefit categories",
+        "risk categories",
+        "pull request",
+        "continuity-failure event",
+        "klotz et",
+        "identify-evaluate-allocate governance",
+        "governance sequence",
+        "staged transition",
+        "systematic reviews",
+        "independent systematic",
+        "synergy loss"
+      ],
+      "source_urls": [
+        "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+        "https://www.itc.ktu.lt/index.php/ITC/article/view/23801",
+        "https://www.ibm.com/think/topics/shadow-ai",
+        "https://www.everestgrp.com/eliminate-enterprise-shadow-sherpas-blue-shirts/",
+        "https://www.techfinitive.com/features/how-to-keep-shadow-it-costs-under-control/",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/adoption/govern-at-scale",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://arxiv.org/pdf/2202.01523"
+      ],
+      "key_claims": [
+        {
+          "text": "Two independent systematic literature reviews of shadow IT and business-managed IT converge on the same five benefit categories: productivity gain, innovation increase, agility and flexibility increase, user or customer satisfaction improvement, and collaboration enhancement",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+            "https://www.itc.ktu.lt/index.php/ITC/article/view/23801"
+          ]
+        },
+        {
+          "text": "The Klotz et al. review identifies five recurring risk or shortcoming categories: security risk and lacking data privacy, integration lack with data inconsistency, synergy loss and inefficiency, control loss, and continuity lack, with continuity lack directly naming the tacit-knowledge and staff-departure mechanism in scope for this question",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf"
+          ]
+        },
+        {
+          "text": "Continuity lack occurs because an instance of shadow IT is typically implemented and understood by only one or a few employees, and this dependence is reinforced by absent documentation and low or non-existent support, producing outage and downtime risk when that person becomes unavailable; a companion repository item's proposed bus factor metric (the minimum number of engineers whose departure would leave a project unmaintainable due to lost knowledge) operationalises the same mechanism as a trackable portfolio-level indicator by counting locally owned tools with a bus factor of one or two",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html",
+            "https://arxiv.org/pdf/2202.01523"
+          ]
+        },
+        {
+          "text": "Neither primary systematic review reports a peer-reviewed, quantified lifecycle-cost figure for shadow IT continuity failure, so the mechanism is established qualitatively but not measured in monetary or time terms in the shadow-IT literature itself; a companion repository item's telemetry on fragmented local tooling (individual task completion up 33.7% alongside pull request review time up 441% and production incidents per pull request up 242.7% across 22,000 developers) is the closest available quantification of the same underlying dynamic, though it measures aggregate fragmentation cost rather than an isolated continuity-failure event and a competing explanation (AI-generated code quality degradation) is not fully ruled out for that data",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+            "https://www.itc.ktu.lt/index.php/ITC/article/view/23801",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html"
+          ]
+        },
+        {
+          "text": "Complete prohibition of shadow IT is not supported as an effective general governance response, because prior empirical work found no measurable difference in perceived usefulness of the mandatory system between employees who used shadow systems and those who did not; awareness training alone is similarly documented as insufficient, with one cited empirical study finding 80% of employees violating IT standards did not know they were violating them, indicating the governance shortfall is as much a communication failure as a compliance failure",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf"
+          ]
+        },
+        {
+          "text": "The staged identify-evaluate-allocate governance sequence, drawn from both primary reviews together, categorises instances by criticality, quality, and strategic relevance and then allocates governance somewhere between full IT-organisation control, shared co-governance, and full business-unit control according to that evaluation",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+            "https://www.itc.ktu.lt/index.php/ITC/article/view/23801"
+          ]
+        },
+        {
+          "text": "A three-phase \"illuminating shadow IT\" project (identify, evaluate, implement) is a concrete published operational transition model that explicitly avoids treating monitoring as a precursor to elimination, since most instances are expected to remain in a monitored rather than banned or fully integrated state",
+          "sources": [
+            "https://www.itc.ktu.lt/index.php/ITC/article/view/23801"
+          ]
+        },
+        {
+          "text": "Regulatory and criticality context changes the correct governance answer rather than only its intensity, since the same systematic review that argues against blanket prohibition in general also states that strict forbidding may be the more reasonable choice for critical processes or highly regulated businesses",
+          "sources": [
+            "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf"
+          ]
+        }
+      ]
+    },
     "2026-06-13-platform-engineering-innersource-hybrid-standardization": {
       "named_concepts": [
         "golden path",
