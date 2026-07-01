@@ -22,7 +22,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: "01e79949c6d3cd4650a519399c759987caef399d"
+    changed: 2026-07-01
+    progress: progress/2026-07-01-shadow-it-custom-tooling-governance-transition.md
+    summary: "Initial completion"
 ---
 
 # What benefits, risks, and lifecycle costs of shadow Information Technology (IT) and custom local tooling are documented, and which governance approaches successfully transition covert local solutions into sanctioned business-managed platforms without destroying useful innovation?
